@@ -42,7 +42,7 @@
         "svelte-star-rating": "^2.0.1",
         "tailwindcss": "^3.3.1",
         "tslib": "^2.4.1",
-        "typescript": "^5.0.0",
+        "typescript": "^5.0.4",
         "vite": "^4.2.0",
         "vitest": "^0.29.8",
         "voca": "^1.4.0"
