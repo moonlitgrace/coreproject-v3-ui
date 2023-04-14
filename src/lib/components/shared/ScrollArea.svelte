@@ -1,15 +1,15 @@
 <script lang="ts">
 	import type { UIEventHandler } from 'svelte/elements';
 
-	let klass: string = '';
-	export let style: string = '';
-	export let parentClass: string = '';
+	let klass: string;
+	export let style: string;
+	export let parentClass: string;
 	export { klass as class };
-	export let offsetScrollbar: boolean = false;
-	export let gradientMask: boolean = false;
+	export let offsetScrollbar = false;
+	export let gradientMask = false;
 
-	let mask_top: number = 0;
-	let scrollbar_type: string = '';
+	let mask_top = 0;
+	let scrollbar_type: string;
 
 	const onScroll: UIEventHandler<HTMLDivElement> = (event) => {
 		if (gradientMask) {
