@@ -121,21 +121,6 @@
 		}
 	};
 
-
-	// scroll top
-	let scroll_top = 0;
-	let scrollbar_type: string = '';
-
-	$: {
-		if (scroll_top > 90 && scroll_top <= 100) {
-			scrollbar_type = 'scroll-top';
-		} else if (scroll_top >= 10 && scroll_top <= 90) {
-			scrollbar_type = 'scroll-middle';
-		} else {
-			scrollbar_type = 'scroll-bottom';
-		}
-	}
-
 </script>
 
 <div class="grid grid-cols-12 items-start">
@@ -246,9 +231,8 @@
 			</div>
 
 			<ScrollArea
-				bind:scroll_top
 				offsetScrollbar
-				parentClass="mt-5 {scrollbar_type} transition duration-500"
+				parentClass="mt-5"
 				class=" text-justify md:max-h-[9.5vw] md:text-[0.75vw] md:leading-[1vw]"
 			>
 				{anime.description}

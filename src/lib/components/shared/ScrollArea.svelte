@@ -8,11 +8,22 @@
 	export let offsetScrollbar = false;
 
 	export let scroll_top = 0;
+	export let scrollbar_type = '';
 
 	const onScroll: UIEventHandler<HTMLDivElement> = (event) => {
 		const el = event?.currentTarget as HTMLElement;
 		scroll_top = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
 	};
+
+	$: {
+		if (scroll_top > 90 && scroll_top <= 100) {
+			scrollbar_type = 'scroll-top';
+		} else if (scroll_top >= 10 && scroll_top <= 90) {
+			scrollbar_type = 'scroll-middle';
+		} else {
+			scrollbar_type = 'scroll-bottom';
+		}
+	}
 
 </script>
 
@@ -22,7 +33,7 @@
 	{style}
 	class="{parentClass} {offsetScrollbar
 		? 'pr-3'
-		: 'pr-0'} scrollbar overflow-hidden overflow-y-scroll overscroll-y-contain"
+		: 'pr-0'} scrollbar overflow-hidden overflow-y-scroll overscroll-y-contain {scrollbar_type}"
 >
 	<div class="{klass} whitespace-pre-line">
 		<slot />
