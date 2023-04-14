@@ -1,24 +1,27 @@
 <script lang="ts">
 	import type { UIEventHandler } from 'svelte/elements';
 
-	let klass = '';
-	export let style = '';
-	export let parentClass = '';
+	let klass: string = '';
+	export let style: string = '';
+	export let parentClass: string = '';
 	export { klass as class };
-	export let offsetScrollbar = false;
+	export let offsetScrollbar: boolean = false;
+	export let gradientMask: boolean = false;
 
-	export let scroll_top = 0;
-	export let scrollbar_type = '';
+	let mask_top: number = 0;
+	let scrollbar_type: string = '';
 
 	const onScroll: UIEventHandler<HTMLDivElement> = (event) => {
-		const el = event?.currentTarget as HTMLElement;
-		scroll_top = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+		if (gradientMask) {
+			const el = event?.currentTarget as HTMLElement;
+			mask_top = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+		}
 	};
 
-	$: {
-		if (scroll_top > 90 && scroll_top <= 100) {
+	$: if (gradientMask) {
+		if (mask_top > 90 && mask_top <= 100) {
 			scrollbar_type = 'scroll-top';
-		} else if (scroll_top >= 10 && scroll_top <= 90) {
+		} else if (mask_top >= 10 && mask_top <= 90) {
 			scrollbar_type = 'scroll-middle';
 		} else {
 			scrollbar_type = 'scroll-bottom';

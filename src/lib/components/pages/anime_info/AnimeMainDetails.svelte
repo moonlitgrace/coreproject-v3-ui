@@ -232,8 +232,9 @@
 
 			<ScrollArea
 				offsetScrollbar
+				gradientMask
 				parentClass="mt-5"
-				class=" text-justify md:max-h-[9.5vw] md:text-[0.75vw] md:leading-[1vw]"
+				class="text-justify md:max-h-[9.5vw] md:text-[0.75vw] md:leading-[1vw]"
 			>
 				{anime.description}
 			</ScrollArea>
