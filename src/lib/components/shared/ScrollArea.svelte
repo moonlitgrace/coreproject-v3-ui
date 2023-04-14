@@ -20,11 +20,11 @@
 
 	$: if (gradientMask) {
 		if (mask_top > 90 && mask_top <= 100) {
-			scrollbar_type = 'scroll-top';
+			scrollbar_type = 'mask-top';
 		} else if (mask_top >= 10 && mask_top <= 90) {
-			scrollbar_type = 'scroll-middle';
+			scrollbar_type = 'mask-middle';
 		} else {
-			scrollbar_type = 'scroll-bottom';
+			scrollbar_type = 'mask-bottom';
 		}
 	}
 
@@ -76,17 +76,17 @@
 		}
 	}
 
-	.scroll-top {
+	.mask-top {
 		mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.8) 80%, rgba(0, 0, 0, 0) 100%);
 		mask-repeat: no-repeat;
 		mask-position: top;
 	}
-	.scroll-bottom {
+	.mask-bottom {
 		mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.8) 80%, rgba(0, 0, 0, 0) 100%);
 		mask-repeat: no-repeat;
 		mask-position: bottom;
 	}
-	.scroll-middle {
+	.mask-middle {
 		mask-image: linear-gradient(
 			0deg,
 			rgba(0, 0, 0, 0.5) 20%,
