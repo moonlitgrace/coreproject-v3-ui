@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="md:mt-[1.56vw]">
-		<div class="flex items-end md:gap-[0.3vw]">
+		<div class="flex items-end">
 			<span class="md:text-[2vw] md:leading-[1.5vw] font-bold underline decoration-white/25 underline-offset-8"
 				>{Math.ceil((anime.rating / 5) * 100)}%</span
 			>

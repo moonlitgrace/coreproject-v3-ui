@@ -250,7 +250,7 @@
 			</div>
 
 			<div
-				class="flex w-max items-center gap-2 rounded bg-white/20 md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.625vw] md:leading-[0.75vw]"
+				class="flex w-max items-center gap-2 rounded bg-white/10 bg-clip-padding backdrop-blur md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.625vw] md:leading-[0.75vw]"
 			>
 				<div class="flex items-center gap-1">
 					Score:
