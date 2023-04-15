@@ -225,9 +225,11 @@
 		</div>
 
 		<div class="col-span-5 pr-8 md:w-[26.625vw]">
-			<div class="flex items-center gap-4">
+			<div class="flex items-center gap-3">
 				<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]"> Synopsis </span>
-				<SettingsOutline width="11" height="11" class="opacity-75" />
+				<div class="btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+					<SettingsOutline width="11" height="11" class="opacity-75" />
+				</div>
 			</div>
 
 			<ScrollArea
@@ -250,7 +252,7 @@
 			</div>
 
 			<div
-				class="flex w-max items-center gap-2 rounded bg-white/10 bg-clip-padding backdrop-blur md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.625vw] md:leading-[0.75vw]"
+				class="flex w-max items-center gap-2 rounded bg-white/10 backdrop-blur-lg md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.625vw] md:leading-[0.75vw]"
 			>
 				<div class="flex items-center gap-1">
 					Score:

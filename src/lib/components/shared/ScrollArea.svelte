@@ -2,7 +2,6 @@
 	import type { UIEventHandler } from 'svelte/elements';
 
 	let klass: string;
-	export let style: string;
 	export let parentClass: string;
 	export { klass as class };
 	export let offsetScrollbar = false;
@@ -33,7 +32,6 @@
 
 <div
 	on:scroll={onScroll}
-	{style}
 	class="{parentClass} {offsetScrollbar
 		? 'pr-3'
 		: 'pr-0'} scrollbar overflow-hidden overflow-y-scroll overscroll-y-contain {scrollbar_type}"
