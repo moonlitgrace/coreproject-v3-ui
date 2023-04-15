@@ -7,10 +7,10 @@ export class OpengraphGenerator {
 		this.#url = url;
 	}
 
-	private title = () => {
+	private get title  () {
 		return `<meta property="og:title" content="${this.#title}">`;
 	};
-    private url = () =>{
+    private get url (){
         return `<meta property="og:url" content="${this.#url}">`
     }
 
@@ -20,11 +20,13 @@ export class OpengraphGenerator {
         `;
 
 		if (this.#title) {
-			opengraph_html += this.title();
+			opengraph_html += this.title;
 		}
         if (this.#url ){
-            opengraph_html += 
+            opengraph_html += this.url;
         }
+
+
 
 		return opengraph_html;
 	}
