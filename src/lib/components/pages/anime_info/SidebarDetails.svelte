@@ -50,7 +50,7 @@
 			<div class="flex items-center gap-3 md:mt-[0.375vw]">
 				<StarRating rating={anime.rating} config={{size: 18, fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
 				<span class="md:text-[0.95vw] md:leading-[1.125vw] font-bold">{Math.ceil((anime.rating / 5) * 100)}%</span>
-				<button class="btn-icon md:w-[1.375vw] md:rounded-[0.19vw] bg-secondary-100 p-1 text-surface-500">
+				<button class="btn btn-icon md:w-[1.375vw] md:rounded-[0.19vw] bg-secondary-100 p-1 text-surface-500">
 					<Edit
 						width="13"
 						height="13"
