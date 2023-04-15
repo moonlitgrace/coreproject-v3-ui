@@ -14,8 +14,8 @@
 <div>
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
-		<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
-			<SettingsOutline width="11" height="11" class="opacity-75" />
+		<button class="btn btn-icon rounded-[0.1875vw] p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+			<SettingsOutline width="0.75vw" height="0.75vw" class="opacity-75" />
 		</button>
 	</div>
 
@@ -40,7 +40,7 @@
 			class="btn md:mt-[1.125vw] md:rounded-[0.18vw] bg-secondary-100 md:w-[9vw] md:h-[2vh] md:text-[0.75vw] md:leading-[0.9vw] text-surface-500"
 		>
 			<div class="flex items-center justify-center gap-1">
-				<TrendingUp width="15" height="15" />
+				<TrendingUp width="0.75vw" height="0.75vw" />
 				Detailed Distribution
 			</div>
 		</button>
@@ -48,12 +48,12 @@
 		<div class="md:mt-[0.4vw]">
 			<span class="md:text-[0.75vw] md:leading-[0.9vw] font-semibold">Your rating</span>
 			<div class="flex items-center gap-3 md:mt-[0.375vw]">
-				<StarRating rating={anime_rating} config={{size: 18, fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
+				<StarRating rating={anime_rating} config={{fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
 				<span class="md:text-[0.95vw] md:leading-[1.125vw] font-bold">{Math.ceil((anime_rating / 5) * 100)}%</span>
 				<button class="btn btn-icon md:w-[1.375vw] md:rounded-[0.19vw] bg-secondary-100 p-1 text-surface-500">
 					<Edit
-						width="13"
-						height="13"
+						width="0.75vw"
+						height="0.75vw"
 						variant="without_underline_around_pencil"
 						color="bg-surface-500"
 					/>
@@ -63,7 +63,7 @@
 
 		<button class="btn btn-sm md:mt-[1.25vw] flex items-center gap-2 p-0 md:text-[0.75vw] md:leading-[0.9vw]">
 			Add a review
-			<ExternalLink width="11" height="11" />
+			<ExternalLink width="0.75vw" height="0.75vw" />
 		</button>
 	</div>
 </div>

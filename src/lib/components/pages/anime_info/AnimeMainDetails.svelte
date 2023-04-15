@@ -74,16 +74,16 @@
 			read: {
 				icon: {
 					component: Read,
-					width: 18,
-					height: 18,
+					width: "1.5vw",
+					height: "1.5vw",
 					color: 'bg-surface-500'
 				}
 			},
 			listen: {
 				icon: {
 					component: Listen,
-					width: 18,
-					height: 18,
+					width: "1.5vw",
+					height: "1.5vw",
 					color: 'bg-surface-500'
 				}
 			}
@@ -93,30 +93,30 @@
 				icon: {
 					component: Video,
 					variant: false,
-					width: 15,
-					height: 15
+					width: "1.125vw",
+					height: "1.125vw"
 				}
 			},
 			edit: {
 				icon: {
 					component: Edit,
 					variant: 'with_underline_around_pencil',
-					width: 15,
-					height: 15
+					width: "1.125vw",
+					height: "1.125vw"
 				}
 			},
 			download: {
 				icon: {
 					component: Download,
-					width: 15,
-					height: 15
+					width: "1.125vw",
+					height: "1.125vw"
 				}
 			},
 			share: {
 				icon: {
 					component: Share,
-					width: 15,
-					height: 15
+					width: "1.125vw",
+					height: "1.125vw"
 				}
 			}
 		}
@@ -164,7 +164,7 @@
 							class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
 						>
 							<div class="flex items-center justify-center md:gap-[0.7vw]">
-								<PlayCircle width="25" height="25" color="white" />
+								<PlayCircle width="1.875vw" height="1.875vw" color="white" />
 								<div class="flex flex-col items-start">
 									<span class="md:leading-5">Watch</span>
 									<span class="font-normal leading-none text-surface-100 md:text-[0.625vw]"
@@ -229,8 +229,8 @@
 			<div class="col-span-5">
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]"> Synopsis </span>
-					<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
-						<SettingsOutline width="11" height="11" class="opacity-75" />
+					<button class="btn btn-icon rounded-[0.1875vw] p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+						<SettingsOutline width="0.75vw" height="0.75vw" class="opacity-75" />
 					</button>
 				</div>
 
@@ -263,7 +263,7 @@
 					<div class="flex items-center gap-1">
 						Status:
 						<span class="text-warning-400">Watching</span>
-						<ChevronDown width="9" color="warning-400" />
+						<ChevronDown width="0.625vw" color="warning-400" />
 					</div>
 					<div class="flex items-center gap-1">
 						Episode:
@@ -272,7 +272,7 @@
 					<div class="flex items-center gap-1">
 						Your Score:
 						<span class="text-warning-400">Not Rated</span>
-						<ChevronDown width="9" color="warning-400" />
+						<ChevronDown width="0.625vw" color="warning-400" />
 					</div>
 				</div>
 			</div>
