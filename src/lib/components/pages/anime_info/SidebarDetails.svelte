@@ -20,11 +20,11 @@
 	</div>
 
 	<div class="md:mt-[1.56vw]">
-		<div class="flex items-end">
-			<span class="md:text-[2vw] md:leading-[1.5vw] font-bold underline decoration-white/25 underline-offset-8"
+		<div class="flex items-center gap-1">
+			<span class="md:text-[2vw] md:leading-[1.5vw] font-bold !border-b-2 !border-white/25 !pb-2"
 				>{Math.ceil((anime.rating / 5) * 100)}%</span
 			>
-			<span class="md:text-[0.75vw] md:leading-[0.9vw] md:pl-2 divider-vertical !border-white/25">{anime.totalResponse} Ratings</span>
+			<span class="md:text-[0.75vw] md:leading-[0.8vw] text-surface-50 font-semibold md:pl-1 divider-vertical !m-0 !border-surface-50">2.8k ratings</span>
 		</div>
 
 		<div class="md:mt-[1.125vw]">
@@ -37,7 +37,7 @@
 		</div>
 
 		<button
-			class="btn md:mt-[1.125vw] md:rounded-[0.18vw] bg-secondary-100 md:w-[9.125vw] md:h-[2vh] md:text-[0.75vw] md:leading-[0.9vw] text-surface-500"
+			class="btn md:mt-[1.125vw] md:rounded-[0.18vw] bg-secondary-100 md:w-[9vw] md:h-[2vh] md:text-[0.75vw] md:leading-[0.9vw] text-surface-500"
 		>
 			<div class="flex items-center justify-center gap-1">
 				<TrendingUp width="15" height="15" />
