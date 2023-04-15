@@ -59,18 +59,18 @@
 				<span class="text-[0.75vw] text-surface-50 leading-[0.9vw]">Type</span>
 				<button class="btn text-[0.9vw] leading-[0.9vw] rounded-[0.5vw] px-[0.9vw] h-[2.4vw] font-semibold bg-surface-400">
 					<span>Subbed</span>
-					<ChevronDown width="15" color="lightgray" />
+					<ChevronDown width="1vw" color="lightgray" />
 				</button>
 			</div>
 			<div class="flex flex-col gap-[0.5vw]">
 				<span class="text-[0.75vw] text-surface-50 leading-[0.9vw]">Display Mode</span>
 				<button class="btn text-[0.9vw] leading-[0.9vw] rounded-[0.5vw] px-[0.9vw] h-[2.4vw] font-semibold bg-surface-400">
 					<span>Thumbnails</span>
-					<ChevronDown width="15" color="lightgray" />
+					<ChevronDown width="1vw" color="lightgray" />
 				</button>
 			</div>
 			<button class="btn btn-icon h-[2.4vw] w-[2.4vw] p-0 leading-[0.9vw] rounded-[0.5vw] font-semibold bg-surface-400">
-				<Search width="15" color="lightgray" />
+				<Search width="1vw" color="lightgray" />
 			</button>
 		</div>
 	</div>
