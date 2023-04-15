@@ -16,7 +16,6 @@
 		<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
 			<SettingsOutline width="11" height="11" class="opacity-75" />
 		</button>
-
 	</div>
 
 	<div class="md:mt-[1.56vw]">

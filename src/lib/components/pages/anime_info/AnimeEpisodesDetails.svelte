@@ -5,7 +5,7 @@
 	import Search from '$icons/Search.svelte';
 </script>
 
-<div class="md:mt-[6vw] w-full">
+<div class="md:mt-[6vw]">
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
 		<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
@@ -14,7 +14,7 @@
 
 	</div>
 
-	<div class="md:mt-[3vw] flex justify-between w-full">
+	<div class="md:mt-[3vw] flex justify-between">
 		<div class="flex items-center gap-[1.25vw]">
 			<p class="flex items-end gap-[0.75vw]">
 				<span class="md:text-[2vw] md:leading-[1.9vw] leading-[0.9vw] font-bold">23</span>
@@ -60,18 +60,18 @@
 				<span class="text-[0.75vw] text-surface-50 leading-[0.9vw]">Type</span>
 				<button class="btn text-[0.9vw] leading-[0.9vw] rounded-[0.5vw] px-[0.9vw] h-[2.4vw] font-semibold bg-surface-400">
 					<span>Subbed</span>
-					<ChevronDown width="15" color="lightgray" />
+					<ChevronDown width="22" color="lightgray" />
 				</button>
 			</div>
 			<div class="flex flex-col gap-[0.5vw]">
 				<span class="text-[0.75vw] text-surface-50 leading-[0.9vw]">Type</span>
 				<button class="btn text-[0.9vw] leading-[0.9vw] rounded-[0.5vw] px-[0.9vw] h-[2.4vw] font-semibold bg-surface-400">
 					<span>Subbed</span>
-					<ChevronDown width="15" color="lightgray" />
+					<ChevronDown width="22" color="lightgray" />
 				</button>
 			</div>
 			<button class="btn btn-icon h-[2.4vw] w-[2.4vw] p-0 leading-[0.9vw] rounded-[0.5vw] font-semibold bg-surface-400">
-				<Search width="15" color="lightgray" />
+				<Search width="22" color="lightgray" />
 			</button>
 		</div>
 	</div>
