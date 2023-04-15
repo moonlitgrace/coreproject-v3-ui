@@ -282,6 +282,6 @@
 	</div>
 
 	<div class="col-span-2">
-		<SidebarDetails {anime} />
+		<SidebarDetails anime_rating={anime.rating} anime_milestones={anime.milestones} />
 	</div>
 </div>

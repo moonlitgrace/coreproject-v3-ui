@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let anime: any;
+	export let anime_rating: number;
+	export let anime_milestones: any;
 
 	import StarRating from 'svelte-star-rating';
 
@@ -21,13 +22,13 @@
 	<div class="md:mt-[1.56vw]">
 		<div class="flex items-center gap-1">
 			<span class="md:text-[2vw] md:leading-[1.5vw] font-bold !border-b-2 !border-white/25 !pb-2"
-				>{Math.ceil((anime.rating / 5) * 100)}%</span
+				>{Math.ceil((anime_rating / 5) * 100)}%</span
 			>
 			<span class="md:text-[0.75vw] md:leading-[0.8vw] text-surface-50 font-semibold md:pl-1 divider-vertical !m-0 !border-surface-50">2.8k ratings</span>
 		</div>
 
 		<div class="md:mt-[1.125vw]">
-			{#each anime.milestones as milestone}
+			{#each anime_milestones as milestone}
 				<div class="flex items-center md:gap-[0.25vw]">
 					<span class="md:text-[1vw] md:leading-[1.5vw]">#{milestone.value}</span>
 					<span class="md:text-[0.625vw] md:leading-[0.75vw] text-surface-50">{milestone.title}</span>
@@ -47,8 +48,8 @@
 		<div class="md:mt-[0.4vw]">
 			<span class="md:text-[0.75vw] md:leading-[0.9vw] font-semibold">Your rating</span>
 			<div class="flex items-center gap-3 md:mt-[0.375vw]">
-				<StarRating rating={anime.rating} config={{size: 18, fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
-				<span class="md:text-[0.95vw] md:leading-[1.125vw] font-bold">{Math.ceil((anime.rating / 5) * 100)}%</span>
+				<StarRating rating={anime_rating} config={{size: 18, fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
+				<span class="md:text-[0.95vw] md:leading-[1.125vw] font-bold">{Math.ceil((anime_rating / 5) * 100)}%</span>
 				<button class="btn btn-icon md:w-[1.375vw] md:rounded-[0.19vw] bg-secondary-100 p-1 text-surface-500">
 					<Edit
 						width="13"
