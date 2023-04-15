@@ -34,8 +34,8 @@
 			search: {
 				icon: {
 					component: Search,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'black'
 				}
 			}
@@ -44,8 +44,8 @@
 			home: {
 				icon: {
 					component: Home,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			},
@@ -53,32 +53,32 @@
 			discover: {
 				icon: {
 					component: Explore,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			},
 			list: {
 				icon: {
 					component: List,
-					width: 25,
-					height: 25,
+					width: "1.7vw",
+					height: "1.7vw",
 					color: 'white'
 				}
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			}
@@ -87,16 +87,16 @@
 			settings: {
 				icon: {
 					component: Settings,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					width: 18,
-					height: 18,
+					width: "1.25vw",
+					height: "1.25vw",
 					color: 'white'
 				}
 			}
@@ -112,7 +112,7 @@
 	<AppShell>
 		<svelte:fragment slot="header">
 			<div class="md:h-18 flex justify-between items-center md:mx-6 md:my-3 2xl:my-0 2xl:mx-10 2xl:h-24">
-				<Logo width="33.6" height="48" />
+				<Logo width="2vw" />
 
 				<AnimeCore width="168" height="33.6" />
 
@@ -158,7 +158,7 @@
 							type="button"
 							class="{is_active
 								? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
-								: 'bg-initial'} btn-icon relative rounded-lg p-0 md:w-[3.375vw]"
+								: 'bg-initial'} btn-icon relative rounded-[0.5vw] p-0 md:w-[3.375vw]"
 							on:click={() => middle_section_click(item_name)}
 						>
 							<div class="inline-grid">
