@@ -111,25 +111,27 @@
 <div class="h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
-			<div class="md:h-18 flex justify-between items-center md:mx-6 md:my-3 2xl:my-0 2xl:mx-10 2xl:h-24">
-				<Logo width="2vw" />
+			<div class="md:h-18 flex justify-between items-center px-[2.1vw] py-[0.9375vw]">
+				<a href="/">
+					<Logo width="2vw" />
+				</a>
 
-				<AnimeCore width="168" height="33.6" />
+				<a href="/">
+					<AnimeCore width="10vw" />
+				</a>
 
-				<div class="md:h-10 md:w-10 2xl:h-16 2xl:w-16">
-					<Avatar
-						rounded="rounded-md"
-						width="w-full"
-						cursor="cursor-pointer"
-						src="https://i.pravatar.cc/?img=48"
-						initials="JD"
-					/>
-				</div>
+				<Avatar
+					rounded="rounded-[0.375vw]"
+					width="w-[3.125vw]"
+					cursor="cursor-pointer"
+					src="https://i.pravatar.cc/?img=48"
+					initials="JD"
+				/>
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex flex-col md:w-[6.25vw]">
-				<div class="mt-3 flex flex-col items-center gap-5">
+			<div class="flex flex-col justify-between h-full md:w-[6.25vw] py-[2vw]">
+				<div class="flex flex-col items-center gap-5">
 					{#each Object.entries(icon_mapping.top) as item}
 						{@const item_icon = item[1].icon}
 						<button type="button" class="btn-icon md:rounded-[0.375vw] bg-warning-400 p-0 md:w-[2.5vw]">
@@ -143,7 +145,7 @@
 					{/each}
 				</div>
 
-				<div class="md:mt-10 flex flex-col items-center md:gap-5 2xl:gap-9">
+				<div class="flex flex-col items-center md:gap-5 2xl:gap-9">
 					{#each Object.entries(icon_mapping.middle) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
@@ -193,7 +195,7 @@
 					{/each}
 				</div>
 
-				<div class="md:mt-10 2xl:mt-20 flex flex-col-reverse items-center md:gap-5 2xl:gap-9">
+				<div class="flex flex-col-reverse items-center md:gap-[0.75vw]">
 					{#each Object.entries(icon_mapping.bottom) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}

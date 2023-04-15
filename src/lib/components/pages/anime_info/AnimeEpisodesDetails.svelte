@@ -9,7 +9,7 @@
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
 		<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
-			<SettingsOutline width="0.75vw" height="0.75vw" class="opacity-75" />
+			<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
 		</button>
 	</div>
 
