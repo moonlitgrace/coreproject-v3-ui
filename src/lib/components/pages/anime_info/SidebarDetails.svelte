@@ -13,9 +13,9 @@
 <div>
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
-		<div class="btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+		<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
 			<SettingsOutline width="11" height="11" class="opacity-75" />
-		</div>
+		</button>
 
 	</div>
 

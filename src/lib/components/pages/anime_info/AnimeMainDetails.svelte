@@ -210,7 +210,7 @@
 
 						<button
 							type="button"
-							class="btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
+							class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
 						>
 							<svelte:component
 								this={component}
@@ -227,9 +227,9 @@
 		<div class="col-span-5 pr-8 md:w-[26.625vw]">
 			<div class="flex items-center gap-3">
 				<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]"> Synopsis </span>
-				<div class="btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+				<button class="btn btn-icon rounded p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
 					<SettingsOutline width="11" height="11" class="opacity-75" />
-				</div>
+				</button>
 			</div>
 
 			<ScrollArea
