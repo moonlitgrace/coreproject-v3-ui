@@ -9,9 +9,9 @@
 	import Search from '$icons/Search.svelte';
 
 	const format_duration = (duration: number) => {
-	  const formated_time = new formatTime(duration);
-	  return formated_time.formatSecondsToTimeStampDuration;
-	}
+		const formated_time = new formatTime(duration);
+		return formated_time.formatSecondsToTimeStampDuration;
+	};
 </script>
 
 <div class="md:my-[6vw]">
@@ -102,19 +102,32 @@
 
 	<div class="mt-[2.5vw] grid grid-cols-12 gap-[3.125vw]">
 		{#each anime_episodes as episode}
-			<div class="col-span-4 flex flex-col items-center text-center cursor-pointer group">
+			<div class="group col-span-4 flex cursor-pointer flex-col items-center text-center">
 				<div
-					class="relative w-full h-[12.5vw] bg-cover rounded-[0.625vw] border-b-2 border-surface-400 group-hover:border-surface-300 transition duration-300"
+					class="relative h-[12.5vw] w-full rounded-[0.625vw] border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300"
 					style="background-image: url({episode.episode_thumbnail ?? ''});"
 				>
-					<div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent" />
-					<div class="grid grid-cols-3 place-items-end absolute bottom-[0.3vw] w-full place-items-center">
-						<span class="col-span-1"></span>
-						<span class="col-span-1 text-[0.9375vw] font-bold">{episode.episode_number}</span>
-						<span class="col-span-1 absolute right-2 text-[0.75vw] font-semibold">{format_duration(episode.episode_length)}</span>
+					<div
+						class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent"
+					/>
+					<div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
+						<p
+							style="grid-area: 1 / 1 / 2 / 2;"
+							class="w-full text-center text-[0.9375vw] font-bold"
+						>
+							{episode.episode_number}
+						</p>
+						<p
+							style="grid-area: 1 / 1 / 2 / 2;"
+							class="w-full pr-2 text-end text-[0.75vw] font-semibold"
+						>
+							{format_duration(episode.episode_length)}
+						</p>
 					</div>
 				</div>
-				<span class="text-[0.8vw] leading-[0.9375vw] text-surface-50/75 group-hover:text-surface-50 transition duration-300 font-light pt-[0.75vw]">
+				<span
+					class="pt-[0.75vw] text-[0.8vw] font-light leading-[0.9375vw] text-surface-50/75 transition duration-300 group-hover:text-surface-50"
+				>
 					{episode.episode_name}
 				</span>
 			</div>
