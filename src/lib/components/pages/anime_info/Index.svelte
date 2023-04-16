@@ -7,6 +7,8 @@
 	export let anime_banner: string;
 	export let anime_cover: string;
 
+	export let anime_episodes: any;
+
 	import AnimeMainDetails from './AnimeMainDetails.svelte';
 </script>
 
@@ -26,6 +28,8 @@
 				{anime_date}
 				{anime_synopsis}
 				{anime_banner}
+
+				{anime_episodes}
 			/>
 		</div>
 	</div>

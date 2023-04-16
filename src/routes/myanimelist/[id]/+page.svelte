@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AnimeInfoPage from '$components/pages/anime_info/Index.svelte';
 	import { anime_list } from '$data/mock/anime_list';
+	import { anime_episodes } from '$data/mock/anime_episodes';
 
 	import { OpengraphGenerator } from '$functions/opengraph';
 	import { page } from '$app/stores';
@@ -31,5 +32,7 @@
 		anime_synopsis={anime.synopsis}
 		anime_banner={anime.banner}
 		anime_cover={anime.cover}
+
+		{anime_episodes}
 	/>
 {/if}

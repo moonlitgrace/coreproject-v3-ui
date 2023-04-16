@@ -6,6 +6,8 @@
 	export let anime_synopsis: string;
 	export let anime_banner: string;
 
+	export let anime_episodes: any;
+
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
 	import AnimeEpisodesDetails from '$components/pages/anime_info/AnimeEpisodesDetails.svelte';
@@ -299,7 +301,7 @@
 			</div>
 		</div>
 
-		<AnimeEpisodesDetails />
+		<AnimeEpisodesDetails {anime_episodes} />
 	</div>
 
 	<div class="col-span-2">

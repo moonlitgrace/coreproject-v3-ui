@@ -1,11 +1,21 @@
 <script lang="ts">
+	export let anime_episodes: any;
+
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
 	import Search from '$icons/Search.svelte';
+
+	const formatTime = (seconds: number) => {
+	  const minutes = Math.floor(seconds / 60);
+	  const remainingSeconds = seconds % 60;
+	  const formattedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
+	  const formattedSeconds = (remainingSeconds < 10) ? `0${remainingSeconds}` : remainingSeconds;
+	  return `${formattedMinutes}:${formattedSeconds}`;
+	}
 </script>
 
-<div class="md:mt-[6vw]">
+<div class="md:my-[6vw]">
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
 		<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
@@ -89,5 +99,26 @@
 				<Search width="1vw" color="lightgray" />
 			</button>
 		</div>
+	</div>
+
+	<div class="mt-[2.5vw] grid grid-cols-12 gap-[3.125vw]">
+		{#each anime_episodes as episode}
+			<div class="col-span-4 flex flex-col items-center text-center cursor-pointer group">
+				<div
+					class="relative w-full h-[12.5vw] bg-cover rounded-[0.625vw] border-b-2 border-surface-400 group-hover:border-surface-300 transition duration-300"
+					style="background-image: url({episode.episode_thumbnail ?? ''});"
+				>
+					<div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent" />
+					<div class="grid grid-cols-3 place-items-end absolute bottom-[0.3vw] w-full place-items-center">
+						<span class="col-span-1"></span>
+						<span class="col-span-1 text-[0.9375vw] font-bold">{episode.episode_number}</span>
+						<span class="col-span-1 absolute right-2 text-[0.75vw] font-semibold">{formatTime(episode.episode_length)}</span>
+					</div>
+				</div>
+				<span class="text-[0.8vw] leading-[0.9375vw] text-surface-50/75 group-hover:text-surface-50 transition duration-300 font-light pt-[0.75vw]">
+					{episode.episode_name}
+				</span>
+			</div>
+		{/each}
 	</div>
 </div>
