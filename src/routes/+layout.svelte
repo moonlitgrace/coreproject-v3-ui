@@ -135,7 +135,7 @@
 						{@const item_icon = item[1].icon}
 						<button
 							type="button"
-							class="btn-icon bg-warning-400 p-0 md:w-[2.5vw] md:rounded-[0.375vw]"
+							class="btn-icon btn bg-warning-400 p-0 md:w-[2.5vw] md:rounded-[0.375vw]"
 						>
 							<svelte:component
 								this={item_icon.component}
@@ -162,7 +162,7 @@
 							type="button"
 							class="{is_active
 								? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
-								: 'bg-initial'} btn-icon relative rounded-[0.5vw] p-0 md:w-[3.375vw]"
+								: 'bg-initial'} btn-icon btn relative rounded-[0.5vw] p-0 md:w-[3.375vw]"
 							on:click={() => middle_section_click(item_name)}
 						>
 							<div class="inline-grid">
@@ -204,7 +204,7 @@
 						{@const item_icon = item[1].icon}
 						<button
 							type="button"
-							class="bg-initial btn-icon flex-col justify-center p-0 text-sm md:w-[3.375vw] md:gap-[0.75vw]"
+							class="bg-initial btn-icon btn flex-col justify-center p-0 text-sm md:w-[3.375vw] md:gap-[0.75vw]"
 						>
 							<svelte:component
 								this={item_icon.component}
