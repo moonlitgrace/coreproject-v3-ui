@@ -72,5 +72,67 @@
 				</button>
 			</div>
 		</animedetails>
+
+		<voiceovercase>
+			<div class="mt-[2.5vw]">
+				<div class="flex items-center gap-3">
+					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Voiceover Cast</span>
+					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+					</button>
+				</div>
+
+				<div class="flex flex-col mt-[1.25vw]">
+					<span class="text-[0.9375vw] text-surface-50">VAs</span>
+					<button class="btn btn-sm mt-[0.3vw] gap-1 p-0 bg-surface-400 w-[6.625vw] h-[2.25vw] text-[0.875vw] rounded-[0.375vw]">
+						Japanese
+						<ChevronDown width="0.9vw" color="surface-50" />
+					</button>
+				</div>
+
+				<casts>
+					<div class="mt-[1.875vw]">
+						<div class="grid grid-cols-2 h-[7.5vw] w-[12.5vw] relative rounded-[0.875vw] overflow-hidden">
+							<div
+								class="bg-cover col-span-1 w-full"
+								style="background-image: url(https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png);"
+							>
+								<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.9vw] font-bold w-full absolute bottom-[0.3vw] z-10">Houtarou Oreki</span>
+							</div>
+							<div
+								class="bg-cover col-span-1 w-full"
+								style="background-image: url(https://cdn.myanimelist.net/images/voiceactors/1/74056.jpg);"
+							>
+								<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.9vw] font-bold w-full absolute bottom-[0.3vw] z-10">Yuuichi Nakamura</span>
+							</div>
+							<div
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+							/>
+						</div>
+
+						<div class="flex flex-col mt-[2.5vw]">
+							<div class="w-[6.625vw] h-[2.25vw] flex">
+								<button
+									class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+								>
+									<ChevronDown width="1vw" color="lightgray" />
+								</button>
+								<button
+									class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
+								>
+									01
+								</button>
+								<button
+									class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+								>
+									<ChevronDown width="1vw" color="lightgray" />
+								</button>
+							</div>
+							<span class="text-[0.75vw] mt-[0.9375vw] text-surface-50">Showing 1-5, out of 58 Voiceover Casts</span>
+						</div>
+					</div>
+				</casts>
+			</div>
+		</voiceovercase>
 	</div>
 </div>
