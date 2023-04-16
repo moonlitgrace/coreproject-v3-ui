@@ -1,17 +1,16 @@
 <script lang="ts">
 	export let anime_episodes: any;
 
+	import { formatTime } from '$functions/formatTime';
+
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
 	import Search from '$icons/Search.svelte';
 
-	const formatTime = (seconds: number) => {
-	  const minutes = Math.floor(seconds / 60);
-	  const remainingSeconds = seconds % 60;
-	  const formattedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-	  const formattedSeconds = (remainingSeconds < 10) ? `0${remainingSeconds}` : remainingSeconds;
-	  return `${formattedMinutes}:${formattedSeconds}`;
+	const format_duration = (duration: number) => {
+	  const formated_time = new formatTime(duration);
+	  return formated_time.formatSecondsToTimeStampDuration;
 	}
 </script>
 
@@ -112,7 +111,7 @@
 					<div class="grid grid-cols-3 place-items-end absolute bottom-[0.3vw] w-full place-items-center">
 						<span class="col-span-1"></span>
 						<span class="col-span-1 text-[0.9375vw] font-bold">{episode.episode_number}</span>
-						<span class="col-span-1 absolute right-2 text-[0.75vw] font-semibold">{formatTime(episode.episode_length)}</span>
+						<span class="col-span-1 absolute right-2 text-[0.75vw] font-semibold">{format_duration(episode.episode_length)}</span>
 					</div>
 				</div>
 				<span class="text-[0.8vw] leading-[0.9375vw] text-surface-50/75 group-hover:text-surface-50 transition duration-300 font-light pt-[0.75vw]">
