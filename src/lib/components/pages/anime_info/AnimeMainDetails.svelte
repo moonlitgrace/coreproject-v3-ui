@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let anime: any;
-	export let anime2: any;
+	export let anime_name: string;
+	export let anime_japanese_name: string;
+	export let anime_episodes_count: number;
+	export let anime_date: string;
+	export let anime_synopsis: string;
+	export let anime_banner: string;
 
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
@@ -127,35 +131,50 @@
 <div class="grid grid-cols-12 items-start">
 	<div class="col-span-10 pr-[4vw]">
 		<div class="grid grid-cols-12 items-end justify-between">
-			<div class="col-span-7 flex items-end md:gap-[3.125vw]">
-				<img
-					class="md:w-[12.5vw] md:rounded-[1vw]"
-					src={anime2.banner}
-					alt={anime2.name}
-				/>
+			<div class="col-span-7 flex items-end pr-[2vw] md:gap-[3.125vw]">
+				<img class="md:w-[12.5vw] md:rounded-[1vw]" src="{anime_banner}" alt="{anime_name}" />
 				<div>
-					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime2.name}</span>
+					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime_name}</span>
 
 					<p class="flex items-center gap-2 text-surface-100 md:pt-[0.625vw]">
-						{#each Object.entries(anime.titles) as anime_title}
-							{#if anime_title[0] !== 'eng'}
-								<span
-									class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
-									>{anime_title[1]}
-								</span>
-							{/if}
-						{/each}
+						<span
+							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
+						>
+							{anime_japanese_name}
+						</span>
+						<span
+							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
+						>
+							{anime_name}
+						</span>
 					</p>
 
-					<p class="flex flex-wrap items-center gap-2 md:pt-[1vw]">
-						{#each Object.entries(anime.basic_details) as anime_detail}
-							<span
-								class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-							>
-								{anime_detail[1]}
-								{anime_detail[0] === 'episodes' ? 'eps' : ''}
-							</span>
-						{/each}
+					<p class="flex flex-wrap items-center gap-2 md:pt-[0.5vw]">
+						<span
+							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+						>
+							TV
+						</span>
+						<span
+							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+						>
+							{anime_episodes_count} eps
+						</span>
+						<span
+							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+						>
+							Completed
+						</span>
+						<span
+							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+						>
+							{anime_date}
+						</span>
+						<span
+							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+						>
+							Kuschio animation
+						</span>
 					</p>
 
 					<div class="flex items-center md:mt-[2.25vw] md:gap-[1.15vw]">
@@ -174,53 +193,45 @@
 							</div>
 						</button>
 
-						{#each Object.entries(icon_mapping.anime_options) as item}
-							{@const item_name = item[0]}
-							{@const item_icon = item[1].icon}
+						{#each Object.entries(icon_mapping.anime_options) as item} {@const item_name = item[0]}
+						{@const item_icon = item[1].icon} {@const component = item_icon.component} {@const
+						component_width = item_icon.width} {@const component_height = item_icon.height} {@const
+						component_color = item_icon.color}
 
-							{@const component = item_icon.component}
-							{@const component_width = item_icon.width}
-							{@const component_height = item_icon.height}
-							{@const component_color = item_icon.color}
-
-							<button
-								type="button"
-								class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw]
-						       md:text-[0.87vw] md:font-semibold"
-							>
-								<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
-									<svelte:component
-										this={component}
-										width={component_width}
-										height={component_height}
-										color={component_color}
-									/>
-									<span class="md:leading-[1vw]">{item_name}</span>
-								</div>
-							</button>
+						<button
+							type="button"
+							class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
+						>
+							<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
+								<svelte:component
+									this="{component}"
+									width="{component_width}"
+									height="{component_height}"
+									color="{component_color}"
+								/>
+								<span class="md:leading-[1vw]">{item_name}</span>
+							</div>
+						</button>
 						{/each}
 					</div>
 
 					<div class="flex md:mt-[1.25vw] md:gap-[0.625vw]">
-						{#each Object.entries(icon_mapping.user_options_icons) as item}
-							{@const item_icon = item[1].icon}
+						{#each Object.entries(icon_mapping.user_options_icons) as item} {@const item_icon =
+						item[1].icon} {@const component = item_icon.component} {@const component_width =
+						item_icon.width} {@const component_height = item_icon.height} {@const component_variant
+						= item_icon.variant}
 
-							{@const component = item_icon.component}
-							{@const component_width = item_icon.width}
-							{@const component_height = item_icon.height}
-							{@const component_variant = item_icon.variant}
-
-							<button
-								type="button"
-								class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
-							>
-								<svelte:component
-									this={component}
-									width={component_width}
-									height={component_height}
-									variant={component_variant}
-								/>
-							</button>
+						<button
+							type="button"
+							class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
+						>
+							<svelte:component
+								this="{component}"
+								width="{component_width}"
+								height="{component_height}"
+								variant="{component_variant}"
+							/>
+						</button>
 						{/each}
 					</div>
 				</div>
@@ -242,17 +253,25 @@
 					parentClass="mt-5"
 					class="text-justify md:max-h-[9.5vw] md:text-[0.75vw] md:leading-[1vw]"
 				>
-					{anime.description}
+					{anime_synopsis}
 				</ScrollArea>
 
 				<div class="flex gap-2 md:mt-3">
-					{#each anime.generes as genere}
-						<div
-							class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]"
-						>
-							{genere}
-						</div>
-					{/each}
+					<div
+						class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]"
+					>
+						Mystery
+					</div>
+					<div
+						class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]"
+					>
+						Romance
+					</div>
+					<div
+						class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]"
+					>
+						Horror
+					</div>
 				</div>
 
 				<div
@@ -260,7 +279,7 @@
 				>
 					<div class="flex items-center gap-1">
 						Score:
-						<span class="text-warning-400">{anime.score}</span>
+						<span class="text-warning-400">79</span>
 					</div>
 					<div class="flex items-center gap-1">
 						Status:
@@ -269,7 +288,7 @@
 					</div>
 					<div class="flex items-center gap-1">
 						Episode:
-						<span class="text-warning-400">0/{anime.basic_details.episodes}</span>
+						<span class="text-warning-400">0/{anime_episodes_count}</span>
 					</div>
 					<div class="flex items-center gap-1">
 						Your Score:
@@ -284,6 +303,6 @@
 	</div>
 
 	<div class="col-span-2">
-		<SidebarDetails anime_rating={anime.rating} anime_milestones={anime.milestones} />
+		<SidebarDetails />
 	</div>
 </div>
