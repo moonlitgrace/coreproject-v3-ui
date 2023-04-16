@@ -7,11 +7,6 @@
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
 	import Search from '$icons/Search.svelte';
-
-	const format_duration = (duration: number) => {
-		const formated_time = new formatTime(duration);
-		return formated_time.formatSecondsToTimeStampDuration;
-	};
 </script>
 
 <div class="md:my-[6vw]">
@@ -121,7 +116,7 @@
 							style="grid-area: 1 / 1 / 2 / 2;"
 							class="w-full pr-[0.7vw] text-end !text-[0.75vw] font-semibold"
 						>
-							{format_duration(episode.episode_length)}
+							{new formatTime(episode.episode_length).formatSecondsToTimeStampDuration}
 						</p>
 					</div>
 				</div>
