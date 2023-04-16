@@ -26,9 +26,7 @@
 			scrollbar_type = 'mask-bottom';
 		}
 	}
-
 </script>
-
 
 <div
 	on:scroll={onScroll}
