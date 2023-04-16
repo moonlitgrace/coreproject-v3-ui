@@ -14,30 +14,35 @@
 <div>
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
-		<button class="btn btn-icon rounded-[0.1875vw] p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+		<button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
 			<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
 		</button>
 	</div>
 
 	<div class="md:mt-[1.56vw]">
 		<div class="flex items-center gap-1">
-			<span class="md:text-[2vw] md:leading-[1.5vw] font-bold !border-b-2 !border-white/25 !pb-2"
+			<span class="!border-b-2 !border-white/25 !pb-2 font-bold md:text-[2vw] md:leading-[1.5vw]"
 				>{Math.ceil((anime_rating / 5) * 100)}%</span
 			>
-			<span class="md:text-[0.75vw] md:leading-[0.8vw] text-surface-50 font-semibold md:pl-1 divider-vertical !m-0 !border-surface-50">2.8k ratings</span>
+			<span
+				class="divider-vertical !m-0 !border-surface-50 font-semibold text-surface-50 md:pl-1 md:text-[0.75vw] md:leading-[0.8vw]"
+				>2.8k ratings</span
+			>
 		</div>
 
 		<div class="md:mt-[1.125vw]">
 			{#each anime_milestones as milestone}
 				<div class="flex items-center md:gap-[0.25vw]">
 					<span class="md:text-[1vw] md:leading-[1.5vw]">#{milestone.value}</span>
-					<span class="md:text-[0.625vw] md:leading-[0.75vw] text-surface-50">{milestone.title}</span>
+					<span class="text-surface-50 md:text-[0.625vw] md:leading-[0.75vw]"
+						>{milestone.title}</span
+					>
 				</div>
 			{/each}
 		</div>
 
 		<button
-			class="btn md:mt-[1.125vw] md:rounded-[0.18vw] bg-secondary-100 md:w-[9vw] md:h-[2vh] md:text-[0.75vw] md:leading-[0.9vw] text-surface-500"
+			class="btn bg-secondary-100 text-surface-500 md:mt-[1.125vw] md:h-[2vh] md:w-[9vw] md:rounded-[0.18vw] md:text-[0.75vw] md:leading-[0.9vw]"
 		>
 			<div class="flex items-center justify-center gap-1">
 				<TrendingUp width="0.75vw" height="0.75vw" />
@@ -46,11 +51,19 @@
 		</button>
 
 		<div class="md:mt-[0.4vw]">
-			<span class="md:text-[0.75vw] md:leading-[0.9vw] font-semibold">Your rating</span>
+			<span class="font-semibold md:text-[0.75vw] md:leading-[0.9vw]">Your rating</span>
 			<div class="flex items-center gap-3 md:mt-[0.375vw]">
-				<StarRating rating={anime_rating} config={{fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)"}} style={"margin: 0; gap: 5px"} />
-				<span class="md:text-[0.95vw] md:leading-[1.125vw] font-bold">{Math.ceil((anime_rating / 5) * 100)}%</span>
-				<button class="btn btn-icon md:w-[1.375vw] md:rounded-[0.19vw] bg-secondary-100 p-1 text-surface-500">
+				<StarRating
+					rating={anime_rating}
+					config={{ fullColor: '#DCD9F7', emptyColor: 'rgb(220, 217, 247, 0.4)' }}
+					style={'margin: 0; gap: 5px'}
+				/>
+				<span class="font-bold md:text-[0.95vw] md:leading-[1.125vw]"
+					>{Math.ceil((anime_rating / 5) * 100)}%</span
+				>
+				<button
+					class="btn btn-icon bg-secondary-100 p-1 text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]"
+				>
 					<Edit
 						width="0.75vw"
 						height="0.75vw"
@@ -61,7 +74,9 @@
 			</div>
 		</div>
 
-		<button class="btn btn-sm md:mt-[1.25vw] flex items-center gap-2 p-0 md:text-[0.75vw] md:leading-[0.9vw]">
+		<button
+			class="btn btn-sm flex items-center gap-2 p-0 md:mt-[1.25vw] md:text-[0.75vw] md:leading-[0.9vw]"
+		>
 			Add a review
 			<ExternalLink width="0.75vw" height="0.75vw" />
 		</button>

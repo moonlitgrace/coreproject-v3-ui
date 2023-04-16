@@ -28,14 +28,13 @@
 		| keyof typeof icon_mapping.middle
 		| keyof typeof icon_mapping.bottom = 'home';
 
-
 	const icon_mapping = {
 		top: {
 			search: {
 				icon: {
 					component: Search,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'black'
 				}
 			}
@@ -44,8 +43,8 @@
 			home: {
 				icon: {
 					component: Home,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			},
@@ -53,32 +52,32 @@
 			discover: {
 				icon: {
 					component: Explore,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			},
 			list: {
 				icon: {
 					component: List,
-					width: "1.7vw",
-					height: "1.7vw",
+					width: '1.7vw',
+					height: '1.7vw',
 					color: 'white'
 				}
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			}
@@ -87,16 +86,16 @@
 			settings: {
 				icon: {
 					component: Settings,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					width: "1.25vw",
-					height: "1.25vw",
+					width: '1.25vw',
+					height: '1.25vw',
 					color: 'white'
 				}
 			}
@@ -111,7 +110,7 @@
 <div class="h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
-			<div class="md:h-18 flex justify-between items-center px-[2.1vw] py-[0.9375vw]">
+			<div class="md:h-18 flex items-center justify-between px-[2.1vw] py-[0.9375vw]">
 				<a href="/">
 					<Logo width="2vw" />
 				</a>
@@ -130,11 +129,14 @@
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex flex-col justify-between h-full md:w-[6.25vw] py-[2vw]">
+			<div class="flex h-full flex-col justify-between py-[2vw] md:w-[6.25vw]">
 				<div class="flex flex-col items-center gap-5">
 					{#each Object.entries(icon_mapping.top) as item}
 						{@const item_icon = item[1].icon}
-						<button type="button" class="btn-icon md:rounded-[0.375vw] bg-warning-400 p-0 md:w-[2.5vw]">
+						<button
+							type="button"
+							class="btn-icon bg-warning-400 p-0 md:w-[2.5vw] md:rounded-[0.375vw]"
+						>
 							<svelte:component
 								this={item_icon.component}
 								height={item_icon.height}
@@ -175,7 +177,8 @@
 											width={component_width}
 											color={item_icon.color}
 										/>
-										<span class="capitalize md:text-[0.875vw] md:leading-[1.05vw]">{item_name}</span>
+										<span class="capitalize md:text-[0.875vw] md:leading-[1.05vw]">{item_name}</span
+										>
 									</div>
 								{:else}
 									<div
@@ -210,7 +213,7 @@
 								color={item_icon.color}
 							/>
 							<span class="!m-0 capitalize md:text-[0.875vw] md:leading-[1.05vw]">{item_name}</span>
-  						</button>
+						</button>
 					{/each}
 				</div>
 			</div>

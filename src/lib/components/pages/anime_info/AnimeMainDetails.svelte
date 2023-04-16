@@ -74,16 +74,16 @@
 			read: {
 				icon: {
 					component: Read,
-					width: "1.5vw",
-					height: "1.5vw",
+					width: '1.5vw',
+					height: '1.5vw',
 					color: 'bg-surface-500'
 				}
 			},
 			listen: {
 				icon: {
 					component: Listen,
-					width: "1.5vw",
-					height: "1.5vw",
+					width: '1.5vw',
+					height: '1.5vw',
 					color: 'bg-surface-500'
 				}
 			}
@@ -93,35 +93,34 @@
 				icon: {
 					component: Video,
 					variant: false,
-					width: "1.125vw",
-					height: "1.125vw"
+					width: '1.125vw',
+					height: '1.125vw'
 				}
 			},
 			edit: {
 				icon: {
 					component: Edit,
 					variant: 'with_underline_around_pencil',
-					width: "1.125vw",
-					height: "1.125vw"
+					width: '1.125vw',
+					height: '1.125vw'
 				}
 			},
 			download: {
 				icon: {
 					component: Download,
-					width: "1.125vw",
-					height: "1.125vw"
+					width: '1.125vw',
+					height: '1.125vw'
 				}
 			},
 			share: {
 				icon: {
 					component: Share,
-					width: "1.125vw",
-					height: "1.125vw"
+					width: '1.125vw',
+					height: '1.125vw'
 				}
 			}
 		}
 	};
-
 </script>
 
 <div class="grid grid-cols-12 items-start">
@@ -229,7 +228,9 @@
 			<div class="col-span-5">
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]"> Synopsis </span>
-					<button class="btn btn-icon rounded-[0.1875vw] p-0 bg-surface-400 md:w-[1.5vw] md:h-[1.5vw]">
+					<button
+						class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]"
+					>
 						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
 					</button>
 				</div>
