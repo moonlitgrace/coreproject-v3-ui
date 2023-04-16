@@ -119,7 +119,7 @@
 						</p>
 						<p
 							style="grid-area: 1 / 1 / 2 / 2;"
-							class="w-full pr-2 text-end !text-[0.75vw] font-semibold"
+							class="w-full pr-[0.7vw] text-end !text-[0.75vw] font-semibold"
 						>
 							{format_duration(episode.episode_length)}
 						</p>
