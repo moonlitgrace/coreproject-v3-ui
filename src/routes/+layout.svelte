@@ -123,7 +123,7 @@
 					rounded="rounded-[0.375vw]"
 					width="w-[3.125vw]"
 					cursor="cursor-pointer"
-					src="https://i.pravatar.cc/?img=48"
+					src="https://i.ibb.co/GtXf7hc/Screenshot-from-2023-04-16-11-31-06.png"
 					initials="JD"
 				/>
 			</div>
