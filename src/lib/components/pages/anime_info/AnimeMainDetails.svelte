@@ -22,16 +22,16 @@
 			read: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 					color?: string;
 				};
 			};
 			listen: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 					color?: string;
 				};
 			};
@@ -41,32 +41,32 @@
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 				};
 			};
 			edit: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 				};
 			};
 			download: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: 'with_underline_around_pencil' | 'without_underline_around_pencil';
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 				};
 			};
 			share: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: number;
-					height: number;
+					width: string;
+					height: string;
 				};
 			};
 		};

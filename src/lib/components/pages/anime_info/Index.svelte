@@ -8,7 +8,7 @@
 <div class="anime_info">
 	<div
 		class="relative h-screen rounded-tl-3xl bg-cover"
-		style="background-image: url({anime?.bannerBackgroundImage ?? ''});"
+		style="background-image: url({anime2.cover ?? ''});"
 	>
 		<div
 			class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50"
