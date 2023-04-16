@@ -1,13 +1,13 @@
 <script lang="ts">
 	import AnimeInfoPage from '$components/pages/anime_info/Index.svelte';
-	import { anime_list2 } from '$data/mock/anime_list';
+	import { anime_list } from '$data/mock/anime_list';
 
 	import { OpengraphGenerator } from '$functions/opengraph';
 	import { page } from '$app/stores';
 
 	let anime_id = Number($page.params.id);
 
-	let anime = anime_list2?.find((anime: any) => anime.id === anime_id);
+	let anime = anime_list?.find((anime: any) => anime.id === anime_id);
 
 	const opengraph_html = new OpengraphGenerator({
 		title: 'Hello',
