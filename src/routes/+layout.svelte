@@ -123,13 +123,13 @@
 					rounded="rounded-[0.375vw]"
 					width="w-[3.125vw]"
 					cursor="cursor-pointer"
-					src="https://i.ibb.co/GtXf7hc/Screenshot-from-2023-04-16-11-31-06.png"
+					src="https://i.pinimg.com/236x/ab/71/15/ab7115dcb42174aa79981bc219993b6d.jpg"
 					initials="JD"
 				/>
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex h-full flex-col justify-between py-[2vw] md:w-[6.25vw]">
+			<div class="flex h-full flex-col py-[2vw] md:w-[6.25vw]">
 				<div class="flex flex-col items-center gap-5">
 					{#each Object.entries(icon_mapping.top) as item}
 						{@const item_icon = item[1].icon}
@@ -147,7 +147,7 @@
 					{/each}
 				</div>
 
-				<div class="flex flex-col items-center md:gap-5 2xl:gap-9">
+				<div class="flex flex-col items-center gap-[1.5vw] mt-[2.5vw]">
 					{#each Object.entries(icon_mapping.middle) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
@@ -198,7 +198,7 @@
 					{/each}
 				</div>
 
-				<div class="flex flex-col-reverse items-center md:gap-[0.75vw]">
+				<div class="flex flex-col-reverse items-center md:gap-[1.5vw] mt-[3vw]">
 					{#each Object.entries(icon_mapping.bottom) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
