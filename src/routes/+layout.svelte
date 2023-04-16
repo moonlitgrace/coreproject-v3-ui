@@ -129,7 +129,7 @@
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex h-full flex-col py-[2vw] md:w-[6.25vw]">
+			<div class="flex h-full flex-col justify-between py-[2vw] md:w-[6.25vw]">
 				<div class="flex flex-col items-center gap-5">
 					{#each Object.entries(icon_mapping.top) as item}
 						{@const item_icon = item[1].icon}
@@ -147,7 +147,7 @@
 					{/each}
 				</div>
 
-				<div class="flex flex-col items-center gap-[1.5vw] mt-[2.5vw]">
+				<div class="flex flex-col items-center md:gap-5 2xl:gap-9">
 					{#each Object.entries(icon_mapping.middle) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
@@ -198,7 +198,7 @@
 					{/each}
 				</div>
 
-				<div class="flex flex-col-reverse items-center md:gap-[1.5vw] mt-[3vw]">
+				<div class="flex flex-col-reverse items-center md:gap-[0.75vw]">
 					{#each Object.entries(icon_mapping.bottom) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
