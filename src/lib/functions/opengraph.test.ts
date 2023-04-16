@@ -1,4 +1,3 @@
-//src/components/__tests/example.test.js
 import { test, expect } from 'vitest';
 import { OpengraphGenerator } from '$functions/opengraph';
 
