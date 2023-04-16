@@ -9,6 +9,8 @@
 	export let anime_episodes: any;
 
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
+	import { formatDate } from '$functions/formatDate';
+
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
 	import AnimeEpisodesDetails from '$components/pages/anime_info/AnimeEpisodesDetails.svelte';
 	import type { SvelteComponentDev } from 'svelte/internal';
@@ -168,9 +170,9 @@
 							Completed
 						</span>
 						<span
-							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
+							class="font-semibold capitalize md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
 						>
-							{anime_date}
+							{new formatDate(anime_date).formatToSeason}
 						</span>
 						<span
 							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
