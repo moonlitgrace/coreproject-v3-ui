@@ -12,7 +12,8 @@
 	import { formatDate } from '$functions/formatDate';
 
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
-	import AnimeEpisodesDetails from '$components/pages/anime_info/AnimeEpisodesDetails.svelte';
+	import AnimeFullDetails from '$components/pages/anime_info/AnimeFullDetails.svelte';
+	import AnimeEpisodes from '$components/pages/anime_info/AnimeEpisodes.svelte';
 	import type { SvelteComponentDev } from 'svelte/internal';
 	// icons
 	import PlayCircle from '$icons/PlayCircle.svelte';
@@ -303,10 +304,12 @@
 			</div>
 		</div>
 
-		<AnimeEpisodesDetails {anime_episodes} />
+		<AnimeEpisodes {anime_episodes} />
 	</div>
 
 	<div class="col-span-2">
 		<SidebarDetails />
+
+		<AnimeFullDetails />
 	</div>
 </div>
