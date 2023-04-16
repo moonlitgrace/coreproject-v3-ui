@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let anime: any;
+	export let anime2: any;
 
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
@@ -129,11 +130,11 @@
 			<div class="col-span-7 flex items-end md:gap-[3.125vw]">
 				<img
 					class="md:w-[12.5vw] md:rounded-[1vw]"
-					src={anime.cardBackgroundImage}
-					alt={anime.titles.eng}
+					src={anime2.banner}
+					alt={anime2.name}
 				/>
 				<div>
-					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime.titles.eng}</span>
+					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime2.name}</span>
 
 					<p class="flex items-center gap-2 text-surface-100 md:pt-[0.625vw]">
 						{#each Object.entries(anime.titles) as anime_title}

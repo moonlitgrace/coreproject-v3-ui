@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	export let anime: any;
+	export let anime2: any;
 
-	import { anime_list } from '$data/mock/anime_list';
 	import AnimeMainDetails from './AnimeMainDetails.svelte';
-
-	let anime_id = Number($page.params.id);
-
-	let anime = anime_list?.find((anime: any) => anime.id === anime_id);
 </script>
 
 <div class="anime_info">
@@ -18,7 +14,7 @@
 			class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50"
 		/>
 		<div class="absolute h-full w-full md:p-[5vw]">
-			<AnimeMainDetails {anime} />
+			<AnimeMainDetails {anime} {anime2} />
 		</div>
 	</div>
 </div>
