@@ -15,7 +15,8 @@
 		page_url: $page.url.href,
 		description: anime?.synopsis ?? '',
 		site_name: 'CoreProject',
-		locale: 'en_US'
+		locale: 'en_US',
+		image_url: anime?.cover ?? ''
 	}).generate_opengraph();
 </script>
 
