@@ -16,7 +16,7 @@
 		description: anime?.synopsis ?? '',
 		site_name: 'CoreProject',
 		locale: 'en_US',
-		image_url: anime?.cover ?? ''
+		image_url: anime?.banner ?? ''
 	}).generate_opengraph();
 </script>
 
