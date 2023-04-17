@@ -15,7 +15,7 @@
 
 <div class="anime_info relative">
 	<div
-		class="relative h-screen rounded-tl-3xl bg-cover"
+		class="relative h-screen bg-cover"
 		style="background-image: url({anime_cover ?? ''});"
 	>
 		<TopRounded class="fixed z-10 text-surface-900" width="1.5vw" height="1.5vw" />
