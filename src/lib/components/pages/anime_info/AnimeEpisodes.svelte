@@ -6,6 +6,7 @@
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
+	import Cross from '$icons/Cross.svelte';
 	import Search from '$icons/Search.svelte';
 	import Warning from '$icons/Warning.svelte';
 </script>
@@ -166,6 +167,33 @@
 					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
 						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
 					</button>
+				</div>
+
+				<div class="mt-[0.7vw]">
+					<div class="flex justify-between items-end">
+						<button class="btn btn-sm mt-[0.3vw] gap-2 p-0 bg-surface-400 w-[7.3125vw] h-[2.25vw] text-[0.875vw] rounded-[0.375vw]">
+							<Cross width="0.9vw" color="surface-50" class="rotate-45" />
+							Create New
+						</button>
+
+						<div class="flex flex-col gap-[0.5vw]">
+							<span class="text-[0.75vw] leading-[0.9vw] text-surface-50">Sort by</span>
+							<button
+								class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
+							>
+								<span>Recent</span>
+								<ChevronDown width="1vw" color="lightgray" />
+							</button>
+						</div>
+					</div>
+
+					<posts>
+						<div class="mt-[1.25vw]">
+							<div class="h-[5vw] w-full rounded-[0.625vw] bg-surface-400">
+								
+							</div>
+						</div>
+					</posts>
 				</div>
 			</div>
 		</div>

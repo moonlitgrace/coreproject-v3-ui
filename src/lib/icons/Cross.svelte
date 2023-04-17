@@ -7,14 +7,14 @@
 	<g filter="url(#filter0_d_2536_5517)">
 		<path
 			d="M11 3L5 9"
-			stroke="#EB5757"
+			stroke="#fff"
 			stroke-width="2"
 			stroke-linecap="round"
 			stroke-linejoin="round"
 		/>
 		<path
 			d="M5 3L11 9"
-			stroke="#EB5757"
+			stroke="#fff"
 			stroke-width="2"
 			stroke-linecap="round"
 			stroke-linejoin="round"
