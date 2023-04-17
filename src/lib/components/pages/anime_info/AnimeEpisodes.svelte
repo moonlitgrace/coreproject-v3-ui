@@ -10,6 +10,7 @@
 	import Search from '$icons/Search.svelte';
 	import Warning from '$icons/Warning.svelte';
 	import MessageCircle from '$icons/MessageCircle.svelte';
+	import PlayCircle from '$icons/PlayCircle.svelte';
 </script>
 
 <div class="my-[6vw]">
@@ -106,7 +107,7 @@
 				style="background-image: url({episode.episode_thumbnail??''})"
 			>
 				<div
-					class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent"
+					class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent group-hover:to-surface-900/50 duration-300"
 				/>
 				<div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
 					<p style="grid-area: 1 / 1 / 2 / 2" class="w-full text-center text-[0.9375vw] font-bold">
@@ -118,6 +119,22 @@
 					>
 						{new formatTime(episode.episode_length).formatSecondsToTimeStampDuration}
 					</p>
+				</div>
+				<div class="absolute z-20 inset-0 grid place-items-center opacity-0 group-hover:opacity-100 duration-300">
+					<button
+						type="button"
+						class="btn bg-surface-900/90 font-bold text-white md:h-[4.3vw] md:w-[7.5vw] md:rounded-[0.625vw] md:text-[0.87vw]"
+					>
+						<div class="flex items-center justify-center md:gap-[0.7vw]">
+							<PlayCircle width="1.875vw" height="1.875vw" color="white" />
+							<div class="flex flex-col items-start">
+								<span class="md:leading-5">Watch</span>
+								<span class="font-normal leading-none text-surface-100 md:text-[0.625vw]"
+									>Ep {episode.episode_number}</span
+								>
+							</div>
+						</div>
+					</button>
 				</div>
 			</div>
 			<span
