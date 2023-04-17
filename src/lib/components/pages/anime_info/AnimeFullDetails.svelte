@@ -95,7 +95,7 @@
 
 				<casts>
 					<div class="mt-[1.875vw]">
-						<div class="grid grid-cols-2 h-[7.5vw] w-[12.5vw] relative rounded-[0.875vw] overflow-hidden">
+						<div class="grid grid-cols-2 gap-[2px] h-[7.5vw] w-[12.5vw] relative rounded-[0.875vw] overflow-hidden">
 							<div
 								class="bg-cover col-span-1 w-full"
 								style="background-image: url(https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png);"
@@ -109,7 +109,7 @@
 								<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.9vw] font-bold w-full absolute bottom-[0.3vw] z-10">Yuuichi Nakamura</span>
 							</div>
 							<div
-								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 
@@ -155,7 +155,7 @@
 						>
 							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Yahari Ore no Seishun Love Come wa Machigatteiru.', 30)}</span>
 							<div
-								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 						<div
@@ -164,7 +164,7 @@
 						>
 							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Suzumiya Haruhi no Yuuutsu', 30)}</span>
 							<div
-								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 					</div>
