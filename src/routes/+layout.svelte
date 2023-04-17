@@ -110,7 +110,7 @@
 <div class="h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
-			<div class="md:h-18 flex items-center justify-between px-[2.1vw] py-[0.9375vw]">
+			<div class="h-18 flex items-center justify-between px-[2.1vw] py-[0.9375vw]">
 				<a href="/">
 					<Logo width="2vw" />
 				</a>
@@ -129,14 +129,14 @@
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex h-full flex-col justify-between py-[2vw] md:w-[6.25vw]">
+			<div class="flex h-full flex-col justify-between py-[2vw] w-[6.25vw]">
 				<div>
 					<div class="flex flex-col items-center gap-5">
 						{#each Object.entries(icon_mapping.top) as item}
 							{@const item_icon = item[1].icon}
 							<button
 								type="button"
-								class="btn-icon btn bg-warning-400 p-0 md:w-[2.5vw] md:rounded-[0.375vw]"
+								class="btn-icon btn bg-warning-400 p-0 w-[2.5vw] rounded-[0.375vw]"
 							>
 								<svelte:component
 									this={item_icon.component}
@@ -163,13 +163,13 @@
 								type="button"
 								class="{is_active
 									? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
-									: 'bg-initial'} btn-icon btn relative rounded-[0.5vw] p-0 md:w-[3.375vw]"
+									: 'bg-initial'} btn-icon btn relative rounded-[0.5vw] p-0 w-[3.375vw]"
 								on:click={() => middle_section_click(item_name)}
 							>
 								<div class="inline-grid">
 									{#if !is_active}
 										<div
-											class="absolute inset-0 flex flex-col items-center justify-center md:gap-[0.75vw]"
+											class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]"
 											transition:blur|local
 										>
 											<svelte:component
@@ -178,7 +178,7 @@
 												width={component_width}
 												color={item_icon.color}
 											/>
-											<span class="capitalize md:text-[0.875vw] md:leading-[1.05vw]">{item_name}</span
+											<span class="capitalize text-[0.875vw] leading-[1.05vw]">{item_name}</span
 											>
 										</div>
 									{:else}
@@ -200,13 +200,13 @@
 					</div>
 				</div>
 
-				<div class="flex flex-col-reverse items-center md:gap-[1.5vw]">
+				<div class="flex flex-col-reverse items-center gap-[1.5vw]">
 					{#each Object.entries(icon_mapping.bottom) as item}
 						{@const item_name = item[0]}
 						{@const item_icon = item[1].icon}
 						<button
 							type="button"
-							class="bg-initial btn-icon btn flex-col justify-center p-0 text-sm md:w-[3.375vw] md:gap-[0.75vw]"
+							class="bg-initial btn-icon btn flex-col justify-center p-0 text-sm w-[3.375vw] gap-[0.75vw]"
 						>
 							<svelte:component
 								this={item_icon.component}
@@ -214,7 +214,7 @@
 								width={item_icon.width}
 								color={item_icon.color}
 							/>
-							<span class="!m-0 capitalize md:text-[0.875vw] md:leading-[1.05vw]">{item_name}</span>
+							<span class="!m-0 capitalize text-[0.875vw] leading-[1.05vw]">{item_name}</span>
 						</button>
 					{/each}
 				</div>
