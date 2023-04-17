@@ -2,6 +2,13 @@
 
 Currently in active development, watch main repo https://github.com/baseplate-admin/CoreProject
 
+## Getting started
+First fork this repo and clone using
+```bash
+git clone https://github.com/your_username/CoreProject-V3-UI/
+cd CoreProject-V3-UI/
+```
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
@@ -13,14 +20,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Contributing
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Pull requests are welcome. <br/> For major changes, please open an issue first to discuss what you would like to change. <br> <br>
+Please make sure to update tests as appropriate.
