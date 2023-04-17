@@ -18,30 +18,38 @@
 	<div class="md:mt-[1.56vw]">
 		<animedetails class="flex flex-col gap-[1.125vw]">
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Format</span> <br> TV
+				<span class="font-semibold text-white">Format</span> <br />
+				TV
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Episodes</span> <br> 22
+				<span class="font-semibold text-white">Episodes</span> <br />
+				22
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Episode Duration</span> <br> 26 mins
+				<span class="font-semibold text-white">Episode Duration</span> <br />
+				26 mins
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Status</span> <br> Finished
+				<span class="font-semibold text-white">Status</span> <br />
+				Finished
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Start Date</span> <br> Apr 23, 2012
+				<span class="font-semibold text-white">Start Date</span> <br />
+				Apr 23, 2012
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">End Date</span> <br> Sep 16, 2012
+				<span class="font-semibold text-white">End Date</span> <br />
+				Sep 16, 2012
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Season</span> <br> Spring 2012
+				<span class="font-semibold text-white">Season</span> <br />
+				Spring 2012
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Studios</span> <br> Kyoto Animation
+				<span class="font-semibold text-white">Studios</span> <br />
+				Kyoto Animation
 			</div>
-			<div class="text-[0.9375vw] flex flex-col text-surface-50">
+			<div class="flex flex-col text-[0.9375vw] text-surface-50">
 				<span class="font-semibold text-white">Producers</span>
 				<span>Lantis</span>
 				<span>Kadokawa Shoten</span>
@@ -50,9 +58,10 @@
 				<span>Animation Do</span>
 			</div>
 			<div class="text-[0.9375vw] text-surface-50">
-				<span class="font-semibold text-white">Source</span> <br> Night Novel
+				<span class="font-semibold text-white">Source</span> <br />
+				Night Novel
 			</div>
-			<div class="text-[0.9375vw] flex flex-col text-surface-50">
+			<div class="flex flex-col text-[0.9375vw] text-surface-50">
 				<span class="font-semibold text-white">Tags</span>
 				<span>School Club <span class="font-semibold">95%</span></span>
 				<span>Detective <span class="font-semibold">91%</span></span>
@@ -68,8 +77,10 @@
 				<span>Rural <span class="font-semibold">52%</span></span>
 				<span>Primarily Teen Cast <span class="font-semibold">50%</span></span>
 				<span>Cosplay <span class="font-semibold">37%</span></span>
-				
-				<button class="btn btn-sm mt-[0.3vw] gap-1 p-0 bg-surface-400 w-[6vw] h-[1.875vw] text-[0.75vw] rounded-[0.375vw]">
+
+				<button
+					class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]"
+				>
 					Load more
 					<ChevronDown width="0.9vw" color="surface-50" />
 				</button>
@@ -85,9 +96,11 @@
 					</button>
 				</div>
 
-				<div class="flex flex-col mt-[1.25vw]">
+				<div class="mt-[1.25vw] flex flex-col">
 					<span class="text-[0.9375vw] text-surface-50">VAs</span>
-					<button class="btn btn-sm mt-[0.3vw] gap-1 p-0 bg-surface-400 w-[6.625vw] h-[2.25vw] text-[0.875vw] rounded-[0.375vw]">
+					<button
+						class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[6.625vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
+					>
 						Japanese
 						<ChevronDown width="0.9vw" color="surface-50" />
 					</button>
@@ -95,43 +108,59 @@
 
 				<casts>
 					<div class="mt-[1.875vw]">
-						<div class="grid grid-cols-2 gap-[2px] h-[7.5vw] w-[12.5vw] relative rounded-[0.875vw] overflow-hidden">
+						<div
+							class="relative grid h-[7.5vw] w-[12.5vw] grid-cols-2 gap-[2px] overflow-hidden rounded-[0.875vw]"
+						>
 							<div
-								class="bg-cover col-span-1 w-full"
-								style="background-image: url(https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png);"
+								class="col-span-1 w-full bg-cover"
+								style="
+									background-image: url(https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png);
+								"
 							>
-								<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.9vw] font-bold w-full absolute bottom-[0.3vw] z-10">Houtarou Oreki</span>
+								<span
+									style="grid-area: 1 / 1 / 2 / 2"
+									class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold"
+									>Houtarou Oreki</span
+								>
 							</div>
 							<div
-								class="bg-cover col-span-1 w-full"
-								style="background-image: url(https://cdn.myanimelist.net/images/voiceactors/1/74056.jpg);"
+								class="col-span-1 w-full bg-cover"
+								style="
+									background-image: url(https://cdn.myanimelist.net/images/voiceactors/1/74056.jpg);
+								"
 							>
-								<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.9vw] font-bold w-full absolute bottom-[0.3vw] z-10">Yuuichi Nakamura</span>
+								<span
+									style="grid-area: 1 / 1 / 2 / 2"
+									class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold"
+									>Yuuichi Nakamura</span
+								>
 							</div>
 							<div
 								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 
-						<div class="flex flex-col mt-[2.5vw]">
-							<div class="w-[6.625vw] h-[2.25vw] flex">
+						<div class="mt-[2.5vw] flex flex-col">
+							<div class="flex h-[2.25vw] w-[6.625vw]">
 								<button
-									class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
 									<ChevronUp width="1vw" color="lightgray" />
 								</button>
 								<button
-									class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
+									class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
 								>
 									01
 								</button>
 								<button
-									class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
 									<ChevronDown width="1vw" color="lightgray" />
 								</button>
 							</div>
-							<span class="text-[0.75vw] mt-[0.9375vw] text-surface-50">Showing 1-5, out of 58 Voiceover Casts</span>
+							<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"
+								>Showing 1-5, out of 58 Voiceover Casts</span
+							>
 						</div>
 					</div>
 				</casts>
@@ -150,44 +179,58 @@
 				<div class="mt-[1.875vw]">
 					<div class="grid grid-cols-2 gap-[1.5vw]">
 						<div
-							class="bg-cover col-span-1 w-full h-[9.375vw] bg-center relative rounded-[0.875vw] overflow-hidden"
-							style="background-image: url(https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg);"
+							class="relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.875vw] bg-cover bg-center"
+							style="
+								background-image: url(https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg);
+							"
 						>
-							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Yahari Ore no Seishun Love Come wa Machigatteiru.', 30)}</span>
+							<span
+								style="grid-area: 1 / 1 / 2 / 2"
+								class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.75vw] font-medium"
+								>{voca.truncate('Yahari Ore no Seishun Love Come wa Machigatteiru.', 30)}</span
+							>
 							<div
 								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 						<div
-							class="bg-cover col-span-1 w-full h-[9.375vw] relative rounded-[0.875vw] overflow-hidden"
-							style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698);"
+							class="relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.875vw] bg-cover"
+							style="
+								background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698);
+							"
 						>
-							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Suzumiya Haruhi no Yuuutsu', 30)}</span>
+							<span
+								style="grid-area: 1 / 1 / 2 / 2"
+								class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.75vw] font-medium"
+								>{voca.truncate('Suzumiya Haruhi no Yuuutsu', 30)}</span
+							>
 							<div
 								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
 							/>
 						</div>
 					</div>
 
-					<div class="flex flex-col mt-[2.5vw]">
-						<div class="w-[6.625vw] h-[2.25vw] flex">
+					<div class="mt-[2.5vw] flex flex-col">
+						<div class="flex h-[2.25vw] w-[6.625vw]">
 							<button
-								class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
 								<ChevronUp width="1vw" color="lightgray" />
 							</button>
 							<button
-								class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
+								class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
 							>
 								01
 							</button>
 							<button
-								class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
 								<ChevronDown width="1vw" color="lightgray" />
 							</button>
 						</div>
-						<span class="text-[0.75vw] mt-[0.9375vw] text-surface-50">Showing 1-8, out of 47 Recommendations</span>
+						<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"
+							>Showing 1-8, out of 47 Recommendations</span
+						>
 					</div>
 				</div>
 			</div>

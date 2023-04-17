@@ -107,7 +107,7 @@
 				style="background-image: url({episode.episode_thumbnail??''})"
 			>
 				<div
-					class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent group-hover:to-surface-900/50 duration-300"
+					class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent duration-300 group-hover:to-surface-900/50"
 				/>
 				<div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
 					<p style="grid-area: 1 / 1 / 2 / 2" class="w-full text-center text-[0.9375vw] font-bold">
@@ -120,7 +120,9 @@
 						{new formatTime(episode.episode_length).formatSecondsToTimeStampDuration}
 					</p>
 				</div>
-				<div class="absolute z-20 inset-0 grid place-items-center opacity-0 group-hover:opacity-100 duration-300">
+				<div
+					class="absolute inset-0 z-20 grid place-items-center opacity-0 duration-300 group-hover:opacity-100"
+				>
 					<button
 						type="button"
 						class="btn bg-surface-900/90 font-bold text-white md:h-[4.3vw] md:w-[7.5vw] md:rounded-[0.625vw] md:text-[0.87vw]"
@@ -159,20 +161,26 @@
 				<div class="mt-[2.5vw]">
 					<form>
 						<textarea
-							class="w-full h-[9vw] leading-[1.5vw] rounded-t-[0.875vw] border-none bg-surface-900 text-[1vw] !p-[1.5625vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50 pb-[2vw]"
+							class="h-[9vw] w-full rounded-t-[0.875vw] border-none bg-surface-900 !p-[1.5625vw] pb-[2vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
 							placeholder="Leave a comment"
 						></textarea>
-						<div class="rounded-b-[0.875vw] bottom-0 h-[1.875vw] w-full bg-surface-400 ring-2 ring-surface-400 z-10" />
+						<div
+							class="bottom-0 z-10 h-[1.875vw] w-full rounded-b-[0.875vw] bg-surface-400 ring-2 ring-surface-400"
+						/>
 
 						<div class="mt-[1.375vw] flex justify-between gap-[1vw]">
 							<div class="flex gap-[0.625vw]">
 								<Warning width="1.2vw" height="1.2vw" />
-								<span class="text-[0.75vw] !leading-[1.125vw] !font-light text-surface-300">
-									Please remember to follow our <a href="/" class="!text-surface-300">community guidelines</a> while commenting. Also please refrain from posting spoilers.
+								<span class="text-[0.75vw] !font-light !leading-[1.125vw] text-surface-300">
+									Please remember to follow our
+									<a href="/" class="!text-surface-300">community guidelines</a> while commenting.
+									Also please refrain from posting spoilers.
 								</span>
 							</div>
 
-							<button class="btn btn-sm bg-primary-500 text-[0.85vw] rounded-[0.375vw] h-[2.2vw] w-[7vw]">
+							<button
+								class="btn btn-sm h-[2.2vw] w-[7vw] rounded-[0.375vw] bg-primary-500 text-[0.85vw]"
+							>
 								Comment
 							</button>
 						</div>
@@ -188,8 +196,10 @@
 				</div>
 
 				<div class="mt-[0.7vw]">
-					<div class="flex justify-between items-end">
-						<button class="btn btn-sm mt-[0.3vw] gap-2 p-0 bg-surface-400 w-[7.3125vw] h-[2.25vw] text-[0.875vw] rounded-[0.375vw]">
+					<div class="flex items-end justify-between">
+						<button
+							class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[7.3125vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
+						>
 							<Cross width="0.9vw" color="surface-50" class="rotate-45" />
 							Create New
 						</button>
@@ -208,26 +218,32 @@
 					<posts>
 						<div class="mt-[1.25vw] flex flex-col gap-[1vw]">
 							{#each Array(2) as _}
-								<div class="h-[5vw] cursor-pointer active:scale-[99%] hover:bg-surface-400 duration-100 flex items-center justify-between p-[0.9375vw] w-full rounded-[0.625vw] bg-surface-400/90">
-									<div class="flex items-center gap-[0.9375vw]">
-										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3d25tDiGpqytyz4lq6xVA7cRfr5ZzUxualk3sGvP9og69mx25t00e-fz5O0fd4up6EGJMQSSDlE&usqp=CAU&ec=48665698" alt="" class="h-[3.125vw] w-[3.125vw] object-cover rounded-[0.375vw]">
+							<div
+								class="flex h-[5vw] w-full cursor-pointer items-center justify-between rounded-[0.625vw] bg-surface-400/90 p-[0.9375vw] duration-100 hover:bg-surface-400 active:scale-[99%]"
+							>
+								<div class="flex items-center gap-[0.9375vw]">
+									<img
+										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3d25tDiGpqytyz4lq6xVA7cRfr5ZzUxualk3sGvP9og69mx25t00e-fz5O0fd4up6EGJMQSSDlE&usqp=CAU&ec=48665698"
+										alt=""
+										class="h-[3.125vw] w-[3.125vw] rounded-[0.375vw] object-cover"
+									/>
 
-										<div class="flex flex-col gap-[0.375vw]">
-											<span class="text-[0.875vw] font-extrabold leading-[1.125vw]">Celebrating 10 years of Hyouka!</span>
-											<span class="leading-[1.125v] text-[0.625vw]">
-												<span>
-													Posted by Eiennlaio	
-												</span>
-												<span class="divider-vertical !border-white ml-1 pl-1">14 hours ago</span>
-											</span>
-										</div>
-									</div>
-
-									<div class="flex flex-col items-center">
-										<MessageCircle width="1.25vw" height="1.25vw" />
-										<span class="text-[0.625vw] leading-[1.125vw] mt-[0.125vw] font-light">69</span>
+									<div class="flex flex-col gap-[0.375vw]">
+										<span class="text-[0.875vw] font-extrabold leading-[1.125vw]"
+											>Celebrating 10 years of Hyouka!</span
+										>
+										<span class="text-[0.625vw] leading-[1.125v]">
+											<span> Posted by Eiennlaio </span>
+											<span class="divider-vertical ml-1 !border-white pl-1">14 hours ago</span>
+										</span>
 									</div>
 								</div>
+
+								<div class="flex flex-col items-center">
+									<MessageCircle width="1.25vw" height="1.25vw" />
+									<span class="mt-[0.125vw] text-[0.625vw] font-light leading-[1.125vw]">69</span>
+								</div>
+							</div>
 							{/each}
 						</div>
 					</posts>
