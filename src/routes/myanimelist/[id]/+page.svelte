@@ -11,11 +11,12 @@
 	let anime = anime_list?.find((anime: any) => anime.id === anime_id);
 
 	const opengraph_html = new OpengraphGenerator({
-		title: 'Hello',
+		title: anime?.name ?? '',
 		page_url: $page.url.href,
-		description: 'random',
+		description: anime?.synopsis ?? '',
 		site_name: 'CoreProject',
-		locale: 'en_US'
+		locale: 'en_US',
+		image_url: anime?.banner ?? ''
 	}).generate_opengraph();
 </script>
 
