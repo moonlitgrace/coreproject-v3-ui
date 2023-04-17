@@ -13,7 +13,7 @@
 	const opengraph_html = new OpengraphGenerator({
 		title: anime?.name ?? '',
 		page_url: $page.url.href,
-		description: 'random',
+		description: anime?.synopsis ?? '',
 		site_name: 'CoreProject',
 		locale: 'en_US'
 	}).generate_opengraph();
