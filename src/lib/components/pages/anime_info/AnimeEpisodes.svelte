@@ -208,7 +208,7 @@
 					<posts>
 						<div class="mt-[1.25vw] flex flex-col gap-[1vw]">
 							{#each Array(2) as _}
-								<div class="h-[5vw] flex items-center justify-between p-[0.9375vw] w-full rounded-[0.625vw] bg-surface-400">
+								<div class="h-[5vw] cursor-pointer active:scale-[99%] hover:bg-surface-400 duration-100 flex items-center justify-between p-[0.9375vw] w-full rounded-[0.625vw] bg-surface-400/90">
 									<div class="flex items-center gap-[0.9375vw]">
 										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3d25tDiGpqytyz4lq6xVA7cRfr5ZzUxualk3sGvP9og69mx25t00e-fz5O0fd4up6EGJMQSSDlE&usqp=CAU&ec=48665698" alt="" class="h-[3.125vw] w-[3.125vw] object-cover rounded-[0.375vw]">
 
