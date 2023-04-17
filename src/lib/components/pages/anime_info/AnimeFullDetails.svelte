@@ -1,4 +1,6 @@
 <script>
+	import voca from 'voca';
+
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
@@ -134,5 +136,60 @@
 				</casts>
 			</div>
 		</voiceovercase>
+
+		<recommendations>
+			<div class="mt-[2.5vw]">
+				<div class="flex items-center gap-3">
+					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Recommendations</span>
+					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+					</button>
+				</div>
+
+				<div class="mt-[1.875vw]">
+					<div class="grid grid-cols-2 gap-[1.5vw]">
+						<div
+							class="bg-cover col-span-1 w-full h-[9.375vw] bg-center relative rounded-[0.875vw] overflow-hidden"
+							style="background-image: url(https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg);"
+						>
+							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Yahari Ore no Seishun Love Come wa Machigatteiru.', 30)}</span>
+							<div
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+							/>
+						</div>
+						<div
+							class="bg-cover col-span-1 w-full h-[9.375vw] relative rounded-[0.875vw] overflow-hidden"
+							style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698);"
+						>
+							<span style="grid-area: 1 / 1 / 2 / 2;" class="text-center text-[0.75vw] font-medium w-full absolute bottom-[0.3vw] z-10">{voca.truncate('Suzumiya Haruhi no Yuuutsu', 30)}</span>
+							<div
+								class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-transparent"
+							/>
+						</div>
+					</div>
+
+					<div class="flex flex-col mt-[2.5vw]">
+						<div class="w-[6.625vw] h-[2.25vw] flex">
+							<button
+								class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+							>
+								<ChevronDown width="1vw" color="lightgray" />
+							</button>
+							<button
+								class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
+							>
+								01
+							</button>
+							<button
+								class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
+							>
+								<ChevronDown width="1vw" color="lightgray" />
+							</button>
+						</div>
+						<span class="text-[0.75vw] mt-[0.9375vw] text-surface-50">Showing 1-8, out of 47 Recommendations</span>
+					</div>
+				</div>
+			</div>
+		</recommendations>
 	</div>
 </div>
