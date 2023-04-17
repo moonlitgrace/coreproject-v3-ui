@@ -4,6 +4,7 @@
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
+	import ChevronUp from '$icons/Chevron-Up.svelte';
 </script>
 
 <div class="md:my-[6vw]">
@@ -117,7 +118,7 @@
 								<button
 									class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
-									<ChevronDown width="1vw" color="lightgray" />
+									<ChevronUp width="1vw" color="lightgray" />
 								</button>
 								<button
 									class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
@@ -173,7 +174,7 @@
 							<button
 								class="btn btn-icon w-full h-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
-								<ChevronDown width="1vw" color="lightgray" />
+								<ChevronUp width="1vw" color="lightgray" />
 							</button>
 							<button
 								class="btn btn-icon w-full h-full rounded-none bg-surface-400 p-0 font-semibold text-[1vw] leading-[0.9vw]"
