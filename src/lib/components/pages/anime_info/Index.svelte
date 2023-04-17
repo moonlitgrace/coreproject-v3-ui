@@ -9,14 +9,16 @@
 
 	export let anime_episodes: any;
 
+	import TopRounded from '$icons/TopRounded.svelte';
 	import AnimeMainDetails from './AnimeMainDetails.svelte';
 </script>
 
-<div class="anime_info">
+<div class="anime_info relative">
 	<div
 		class="relative h-screen rounded-tl-3xl bg-cover"
 		style="background-image: url({anime_cover ?? ''});"
 	>
+		<TopRounded class="fixed z-10 text-surface-900" width="1.5vw" height="1.5vw" />
 		<div
 			class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50"
 		/>
