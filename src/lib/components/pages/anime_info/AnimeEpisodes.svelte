@@ -153,7 +153,7 @@
 								</span>
 							</div>
 
-							<button class="btn btn-sm bg-primary-500 text-[0.75vw] rounded-[0.375vw] h-max">
+							<button class="btn btn-sm bg-primary-500 text-[0.85vw] rounded-[0.375vw] h-[2.2vw] w-[7vw]">
 								Comment
 							</button>
 						</div>
