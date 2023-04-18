@@ -31,7 +31,7 @@
 <div
 	on:scroll={onScroll}
 	class="{parentClass} {offsetScrollbar
-		? 'pr-3'
+		? 'pr-[0.75vw]'
 		: 'pr-0'} scrollbar overflow-hidden overflow-y-scroll overscroll-y-contain {scrollbar_type}"
 >
 	<div class="{klass} whitespace-pre-line">
