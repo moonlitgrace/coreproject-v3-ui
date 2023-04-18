@@ -2,13 +2,21 @@
 	import PlayCircle from "$icons/PlayCircle.svelte";
 	import Info from '$icons/Info.svelte';
 	import Edit from '$icons/Edit.svelte';
+	import ChevronLeft from "$icons/Chevron-Left.svelte";
+	import ChevronRight from "$icons/Chevron-Right.svelte";
 </script>
 
 <div>
-	<div class="relative w-[42.1875vw] h-[25.875vw] bg-cover bg-center rounded-[0.875vw] border-b-[0.2vw] border-surface-50" style="background-image: url('https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg')">
+	<div class="relative flex items-center w-[42.1875vw] h-[25.875vw] bg-cover bg-center rounded-[0.875vw] border-b-[0.2vw] border-surface-50" style="background-image: url('https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg')">
 		<div
 			class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
 		/>
+		<button class="btn btn-icon absolute -left-[1vw] z-20 w-[2.25vw] h-[2.25vw] bg-secondary-800 rounded-[0.375vw]">
+			<ChevronLeft width="1.25vw" height="1.25vw" color="text-white" />
+		</button>
+		<button class="btn btn-icon absolute -right-[1vw] z-20 w-[2.25vw] h-[2.25vw] bg-secondary-800 rounded-[0.375vw]">
+			<ChevronRight width="1.25vw" height="1.25vw" color="text-white" />
+		</button>
 		<div class="absolute bottom-0 px-[3.75vw] py-[2.625vw]">
 			<span class="text-[2vw] font-bold leading-[2.375vw]">Kimetsu no Yaiba</span>
 			<p class="flex flex-wrap items-center gap-2 md:pt-[0.5vw]">
