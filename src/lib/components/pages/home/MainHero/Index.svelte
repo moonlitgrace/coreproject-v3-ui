@@ -6,13 +6,13 @@
 
 
 <div class="flex justify-between">
-	<div class="col-span-6">
+	<div>
 		<LatestAnimes />
 	</div>
-	<div class="col-span-3 hidden">
+	<div>
 		<LatestEpisodes />
 	</div>
-	<div class="col-span-3 hidden">
+	<div>
 		<NavigationCard />
 	</div>
 </div>
