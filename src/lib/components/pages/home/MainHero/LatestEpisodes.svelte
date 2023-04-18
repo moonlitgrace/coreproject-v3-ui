@@ -123,8 +123,10 @@
 		</GradientCard>
 	</ScrollArea>
 
-	<div class="flex items-start justify-between gap-[2vw] mt-[1.25vw] pr-[0.75vw]">
-		<span class="text-[0.75vw] font-semibold">showing recently aired episodes from your Anime List</span>
+	<div class="mt-[1.25vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
+		<span class="text-[0.75vw] font-semibold"
+			>showing recently aired episodes from your Anime List</span
+		>
 		<button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
 	</div>
 </div>

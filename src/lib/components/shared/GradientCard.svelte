@@ -7,15 +7,16 @@
 	export let height = '100%';
 	export let rounded = '10px';
 	let klass: string;
-	export {klass as class}
+	export { klass as class };
 
-	$: console.log(rounded)
+	$: console.log(rounded);
 </script>
 
-<div class="{klass} relative flex items-center w-[{width}] h-[{height}] bg-cover bg-center rounded-[{rounded}] overflow-hidden" style="background-image: url({backgroundImage})">
-	<div
-		class="gradient absolute h-full w-full {direction} {fromColor} {toColor}"
-	/>
+<div
+	class="{klass} w-[{width}] h-[{height}] rounded-[{rounded}] relative flex items-center overflow-hidden bg-cover bg-center"
+	style="background-image: url({backgroundImage})"
+>
+	<div class="gradient {direction} {fromColor} {toColor} absolute h-full w-full" />
 	<div class="absolute w-full">
 		<slot />
 	</div>

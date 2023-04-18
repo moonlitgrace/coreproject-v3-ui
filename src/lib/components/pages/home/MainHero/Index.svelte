@@ -1,9 +1,8 @@
 <script>
-	import LatestAnimes from "./LatestAnimes.svelte";
-	import LatestEpisodes from "./LatestEpisodes.svelte";
-	import NavigationCard from "./NavigationCard.svelte";
+	import LatestAnimes from './LatestAnimes.svelte';
+	import LatestEpisodes from './LatestEpisodes.svelte';
+	import NavigationCard from './NavigationCard.svelte';
 </script>
-
 
 <div class="flex justify-between">
 	<div>
