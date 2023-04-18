@@ -1,5 +1,10 @@
 <script>
-	
+	import LatestAnimes from "./LatestAnimes.svelte";
+	import LatestEpisodes from "./LatestEpisodes.svelte";
+	import NavigationCard from "./NavigationCard.svelte";
 </script>
 
-<h2>Main Hero</h2>
+
+<LatestAnimes />
+<LatestEpisodes />
+<NavigationCard />

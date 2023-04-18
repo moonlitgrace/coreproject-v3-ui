@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HomePage from '$components/pages/home/MainHero/Index.svelte';
+	import HomePage from '$components/pages/home/Index.svelte';
 </script>
 
 <HomePage />
