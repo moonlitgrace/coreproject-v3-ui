@@ -16,7 +16,7 @@
 	<div
 		class="gradient absolute h-full w-full {direction} {fromColor} {toColor}"
 	/>
-	<div class="absolute">
+	<div class="absolute w-full">
 		<slot />
 	</div>
 </div>
