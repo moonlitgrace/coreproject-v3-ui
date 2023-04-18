@@ -5,6 +5,14 @@
 </script>
 
 
-<LatestAnimes />
-<LatestEpisodes />
-<NavigationCard />
+<div class="flex justify-between">
+	<div class="col-span-6">
+		<LatestAnimes />
+	</div>
+	<div class="col-span-3 hidden">
+		<LatestEpisodes />
+	</div>
+	<div class="col-span-3 hidden">
+		<NavigationCard />
+	</div>
+</div>

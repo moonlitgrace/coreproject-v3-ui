@@ -2,4 +2,6 @@
 	import HomePage from '$components/pages/home/Index.svelte';
 </script>
 
-<HomePage />
+<div class="p-[1.25vw]">
+	<HomePage />
+</div>
