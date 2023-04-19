@@ -92,4 +92,13 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50 bg-surface-50" />
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+		<div class="w-[6.25vw] h-[0.625vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+	</div>
 </div>

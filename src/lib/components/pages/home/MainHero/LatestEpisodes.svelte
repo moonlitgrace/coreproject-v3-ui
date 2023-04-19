@@ -21,7 +21,7 @@
 		</button>
 	</div>
 
-	<ScrollArea offsetScrollbar parentClass="mt-[1.75vw]" class="max-h-[21.5625vw]">
+	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw]" class="max-h-[21.5625vw]">
 		<GradientCard
 			backgroundImage="https://dwgkfo5b3odmw.cloudfront.net/img/manga_series_header/632-SJ_SpyFamily_2000x800_jpg_wm"
 			height="5vw"
@@ -123,7 +123,7 @@
 		</GradientCard>
 	</ScrollArea>
 
-	<div class="mt-[1.25vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
+	<div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
 		<span class="text-[0.75vw] font-semibold"
 			>showing recently aired episodes from your Anime List</span
 		>
