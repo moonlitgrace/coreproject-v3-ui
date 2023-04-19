@@ -1,4 +1,6 @@
 <script>
+
+	import GradientCard from '$components/shared/GradientCard.svelte';
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import ChevronDown from '$icons/Chevron-Down.svelte';
@@ -26,5 +28,21 @@
 				<ArrowUpRight width="1vw" />
 			</button>
 		</div>
+	</div>
+
+	<div class="mt-[1.5vw] mb-[2vw]">
+		<GradientCard
+			backgroundImage="https://e0.pxfuel.com/wallpapers/822/772/desktop-wallpaper-akagami-no-shirayuki-hime-akagami-no-shirayukihime-thumbnail.jpg"
+			rounded="0.875vw"
+			class="w-[8.4375vw] h-[12.5vw]"
+			fromColor="from-surface-900"
+			toColor="to-surface-900/0"
+			direction="bg-gradient-to-tr"
+		>
+			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+				<span class="text-[1vw] font-semibold text-center">Akagami no Shirayuki-hime</span>
+				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">11/12</span>
+			</div>
+		</GradientCard>
 	</div>
 </div>
