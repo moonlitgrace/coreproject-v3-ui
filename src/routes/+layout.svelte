@@ -110,7 +110,7 @@
 <div class="h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
-			<div class="h-18 flex items-center justify-between px-[2.1vw] py-[0.9375vw]">
+			<div class="h-18 flex items-center justify-between pl-[2.1vw] pr-[3.75vw] py-[0.9375vw]">
 				<a href="/">
 					<Logo width="2vw" />
 				</a>
@@ -123,7 +123,7 @@
 					rounded="rounded-[0.375vw]"
 					width="w-[3.125vw]"
 					cursor="cursor-pointer"
-					src="https://i.pinimg.com/236x/ab/71/15/ab7115dcb42174aa79981bc219993b6d.jpg"
+					src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
 					initials="JD"
 				/>
 			</div>
