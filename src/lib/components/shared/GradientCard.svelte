@@ -15,10 +15,10 @@
 
 <div
 	class="{klass} w-[{width}] h-[{height}] rounded-[{rounded}] relative flex items-center overflow-hidden bg-cover bg-center"
-	style="background-image: url({backgroundImage})"
+	style="background-image: url({backgroundImage ?? ''})"
 >
 	<div class="gradient {direction} {directionTwo} {fromColor} {toColor} absolute h-full w-full" />
-	<div class="absolute w-full">
+	<div class="absolute w-full h-full">
 		<slot />
 	</div>
 </div>
