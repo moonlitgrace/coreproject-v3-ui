@@ -6,6 +6,12 @@
 	import { formatDate } from '$functions/formatDate';
 	import voca from 'voca';
 
+	import { ProgressBar } from '@skeletonlabs/skeleton';
+
+	import { Timer as EasyTimer } from "easytimer.js";
+    import { onDestroy, onMount } from "svelte";
+    import { timer as timerStore } from "$store/Timer";
+
 	// icons
 	import PlayCircle from '$icons/PlayCircle.svelte';
 	import Info from '$icons/Info.svelte';
@@ -13,6 +19,8 @@
 	import ChevronLeft from '$icons/Chevron-Left.svelte';
 	import ChevronRight from '$icons/Chevron-Right.svelte';
 
+
+	// Slider codes //
 	let mainHeroSlideActiveIndex = 0;
     let mainHeroRootElement: HTMLElement;
 
@@ -40,19 +48,62 @@
             minusOneToMainHeroSlideActiveIndex();
         }
     };
+
+    // Progress bar code //
+    const SWIPER_DELAY = 10;
+    let progressValue = 0;
+
+    let timer = new EasyTimer({
+        target: {
+            seconds: SWIPER_DELAY
+        },
+        precision: "secondTenths"
+    });
+
+    timer.on("targetAchieved", () => {
+    	// change slider
+        addOneToMainHeroSlideActiveIndex();
+    });
+
+    timer.on("secondTenthsUpdated", () => {
+        const time = timer.getTotalTimeValues().secondTenths;
+        const value = (100 / SWIPER_DELAY) * (time / 10);
+        progressValue = value;
+    });
+
+    $: {
+        switch ($timerStore) {
+            case "start":
+                timer?.start();
+                break;
+            case "pause":
+                timer?.pause();
+                break;
+            case "reset":
+                timer?.reset();
+                timer?.start();
+                break;
+        }
+    }
+    onMount(() => {
+        $timerStore = "start";
+    });
+    onDestroy(() => {
+        timer.reset();
+        timer.stop();
+    });
 </script>
 
 <div
 	bind:this={mainHeroRootElement}
     use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
     on:swipe={swipeHandler}
-    transition:blur|local
     class="relative items-center h-[25.875vw] w-[42.1875vw]"
 >	
 	{#each latest_animes as anime, index}
 		{#if index === mainHeroSlideActiveIndex}
 			<div
-				class="flex relative h-full w-full items-center rounded-[0.875vw] border-b-[0.2vw] border-surface-50 bg-cover bg-center"
+				class="flex relative h-full w-full items-center rounded-[0.875vw] bg-cover bg-center"
 				style="
 					background-image: url('{anime.cover ?? ''}');
 				"
@@ -124,6 +175,10 @@
 			</div>
 		{/if}
 	{/each}
+
+	<div>
+		<ProgressBar label="Progress Bar" value={progressValue} max={100} />
+	</div>
 
 	<button
 		class="btn btn-icon absolute -left-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
