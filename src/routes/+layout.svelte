@@ -117,25 +117,37 @@
 			profile: {
 				name: 'Profile',
 				icon: {
-					component: Person
+					component: Person,
+					width: '1.25vw',
+					height: '1.25vw',
+					color: 'white'
 				}
 			},
 			my_list: {
 				name: 'My List',
 				icon: {
-					component: List
+					component: List,
+					width: '1.5vw',
+					height: '1.5vw',
+					color: 'white'
 				}
 			},
 			theme: {
 				name: 'Theme',
 				icon: {
-					component: Moon
+					component: Moon,
+					width: '1.1vw',
+					height: '1.1vw',
+					color: 'white'
 				}
 			},
 			settings: {
 				name: 'Settings',
 				icon: {
-					component: SettingsOutline
+					component: SettingsOutline,
+					width: '1.1vw',
+					height: '1.1vw',
+					color: 'white'
 				}
 			}
 		}
@@ -198,7 +210,9 @@
 							<div class="flex items-center gap-[0.7vw] cursor-pointer hover:bg-surface-300/20 p-[0.5vw] rounded-[0.2vw]">
 								<svelte:component 
 									this={item_icon.component}
-									width={"1.5vw"}
+									width={item_icon.width}
+									height={item_icon.height}
+									color={item_icon.color}
 								/>
 								<span class="text-[1vw] font-medium">{item_name}</span>
 							</div>
