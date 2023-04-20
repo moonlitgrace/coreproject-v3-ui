@@ -115,21 +115,25 @@
 		},
 		profile_dropdown: {
 			profile: {
+				name: 'Profile',
 				icon: {
 					component: Person
 				}
 			},
 			my_list: {
+				name: 'My List',
 				icon: {
 					component: List
 				}
 			},
 			theme: {
+				name: 'Theme',
 				icon: {
 					component: Moon
 				}
 			},
 			settings: {
+				name: 'Settings',
 				icon: {
 					component: SettingsOutline
 				}
@@ -140,34 +144,6 @@
 	async function middle_section_click(item: string) {
 		active_button = item as typeof active_button;
 	}
-
-	// async function profile_button_click(event: MouseEvent) {
-	// 	// check if dropdown is not clicked
-	// 	if (typeof document !== 'undefined' && !(event.target as HTMLElement).closest('.dropdown') && !(event.target as HTMLElement).closest('.avatar')) {
-	// 		active_profile_dropdown = false;
-	// 	}
-	// }
-
-	// // adding and removing click event for dropdown
-	// onMount(() => {
-	//     if (typeof document !== 'undefined') {
-	//       document.addEventListener('click', profile_button_click);
-	//     }
-	//     return () => {
-	//       if (typeof document !== 'undefined') {
-	//         document.removeEventListener('click', profile_button_click);
-	//       }
-	//     };
-  	// });
-
-  	// onDestroy(() => {
-	//     if (typeof document !== 'undefined') {
-	//       document.removeEventListener('click', profile_button_click);
-	//     }
-  	// });
-
-  	// on:click={() => { active_profile_dropdown = !active_profile_dropdown }}
-
 
 	let popupSettings: PopupSettings = {
 		// Set the event as: click | hover | hover-click | focus | focus-click
@@ -217,14 +193,14 @@
 					<div class="mt-[1vw]">
 						{#each Object.entries(icon_mapping.profile_dropdown) as item}
 							{@const item_icon = item[1].icon}
-							{@const item_name = item[0]}
+							{@const item_name = item[1].name}
 
 							<div class="flex items-center gap-[0.7vw] cursor-pointer hover:bg-surface-300/20 p-[0.5vw] rounded-[0.2vw]">
 								<svelte:component 
 									this={item_icon.component}
 									width={"1.5vw"}
 								/>
-								<span class="text-[1vw] font-medium capitalize">{item_name}</span>
+								<span class="text-[1vw] font-medium">{item_name}</span>
 							</div>
 						{/each}
 					</div>
