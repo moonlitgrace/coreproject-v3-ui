@@ -1,0 +1,36 @@
+export const latest_animes = [
+	{
+	  "id": 0,
+	  "mal_id": 0,
+	  "anilist_id": 0,
+	  "kitsu_id": 0,
+	  "name": "string",
+	  "name_japanese": "",
+	  "source": "string",
+	  "aired_from": "2023-04-20T15:38:51.162Z",
+	  "aired_to": "2023-04-20T15:38:51.162Z",
+	  "banner": "string",
+	  "cover": "string",
+	  "banner_background_color": "string",
+	  "cover_background_color": "string",
+	  "synopsis": "string",
+	  "background": "string",
+	  "rating": "",
+	  "updated": "2023-04-20T15:38:51.162Z",
+	  "name_synonyms": [],
+	  "genres": "string",
+	  "themes": "string",
+	  "characters": "string",
+	  "studios": "string",
+	  "producers": "string",
+	  "staffs": "string",
+	  "recommendations": [
+	    0
+	  ],
+	  "episodes": "string",
+	  "openings": [],
+	  "endings": [],
+	  "episodes_count": 0,
+	  "average_episode_length": 0
+	},
+]
