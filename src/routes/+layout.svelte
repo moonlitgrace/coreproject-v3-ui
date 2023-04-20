@@ -187,7 +187,7 @@
 					/>
 				</button>
 
-				<div class="w-[12vw] !left-[84.5vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 py-[1.125vw] px-[0.75vw]" data-popup="profileDropdown">
+				<div class="w-[12vw] !left-[84.5vw] !top-[4.5vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 py-[1.125vw] px-[0.75vw]" data-popup="profileDropdown">
 					<div class="flex gap-[0.8vw]">
 						<Avatar
 							rounded="rounded-[0.375vw]"
