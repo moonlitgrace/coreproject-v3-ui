@@ -9,6 +9,7 @@
 	import { AppShell, Avatar } from '@skeletonlabs/skeleton';
 
 	import { blur } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from "svelte";
 
 	// import icons
@@ -137,7 +138,6 @@
 	async function profile_button_click(event: MouseEvent) {
 		// check if dropdown is not clicked
 		if (typeof document !== 'undefined' && !(event.target as HTMLElement).closest('.dropdown') && !(event.target as HTMLElement).closest('.avatar')) {
-			console.log('click outside called')
 			active_profile_dropdown = false;
 		}
 	}
@@ -184,8 +184,7 @@
 				/>
 
 				{#if active_profile_dropdown}
-					<div class="dropdown absolute w-[12vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 right-[3.5vw] top-[4.7vw] py-[1.125vw] px-[0.75vw]">
-						
+					<div class="dropdown absolute w-[12vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 right-[3.5vw] top-[4.7vw] py-[1.125vw] px-[0.75vw]" transition:blur>
 						<div class="flex gap-[0.8vw]">
 							<Avatar
 								rounded="rounded-[0.375vw]"
