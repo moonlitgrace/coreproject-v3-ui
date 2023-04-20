@@ -10,7 +10,14 @@
 
 	import { blur } from 'svelte/transition';
 	import { fade } from 'svelte/transition';
-	import { onMount, onDestroy } from "svelte";
+
+	// skeleton and floating-ui
+	import { popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// import icons
 	import AnimeCore from '$icons/AnimeCore.svelte';
@@ -33,7 +40,6 @@
 		| keyof typeof icon_mapping.middle
 		| keyof typeof icon_mapping.bottom = 'home';
 
-	let active_profile_dropdown = false;
 
 	const icon_mapping = {
 		top: {
@@ -135,30 +141,41 @@
 		active_button = item as typeof active_button;
 	}
 
-	async function profile_button_click(event: MouseEvent) {
-		// check if dropdown is not clicked
-		if (typeof document !== 'undefined' && !(event.target as HTMLElement).closest('.dropdown') && !(event.target as HTMLElement).closest('.avatar')) {
-			active_profile_dropdown = false;
-		}
-	}
+	// async function profile_button_click(event: MouseEvent) {
+	// 	// check if dropdown is not clicked
+	// 	if (typeof document !== 'undefined' && !(event.target as HTMLElement).closest('.dropdown') && !(event.target as HTMLElement).closest('.avatar')) {
+	// 		active_profile_dropdown = false;
+	// 	}
+	// }
 
-	// adding and removing click event for dropdown
-	onMount(() => {
-	    if (typeof document !== 'undefined') {
-	      document.addEventListener('click', profile_button_click);
-	    }
-	    return () => {
-	      if (typeof document !== 'undefined') {
-	        document.removeEventListener('click', profile_button_click);
-	      }
-	    };
-  	});
+	// // adding and removing click event for dropdown
+	// onMount(() => {
+	//     if (typeof document !== 'undefined') {
+	//       document.addEventListener('click', profile_button_click);
+	//     }
+	//     return () => {
+	//       if (typeof document !== 'undefined') {
+	//         document.removeEventListener('click', profile_button_click);
+	//       }
+	//     };
+  	// });
 
-  	onDestroy(() => {
-	    if (typeof document !== 'undefined') {
-	      document.removeEventListener('click', profile_button_click);
-	    }
-  	});
+  	// onDestroy(() => {
+	//     if (typeof document !== 'undefined') {
+	//       document.removeEventListener('click', profile_button_click);
+	//     }
+  	// });
+
+  	// on:click={() => { active_profile_dropdown = !active_profile_dropdown }}
+
+
+	let popupSettings: PopupSettings = {
+		// Set the event as: click | hover | hover-click | focus | focus-click
+		event: 'click',
+		// Provide a matching 'data-popup' value.
+		target: 'profileDropdown'
+	};
+
 </script>
 
 <div class="h-screen wrapper">
@@ -173,48 +190,45 @@
 					<AnimeCore width="10vw" />
 				</a>
 
-				<Avatar
-					rounded="rounded-[0.375vw]"
-					width="w-[3.125vw]"
-					cursor="cursor-pointer"
-					src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
-					initials="JD"
-					on:click={() => { active_profile_dropdown = !active_profile_dropdown }}
-					class="avatar"
-				/>
+				<button class="avatar" use:popup={popupSettings}>
+					<Avatar
+						rounded="rounded-[0.375vw]"
+						width="w-[3.125vw]"
+						src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
+						initials="JD"
+					/>
+				</button>
 
-				{#if active_profile_dropdown}
-					<div class="dropdown absolute w-[12vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 right-[3.5vw] top-[4.7vw] py-[1.125vw] px-[0.75vw]" transition:blur>
-						<div class="flex gap-[0.8vw]">
-							<Avatar
-								rounded="rounded-[0.375vw]"
-								width="w-[2.5vw]"
-								cursor="cursor-pointer"
-								src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
-								initials="JD"
-							/>
-							<div class="flex flex-col">
-								<span class="text-[0.9vw] font-semibold">Username</span>
-								<span class="text-[0.8vw] font-medium">email@domain.xyz</span>
-							</div>
-						</div>
-
-						<div class="mt-[1vw]">
-							{#each Object.entries(icon_mapping.profile_dropdown) as item}
-								{@const item_icon = item[1].icon}
-								{@const item_name = item[0]}
-
-								<div class="flex items-center gap-[0.7vw] cursor-pointer hover:bg-surface-300/20 p-[0.5vw] rounded-[0.2vw]">
-									<svelte:component 
-										this={item_icon.component}
-										width={"1.5vw"}
-									/>
-									<span class="text-[1vw] font-medium capitalize">{item_name}</span>
-								</div>
-							{/each}
+				<div class="w-[12vw] !left-[84.5vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 py-[1.125vw] px-[0.75vw]" data-popup="profileDropdown">
+					<div class="flex gap-[0.8vw]">
+						<Avatar
+							rounded="rounded-[0.375vw]"
+							width="w-[2.5vw]"
+							cursor="cursor-pointer"
+							src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
+							initials="JD"
+						/>
+						<div class="flex flex-col">
+							<span class="text-[0.9vw] font-semibold">Username</span>
+							<span class="text-[0.8vw] font-medium">email@domain.xyz</span>
 						</div>
 					</div>
-				{/if}
+
+					<div class="mt-[1vw]">
+						{#each Object.entries(icon_mapping.profile_dropdown) as item}
+							{@const item_icon = item[1].icon}
+							{@const item_name = item[0]}
+
+							<div class="flex items-center gap-[0.7vw] cursor-pointer hover:bg-surface-300/20 p-[0.5vw] rounded-[0.2vw]">
+								<svelte:component 
+									this={item_icon.component}
+									width={"1.5vw"}
+								/>
+								<span class="text-[1vw] font-medium capitalize">{item_name}</span>
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
