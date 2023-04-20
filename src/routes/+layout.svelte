@@ -207,14 +207,15 @@
 							{@const item_icon = item[1].icon}
 							{@const item_name = item[1].name}
 
-							<div class="flex items-center gap-[0.7vw] cursor-pointer hover:bg-surface-300/20 p-[0.5vw] rounded-[0.2vw]">
+							<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-200 p-[0.5vw] rounded-[0.2vw]">
 								<svelte:component 
 									this={item_icon.component}
 									width={item_icon.width}
 									height={item_icon.height}
 									color={item_icon.color}
+									class="col-span-1"
 								/>
-								<span class="text-[1vw] font-medium">{item_name}</span>
+								<span class="text-[1vw] font-medium col-span-4">{item_name}</span>
 							</div>
 						{/each}
 					</div>
