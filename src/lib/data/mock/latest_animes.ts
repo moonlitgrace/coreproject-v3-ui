@@ -42,7 +42,7 @@ export const latest_animes = [
 		mal_id: 23273,
 		anilist_id: null,
 		kitsu_id: null,
-		"name": 'Your Lie in April',
+		"name": 'Hyouka',
 		name_japanese: '四月は君の嘘',
 		source: "TV",
 		"aired_from": "2023-08-20T15:38:51.162Z",

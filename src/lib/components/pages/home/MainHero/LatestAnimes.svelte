@@ -5,6 +5,7 @@
 	import { formatDate } from '$functions/formatDate';
 	import voca from 'voca';
 
+	// skeleton
 	import { ProgressBar } from '@skeletonlabs/skeleton';
 
 	import { Timer as EasyTimer } from "easytimer.js";
