@@ -8,8 +8,6 @@
 	export let rounded = '10px';
 	let klass: string;
 	export { klass as class };
-
-	$: console.log(rounded);
 </script>
 
 <div
