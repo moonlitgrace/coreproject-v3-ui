@@ -2,7 +2,6 @@
 		
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { swipe } from "svelte-gestures";
-	import { blur } from "svelte/transition";
 	import { formatDate } from '$functions/formatDate';
 	import voca from 'voca';
 
@@ -22,7 +21,6 @@
 
 	// Slider codes //
 	let mainHeroSlideActiveIndex = 0;
-    let mainHeroRootElement: HTMLElement;
 
     const addOneToMainHeroSlideActiveIndex = () => {
         if (mainHeroSlideActiveIndex + 1 === latest_animes.length) {
@@ -95,7 +93,6 @@
 </script>
 
 <div
-	bind:this={mainHeroRootElement}
     use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
     on:swipe={swipeHandler}
     class="relative items-center h-[25.875vw] w-[42.1875vw]"
