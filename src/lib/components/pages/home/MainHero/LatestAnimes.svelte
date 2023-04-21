@@ -100,6 +100,15 @@
     });
 </script>
 
+<svelte:window
+    on:focus={() => {
+        $timerStore = "start";
+    }}
+    on:blur={() => {
+        $timerStore = "pause";
+    }}
+/>
+
 <div class="h-[27.875vw] w-[42.1875vw]">
 	<div
 	    use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
