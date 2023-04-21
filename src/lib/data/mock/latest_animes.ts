@@ -70,7 +70,7 @@ export const latest_animes = [
 		"name": 'Jujutsu Kaisen',
 		type: "TV",
 		"aired_from": "2014-11-20T15:38:51.162Z",
-		"cover": 'https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDQ0NTI1OTEyMDczODYy/attack-on-titan-season-1-review.jpg',
+		"cover": 'https://images.ottplay.com/articles/2021q2/5_reasons_every_anim_OTTplay_news_cover_image_1_688.jpeg',
 		"synopsis":
 			`Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
 		updated: '2020-10-3T02:37:40.790Z',
