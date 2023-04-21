@@ -159,7 +159,7 @@
 
 	let popupSettings: PopupSettings = {
 		// Set the event as: click | hover | hover-click | focus | focus-click
-		event: 'hover-click',
+		event: 'click',
 		// Provide a matching 'data-popup' value.
 		target: 'profileDropdown'
 	};
