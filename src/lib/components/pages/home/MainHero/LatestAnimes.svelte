@@ -124,6 +124,12 @@
 						grid-area: 1 / 1 / 1000 / 1;
 					"
 					transition:blur
+					on:mouseenter={() => {
+						$timerStore = "pause";
+					}}
+					on:mouseleave={() => {
+						$timerStore = "start";
+					}}
 				>
 					<div
 						class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
