@@ -130,6 +130,12 @@
 					on:mouseleave={() => {
 						$timerStore = "start";
 					}}
+					on:touchstart={() => {
+						$timerStore = "pause";
+					}}
+					on:touchend={() => {
+						$timerStore = "start";
+					}}
 				>
 					<div
 						class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
@@ -204,7 +210,7 @@
 		</div>
 
 		<button
-			class="btn btn-icon absolute -left-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
+			class="btn btn-icon absolute -left-[1vw] top-[12vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
 				timer?.reset();
                 timer?.start();
@@ -218,7 +224,7 @@
 			/>
 		</button>
 		<button
-			class="btn btn-icon absolute -right-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
+			class="btn btn-icon absolute -right-[1vw] top-[12vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
 				timer?.reset();
                 timer?.start();

@@ -84,7 +84,7 @@ export const latest_animes = [
 		"name": 'Death Note',
 		type: "TV",
 		"aired_from": "2006-11-4T15:38:51.162Z",
-		"cover": 'https://images.ottplay.com/articles/2021q2/5_reasons_every_anim_OTTplay_news_cover_image_1_688.jpeg',
+		"cover": 'https://static1.cbrimages.com/wordpress/wp-content/uploads/2018/11/Death-Note-Cover.jpg',
 		"synopsis":
 			`Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
 			 For his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.`,
