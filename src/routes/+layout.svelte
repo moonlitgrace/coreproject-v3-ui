@@ -159,7 +159,7 @@
 
 	let popupSettings: PopupSettings = {
 		// Set the event as: click | hover | hover-click | focus | focus-click
-		event: 'click',
+		event: 'hover-click',
 		// Provide a matching 'data-popup' value.
 		target: 'profileDropdown'
 	};
@@ -207,7 +207,7 @@
 							{@const item_icon = item[1].icon}
 							{@const item_name = item[1].name}
 
-							<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-200 p-[0.5vw] rounded-[0.2vw]">
+							<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-100 p-[0.5vw] rounded-[0.2vw]">
 								<svelte:component 
 									this={item_icon.component}
 									width={item_icon.width}

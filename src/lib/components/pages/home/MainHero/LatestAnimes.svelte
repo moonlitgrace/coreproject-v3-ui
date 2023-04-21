@@ -194,7 +194,7 @@
 	>
 		<ChevronRight 
 			width="1.25vw" 
-			height="1.25vw" 
+			height="1.25vw"
 			color="text-white" 
 		/>
 	</button>
