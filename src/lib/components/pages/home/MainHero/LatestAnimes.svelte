@@ -11,6 +11,8 @@
 	import { Timer as EasyTimer } from "easytimer.js";
     import { onDestroy, onMount } from "svelte";
     import { timer as timerStore } from "$store/Timer";
+	import { fade } from 'svelte/transition';
+	import { tweened } from 'svelte/motion';
 
 	// icons
 	import PlayCircle from '$icons/PlayCircle.svelte';
@@ -52,6 +54,9 @@
     const SWIPER_DELAY = 10;
     let progressValue = 0;
 
+    let tweenedProgressValue = tweened(progressValue);
+    $: tweenedProgressValue.set(progressValue);
+
     let timer = new EasyTimer({
         target: {
             seconds: SWIPER_DELAY
@@ -62,6 +67,7 @@
     timer.on("targetAchieved", () => {
     	// change slider
         addOneToMainHeroSlideActiveIndex();
+        timer.reset();
     });
 
     timer.on("secondTenthsUpdated", () => {
@@ -101,7 +107,7 @@
 	{#each latest_animes as anime, index}
 		{#if index === mainHeroSlideActiveIndex}
 			<div
-				class="flex relative h-full w-full items-center rounded-[0.875vw] bg-cover bg-center"
+				class="flex relative h-full w-full items-center rounded-t-[0.875vw] bg-cover bg-center"
 				style="
 					background-image: url('{anime.cover ?? ''}');
 				"
@@ -175,12 +181,15 @@
 	{/each}
 
 	<div>
-		<ProgressBar label="Progress Bar" value={progressValue} max={100} />
+		<ProgressBar label="Progress Bar" class="h-[0.1vw]" value={$tweenedProgressValue} max={100} />
 	</div>
 
 	<button
 		class="btn btn-icon absolute -left-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
-		on:click={minusOneToMainHeroSlideActiveIndex}
+		on:click={() => {
+			timer.reset()
+			minusOneToMainHeroSlideActiveIndex()
+		}}
 	>
 		<ChevronLeft 
 			width="1.25vw" 
@@ -190,7 +199,10 @@
 	</button>
 	<button
 		class="btn btn-icon absolute -right-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
-		on:click={addOneToMainHeroSlideActiveIndex}
+		on:click={() => {
+			timer.reset()
+			addOneToMainHeroSlideActiveIndex()
+		}}
 	>
 		<ChevronRight 
 			width="1.25vw" 
