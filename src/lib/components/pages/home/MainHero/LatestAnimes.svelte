@@ -144,7 +144,7 @@
 							<span
 								class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
 							>
-								{anime.studios}
+								{anime.studios[0]}
 							</span>
 						</p>
 
