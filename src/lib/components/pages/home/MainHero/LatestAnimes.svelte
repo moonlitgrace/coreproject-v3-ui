@@ -206,8 +206,9 @@
 		<button
 			class="btn btn-icon absolute -left-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
-				timer.reset()
-				minusOneToMainHeroSlideActiveIndex()
+				timer?.reset();
+                timer?.start();
+				minusOneToMainHeroSlideActiveIndex();
 			}}
 		>
 			<ChevronLeft 
@@ -219,8 +220,9 @@
 		<button
 			class="btn btn-icon absolute -right-[1vw] top-[11.5vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
-				timer.reset()
-				addOneToMainHeroSlideActiveIndex()
+				timer?.reset();
+                timer?.start();
+				addOneToMainHeroSlideActiveIndex();
 			}}
 		>
 			<ChevronRight 
@@ -236,8 +238,9 @@
 					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50 transition duration-300"
 					class:bg-surface-50={index === mainHeroSlideActiveIndex}
 					on:click={() => {
+						timer?.reset();
+		                timer?.start();
 						mainHeroSlideActiveIndex = index;
-						timer.reset();
 					}}
 				/>
 			{/each}
