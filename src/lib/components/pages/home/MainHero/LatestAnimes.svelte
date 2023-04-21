@@ -43,6 +43,7 @@
 
     const swipeHandler = (event: CustomEvent) => {
         const direction = event.detail.direction;
+        timer.reset();
         if (direction === "left") {
             addOneToMainHeroSlideActiveIndex();
         } else if (direction === "right") {
@@ -124,7 +125,7 @@
 							<span
 								class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
 							>
-								{anime.source}
+								{anime.type}
 							</span>
 							<span
 								class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
@@ -215,14 +216,16 @@
 		</button>
 
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
-			<div class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
-			<div class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
-			<div
-				class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50 bg-surface-50"
-			/>
-			<div class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
-			<div class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
-			<div class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50" />
+			{#each latest_animes as _, index}
+				<button
+					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50 transition duration-300"
+					class:bg-surface-50={index === mainHeroSlideActiveIndex}
+					on:click={() => {
+						mainHeroSlideActiveIndex = index;
+						timer.reset();
+					}}
+				/>
+			{/each}
 		</div>
 	</div>
 </div>
