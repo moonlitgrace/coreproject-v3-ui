@@ -10,7 +10,8 @@ export const anime_list = [
 		aired_from: null,
 		aired_to: null,
 		banner: 'https://cdn.myanimelist.net/images/anime/13/50521.jpg',
-		cover: 'https://raw.githubusercontent.com/baseplate-admin/CoreProject/19a84ff9c864e0cfb33cb6a4ce79f75af05cde6c/frontend/AnimeCore/static/images/Hyouka-poster.jpg',
+		cover:
+			'https://raw.githubusercontent.com/baseplate-admin/CoreProject/19a84ff9c864e0cfb33cb6a4ce79f75af05cde6c/frontend/AnimeCore/static/images/Hyouka-poster.jpg',
 		banner_background_color: '#2A1710',
 		cover_background_color: '#D8E4D8',
 		synopsis:
