@@ -20,18 +20,18 @@
 
 	// import icons
 	import AnimeCore from '$icons/anime_core.svelte';
-	import Logo from '$icons/Logo.svelte';
-	import Search from '$icons/Search.svelte';
-	import Home from '$icons/Home.svelte';
-	import Explore from '$icons/Explore.svelte';
-	import List from '$icons/List.svelte';
-	import Schedule from '$icons/Schedule.svelte';
-	import Forum from '$icons/Forum.svelte';
-	import Settings from '$icons/Settings.svelte';
-	import Misc from '$icons/Misc.svelte';
-	import Person from '$icons/Person.svelte';
-	import Moon from '$icons/Moon.svelte';
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
+	import Logo from '$icons/logo.svelte';
+	import Search from '$icons/search.svelte';
+	import Home from '$icons/home.svelte';
+	import Explore from '$icons/explore.svelte';
+	import List from '$icons/list.svelte';
+	import Schedule from '$icons/schedule.svelte';
+	import Forum from '$icons/forum.svelte';
+	import Settings from '$icons/settings.svelte';
+	import Misc from '$icons/misc.svelte';
+	import User from '$icons/user.svelte';
+	import Moon from '$icons/moon.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
 
 	// Local
 	let active_button:
@@ -117,7 +117,7 @@
 				name: 'Profile',
 				link: '/profile/',
 				icon: {
-					component: Person,
+					component: User,
 					width: '1.25vw',
 					height: '1.25vw',
 					color: 'white'
