@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="flex items-center justify-between mt-[1.6875vw]">
-		<span class="text-[1vw] font-semibold text-surface-50">7 anime in Watching</span>
+		<span class="text-[1vw] font-semibold text-surface-50">{my_list.length} anime in Watching</span>
 
 		<div class="flex items-center gap-[1vw]">
 			<button class="btn btn-icon p-0 bg-surface-400 w-[6.625vw] h-[2.25vw] rounded-[0.375vw] text-[0.875vw] font-semibold gap-[0.625vw]">
