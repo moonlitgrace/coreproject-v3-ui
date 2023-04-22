@@ -12,7 +12,7 @@
 	import CoreProject from "$icons/CoreProject.svelte";
 
 	const icon_mapping = {
-		top: {
+		left: {
 			forums: {
 				title: "Forums",
 				icon: {
@@ -94,7 +94,7 @@
 		</div>
 
 		<div class="mt-[1vw] flex flex-col gap-[0.625vw]">
-			{#each Object.entries(icon_mapping.top) as item}
+			{#each Object.entries(icon_mapping.left) as item}
 				{@const item_title = item[1].title}
 				{@const item_icon = item[1].icon}
 

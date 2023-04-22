@@ -9,7 +9,6 @@
 	import { AppShell, Avatar } from '@skeletonlabs/skeleton';
 
 	import { blur } from 'svelte/transition';
-	import { fade } from 'svelte/transition';
 
 	// skeleton and floating-ui
 	import { popup } from '@skeletonlabs/skeleton';
@@ -158,10 +157,8 @@
 	}
 
 	let popupSettings: PopupSettings = {
-		// Set the event as: click | hover | hover-click | focus | focus-click
-		event: 'click',
-		// Provide a matching 'data-popup' value.
-		target: 'profileDropdown'
+		event: 'click', // event
+		target: 'profileDropdown' // data-popup value
 	};
 
 </script>
