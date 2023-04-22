@@ -220,7 +220,7 @@
 				width="1.25vw" 
 				height="1.25vw" 
 				color="text-white"
-				class="rotate-45"
+				class="rotate-90"
 			/>
 		</button>
 		<button
@@ -234,7 +234,8 @@
 			<Chevron
 				width="1.25vw" 
 				height="1.25vw"
-				color="text-white" 
+				color="text-white"
+				class="-rotate-90"
 			/>
 		</button>
 
