@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { latest_episodes } from '$data/mock/latest_episodes';
 	import { formatDate } from '$functions/formatDate';
 
@@ -8,6 +8,9 @@
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
 	import GradientCard from '$components/shared/GradientCard.svelte';
 	import Play from '$icons/Play.svelte';
+
+
+	let sorted_latest_episodes = latest_episodes.sort((a, b) => Number(a.release_date) - Number(b.release_date)).reverse();
 </script>
 
 <div class="w-[21.5625vw]">
@@ -25,7 +28,7 @@
 	</div>
 
 	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw]" class="max-h-[21.5625vw]">
-		{#each latest_episodes as anime}
+		{#each sorted_latest_episodes as anime}
 		<GradientCard
 			backgroundImage="{anime.cover}"
 			height="5vw"
