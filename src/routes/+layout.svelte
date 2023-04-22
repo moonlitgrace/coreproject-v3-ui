@@ -32,6 +32,7 @@
 	import User from '$icons/user.svelte';
 	import Moon from '$icons/moon.svelte';
 	import SettingsOutline from '$icons/settings_outline.svelte';
+	import type { SvelteComponentDev } from 'svelte/internal';
 
 	// Local
 	let active_button:
@@ -40,7 +41,121 @@
 		| keyof typeof icon_mapping.bottom = 'home';
 
 
-	const icon_mapping = {
+	const icon_mapping: {
+		top: {
+			search: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			}
+		},
+		middle: {
+			home: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+
+			discover: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			list: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			schedule: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			forum: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			}
+		},
+		bottom: {
+			settings: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			'misc.': {
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			}
+		},
+		profile_dropdown: {
+			profile: {
+				name: string;
+				link: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			my_list: {
+				name: string;
+				link: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			theme: {
+				name: string;
+				link: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			},
+			settings: {
+				name: string;
+				link: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					color: string;
+				}
+			}
+		}
+	} = {
 		top: {
 			search: {
 				icon: {

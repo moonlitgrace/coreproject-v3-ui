@@ -14,6 +14,7 @@
 	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
 	import AnimeFullDetails from '$components/pages/anime_info/AnimeFullDetails.svelte';
 	import AnimeEpisodes from '$components/pages/anime_info/AnimeEpisodes.svelte';
+	// types
 	import type { SvelteComponentDev } from 'svelte/internal';
 	// icons
 	import PlayCircle from '$icons/play_circle.svelte';
