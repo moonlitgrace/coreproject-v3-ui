@@ -146,7 +146,7 @@
 							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
 						>
 							{anime_alternative_name}
-						</span>
+						</span>	
 						<span
 							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
 						>
