@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 export class formatDate {
 	#date: dayjs.Dayjs;
@@ -16,6 +17,7 @@ export class formatDate {
 	}
 
 	public get formatToTimeFromNow() {
+		dayjs.extend(relativeTime);
 		// return in "x ago" format
 		return dayjs(this.#date).fromNow();
 	}
