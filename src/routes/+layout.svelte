@@ -183,7 +183,7 @@
 					<Avatar
 						rounded="rounded-[0.375vw]"
 						width="w-[3.125vw]"
-						src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
+						src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
 						initials="JD"
 					/>
 				</button>
@@ -194,7 +194,7 @@
 							rounded="rounded-[0.375vw]"
 							width="w-[2.5vw]"
 							cursor="cursor-pointer"
-							src="https://play-lh.googleusercontent.com/hKZp5Jg2rmFMsD0O2wohA1NkQTHBokXwalRpoxmjYt94WyMu4nVN0rXtbcTmh7tIur8=w2560-h1440-rw"
+							src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
 							initials="JD"
 						/>
 						<div class="flex flex-col">
