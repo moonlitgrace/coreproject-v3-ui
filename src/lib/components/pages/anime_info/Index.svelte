@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let anime_name: string;
-	export let anime_japanese_name: string;
+	export let anime_alternative_name: string;
 	export let anime_episodes_count: number;
 	export let anime_date: string;
 	export let anime_synopsis: string;
@@ -9,7 +9,7 @@
 
 	export let anime_episodes: any;
 
-	import TopRounded from '$icons/TopRounded.svelte';
+	import TopRounded from '$icons/top_rounded.svelte';
 	import AnimeMainDetails from './AnimeMainDetails.svelte';
 </script>
 
@@ -22,7 +22,7 @@
 		<div class="absolute h-full w-full md:p-[5vw]">
 			<AnimeMainDetails
 				{anime_name}
-				{anime_japanese_name}
+				{anime_alternative_name}
 				{anime_episodes_count}
 				{anime_date}
 				{anime_synopsis}

@@ -2,9 +2,8 @@
 	import voca from 'voca';
 
 	// icons
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import ChevronDown from '$icons/Chevron-Down.svelte';
-	import ChevronUp from '$icons/Chevron-Up.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Chevron from '$icons/chevron.svelte';
 </script>
 
 <div class="md:my-[6vw]">
@@ -82,7 +81,7 @@
 					class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]"
 				>
 					Load more
-					<ChevronDown width="0.9vw" color="surface-50" />
+					<Chevron width="0.9vw" color="surface-50" />
 				</button>
 			</div>
 		</animedetails>
@@ -102,7 +101,7 @@
 						class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[6.625vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
 					>
 						Japanese
-						<ChevronDown width="0.9vw" color="surface-50" />
+						<Chevron width="0.9vw" color="surface-50" />
 					</button>
 				</div>
 
@@ -145,7 +144,7 @@
 								<button
 									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
-									<ChevronUp width="1vw" color="lightgray" />
+									<Chevron width="1vw" color="lightgray" class="rotate-180" />
 								</button>
 								<button
 									class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
@@ -155,7 +154,7 @@
 								<button
 									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
-									<ChevronDown width="1vw" color="lightgray" />
+									<Chevron width="1vw" color="lightgray" />
 								</button>
 							</div>
 							<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"
@@ -215,7 +214,7 @@
 							<button
 								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
-								<ChevronUp width="1vw" color="lightgray" />
+								<Chevron width="1vw" color="lightgray" class="rotate-180" />
 							</button>
 							<button
 								class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
@@ -225,7 +224,7 @@
 							<button
 								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
-								<ChevronDown width="1vw" color="lightgray" />
+								<Chevron width="1vw" color="lightgray" />
 							</button>
 						</div>
 						<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"

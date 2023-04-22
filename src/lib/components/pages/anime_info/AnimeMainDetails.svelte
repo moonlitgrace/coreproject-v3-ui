@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let anime_name: string;
-	export let anime_japanese_name: string;
+	export let anime_alternative_name: string;
 	export let anime_episodes_count: number;
 	export let anime_date: string;
 	export let anime_synopsis: string;
@@ -16,15 +16,15 @@
 	import AnimeEpisodes from '$components/pages/anime_info/AnimeEpisodes.svelte';
 	import type { SvelteComponentDev } from 'svelte/internal';
 	// icons
-	import PlayCircle from '$icons/PlayCircle.svelte';
-	import Read from '$icons/Read.svelte';
-	import Listen from '$icons/Listen.svelte';
-	import Video from '$icons/Video.svelte';
-	import Download from '$icons/Download.svelte';
-	import Share from '$icons/Share.svelte';
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import Edit from '$icons/Edit.svelte';
-	import ChevronDown from '$icons/Chevron-Down.svelte';
+	import PlayCircle from '$icons/play_circle.svelte';
+	import Read from '$icons/read.svelte';
+	import Listen from '$icons/listen.svelte';
+	import Video from '$icons/video.svelte';
+	import Download from '$icons/download.svelte';
+	import Share from '$icons/share.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Edit from '$icons/edit.svelte';
+	import Chevron from '$icons/chevron.svelte';
 
 	const icon_mapping: {
 		anime_options: {
@@ -145,7 +145,7 @@
 						<span
 							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
 						>
-							{anime_japanese_name}
+							{anime_alternative_name}
 						</span>
 						<span
 							class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']"
@@ -289,7 +289,7 @@
 					<div class="flex items-center gap-1">
 						Status:
 						<span class="text-warning-400">Watching</span>
-						<ChevronDown width="0.625vw" color="warning-400" />
+						<Chevron width="0.625vw" color="warning-400" />
 					</div>
 					<div class="flex items-center gap-1">
 						Episode:
@@ -298,7 +298,7 @@
 					<div class="flex items-center gap-1">
 						Your Score:
 						<span class="text-warning-400">Not Rated</span>
-						<ChevronDown width="0.625vw" color="warning-400" />
+						<Chevron width="0.625vw" color="warning-400" />
 					</div>
 				</div>
 			</div>

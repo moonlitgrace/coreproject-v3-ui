@@ -2,10 +2,10 @@
 	import StarRating from 'svelte-star-rating';
 
 	// icons
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import TrendingUp from '$icons/Trending-Up.svelte';
-	import Edit from '$icons/Edit.svelte';
-	import ExternalLink from '$icons/ExternalLink.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import TrendingUp from '$icons/trending_up.svelte';
+	import Edit from '$icons/edit.svelte';
+	import ExternalLink from '$icons/external_link.svelte';
 </script>
 
 <div>

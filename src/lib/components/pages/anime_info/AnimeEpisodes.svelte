@@ -4,13 +4,13 @@
 	import { formatTime } from '$functions/formatTime';
 
 	// icons
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import ChevronDown from '$icons/Chevron-Down.svelte';
-	import Cross from '$icons/Cross.svelte';
-	import Search from '$icons/Search.svelte';
-	import Warning from '$icons/Warning.svelte';
-	import MessageCircle from '$icons/MessageCircle.svelte';
-	import PlayCircle from '$icons/PlayCircle.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Chevron from '$icons/chevron.svelte';
+	import Cross from '$icons/cross.svelte';
+	import Search from '$icons/search.svelte';
+	import Warning from '$icons/warning.svelte';
+	import MessageCircle from '$icons/message_circle.svelte';
+	import PlayCircle from '$icons/play_circle.svelte';
 </script>
 
 <div class="my-[6vw]">
@@ -79,7 +79,7 @@
 					class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 				>
 					<span>Subbed</span>
-					<ChevronDown width="1vw" color="lightgray" />
+					<Chevron width="1vw" color="lightgray" />
 				</button>
 			</div>
 			<div class="flex flex-col gap-[0.5vw]">
@@ -88,7 +88,7 @@
 					class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 				>
 					<span>Thumbnails</span>
-					<ChevronDown width="1vw" color="lightgray" />
+					<Chevron width="1vw" color="lightgray" />
 				</button>
 			</div>
 			<button
@@ -210,7 +210,7 @@
 								class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 							>
 								<span>Recent</span>
-								<ChevronDown width="1vw" color="lightgray" />
+								<Chevron width="1vw" color="lightgray" />
 							</button>
 						</div>
 					</div>
