@@ -242,7 +242,7 @@
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
 			{#each latest_animes as _, index}
 				<button
-					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50 transition duration-300"
+					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 hover:border-surface-50/75 transition duration-300"
 					class:bg-surface-50={index === mainHeroSlideActiveIndex}
 					on:click={() => {
 						timer?.reset();

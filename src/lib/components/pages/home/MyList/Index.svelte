@@ -5,7 +5,7 @@
 	import GradientCard from '$components/shared/GradientCard.svelte';
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
-	import ChevronDown from '$icons/chevron.svelte';
+	import Chevron from '$icons/chevron.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 </script>
 
@@ -23,7 +23,7 @@
 		<div class="flex items-center gap-[1vw]">
 			<button class="btn btn-icon p-0 bg-surface-400 w-[6.625vw] h-[2.25vw] rounded-[0.375vw] text-[0.875vw] font-semibold gap-[0.625vw]">
 				Watching
-				<ChevronDown width="1vw" />
+				<Chevron width="1vw" />
 			</button>
 			<button class="btn btn-icon p-0 bg-surface-400 w-[5.625vw] h-[2.25vw] rounded-[0.375vw] text-[0.875vw] font-semibold gap-[0.625vw]">
 				Full List
