@@ -34,21 +34,23 @@
 
 	<div class="mt-[1.5vw] mb-[2vw] flex gap-[1.5625vw]">
 		{#each my_list as anime}
-			<GradientCard
-				backgroundImage={anime.cover}
-				rounded="0.875vw"
-				class="w-[8.4375vw] h-[12.5vw]"
-				fromColor="from-surface-900"
-				toColor="to-surface-900/0"
-				direction="bg-gradient-to-tr"
-			>
-				<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-					<span class="text-[1vw] font-semibold text-center">{anime.name}</span>
-					<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">
-						{anime.current_episode}/{anime.episodes_count}
-					</span>
-				</div>
-			</GradientCard>
+			<a href="/mylist/{anime.id}" class="transition duration-300">
+				<GradientCard
+					backgroundImage={anime.cover}
+					rounded="0.875vw"
+					class="w-[8.4375vw] h-[12.5vw]"
+					fromColor="from-surface-900"
+					toColor="to-surface-900/0"
+					direction="bg-gradient-to-tr"
+				>
+					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+						<span class="text-[1vw] text-white font-semibold text-center">{anime.name}</span>
+						<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">
+							{anime.current_episode}/{anime.episodes_count}
+						</span>
+					</div>
+				</GradientCard>
+			</a>
 		{/each}
 	</div>
 </div>
