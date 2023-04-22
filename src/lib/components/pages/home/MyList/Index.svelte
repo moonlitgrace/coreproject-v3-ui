@@ -1,4 +1,6 @@
 <script>
+	
+	import { my_list } from '$data/mock/my_list';
 
 	import GradientCard from '$components/shared/GradientCard.svelte';
 	// icons
@@ -31,102 +33,22 @@
 	</div>
 
 	<div class="mt-[1.5vw] mb-[2vw] flex gap-[1.5625vw]">
-		<GradientCard
-			backgroundImage="https://i1.sndcdn.com/artworks-000640004677-8hkhau-t500x500.jpg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">Azur Lane</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">4/12</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://e0.pxfuel.com/wallpapers/822/772/desktop-wallpaper-akagami-no-shirayuki-hime-akagami-no-shirayukihime-thumbnail.jpg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">Akagami no Shirayuki-hime</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">11/12</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx268-O1hqy3Uea1ns.png"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">GOLDEN BOY: Sasurai no Obenkyou Yarou</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">1/6</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://socialanime.it/upload_serie/s_12775_small.jpg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">7SEEDS</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">5/12</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://imagecache.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/7ae19317-50ed-4a41-2cd6-8ae4424a4200/width=450/245470-1742259591-masterpiece,%20best%20quality,%20absurdres,%20perfect%20antomy,%20cinematic%20lighting,%20Shana,%20red%20hair,%20red%20eyes,%20kimono,%20flower-print,%20stand.jpeg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">Shakugan no Shana</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">19/24</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx12445-hKIXQW3vA4iz.jpg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">Shakugan no Shana</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">19/24</span>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://cdn.myanimelist.net/images/anime/9/79330.jpg"
-			rounded="0.875vw"
-			class="w-[8.4375vw] h-[12.5vw]"
-			fromColor="from-surface-900"
-			toColor="to-surface-900/0"
-			direction="bg-gradient-to-tr"
-		>
-			<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-				<span class="text-[1vw] font-semibold text-center">To LOVE-Ru</span>
-				<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">9/26</span>
-			</div>
-		</GradientCard>
+		{#each my_list as anime}
+			<GradientCard
+				backgroundImage={anime.cover}
+				rounded="0.875vw"
+				class="w-[8.4375vw] h-[12.5vw]"
+				fromColor="from-surface-900"
+				toColor="to-surface-900/0"
+				direction="bg-gradient-to-tr"
+			>
+				<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+					<span class="text-[1vw] font-semibold text-center">{anime.name}</span>
+					<span class="absolute bottom-[1.25vw] text-[1vw] text-center font-medium text-surface-200">
+						{anime.current_episode}/{anime.episodes_count}
+					</span>
+				</div>
+			</GradientCard>
+		{/each}
 	</div>
 </div>
