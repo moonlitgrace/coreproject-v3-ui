@@ -115,6 +115,7 @@
 		profile_dropdown: {
 			profile: {
 				name: 'Profile',
+				link: '/profile/',
 				icon: {
 					component: Person,
 					width: '1.25vw',
@@ -124,6 +125,7 @@
 			},
 			my_list: {
 				name: 'My List',
+				link: '/mylist/',
 				icon: {
 					component: List,
 					width: '1.5vw',
@@ -133,6 +135,7 @@
 			},
 			theme: {
 				name: 'Theme',
+				link: '/theme/',
 				icon: {
 					component: Moon,
 					width: '1.1vw',
@@ -142,6 +145,7 @@
 			},
 			settings: {
 				name: 'Settings',
+				link: '/settings/',
 				icon: {
 					component: SettingsOutline,
 					width: '1.1vw',
@@ -202,18 +206,21 @@
 					<div class="mt-[1vw]">
 						{#each Object.entries(icon_mapping.profile_dropdown) as item}
 							{@const item_icon = item[1].icon}
+							{@const item_link = item[1].link}
 							{@const item_name = item[1].name}
 
-							<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-100 p-[0.5vw] rounded-[0.2vw]">
-								<svelte:component 
-									this={item_icon.component}
-									width={item_icon.width}
-									height={item_icon.height}
-									color={item_icon.color}
-									class="col-span-1"
-								/>
-								<span class="text-[1vw] font-medium col-span-4">{item_name}</span>
-							</div>
+							<a href={item_link} style="text-decoration: none;">
+								<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-100 p-[0.5vw] rounded-[0.2vw]">
+									<svelte:component 
+										this={item_icon.component}
+										width={item_icon.width}
+										height={item_icon.height}
+										color={item_icon.color}
+										class="col-span-1"
+									/>
+									<span class="text-[1vw] font-medium col-span-4 text-white">{item_name}</span>
+								</div>
+							</a>
 						{/each}
 					</div>
 				</div>
