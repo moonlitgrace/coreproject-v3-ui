@@ -15,6 +15,11 @@ export class formatDate {
 		)}, ${this.#date.format('YYYY')}`;
 	}
 
+	public get formatToTimeFromNow() {
+		// return in "x ago" format
+		return dayjs(this.#date).fromNow();
+	}
+
 	public get formatToSeason() {
 		let season: string;
 
