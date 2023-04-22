@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import GradientCard from '$components/shared/GradientCard.svelte';
 
 	// icons
@@ -10,8 +10,73 @@
 	import Moon from '$icons/moon.svelte';
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import CoreProject from '$icons/core_project.svelte';
+	import type { SvelteComponentDev } from 'svelte/internal';
 
-	const icon_mapping = {
+	const icon_mapping: {
+		left: {
+			forums: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+			last_watched: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+			notifications: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+		},
+		bottom: {
+			language: {
+				icon: {
+					component: typeof SvelteComponentDev,
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+			preferences: {
+				icon: {
+					component: typeof SvelteComponentDev,
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+			theme: {
+				icon: {
+					component: typeof SvelteComponentDev,
+					width: string;
+					height: string;
+					class: string;
+				}
+			},
+			settings: {
+				icon: {
+					component: typeof SvelteComponentDev,
+					width: string;
+					height: string;
+					class: string;
+				}
+			}
+		}
+	} = {
 		left: {
 			forums: {
 				title: 'Forums',
