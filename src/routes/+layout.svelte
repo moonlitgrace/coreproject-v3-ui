@@ -19,7 +19,7 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// import icons
-	import AnimeCore from '$icons/AnimeCore.svelte';
+	import AnimeCore from '$icons/anime_core.svelte';
 	import Logo from '$icons/Logo.svelte';
 	import Search from '$icons/Search.svelte';
 	import Home from '$icons/Home.svelte';
