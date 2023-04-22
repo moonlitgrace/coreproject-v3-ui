@@ -27,7 +27,7 @@
 {#if anime}
 	<AnimeInfoPage 
 		anime_name={anime.name}
-		anime_japanese_name={anime.name_japanese}
+		anime_alternative_name={anime.alternative_name}
 		anime_episodes_count={anime.episodes_count}
 		anime_date={anime.updated}
 		anime_synopsis={anime.synopsis}
