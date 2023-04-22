@@ -1,4 +1,8 @@
 <script>
+
+	import { latest_episodes } from '$data/mock/latest_episodes';
+	import { formatDate } from '$functions/formatDate';
+
 	// icons
 	import SettingsOutline from '$icons/SettingsOutline.svelte';
 	import Expand from '$icons/Expand.svelte';
@@ -22,105 +26,34 @@
 	</div>
 
 	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw]" class="max-h-[21.5625vw]">
-		<GradientCard
-			backgroundImage="https://dwgkfo5b3odmw.cloudfront.net/img/manga_series_header/632-SJ_SpyFamily_2000x800_jpg_wm"
-			height="5vw"
-			rounded="0.625vw"
-			fromColor="from-surface-900/80"
-			toColor="to-surface-900/40"
-			direction="bg-gradient-to-t"
-			class="[&:not(:first-child)]:mt-[1.25vw]"
-		>
-			<div class="flex items-center justify-between p-[1.3125vw]">
-				<div class="flex flex-col gap-[0.4vw]">
-					<span class="text-[1vw] font-semibold leading-[1.1875vw]">SpyxFamily</span>
-					<div class="flex items-center gap-[0.5vw]">
-						<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">Ep 06</span>
-						<span class="text-[0.75vw]">1 hour ago</span>
+		{#each latest_episodes as anime}
+			<GradientCard
+				backgroundImage={anime.cover}
+				height="5vw"
+				rounded="0.625vw"
+				fromColor="from-surface-900/80"
+				toColor="to-surface-900/40"
+				direction="bg-gradient-to-t"
+				class="[&:not(:first-child)]:mt-[1.25vw]"
+			>
+				<div class="flex items-center justify-between p-[1.3125vw]">
+					<div class="flex flex-col gap-[0.4vw]">
+						<span class="text-[1vw] font-semibold leading-[1.1875vw]">{anime.name}</span>
+						<div class="flex items-center gap-[0.5vw]">
+							<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+								Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
+							</span>
+							<span class="text-[0.75vw]">{new formatDate(anime.release_date).formatToTimeFromNow}</span>
+						</div>
 					</div>
+					<button
+						class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
+					>
+						<Play width="1.25vw" height="1.25vw" />
+					</button>
 				</div>
-				<button
-					class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-				>
-					<Play width="1.25vw" height="1.25vw" />
-				</button>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://f1.econotimes.com/2020/09/xz8zrddkwz_th_1024x0.jpg"
-			height="5vw"
-			rounded="0.625vw"
-			fromColor="from-surface-900/80"
-			toColor="to-surface-900/40"
-			direction="bg-gradient-to-t"
-			class="[&:not(:first-child)]:mt-[1.25vw]"
-		>
-			<div class="flex items-center justify-between p-[1.3125vw]">
-				<div class="flex flex-col gap-[0.4vw]">
-					<span class="text-[1vw] font-semibold leading-[1.1875vw]">Kaguya-sama: Love Is War</span>
-					<div class="flex items-center gap-[0.5vw]">
-						<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">Ep 05</span>
-						<span class="text-[0.75vw]">1 hour ago</span>
-					</div>
-				</div>
-				<button
-					class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-				>
-					<Play width="1.25vw" height="1.25vw" />
-				</button>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCWBn4FOJWr0Ocg_2XjySBAaeOKk90ShR2ryoyGk5-izOUdA1N3hUKMWHKFdpVbf26Ij5kyWcDHw&usqp=CAU&ec=48665698"
-			height="5vw"
-			rounded="0.625vw"
-			fromColor="from-surface-900/80"
-			toColor="to-surface-900/40"
-			direction="bg-gradient-to-t"
-			class="[&:not(:first-child)]:mt-[1.25vw]"
-		>
-			<div class="flex items-center justify-between p-[1.3125vw]">
-				<div class="flex flex-col gap-[0.4vw]">
-					<span class="text-[1vw] font-semibold leading-[1.1875vw]">Aharen-san wa Hakaraenai</span>
-					<div class="flex items-center gap-[0.5vw]">
-						<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">Ep 09</span>
-						<span class="text-[0.75vw]">2 hour ago</span>
-					</div>
-				</div>
-				<button
-					class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-				>
-					<Play width="1.25vw" height="1.25vw" />
-				</button>
-			</div>
-		</GradientCard>
-
-		<GradientCard
-			backgroundImage="https://images-geeknative-com.exactdn.com/wp-content/uploads/2021/10/18220337/Summer-Time-Rendering-banner-scaled.jpg?strip=all&lossy=1&sharp=1&ssl=1"
-			height="5vw"
-			rounded="0.625vw"
-			fromColor="from-surface-900/80"
-			toColor="to-surface-900/40"
-			direction="bg-gradient-to-t"
-			class="[&:not(:first-child)]:mt-[1.25vw]"
-		>
-			<div class="flex items-center justify-between p-[1.3125vw]">
-				<div class="flex flex-col gap-[0.4vw]">
-					<span class="text-[1vw] font-semibold leading-[1.1875vw]">Summer time Rendering</span>
-					<div class="flex items-center gap-[0.5vw]">
-						<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">Ep 12</span>
-						<span class="text-[0.75vw]">3 hour ago</span>
-					</div>
-				</div>
-				<button
-					class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-				>
-					<Play width="1.25vw" height="1.25vw" />
-				</button>
-			</div>
-		</GradientCard>
+			</GradientCard>
+		{/each}
 	</ScrollArea>
 
 	<div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
