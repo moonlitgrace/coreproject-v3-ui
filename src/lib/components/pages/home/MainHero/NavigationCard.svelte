@@ -81,10 +81,10 @@
 <GradientCard
 	backgroundImage="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
 	rounded="0.875vw"
-	fromColor="from-surface-900"
+	fromColor="from-surface-900/95"
 	toColor="to-surface-900/25"
 	direction="bg-gradient-to-tr"
-	class="mt-[3.4vw] h-[24.3125vw] w-[16.625vw] border-b-2 border-l-2 border-surface-300"
+	class="mt-[3.4vw] h-[24.3125vw] w-[16.625vw]"
 >
 	<div class="px-[1.875vw] pt-[2vw]">
 		<div class="flex flex-col gap-[0.2w]">
