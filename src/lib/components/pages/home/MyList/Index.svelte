@@ -4,9 +4,9 @@
 
 	import GradientCard from '$components/shared/GradientCard.svelte';
 	// icons
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import ChevronDown from '$icons/Chevron-Down.svelte';
-	import ArrowUpRight from '$icons/ArrowUpRight.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import ChevronDown from '$icons/chevron.svelte';
+	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 </script>
 
 <div class="w-[68.125vw] h-20 mt-[2.1875vw]">

@@ -15,11 +15,10 @@
 	import { tweened } from 'svelte/motion';
 
 	// icons
-	import PlayCircle from '$icons/PlayCircle.svelte';
-	import Info from '$icons/Info.svelte';
-	import Edit from '$icons/Edit.svelte';
-	import ChevronLeft from '$icons/Chevron-Left.svelte';
-	import ChevronRight from '$icons/Chevron-Right.svelte';
+	import PlayCircle from '$icons/play_circle.svelte';
+	import Info from '$icons/info.svelte';
+	import Edit from '$icons/edit.svelte';
+	import Chevron from '$icons/chevron.svelte';
 
 
 	// Slider codes //
@@ -217,10 +216,11 @@
 				minusOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<ChevronLeft 
+			<Chevron 
 				width="1.25vw" 
 				height="1.25vw" 
 				color="text-white"
+				class="rotate-45"
 			/>
 		</button>
 		<button
@@ -231,7 +231,7 @@
 				addOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<ChevronRight 
+			<Chevron
 				width="1.25vw" 
 				height="1.25vw"
 				color="text-white" 

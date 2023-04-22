@@ -2,14 +2,14 @@
 	import GradientCard from '$components/shared/GradientCard.svelte';
 
 	// icons
-	import Forum from '$icons/Forum.svelte';
-	import Recent from '$icons/Recent.svelte';
-	import Notifications from '$icons/Notifications.svelte';
-	import Language from '$icons/Language.svelte';
-	import Preference from '$icons/Preference.svelte';
-	import Moon from '$icons/Moon.svelte';
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import CoreProject from '$icons/CoreProject.svelte';
+	import Forum from '$icons/forum.svelte';
+	import Recent from '$icons/recent.svelte';
+	import Notifications from '$icons/notifications.svelte';
+	import Language from '$icons/language.svelte';
+	import Preference from '$icons/preference.svelte';
+	import Moon from '$icons/moon.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import CoreProject from '$icons/core_project.svelte';
 
 	const icon_mapping = {
 		left: {

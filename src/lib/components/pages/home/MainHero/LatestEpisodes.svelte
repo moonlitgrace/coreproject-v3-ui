@@ -3,11 +3,11 @@
 	import { formatDate } from '$functions/formatDate';
 
 	// icons
-	import SettingsOutline from '$icons/SettingsOutline.svelte';
-	import Expand from '$icons/Expand.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Expand from '$icons/expand.svelte';
 	import ScrollArea from '$components/shared/ScrollArea.svelte';
 	import GradientCard from '$components/shared/GradientCard.svelte';
-	import Play from '$icons/Play.svelte';
+	import Play from '$icons/play.svelte';
 
 
 	let sorted_latest_episodes = latest_episodes.sort((a, b) => Number(a.release_date) - Number(b.release_date)).reverse();
