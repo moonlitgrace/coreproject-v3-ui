@@ -10,6 +10,38 @@
 	import Moon from "$icons/Moon.svelte";
 	import SettingsOutline from "$icons/SettingsOutline.svelte";
 	import CoreProject from "$icons/CoreProject.svelte";
+
+	const icon_mapping = {
+		top: {
+			forums: {
+				title: "Forums",
+				icon: {
+					component: Forum,
+					width: "1.25vw",
+					height: "1.25vw",
+					class: "text-surface-900",
+				}
+			},
+			last_watched: {
+				title: "Last watched anime",
+				icon: {
+					component: Recent,
+					width: "1.25vw",
+					height: "1.25vw",
+					class: "text-surface-900",
+				}
+			},
+			notifications: {
+				title: "Notifications",
+				icon: {
+					component: Notifications,
+					width: "1.25vw",
+					height: "1.25vw",
+					class: "text-surface-900",
+				}
+			},
+		}
+	}
 </script>
 
 
