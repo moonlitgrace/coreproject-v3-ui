@@ -115,18 +115,18 @@
 		<div class="mt-[0.4vw]">
 			<span class="text-[0.9vw] font-semibold">More</span>
 			<div class="flex gap-[0.9375vw] mt-[0.75vw]">
-				<button class="btn w-[2.5vw] h-[2.5vw] p-0 bg-surface-50 rounded-[0.375vw]">
-					<Language width="1.25vw" height="1.25vw" class="text-surface-900" />
-				</button>
-				<button class="btn w-[2.5vw] h-[2.5vw] p-0 bg-surface-50 rounded-[0.375vw]">
-					<Preference width="1.25vw" height="1.25vw" class="text-surface-900" />
-				</button>
-				<button class="btn w-[2.5vw] h-[2.5vw] p-0 bg-surface-50 rounded-[0.375vw]">
-					<Moon width="1.25vw" height="1.25vw" class="text-surface-900" />
-				</button>
-				<button class="btn w-[2.5vw] h-[2.5vw] p-0 bg-surface-50 rounded-[0.375vw]">
-					<SettingsOutline width="1.25vw" height="1.25vw" class="text-surface-900" />
-				</button>
+				{#each Object.entries(icon_mapping.bottom) as item}
+					{@const item_icon = item[1].icon}
+
+					<button class="btn w-[2.5vw] h-[2.5vw] p-0 bg-surface-50 rounded-[0.375vw]">
+						<svelte:component
+							this={item_icon.component}
+							width={item_icon.width}
+							height={item_icon.height}
+							class={item_icon.class}
+						/>
+					</button>
+				{/each}
 			</div>
 		</div>
 
