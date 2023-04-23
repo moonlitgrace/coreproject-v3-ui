@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { latest_episodes } from '$data/mock/latest_episodes';
 	import { formatDate } from '$functions/formatDate';
+	import _ from 'lodash';
 
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
@@ -9,8 +10,7 @@
 	import GradientCard from '$components/shared/GradientCard.svelte';
 	import Play from '$icons/play.svelte';
 
-
-	let sorted_latest_episodes = latest_episodes.sort((a, b) => Number(a.release_date) - Number(b.release_date)).reverse();
+	let sorted_latest_episodes = _.orderBy(latest_episodes, [(obj) => new Date(obj.release_date)], ['desc']);
 </script>
 
 <div class="w-[21.5625vw]">
