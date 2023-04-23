@@ -95,11 +95,11 @@
 						backgroundImage={anime_cover}
 						rounded="1vw"
 						fromColor="from-surface-900"
-						toColor="to-surface-900/50"
+						toColor="to-surface-900/25"
 						direction="bg-gradient-to-tr"
 						class="relative h-full w-full border-[0.2vw] border-b-0 border-surface-300/75"
 					>
-						<div class="flex flex-col px-[1.5625vw] pt-[2vw]">
+						<div class="flex flex-col px-[1.5625vw] pb-[3vw] h-full justify-end">
 							<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
 							<span class="text-[0.75vw] font-semibold uppercase text-surface-50">{voca.truncate(anime_name, 50)}</span
 							>
