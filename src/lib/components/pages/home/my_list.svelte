@@ -97,7 +97,7 @@
 						backgroundImage={anime_cover}
 						rounded="1vw"
 						fromColor="from-surface-900"
-						toColor="to-surface-900/25"
+						toColor="to-surface-900/50"
 						direction="bg-gradient-to-tr"
 						class="relative h-full w-full border-[0.2vw] border-b-0 border-surface-300/75"
 					>
