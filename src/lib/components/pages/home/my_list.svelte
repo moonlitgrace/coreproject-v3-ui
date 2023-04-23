@@ -6,6 +6,19 @@
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Chevron from '$icons/chevron.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
+
+		// skeleton and floating-ui
+	import { popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	let popupSettings: PopupSettings = {
+		event: 'hover', // event
+		target: 'my_list_popup' // data-popup value
+	};
 </script>
 
 <div class="w-[68.125vw] h-20 mt-[2.1875vw]">
@@ -33,7 +46,7 @@
 
 	<div class="mt-[1.5vw] mb-[2vw] flex gap-[1.5625vw]">
 		{#each my_list as anime}
-			<a href="/mylist/{anime.id}" class="transition duration-300">
+			<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
 				<GradientCard
 					backgroundImage={anime.cover}
 					rounded="0.875vw"
@@ -50,6 +63,10 @@
 					</div>
 				</GradientCard>
 			</a>
+
+			<div data-popup="my_list_popup">
+				List popup
+			</div>
 		{/each}
 	</div>
 </div>
