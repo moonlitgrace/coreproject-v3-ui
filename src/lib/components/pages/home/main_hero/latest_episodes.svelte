@@ -7,7 +7,6 @@
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Expand from '$icons/expand.svelte';
 	import ScrollArea from '$components/shared/scroll_area.svelte';
-	import GradientCard from '$components/shared/gradient_card.svelte';
 	import Play from '$icons/play.svelte';
 
 	let sorted_latest_episodes = _.orderBy(
