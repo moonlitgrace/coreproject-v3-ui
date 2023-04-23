@@ -37,7 +37,7 @@
 	<div class="flex items-center gap-[0.625vw]">
 		<span class="text-[1.25vw] font-bold">My List</span>
 		<button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-			<SettingsOutline width="0.8vw" height="0.8vw" />
+			<SettingsOutline style="width: 0.9vw;" />
 		</button>
 	</div>
 
@@ -49,7 +49,7 @@
 				class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold"
 			>
 				Watching
-				<Chevron width="1vw" />
+				<Chevron style="width: 1vw;" />
 			</button>
 			<button
 				class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold"
