@@ -17,7 +17,7 @@
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
 		<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-			<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+			<SettingsOutline style="width: 0.9vw" class="opacity-75" />
 		</button>
 	</div>
 
@@ -79,7 +79,7 @@
 					class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 				>
 					<span>Subbed</span>
-					<Chevron width="1vw" color="lightgray" />
+					<Chevron style="width: 1vw;" color="lightgray" />
 				</button>
 			</div>
 			<div class="flex flex-col gap-[0.5vw]">
@@ -88,13 +88,13 @@
 					class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 				>
 					<span>Thumbnails</span>
-					<Chevron width="1vw" color="lightgray" />
+					<Chevron style="width: 1vw;" color="lightgray" />
 				</button>
 			</div>
 			<button
 				class="btn btn-icon h-[2.4vw] w-[2.4vw] rounded-[0.5vw] bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 			>
-				<Search width="1vw" color="lightgray" />
+				<Search style="width: 1vw;" color="lightgray" />
 			</button>
 		</div>
 	</div>
@@ -131,7 +131,7 @@
 							class="btn bg-surface-900/90 font-bold text-white md:h-[4.3vw] md:w-[7.5vw] md:rounded-[0.625vw] md:text-[0.87vw]"
 						>
 							<div class="flex items-center justify-center md:gap-[0.7vw]">
-								<PlayCircle width="1.875vw" height="1.875vw" color="white" />
+								<PlayCircle style="width: 1.875vw;" color="white" />
 								<div class="flex flex-col items-start">
 									<span class="leading-[1.05vw]">Watch</span>
 									<span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]"
@@ -157,7 +157,7 @@
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
 					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+						<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 					</button>
 				</div>
 
@@ -173,7 +173,7 @@
 
 						<div class="mt-[1.375vw] flex justify-between gap-[1vw]">
 							<div class="flex gap-[0.625vw]">
-								<Warning width="1.2vw" height="1.2vw" />
+								<Warning style="width: 1.2vw;" />
 								<span class="text-[0.75vw] !font-light !leading-[1.125vw] text-surface-300">
 									Please remember to follow our
 									<a href="/" class="!text-surface-300">community guidelines</a> while commenting. Also
@@ -194,7 +194,7 @@
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
 					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+						<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 					</button>
 				</div>
 
@@ -203,7 +203,7 @@
 						<button
 							class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[7.3125vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
 						>
-							<Cross width="0.9vw" color="surface-50" class="rotate-45" />
+							<Cross style="width: 0.9vw;" color="surface-50" class="rotate-45" />
 							Create New
 						</button>
 
@@ -213,7 +213,7 @@
 								class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]"
 							>
 								<span>Recent</span>
-								<Chevron width="1vw" color="lightgray" />
+								<Chevron style="width: 1vw;" color="lightgray" />
 							</button>
 						</div>
 					</div>
@@ -243,7 +243,7 @@
 									</div>
 
 									<div class="flex flex-col items-center">
-										<MessageCircle width="1.25vw" height="1.25vw" />
+										<MessageCircle style="width: 1.25vw;" />
 										<span class="mt-[0.125vw] text-[0.625vw] font-light leading-[1.125vw]">69</span>
 									</div>
 								</div>
