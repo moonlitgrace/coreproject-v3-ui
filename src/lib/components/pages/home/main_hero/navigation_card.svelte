@@ -21,8 +21,8 @@
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
+				};
+			};
 			last_watched: {
 				title: string;
 				icon: {
@@ -30,8 +30,8 @@
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
+				};
+			};
 			notifications: {
 				title: string;
 				icon: {
@@ -39,43 +39,43 @@
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
-		},
+				};
+			};
+		};
 		bottom: {
 			language: {
 				icon: {
-					component: typeof SvelteComponentDev,
+					component: typeof SvelteComponentDev;
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
+				};
+			};
 			preferences: {
 				icon: {
-					component: typeof SvelteComponentDev,
+					component: typeof SvelteComponentDev;
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
+				};
+			};
 			theme: {
 				icon: {
-					component: typeof SvelteComponentDev,
+					component: typeof SvelteComponentDev;
 					width: string;
 					height: string;
 					class: string;
-				}
-			},
+				};
+			};
 			settings: {
 				icon: {
-					component: typeof SvelteComponentDev,
+					component: typeof SvelteComponentDev;
 					width: string;
 					height: string;
 					class: string;
-				}
-			}
-		}
+				};
+			};
+		};
 	} = {
 		left: {
 			forums: {
@@ -158,36 +158,38 @@
 		</div>
 
 		<div class="mt-[1vw] flex flex-col gap-[0.625vw]">
-			{#each Object.entries(icon_mapping.left) as item} {@const item_title = item[1].title} {@const
-			item_icon = item[1].icon}
+			{#each Object.entries(icon_mapping.left) as item}
+				{@const item_title = item[1].title}
+				{@const item_icon = item[1].icon}
 
-			<div class="flex items-center gap-[1vw]">
-				<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-					<svelte:component
-						this="{item_icon.component}"
-						width="{item_icon.width}"
-						height="{item_icon.height}"
-						class="{item_icon.class}"
-					/>
-				</button>
-				<span class="text-[1vw] font-bold">{item_title}</span>
-			</div>
+				<div class="flex items-center gap-[1vw]">
+					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+						<svelte:component
+							this={item_icon.component}
+							width={item_icon.width}
+							height={item_icon.height}
+							class={item_icon.class}
+						/>
+					</button>
+					<span class="text-[1vw] font-bold">{item_title}</span>
+				</div>
 			{/each}
 		</div>
 
 		<div class="mt-[0.4vw]">
 			<span class="text-[0.9vw] font-semibold">More</span>
 			<div class="mt-[0.75vw] flex gap-[0.9375vw]">
-				{#each Object.entries(icon_mapping.bottom) as item} {@const item_icon = item[1].icon}
+				{#each Object.entries(icon_mapping.bottom) as item}
+					{@const item_icon = item[1].icon}
 
-				<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-					<svelte:component
-						this="{item_icon.component}"
-						width="{item_icon.width}"
-						height="{item_icon.height}"
-						class="{item_icon.class}"
-					/>
-				</button>
+					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+						<svelte:component
+							this={item_icon.component}
+							width={item_icon.width}
+							height={item_icon.height}
+							class={item_icon.class}
+						/>
+					</button>
 				{/each}
 			</div>
 		</div>

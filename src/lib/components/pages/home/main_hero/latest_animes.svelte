@@ -1,16 +1,15 @@
 <script lang="ts">
-		
 	import { latest_animes } from '$data/mock/latest_animes';
-	import { swipe } from "svelte-gestures";
+	import { swipe } from 'svelte-gestures';
 	import { formatDate } from '$functions/format_date';
 	import voca from 'voca';
 
 	// skeleton
 	import { ProgressBar } from '@skeletonlabs/skeleton';
 
-	import { Timer as EasyTimer } from "easytimer.js";
-    import { onDestroy, onMount } from "svelte";
-    import { timer as timerStore } from "$store/timer";
+	import { Timer as EasyTimer } from 'easytimer.js';
+	import { onDestroy, onMount } from 'svelte';
+	import { timer as timerStore } from '$store/timer';
 	import { blur } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 
@@ -20,120 +19,119 @@
 	import Edit from '$icons/edit.svelte';
 	import Chevron from '$icons/chevron.svelte';
 
-
 	// Slider codes //
 	let mainHeroSlideActiveIndex = 0;
 
-    const addOneToMainHeroSlideActiveIndex = () => {
-        if (mainHeroSlideActiveIndex + 1 === latest_animes.length) {
-            mainHeroSlideActiveIndex = 0;
-            return;
-        }
-        mainHeroSlideActiveIndex += 1;
-    };
+	const addOneToMainHeroSlideActiveIndex = () => {
+		if (mainHeroSlideActiveIndex + 1 === latest_animes.length) {
+			mainHeroSlideActiveIndex = 0;
+			return;
+		}
+		mainHeroSlideActiveIndex += 1;
+	};
 
-    const minusOneToMainHeroSlideActiveIndex = () => {
-        if (mainHeroSlideActiveIndex === 0) {
-            mainHeroSlideActiveIndex = latest_animes.length - 1;
-            return;
-        }
-        mainHeroSlideActiveIndex -= 1;
-    };
+	const minusOneToMainHeroSlideActiveIndex = () => {
+		if (mainHeroSlideActiveIndex === 0) {
+			mainHeroSlideActiveIndex = latest_animes.length - 1;
+			return;
+		}
+		mainHeroSlideActiveIndex -= 1;
+	};
 
-    const swipeHandler = (event: CustomEvent) => {
-        const direction = event.detail.direction;
-        timer.reset();
-        if (direction === "left") {
-            addOneToMainHeroSlideActiveIndex();
-        } else if (direction === "right") {
-            minusOneToMainHeroSlideActiveIndex();
-        }
-    };
+	const swipeHandler = (event: CustomEvent) => {
+		const direction = event.detail.direction;
+		timer.reset();
+		if (direction === 'left') {
+			addOneToMainHeroSlideActiveIndex();
+		} else if (direction === 'right') {
+			minusOneToMainHeroSlideActiveIndex();
+		}
+	};
 
-    // Progress bar code //
-    const SWIPER_DELAY = 10;
-    let progressValue = 0;
+	// Progress bar code //
+	const SWIPER_DELAY = 10;
+	let progressValue = 0;
 
-    let tweenedProgressValue = tweened(progressValue);
-    $: tweenedProgressValue.set(progressValue);
+	let tweenedProgressValue = tweened(progressValue);
+	$: tweenedProgressValue.set(progressValue);
 
-    let timer = new EasyTimer({
-        target: {
-            seconds: SWIPER_DELAY
-        },
-        precision: "secondTenths"
-    });
+	let timer = new EasyTimer({
+		target: {
+			seconds: SWIPER_DELAY
+		},
+		precision: 'secondTenths'
+	});
 
-    timer.on("targetAchieved", () => {
-    	// change slider
-        addOneToMainHeroSlideActiveIndex();
-        timer.reset();
-    });
+	timer.on('targetAchieved', () => {
+		// change slider
+		addOneToMainHeroSlideActiveIndex();
+		timer.reset();
+	});
 
-    timer.on("secondTenthsUpdated", () => {
-        const time = timer.getTotalTimeValues().secondTenths;
-        const value = (100 / SWIPER_DELAY) * (time / 10);
-        progressValue = value;
-    });
+	timer.on('secondTenthsUpdated', () => {
+		const time = timer.getTotalTimeValues().secondTenths;
+		const value = (100 / SWIPER_DELAY) * (time / 10);
+		progressValue = value;
+	});
 
-    $: {
-        switch ($timerStore) {
-            case "start":
-                timer?.start();
-                break;
-            case "pause":
-                timer?.pause();
-                break;
-            case "reset":
-                timer?.reset();
-                timer?.start();
-                break;
-        }
-    }
-    onMount(() => {
-        $timerStore = "start";
-    });
-    onDestroy(() => {
-        timer.reset();
-        timer.stop();
-    });
+	$: {
+		switch ($timerStore) {
+			case 'start':
+				timer?.start();
+				break;
+			case 'pause':
+				timer?.pause();
+				break;
+			case 'reset':
+				timer?.reset();
+				timer?.start();
+				break;
+		}
+	}
+	onMount(() => {
+		$timerStore = 'start';
+	});
+	onDestroy(() => {
+		timer.reset();
+		timer.stop();
+	});
 </script>
 
 <svelte:window
-    on:focus={() => {
-        $timerStore = "start";
-    }}
-    on:blur={() => {
-        $timerStore = "pause";
-    }}
+	on:focus={() => {
+		$timerStore = 'start';
+	}}
+	on:blur={() => {
+		$timerStore = 'pause';
+	}}
 />
 
 <div class="h-[27.875vw] w-[42.1875vw]">
 	<div
-	    use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
-	    on:swipe={swipeHandler}
-	    class="relative inline-grid h-full w-full"
-	>	
+		use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
+		on:swipe={swipeHandler}
+		class="relative inline-grid h-full w-full"
+	>
 		{#each latest_animes as anime, index}
 			{#if index === mainHeroSlideActiveIndex}
 				<div
-					class="flex relative h-full w-full items-center rounded-t-[0.875vw] bg-cover bg-center"
+					class="relative flex h-full w-full items-center rounded-t-[0.875vw] bg-cover bg-center"
 					style="
 						background-image: url('{anime.cover ?? ''}');
 						grid-area: 1 / 1 / 1000 / 1;
 					"
 					transition:blur
 					on:mouseenter={() => {
-						$timerStore = "pause";
+						$timerStore = 'pause';
 					}}
 					on:mouseleave={() => {
-						$timerStore = "start";
+						$timerStore = 'start';
 					}}
 					on:touchstart={() => {
-						$timerStore = "pause";
+						$timerStore = 'pause';
 					}}
 					on:touchend={() => {
-						$timerStore = "start";
+						$timerStore = 'start';
 					}}
 				>
 					<div
@@ -212,41 +210,31 @@
 			class="btn btn-icon absolute -left-[1vw] top-[12vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
 				timer?.reset();
-                timer?.start();
+				timer?.start();
 				minusOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<Chevron 
-				width="1.25vw" 
-				height="1.25vw" 
-				color="text-white"
-				class="rotate-90"
-			/>
+			<Chevron width="1.25vw" height="1.25vw" color="text-white" class="rotate-90" />
 		</button>
 		<button
 			class="btn btn-icon absolute -right-[1vw] top-[12vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
 			on:click={() => {
 				timer?.reset();
-                timer?.start();
+				timer?.start();
 				addOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<Chevron
-				width="1.25vw" 
-				height="1.25vw"
-				color="text-white"
-				class="-rotate-90"
-			/>
+			<Chevron width="1.25vw" height="1.25vw" color="text-white" class="-rotate-90" />
 		</button>
 
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
 			{#each latest_animes as _, index}
 				<button
-					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 hover:border-surface-50/75 transition duration-300"
+					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300 hover:border-surface-50/75"
 					class:bg-surface-50={index === mainHeroSlideActiveIndex}
 					on:click={() => {
 						timer?.reset();
-		                timer?.start();
+						timer?.start();
 						mainHeroSlideActiveIndex = index;
 					}}
 				/>

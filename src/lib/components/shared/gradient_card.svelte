@@ -15,7 +15,7 @@
 	style="background-image: url({backgroundImage ?? ''})"
 >
 	<div class="gradient {direction} {fromColor} {toColor} absolute h-full w-full" />
-	<div class="absolute w-full h-full">
+	<div class="absolute h-full w-full">
 		<slot />
 	</div>
 </div>
