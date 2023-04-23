@@ -10,7 +10,7 @@
 
 	import { Timer as EasyTimer } from "easytimer.js";
     import { onDestroy, onMount } from "svelte";
-    import { timer as timerStore } from "$store/Timer";
+    import { timer as timerStore } from "$store/timer";
 	import { blur } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 
