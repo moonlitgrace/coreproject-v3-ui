@@ -2,7 +2,7 @@
 		
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { swipe } from "svelte-gestures";
-	import { formatDate } from '$functions/formatDate';
+	import { formatDate } from '$functions/format_date';
 	import voca from 'voca';
 
 	// skeleton

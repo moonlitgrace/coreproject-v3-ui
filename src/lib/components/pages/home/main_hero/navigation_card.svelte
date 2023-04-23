@@ -1,5 +1,5 @@
 <script lang="ts">
-	import GradientCard from '$components/shared/GradientCard.svelte';
+	import GradientCard from '$components/shared/gradient_card.svelte';
 
 	// icons
 	import Forum from '$icons/forum.svelte';

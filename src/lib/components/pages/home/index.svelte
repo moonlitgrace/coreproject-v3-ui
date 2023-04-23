@@ -1,6 +1,6 @@
 <script>
-	import MainHero from './MainHero/Index.svelte';
-	import MyList from './MyList/Index.svelte'
+	import MainHero from './main_hero/index.svelte';
+	import MyList from './my_list/index.svelte'
 </script>
 
 <MainHero />

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { latest_episodes } from '$data/mock/latest_episodes';
-	import { formatDate } from '$functions/formatDate';
+	import { formatDate } from '$functions/format_date';
 	import _ from 'lodash';
 
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Expand from '$icons/expand.svelte';
-	import ScrollArea from '$components/shared/ScrollArea.svelte';
-	import GradientCard from '$components/shared/GradientCard.svelte';
+	import ScrollArea from '$components/shared/scroll_area.svelte';
+	import GradientCard from '$components/shared/gradient_card.svelte';
 	import Play from '$icons/play.svelte';
 
 	let sorted_latest_episodes = _.orderBy(latest_episodes, [(obj) => new Date(obj.release_date)], ['desc']);
