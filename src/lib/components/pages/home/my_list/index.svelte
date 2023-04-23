@@ -2,7 +2,7 @@
 	
 	import { my_list } from '$data/mock/my_list';
 
-	import GradientCard from '$components/shared/GradientCard.svelte';
+	import GradientCard from '$components/shared/gradient_card.svelte';
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Chevron from '$icons/chevron.svelte';

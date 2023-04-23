@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let anime_episodes: any;
 
-	import { formatTime } from '$functions/formatTime';
+	import { formatTime } from '$functions/format_time';
 
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';

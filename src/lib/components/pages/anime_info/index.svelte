@@ -10,7 +10,7 @@
 	export let anime_episodes: any;
 
 	import TopRounded from '$icons/top_rounded.svelte';
-	import AnimeMainDetails from './AnimeMainDetails.svelte';
+	import AnimeMainDetails from './anime_main_details.svelte';
 </script>
 
 <div class="anime_info relative">

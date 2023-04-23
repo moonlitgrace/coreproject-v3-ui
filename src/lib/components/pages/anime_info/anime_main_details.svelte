@@ -8,12 +8,12 @@
 
 	export let anime_episodes: any;
 
-	import ScrollArea from '$components/shared/ScrollArea.svelte';
-	import { formatDate } from '$functions/formatDate';
+	import ScrollArea from '$components/shared/scroll_area.svelte';
+	import { formatDate } from '$functions/format_date';
 
-	import SidebarDetails from '$components/pages/anime_info/SidebarDetails.svelte';
-	import AnimeFullDetails from '$components/pages/anime_info/AnimeFullDetails.svelte';
-	import AnimeEpisodes from '$components/pages/anime_info/AnimeEpisodes.svelte';
+	import SidebarDetails from '$components/pages/anime_info/sidebar_details.svelte';
+	import AnimeFullDetails from '$components/pages/anime_info/anime_full_details.svelte';
+	import AnimeEpisodes from '$components/pages/anime_info/anime_episodes.svelte';
 	// types
 	import type { SvelteComponentDev } from 'svelte/internal';
 	// icons

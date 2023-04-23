@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AnimeInfoPage from '$components/pages/anime_info/Index.svelte';
+	import AnimeInfoPage from '$components/pages/anime_info/index.svelte';
 	import { anime_list } from '$data/mock/anime_list';
 	import { anime_episodes } from '$data/mock/anime_episodes';
 
