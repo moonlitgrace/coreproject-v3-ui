@@ -45,8 +45,7 @@
 			search: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -55,8 +54,7 @@
 			home: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -64,32 +62,28 @@
 			discover: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
 			list: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
 			schedule: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
 			forum: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -98,16 +92,14 @@
 			settings: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
 			'misc.': {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -118,8 +110,7 @@
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -128,8 +119,7 @@
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -138,8 +128,7 @@
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -148,8 +137,7 @@
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
 				};
 			};
@@ -159,8 +147,7 @@
 			search: {
 				icon: {
 					component: Search,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'black'
 				}
 			}
@@ -169,8 +156,7 @@
 			home: {
 				icon: {
 					component: Home,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
@@ -178,32 +164,28 @@
 			discover: {
 				icon: {
 					component: Explore,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			list: {
 				icon: {
 					component: List,
-					width: '1.7vw',
-					height: '1.7vw',
+					style: "width: 1.7vw",
 					color: 'white'
 				}
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			}
@@ -212,16 +194,14 @@
 			settings: {
 				icon: {
 					component: Settings,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			}
@@ -232,8 +212,7 @@
 				link: '/profile/',
 				icon: {
 					component: User,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
@@ -242,8 +221,7 @@
 				link: '/mylist/',
 				icon: {
 					component: List,
-					width: '1.5vw',
-					height: '1.5vw',
+					style: "width: 1.5vw;",
 					color: 'white'
 				}
 			},
@@ -252,8 +230,7 @@
 				link: '/theme/',
 				icon: {
 					component: Moon,
-					width: '1.1vw',
-					height: '1.1vw',
+					style: "width: 1.1vw;",
 					color: 'white'
 				}
 			},
@@ -262,8 +239,7 @@
 				link: '/settings/',
 				icon: {
 					component: SettingsOutline,
-					width: '1.1vw',
-					height: '1.1vw',
+					style: "width: 1.1vw;",
 					color: 'white'
 				}
 			}
@@ -287,11 +263,11 @@
 				class="h-18 relative flex items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
 			>
 				<a href="/">
-					<Logo width="2vw" />
+					<Logo style="width: 2vw;" />
 				</a>
 
 				<a href="/">
-					<AnimeCore width="10vw" />
+					<AnimeCore style="width: 10vw;" />
 				</a>
 
 				<button class="avatar" use:popup={popupSettings}>
@@ -333,8 +309,7 @@
 								>
 									<svelte:component
 										this={item_icon.component}
-										width={item_icon.width}
-										height={item_icon.height}
+										style={item_icon.style}
 										color={item_icon.color}
 										class="col-span-1"
 									/>
@@ -358,8 +333,7 @@
 							>
 								<svelte:component
 									this={item_icon.component}
-									height={item_icon.height}
-									width={item_icon.width}
+									style={item_icon.style}
 									color={item_icon.color}
 								/>
 							</button>
@@ -372,8 +346,6 @@
 							{@const item_icon = item[1].icon}
 
 							{@const component = item_icon.component}
-							{@const component_width = item_icon.width}
-							{@const component_height = item_icon.height}
 
 							{@const is_active = active_button === item_name}
 
@@ -392,8 +364,7 @@
 										>
 											<svelte:component
 												this={component}
-												height={component_height}
-												width={component_width}
+												style={item_icon.style}
 												color={item_icon.color}
 											/>
 											<span class="text-[0.875vw] capitalize leading-[1.05vw]">{item_name}</span>
@@ -405,8 +376,7 @@
 										>
 											<svelte:component
 												this={component}
-												height={component_height}
-												width={component_width}
+												style={item_icon.style}
 												color="black"
 											/>
 										</div>
@@ -427,8 +397,7 @@
 						>
 							<svelte:component
 								this={item_icon.component}
-								height={item_icon.height}
-								width={item_icon.width}
+								style={item_icon.style}
 								color={item_icon.color}
 							/>
 							<span class="!m-0 text-[0.875vw] capitalize leading-[1.05vw]">{item_name}</span>
