@@ -12,7 +12,7 @@
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
 		<button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-			<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+			<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 		</button>
 	</div>
 
@@ -45,7 +45,7 @@
 			class="btn bg-secondary-100 text-surface-500 md:mt-[1.125vw] md:h-[2vh] md:w-[9vw] md:rounded-[0.18vw] md:text-[0.75vw] md:leading-[0.9vw]"
 		>
 			<div class="flex items-center justify-center gap-1">
-				<TrendingUp width="0.75vw" height="0.75vw" />
+				<TrendingUp style="width: 0.75vw;" />
 				Detailed Distribution
 			</div>
 		</button>
@@ -63,8 +63,7 @@
 					class="btn btn-icon bg-secondary-100 p-1 text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]"
 				>
 					<Edit
-						width="0.75vw"
-						height="0.75vw"
+						style="width: 0.75vw;"
 						variant="without_underline_around_pencil"
 						color="bg-surface-500"
 					/>
@@ -76,7 +75,7 @@
 			class="btn btn-sm flex items-center gap-2 p-0 md:mt-[1.25vw] md:text-[0.75vw] md:leading-[0.9vw]"
 		>
 			Add a review
-			<ExternalLink width="0.75vw" height="0.75vw" />
+			<ExternalLink style="width: 0.75vw;" />
 		</button>
 	</div>
 </div>
