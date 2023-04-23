@@ -50,8 +50,7 @@
 	<div class="mt-[1.5vw] mb-[2vw] flex gap-[1.5625vw] relative">
 		{#each my_list as anime}
 			<div on:mouseenter={() => {
-				hovered_popup_id = anime.id
-				console.log(hovered_popup_id)
+				hovered_popup_id = anime.id;
 			}}>
 				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
 					<GradientCard
