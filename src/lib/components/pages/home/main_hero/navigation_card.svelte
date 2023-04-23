@@ -18,8 +18,7 @@
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
@@ -27,8 +26,7 @@
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
@@ -36,8 +34,7 @@
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
@@ -46,32 +43,28 @@
 			language: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
 			preferences: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
 			theme: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
 			settings: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
 				};
 			};
@@ -82,8 +75,7 @@
 				title: 'Forums',
 				icon: {
 					component: Forum,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
@@ -91,8 +83,7 @@
 				title: 'Last watched anime',
 				icon: {
 					component: Recent,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
@@ -100,8 +91,7 @@
 				title: 'Notifications',
 				icon: {
 					component: Notifications,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			}
@@ -110,32 +100,28 @@
 			language: {
 				icon: {
 					component: Language,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			preferences: {
 				icon: {
 					component: Preference,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			theme: {
 				icon: {
 					component: Moon,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			settings: {
 				icon: {
 					component: SettingsOutline,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			}
@@ -166,8 +152,7 @@
 					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
 						<svelte:component
 							this={item_icon.component}
-							width={item_icon.width}
-							height={item_icon.height}
+							style={item_icon.style}
 							class={item_icon.class}
 						/>
 					</button>
@@ -185,8 +170,7 @@
 					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
 						<svelte:component
 							this={item_icon.component}
-							width={item_icon.width}
-							height={item_icon.height}
+							style={item_icon.style}
 							class={item_icon.class}
 						/>
 					</button>
@@ -195,7 +179,7 @@
 		</div>
 
 		<div class="mt-[1vw] grid place-items-center">
-			<CoreProject width="6.375vw" />
+			<CoreProject style="width: 6.375vw;" />
 		</div>
 	</div>
 </GradientCard>
