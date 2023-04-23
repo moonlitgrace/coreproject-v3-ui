@@ -17,9 +17,10 @@
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
+	let hovered_popup_id : number | undefined = undefined;
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
-		target: 'my_list_popup' // data-popup value
+		target: `my_list_popup_${hovered_popup_id}` // data-popup value
 	};
 </script>
 
@@ -48,7 +49,10 @@
 
 	<div class="mt-[1.5vw] mb-[2vw] flex gap-[1.5625vw] relative">
 		{#each my_list as anime}
-			<div>
+			<div on:mouseenter={() => {
+				hovered_popup_id = anime.id
+				console.log(hovered_popup_id)
+			}}>
 				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
 					<GradientCard
 						backgroundImage={anime.cover}
@@ -67,7 +71,7 @@
 					</GradientCard>
 				</a>
 
-				<div data-popup="my_list_popup" class="w-[18.75vw] h-[15.625vw] !rounded-[1vw] !-top-[17vw]">
+				<div data-popup="my_list_popup_{anime.id}" class="w-[18.75vw] h-[15.625vw] !rounded-[1vw] !-top-[17vw]">
 					<GradientCard
 						backgroundImage={anime.cover}
 						rounded="1vw"
