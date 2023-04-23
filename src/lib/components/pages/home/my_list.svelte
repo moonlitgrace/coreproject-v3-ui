@@ -17,10 +17,15 @@
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	let hovered_popup_id: number | undefined = undefined;
+	let anime_name: string | undefined = undefined;
+	let anime_cover: string | undefined = undefined;
+	let anime_synopsis: string | undefined = undefined;
+	let anime_current_episode: string | undefined = undefined;
+	let anime_episodes_count: string | undefined = undefined;
+
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
-		target: `my_list_popup_${hovered_popup_id}` // data-popup value
+		target: `my_list_popup` // data-popup value
 	};
 </script>
 
@@ -55,7 +60,11 @@
 		{#each my_list as anime}
 			<div
 				on:mouseenter={() => {
-					hovered_popup_id = anime.id;
+					anime_name = anime.name;
+					anime_cover = anime.cover;
+				    anime_synopsis = anime.synopsis;
+				    anime_current_episode = String(anime.current_episode);
+				    anime_episodes_count = String(anime.episodes_count);
 				}}
 			>
 				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
@@ -79,31 +88,24 @@
 				</a>
 
 				<div
-					data-popup="my_list_popup_{anime.id}"
+					data-popup="my_list_popup"
 					class="!-top-[17vw] h-[15.625vw] w-[18.75vw] !rounded-[1vw]"
 				>
 					<GradientCard
-						backgroundImage={anime.cover}
+						backgroundImage={anime_cover}
 						rounded="1vw"
 						fromColor="from-surface-900"
-						toColor="to-surface-900/25"
+						toColor="to-surface-900/50"
 						direction="bg-gradient-to-tr"
-						class="relative h-full w-full"
+						class="relative h-full w-full border-[0.2vw] border-b-0 border-surface-300/75"
 					>
 						<div class="flex flex-col px-[1.5625vw] pt-[2vw]">
-							<span class="text-[1vw] font-semibold text-white">{anime.name}</span>
-							<span class="text-[0.75vw] font-semibold uppercase text-surface-50">{anime.name}</span
+							<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
+							<span class="text-[0.75vw] font-semibold uppercase text-surface-50">{voca.truncate(anime_name, 50)}</span
 							>
 
 							<span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-								{voca.truncate(
-									`
-									Azur Lane, a combination of all the different Camps in the world, was once successful in repelling the underwater menace, the Siren. Now splintered, they must face a new threat in Red Axis, former allies who crave to wield this otherworldly Siren technology for their own nefarious desires! Who will be victorious in the never-ending war between these battleship girls!?
-
-									Akagami no Shirayuki-hime depicts Shirayuki's journey toward a new life at the royal palace of Clarines, as well as Zen's endeavor to become a prince worthy of his title. As loyal friendships are forged and deadly enemies formed, Shirayuki and Zen slowly learn to support each other as they walk their own paths.
-								`,
-									130
-								)}
+								{voca.truncate(anime_synopsis,130)}
 							</span>
 						</div>
 
@@ -113,7 +115,7 @@
 							<span>Watching</span>
 							<Circle width="0.2vw" class="text-surface-900" />
 							<span>
-								{anime.current_episode}/{anime.episodes_count}
+								{anime_current_episode}/{anime_episodes_count}
 							</span>
 						</div>
 					</GradientCard>
