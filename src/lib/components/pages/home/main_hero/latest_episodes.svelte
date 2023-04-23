@@ -20,12 +20,12 @@
 	<div class="flex items-center gap-[0.625vw]">
 		<span class="text-[1.25vw] font-bold">Latest Episodes</span>
 		<button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-			<SettingsOutline width="0.8vw" height="0.8vw" />
+			<SettingsOutline style="width: 0.8vw;" />
 		</button>
 		<button
 			class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold"
 		>
-			<Expand width="0.8vw" height="0.8vw" />
+			<Expand style="width: 0.8vw;" />
 			<span>Expand</span>
 		</button>
 	</div>
@@ -53,7 +53,7 @@
 						<button
 							class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
 						>
-							<Play width="1.25vw" height="1.25vw" />
+							<Play style="width: 1.25vw;" />
 						</button>
 					</div>
 				</div>
