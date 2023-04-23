@@ -33,7 +33,7 @@ export const my_list = [
 			"Action"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2013-08-22T10:30:00.000Z",
 	},
 	{
 		id: 3,
@@ -50,7 +50,7 @@ export const my_list = [
 			"sci-Fi"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2020-12-22T10:30:00.000Z",
 	},
 	{
 		id: 4,
@@ -67,7 +67,7 @@ export const my_list = [
 			"sci-Fi"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2010-01-22T10:30:00.000Z",
 	},
 	{
 		id: 5,
@@ -85,7 +85,7 @@ export const my_list = [
 			"sci-Fi"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2016-06-22T10:30:00.000Z",
 	},
 	{
 		id: 6,
@@ -102,7 +102,7 @@ export const my_list = [
 			"Triller"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2018-10-22T10:30:00.000Z",
 	},
 	{
 		id: 7,
@@ -119,6 +119,6 @@ export const my_list = [
 			"School"
 		],
 		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		release_date: "2021-7-22T10:30:00.000Z",
 	}
 ];
