@@ -36,7 +36,7 @@
 				class="h-[5vw] rounded-[0.75vw] relative flex items-center overflow-hidden bg-cover bg-center"
 				style="background-image: url({anime.cover ?? ''})"
 			>
-				<div class="gradient from-surface-900 to-surface-900/50 bg-gradient-to-tr absolute h-full w-full" />
+				<div class="gradient from-surface-900 to-surface-900/25 bg-gradient-to-tr absolute h-full w-full" />
 				<div class="absolute h-full w-full">
 					<div class="flex items-center justify-between p-[1.3125vw]">
 						<div class="flex flex-col gap-[0.4vw]">
