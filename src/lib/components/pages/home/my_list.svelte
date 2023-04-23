@@ -55,7 +55,7 @@
 				class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold"
 			>
 				Full List
-				<ArrowUpRight width="1vw" />
+				<ArrowUpRight style="width: 1vw;" />
 			</button>
 		</div>
 	</div>
