@@ -22,6 +22,7 @@
 	let anime_synopsis: string | undefined = undefined;
 	let anime_current_episode: string | undefined = undefined;
 	let anime_episodes_count: string | undefined = undefined;
+	let anime_genres: string[] = [];
 
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
@@ -65,6 +66,7 @@
 				    anime_synopsis = anime.synopsis;
 				    anime_current_episode = String(anime.current_episode);
 				    anime_episodes_count = String(anime.episodes_count);
+				    anime_genres = anime.genres;
 				}}
 			>
 				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
@@ -107,6 +109,12 @@
 							<span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
 								{voca.truncate(anime_synopsis,130)}
 							</span>
+
+							<div class="flex gap-[0.5vw]">
+								{#each anime_genres as genre}
+									<span class="bg-secondary-800">{genre}</span>
+								{/each}
+							</div>
 						</div>
 
 						<div
