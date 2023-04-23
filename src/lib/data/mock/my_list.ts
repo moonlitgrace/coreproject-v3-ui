@@ -13,7 +13,9 @@ export const my_list = [
 			"Action",
 			"Ecchi",
 			"sci-Fi"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 2,
@@ -29,7 +31,9 @@ export const my_list = [
 			"Love",
 			"Drama",
 			"Action"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 3,
@@ -44,7 +48,9 @@ export const my_list = [
 			"Action",
 			"Ecchi",
 			"sci-Fi"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 4,
@@ -59,7 +65,9 @@ export const my_list = [
 			"Action",
 			"Horror",
 			"sci-Fi"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 5,
@@ -75,7 +83,9 @@ export const my_list = [
 			"Action",
 			"Ecchi",
 			"sci-Fi"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 6,
@@ -90,7 +100,9 @@ export const my_list = [
 			"Action",
 			"Drama",
 			"Triller"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	},
 	{
 		id: 7,
@@ -105,6 +117,8 @@ export const my_list = [
 			"Romantic",
 			"Ecchi",
 			"School"
-		]
+		],
+		type: "TV",
+		release_date: "2023-04-22T10:30:00.000Z",
 	}
 ];
