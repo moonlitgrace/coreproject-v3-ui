@@ -177,7 +177,7 @@
 							class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
 						>
 							<div class="flex items-center justify-center md:gap-[0.7vw]">
-								<PlayCircle width="1.875vw" height="1.875vw" color="white" />
+								<PlayCircle style="width: 1.875vw;" color="white" />
 								<div class="flex flex-col items-start">
 									<span class="leading-[1.05vw]">Watch</span>
 									<span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]"
