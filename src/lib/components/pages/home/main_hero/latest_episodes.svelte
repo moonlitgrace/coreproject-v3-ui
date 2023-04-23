@@ -31,36 +31,34 @@
 		</button>
 	</div>
 
-	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw]" class="max-h-[21.5625vw]">
+	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw] max-h-[21.5625vw]" class="flex flex-col gap-[1vw]">
 		{#each sorted_latest_episodes as anime}
-			<GradientCard
-				backgroundImage={anime.cover}
-				height="5vw"
-				rounded="0.625vw"
-				fromColor="from-surface-900/80"
-				toColor="to-surface-900/40"
-				direction="bg-gradient-to-t"
-				class="[&:not(:first-child)]:mt-[1.25vw]"
+			<div
+				class="h-[5vw] rounded-[0.75vw] relative flex items-center overflow-hidden bg-cover bg-center"
+				style="background-image: url({anime.cover ?? ''})"
 			>
-				<div class="flex items-center justify-between p-[1.3125vw]">
-					<div class="flex flex-col gap-[0.4vw]">
-						<span class="text-[1vw] font-semibold leading-[1.1875vw]">{anime.name}</span>
-						<div class="flex items-center gap-[0.5vw]">
-							<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
-								Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
-							</span>
-							<span class="text-[0.75vw]"
-								>{new formatDate(anime.release_date).formatToTimeFromNow}</span
-							>
+				<div class="gradient from-surface-900 to-surface-900/50 bg-gradient-to-tr absolute h-full w-full" />
+				<div class="absolute h-full w-full">
+					<div class="flex items-center justify-between p-[1.3125vw]">
+						<div class="flex flex-col gap-[0.4vw]">
+							<span class="text-[1vw] font-semibold leading-[1.1875vw]">{anime.name}</span>
+							<div class="flex items-center gap-[0.5vw]">
+								<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+									Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
+								</span>
+								<span class="text-[0.75vw]"
+									>{new formatDate(anime.release_date).formatToTimeFromNow}</span
+								>
+							</div>
 						</div>
+						<button
+							class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
+						>
+							<Play width="1.25vw" height="1.25vw" />
+						</button>
 					</div>
-					<button
-						class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-					>
-						<Play width="1.25vw" height="1.25vw" />
-					</button>
 				</div>
-			</GradientCard>
+			</div>
 		{/each}
 	</ScrollArea>
 
