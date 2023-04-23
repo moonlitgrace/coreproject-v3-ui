@@ -175,14 +175,14 @@
 							<button
 								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-warning-400 text-[0.875vw] font-bold text-surface-900"
 							>
-								<PlayCircle width="1.25vw" height="1.25vw" class="text-surface-900" />
+								<PlayCircle style="width: 1.25vw;" class="text-surface-900" />
 								Ep 1
 							</button>
 
 							<button
 								class="btn btn-icon h-[3.125vw] w-[6.5vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50"
 							>
-								<Info width="1.25vw" height="1.25vw" class="text-surface-50" />
+								<Info style="width: 1.25vw;" class="text-surface-50" />
 								Details
 							</button>
 
@@ -191,8 +191,7 @@
 							>
 								<Edit
 									variant="with_underline_around_pencil"
-									width="1.25vw"
-									height="1.25vw"
+									style="width: 1.25vw;"
 									class="text-surface-50"
 								/>
 							</button>
@@ -214,7 +213,7 @@
 				minusOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<Chevron width="1.25vw" height="1.25vw" color="text-white" class="rotate-90" />
+			<Chevron style="width: 1.25vw;" color="text-white" class="rotate-90" />
 		</button>
 		<button
 			class="btn btn-icon absolute -right-[1vw] top-[12vw] z-20 h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800"
@@ -224,7 +223,7 @@
 				addOneToMainHeroSlideActiveIndex();
 			}}
 		>
-			<Chevron width="1.25vw" height="1.25vw" color="text-white" class="-rotate-90" />
+			<Chevron style="width: 1.25vw;" color="text-white" class="-rotate-90" />
 		</button>
 
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
