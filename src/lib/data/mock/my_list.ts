@@ -9,13 +9,9 @@ export const my_list = [
 				`,
 		current_episode: 4,
 		episodes_count: 12,
-		genres: [
-			"Action",
-			"Ecchi",
-			"sci-Fi"
-		],
-		type: "TV",
-		release_date: "2023-04-22T10:30:00.000Z",
+		genres: ['Action', 'Ecchi', 'sci-Fi'],
+		type: 'TV',
+		release_date: '2023-04-22T10:30:00.000Z'
 	},
 	{
 		id: 2,
@@ -27,13 +23,9 @@ export const my_list = [
 				`,
 		current_episode: 11,
 		episodes_count: 12,
-		genres: [
-			"Love",
-			"Drama",
-			"Action"
-		],
-		type: "TV",
-		release_date: "2013-08-22T10:30:00.000Z",
+		genres: ['Love', 'Drama', 'Action'],
+		type: 'TV',
+		release_date: '2013-08-22T10:30:00.000Z'
 	},
 	{
 		id: 3,
@@ -44,13 +36,9 @@ export const my_list = [
 				`,
 		current_episode: 1,
 		episodes_count: 6,
-		genres: [
-			"Action",
-			"Ecchi",
-			"sci-Fi"
-		],
-		type: "TV",
-		release_date: "2020-12-22T10:30:00.000Z",
+		genres: ['Action', 'Ecchi', 'sci-Fi'],
+		type: 'TV',
+		release_date: '2020-12-22T10:30:00.000Z'
 	},
 	{
 		id: 4,
@@ -61,13 +49,9 @@ export const my_list = [
 				`,
 		current_episode: 5,
 		episodes_count: 12,
-		genres: [
-			"Action",
-			"Horror",
-			"sci-Fi"
-		],
-		type: "TV",
-		release_date: "2010-01-22T10:30:00.000Z",
+		genres: ['Action', 'Horror', 'sci-Fi'],
+		type: 'TV',
+		release_date: '2010-01-22T10:30:00.000Z'
 	},
 	{
 		id: 5,
@@ -79,13 +63,9 @@ export const my_list = [
 				`,
 		current_episode: 19,
 		episodes_count: 24,
-		genres: [
-			"Action",
-			"Ecchi",
-			"sci-Fi"
-		],
-		type: "TV",
-		release_date: "2016-06-22T10:30:00.000Z",
+		genres: ['Action', 'Ecchi', 'sci-Fi'],
+		type: 'TV',
+		release_date: '2016-06-22T10:30:00.000Z'
 	},
 	{
 		id: 6,
@@ -96,13 +76,9 @@ export const my_list = [
 				`,
 		current_episode: 8,
 		episodes_count: 28,
-		genres: [
-			"Action",
-			"Drama",
-			"Triller"
-		],
-		type: "TV",
-		release_date: "2018-10-22T10:30:00.000Z",
+		genres: ['Action', 'Drama', 'Triller'],
+		type: 'TV',
+		release_date: '2018-10-22T10:30:00.000Z'
 	},
 	{
 		id: 7,
@@ -113,12 +89,8 @@ export const my_list = [
 				`,
 		current_episode: 9,
 		episodes_count: 26,
-		genres: [
-			"Romantic",
-			"Ecchi",
-			"School"
-		],
-		type: "TV",
-		release_date: "2021-7-22T10:30:00.000Z",
+		genres: ['Romantic', 'Ecchi', 'School'],
+		type: 'TV',
+		release_date: '2021-7-22T10:30:00.000Z'
 	}
 ];
