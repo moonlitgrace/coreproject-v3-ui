@@ -36,8 +36,7 @@
 			</div>
 			<div class="flex items-center md:gap-[0.25vw]">
 				<span class="md:text-[1vw] md:leading-[1.5vw]">#108</span>
-				<span class="text-surface-50 md:text-[0.625vw] md:leading-[0.75vw]"
-					>Most popular anime</span
+				<span class="text-surface-50 md:text-[0.625vw] md:leading-[0.75vw]">Most popular anime</span
 				>
 			</div>
 		</div>
@@ -54,7 +53,11 @@
 		<div class="md:mt-[0.4vw]">
 			<span class="font-semibold md:text-[0.75vw] md:leading-[0.9vw]">Your rating</span>
 			<div class="flex items-center gap-3 md:mt-[0.375vw]">
-				<StarRating rating={4.5} config={{ fullColor: '#DCD9F7', emptyColor: 'rgb(220, 217, 247, 0.4)' }} style={'margin: 0; gap: 5px'} />
+				<StarRating
+					rating={4.5}
+					config={{ fullColor: '#DCD9F7', emptyColor: 'rgb(220, 217, 247, 0.4)' }}
+					style={'margin: 0; gap: 5px'}
+				/>
 				<span class="font-bold md:text-[0.95vw] md:leading-[1.125vw]">92%</span>
 				<button
 					class="btn btn-icon bg-secondary-100 p-1 text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]"

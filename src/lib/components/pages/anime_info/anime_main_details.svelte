@@ -138,7 +138,7 @@
 	<div class="col-span-10 pr-[4vw]">
 		<div class="grid grid-cols-12 items-end justify-between">
 			<div class="col-span-7 flex items-end pr-[2vw] md:gap-[3.125vw]">
-				<img class="md:w-[12.5vw] md:rounded-[1vw]" src="{anime_banner}" alt="{anime_name}" />
+				<img class="md:w-[12.5vw] md:rounded-[1vw]" src={anime_banner} alt={anime_name} />
 				<div>
 					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime_name}</span>
 
@@ -199,45 +199,50 @@
 							</div>
 						</button>
 
-						{#each Object.entries(icon_mapping.anime_options) as item} {@const item_name = item[0]}
-						{@const item_icon = item[1].icon} {@const component = item_icon.component} {@const
-						component_width = item_icon.width} {@const component_height = item_icon.height} {@const
-						component_color = item_icon.color}
+						{#each Object.entries(icon_mapping.anime_options) as item}
+							{@const item_name = item[0]}
+							{@const item_icon = item[1].icon}
+							{@const component = item_icon.component}
+							{@const component_width = item_icon.width}
+							{@const component_height = item_icon.height}
+							{@const component_color = item_icon.color}
 
-						<button
-							type="button"
-							class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
-						>
-							<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
-								<svelte:component
-									this="{component}"
-									width="{component_width}"
-									height="{component_height}"
-									color="{component_color}"
-								/>
-								<span class="md:leading-[1vw]">{item_name}</span>
-							</div>
-						</button>
+							<button
+								type="button"
+								class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
+							>
+								<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
+									<svelte:component
+										this={component}
+										width={component_width}
+										height={component_height}
+										color={component_color}
+									/>
+									<span class="md:leading-[1vw]">{item_name}</span>
+								</div>
+							</button>
 						{/each}
 					</div>
 
 					<div class="flex md:mt-[1.25vw] md:gap-[0.625vw]">
-						{#each Object.entries(icon_mapping.user_options_icons) as item} {@const item_icon =
-						item[1].icon} {@const component = item_icon.component} {@const component_width =
-						item_icon.width} {@const component_height = item_icon.height} {@const component_variant
-						= item_icon.variant}
+						{#each Object.entries(icon_mapping.user_options_icons) as item}
+							{@const item_icon = item[1].icon}
+							{@const component = item_icon.component}
+							{@const component_width = item_icon.width}
+							{@const component_height = item_icon.height}
+							{@const component_variant = item_icon.variant}
 
-						<button
-							type="button"
-							class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
-						>
-							<svelte:component
-								this="{component}"
-								width="{component_width}"
-								height="{component_height}"
-								variant="{component_variant}"
-							/>
-						</button>
+							<button
+								type="button"
+								class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
+							>
+								<svelte:component
+									this={component}
+									width={component_width}
+									height={component_height}
+									variant={component_variant}
+								/>
+							</button>
 						{/each}
 					</div>
 				</div>
