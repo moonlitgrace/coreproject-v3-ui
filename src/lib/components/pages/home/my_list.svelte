@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { my_list } from '$data/mock/my_list';
 	import voca from 'voca';
+	import { formatDate } from '$functions/format_date';
 
 	import GradientCard from '$components/shared/gradient_card.svelte';
 	// icons
@@ -23,6 +24,8 @@
 	let anime_current_episode: string | undefined = undefined;
 	let anime_episodes_count: string | undefined = undefined;
 	let anime_genres: string[] = [];
+	let anime_type: string | undefined = undefined;
+	let anime_release_date: string;
 
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
@@ -67,6 +70,8 @@
 				    anime_current_episode = String(anime.current_episode);
 				    anime_episodes_count = String(anime.episodes_count);
 				    anime_genres = anime.genres;
+				    anime_type = anime.type;
+				    anime_release_date = String(anime.release_date);
 				}}
 			>
 				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
@@ -114,6 +119,13 @@
 								{#each anime_genres as genre}
 									<span class="bg-secondary-800 h-[1.25vw] px-[0.625vw] py-[0.25vw] rounded-[0.25vw] text-[0.625vw] leading-[0.75vw]">{genre}</span>
 								{/each}
+							</div>
+
+							<div class="text-[0.75vw] flex items-center gap-[0.5vw] mt-[0.45vw]">
+								<span>{anime_type}</span>
+								<Circle width="0.2vw" class="text-surface-50" />
+								<span class="capitalize">{new formatDate(anime_release_date).formatToSeason}</span>
+								<span>{anime_episodes_count} episodes</span>
 							</div>
 						</div>
 
