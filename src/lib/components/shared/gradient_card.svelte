@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let backgroundImage: string;
+	export let backgroundImage: string | undefined = undefined;
 	export let fromColor = 'from-surface-900/25';
 	export let toColor = 'to-transparent';
 	export let direction = 'bg-gradient-to-t';
