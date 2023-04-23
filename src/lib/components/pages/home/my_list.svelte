@@ -110,9 +110,9 @@
 								{voca.truncate(anime_synopsis,130)}
 							</span>
 
-							<div class="flex gap-[0.5vw]">
+							<div class="flex gap-[1vw] mt-[0.5vw]">
 								{#each anime_genres as genre}
-									<span class="bg-secondary-800">{genre}</span>
+									<span class="bg-secondary-800 h-[1.25vw] px-[0.625vw] py-[0.25vw] rounded-[0.25vw] text-[0.625vw] leading-[0.75vw]">{genre}</span>
 								{/each}
 							</div>
 						</div>
