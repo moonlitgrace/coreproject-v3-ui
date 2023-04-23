@@ -1,5 +1,4 @@
-<script>
-	
+<script lang="ts">
 	import { my_list } from '$data/mock/my_list';
 
 	import GradientCard from '$components/shared/gradient_card.svelte';
