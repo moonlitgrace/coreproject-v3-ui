@@ -128,15 +128,12 @@
 					class="!-top-[17vw] h-[15.625vw] w-[20vw] !rounded-[1vw]"
 					class:!opacity-0={!show_popup}
 				>
-					<GradientCard
-						backgroundImage={anime_cover}
-						rounded="1vw"
-						fromColor="from-surface-900"
-						toColor="to-surface-900/50"
-						direction="bg-gradient-to-tr"
-						class="relative h-full w-full border-[0.25vw] border-b-0 border-surface-300/75"
+					<div
+						class="w-full h-full rounded-[1vw] overflow-hidden relative flex items-center bg-cover bg-center border-[0.25vw] border-b-0 border-surface-300/75"
+						style="background-image: url({anime_cover});"
 					>
-						<div class="flex flex-col px-[1.5625vw] pb-[3vw] h-full justify-end">
+						<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/50 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
+						<div class="absolute flex flex-col px-[1.5625vw] pb-[3vw] h-full justify-end">
 							<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
 							<span class="text-[0.75vw] font-semibold uppercase text-surface-50">{voca.truncate(anime_name, 50)}</span
 							>
@@ -174,7 +171,7 @@
 								{anime_current_episode}/{anime_episodes_count}
 							</span>
 						</div>
-					</GradientCard>
+					</div>
 					<div class="arrow bg-surface-50" />
 				</div>
 			</div>
