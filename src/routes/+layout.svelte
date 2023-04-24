@@ -424,11 +424,11 @@
 
 	{#if show_search_panel}
 		<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" transition:blur={{duration: 300}}>
-			<button class="btn absolute left-[1.25vw] top-[1.25vw] p-0" on:click={toggle_search_panel}>
+			<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
 				<Cross style="width: 2vw; opacity: 0.5;" />
 			</button>
 
-			<form class="mt-[8vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
+			<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
 				<button class="btn absolute left-[1.25vw] p-0">
 					<Search style="width: 1.25vw;" />
 				</button>
