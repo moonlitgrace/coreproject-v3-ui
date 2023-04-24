@@ -91,7 +91,7 @@
 					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
 						<span class="text-center text-[1vw] font-semibold text-white group-hover:opacity-0">{anime.name}</span>
 						<span
-							class="absolute bottom-[1.25vw] text-center text-[1vw] font-medium text-surface-200"
+							class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
 						>
 							{anime.current_episode}/{anime.episodes_count}
 						</span>
@@ -118,7 +118,7 @@
 
 				<div
 					data-popup="my_list_popup"
-					class="!-top-[17vw] h-[15.625vw] w-[18.75vw] !rounded-[1vw]"
+					class="!-top-[17vw] h-[15.625vw] w-[20vw] !rounded-[1vw]"
 				>
 					<GradientCard
 						backgroundImage={anime_cover}
