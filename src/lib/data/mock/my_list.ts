@@ -11,7 +11,10 @@ export const my_list = [
 		episodes_count: 12,
 		genres: ['Action', 'Ecchi', 'sci-Fi'],
 		type: 'TV',
-		release_date: '2023-04-22T10:30:00.000Z'
+		release_date: '2023-04-22T10:30:00.000Z',
+		studios: [
+			"Bibury Animation Studios",
+		]
 	},
 	{
 		id: 2,
@@ -25,7 +28,10 @@ export const my_list = [
 		episodes_count: 12,
 		genres: ['Love', 'Drama', 'Action'],
 		type: 'TV',
-		release_date: '2013-08-22T10:30:00.000Z'
+		release_date: '2013-08-22T10:30:00.000Z',
+		studios: [
+			"Kyoto Animations",
+		]
 	},
 	{
 		id: 3,
@@ -38,7 +44,10 @@ export const my_list = [
 		episodes_count: 6,
 		genres: ['Action', 'Ecchi', 'sci-Fi'],
 		type: 'TV',
-		release_date: '2020-12-22T10:30:00.000Z'
+		release_date: '2020-12-22T10:30:00.000Z',
+		studios: [
+			"WI Studios",
+		]
 	},
 	{
 		id: 4,
@@ -51,7 +60,10 @@ export const my_list = [
 		episodes_count: 12,
 		genres: ['Action', 'Horror', 'sci-Fi'],
 		type: 'TV',
-		release_date: '2010-01-22T10:30:00.000Z'
+		release_date: '2010-01-22T10:30:00.000Z',
+		studios: [
+			"Bibury Animation Studios",
+		]
 	},
 	{
 		id: 5,
@@ -65,7 +77,10 @@ export const my_list = [
 		episodes_count: 24,
 		genres: ['Action', 'Ecchi', 'sci-Fi'],
 		type: 'TV',
-		release_date: '2016-06-22T10:30:00.000Z'
+		release_date: '2016-06-22T10:30:00.000Z',
+		studios: [
+			"Kyoto Studios",
+		]
 	},
 	{
 		id: 6,
@@ -78,7 +93,10 @@ export const my_list = [
 		episodes_count: 28,
 		genres: ['Action', 'Drama', 'Triller'],
 		type: 'TV',
-		release_date: '2018-10-22T10:30:00.000Z'
+		release_date: '2018-10-22T10:30:00.000Z',
+		studios: [
+			"Animation XXX",
+		]
 	},
 	{
 		id: 7,
@@ -91,6 +109,9 @@ export const my_list = [
 		episodes_count: 26,
 		genres: ['Romantic', 'Ecchi', 'School'],
 		type: 'TV',
-		release_date: '2021-7-22T10:30:00.000Z'
+		release_date: '2021-7-22T10:30:00.000Z',
+		studios: [
+			"Bibury Animation Studios",
+		]
 	}
 ];
