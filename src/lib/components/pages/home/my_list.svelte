@@ -74,25 +74,23 @@
 				    anime_release_date = String(anime.release_date);
 				}}
 			>
-				<a href="/mylist/{anime.id}" class="transition duration-300" use:popup={popupSettings}>
-					<GradientCard
-						backgroundImage={anime.cover}
-						rounded="0.875vw"
-						class="h-[12.5vw] w-[8.4375vw]"
-						fromColor="from-surface-900"
-						toColor="to-surface-900/0"
-						direction="bg-gradient-to-tr"
-					>
-						<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-							<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
-							<span
-								class="absolute bottom-[1.25vw] text-center text-[1vw] font-medium text-surface-200"
-							>
-								{anime.current_episode}/{anime.episodes_count}
-							</span>
-						</div>
-					</GradientCard>
-				</a>
+				<GradientCard
+					backgroundImage={anime.cover}
+					rounded="0.875vw"
+					class="h-[12.5vw] w-[8.4375vw]"
+					fromColor="from-surface-900"
+					toColor="to-surface-900/0"
+					direction="bg-gradient-to-tr"
+				>
+					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
+						<span
+							class="absolute bottom-[1.25vw] text-center text-[1vw] font-medium text-surface-200"
+						>
+							{anime.current_episode}/{anime.episodes_count}
+						</span>
+					</div>
+				</GradientCard>
 
 				<div
 					data-popup="my_list_popup"
