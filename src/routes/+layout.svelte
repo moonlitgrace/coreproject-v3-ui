@@ -256,7 +256,7 @@
 	};
 </script>
 
-<div class="wrapper h-screen">
+<div class="relative h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
 			<div
@@ -410,4 +410,13 @@
 		<!-- Page contents go here  -->
 		<slot />
 	</AppShell>
+
+	<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center">
+		<div class="mt-[8.5625vw]">
+			<form>
+				<!-- svelte-ignore a11y-autofocus -->
+				<input type="text" placeholder="Search for animes, mangas and musics" autofocus />
+			</form>
+		</div>
+	</div>
 </div>
