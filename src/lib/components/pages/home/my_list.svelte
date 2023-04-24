@@ -3,7 +3,6 @@
 	import voca from 'voca';
 	import { formatDate } from '$functions/format_date';
 
-	import GradientCard from '$components/shared/gradient_card.svelte';
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Chevron from '$icons/chevron.svelte';
