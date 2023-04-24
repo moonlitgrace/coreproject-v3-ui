@@ -99,16 +99,16 @@
 		"bg-white",
 		"bg-surface-50",
 		"bg-warning-400",
-		"bg-secondary-300",
-		"bg-primary-400",
+		"bg-primary-300",
+		"bg-error-300",
 	]
 	let slide_buttons_border_colors = [
 		"border-error-400",
 		"border-white",
 		"border-surface-50",
 		"border-warning-400",
-		"border-secondary-300",
-		"border-primary-400",
+		"border-primary-300",
+		"border-error-300",
 	]
 </script>
 
