@@ -30,6 +30,7 @@
 	let anime_release_date: string;
 	let anime_studio_name: string | undefined = undefined;
 
+	let show_popup = false;
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
 		target: `my_list_popup` // data-popup value
@@ -76,6 +77,15 @@
 				    anime_type = anime.type;
 				    anime_release_date = String(anime.release_date);
 				    anime_studio_name = String(anime.studios[0]);
+
+				    // show popup on hover after some time
+				    setTimeout(() => {
+				    	show_popup = true;
+				    }, 800)
+				}}
+				on:mouseleave={() => {
+					// remove popup
+					show_popup = false;
 				}}
 				class="group"
 				use:popup={popupSettings}
@@ -85,8 +95,8 @@
 					style="background-image: url({anime.cover});"
 				>
 					<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/25 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
-					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-						<span class="text-center text-[1vw] font-semibold text-white group-hover:opacity-0 transition duration-300">{anime.name}</span>
+					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center group-hover:opacity-0 transition duration-300">
+						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
 						<span
 							class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
 						>
@@ -116,6 +126,7 @@
 				<div
 					data-popup="my_list_popup"
 					class="!-top-[17vw] h-[15.625vw] w-[20vw] !rounded-[1vw]"
+					class:!opacity-0={!show_popup}
 				>
 					<GradientCard
 						backgroundImage={anime_cover}
