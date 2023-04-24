@@ -33,7 +33,7 @@
 	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw] max-h-[21.5625vw]" class="flex flex-col gap-[1vw]">
 		{#each sorted_latest_episodes as anime}
 			<div
-				class="h-[5vw] rounded-[0.75vw] relative flex items-center overflow-hidden bg-cover bg-center"
+				class="h-[5vw] rounded-[0.75vw] relative flex items-center bg-cover bg-center"
 				style="background-image: url({anime.cover ?? ''})"
 			>
 				<div class="gradient from-surface-900 to-surface-900/25 bg-gradient-to-tr absolute h-full w-full" />
