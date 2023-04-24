@@ -42,6 +42,9 @@
 		| keyof typeof icon_mapping.middle
 		| keyof typeof icon_mapping.bottom = 'home';
 
+	// show search panel
+	let show_search_panel = false;
+
 	const icon_mapping: {
 		top: {
 			search: {
@@ -256,6 +259,11 @@
 		event: 'click', // event
 		target: 'profileDropdown' // data-popup value
 	};
+
+	// toggle search panel
+	const toggle_search_panel = () => {
+		show_search_panel = !show_search_panel;
+	}
 </script>
 
 <div class="relative h-screen">
@@ -332,6 +340,7 @@
 							<button
 								type="button"
 								class="btn btn-icon w-[2.5vw] rounded-[0.375vw] bg-warning-400 p-0"
+								on:click={toggle_search_panel}
 							>
 								<svelte:component
 									this={item_icon.component}
@@ -414,7 +423,7 @@
 	</AppShell>
 
 	<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center">
-		<button class="btn absolute left-[1.25vw] top-[1.25vw] p-0">
+		<button class="btn absolute left-[1.25vw] top-[1.25vw] p-0" on:click={toggle_search_panel}>
 			<Cross style="width: 2vw; opacity: 0.5;" />
 		</button>
 
