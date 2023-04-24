@@ -95,6 +95,24 @@
 		timer.reset();
 		timer.stop();
 	});
+
+	// slide buttons colors
+	let slide_buttons_bg_colors = [
+		"bg-error-400",
+		"bg-white",
+		"bg-surface-50",
+		"bg-warning-400",
+		"bg-secondary-300",
+		"bg-primary-400",
+	]
+	let slide_buttons_border_colors = [
+		"border-error-400",
+		"border-white",
+		"border-surface-50",
+		"border-warning-400",
+		"border-secondary-300",
+		"border-primary-400",
+	]
 </script>
 
 <svelte:window
@@ -228,9 +246,9 @@
 
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
 			{#each latest_animes as _, index}
+				<!-- {@const bg_color = `bg-${slide_buttons_colors[0]}`} -->
 				<button
-					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300 hover:border-surface-50/75"
-					class:bg-surface-50={index === mainHeroSlideActiveIndex}
+					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] {slide_buttons_border_colors[index]} transition duration-300 hover:border-surface-50/50 {index === mainHeroSlideActiveIndex ? slide_buttons_bg_colors[index] : ""}"
 					on:click={() => {
 						timer?.reset();
 						timer?.start();
