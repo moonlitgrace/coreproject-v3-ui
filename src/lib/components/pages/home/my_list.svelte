@@ -80,7 +80,7 @@
 				    // show popup on hover after some time
 				    setTimeout(() => {
 				    	show_popup = true;
-				    }, 800)
+				    }, 500)
 				}}
 				on:mouseleave={() => {
 					// remove popup
