@@ -246,7 +246,6 @@
 
 		<div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
 			{#each latest_animes as _, index}
-				<!-- {@const bg_color = `bg-${slide_buttons_colors[0]}`} -->
 				<button
 					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] {slide_buttons_border_colors[index]} transition duration-300 hover:border-surface-50/50 {index === mainHeroSlideActiveIndex ? slide_buttons_bg_colors[index] : ""}"
 					on:click={() => {
