@@ -9,6 +9,8 @@
 	import Chevron from '$icons/chevron.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 	import Circle from '$icons/circle.svelte';
+	import PlayCircle from '$icons/play_circle.svelte';
+	import Info from '$icons/info.svelte';
 
 	// skeleton and floating-ui
 	import { popup } from '@skeletonlabs/skeleton';
@@ -73,6 +75,8 @@
 				    anime_type = anime.type;
 				    anime_release_date = String(anime.release_date);
 				}}
+				class="group"
+				use:popup={popupSettings}
 			>
 				<GradientCard
 					backgroundImage={anime.cover}
@@ -82,13 +86,31 @@
 					toColor="to-surface-900/0"
 					direction="bg-gradient-to-tr"
 				>
-					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center group-hover:opacity-0">
 						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
 						<span
 							class="absolute bottom-[1.25vw] text-center text-[1vw] font-medium text-surface-200"
 						>
 							{anime.current_episode}/{anime.episodes_count}
 						</span>
+					</div>
+
+					<div class="absolute inset-0 opacity-0 group-hover:opacity-100 grid w-full grid-cols-1 place-items-center transition-opacity">
+						<div class="flex flex-col gap-[1vw]">
+							<button
+								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900"
+							>
+								<PlayCircle style="width: 1.25vw;" class="text-surface-900" />
+								Ep {anime.current_episode}
+							</button>
+
+							<button
+								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50"
+							>
+								<Info style="width: 1.25vw;" class="text-surface-50" />
+								Info
+							</button>
+						</div>
 					</div>
 				</GradientCard>
 
