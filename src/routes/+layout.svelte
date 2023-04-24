@@ -414,18 +414,20 @@
 	</AppShell>
 
 	<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center">
-		<div class="relative">
-			<form class="mt-[8vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
-				<button class="btn absolute left-[1.25vw] p-0">
-					<Search style="width: 1.25vw;" />
-				</button>
-				<!-- svelte-ignore a11y-autofocus -->
-				<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg" />
+		<button class="btn absolute left-[1.25vw] top-[1.25vw] p-0">
+			<Cross style="width: 2vw; opacity: 0.5;" />
+		</button>
 
-				<button class="btn absolute right-[1.25vw] p-0">
-					<Cross style="width: 1.5vw; opacity: 0.7;" />
-				</button>
-			</form>
-		</div>
+		<form class="mt-[8vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
+			<button class="btn absolute left-[1.25vw] p-0">
+				<Search style="width: 1.25vw;" />
+			</button>
+			<!-- svelte-ignore a11y-autofocus -->
+			<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
+
+			<button class="btn absolute right-[1.25vw] p-0">
+				<Cross style="width: 1.5vw; opacity: 0.7;" />
+			</button>
+		</form>
 	</div>
 </div>
