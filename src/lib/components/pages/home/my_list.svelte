@@ -28,6 +28,7 @@
 	let anime_genres: string[] = [];
 	let anime_type: string | undefined = undefined;
 	let anime_release_date: string;
+	let anime_studio_name: string | undefined = undefined;
 
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
@@ -74,6 +75,7 @@
 				    anime_genres = anime.genres;
 				    anime_type = anime.type;
 				    anime_release_date = String(anime.release_date);
+				    anime_studio_name = String(anime.studios[0]);
 				}}
 				class="group"
 				use:popup={popupSettings}
@@ -86,8 +88,8 @@
 					toColor="to-surface-900/0"
 					direction="bg-gradient-to-tr"
 				>
-					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center group-hover:opacity-0">
-						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
+					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
+						<span class="text-center text-[1vw] font-semibold text-white group-hover:opacity-0">{anime.name}</span>
 						<span
 							class="absolute bottom-[1.25vw] text-center text-[1vw] font-medium text-surface-200"
 						>
@@ -96,7 +98,7 @@
 					</div>
 
 					<div class="absolute inset-0 opacity-0 group-hover:opacity-100 grid w-full grid-cols-1 place-items-center transition-opacity">
-						<div class="flex flex-col gap-[1vw]">
+						<div class="flex flex-col gap-[0.5vw]">
 							<button
 								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900"
 							>
@@ -146,6 +148,12 @@
 								<Circle width="0.2vw" class="text-surface-50" />
 								<span class="capitalize">{new formatDate(anime_release_date).formatToSeason}</span>
 								<span>{anime_episodes_count} episodes</span>
+							</div>
+
+							<div class="text-[0.75vw] flex items-center gap-[0.5vw] mt-[0.1vw]">
+								<span>69% <span class="text-surface-200">[7852 ratings]</span></span>
+								<Circle width="0.2vw" class="text-surface-50" />
+								<span>{anime_studio_name}</span>
 							</div>
 						</div>
 
