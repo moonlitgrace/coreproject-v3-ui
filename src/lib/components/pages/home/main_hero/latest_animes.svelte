@@ -4,9 +4,6 @@
 	import { formatDate } from '$functions/format_date';
 	import voca from 'voca';
 
-	// skeleton
-	import { ProgressBar } from '@skeletonlabs/skeleton';
-
 	import { Timer as EasyTimer } from 'easytimer.js';
 	import { onDestroy, onMount } from 'svelte';
 	import { timer as timerStore } from '$store/timer';
@@ -220,7 +217,7 @@
 		{/each}
 
 		<div>
-			<ProgressBar label="Progress Bar" class="h-[0.1vw]" value={$tweenedProgressValue} max={100} />
+			<div class="h-[0.1vw] {slide_buttons_bg_colors[mainHeroSlideActiveIndex]}" style="width: {$tweenedProgressValue}%;" />
 		</div>
 
 		<button
