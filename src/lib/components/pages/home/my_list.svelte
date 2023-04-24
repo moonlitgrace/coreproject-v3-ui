@@ -81,7 +81,7 @@
 				use:popup={popupSettings}
 			>
 				<div
-					class="w-[8.4vw] h-[12.5vw] rounded-[0.875vw] relative flex items-center overflow-hidden bg-cover bg-center"
+					class="w-[8.4vw] h-[12.5vw] rounded-[0.875vw] relative flex items-center bg-cover bg-center"
 					style="background-image: url({anime.cover});"
 				>
 					<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/25 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
