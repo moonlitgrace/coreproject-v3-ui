@@ -80,16 +80,13 @@
 				class="group"
 				use:popup={popupSettings}
 			>
-				<GradientCard
-					backgroundImage={anime.cover}
-					rounded="0.875vw"
-					class="h-[12.5vw] w-[8.4375vw]"
-					fromColor="from-surface-900"
-					toColor="to-surface-900/0"
-					direction="bg-gradient-to-tr"
+				<div
+					class="w-[8.4vw] h-[12.5vw] rounded-[0.875vw] relative flex items-center overflow-hidden bg-cover bg-center"
+					style="background-image: url({anime.cover});"
 				>
+					<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/25 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
 					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center">
-						<span class="text-center text-[1vw] font-semibold text-white group-hover:opacity-0">{anime.name}</span>
+						<span class="text-center text-[1vw] font-semibold text-white group-hover:opacity-0 transition duration-300">{anime.name}</span>
 						<span
 							class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
 						>
@@ -97,7 +94,7 @@
 						</span>
 					</div>
 
-					<div class="absolute inset-0 opacity-0 group-hover:opacity-100 grid w-full grid-cols-1 place-items-center transition-opacity">
+					<div class="absolute inset-0 opacity-0 group-hover:opacity-100 grid w-full grid-cols-1 place-items-center transition-opacity duration-300">
 						<div class="flex flex-col gap-[0.5vw]">
 							<button
 								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900"
@@ -114,7 +111,7 @@
 							</button>
 						</div>
 					</div>
-				</GradientCard>
+				</div>
 
 				<div
 					data-popup="my_list_popup"
@@ -126,7 +123,7 @@
 						fromColor="from-surface-900"
 						toColor="to-surface-900/50"
 						direction="bg-gradient-to-tr"
-						class="relative h-full w-full border-[0.2vw] border-b-0 border-surface-300/75"
+						class="relative h-full w-full border-[0.25vw] border-b-0 border-surface-300/75"
 					>
 						<div class="flex flex-col px-[1.5625vw] pb-[3vw] h-full justify-end">
 							<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
