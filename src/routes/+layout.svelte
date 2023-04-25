@@ -427,12 +427,12 @@
 	{#if show_search_panel === false}
 		<search-panel>
 			<div 
-				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" 
+				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center items-center" 
 				transition:blur={{duration: 300}}
 				on:mousedown|self={toggle_search_panel}
 			>
-				<div class="mt-[4vw] flex flex-col items-center">
-					<form class="w-[37.5vw] h-[3.75vw] relative flex items-center">
+				<div class="flex flex-col items-center mt-[4vw]">
+					<form class="w-[37.5vw] relative flex items-center">
 						<button class="btn absolute left-[1.25vw] p-0">
 							<Search style="width: 1.25vw;" />
 						</button>
@@ -442,7 +442,7 @@
 							type="text" 
 							placeholder="Search for animes, mangas and musics" 
 							autofocus 
-							class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
+							class="pl-[3.50vw] w-full h-full p-[1vw] rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
 						/>
 
 						<button 
@@ -453,7 +453,7 @@
 						</button>
 					</form>
 
-					<div class="mt-[1.5vw] flex gap-[3vw]">
+					<div class="mt-[1.5vw] flex gap-[4vw]">
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
 							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
@@ -469,6 +469,10 @@
 							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
 						</div>
 					</div>
+
+					<span class="text-[0.8vw] mt-[1vw] text-surface-50">
+						Want even advanced searching with genres, time-ranges, tags and more? Try the <a href="/explore" class="!text-surface-50">Explore</a> page
+					</span>
 				</div>
 			</div>
 		</search-panel>
