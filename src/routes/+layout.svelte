@@ -456,12 +456,12 @@
 					<div class="mt-[1.5vw] flex gap-[4vw]">
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
+							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
 						</div>
 
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">manga</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
 								<div class="text-[1.1vw] flex flex-col gap-[0.2vw] items-center justify-center h-full">
 									<span class="font-medium leading-none">mangacore integration</span>
 									<span class="font-semibold leading-none">comming soon</span>
@@ -471,7 +471,7 @@
 
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">music</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
 								<div class="text-[1.1vw] flex flex-col gap-[0.2vw] items-center justify-center h-full">
 									<span class="font-medium leading-none">soundcore integration</span>
 									<span class="font-semibold leading-none">comming soon</span>
