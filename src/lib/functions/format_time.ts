@@ -11,12 +11,12 @@ export class formatTime {
 	}
 
 	public get formatSecondsToTimeStampDuration() {
-		const timeString = dayjs(this.#duration.asMilliseconds()).format('mm:ss');
+		const timeString = this.#duration.format('mm:ss');
 		return timeString;
 	}
 
 	public get formatSecondsToMinutes() {
-		const timeString = dayjs(this.#duration.asMilliseconds()).format('m');
+		const timeString = Math.floor(this.#duration.asMinutes());
 		return timeString;
 	}
 }
