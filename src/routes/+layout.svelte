@@ -431,10 +431,6 @@
 				transition:blur={{duration: 300}}
 				on:mousedown|self={toggle_search_panel}
 			>
-				<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
-					<Cross style="width: 2vw; opacity: 0.5;" />
-				</button>
-
 				<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
 					<button class="btn absolute left-[1.25vw] p-0">
 						<Search style="width: 1.25vw;" />
