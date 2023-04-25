@@ -427,7 +427,7 @@
 		<slot />
 	</AppShell>
 
-	{#if show_search_panel === false}
+	{#if show_search_panel}
 		<search-panel>
 			<div 
 				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center items-center" 
