@@ -456,17 +456,17 @@
 					<div class="mt-[1.5vw] flex gap-[3vw]">
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
 						</div>
 
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">manga</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
 						</div>
 
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">music</span>
-							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg"></div>
 						</div>
 					</div>
 				</div>
