@@ -418,27 +418,32 @@
 			</div>
 		</svelte:fragment>
 
-		<!-- Page contents go here  -->
 		<slot />
 	</AppShell>
 
 	{#if show_search_panel}
-		<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" transition:blur={{duration: 300}}>
-			<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
-				<Cross style="width: 2vw; opacity: 0.5;" />
-			</button>
-
-			<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
-				<button class="btn absolute left-[1.25vw] p-0">
-					<Search style="width: 1.25vw;" />
+		<search-panel>
+			<div 
+				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" 
+				transition:blur={{duration: 300}}
+				on:mousedown|self={toggle_search_panel}
+			>
+				<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
+					<Cross style="width: 2vw; opacity: 0.5;" />
 				</button>
-				<!-- svelte-ignore a11y-autofocus -->
-				<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
 
-				<button class="btn absolute right-[1.25vw] p-0">
-					<Cross style="width: 1.5vw; opacity: 0.7;" />
-				</button>
-			</form>
-		</div>
+				<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
+					<button class="btn absolute left-[1.25vw] p-0">
+						<Search style="width: 1.25vw;" />
+					</button>
+					<!-- svelte-ignore a11y-autofocus -->
+					<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
+
+					<button class="btn absolute right-[1.25vw] p-0">
+						<Cross style="width: 1.5vw; opacity: 0.7;" />
+					</button>
+				</form>
+			</div>
+		</search-panel>
 	{/if}
 </div>
