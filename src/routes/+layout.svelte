@@ -260,10 +260,13 @@
 		target: 'profileDropdown' // data-popup value
 	};
 
+	// search panel //
 	// toggle search panel
 	const toggle_search_panel = () => {
 		show_search_panel = !show_search_panel;
 	}
+	// search input
+	let search_query: string;
 </script>
 
 <div class="relative h-screen">
@@ -437,9 +440,18 @@
 						<Search style="width: 1.25vw;" />
 					</button>
 					<!-- svelte-ignore a11y-autofocus -->
-					<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
+					<input
+						bind:value={search_query}
+						type="text" 
+						placeholder="Search for animes, mangas and musics" 
+						autofocus 
+						class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
+					/>
 
-					<button class="btn absolute right-[1.25vw] p-0">
+					<button 
+						class="btn absolute right-[1.25vw] p-0"
+						on:click={() => search_query = ""}
+					>
 						<Cross style="width: 1.5vw; opacity: 0.7;" />
 					</button>
 				</form>
