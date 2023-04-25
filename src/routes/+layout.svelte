@@ -424,33 +424,52 @@
 		<slot />
 	</AppShell>
 
-	{#if show_search_panel}
+	{#if show_search_panel === false}
 		<search-panel>
 			<div 
 				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" 
 				transition:blur={{duration: 300}}
 				on:mousedown|self={toggle_search_panel}
 			>
-				<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
-					<button class="btn absolute left-[1.25vw] p-0">
-						<Search style="width: 1.25vw;" />
-					</button>
-					<!-- svelte-ignore a11y-autofocus -->
-					<input
-						bind:value={search_query}
-						type="text" 
-						placeholder="Search for animes, mangas and musics" 
-						autofocus 
-						class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
-					/>
+				<div class="mt-[4vw] flex flex-col items-center">
+					<form class="w-[37.5vw] h-[3.75vw] relative flex items-center">
+						<button class="btn absolute left-[1.25vw] p-0">
+							<Search style="width: 1.25vw;" />
+						</button>
+						<!-- svelte-ignore a11y-autofocus -->
+						<input
+							bind:value={search_query}
+							type="text" 
+							placeholder="Search for animes, mangas and musics" 
+							autofocus 
+							class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
+						/>
 
-					<button 
-						class="btn absolute right-[1.25vw] p-0"
-						on:click={() => search_query = ""}
-					>
-						<Cross style="width: 1.5vw; opacity: 0.7;" />
-					</button>
-				</form>
+						<button 
+							class="btn absolute right-[1.25vw] p-0"
+							on:click={() => search_query = ""}
+						>
+							<Cross style="width: 1.5vw; opacity: 0.7;" />
+						</button>
+					</form>
+
+					<div class="mt-[1.5vw] flex gap-[3vw]">
+						<div>
+							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+						</div>
+
+						<div>
+							<span class="text-[1.2vw] text-surface-50 font-semibold">manga</span>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+						</div>
+
+						<div>
+							<span class="text-[1.2vw] text-surface-50 font-semibold">music</span>
+							<div class="mt-[0.5vw] w-[21.875vw] h-[31.25vw] rounded-[0.75vw] bg-surface-400"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</search-panel>
 	{/if}
