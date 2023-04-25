@@ -29,8 +29,10 @@
 </script>
 
 <div
-	on:scroll="{onScroll}"
-	class="{parentClass} {offsetScrollbar ? 'pr-[0.75vw]' : 'pr-0'} scrollbar {scrollbar_type} overflow-hidden overflow-y-scroll overscroll-y-contain"
+	on:scroll={onScroll}
+	class="{parentClass} {offsetScrollbar
+		? 'pr-[0.75vw]'
+		: 'pr-0'} scrollbar {scrollbar_type} overflow-y-scroll overscroll-y-contain"
 >
 	<div class="{klass} whitespace-pre-line">
 		<slot />

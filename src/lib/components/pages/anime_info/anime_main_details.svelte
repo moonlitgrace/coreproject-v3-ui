@@ -32,16 +32,14 @@
 			read: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color?: string;
 				};
 			};
 			listen: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color?: string;
 				};
 			};
@@ -51,32 +49,28 @@
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: string;
-					height: string;
+					style: string;
 				};
 			};
 			edit: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: string;
-					height: string;
+					style: string;
 				};
 			};
 			download: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: 'with_underline_around_pencil' | 'without_underline_around_pencil';
-					width: string;
-					height: string;
+					style: string;
 				};
 			};
 			share: {
 				icon: {
 					component: typeof SvelteComponentDev;
 					variant?: string | boolean;
-					width: string;
-					height: string;
+					style: string;
 				};
 			};
 		};
@@ -85,16 +79,14 @@
 			read: {
 				icon: {
 					component: Read,
-					width: '1.5vw',
-					height: '1.5vw',
+					style: "width: 1.5vw;",
 					color: 'bg-surface-500'
 				}
 			},
 			listen: {
 				icon: {
 					component: Listen,
-					width: '1.5vw',
-					height: '1.5vw',
+					style: "width: 1.5vw;",
 					color: 'bg-surface-500'
 				}
 			}
@@ -104,30 +96,26 @@
 				icon: {
 					component: Video,
 					variant: false,
-					width: '1.125vw',
-					height: '1.125vw'
+					style: "width: 1.125vw;"
 				}
 			},
 			edit: {
 				icon: {
 					component: Edit,
 					variant: 'with_underline_around_pencil',
-					width: '1.125vw',
-					height: '1.125vw'
+					style: "width: 1.125vw;"
 				}
 			},
 			download: {
 				icon: {
 					component: Download,
-					width: '1.125vw',
-					height: '1.125vw'
+					style: "width: 1.125vw;"
 				}
 			},
 			share: {
 				icon: {
 					component: Share,
-					width: '1.125vw',
-					height: '1.125vw'
+					style: "width: 1.125vw;"
 				}
 			}
 		}
@@ -138,7 +126,7 @@
 	<div class="col-span-10 pr-[4vw]">
 		<div class="grid grid-cols-12 items-end justify-between">
 			<div class="col-span-7 flex items-end pr-[2vw] md:gap-[3.125vw]">
-				<img class="md:w-[12.5vw] md:rounded-[1vw]" src="{anime_banner}" alt="{anime_name}" />
+				<img class="md:w-[12.5vw] md:rounded-[1vw]" src={anime_banner} alt={anime_name} />
 				<div>
 					<span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime_name}</span>
 
@@ -189,7 +177,7 @@
 							class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
 						>
 							<div class="flex items-center justify-center md:gap-[0.7vw]">
-								<PlayCircle width="1.875vw" height="1.875vw" color="white" />
+								<PlayCircle style="width: 1.875vw;" color="white" />
 								<div class="flex flex-col items-start">
 									<span class="leading-[1.05vw]">Watch</span>
 									<span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]"
@@ -199,45 +187,46 @@
 							</div>
 						</button>
 
-						{#each Object.entries(icon_mapping.anime_options) as item} {@const item_name = item[0]}
-						{@const item_icon = item[1].icon} {@const component = item_icon.component} {@const
-						component_width = item_icon.width} {@const component_height = item_icon.height} {@const
-						component_color = item_icon.color}
+						{#each Object.entries(icon_mapping.anime_options) as item}
+							{@const item_name = item[0]}
+							{@const item_icon = item[1].icon}
+							{@const component = item_icon.component}
+							{@const component_style = item_icon.style}
+							{@const component_color = item_icon.color}
 
-						<button
-							type="button"
-							class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
-						>
-							<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
-								<svelte:component
-									this="{component}"
-									width="{component_width}"
-									height="{component_height}"
-									color="{component_color}"
-								/>
-								<span class="md:leading-[1vw]">{item_name}</span>
-							</div>
-						</button>
+							<button
+								type="button"
+								class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
+							>
+								<div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
+									<svelte:component
+										this={component}
+										style={component_style}
+										color={component_color}
+									/>
+									<span class="md:leading-[1vw]">{item_name}</span>
+								</div>
+							</button>
 						{/each}
 					</div>
 
 					<div class="flex md:mt-[1.25vw] md:gap-[0.625vw]">
-						{#each Object.entries(icon_mapping.user_options_icons) as item} {@const item_icon =
-						item[1].icon} {@const component = item_icon.component} {@const component_width =
-						item_icon.width} {@const component_height = item_icon.height} {@const component_variant
-						= item_icon.variant}
+						{#each Object.entries(icon_mapping.user_options_icons) as item}
+							{@const item_icon = item[1].icon}
+							{@const component = item_icon.component}
+							{@const component_style = item_icon.style}
+							{@const component_variant = item_icon.variant}
 
-						<button
-							type="button"
-							class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
-						>
-							<svelte:component
-								this="{component}"
-								width="{component_width}"
-								height="{component_height}"
-								variant="{component_variant}"
-							/>
-						</button>
+							<button
+								type="button"
+								class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
+							>
+								<svelte:component
+									this={component}
+									style={component_style}
+									variant={component_variant}
+								/>
+							</button>
 						{/each}
 					</div>
 				</div>
@@ -249,7 +238,7 @@
 					<button
 						class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]"
 					>
-						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+						<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 					</button>
 				</div>
 
@@ -290,7 +279,7 @@
 					<div class="flex items-center gap-1">
 						Status:
 						<span class="text-warning-400">Watching</span>
-						<Chevron width="0.625vw" color="warning-400" />
+						<Chevron style="width: 0.625vw;" color="warning-400" />
 					</div>
 					<div class="flex items-center gap-1">
 						Episode:
@@ -299,7 +288,7 @@
 					<div class="flex items-center gap-1">
 						Your Score:
 						<span class="text-warning-400">Not Rated</span>
-						<Chevron width="0.625vw" color="warning-400" />
+						<Chevron style="width: 0.625vw;" color="warning-400" />
 					</div>
 				</div>
 			</div>

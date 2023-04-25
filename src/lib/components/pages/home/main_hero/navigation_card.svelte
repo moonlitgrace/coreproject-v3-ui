@@ -1,5 +1,4 @@
 <script lang="ts">
-	import GradientCard from '$components/shared/gradient_card.svelte';
 
 	// icons
 	import Forum from '$icons/forum.svelte';
@@ -18,72 +17,64 @@
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
-				}
-			},
+				};
+			};
 			last_watched: {
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
-				}
-			},
+				};
+			};
 			notifications: {
 				title: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					class: string;
-				}
-			},
-		},
+				};
+			};
+		};
 		bottom: {
 			language: {
 				icon: {
-					component: typeof SvelteComponentDev,
-					width: string;
-					height: string;
+					component: typeof SvelteComponentDev;
+					style: string;
 					class: string;
-				}
-			},
+				};
+			};
 			preferences: {
 				icon: {
-					component: typeof SvelteComponentDev,
-					width: string;
-					height: string;
+					component: typeof SvelteComponentDev;
+					style: string;
 					class: string;
-				}
-			},
+				};
+			};
 			theme: {
 				icon: {
-					component: typeof SvelteComponentDev,
-					width: string;
-					height: string;
+					component: typeof SvelteComponentDev;
+					style: string;
 					class: string;
-				}
-			},
+				};
+			};
 			settings: {
 				icon: {
-					component: typeof SvelteComponentDev,
-					width: string;
-					height: string;
+					component: typeof SvelteComponentDev;
+					style: string;
 					class: string;
-				}
-			}
-		}
+				};
+			};
+		};
 	} = {
 		left: {
 			forums: {
 				title: 'Forums',
 				icon: {
 					component: Forum,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
@@ -91,8 +82,7 @@
 				title: 'Last watched anime',
 				icon: {
 					component: Recent,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
@@ -100,8 +90,7 @@
 				title: 'Notifications',
 				icon: {
 					component: Notifications,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			}
@@ -110,32 +99,28 @@
 			language: {
 				icon: {
 					component: Language,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			preferences: {
 				icon: {
 					component: Preference,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			theme: {
 				icon: {
 					component: Moon,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			},
 			settings: {
 				icon: {
 					component: SettingsOutline,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					class: 'text-surface-900'
 				}
 			}
@@ -143,57 +128,54 @@
 	};
 </script>
 
-<GradientCard
-	backgroundImage="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
-	rounded="0.875vw"
-	fromColor="from-surface-900/95"
-	toColor="to-surface-900/25"
-	direction="bg-gradient-to-tr"
-	class="mt-[3.4vw] h-[24.3125vw] w-[16.625vw]"
+<div
+	class="h-[24.1325vw] w-[16.625vw] mt-[3.4vw] rounded-[0.875vw] relative overflow-hidden bg-cover bg-center"
+	style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
 >
-	<div class="px-[1.875vw] pt-[2vw]">
+	<div class="gradient from-surface-900/95 to-surface-900/25 bg-gradient-to-tr absolute h-full w-full" />
+	<div class="px-[1.875vw] pt-[2vw] absolute">
 		<div class="flex flex-col gap-[0.2w]">
 			<span class="text-[1.5vw] font-bold">Welcome</span>
 			<span class="text-[0.875vw] font-semibold">Jump quickly into</span>
 		</div>
 
 		<div class="mt-[1vw] flex flex-col gap-[0.625vw]">
-			{#each Object.entries(icon_mapping.left) as item} {@const item_title = item[1].title} {@const
-			item_icon = item[1].icon}
+			{#each Object.entries(icon_mapping.left) as item}
+				{@const item_title = item[1].title}
+				{@const item_icon = item[1].icon}
 
-			<div class="flex items-center gap-[1vw]">
-				<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-					<svelte:component
-						this="{item_icon.component}"
-						width="{item_icon.width}"
-						height="{item_icon.height}"
-						class="{item_icon.class}"
-					/>
-				</button>
-				<span class="text-[1vw] font-bold">{item_title}</span>
-			</div>
+				<div class="flex items-center gap-[1vw]">
+					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+						<svelte:component
+							this={item_icon.component}
+							style={item_icon.style}
+							class={item_icon.class}
+						/>
+					</button>
+					<span class="text-[1vw] font-bold">{item_title}</span>
+				</div>
 			{/each}
 		</div>
 
 		<div class="mt-[0.4vw]">
 			<span class="text-[0.9vw] font-semibold">More</span>
 			<div class="mt-[0.75vw] flex gap-[0.9375vw]">
-				{#each Object.entries(icon_mapping.bottom) as item} {@const item_icon = item[1].icon}
+				{#each Object.entries(icon_mapping.bottom) as item}
+					{@const item_icon = item[1].icon}
 
-				<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-					<svelte:component
-						this="{item_icon.component}"
-						width="{item_icon.width}"
-						height="{item_icon.height}"
-						class="{item_icon.class}"
-					/>
-				</button>
+					<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+						<svelte:component
+							this={item_icon.component}
+							style={item_icon.style}
+							class={item_icon.class}
+						/>
+					</button>
 				{/each}
 			</div>
 		</div>
 
 		<div class="mt-[1vw] grid place-items-center">
-			<CoreProject width="6.375vw" />
+			<CoreProject style="width: 6.375vw;" />
 		</div>
 	</div>
-</GradientCard>
+</div>

@@ -32,6 +32,8 @@
 	import User from '$icons/user.svelte';
 	import Moon from '$icons/moon.svelte';
 	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Cross from '$icons/cross.svelte';
+
 	import type { SvelteComponentDev } from 'svelte/internal';
 
 	// Local
@@ -40,128 +42,117 @@
 		| keyof typeof icon_mapping.middle
 		| keyof typeof icon_mapping.bottom = 'home';
 
+	// show search panel
+	let show_search_panel = false;
 
 	const icon_mapping: {
 		top: {
 			search: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			}
-		},
+				};
+			};
+		};
 		middle: {
 			home: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 
 			discover: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			list: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			schedule: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			forum: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			}
-		},
+				};
+			};
+		};
 		bottom: {
 			settings: {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			'misc.': {
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			}
-		},
+				};
+			};
+		};
 		profile_dropdown: {
 			profile: {
 				name: string;
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			my_list: {
 				name: string;
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			theme: {
 				name: string;
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			},
+				};
+			};
 			settings: {
 				name: string;
 				link: string;
 				icon: {
 					component: typeof SvelteComponentDev;
-					width: string;
-					height: string;
+					style: string;
 					color: string;
-				}
-			}
-		}
+				};
+			};
+		};
 	} = {
 		top: {
 			search: {
 				icon: {
 					component: Search,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'black'
 				}
 			}
@@ -170,8 +161,7 @@
 			home: {
 				icon: {
 					component: Home,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
@@ -179,32 +169,28 @@
 			discover: {
 				icon: {
 					component: Explore,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			list: {
 				icon: {
 					component: List,
-					width: '1.7vw',
-					height: '1.7vw',
+					style: "width: 1.7vw",
 					color: 'white'
 				}
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			}
@@ -213,16 +199,14 @@
 			settings: {
 				icon: {
 					component: Settings,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			}
@@ -233,8 +217,7 @@
 				link: '/profile/',
 				icon: {
 					component: User,
-					width: '1.25vw',
-					height: '1.25vw',
+					style: "width: 1.25vw;",
 					color: 'white'
 				}
 			},
@@ -243,8 +226,7 @@
 				link: '/mylist/',
 				icon: {
 					component: List,
-					width: '1.5vw',
-					height: '1.5vw',
+					style: "width: 1.5vw;",
 					color: 'white'
 				}
 			},
@@ -253,8 +235,7 @@
 				link: '/theme/',
 				icon: {
 					component: Moon,
-					width: '1.1vw',
-					height: '1.1vw',
+					style: "width: 1.1vw;",
 					color: 'white'
 				}
 			},
@@ -263,8 +244,7 @@
 				link: '/settings/',
 				icon: {
 					component: SettingsOutline,
-					width: '1.1vw',
-					height: '1.1vw',
+					style: "width: 1.1vw;",
 					color: 'white'
 				}
 			}
@@ -280,18 +260,24 @@
 		target: 'profileDropdown' // data-popup value
 	};
 
+	// toggle search panel
+	const toggle_search_panel = () => {
+		show_search_panel = !show_search_panel;
+	}
 </script>
 
-<div class="h-screen wrapper">
+<div class="relative h-screen">
 	<AppShell>
 		<svelte:fragment slot="header">
-			<div class="h-18 flex items-center justify-between pl-[2.1vw] pr-[3.75vw] py-[0.9375vw] relative">
+			<div
+				class="h-18 relative flex items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
+			>
 				<a href="/">
-					<Logo width="2vw" />
+					<Logo style="width: 2vw;" />
 				</a>
 
 				<a href="/">
-					<AnimeCore width="10vw" />
+					<AnimeCore style="width: 10vw;" />
 				</a>
 
 				<button class="avatar" use:popup={popupSettings}>
@@ -303,7 +289,10 @@
 					/>
 				</button>
 
-				<div class="w-[12vw] !left-[84.5vw] !top-[4.5vw] bg-surface-400 rounded-[0.375vw] shadow-lg shadow-surface-900/50 py-[1.125vw] px-[0.75vw]" data-popup="profileDropdown">
+				<div
+					class="!left-[84.5vw] !top-[4.5vw] w-[12vw] rounded-[0.375vw] bg-surface-400 px-[0.75vw] py-[1.125vw] shadow-lg shadow-surface-900/50"
+					data-popup="profileDropdown"
+				>
 					<div class="flex gap-[0.8vw]">
 						<Avatar
 							rounded="rounded-[0.375vw]"
@@ -325,15 +314,16 @@
 							{@const item_name = item[1].name}
 
 							<a href={item_link} style="text-decoration: none;">
-								<div class="grid grid-cols-5 items-center cursor-pointer hover:bg-surface-300/20 transition duration-100 p-[0.5vw] rounded-[0.2vw]">
-									<svelte:component 
+								<div
+									class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] transition duration-100 hover:bg-surface-300/20"
+								>
+									<svelte:component
 										this={item_icon.component}
-										width={item_icon.width}
-										height={item_icon.height}
+										style={item_icon.style}
 										color={item_icon.color}
 										class="col-span-1"
 									/>
-									<span class="text-[1vw] font-medium col-span-4 text-white">{item_name}</span>
+									<span class="col-span-4 text-[1vw] font-medium text-white">{item_name}</span>
 								</div>
 							</a>
 						{/each}
@@ -342,33 +332,31 @@
 			</div>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<div class="flex h-full flex-col justify-between py-[2vw] w-[6.25vw]">
+			<div class="flex h-full w-[6.25vw] flex-col justify-between py-[2vw]">
 				<div>
 					<div class="flex flex-col items-center gap-5">
 						{#each Object.entries(icon_mapping.top) as item}
 							{@const item_icon = item[1].icon}
 							<button
 								type="button"
-								class="btn-icon btn bg-warning-400 p-0 w-[2.5vw] rounded-[0.375vw]"
+								class="btn btn-icon w-[2.5vw] rounded-[0.375vw] bg-warning-400 p-0"
+								on:click={toggle_search_panel}
 							>
 								<svelte:component
 									this={item_icon.component}
-									height={item_icon.height}
-									width={item_icon.width}
+									style={item_icon.style}
 									color={item_icon.color}
 								/>
 							</button>
 						{/each}
 					</div>
 
-					<div class="flex flex-col items-center gap-[1.5vw] mt-[2.8125vw]">
+					<div class="mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
 						{#each Object.entries(icon_mapping.middle) as item}
 							{@const item_name = item[0]}
 							{@const item_icon = item[1].icon}
 
 							{@const component = item_icon.component}
-							{@const component_width = item_icon.width}
-							{@const component_height = item_icon.height}
 
 							{@const is_active = active_button === item_name}
 
@@ -376,7 +364,7 @@
 								type="button"
 								class="{is_active
 									? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
-									: 'bg-initial'} btn-icon btn relative rounded-[0.5vw] p-0 w-[3.375vw]"
+									: 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
 								on:click={() => middle_section_click(item_name)}
 							>
 								<div class="inline-grid">
@@ -387,12 +375,10 @@
 										>
 											<svelte:component
 												this={component}
-												height={component_height}
-												width={component_width}
+												style={item_icon.style}
 												color={item_icon.color}
 											/>
-											<span class="capitalize text-[0.875vw] leading-[1.05vw]">{item_name}</span
-											>
+											<span class="text-[0.875vw] capitalize leading-[1.05vw]">{item_name}</span>
 										</div>
 									{:else}
 										<div
@@ -401,8 +387,7 @@
 										>
 											<svelte:component
 												this={component}
-												height={component_height}
-												width={component_width}
+												style={item_icon.style}
 												color="black"
 											/>
 										</div>
@@ -419,15 +404,14 @@
 						{@const item_icon = item[1].icon}
 						<button
 							type="button"
-							class="bg-initial btn-icon btn flex-col justify-center p-0 text-sm w-[3.375vw] gap-[0.75vw]"
+							class="bg-initial btn btn-icon w-[3.375vw] flex-col justify-center gap-[0.75vw] p-0 text-sm"
 						>
 							<svelte:component
 								this={item_icon.component}
-								height={item_icon.height}
-								width={item_icon.width}
+								style={item_icon.style}
 								color={item_icon.color}
 							/>
-							<span class="!m-0 capitalize text-[0.875vw] leading-[1.05vw]">{item_name}</span>
+							<span class="!m-0 text-[0.875vw] capitalize leading-[1.05vw]">{item_name}</span>
 						</button>
 					{/each}
 				</div>
@@ -437,4 +421,24 @@
 		<!-- Page contents go here  -->
 		<slot />
 	</AppShell>
+
+	{#if show_search_panel}
+		<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" transition:blur={{duration: 300}}>
+			<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
+				<Cross style="width: 2vw; opacity: 0.5;" />
+			</button>
+
+			<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
+				<button class="btn absolute left-[1.25vw] p-0">
+					<Search style="width: 1.25vw;" />
+				</button>
+				<!-- svelte-ignore a11y-autofocus -->
+				<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
+
+				<button class="btn absolute right-[1.25vw] p-0">
+					<Cross style="width: 1.5vw; opacity: 0.7;" />
+				</button>
+			</form>
+		</div>
+	{/if}
 </div>

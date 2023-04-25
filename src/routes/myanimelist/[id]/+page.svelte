@@ -25,7 +25,7 @@
 </svelte:head>
 
 {#if anime}
-	<AnimeInfoPage 
+	<AnimeInfoPage
 		anime_name={anime.name}
 		anime_alternative_name={anime.alternative_name}
 		anime_episodes_count={anime.episodes_count}
@@ -33,7 +33,6 @@
 		anime_synopsis={anime.synopsis}
 		anime_banner={anime.banner}
 		anime_cover={anime.cover}
-
 		{anime_episodes}
 	/>
 {/if}

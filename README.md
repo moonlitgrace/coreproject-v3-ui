@@ -3,7 +3,9 @@
 Currently in active development, watch main repo https://github.com/baseplate-admin/CoreProject
 
 ## Getting started
+
 First fork this repo and clone using
+
 ```bash
 git clone https://github.com/your_username/CoreProject-V3-UI/
 cd CoreProject-V3-UI/

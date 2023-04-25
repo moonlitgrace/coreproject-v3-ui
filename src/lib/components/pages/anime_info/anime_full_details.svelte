@@ -10,7 +10,7 @@
 	<div class="flex items-center gap-3">
 		<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Details</span>
 		<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-			<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+			<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 		</button>
 	</div>
 
@@ -81,7 +81,7 @@
 					class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]"
 				>
 					Load more
-					<Chevron width="0.9vw" color="surface-50" />
+					<Chevron style="width: 0.9vw;" color="surface-50" />
 				</button>
 			</div>
 		</animedetails>
@@ -91,7 +91,7 @@
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Voiceover Cast</span>
 					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+						<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 					</button>
 				</div>
 
@@ -101,7 +101,7 @@
 						class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[6.625vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
 					>
 						Japanese
-						<Chevron width="0.9vw" color="surface-50" />
+						<Chevron style="width: 0.9vw;" color="surface-50" />
 					</button>
 				</div>
 
@@ -144,7 +144,7 @@
 								<button
 									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
-									<Chevron width="1vw" color="lightgray" class="rotate-180" />
+									<Chevron style="width: 1vw;" color="lightgray" class="rotate-180" />
 								</button>
 								<button
 									class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
@@ -154,7 +154,7 @@
 								<button
 									class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 								>
-									<Chevron width="1vw" color="lightgray" />
+									<Chevron style="width: 1vw;" color="lightgray" />
 								</button>
 							</div>
 							<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"
@@ -171,7 +171,7 @@
 				<div class="flex items-center gap-3">
 					<span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Recommendations</span>
 					<button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-						<SettingsOutline width="0.9vw" height="0.9vw" class="opacity-75" />
+						<SettingsOutline style="width: 0.9vw;" class="opacity-75" />
 					</button>
 				</div>
 
@@ -214,7 +214,7 @@
 							<button
 								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
-								<Chevron width="1vw" color="lightgray" class="rotate-180" />
+								<Chevron style="width: 1vw;" color="lightgray" class="rotate-180" />
 							</button>
 							<button
 								class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
@@ -224,7 +224,7 @@
 							<button
 								class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
 							>
-								<Chevron width="1vw" color="lightgray" />
+								<Chevron style="width: 1vw;" color="lightgray" />
 							</button>
 						</div>
 						<span class="mt-[0.9375vw] text-[0.75vw] text-surface-50"
