@@ -442,7 +442,7 @@
 							type="text" 
 							placeholder="Search for animes, mangas and musics" 
 							autofocus 
-							class="pl-[3.50vw] w-full h-full p-[1vw] rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" 
+							class="pl-[3.50vw] w-full h-full p-[1vw] rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white font-semibold placeholder:text-surface-50 placeholder:font-medium shadow-lg text-[1.1vw]" 
 						/>
 
 						<button 
