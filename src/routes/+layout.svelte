@@ -458,23 +458,25 @@
 						<div>
 							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
 							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] p-[1vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
-								<div class="flex items-center gap-[0.75vw] p-[0.8vw] rounded-[0.7vw] cursor-pointer transition duration-300 hover:bg-surface-300/20">
-									<img 
-									src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg" 
-									alt={search_query} 
-									class="w-[3.5vw] h-[3.5vw] object-cover rounded-[0.5vw]"
-									/>
-									<div class="flex flex-col">
-										<span class="text-[1.1vw] font-semibold">Kimetsu no Yaiba</span>
-										<span class="text-[0.7vw] font-medium uppercase text-surface-200 leading-none">Demon slayer</span>
-										<div class="text-[0.7vw] flex items-center gap-[0.3vw] text-surface-200 pt-[0.1vw]">
-											<span>2006</span>
-											<span>TV</span>
-											<Circle style="width: 0.2vw;" />
-											<span>26 eps</span>
+								{#each Array(4) as _}
+									<div class="flex items-center gap-[0.75vw] p-[0.8vw] rounded-[0.7vw] cursor-pointer transition duration-300 hover:bg-surface-300/20">
+										<img 
+										src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg" 
+										alt={search_query} 
+										class="w-[3.5vw] h-[3.5vw] object-cover rounded-[0.5vw]"
+										/>
+										<div class="flex flex-col">
+											<span class="text-[1.1vw] font-semibold">Kimetsu no Yaiba</span>
+											<span class="text-[0.7vw] font-medium uppercase text-surface-200 leading-none">Demon slayer</span>
+											<div class="text-[0.7vw] flex items-center gap-[0.3vw] text-surface-200 pt-[0.1vw]">
+												<span>2006</span>
+												<span>TV</span>
+												<Circle style="width: 0.2vw;" />
+												<span>26 eps</span>
+											</div>
 										</div>
 									</div>
-								</div>
+								{/each}
 							</div>
 						</div>
 
