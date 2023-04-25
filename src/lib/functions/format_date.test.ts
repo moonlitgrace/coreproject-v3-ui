@@ -6,4 +6,5 @@ test('format date function', () => {
 
 	expect(formated_date.formatToHumanReadableForm).toBe('Mar 11, 2023');
 	expect(formated_date.formatToSeason).toBe('spring 2023');
+	expect(formated_date.formatToTimeFromNow).toBe('2 months ago');
 });
