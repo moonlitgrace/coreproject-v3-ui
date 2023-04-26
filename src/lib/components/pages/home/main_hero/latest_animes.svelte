@@ -94,7 +94,6 @@
 	});
 
 	// slide buttons colors
-
 	let slide_buttons = [
 		{ background: 'bg-error-400', border: 'border-error-400' },
 		{ background: 'bg-white', border: 'border-white' },
