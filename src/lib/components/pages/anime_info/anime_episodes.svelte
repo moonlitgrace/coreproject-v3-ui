@@ -120,7 +120,7 @@
 							style="grid-area: 1 / 1 / 2 / 2"
 							class="w-full pr-[0.7vw] text-end !text-[0.75vw] font-semibold"
 						>
-							{new format_time(episode.episode_length).formatSecondsToTimeStampDuration}
+							{new format_time(episode.episode_length).format_seconds_to_time_stamp_duration}
 						</p>
 					</div>
 					<div
