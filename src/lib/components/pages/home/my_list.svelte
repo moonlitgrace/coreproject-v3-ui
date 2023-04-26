@@ -34,8 +34,6 @@
 		event: 'hover', // event
 		target: 'my_list_popup' // data-popup value
 	};
-
-	$: console.log(show_popup);
 </script>
 
 <div class="mt-[2.1875vw] h-20 w-[68.125vw]">
@@ -78,8 +76,6 @@
 					anime_type = anime.type;
 					anime_release_date = String(anime.release_date);
 					anime_studio_name = String(anime.studios[0]);
-
-					show_popup = true;
 				}}
 				class="group"
 				use:popup={popupSettings}
@@ -93,9 +89,6 @@
 					/>
 					<div
 						class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0"
-						on:mouseenter={() => {
-							show_popup = true;
-						}}
 					>
 						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
 						<span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
@@ -126,7 +119,6 @@
 				<div
 					data-popup="my_list_popup"
 					class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
-					class:!opacity-0={!show_popup}
 				>
 					<div
 						class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
