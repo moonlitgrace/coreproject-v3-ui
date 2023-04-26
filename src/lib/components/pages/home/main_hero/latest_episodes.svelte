@@ -8,12 +8,6 @@
 	import Expand from '$icons/expand.svelte';
 	import ScrollArea from '$components/shared/scroll_area.svelte';
 	import Play from '$icons/play.svelte';
-
-	let sorted_latest_episodes = _.orderBy(
-		latest_episodes,
-		[(obj) => new Date(obj.release_date)],
-		['desc']
-	);
 </script>
 
 <div class="w-[21.5625vw]">
@@ -36,7 +30,7 @@
 		parentClass="mt-[1.5vw] max-h-[21.5625vw]"
 		class="flex flex-col gap-[1vw]"
 	>
-		{#each sorted_latest_episodes as anime}
+		{#each latest_episodes as anime}
 			<div
 				class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
 				style="background-image: url({anime.cover ?? ''})"
@@ -47,7 +41,7 @@
 				<div class="absolute h-full w-full">
 					<div class="flex items-center justify-between p-[1.3125vw]">
 						<div class="flex flex-col gap-[0.4vw]">
-							<span class="text-[1vw] font-semibold leading-[1.1875vw]">{anime.name}</span>
+							<span class="text-[1vw] text-white font-semibold leading-[1.1875vw]">{anime.name}</span>
 							<div class="flex items-center gap-[0.5vw]">
 								<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
 									Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
