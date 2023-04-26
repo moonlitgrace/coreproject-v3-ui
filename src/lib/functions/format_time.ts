@@ -1,22 +1,24 @@
 import dayjs from 'dayjs';
 import type { Duration } from 'dayjs/plugin/duration';
 import duration from 'dayjs/plugin/duration';
+import utc from 'dayjs/plugin/utc';
 
-export class formatTime {
+export class format_time {
 	#duration: Duration;
 
 	constructor(time: number) {
+		dayjs.extend(utc);
 		dayjs.extend(duration);
 		this.#duration = dayjs.duration(time, 'seconds');
 	}
 
-	public get formatSecondsToTimeStampDuration() {
-		const timeString = dayjs(this.#duration.asMilliseconds()).format('mm:ss');
+	public get format_seconds_to_time_stamp_duration() {
+		const timeString = dayjs.utc(this.#duration.asMilliseconds()).format('mm:ss');
 		return timeString;
 	}
 
-	public get formatSecondsToMinutes() {
-		const timeString = dayjs(this.#duration.asMilliseconds()).format('m');
+	public get format_seconds_to_minutes() {
+		const timeString = dayjs.utc(this.#duration.asMilliseconds()).format('m');
 		return timeString;
 	}
 }

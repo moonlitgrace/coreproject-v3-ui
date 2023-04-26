@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { UIEventHandler } from 'svelte/elements';
 
-	let klass: string;
-	export let parentClass: string;
+	let klass = '';
+	export let parentClass = '';
 	export { klass as class };
 	export let offsetScrollbar = false;
 	export let gradientMask = false;
@@ -30,9 +30,9 @@
 
 <div
 	on:scroll={onScroll}
-	class="{parentClass} {offsetScrollbar
+	class="{parentClass} {scrollbar_type} {offsetScrollbar
 		? 'pr-[0.75vw]'
-		: 'pr-0'} scrollbar {scrollbar_type} overflow-y-scroll overscroll-y-contain"
+		: 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
 >
 	<div class="{klass} whitespace-pre-line">
 		<slot />

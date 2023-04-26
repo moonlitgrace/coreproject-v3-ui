@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let anime_episodes: any;
 
-	import { formatTime } from '$functions/format_time';
+	import { format_time } from '$functions/format_time';
 
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
@@ -120,7 +120,7 @@
 							style="grid-area: 1 / 1 / 2 / 2"
 							class="w-full pr-[0.7vw] text-end !text-[0.75vw] font-semibold"
 						>
-							{new formatTime(episode.episode_length).formatSecondsToTimeStampDuration}
+							{new format_time(episode.episode_length).format_seconds_to_time_stamp_duration}
 						</p>
 					</div>
 					<div

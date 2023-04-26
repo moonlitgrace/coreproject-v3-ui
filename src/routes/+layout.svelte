@@ -10,13 +10,7 @@
 
 	import { blur } from 'svelte/transition';
 
-	// skeleton and floating-ui
-	import { popup } from '@skeletonlabs/skeleton';
-	import type { PopupSettings } from '@skeletonlabs/skeleton';
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
-
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	import ScrollArea from '$components/shared/scroll_area.svelte';
 
 	// import icons
 	import AnimeCore from '$icons/anime_core.svelte';
@@ -33,14 +27,25 @@
 	import Moon from '$icons/moon.svelte';
 	import SettingsOutline from '$icons/settings_outline.svelte';
 	import Cross from '$icons/cross.svelte';
+	import Circle from '$icons/circle.svelte';
+
+	import { page } from '$app/stores';
 
 	import type { SvelteComponentDev } from 'svelte/internal';
+
+	// skeleton and floating-ui
+	import { popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// Local
 	let active_button:
 		| keyof typeof icon_mapping.top
 		| keyof typeof icon_mapping.middle
-		| keyof typeof icon_mapping.bottom = 'home';
+		| keyof typeof icon_mapping.bottom;
 
 	// show search panel
 	let show_search_panel = false;
@@ -62,6 +67,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 
 			discover: {
@@ -70,6 +76,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 			list: {
 				icon: {
@@ -77,6 +84,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 			schedule: {
 				icon: {
@@ -84,6 +92,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 			forum: {
 				icon: {
@@ -91,6 +100,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 		};
 		bottom: {
@@ -100,6 +110,7 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 			'misc.': {
 				icon: {
@@ -107,12 +118,13 @@
 					style: string;
 					color: string;
 				};
+				url: undefined | string;
 			};
 		};
 		profile_dropdown: {
 			profile: {
 				name: string;
-				link: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -121,7 +133,7 @@
 			};
 			my_list: {
 				name: string;
-				link: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -130,7 +142,7 @@
 			};
 			theme: {
 				name: string;
-				link: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -139,7 +151,7 @@
 			};
 			settings: {
 				name: string;
-				link: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -152,7 +164,7 @@
 			search: {
 				icon: {
 					component: Search,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'black'
 				}
 			}
@@ -161,95 +173,118 @@
 			home: {
 				icon: {
 					component: Home,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: '/'
 			},
 
 			discover: {
 				icon: {
 					component: Explore,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: undefined
 			},
 			list: {
 				icon: {
 					component: List,
-					style: "width: 1.7vw",
+					style: 'width: 1.7vw',
 					color: 'white'
-				}
+				},
+				url: undefined
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: undefined
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: undefined
 			}
 		},
 		bottom: {
 			settings: {
 				icon: {
 					component: Settings,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: undefined
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
-				}
+				},
+				url: undefined
 			}
 		},
 		profile_dropdown: {
 			profile: {
 				name: 'Profile',
-				link: '/profile/',
+				url: '/profile/',
 				icon: {
 					component: User,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
 			my_list: {
 				name: 'My List',
-				link: '/mylist/',
+				url: '/mylist/',
 				icon: {
 					component: List,
-					style: "width: 1.5vw;",
+					style: 'width: 1.5vw;',
 					color: 'white'
 				}
 			},
 			theme: {
 				name: 'Theme',
-				link: '/theme/',
+				url: '/theme/',
 				icon: {
 					component: Moon,
-					style: "width: 1.1vw;",
+					style: 'width: 1.1vw;',
 					color: 'white'
 				}
 			},
 			settings: {
 				name: 'Settings',
-				link: '/settings/',
+				url: '/settings/',
 				icon: {
 					component: SettingsOutline,
-					style: "width: 1.1vw;",
+					style: 'width: 1.1vw;',
 					color: 'white'
 				}
 			}
 		}
 	};
+
+	// Activate button based on Urls
+	$: {
+		Object.values(icon_mapping).forEach((_) => {
+			Object.entries(_).forEach((item) => {
+				const button_name = item[0] as typeof active_button;
+				const internal_object = item[1];
+				if ('url' in internal_object) {
+					const url = internal_object.url as String;
+					if (url === $page.url.pathname) {
+						active_button = button_name;
+					}
+				}
+			});
+		});
+	}
 
 	async function middle_section_click(item: string) {
 		active_button = item as typeof active_button;
@@ -260,10 +295,13 @@
 		target: 'profileDropdown' // data-popup value
 	};
 
+	// search panel //
 	// toggle search panel
 	const toggle_search_panel = () => {
 		show_search_panel = !show_search_panel;
-	}
+	};
+	// search input
+	let search_query = 'Kimetsu no Yaiba';
 </script>
 
 <div class="relative h-screen">
@@ -310,10 +348,10 @@
 					<div class="mt-[1vw]">
 						{#each Object.entries(icon_mapping.profile_dropdown) as item}
 							{@const item_icon = item[1].icon}
-							{@const item_link = item[1].link}
+							{@const item_url = item[1].url}
 							{@const item_name = item[1].name}
 
-							<a href={item_link} style="text-decoration: none;">
+							<a href={item_url} style="text-decoration: none;">
 								<div
 									class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] transition duration-100 hover:bg-surface-300/20"
 								>
@@ -355,17 +393,18 @@
 						{#each Object.entries(icon_mapping.middle) as item}
 							{@const item_name = item[0]}
 							{@const item_icon = item[1].icon}
+							{@const item_href = item[1].url}
 
 							{@const component = item_icon.component}
 
 							{@const is_active = active_button === item_name}
 
-							<button
+							<a
+								href={item_href ?? 'javascript:void(0)'}
 								type="button"
 								class="{is_active
 									? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
 									: 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
-								on:click={() => middle_section_click(item_name)}
 							>
 								<div class="inline-grid">
 									{#if !is_active}
@@ -385,15 +424,11 @@
 											class="absolute inset-0 flex items-center justify-center"
 											transition:blur|local
 										>
-											<svelte:component
-												this={component}
-												style={item_icon.style}
-												color="black"
-											/>
+											<svelte:component this={component} style={item_icon.style} color="black" />
 										</div>
 									{/if}
 								</div>
-							</button>
+							</a>
 						{/each}
 					</div>
 				</div>
@@ -418,27 +453,109 @@
 			</div>
 		</svelte:fragment>
 
-		<!-- Page contents go here  -->
 		<slot />
 	</AppShell>
 
 	{#if show_search_panel}
-		<div class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center" transition:blur={{duration: 300}}>
-			<button class="btn absolute left-[2.1vw] top-[7.5vw] p-0" on:click={toggle_search_panel}>
-				<Cross style="width: 2vw; opacity: 0.5;" />
-			</button>
+		<search-panel>
+			<div
+				class="absolute inset-0 z-50 flex items-center justify-center bg-surface-900/95 text-white"
+				transition:blur={{ duration: 300 }}
+				on:mousedown|self={toggle_search_panel}
+			>
+				<div class="mt-[3.5vw] flex flex-col items-center">
+					<form class="relative flex h-[3.7vw] w-[37.5vw] items-center">
+						<button class="btn absolute left-[1.25vw] p-0">
+							<Search style="width: 1.25vw;" />
+						</button>
+						<!-- svelte-ignore a11y-autofocus -->
+						<input
+							bind:value={search_query}
+							type="text"
+							placeholder="Search for animes, mangas and musics"
+							autofocus
+							class="h-full w-full rounded-[0.625vw] border-none bg-surface-400 pl-[3.50vw] text-[1.1vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
+						/>
 
-			<form class="mt-[7.5vw] w-[37.5vw] h-[3.75vw] relative flex items-center">
-				<button class="btn absolute left-[1.25vw] p-0">
-					<Search style="width: 1.25vw;" />
-				</button>
-				<!-- svelte-ignore a11y-autofocus -->
-				<input type="text" placeholder="Search for animes, mangas and musics" autofocus class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white placeholder:text-surface-50 shadow-lg text-[1.1vw]" />
+						<button class="btn absolute right-[1.25vw] p-0" on:click={() => (search_query = '')}>
+							<Cross style="width: 1.5vw; opacity: 0.7;" />
+						</button>
+					</form>
 
-				<button class="btn absolute right-[1.25vw] p-0">
-					<Cross style="width: 1.5vw; opacity: 0.7;" />
-				</button>
-			</form>
-		</div>
+					<div class="mt-[1.5vw] flex gap-[4vw]">
+						<div>
+							<span class="text-[1.2vw] font-semibold text-surface-50">anime</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 p-[1vw] shadow-lg"
+							>
+								<ScrollArea offsetScrollbar gradientMask>
+									{#each Array(6) as _}
+										<div
+											class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20"
+										>
+											<img
+												src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
+												alt={search_query}
+												class="h-[3.5vw] w-[3.5vw] rounded-[0.5vw] object-cover"
+											/>
+											<div class="flex flex-col">
+												<span class="text-[1.1vw] font-semibold text-white">Kimetsu no Yaiba</span>
+												<span
+													class="text-[0.7vw] font-medium uppercase leading-none text-surface-200"
+													>Demon slayer</span
+												>
+												<div
+													class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.7vw] text-surface-200"
+												>
+													<span>2006</span>
+													<span>TV</span>
+													<Circle style="width: 0.2vw;" />
+													<span>26 eps</span>
+												</div>
+											</div>
+										</div>
+									{/each}
+								</ScrollArea>
+							</div>
+						</div>
+
+						<div>
+							<span class="text-[1.2vw] font-semibold text-surface-50">manga</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
+							>
+								<div
+									class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
+								>
+									<span class="font-medium leading-none">mangacore integration</span>
+									<span class="font-semibold leading-none">comming soon</span>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<span class="text-[1.2vw] font-semibold text-surface-50">music</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
+							>
+								<div
+									class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
+								>
+									<span class="font-medium leading-none">soundcore integration</span>
+									<span class="font-semibold leading-none">comming soon</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<span class="mt-[2vw] text-[0.8vw] text-surface-50">
+						Want even advanced searching with genres, time-ranges, tags and more? Try the <a
+							href="/explore"
+							class="!text-surface-50">Explore</a
+						> page
+					</span>
+				</div>
+			</div>
+		</search-panel>
 	{/if}
 </div>

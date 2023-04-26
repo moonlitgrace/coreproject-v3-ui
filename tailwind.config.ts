@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
@@ -14,3 +15,5 @@ module.exports = {
 		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 };
+
+export default config;
