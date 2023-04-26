@@ -155,7 +155,7 @@
 			search: {
 				icon: {
 					component: Search,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'black'
 				}
 			}
@@ -164,7 +164,7 @@
 			home: {
 				icon: {
 					component: Home,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
@@ -172,28 +172,28 @@
 			discover: {
 				icon: {
 					component: Explore,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
 			list: {
 				icon: {
 					component: List,
-					style: "width: 1.7vw",
+					style: 'width: 1.7vw',
 					color: 'white'
 				}
 			},
 			schedule: {
 				icon: {
 					component: Schedule,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
 			forum: {
 				icon: {
 					component: Forum,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			}
@@ -202,14 +202,14 @@
 			settings: {
 				icon: {
 					component: Settings,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
 			'misc.': {
 				icon: {
 					component: Misc,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			}
@@ -220,7 +220,7 @@
 				link: '/profile/',
 				icon: {
 					component: User,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					color: 'white'
 				}
 			},
@@ -229,7 +229,7 @@
 				link: '/mylist/',
 				icon: {
 					component: List,
-					style: "width: 1.5vw;",
+					style: 'width: 1.5vw;',
 					color: 'white'
 				}
 			},
@@ -238,7 +238,7 @@
 				link: '/theme/',
 				icon: {
 					component: Moon,
-					style: "width: 1.1vw;",
+					style: 'width: 1.1vw;',
 					color: 'white'
 				}
 			},
@@ -247,7 +247,7 @@
 				link: '/settings/',
 				icon: {
 					component: SettingsOutline,
-					style: "width: 1.1vw;",
+					style: 'width: 1.1vw;',
 					color: 'white'
 				}
 			}
@@ -267,9 +267,9 @@
 	// toggle search panel
 	const toggle_search_panel = () => {
 		show_search_panel = !show_search_panel;
-	}
+	};
 	// search input
-	let search_query = "Kimetsu no Yaiba";
+	let search_query = 'Kimetsu no Yaiba';
 </script>
 
 <div class="relative h-screen">
@@ -391,11 +391,7 @@
 											class="absolute inset-0 flex items-center justify-center"
 											transition:blur|local
 										>
-											<svelte:component
-												this={component}
-												style={item_icon.style}
-												color="black"
-											/>
+											<svelte:component this={component} style={item_icon.style} color="black" />
 										</div>
 									{/if}
 								</div>
@@ -429,49 +425,55 @@
 
 	{#if show_search_panel}
 		<search-panel>
-			<div 
-				class="absolute z-50 inset-0 bg-surface-900/95 text-white flex justify-center items-center" 
-				transition:blur={{duration: 300}}
+			<div
+				class="absolute inset-0 z-50 flex items-center justify-center bg-surface-900/95 text-white"
+				transition:blur={{ duration: 300 }}
 				on:mousedown|self={toggle_search_panel}
 			>
-				<div class="flex flex-col items-center mt-[3.5vw]">
-					<form class="w-[37.5vw] h-[3.7vw] relative flex items-center">
+				<div class="mt-[3.5vw] flex flex-col items-center">
+					<form class="relative flex h-[3.7vw] w-[37.5vw] items-center">
 						<button class="btn absolute left-[1.25vw] p-0">
 							<Search style="width: 1.25vw;" />
 						</button>
 						<!-- svelte-ignore a11y-autofocus -->
 						<input
 							bind:value={search_query}
-							type="text" 
-							placeholder="Search for animes, mangas and musics" 
-							autofocus 
-							class="pl-[3.50vw] w-full h-full rounded-[0.625vw] border-none !ring-0 bg-surface-400 text-white font-semibold placeholder:text-surface-50 placeholder:font-medium shadow-lg text-[1.1vw]" 
+							type="text"
+							placeholder="Search for animes, mangas and musics"
+							autofocus
+							class="h-full w-full rounded-[0.625vw] border-none bg-surface-400 pl-[3.50vw] text-[1.1vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
 						/>
 
-						<button 
-							class="btn absolute right-[1.25vw] p-0"
-							on:click={() => search_query = ""}
-						>
+						<button class="btn absolute right-[1.25vw] p-0" on:click={() => (search_query = '')}>
 							<Cross style="width: 1.5vw; opacity: 0.7;" />
 						</button>
 					</form>
 
 					<div class="mt-[1.5vw] flex gap-[4vw]">
 						<div>
-							<span class="text-[1.2vw] text-surface-50 font-semibold">anime</span>
-							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] p-[1vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+							<span class="text-[1.2vw] font-semibold text-surface-50">anime</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 p-[1vw] shadow-lg"
+							>
 								<ScrollArea offsetScrollbar gradientMask>
 									{#each Array(6) as _}
-										<div class="flex items-center gap-[0.75vw] p-[0.8vw] rounded-[0.7vw] cursor-pointer transition duration-300 hover:bg-surface-300/20">
-											<img 
-											src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg" 
-											alt={search_query} 
-											class="w-[3.5vw] h-[3.5vw] object-cover rounded-[0.5vw]"
+										<div
+											class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20"
+										>
+											<img
+												src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
+												alt={search_query}
+												class="h-[3.5vw] w-[3.5vw] rounded-[0.5vw] object-cover"
 											/>
 											<div class="flex flex-col">
-												<span class="text-[1.1vw] text-white font-semibold">Kimetsu no Yaiba</span>
-												<span class="text-[0.7vw] font-medium uppercase text-surface-200 leading-none">Demon slayer</span>
-												<div class="text-[0.7vw] flex items-center gap-[0.3vw] text-surface-200 pt-[0.1vw]">
+												<span class="text-[1.1vw] font-semibold text-white">Kimetsu no Yaiba</span>
+												<span
+													class="text-[0.7vw] font-medium uppercase leading-none text-surface-200"
+													>Demon slayer</span
+												>
+												<div
+													class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.7vw] text-surface-200"
+												>
 													<span>2006</span>
 													<span>TV</span>
 													<Circle style="width: 0.2vw;" />
@@ -485,9 +487,13 @@
 						</div>
 
 						<div>
-							<span class="text-[1.2vw] text-surface-50 font-semibold">manga</span>
-							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
-								<div class="text-[1.1vw] flex flex-col gap-[0.2vw] items-center justify-center h-full">
+							<span class="text-[1.2vw] font-semibold text-surface-50">manga</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
+							>
+								<div
+									class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
+								>
 									<span class="font-medium leading-none">mangacore integration</span>
 									<span class="font-semibold leading-none">comming soon</span>
 								</div>
@@ -495,9 +501,13 @@
 						</div>
 
 						<div>
-							<span class="text-[1.2vw] text-surface-50 font-semibold">music</span>
-							<div class="mt-[0.2vw] w-[21.875vw] h-[28.25vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
-								<div class="text-[1.1vw] flex flex-col gap-[0.2vw] items-center justify-center h-full">
+							<span class="text-[1.2vw] font-semibold text-surface-50">music</span>
+							<div
+								class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
+							>
+								<div
+									class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
+								>
 									<span class="font-medium leading-none">soundcore integration</span>
 									<span class="font-semibold leading-none">comming soon</span>
 								</div>
@@ -505,8 +515,11 @@
 						</div>
 					</div>
 
-					<span class="text-[0.8vw] mt-[2vw] text-surface-50">
-						Want even advanced searching with genres, time-ranges, tags and more? Try the <a href="/explore" class="!text-surface-50">Explore</a> page
+					<span class="mt-[2vw] text-[0.8vw] text-surface-50">
+						Want even advanced searching with genres, time-ranges, tags and more? Try the <a
+							href="/explore"
+							class="!text-surface-50">Explore</a
+						> page
 					</span>
 				</div>
 			</div>
