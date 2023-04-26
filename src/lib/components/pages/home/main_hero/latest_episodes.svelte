@@ -31,6 +31,7 @@
 	</div>
 
 	<ScrollArea
+		gradientMask
 		offsetScrollbar
 		parentClass="mt-[1.5vw] max-h-[21.5625vw]"
 		class="flex flex-col gap-[1vw]"
@@ -41,7 +42,7 @@
 				style="background-image: url({anime.cover ?? ''})"
 			>
 				<div
-					class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/25"
+					class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0"
 				/>
 				<div class="absolute h-full w-full">
 					<div class="flex items-center justify-between p-[1.3125vw]">
