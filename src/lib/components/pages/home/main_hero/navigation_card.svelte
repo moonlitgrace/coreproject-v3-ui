@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	// icons
 	import Forum from '$icons/forum.svelte';
 	import Recent from '$icons/recent.svelte';
@@ -74,7 +73,7 @@
 				title: 'Forums',
 				icon: {
 					component: Forum,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			},
@@ -82,7 +81,7 @@
 				title: 'Last watched anime',
 				icon: {
 					component: Recent,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			},
@@ -90,7 +89,7 @@
 				title: 'Notifications',
 				icon: {
 					component: Notifications,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			}
@@ -99,28 +98,28 @@
 			language: {
 				icon: {
 					component: Language,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			},
 			preferences: {
 				icon: {
 					component: Preference,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			},
 			theme: {
 				icon: {
 					component: Moon,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			},
 			settings: {
 				icon: {
 					component: SettingsOutline,
-					style: "width: 1.25vw;",
+					style: 'width: 1.25vw;',
 					class: 'text-surface-900'
 				}
 			}
@@ -129,11 +128,13 @@
 </script>
 
 <div
-	class="h-[24.1325vw] w-[16.625vw] mt-[3.4vw] rounded-[0.875vw] relative overflow-hidden bg-cover bg-center"
+	class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] overflow-hidden rounded-[0.875vw] bg-cover bg-center"
 	style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
 >
-	<div class="gradient from-surface-900/95 to-surface-900/25 bg-gradient-to-tr absolute h-full w-full" />
-	<div class="px-[1.875vw] pt-[2vw] absolute">
+	<div
+		class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900/95 to-surface-900/25"
+	/>
+	<div class="absolute px-[1.875vw] pt-[2vw]">
 		<div class="flex flex-col gap-[0.2w]">
 			<span class="text-[1.5vw] font-bold">Welcome</span>
 			<span class="text-[0.875vw] font-semibold">Jump quickly into</span>
