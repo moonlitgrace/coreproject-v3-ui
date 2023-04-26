@@ -9,7 +9,7 @@
 	export let anime_episodes: any;
 
 	import ScrollArea from '$components/shared/scroll_area.svelte';
-	import { formatDate } from '$functions/format_date';
+	import { format_date } from '$functions/format_date';
 
 	import SidebarDetails from '$components/pages/anime_info/sidebar_details.svelte';
 	import AnimeFullDetails from '$components/pages/anime_info/anime_full_details.svelte';
@@ -79,14 +79,14 @@
 			read: {
 				icon: {
 					component: Read,
-					style: "width: 1.5vw;",
+					style: 'width: 1.5vw;',
 					color: 'bg-surface-500'
 				}
 			},
 			listen: {
 				icon: {
 					component: Listen,
-					style: "width: 1.5vw;",
+					style: 'width: 1.5vw;',
 					color: 'bg-surface-500'
 				}
 			}
@@ -96,26 +96,26 @@
 				icon: {
 					component: Video,
 					variant: false,
-					style: "width: 1.125vw;"
+					style: 'width: 1.125vw;'
 				}
 			},
 			edit: {
 				icon: {
 					component: Edit,
 					variant: 'with_underline_around_pencil',
-					style: "width: 1.125vw;"
+					style: 'width: 1.125vw;'
 				}
 			},
 			download: {
 				icon: {
 					component: Download,
-					style: "width: 1.125vw;"
+					style: 'width: 1.125vw;'
 				}
 			},
 			share: {
 				icon: {
 					component: Share,
-					style: "width: 1.125vw;"
+					style: 'width: 1.125vw;'
 				}
 			}
 		}
@@ -162,7 +162,7 @@
 						<span
 							class="font-semibold capitalize md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
 						>
-							{new formatDate(anime_date).formatToSeason}
+							{new format_date(anime_date).format_to_season}
 						</span>
 						<span
 							class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"

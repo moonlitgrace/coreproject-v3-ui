@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { swipe } from 'svelte-gestures';
-	import { formatDate } from '$functions/format_date';
+	import { format_date } from '$functions/format_date';
 	import voca from 'voca';
 
 	import { Timer as EasyTimer } from 'easytimer.js';
@@ -166,7 +166,7 @@
 							<span
 								class="font-semibold capitalize md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
 							>
-								{new formatDate(anime.aired_from).formatToSeason}
+								{new format_date(anime.aired_from).format_to_season}
 							</span>
 							<span
 								class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
