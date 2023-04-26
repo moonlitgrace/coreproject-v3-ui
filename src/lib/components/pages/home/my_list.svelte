@@ -29,7 +29,6 @@
 	let anime_release_date: string;
 	let anime_studio_name: string | undefined = undefined;
 
-	let show_popup = false;
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
 		target: 'my_list_popup' // data-popup value
