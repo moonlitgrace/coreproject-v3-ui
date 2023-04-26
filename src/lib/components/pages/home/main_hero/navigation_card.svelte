@@ -128,11 +128,14 @@
 </script>
 
 <div
-	class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] overflow-hidden rounded-[0.875vw] bg-cover bg-center"
+	class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
 	style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
 >
 	<div
-		class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900/95 to-surface-900/25"
+		class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
+	/>
+	<div
+		class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25"
 	/>
 	<div class="absolute px-[1.875vw] pt-[2vw]">
 		<div class="flex flex-col gap-[0.2w]">
