@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { my_list } from '$data/mock/my_list';
 	import voca from 'voca';
-	import { formatDate } from '$functions/format_date';
+	import { format_date } from '$functions/format_date';
 
 	// icons
 	import SettingsOutline from '$icons/settings_outline.svelte';
@@ -69,18 +69,18 @@
 				on:mouseenter={() => {
 					anime_name = anime.name;
 					anime_cover = anime.cover;
-				    anime_synopsis = anime.synopsis;
-				    anime_current_episode = String(anime.current_episode);
-				    anime_episodes_count = String(anime.episodes_count);
-				    anime_genres = anime.genres;
-				    anime_type = anime.type;
-				    anime_release_date = String(anime.release_date);
-				    anime_studio_name = String(anime.studios[0]);
+					anime_synopsis = anime.synopsis;
+					anime_current_episode = String(anime.current_episode);
+					anime_episodes_count = String(anime.episodes_count);
+					anime_genres = anime.genres;
+					anime_type = anime.type;
+					anime_release_date = String(anime.release_date);
+					anime_studio_name = String(anime.studios[0]);
 
-				    // show popup on hover after some time
-				    setTimeout(() => {
-				    	show_popup = true;
-				    }, 500)
+					// show popup on hover after some time
+					setTimeout(() => {
+						show_popup = true;
+					}, 500);
 				}}
 				on:mouseleave={() => {
 					// remove popup
@@ -90,20 +90,24 @@
 				use:popup={popupSettings}
 			>
 				<div
-					class="w-[8.4vw] h-[12.5vw] rounded-[0.875vw] relative flex items-center bg-cover bg-center"
+					class="relative flex h-[12.5vw] w-[8.4vw] items-center rounded-[0.875vw] bg-cover bg-center"
 					style="background-image: url({anime.cover});"
 				>
-					<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/25 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
-					<div class="absolute inset-0 grid w-full grid-cols-1 place-items-center group-hover:opacity-0 transition duration-300">
+					<div
+						class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50"
+					/>
+					<div
+						class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0"
+					>
 						<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
-						<span
-							class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
-						>
+						<span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
 							{anime.current_episode}/{anime.episodes_count}
 						</span>
 					</div>
 
-					<div class="absolute inset-0 opacity-0 group-hover:opacity-100 grid w-full grid-cols-1 place-items-center transition-opacity duration-300">
+					<div
+						class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+					>
 						<div class="flex flex-col gap-[0.5vw]">
 							<button
 								class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900"
@@ -128,33 +132,43 @@
 					class:!opacity-0={!show_popup}
 				>
 					<div
-						class="w-full h-full rounded-[1vw] overflow-hidden relative flex items-center bg-cover bg-center border-[0.25vw] border-b-0 border-surface-300/75"
+						class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
 						style="background-image: url({anime_cover});"
 					>
-						<div class="gradient bg-gradient-to-t from-surface-900 to-surface-900/50 group-hover:to-surface-900/50 transition duration-300 absolute h-full w-full" />
-						<div class="absolute flex flex-col px-[1.5625vw] pb-[3vw] h-full justify-end">
-							<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
-							<span class="text-[0.75vw] font-semibold uppercase text-surface-50">{voca.truncate(anime_name, 50)}</span
+						<div
+							class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
+						/>
+						<div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
+							<span class="text-[1vw] font-semibold text-white"
+								>{voca.truncate(anime_name, 30)}</span
+							>
+							<span class="text-[0.75vw] font-semibold uppercase text-surface-50"
+								>{voca.truncate(anime_name, 50)}</span
 							>
 
 							<span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-								{voca.truncate(anime_synopsis,130)}
+								{voca.truncate(anime_synopsis, 130)}
 							</span>
 
-							<div class="flex gap-[1vw] mt-[0.5vw]">
+							<div class="mt-[0.5vw] flex gap-[1vw]">
 								{#each anime_genres as genre}
-									<span class="bg-secondary-800 h-[1.25vw] px-[0.625vw] py-[0.25vw] rounded-[0.25vw] text-[0.625vw] leading-[0.75vw]">{genre}</span>
+									<span
+										class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]"
+										>{genre}</span
+									>
 								{/each}
 							</div>
 
-							<div class="text-[0.75vw] flex items-center gap-[0.5vw] mt-[0.45vw]">
+							<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 								<span>{anime_type}</span>
 								<Circle width="0.2vw" class="text-surface-50" />
-								<span class="capitalize">{new formatDate(anime_release_date).formatToSeason}</span>
+								<span class="capitalize"
+									>{new format_date(anime_release_date).format_to_season}</span
+								>
 								<span>{anime_episodes_count} episodes</span>
 							</div>
 
-							<div class="text-[0.75vw] flex items-center gap-[0.5vw] mt-[0.1vw]">
+							<div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 								<span>69% <span class="text-surface-200">[7852 ratings]</span></span>
 								<Circle width="0.2vw" class="text-surface-50" />
 								<span>{anime_studio_name}</span>

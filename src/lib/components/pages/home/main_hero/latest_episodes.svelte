@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { latest_episodes } from '$data/mock/latest_episodes';
-	import { formatDate } from '$functions/format_date';
+	import { format_date } from '$functions/format_date';
 	import _ from 'lodash';
 
 	// icons
@@ -30,13 +30,19 @@
 		</button>
 	</div>
 
-	<ScrollArea offsetScrollbar parentClass="mt-[1.5vw] max-h-[21.5625vw]" class="flex flex-col gap-[1vw]">
+	<ScrollArea
+		offsetScrollbar
+		parentClass="mt-[1.5vw] max-h-[21.5625vw]"
+		class="flex flex-col gap-[1vw]"
+	>
 		{#each sorted_latest_episodes as anime}
 			<div
-				class="h-[5vw] rounded-[0.75vw] relative flex items-center bg-cover bg-center"
+				class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
 				style="background-image: url({anime.cover ?? ''})"
 			>
-				<div class="gradient from-surface-900 to-surface-900/25 bg-gradient-to-tr absolute h-full w-full" />
+				<div
+					class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/25"
+				/>
 				<div class="absolute h-full w-full">
 					<div class="flex items-center justify-between p-[1.3125vw]">
 						<div class="flex flex-col gap-[0.4vw]">
@@ -46,7 +52,7 @@
 									Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
 								</span>
 								<span class="text-[0.75vw]"
-									>{new formatDate(anime.release_date).formatToTimeFromNow}</span
+									>{new format_date(anime.release_date).format_to_time_from_now}</span
 								>
 							</div>
 						</div>

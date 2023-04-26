@@ -4,7 +4,7 @@ import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration);
 
-export class formatTime {
+export class format_time {
 	#duration: Duration;
 
 	constructor(time: number) {
