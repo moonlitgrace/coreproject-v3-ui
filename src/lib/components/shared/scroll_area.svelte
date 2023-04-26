@@ -73,22 +73,22 @@
 	}
 
 	.mask-top {
-		mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.8) 80%, rgba(0, 0, 0, 0) 100%);
+		mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
 		mask-repeat: no-repeat;
 		mask-position: top;
 	}
 	.mask-bottom {
-		mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.8) 80%, rgba(0, 0, 0, 0) 100%);
+		mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
 		mask-repeat: no-repeat;
 		mask-position: bottom;
 	}
 	.mask-middle {
 		mask-image: linear-gradient(
 			0deg,
-			rgba(0, 0, 0, 0.5) 20%,
-			rgba(7, 5, 25, 0.9) 40%,
-			rgba(7, 5, 25, 0.9) 80%,
-			rgba(0, 0, 0, 0.5) 100%
+			rgba(0, 0, 0, 0.6) 20%,
+			rgba(7, 5, 25, 0.95) 40%,
+			rgba(7, 5, 25, 0.95) 80%,
+			rgba(0, 0, 0, 0.6) 100%
 		);
 		mask-repeat: no-repeat;
 		mask-position: bottom;
