@@ -77,10 +77,7 @@
 					anime_release_date = String(anime.release_date);
 					anime_studio_name = String(anime.studios[0]);
 
-					// show popup on hover after some time
-					setTimeout(() => {
-						show_popup = true;
-					}, 500);
+					show_popup = true;
 				}}
 				on:mouseleave={() => {
 					// remove popup
@@ -128,6 +125,7 @@
 				<div
 					data-popup="my_list_popup"
 					class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
+					class:!opacity-0={!show_popup}
 				>
 					<div
 						class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
