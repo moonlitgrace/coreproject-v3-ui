@@ -115,66 +115,67 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div
+				data-popup="my_list_popup"
+				class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
+			>
 				<div
-					data-popup="my_list_popup"
-					class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
+					class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
+					style="background-image: url({anime_cover});"
 				>
 					<div
-						class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
-						style="background-image: url({anime_cover});"
-					>
-						<div
-							class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
-						/>
-						<div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-							<span class="text-[1vw] font-semibold text-white"
-								>{voca.truncate(anime_name, 30)}</span
-							>
-							<span class="text-[0.75vw] font-semibold uppercase text-surface-50"
-								>{voca.truncate(anime_name, 50)}</span
-							>
+						class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
+					/>
+					<div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
+						<span class="text-[1vw] font-semibold text-white"
+							>{voca.truncate(anime_name, 30)}</span
+						>
+						<span class="text-[0.75vw] font-semibold uppercase text-surface-50"
+							>{voca.truncate(anime_name, 50)}</span
+						>
 
-							<span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-								{voca.truncate(anime_synopsis, 130)}
-							</span>
+						<span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
+							{voca.truncate(anime_synopsis, 130)}
+						</span>
 
-							<div class="mt-[0.5vw] flex gap-[1vw]">
-								{#each anime_genres as genre}
-									<span
-										class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]"
-										>{genre}</span
-									>
-								{/each}
-							</div>
-
-							<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-								<span>{anime_type}</span>
-								<Circle width="0.2vw" class="text-surface-50" />
-								<span class="capitalize"
-									>{new format_date(anime_release_date).format_to_season}</span
+						<div class="mt-[0.5vw] flex gap-[1vw]">
+							{#each anime_genres as genre}
+								<span
+									class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]"
+									>{genre}</span
 								>
-								<span>{anime_episodes_count} episodes</span>
-							</div>
-
-							<div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-								<span>69% <span class="text-surface-200">[7852 ratings]</span></span>
-								<Circle width="0.2vw" class="text-surface-50" />
-								<span>{anime_studio_name}</span>
-							</div>
+							{/each}
 						</div>
 
-						<div
-							class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900"
-						>
-							<span>Watching</span>
-							<Circle width="0.2vw" class="text-surface-900" />
-							<span>
-								{anime_current_episode}/{anime_episodes_count}
-							</span>
+						<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+							<span>{anime_type}</span>
+							<Circle width="0.2vw" class="text-surface-50" />
+							<span class="capitalize"
+								>{new format_date(anime_release_date).format_to_season}</span
+							>
+							<span>{anime_episodes_count} episodes</span>
+						</div>
+
+						<div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+							<span>69% <span class="text-surface-200">[7852 ratings]</span></span>
+							<Circle width="0.2vw" class="text-surface-50" />
+							<span>{anime_studio_name}</span>
 						</div>
 					</div>
-					<div class="arrow bg-surface-50" />
+
+					<div
+						class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900"
+					>
+						<span>Watching</span>
+						<Circle width="0.2vw" class="text-surface-900" />
+						<span>
+							{anime_current_episode}/{anime_episodes_count}
+						</span>
+					</div>
 				</div>
+				<div class="arrow bg-surface-50" />
 			</div>
 		{/each}
 	</div>
