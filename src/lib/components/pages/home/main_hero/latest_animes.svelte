@@ -17,58 +17,58 @@
 	import Chevron from '$icons/chevron.svelte';
 
 	// Slider codes //
-	let mainHeroSlideActiveIndex = 0;
+	let main_hero_slide_active_index = 0;
 
-	const addOneToMainHeroSlideActiveIndex = () => {
-		if (mainHeroSlideActiveIndex + 1 === latest_animes.length) {
-			mainHeroSlideActiveIndex = 0;
+	const add_one_to_main_hero_slide_active_index = () => {
+		if (main_hero_slide_active_index + 1 === latest_animes.length) {
+			main_hero_slide_active_index = 0;
 			return;
 		}
-		mainHeroSlideActiveIndex += 1;
+		main_hero_slide_active_index += 1;
 	};
 
-	const minusOneToMainHeroSlideActiveIndex = () => {
-		if (mainHeroSlideActiveIndex === 0) {
-			mainHeroSlideActiveIndex = latest_animes.length - 1;
+	const minus_one_to_main_hero_slide_active_index = () => {
+		if (main_hero_slide_active_index === 0) {
+			main_hero_slide_active_index = latest_animes.length - 1;
 			return;
 		}
-		mainHeroSlideActiveIndex -= 1;
+		main_hero_slide_active_index -= 1;
 	};
 
-	const swipeHandler = (event: CustomEvent) => {
+	const swipe_handler = (event: CustomEvent) => {
 		const direction = event.detail.direction;
 		timer.reset();
 		if (direction === 'left') {
-			addOneToMainHeroSlideActiveIndex();
+			add_one_to_main_hero_slide_active_index();
 		} else if (direction === 'right') {
-			minusOneToMainHeroSlideActiveIndex();
+			minus_one_to_main_hero_slide_active_index();
 		}
 	};
 
 	// Progress bar code //
-	const SWIPER_DELAY = 10;
-	let progressValue = 0;
+	const slider_delay = 10;
+	let progress_value = 0;
 
-	let tweenedProgressValue = tweened(progressValue);
-	$: tweenedProgressValue.set(progressValue);
+	let tweened_progress_value = tweened(progress_value);
+	$: tweened_progress_value.set(progress_value);
 
 	let timer = new EasyTimer({
 		target: {
-			seconds: SWIPER_DELAY
+			seconds: slider_delay
 		},
 		precision: 'secondTenths'
 	});
 
 	timer.on('targetAchieved', () => {
 		// change slider
-		addOneToMainHeroSlideActiveIndex();
+		add_one_to_main_hero_slide_active_index();
 		timer.reset();
 	});
 
 	timer.on('secondTenthsUpdated', () => {
 		const time = timer.getTotalTimeValues().secondTenths;
-		const value = (100 / SWIPER_DELAY) * (time / 10);
-		progressValue = value;
+		const value = (100 / slider_delay) * (time / 10);
+		progress_value = value;
 	});
 
 	$: {
@@ -85,6 +85,7 @@
 				break;
 		}
 	}
+
 	onMount(() => {
 		$timerStore = 'start';
 	});
@@ -116,11 +117,11 @@
 <div class="h-[27.875vw] w-[42.1875vw]">
 	<div
 		use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
-		on:swipe={swipeHandler}
+		on:swipe={swipe_handler}
 		class="relative inline-grid h-full w-full"
 	>
 		{#each latest_animes as anime, index}
-			{#if index === mainHeroSlideActiveIndex}
+			{#if index === main_hero_slide_active_index}
 				<div
 					class="relative flex h-full w-full items-center rounded-t-[0.875vw] bg-cover bg-center"
 					style="
@@ -210,8 +211,8 @@
 
 		<div>
 			<div
-				class="h-[0.1vw] {slide_buttons[mainHeroSlideActiveIndex].background}"
-				style="width: {$tweenedProgressValue}%;"
+				class="h-[0.1vw] {slide_buttons[main_hero_slide_active_index].background}"
+				style="width: {$tweened_progress_value}%;"
 			/>
 		</div>
 
@@ -220,7 +221,7 @@
 			on:click={() => {
 				timer?.reset();
 				timer?.start();
-				minusOneToMainHeroSlideActiveIndex();
+				minus_one_to_main_hero_slide_active_index();
 			}}
 		>
 			<Chevron style="width: 1.25vw;" color="text-white" class="rotate-90" />
@@ -230,7 +231,7 @@
 			on:click={() => {
 				timer?.reset();
 				timer?.start();
-				addOneToMainHeroSlideActiveIndex();
+				add_one_to_main_hero_slide_active_index();
 			}}
 		>
 			<Chevron style="width: 1.25vw;" color="text-white" class="-rotate-90" />
@@ -241,13 +242,13 @@
 				<button
 					class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] {slide_buttons[index]
 						.border} transition duration-300 hover:border-surface-50/50 {index ===
-					mainHeroSlideActiveIndex
+					main_hero_slide_active_index
 						? slide_buttons[index].background
 						: ''}"
 					on:click={() => {
 						timer?.reset();
 						timer?.start();
-						mainHeroSlideActiveIndex = index;
+						main_hero_slide_active_index = index;
 					}}
 				/>
 			{/each}
