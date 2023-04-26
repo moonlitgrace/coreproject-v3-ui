@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { UIEventHandler } from 'svelte/elements';
 
-	let klass: string;
-	export let parentClass: string;
+	let klass = '';
+	export let parentClass = '';
 	export { klass as class };
 	export let offsetScrollbar = false;
 	export let gradientMask = false;
