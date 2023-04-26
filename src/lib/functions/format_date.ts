@@ -3,7 +3,7 @@ import localeData from 'dayjs/plugin/localeData';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import utc from 'dayjs/plugin/utc';
 
-export class formatDate {
+export class format_date {
 	#date: dayjs.Dayjs;
 
 	constructor(date: string) {
@@ -14,13 +14,13 @@ export class formatDate {
 		this.#date = dayjs(date);
 	}
 
-	public get formatToHumanReadableForm() {
+	public get format_to_human_readable_form() {
 		return `${dayjs().localeData().monthsShort(this.#date)} ${this.#date.format(
 			'D'
 		)}, ${this.#date.format('YYYY')}`;
 	}
 
-	public get formatToTimeFromNow() {
+	public get format_to_time_from_now() {
 		/**
 		 * Format date into Time From Now format
 		 * suffix will be "ago" or "in"
@@ -32,7 +32,7 @@ export class formatDate {
 		return dayjs.utc(this.#date).fromNow();
 	}
 
-	public get formatToSeason() {
+	public get format_to_season() {
 		let season: string;
 
 		const month = this.#date.month();
@@ -46,7 +46,6 @@ export class formatDate {
 			season = 'winter';
 		}
 
-		const formattedDate = `${season} ${this.#date.format('YYYY')}`;
-		return formattedDate;
+		return `${season} ${this.#date.format('YYYY')}`;
 	}
 }
