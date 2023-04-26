@@ -64,7 +64,7 @@
 	</div>
 
 	<div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw] grid grid-cols-7">
-		{#each my_list as anime, index}
+		{#each my_list as anime}
 			<div
 				on:mouseenter={() => {
 					anime_name = anime.name;
