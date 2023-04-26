@@ -32,7 +32,7 @@
 	let show_popup = false;
 	let popupSettings: PopupSettings = {
 		event: 'hover', // event
-		target: `my_list_popup` // data-popup value
+		target: 'my_list_popup' // data-popup value
 	};
 </script>
 
@@ -63,8 +63,8 @@
 		</div>
 	</div>
 
-	<div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw]">
-		{#each my_list as anime}
+	<div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw] grid grid-cols-7">
+		{#each my_list as anime, index}
 			<div
 				on:mouseenter={() => {
 					anime_name = anime.name;
@@ -90,7 +90,7 @@
 				use:popup={popupSettings}
 			>
 				<div
-					class="relative flex h-[12.5vw] w-[8.4vw] items-center rounded-[0.875vw] bg-cover bg-center"
+					class="relative flex h-[12.5vw] w-full col-span-1 items-center rounded-[0.875vw] bg-cover bg-center"
 					style="background-image: url({anime.cover});"
 				>
 					<div
@@ -125,11 +125,9 @@
 						</div>
 					</div>
 				</div>
-
 				<div
 					data-popup="my_list_popup"
-					class="!-top-[17vw] h-[15.625vw] w-[20vw] !rounded-[1vw]"
-					class:!opacity-0={!show_popup}
+					class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
 				>
 					<div
 						class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
