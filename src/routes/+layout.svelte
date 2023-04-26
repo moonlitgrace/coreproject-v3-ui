@@ -10,14 +10,6 @@
 
 	import { blur } from 'svelte/transition';
 
-	// skeleton and floating-ui
-	import { popup } from '@skeletonlabs/skeleton';
-	import type { PopupSettings } from '@skeletonlabs/skeleton';
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
-
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
 	import ScrollArea from '$components/shared/scroll_area.svelte';
 
 	// import icons
@@ -37,13 +29,23 @@
 	import Cross from '$icons/cross.svelte';
 	import Circle from '$icons/circle.svelte';
 
+	import { page } from '$app/stores';
+
 	import type { SvelteComponentDev } from 'svelte/internal';
+
+	// skeleton and floating-ui
+	import { popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// Local
 	let active_button:
 		| keyof typeof icon_mapping.top
 		| keyof typeof icon_mapping.middle
-		| keyof typeof icon_mapping.bottom = 'home';
+		| keyof typeof icon_mapping.bottom;
 
 	// show search panel
 	let show_search_panel = false;
@@ -65,7 +67,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 
 			discover: {
@@ -74,7 +76,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 			list: {
 				icon: {
@@ -82,7 +84,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 			schedule: {
 				icon: {
@@ -90,7 +92,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 			forum: {
 				icon: {
@@ -98,7 +100,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 		};
 		bottom: {
@@ -108,7 +110,7 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 			'misc.': {
 				icon: {
@@ -116,13 +118,13 @@
 					style: string;
 					color: string;
 				};
-				url: string;
+				url: undefined | string;
 			};
 		};
 		profile_dropdown: {
 			profile: {
 				name: string;
-				url: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -131,7 +133,7 @@
 			};
 			my_list: {
 				name: string;
-				url: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -140,7 +142,7 @@
 			};
 			theme: {
 				name: string;
-				url: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -149,7 +151,7 @@
 			};
 			settings: {
 				name: string;
-				url: string;
+				url: undefined | string;
 				icon: {
 					component: typeof SvelteComponentDev;
 					style: string;
@@ -174,7 +176,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: '/home'
+				url: '/'
 			},
 
 			discover: {
@@ -183,7 +185,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			},
 			list: {
 				icon: {
@@ -191,7 +193,7 @@
 					style: 'width: 1.7vw',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			},
 			schedule: {
 				icon: {
@@ -199,7 +201,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			},
 			forum: {
 				icon: {
@@ -207,7 +209,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			}
 		},
 		bottom: {
@@ -217,7 +219,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			},
 			'misc.': {
 				icon: {
@@ -225,7 +227,7 @@
 					style: 'width: 1.25vw;',
 					color: 'white'
 				},
-				url: ''
+				url: undefined
 			}
 		},
 		profile_dropdown: {
@@ -269,10 +271,15 @@
 	};
 
 	$: {
-		Object.values(icon_mapping).forEach((item) => {
-			Object.entries(item).forEach((internal_item) => {
-				if ('url' in internal_item) {
-					console.log(internal_item.url);
+		Object.values(icon_mapping).forEach((_) => {
+			Object.entries(_).forEach((item) => {
+				const button_name = item[0] as typeof active_button;
+				const internal_object = item[1];
+				if ('url' in internal_object) {
+					const url = internal_object.url as String;
+					if (url === $page.url.pathname) {
+						active_button = button_name;
+					}
 				}
 			});
 		});
@@ -385,17 +392,18 @@
 						{#each Object.entries(icon_mapping.middle) as item}
 							{@const item_name = item[0]}
 							{@const item_icon = item[1].icon}
+							{@const item_href = item[1].url}
 
 							{@const component = item_icon.component}
 
 							{@const is_active = active_button === item_name}
 
-							<button
+							<a
+								href={item_href ?? 'javascript:void(0)'}
 								type="button"
 								class="{is_active
 									? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
 									: 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
-								on:click={() => middle_section_click(item_name)}
 							>
 								<div class="inline-grid">
 									{#if !is_active}
@@ -419,7 +427,7 @@
 										</div>
 									{/if}
 								</div>
-							</button>
+							</a>
 						{/each}
 					</div>
 				</div>
