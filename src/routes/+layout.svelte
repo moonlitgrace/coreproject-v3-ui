@@ -270,6 +270,7 @@
 		}
 	};
 
+	// Activate button based on Urls
 	$: {
 		Object.values(icon_mapping).forEach((_) => {
 			Object.entries(_).forEach((item) => {
