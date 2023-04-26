@@ -44,7 +44,7 @@
 		</button>
 	</div>
 
-	<div class="mt-[1.6875vw] flex items-center justify-between">
+	<div class="mt-[0.5vw] flex items-center justify-between">
 		<span class="text-[1vw] font-semibold text-surface-50">{my_list.length} anime in Watching</span>
 
 		<div class="flex items-center gap-[1vw]">
