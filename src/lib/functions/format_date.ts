@@ -1,14 +1,16 @@
 import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
 import relativeTime from 'dayjs/plugin/relativeTime';
-
-dayjs.extend(localeData);
-dayjs.extend(relativeTime);
+import utc from 'dayjs/plugin/utc';
 
 export class formatDate {
 	#date: dayjs.Dayjs;
 
 	constructor(date: string) {
+		dayjs.extend(localeData);
+		dayjs.extend(relativeTime);
+		dayjs.extend(utc);
+
 		this.#date = dayjs(date);
 	}
 
@@ -27,7 +29,7 @@ export class formatDate {
 		 * // input "2023-04-22T10:30:00.000Z"
 		 * // output "20 hours ago"
 		 */
-		return dayjs(this.#date).fromNow();
+		return dayjs.utc(this.#date).fromNow();
 	}
 
 	public get formatToSeason() {
