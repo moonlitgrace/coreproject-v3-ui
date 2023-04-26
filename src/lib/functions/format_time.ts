@@ -2,11 +2,12 @@ import dayjs from 'dayjs';
 import type { Duration } from 'dayjs/plugin/duration';
 import duration from 'dayjs/plugin/duration';
 
+dayjs.extend(duration);
+
 export class formatTime {
 	#duration: Duration;
 
 	constructor(time: number) {
-		dayjs.extend(duration);
 		this.#duration = dayjs.duration(time, 'seconds');
 	}
 

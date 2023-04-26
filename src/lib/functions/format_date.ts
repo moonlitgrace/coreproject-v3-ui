@@ -2,6 +2,9 @@ import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
+dayjs.extend(localeData);
+dayjs.extend(relativeTime);
+
 export class formatDate {
 	#date: dayjs.Dayjs;
 
@@ -10,7 +13,6 @@ export class formatDate {
 	}
 
 	public get formatToHumanReadableForm() {
-		dayjs.extend(localeData);
 		return `${dayjs().localeData().monthsShort(this.#date)} ${this.#date.format(
 			'D'
 		)}, ${this.#date.format('YYYY')}`;
@@ -25,7 +27,6 @@ export class formatDate {
 		 * // input "2023-04-22T10:30:00.000Z"
 		 * // output "20 hours ago"
 		 */
-		dayjs.extend(relativeTime);
 		return dayjs(this.#date).fromNow();
 	}
 
