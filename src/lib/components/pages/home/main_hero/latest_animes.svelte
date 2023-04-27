@@ -211,7 +211,7 @@
 
 		<div>
 			<div
-				class="h-[0.1vw] {slide_buttons[main_hero_slide_active_index].background}"
+				class="h-[0.15vw] {slide_buttons[main_hero_slide_active_index].background}"
 				style="width: {$tweened_progress_value}%;"
 			/>
 		</div>
