@@ -2,7 +2,6 @@
 
 	/* Imports */
 	import MyList from '$components/pages/home/my_list.svelte';
-	import LatestEpisodes from '$components/pages/home/main_hero/latest_episodes.svelte';
 	import NavigationCard from '$components/pages/home/main_hero/navigation_card.svelte';
 
 	import { latest_animes } from '$data/mock/latest_animes';
@@ -17,6 +16,7 @@
 	import { timer as timerStore } from '$store/timer';
 	import { blur } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
+	import type { SvelteComponentDev } from 'svelte/internal';
 
 	// icons
 	import PlayCircle from '$icons/play_circle.svelte';
@@ -27,6 +27,13 @@
 	import Expand from '$icons/expand.svelte';
 	import ScrollArea from '$components/shared/scroll_area.svelte';
 	import Play from '$icons/play.svelte';
+	import Forum from '$icons/forum.svelte';
+	import Recent from '$icons/recent.svelte';
+	import Notifications from '$icons/notifications.svelte';
+	import Language from '$icons/language.svelte';
+	import Preference from '$icons/preference.svelte';
+	import Moon from '$icons/moon.svelte';
+	import CoreProject from '$icons/core_project.svelte';
 
 	/* Slider codes */
 	let main_hero_slide_active_index = 0;
@@ -106,7 +113,7 @@
 		timer.stop();
 	});
 
-	// slide buttons colors
+	/* slide buttons colors */
 	let slide_buttons = [
 		{ background: 'bg-error-400', border: 'border-error-400' },
 		{ background: 'bg-white', border: 'border-white' },
@@ -115,6 +122,123 @@
 		{ background: 'bg-primary-300', border: 'border-primary-300' },
 		{ background: 'bg-error-300', border: 'border-error-300' }
 	];
+
+	/* Icons */
+	const icon_mapping: {
+		left: {
+			forums: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+			last_watched: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+			notifications: {
+				title: string;
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+		};
+		bottom: {
+			language: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+			preferences: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+			theme: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+			settings: {
+				icon: {
+					component: typeof SvelteComponentDev;
+					style: string;
+					class: string;
+				};
+			};
+		};
+	} = {
+		left: {
+			forums: {
+				title: 'Forums',
+				icon: {
+					component: Forum,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			},
+			last_watched: {
+				title: 'Last watched anime',
+				icon: {
+					component: Recent,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			},
+			notifications: {
+				title: 'Notifications',
+				icon: {
+					component: Notifications,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			}
+		},
+		bottom: {
+			language: {
+				icon: {
+					component: Language,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			},
+			preferences: {
+				icon: {
+					component: Preference,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			},
+			theme: {
+				icon: {
+					component: Moon,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			},
+			settings: {
+				icon: {
+					component: SettingsOutline,
+					style: 'width: 1.25vw;',
+					class: 'text-surface-900'
+				}
+			}
+		}
+	};
 
 </script>
 
@@ -331,7 +455,63 @@
 				<button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
 			</div>
 		</latest-episodes>
-		<NavigationCard />
+		
+		<navigation-card
+			class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
+			style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
+		>
+			<div
+				class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
+			/>
+			<div
+				class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25"
+			/>
+			<div class="absolute px-[1.875vw] pt-[2vw]">
+				<div class="flex flex-col gap-[0.2w]">
+					<span class="text-[1.5vw] font-bold">Welcome</span>
+					<span class="text-[0.875vw] font-semibold">Jump quickly into</span>
+				</div>
+
+				<div class="mt-[1vw] flex flex-col gap-[0.625vw]">
+					{#each Object.entries(icon_mapping.left) as item}
+						{@const item_title = item[1].title}
+						{@const item_icon = item[1].icon}
+
+						<div class="flex items-center gap-[1vw]">
+							<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+								<svelte:component
+									this={item_icon.component}
+									style={item_icon.style}
+									class={item_icon.class}
+								/>
+							</button>
+							<span class="text-[1vw] font-bold">{item_title}</span>
+						</div>
+					{/each}
+				</div>
+
+				<div class="mt-[0.4vw]">
+					<span class="text-[0.9vw] font-semibold">More</span>
+					<div class="mt-[0.75vw] flex gap-[0.9375vw]">
+						{#each Object.entries(icon_mapping.bottom) as item}
+							{@const item_icon = item[1].icon}
+
+							<button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+								<svelte:component
+									this={item_icon.component}
+									style={item_icon.style}
+									class={item_icon.class}
+								/>
+							</button>
+						{/each}
+					</div>
+				</div>
+
+				<div class="mt-[1vw] grid place-items-center">
+					<CoreProject style="width: 6.375vw;" />
+				</div>
+			</div>
+		</navigation-card>
 	</div>
 	<MyList />
 </div>
