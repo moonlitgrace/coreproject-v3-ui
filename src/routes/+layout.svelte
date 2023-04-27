@@ -317,7 +317,7 @@
 	<AppShell>
 		<svelte:fragment slot="header">
 			<div
-				class="h-18 relative flex items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
+				class="h-[10vh] relative flex items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
 			>
 				<a href="/">
 					<Logo style="width: 2vw;" />
