@@ -128,7 +128,7 @@
 						background-image: url('{anime.cover ?? ''}');
 						grid-area: 1 / 1 / 1000 / 1;
 					"
-					transition:blur
+					transition:blur|local
 					on:mouseenter={() => {
 						$timerStore = 'pause';
 					}}

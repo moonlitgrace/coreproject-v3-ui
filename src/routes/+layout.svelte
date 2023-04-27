@@ -29,9 +29,9 @@
 	import Cross from '$icons/cross.svelte';
 	import Circle from '$icons/circle.svelte';
 
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 
-	import type { SvelteComponentDev } from 'svelte/internal';
+	import { beforeUpdate, type SvelteComponentDev } from 'svelte/internal';
 
 	// skeleton and floating-ui
 	import { popup } from '@skeletonlabs/skeleton';
@@ -271,7 +271,7 @@
 	};
 
 	// Activate button based on Urls
-	$: {
+	function change_url() {
 		Object.values(icon_mapping).forEach((_) => {
 			Object.entries(_).forEach((item) => {
 				const button_name = item[0] as typeof active_button;
@@ -286,9 +286,12 @@
 		});
 	}
 
-	async function middle_section_click(item: string) {
-		active_button = item as typeof active_button;
+	$: if ($navigating) {
+		change_url();
 	}
+	beforeUpdate(() => {
+		change_url();
+	});
 
 	let popupSettings: PopupSettings = {
 		event: 'click', // event
@@ -460,7 +463,7 @@
 		<search-panel>
 			<div
 				class="absolute inset-0 z-50 flex items-center justify-center bg-surface-900/95 text-white"
-				transition:blur={{ duration: 300 }}
+				transition:blur|local={{ duration: 300 }}
 				on:mousedown|self={toggle_search_panel}
 			>
 				<div class="mt-[3.5vw] flex flex-col items-center">
