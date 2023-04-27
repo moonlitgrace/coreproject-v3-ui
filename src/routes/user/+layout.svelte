@@ -79,7 +79,7 @@
             </div>
         {/if}
     {/each}
-    <div class="absolute right-0 w-1/2 h-full">
+    <div class="absolute right-0 w-1/2 h-full px-[8vw] py-[3vw]">
     	<slot />
     </div>
 </div>
