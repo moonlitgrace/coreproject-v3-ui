@@ -149,14 +149,14 @@
 
 						<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 							<span>{anime_type}</span>
-							<Circle width="0.2vw" class="text-surface-50" />
+							<Circle style="width: 0.2vw;" class="text-surface-50" />
 							<span class="capitalize">{new format_date(anime_release_date).format_to_season}</span>
 							<span>{anime_episodes_count} episodes</span>
 						</div>
 
 						<div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 							<span>69% <span class="text-surface-200">[7852 ratings]</span></span>
-							<Circle width="0.2vw" class="text-surface-50" />
+							<Circle style="width: 0.2vw;" class="text-surface-50" />
 							<span>{anime_studio_name}</span>
 						</div>
 					</div>
@@ -165,7 +165,7 @@
 						class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900"
 					>
 						<span>Watching</span>
-						<Circle width="0.2vw" class="text-surface-900" />
+						<Circle style="width: 0.2vw;" class="text-surface-900" />
 						<span>
 							{anime_current_episode}/{anime_episodes_count}
 						</span>
