@@ -172,7 +172,6 @@ export class OpengraphGenerator {
 	#audio?: string;
 	#image?: string;
 	#video?: IVideo;
-	#twitter: boolean;
 
 	constructor({
 		title,
@@ -193,7 +192,6 @@ export class OpengraphGenerator {
 		audio?: string;
 		image_url?: string;
 		video?: IVideo;
-		twitter: boolean;
 	}) {
 		this.#title = title;
 		this.#url = page_url;
@@ -210,18 +208,11 @@ export class OpengraphGenerator {
 		if (video) {
 			this.#video = video;
 		}
-		if (twitter) {
-			this.#twitter = true;
-		} else {
-			this.#twitter = false;
-		}
 	}
 
 	private get title() {
 		let title = `<meta property="og:title" content="${this.#title}">`;
-		if (this.#twitter) {
 			title += `<meta name="twitter:title" content="${this.#title}" />`;
-		}
 		return title;
 	}
 	private get url() {
@@ -229,9 +220,7 @@ export class OpengraphGenerator {
 	}
 	private get description() {
 		let description = `<meta property="og:description" content="${this.#description}">`;
-		if (this.#twitter) {
-			description += `<meta name="twitter:description" content="${this.#description}" />`;
-		}
+		description += `<meta name="twitter:description" content="${this.#description}" />`;
 
 		return description;
 	}
@@ -246,9 +235,7 @@ export class OpengraphGenerator {
 	}
 	private get image() {
 		let image = `<meta property="og:image" content="${this.#image}">`;
-		if (this.#twitter) {
-			image += `<meta name="twitter:image" content="${this.#image}" />`;
-		}
+		image += `<meta name="twitter:image" content="${this.#image}" />`;
 		return image;
 	}
 	public get video() {
@@ -305,9 +292,7 @@ export class OpengraphGenerator {
 		opengraph_html += this.url;
 		opengraph_html += this.description;
 
-		if (this.#twitter) {
-			opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
-		}
+		opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
 		if (this.#audio) {
 			opengraph_html += this.audio;
 		}
