@@ -24,9 +24,9 @@
 
 <div
 	bind:this={element}
-	class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent > 90}
-	class:mask-middle={gradientMask && scroll_percent <= 90 && scroll_percent > 10}
-	class:mask-bottom={gradientMask && scroll_percent <= 10 && scroll_percent >= 0}
+	class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent >= 90}
+	class:mask-middle={gradientMask && scroll_percent < 90 && scroll_percent >= 10}
+	class:mask-bottom={gradientMask && scroll_percent < 10 && scroll_percent >= 0}
 	class="{parentClass} {offsetScrollbar
 		? 'pr-[0.75vw]'
 		: 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
