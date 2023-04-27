@@ -7,10 +7,13 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.scss';
 	import { AppShell, Avatar } from '@skeletonlabs/skeleton';
+	import { Modal, modalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 
 	import { blur } from 'svelte/transition';
 
 	import ScrollArea from '$components/shared/scroll_area.svelte';
+	import SearchPanel from '$components/shared/search_panel.svelte';
 
 	// import icons
 	import AnimeCore from '$icons/anime_core.svelte';
@@ -38,6 +41,7 @@
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import AnimeEpisodes from '$components/pages/anime_info/anime_episodes.svelte';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
@@ -301,13 +305,25 @@
 	// search panel //
 	// toggle search panel
 	const toggle_search_panel = () => {
-		show_search_panel = !show_search_panel;
+		show_search_panel = false;
 	};
 	// search input
 	let search_query = 'Kimetsu no Yaiba';
+
+	function show_search_modal(): void {
+		const search_component: ModalComponent = { ref: SearchPanel };
+		const search_modal: ModalSettings = {
+			type: 'component',
+			component: search_component
+		};
+		modalStore.trigger(search_modal);
+	}
 </script>
 
 <div class="relative h-screen">
+
+	<Modal />
+
 	<AppShell>
 		<svelte:fragment slot="header">
 			<div
@@ -381,7 +397,7 @@
 							<button
 								type="button"
 								class="btn btn-icon w-[2.5vw] rounded-[0.375vw] bg-warning-400 p-0"
-								on:click={toggle_search_panel}
+								on:click={show_search_modal}
 							>
 								<svelte:component
 									this={item_icon.component}
