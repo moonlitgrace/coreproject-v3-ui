@@ -62,7 +62,7 @@
 		</div>
 	</div>
 
-	<div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw] grid grid-cols-7">
+	<div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
 		{#each my_list as anime}
 			<div
 				on:mouseenter={() => {
@@ -80,7 +80,7 @@
 				use:popup={popupSettings}
 			>
 				<div
-					class="relative flex h-[12.5vw] w-full col-span-1 items-center rounded-[0.875vw] bg-cover bg-center"
+					class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
 					style="background-image: url({anime.cover});"
 				>
 					<div
@@ -129,9 +129,7 @@
 						class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
 					/>
 					<div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-						<span class="text-[1vw] font-semibold text-white"
-							>{voca.truncate(anime_name, 30)}</span
-						>
+						<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
 						<span class="text-[0.75vw] font-semibold uppercase text-surface-50"
 							>{voca.truncate(anime_name, 50)}</span
 						>
@@ -152,9 +150,7 @@
 						<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 							<span>{anime_type}</span>
 							<Circle width="0.2vw" class="text-surface-50" />
-							<span class="capitalize"
-								>{new format_date(anime_release_date).format_to_season}</span
-							>
+							<span class="capitalize">{new format_date(anime_release_date).format_to_season}</span>
 							<span>{anime_episodes_count} episodes</span>
 						</div>
 

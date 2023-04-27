@@ -1,36 +1,33 @@
 <script lang="ts">
-	import type { UIEventHandler } from 'svelte/elements';
-
 	let klass = '';
-	export let parentClass = '';
 	export { klass as class };
+
+	export let parentClass = '';
 	export let offsetScrollbar = false;
 	export let gradientMask = false;
 
-	let mask_top = 0;
-	let scrollbar_type: string;
+	import { onMount } from 'svelte';
 
-	const onScroll: UIEventHandler<HTMLDivElement> = (event) => {
+	let scroll_percent = 0;
+
+	let element: HTMLDivElement | undefined;
+
+	onMount(() => {
 		if (gradientMask) {
-			const el = event?.currentTarget as HTMLElement;
-			mask_top = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+			element?.addEventListener('scroll', (event) => {
+				const el = event?.currentTarget as HTMLElement;
+				scroll_percent = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+			});
 		}
-	};
-
-	$: if (gradientMask) {
-		if (mask_top > 90 && mask_top <= 100) {
-			scrollbar_type = 'mask-top';
-		} else if (mask_top >= 10 && mask_top <= 90) {
-			scrollbar_type = 'mask-middle';
-		} else {
-			scrollbar_type = 'mask-bottom';
-		}
-	}
+	});
 </script>
 
 <div
-	on:scroll={onScroll}
-	class="{parentClass} {scrollbar_type} {offsetScrollbar
+	bind:this={element}
+	class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent > 90}
+	class:mask-middle={gradientMask && scroll_percent <= 90 && scroll_percent > 10}
+	class:mask-bottom={gradientMask && scroll_percent <= 10 && scroll_percent >= 0}
+	class="{parentClass} {offsetScrollbar
 		? 'pr-[0.75vw]'
 		: 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
 >

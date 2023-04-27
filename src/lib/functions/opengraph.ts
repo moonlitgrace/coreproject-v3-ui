@@ -172,6 +172,7 @@ export class OpengraphGenerator {
 	#audio?: string;
 	#image?: string;
 	#video?: IVideo;
+	#twitter: boolean;
 
 	constructor({
 		title,
@@ -181,7 +182,8 @@ export class OpengraphGenerator {
 		locale,
 		audio,
 		image_url,
-		video
+		video,
+		twitter
 	}: {
 		title: string;
 		page_url: string;
@@ -191,6 +193,7 @@ export class OpengraphGenerator {
 		audio?: string;
 		image_url?: string;
 		video?: IVideo;
+		twitter: boolean;
 	}) {
 		this.#title = title;
 		this.#url = page_url;
@@ -207,16 +210,30 @@ export class OpengraphGenerator {
 		if (video) {
 			this.#video = video;
 		}
+		if (twitter) {
+			this.#twitter = true;
+		} else {
+			this.#twitter = false;
+		}
 	}
 
 	private get title() {
-		return `<meta property="og:title" content="${this.#title}">`;
+		let title = `<meta property="og:title" content="${this.#title}">`;
+		if (this.#twitter) {
+			title += `<meta name="twitter:title" content="${this.#title}" />`;
+		}
+		return title;
 	}
 	private get url() {
 		return `<meta property="og:url" content="${this.#url}">`;
 	}
 	private get description() {
-		return `<meta property="og:description" content="${this.#description}">`;
+		let description = `<meta property="og:description" content="${this.#description}">`;
+		if (this.#twitter) {
+			description += `<meta name="twitter:description" content="${this.#description}" />`;
+		}
+
+		return description;
 	}
 	private get site_name() {
 		return `<meta property="og:site_name" content="${this.#site_name}">`;
@@ -228,7 +245,11 @@ export class OpengraphGenerator {
 		return `<meta property="og:audio" content="${this.#audio}">`;
 	}
 	private get image() {
-		return `<meta property="og:image" content="${this.#image}">`;
+		let image = `<meta property="og:image" content="${this.#image}">`;
+		if (this.#twitter) {
+			image += `<meta name="twitter:image" content="${this.#image}" />`;
+		}
+		return image;
 	}
 	public get video() {
 		let video_opengraph_text = '';
@@ -283,6 +304,10 @@ export class OpengraphGenerator {
 		opengraph_html += this.title;
 		opengraph_html += this.url;
 		opengraph_html += this.description;
+
+		if (this.#twitter) {
+			opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
+		}
 		if (this.#audio) {
 			opengraph_html += this.audio;
 		}
