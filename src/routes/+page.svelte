@@ -1,4 +1,6 @@
 <script lang="ts">
+
+	/* Imports */
 	import MyList from '$components/pages/home/my_list.svelte';
 	import LatestEpisodes from '$components/pages/home/main_hero/latest_episodes.svelte';
 	import NavigationCard from '$components/pages/home/main_hero/navigation_card.svelte';
@@ -7,6 +9,8 @@
 	import { swipe } from 'svelte-gestures';
 	import { format_date } from '$functions/format_date';
 	import voca from 'voca';
+	import { latest_episodes } from '$data/mock/latest_episodes';
+	import _ from 'lodash';
 
 	import { Timer as EasyTimer } from 'easytimer.js';
 	import { onDestroy, onMount } from 'svelte';
@@ -19,6 +23,10 @@
 	import Info from '$icons/info.svelte';
 	import Edit from '$icons/edit.svelte';
 	import Chevron from '$icons/chevron.svelte';
+	import SettingsOutline from '$icons/settings_outline.svelte';
+	import Expand from '$icons/expand.svelte';
+	import ScrollArea from '$components/shared/scroll_area.svelte';
+	import Play from '$icons/play.svelte';
 
 	/* Slider codes */
 	let main_hero_slide_active_index = 0;
@@ -263,7 +271,66 @@
 				</div>
 			</div>
 		</latest-animes>
-		<LatestEpisodes />
+		
+		<latest-episodes class="w-[21.5625vw]">
+			<div class="flex items-center gap-[0.625vw]">
+				<span class="text-[1.25vw] font-bold">Latest Episodes</span>
+				<button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+					<SettingsOutline style="width: 0.8vw;" />
+				</button>
+				<button
+					class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold"
+				>
+					<Expand style="width: 0.8vw;" />
+					<span>Expand</span>
+				</button>
+			</div>
+
+			<ScrollArea
+				gradientMask
+				offsetScrollbar
+				parentClass="mt-[1.5vw] max-h-[21.5625vw]"
+				class="flex flex-col gap-[1vw]"
+			>
+				{#each latest_episodes as anime}
+					<div
+						class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
+						style="background-image: url({anime.cover ?? ''})"
+					>
+						<div
+							class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0"
+						/>
+						<div class="absolute h-full w-full">
+							<div class="flex items-center justify-between p-[1.3125vw]">
+								<div class="flex flex-col gap-[0.4vw]">
+									<span class="text-[1vw] text-white font-semibold leading-[1.1875vw]">{anime.name}</span>
+									<div class="flex items-center gap-[0.5vw]">
+										<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+											Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
+										</span>
+										<span class="text-[0.75vw]"
+											>{new format_date(anime.release_date).format_to_time_from_now}</span
+										>
+									</div>
+								</div>
+								<button
+									class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
+								>
+									<Play style="width: 1.25vw;" />
+								</button>
+							</div>
+						</div>
+					</div>
+				{/each}
+			</ScrollArea>
+
+			<div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
+				<span class="text-[0.75vw] font-semibold"
+					>showing recently aired episodes from your Anime List</span
+				>
+				<button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
+			</div>
+		</latest-episodes>
 		<NavigationCard />
 	</div>
 	<MyList />
