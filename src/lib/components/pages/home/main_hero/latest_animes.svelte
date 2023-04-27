@@ -16,7 +16,7 @@
 	import Edit from '$icons/edit.svelte';
 	import Chevron from '$icons/chevron.svelte';
 
-	// Slider codes //
+	/* Slider codes */
 	let main_hero_slide_active_index = 0;
 
 	const add_one_to_main_hero_slide_active_index = () => {
