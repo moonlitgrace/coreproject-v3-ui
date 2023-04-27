@@ -1,9 +1,5 @@
 <script lang="ts">
 
-	/* Imports */
-	import MyList from '$components/pages/home/my_list.svelte';
-	import NavigationCard from '$components/pages/home/main_hero/navigation_card.svelte';
-
 	/* Mock datas */
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { my_list } from '$data/mock/my_list';
