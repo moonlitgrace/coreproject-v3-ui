@@ -3,7 +3,6 @@
 	import LatestEpisodes from '$components/pages/home/main_hero/latest_episodes.svelte';
 	import NavigationCard from '$components/pages/home/main_hero/navigation_card.svelte';
 
-	/* Latest animes scripts */
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { swipe } from 'svelte-gestures';
 	import { format_date } from '$functions/format_date';
@@ -108,6 +107,7 @@
 		{ background: 'bg-primary-300', border: 'border-primary-300' },
 		{ background: 'bg-error-300', border: 'border-error-300' }
 	];
+
 </script>
 
 <svelte:window
