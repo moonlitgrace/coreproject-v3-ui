@@ -275,6 +275,10 @@
 	}}
 />
 
+<svelte:head>
+	<title>AnimeCore - A modern anime streaming site</title>
+</svelte:head>
+
 <div class="p-[1.25vw] pr-[3.75vw]">
 	<div class="flex justify-between">
 
