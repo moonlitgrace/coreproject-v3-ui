@@ -65,9 +65,8 @@
                 class="h-[90vh] w-full bg-cover bg-center bg-no-repeat" 
                 style="background-image: url('{item.image ?? ''}');"
                 />
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/75"
-                />
+                <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
                 <div class="absolute bottom-[1.85vw] left-[2vw]">
                     <div class="flex flex-col">
                         <span class="text-surface-300/75 uppercase text-[0.75vw] font-semibold tracking-widest">Background from {type()}</span>
