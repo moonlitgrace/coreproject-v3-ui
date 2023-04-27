@@ -304,6 +304,7 @@ export class OpengraphGenerator {
 		opengraph_html += this.title;
 		opengraph_html += this.url;
 		opengraph_html += this.description;
+
 		if (this.#twitter) {
 			opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
 		}
