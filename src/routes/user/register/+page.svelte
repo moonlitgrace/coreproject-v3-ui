@@ -6,4 +6,4 @@
 	<title>Register | AnimeCore</title>
 </svelte:head>
 
-<div class="">Register page</div>
+<div>Register page form</div>
