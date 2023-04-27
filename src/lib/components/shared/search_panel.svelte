@@ -75,7 +75,7 @@
 						class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
 					>
 						<span class="font-medium leading-none">mangacore integration</span>
-						<span class="font-semibold leading-none">comming soon</span>
+						<span class="font-semibold leading-none">coming soon</span>
 					</div>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 						class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
 					>
 						<span class="font-medium leading-none">soundcore integration</span>
-						<span class="font-semibold leading-none">comming soon</span>
+						<span class="font-semibold leading-none">coming soon</span>
 					</div>
 				</div>
 			</div>
