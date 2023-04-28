@@ -47,8 +47,7 @@
 								/>
 								<div class="flex flex-col">
 									<span class="text-[1.1vw] font-semibold text-white">Kimetsu no Yaiba</span>
-									<span
-										class="text-[0.7vw] font-medium uppercase leading-none text-surface-200"
+									<span class="text-[0.7vw] font-medium uppercase leading-none text-surface-200"
 										>Demon slayer</span
 									>
 									<div
@@ -68,12 +67,8 @@
 
 			<div>
 				<span class="text-[1.2vw] font-semibold text-surface-50">manga</span>
-				<div
-					class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
-				>
-					<div
-						class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
-					>
+				<div class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+					<div class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]">
 						<span class="font-medium leading-none">mangacore integration</span>
 						<span class="font-semibold leading-none">coming soon</span>
 					</div>
@@ -82,12 +77,8 @@
 
 			<div>
 				<span class="text-[1.2vw] font-semibold text-surface-50">music</span>
-				<div
-					class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
-				>
-					<div
-						class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
-					>
+				<div class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+					<div class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]">
 						<span class="font-medium leading-none">soundcore integration</span>
 						<span class="font-semibold leading-none">coming soon</span>
 					</div>

@@ -212,7 +212,7 @@ export class OpengraphGenerator {
 
 	private get title() {
 		let title = `<meta property="og:title" content="${this.#title}">`;
-			title += `<meta name="twitter:title" content="${this.#title}" />`;
+		title += `<meta name="twitter:title" content="${this.#title}" />`;
 		return title;
 	}
 	private get url() {
