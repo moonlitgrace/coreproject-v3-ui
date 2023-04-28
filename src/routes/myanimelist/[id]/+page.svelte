@@ -22,6 +22,7 @@
 
 <svelte:head>
 	{@html opengraph_html}
+	<title>{anime?.name} | AnimeCore</title>
 </svelte:head>
 
 {#if anime}
