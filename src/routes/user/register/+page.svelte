@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Info from "$icons/info.svelte";
+	import Info from '$icons/info.svelte';
 </script>
 
 <svelte:head>
@@ -29,9 +29,11 @@
 				autofocus={true}
 				class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 			/>
-			<info class="flex items-center gap-[0.5vw] mt-[0.5vw]">
+			<info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
 				<Info style="width: 0.9375vw; opacity: 0.7;" />
-				<span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
+				<span class="text-[0.75vw] text-surface-300"
+					>we’ll send you a verification email, so please ensure it’s active</span
+				>
 			</info>
 		</div>
 	</form>
