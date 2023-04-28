@@ -57,9 +57,9 @@
 					on:mousedown={() => (show_password = !show_password)}
 					class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
 				>
-					<svelte:component 
+					<svelte:component
 						this={show_password ? EyeClose : EyeOpen}
-						style={show_password ? "width: 1.4vw;" : "width: 1.75vw;"}
+						style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
 					/>
 				</show-password-icons>
 			</div>
