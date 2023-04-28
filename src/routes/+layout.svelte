@@ -47,7 +47,6 @@
 		| keyof typeof icon_mapping.middle
 		| keyof typeof icon_mapping.bottom;
 
-
 	const icon_mapping: {
 		top: {
 			search: {
@@ -303,21 +302,20 @@
 		const search_modal: ModalSettings = {
 			type: 'component',
 			component: search_component,
-			backdropClasses: "!bg-surface-900/95",
-			position: "items-start",
+			backdropClasses: '!bg-surface-900/95',
+			position: 'items-start'
 		};
 		modalStore.trigger(search_modal);
 	}
 </script>
 
 <div class="relative h-screen">
-
 	<Modal />
 
 	<AppShell>
 		<svelte:fragment slot="header">
 			<div
-				class="h-[10vh] relative flex items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
+				class="relative flex h-[10vh] items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
 			>
 				<a href="/">
 					<Logo style="width: 2vw;" />
