@@ -3,7 +3,8 @@
 	import { blur } from 'svelte/transition';
 
 	/* Icons */
-	import AnimeCore from '$icons/anime_core.svelte';
+	import CoreProject from '$icons/core_project.svelte';
+	import Recent from '$icons/recent.svelte';
 
 	let choice_number: number;
 	let choices: Array<{
@@ -72,7 +73,7 @@
 
 				<div class="absolute inset-0 bottom-[6vw] flex flex-col text-center items-center justify-center">
 					<span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
-					<AnimeCore style="width: 10vw;" class="mt-[1.0625vw]" />
+					<CoreProject style="width: 10vw;" class="mt-[1vw]" />
 					<span class="text-[1.25vw] font-semibold max-w-[22vw] mt-[2.875vw]">
 						" Bridging the gap between streaming and torrenting sites with a modern and clean interface. "
 					</span>
