@@ -2,6 +2,9 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { blur } from 'svelte/transition';
 
+	/* Icons */
+	import AnimeCore from '$icons/anime_core.svelte';
+
 	let choice_number: number;
 	let choices: Array<{
 		type: string;
@@ -37,7 +40,7 @@
 	onMount(() => {
 		interval = setInterval(() => {
 			change_index();
-		}, 10000);
+		}, 20000);
 		change_index();
 	});
 	onDestroy(() => {
@@ -66,6 +69,20 @@
 				/>
 				<div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
 				<div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
+
+				<div class="absolute inset-0 bottom-[6vw] flex flex-col text-center items-center justify-center">
+					<span class="text-[0.75] font-normal uppercase">welcome to</span>
+					<AnimeCore style="width: 10vw;" />
+					<span>
+						Bridging the gap between streaming and torrenting sites with a modern and clean interface
+					</span>
+
+					<span>With a coreproject account, you can</span>
+					<span>
+						uhhh, do something super-duper special, I guess? I myself don’t know either
+					</span>
+				</div>
+
 				<div class="absolute bottom-[1.85vw] left-[2vw]">
 					<div class="flex flex-col">
 						<span class="text-[0.75vw] font-semibold uppercase tracking-widest text-surface-300/75">
