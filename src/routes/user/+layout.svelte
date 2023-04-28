@@ -37,12 +37,12 @@
 		let index = Math.floor(Math.random() * choices.length);
 
 		// Ensure the new index is not the same as the previous index
-	    while (index === previous_index) {
-	        index = Math.floor(Math.random() * choices.length);
-	    }
+		while (index === previous_index) {
+			index = Math.floor(Math.random() * choices.length);
+		}
 		// Update the previous index
-	    previous_index = index;
-	    choice_number = index;
+		previous_index = index;
+		choice_number = index;
 	};
 	let interval: NodeJS.Timer | undefined;
 	onMount(() => {
@@ -57,20 +57,20 @@
 </script>
 
 <div class="relative grid h-[90vh] w-full">
-	{#each choices as item, index} 
-		{#if index === choice_number} 
-			{@const type = () => { 
-				switch (item.type) { 
-					case "anime": 
-						return "the anime"; 
-					case "pixiv": 
-						return "the artist"; 
-					default: return""; 
-					} 
+	{#each choices as item, index}
+		{#if index === choice_number}
+			{@const type = () => {
+				switch (item.type) {
+					case 'anime':
+						return 'the anime';
+					case 'pixiv':
+						return 'the artist';
+					default:
+						return '';
 				}
-			}
+			}}
 
-			<div class="fixed relative w-1/2" transition:blur|local={{duration:500}}>
+			<div class="fixed relative w-1/2" transition:blur|local={{ duration: 500 }}>
 				<div
 					class="h-[90vh] w-full bg-cover bg-center bg-no-repeat"
 					style="background-image: url('{item.image ?? ''}')"
@@ -78,15 +78,20 @@
 				<div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
 				<div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
-				<div class="absolute inset-0 bottom-[6vw] flex flex-col text-center items-center justify-center">
+				<div
+					class="absolute inset-0 bottom-[6vw] flex flex-col items-center justify-center text-center"
+				>
 					<span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
 					<CoreProject style="width: 10vw;" class="mt-[1vw]" />
-					<span class="text-[1.25vw] font-semibold max-w-[22vw] mt-[2.875vw]">
-						" Bridging the gap between streaming and torrenting sites with a modern and clean interface. "
+					<span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">
+						" Bridging the gap between streaming and torrenting sites with a modern and clean
+						interface. "
 					</span>
 
-					<span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
-					<span class="max-w-[20.375vw] mt-[0.75vw] text-[0.9vw] font-medium text-surface-200">
+					<span class="mt-[4vw] text-[0.9vw] font-semibold"
+						>With a coreproject account, you can</span
+					>
+					<span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">
 						uhhh, do something super-duper special, I guess? I myself don’t know either
 					</span>
 				</div>
@@ -107,7 +112,7 @@
 					</div>
 				</div>
 			</div>
-		{/if} 
+		{/if}
 	{/each}
 	<div class="absolute right-0 h-full w-1/2 px-[8vw] py-[3vw]">
 		<slot />
