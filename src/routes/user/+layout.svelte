@@ -71,14 +71,14 @@
 				<div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
 				<div class="absolute inset-0 bottom-[6vw] flex flex-col text-center items-center justify-center">
-					<span class="text-[0.75] font-normal uppercase">welcome to</span>
-					<AnimeCore style="width: 10vw;" />
-					<span>
-						Bridging the gap between streaming and torrenting sites with a modern and clean interface
+					<span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
+					<AnimeCore style="width: 10vw;" class="mt-[1.0625vw]" />
+					<span class="text-[1.25vw] font-semibold max-w-[22vw] mt-[2.875vw]">
+						" Bridging the gap between streaming and torrenting sites with a modern and clean interface. "
 					</span>
 
-					<span>With a coreproject account, you can</span>
-					<span>
+					<span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
+					<span class="max-w-[20.375vw] mt-[0.75vw] text-[0.9vw] font-medium text-surface-200">
 						uhhh, do something super-duper special, I guess? I myself don’t know either
 					</span>
 				</div>
