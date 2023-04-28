@@ -26,7 +26,7 @@
 				id="email"
 				placeholder="username@mail"
 				autofocus={true}
-				class="w-full h-[3.125vw] mt-[0.25vw] rounded-[0.75vw] pl-[1vw] border-[0.2vw] text-[1.1vw] border-primary-500 focus:border-primary-400 transition-all bg-transparent font-medium outline-none !ring-0 placeholder:text-white/50"
+				class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 			/>
 		</div>
 	</form>
