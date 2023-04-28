@@ -5,7 +5,6 @@
 	/* Icons */
 	import CoreProject from '$icons/core_project.svelte';
 	import Refresh from '$icons/refresh.svelte';
-	import AnimeCore from '$icons/anime_core.svelte';
 
 	let choice_number: number;
 	let choices: Array<{
