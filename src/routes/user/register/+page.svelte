@@ -18,8 +18,8 @@
 		&nbspaccount
 	</span>
 
-	<form class="mt-[3.4375vw]">
-		<div>
+	<form class="mt-[3vw]">
+		<email-field>
 			<label for="email" class="text-[1.1vw] font-semibold">Email</label>
 			<!-- svelte-ignore a11y-autofocus -->
 			<input
@@ -35,6 +35,16 @@
 					>we’ll send you a verification email, so please ensure it’s active</span
 				>
 			</info>
-		</div>
+		</email-field>
+
+		<password-field>
+			<label for="password" class="mt-[1vw] text-[1.1vw] font-semibold">Password</label>
+			<input
+				type="password"
+				id="email"
+				placeholder="enter a strong password"
+				class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+			/>
+		</password-field>
 	</form>
 </register-page>
