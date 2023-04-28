@@ -4,7 +4,7 @@
 
 	/* Icons */
 	import CoreProject from '$icons/core_project.svelte';
-	import Recent from '$icons/recent.svelte';
+	import Refresh from '$icons/refresh.svelte';
 
 	let choice_number: number;
 	let choices: Array<{
@@ -32,10 +32,17 @@
 			image: 'https://anitrendz.net/news/wp-content/uploads/2021/03/Shield-Hero-2.jpg'
 		}
 	];
-
+	let previous_index: number | undefined;
 	const change_index = () => {
-		const index = Math.floor(Math.random() * choices.length);
-		choice_number = index;
+		let index = Math.floor(Math.random() * choices.length);
+
+		// Ensure the new index is not the same as the previous index
+	    while (index === previous_index) {
+	        index = Math.floor(Math.random() * choices.length);
+	    }
+		// Update the previous index
+	    previous_index = index;
+	    choice_number = index;
 	};
 	let interval: NodeJS.Timer | undefined;
 	onMount(() => {
@@ -89,9 +96,14 @@
 						<span class="text-[0.75vw] font-semibold uppercase tracking-widest text-surface-300/75">
 							Background from {type()}
 						</span>
-						<span class="text-[1vw] font-bold uppercase tracking-widest text-warning-400">
-							{item.name}
-						</span>
+						<div class="flex items-center gap-[0.5vw]">
+							<span class="text-[1vw] font-bold uppercase tracking-widest text-warning-400">
+								{item.name}
+							</span>
+							<button class="btn p-0" on:click={change_index}>
+								<Refresh style="width: 0.8vw;" />
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
