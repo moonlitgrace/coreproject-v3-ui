@@ -11,6 +11,7 @@
 	import Warning from '$icons/warning.svelte';
 	import MessageCircle from '$icons/message_circle.svelte';
 	import PlayCircle from '$icons/play_circle.svelte';
+	import Read from '$icons/read.svelte';
 </script>
 
 <div class="my-[6vw]">
@@ -124,7 +125,7 @@
 						</p>
 					</div>
 					<div
-						class="absolute inset-0 z-20 grid place-items-center opacity-0 duration-300 group-hover:opacity-100"
+						class="absolute inset-0 z-20 flex gap-[0.75vw] items-center justify-center opacity-0 duration-300 group-hover:opacity-100"
 					>
 						<button
 							type="button"
@@ -137,6 +138,17 @@
 									<span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]"
 										>Ep {episode.episode_number}</span
 									>
+								</div>
+							</div>
+						</button>
+						<button
+							type="button"
+							class="btn bg-surface-900/50 font-bold text-white h-[4.3vw] w-[5vw] rounded-[0.625vw] text-[0.87vw]"
+						>
+							<div class="flex flex-col items-center justify-center md:gap-[0.7vw]">
+								<Read style="width: 1.3vw;" color="white" />
+								<div class="flex flex-col items-start">
+									<span class="leading-[1vw]">Read</span>
 								</div>
 							</div>
 						</button>
