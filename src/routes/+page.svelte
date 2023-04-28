@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	/* Mock datas */
 	import { latest_animes } from '$data/mock/latest_animes';
 	import { my_list } from '$data/mock/my_list';
@@ -263,7 +262,6 @@
 			}
 		}
 	};
-
 </script>
 
 <svelte:window
@@ -281,7 +279,6 @@
 
 <div class="p-[1.25vw] pr-[3.75vw]">
 	<div class="flex justify-between">
-
 		<latest-animes class="h-[27.875vw] w-[42.1875vw]">
 			<div
 				use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' }}
@@ -423,7 +420,7 @@
 				</div>
 			</div>
 		</latest-animes>
-		
+
 		<latest-episodes class="w-[21.5625vw]">
 			<div class="flex items-center gap-[0.625vw]">
 				<span class="text-[1.25vw] font-bold">Latest Episodes</span>
@@ -455,10 +452,14 @@
 						<div class="absolute h-full w-full">
 							<div class="flex items-center justify-between p-[1.3125vw]">
 								<div class="flex flex-col gap-[0.4vw]">
-									<span class="text-[1vw] text-white font-semibold leading-[1.1875vw]">{anime.name}</span>
+									<span class="text-[1vw] font-semibold leading-[1.1875vw] text-white"
+										>{anime.name}</span
+									>
 									<div class="flex items-center gap-[0.5vw]">
 										<span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
-											Ep {anime.episode_number < 10 ? '0' + anime.episode_number : anime.episode_number}
+											Ep {anime.episode_number < 10
+												? '0' + anime.episode_number
+												: anime.episode_number}
 										</span>
 										<span class="text-[0.75vw]"
 											>{new format_date(anime.release_date).format_to_time_from_now}</span
@@ -483,7 +484,7 @@
 				<button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
 			</div>
 		</latest-episodes>
-		
+
 		<navigation-card
 			class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
 			style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
@@ -541,7 +542,7 @@
 			</div>
 		</navigation-card>
 	</div>
-	
+
 	<my-list>
 		<div class="mt-[2.1875vw] h-20 w-[68.125vw]">
 			<div class="flex items-center gap-[0.625vw]">
@@ -552,7 +553,9 @@
 			</div>
 
 			<div class="mt-[0.5vw] flex items-center justify-between">
-				<span class="text-[1vw] font-semibold text-surface-50">{my_list.length} anime in Watching</span>
+				<span class="text-[1vw] font-semibold text-surface-50"
+					>{my_list.length} anime in Watching</span
+				>
 
 				<div class="flex items-center gap-[1vw]">
 					<button
@@ -598,7 +601,9 @@
 								class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0"
 							>
 								<span class="text-center text-[1vw] font-semibold text-white">{anime.name}</span>
-								<span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
+								<span
+									class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
+								>
 									{anime.current_episode}/{anime.episodes_count}
 								</span>
 							</div>
@@ -637,7 +642,9 @@
 								class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
 							/>
 							<div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-								<span class="text-[1vw] font-semibold text-white">{voca.truncate(anime_name, 30)}</span>
+								<span class="text-[1vw] font-semibold text-white"
+									>{voca.truncate(anime_name, 30)}</span
+								>
 								<span class="text-[0.75vw] font-semibold uppercase text-surface-50"
 									>{voca.truncate(anime_name, 50)}</span
 								>
@@ -658,7 +665,9 @@
 								<div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
 									<span>{anime_type}</span>
 									<Circle style="width: 0.2vw;" class="text-surface-50" />
-									<span class="capitalize">{new format_date(anime_release_date).format_to_season}</span>
+									<span class="capitalize"
+										>{new format_date(anime_release_date).format_to_season}</span
+									>
 									<span>{anime_episodes_count} episodes</span>
 								</div>
 
