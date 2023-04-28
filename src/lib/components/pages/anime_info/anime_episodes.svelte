@@ -108,7 +108,7 @@
 					style="background-image: url({episode.episode_thumbnail ?? ''})"
 				>
 					<div
-						class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent duration-300 group-hover:to-surface-900/50"
+						class="absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent duration-300 group-hover:to-surface-900/50"
 					/>
 					<div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
 						<p
@@ -125,17 +125,17 @@
 						</p>
 					</div>
 					<div
-						class="absolute inset-0 z-20 flex gap-[0.75vw] items-center justify-center opacity-0 duration-300 group-hover:opacity-100"
+						class="absolute inset-0 z-20 flex gap-[0.75vw] items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 					>
 						<button
 							type="button"
-							class="btn bg-surface-900/90 font-bold text-white md:h-[4.3vw] md:w-[7.5vw] md:rounded-[0.625vw] md:text-[0.87vw]"
+							class="btn bg-surface-900/90 font-bold text-surface-50 md:h-[4.3vw] md:w-[7.5vw] rounded-[0.625vw] md:text-[0.87vw]"
 						>
 							<div class="flex items-center justify-center md:gap-[0.7vw]">
 								<PlayCircle style="width: 1.875vw;" color="white" />
 								<div class="flex flex-col items-start">
 									<span class="leading-[1.05vw]">Watch</span>
-									<span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]"
+									<span class="font-normal leading-[0.9375vw] text-surface-100 text-[0.625vw]"
 										>Ep {episode.episode_number}</span
 									>
 								</div>
@@ -143,7 +143,7 @@
 						</button>
 						<button
 							type="button"
-							class="btn bg-surface-900/50 font-bold text-white h-[4.3vw] w-[5vw] rounded-[0.625vw] text-[0.87vw]"
+							class="btn bg-surface-900/50 font-bold text-surface-50 h-[4.3vw] w-[5vw] rounded-[0.625vw] text-[0.87vw]"
 						>
 							<div class="flex flex-col items-center justify-center md:gap-[0.7vw]">
 								<Read style="width: 1.3vw;" color="white" />
