@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Info from '$icons/info.svelte';
+	import EyeOpen from '$icons/eye_open.svelte';
 </script>
 
 <svelte:head>
@@ -39,12 +40,17 @@
 
 		<password-field>
 			<label for="password" class="mt-[1vw] text-[1.1vw] font-semibold">Password</label>
-			<input
-				type="password"
-				id="email"
-				placeholder="enter a strong password"
-				class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
-			/>
+			<div class="relative flex items-center">
+				<input
+					type="password"
+					id="password"
+					placeholder="enter a strong password"
+					class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+				/>
+				<show-password-icons class="btn p-0 absolute right-[0.75vw] cursor-pointer text-surface-300 transition-opacity">
+					<EyeOpen style="width: 1.75vw;" />
+				</show-password-icons>
+			</div>
 		</password-field>
 	</form>
 </register-page>
