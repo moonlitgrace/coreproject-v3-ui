@@ -5,6 +5,7 @@
 	/* Icons */
 	import CoreProject from '$icons/core_project.svelte';
 	import Refresh from '$icons/refresh.svelte';
+	import AnimeCore from '$icons/anime_core.svelte';
 
 	let choice_number: number;
 	let choices: Array<{
@@ -82,10 +83,13 @@
 					class="absolute inset-0 bottom-[6vw] flex flex-col items-center justify-center text-center"
 				>
 					<span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
-					<CoreProject style="width: 10vw;" class="mt-[1vw]" />
+					<div class="mt-[0.5vw] flex items-center">
+						<CoreProject style="width: 10vw;" />
+						<span class="text-[1.75vw] font-bold text-surface-300">.moe</span>
+					</div>
 					<span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">
-						" Bridging the gap between streaming and torrenting sites with a modern and clean
-						interface. "
+						Bridging the gap between streaming and torrenting sites with a modern and clean
+						interface.
 					</span>
 
 					<span class="mt-[4vw] text-[0.9vw] font-semibold"
