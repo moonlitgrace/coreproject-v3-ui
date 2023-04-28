@@ -6,14 +6,28 @@
 </svelte:head>
 
 <register-page>
-	<span class="text-[1.25vw] uppercase font-bold tracking-wider text-white/95 flex">
+	<span class="flex text-[1.25vw] font-bold uppercase tracking-wider text-white/95">
 		create your&nbsp
 		<div class="flex">
 			<span class="text-surface-50">c</span>
 			<span class="text-warning-400">o</span>
 			<span class="text-surface-50">r</span>
 			<span class="text-surface-50">e</span>
-		</div> 
+		</div>
 		&nbspaccount
 	</span>
+
+	<form class="mt-[3.4375vw]">
+		<div>
+			<label for="email" class="text-[1.1vw] font-semibold">Email</label>
+			<!-- svelte-ignore a11y-autofocus -->
+			<input
+				type="email"
+				id="email"
+				placeholder="username@mail"
+				autofocus={true}
+				class="w-full h-[3.125vw] mt-[0.25vw] rounded-[0.75vw] pl-[1vw] border-[0.2vw] text-[1.1vw] border-primary-500 focus:border-primary-400 transition-all bg-transparent font-medium outline-none !ring-0 placeholder:text-white/50"
+			/>
+		</div>
+	</form>
 </register-page>
