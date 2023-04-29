@@ -8,14 +8,16 @@ const schema = z.object({
     .email('Please enter a valid email address')
     .min(3, 'Email must be at least 3 characters long')
     .max(100, 'Email must be less than 100 characters long'),
+
   password: z
     .string()
-    .min(8, 'Password must be at least 8 characters long')
-    .max(50, 'Password must be less than 50 characters long')
+    .min(8, 'atleast_8')
+    .max(50, 'less_than_50')
     .regex(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).{8,50}$/,
-      'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character'
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).*$/,
+      "one_lowercase,one_uppercase,one_number,one_special_character"
     ),
+
   confirm_password: z.string()
 });
 
