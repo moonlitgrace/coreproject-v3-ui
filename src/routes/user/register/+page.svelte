@@ -3,6 +3,7 @@
 	import EyeOpen from '$icons/eye_open.svelte';
 	import EyeClose from '$icons/eye_close.svelte';
 	import Cross from '$icons/cross.svelte';
+	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 
 	let show_password = false;
 	$: password_type = show_password ? 'text' : 'password';
@@ -24,7 +25,7 @@
 		&nbspaccount
 	</span>
 
-	<form class="mt-[2vw]">
+	<form class="mt-[1.5vw]">
 		<email-field>
 			<label for="email" class="text-[1.1vw] font-semibold">Email</label>
 			<!-- svelte-ignore a11y-autofocus -->
@@ -97,5 +98,39 @@
 				</password-strength>
 			</div>
 		</password-field>
+
+		<confirm-password-field>
+			<label for="confirm-password" class="mt-[1.5vw] text-[1.1vw] font-semibold">Confirm Password</label>
+			<div>
+				<div class="relative flex items-center">
+					<input
+						type={password_type}
+						id="password"
+						placeholder="re-enter your password"
+						class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+					/>
+					<show-password-icons
+						on:mousedown={() => (show_password = !show_password)}
+						class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
+					>
+						<svelte:component
+							this={show_password ? EyeClose : EyeOpen}
+							style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
+						/>
+					</show-password-icons>
+				</div>
+			</div>
+		</confirm-password-field>
+
+		<div class="mt-[2vw] flex items-center justify-between">
+			<div class="flex flex-col">
+				<span class="text-[0.75vw] text-surface-100">Already have an account?</span>
+				<a href="/user/login" class="text-[1.1vw]">Login</a>
+			</div>
+			<button class="btn p-0 h-[2.75vw] px-[1.25vw] rounded-[0.5vw] bg-secondary-800 text-[0.95vw] font-semibold">
+				<span>Continue</span>
+				<ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
+			</button>
+		</div>
 	</form>
 </register-page>
