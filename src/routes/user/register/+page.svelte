@@ -62,13 +62,13 @@
 						/>
 					</show-password-icons>
 				</div>
-				<div class="flex gap-[0.75vw] mt-[1vw]">
+				<password-strength class="flex gap-[0.75vw] mt-[1vw]">
 					{#each Array(4) as _}
-						<button
+						<span
 							class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300"
 						/>
 					{/each}
-				</div>
+				</password-strength>
 			</div>
 		</password-field>
 	</form>
