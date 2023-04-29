@@ -6,13 +6,11 @@ const schema = z.object({
   email: z
     .string()
     .email('Please enter a valid email address')
-    .min(3, 'Email must be at least 3 characters long')
-    .max(100, 'Email must be less than 100 characters long'),
+    .min(10, 'Email must be at least 10 characters long'),
 
   password: z
     .string()
     .min(8, 'atleast_8')
-    .max(50, 'less_than_50')
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).*$/,
       "one_lowercase,one_uppercase,one_number,one_special_character"
