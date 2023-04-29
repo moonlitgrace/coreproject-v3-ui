@@ -3,8 +3,6 @@
 	import EyeOpen from '$icons/eye_open.svelte';
 	import EyeClose from '$icons/eye_close.svelte';
 
-	import { fly } from 'svelte/transition';
-
 	let show_password = false;
 	$: password_type = show_password ? 'text' : 'password';
 </script>
@@ -46,22 +44,31 @@
 
 		<password-field>
 			<label for="password" class="mt-[1.5vw] text-[1.1vw] font-semibold">Password</label>
-			<div class="relative flex items-center">
-				<input
-					type={password_type}
-					id="password"
-					placeholder="enter a strong password"
-					class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
-				/>
-				<show-password-icons
-					on:mousedown={() => (show_password = !show_password)}
-					class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
-				>
-					<svelte:component
-						this={show_password ? EyeClose : EyeOpen}
-						style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
+			<div>
+				<div class="relative flex items-center">
+					<input
+						type={password_type}
+						id="password"
+						placeholder="enter a strong password"
+						class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 					/>
-				</show-password-icons>
+					<show-password-icons
+						on:mousedown={() => (show_password = !show_password)}
+						class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
+					>
+						<svelte:component
+							this={show_password ? EyeClose : EyeOpen}
+							style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
+						/>
+					</show-password-icons>
+				</div>
+				<div class="flex gap-[0.75vw] mt-[1vw]">
+					{#each Array(4) as _}
+						<button
+							class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300"
+						/>
+					{/each}
+				</div>
 			</div>
 		</password-field>
 	</form>
