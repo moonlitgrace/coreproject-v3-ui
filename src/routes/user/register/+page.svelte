@@ -3,21 +3,59 @@
 
 	export let data: any;
 
+	let password_requirements = [
+		{ text: 'minimum 8 characters', valid: false },
+		{ text: 'minimum 1 number', valid: false },
+		{ text: 'minimum 1 special character', valid: false },
+		{ text: 'minimum 1 lower-case or upper-case character', valid: false }
+	];
+
 	// Client API:
 	const { form, errors, enhance } = superForm(data.form, {
-		validators: false
+		validationMethod: 'oninput',
+		validators: {
+			email: (email) => {
+				const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for validating email format
+				return regex.test(email) ? null : 'Please enter a valid email address';
+			},
+			password: (password) => {
+				if (!/(?=.*\d)/.test(password)) {
+					password_requirements[1].valid = false;
+					return 'minimum 1 number';
+				} else {
+					password_requirements[1].valid = true;
+				}
+
+				if (!/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(password)) {
+					password_requirements[2].valid = false;
+					return 'minimum 1 special character';
+				} else {
+					password_requirements[2].valid = true;
+				}
+
+				if (!/(?=.*[a-z])/.test(password) || !/(?=.*[A-Z])/.test(password)) {
+					password_requirements[3].valid = false;
+					return 'minimum 1 lower-case or upper-case character';
+				} else {
+					password_requirements[3].valid = true;
+				}
+
+				if (password.length < 8) {
+					password_requirements[0].valid = false;
+					return 'minimum 8 characters';
+				} else {
+					password_requirements[0].valid = true;
+				}
+
+				return;
+			}
+		}
 	});
 
 	import Info from '$icons/info.svelte';
 	import Cross from '$icons/cross.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
-
-	$: {
-		let password = $errors.password;
-		if (password){
-			// code		
-		}
-	}
+	import Tick from '$icons/tick.svelte';
 
 </script>
 
@@ -66,14 +104,12 @@
 					<div class="relative flex flex-col">
 						<input
 							bind:value={$form.password}
-							type="password"
+							type="text"
 							id="password"
 							name="password"
 							placeholder="enter a strong password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						{#if $errors.password}<span class="text-[1vw] text-error-50">{$errors.password}</span
-							>{/if}
 					</div>
 					<password-strength class="mt-[1vw] flex flex-col">
 						<div class="flex gap-[0.75vw]">
@@ -89,26 +125,20 @@
 								class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50"
 								>must contain</span
 							>
-
-							<div class="ml-[0.75vw] mt-[0.4vw] flex flex-col gap-[0.1vw]">
-								<div class="flex items-center gap-[0.75vw]">
-									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
-									<span class="text-[0.8vw] text-surface-300">minimum 8 characters</span>
-								</div>
-								<div class="flex items-center gap-[0.75vw]">
-									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
-									<span class="text-[0.8vw] text-surface-300">minimum 1 number</span>
-								</div>
-								<div class="flex items-center gap-[0.75vw]">
-									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
-									<span class="text-[0.8vw] text-surface-300">minimum 1 special character</span>
-								</div>
-								<div class="flex items-center gap-[0.75vw]">
-									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
-									<span class="text-[0.8vw] text-surface-300"
-										>minimum 1 lower-case or upper-case character</span
-									>
-								</div>
+							<div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
+								{#each password_requirements as requirement}
+									<div class="grid grid-cols-12 items-center">
+										<svelte:component
+											this={requirement.valid ? Tick : Cross}
+											class="col-span-1"
+											style={requirement.valid
+												? 'width: 0.7vw; color: deepskyblue; opacity: 0.9;'
+												: 'width: 0.9vw; color: red; opacity: 0.8;'}
+										/>
+										<span class="col-span-11 text-[0.8vw] text-surface-300">{requirement.text}</span
+										>
+									</div>
+								{/each}
 							</div>
 						</div>
 					</password-strength>
