@@ -1,21 +1,17 @@
 <script lang="ts">
 	import { superForm } from 'sveltekit-superforms/client';
-	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 
 	export let data: any;
 
 	// Client API:
-	const { form, errors, constraints, enhance } = superForm(data.form, {
+	const { form, errors, enhance } = superForm(data.form, {
 		validators: false
 	});
 
 	import Info from '$icons/info.svelte';
-	import EyeOpen from '$icons/eye_open.svelte';
-	import EyeClose from '$icons/eye_close.svelte';
 	import Cross from '$icons/cross.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 
-	let show_password = false;
 </script>
 
 <svelte:head>
