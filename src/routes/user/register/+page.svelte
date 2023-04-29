@@ -2,6 +2,7 @@
 	import Info from '$icons/info.svelte';
 	import EyeOpen from '$icons/eye_open.svelte';
 	import EyeClose from '$icons/eye_close.svelte';
+	import Cross from '$icons/cross.svelte';
 
 	let show_password = false;
 	$: password_type = show_password ? 'text' : 'password';
@@ -62,12 +63,37 @@
 						/>
 					</show-password-icons>
 				</div>
-				<password-strength class="flex gap-[0.75vw] mt-[1vw]">
-					{#each Array(4) as _}
-						<span
-							class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300"
-						/>
-					{/each}
+				<password-strength class="flex flex-col mt-[1vw]">
+					<div class="flex gap-[0.75vw]">
+						{#each Array(4) as _}
+							<span
+								class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300"
+							/>
+						{/each}
+					</div>
+
+					<div class="mt-[1vw]">
+						<span class="uppercase tracking-wider mt-[1vw] text-surface-50 text-[1vw] font-semibold">must contain</span>
+
+						<div class="mt-[0.4vw] ml-[0.75vw] flex flex-col gap-[0.1vw]">
+							<div class="flex items-center gap-[0.75vw]">
+								<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
+								<span class="text-[0.8vw] text-surface-300">minimum 8 characters</span>
+							</div>
+							<div class="flex items-center gap-[0.75vw]">
+								<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
+								<span class="text-[0.8vw] text-surface-300">minimum 1 number</span>
+							</div>
+							<div class="flex items-center gap-[0.75vw]">
+								<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
+								<span class="text-[0.8vw] text-surface-300">minimum 1 special character</span>
+							</div>
+							<div class="flex items-center gap-[0.75vw]">
+								<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
+								<span class="text-[0.8vw] text-surface-300">minimum 1 lower-case or upper-case character</span>
+							</div>
+						</div>
+					</div>
 				</password-strength>
 			</div>
 		</password-field>
