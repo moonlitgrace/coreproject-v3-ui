@@ -12,6 +12,13 @@
 	import Cross from '$icons/cross.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 
+	$: {
+		let password = $errors.password;
+		if (password){
+			// code		
+		}
+	}
+
 </script>
 
 <svelte:head>
@@ -65,7 +72,8 @@
 							placeholder="enter a strong password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						{#if $errors.password}<span class="text-[1vw] text-error-50">{$errors.password}</span>{/if}
+						{#if $errors.password}<span class="text-[1vw] text-error-50">{$errors.password}</span
+							>{/if}
 					</div>
 					<password-strength class="mt-[1vw] flex flex-col">
 						<div class="flex gap-[0.75vw]">
@@ -121,7 +129,9 @@
 							placeholder="re-enter your password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						{#if $errors.confirm_password}<span class="text-[1vw] text-error-50">{$errors.confirm_password}</span>{/if}
+						{#if $errors.confirm_password}<span class="text-[1vw] text-error-50"
+								>{$errors.confirm_password}</span
+							>{/if}
 					</div>
 				</div>
 			</confirm-password-field>
