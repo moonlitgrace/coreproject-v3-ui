@@ -1,4 +1,14 @@
 <script lang="ts">
+	import { superForm } from 'sveltekit-superforms/client';
+	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
+
+	export let data: any;
+
+	// Client API:
+	const { form, errors, constraints, enhance } = superForm(data.form, {
+		validators: false
+	});
+
 	import Info from '$icons/info.svelte';
 	import EyeOpen from '$icons/eye_open.svelte';
 	import EyeClose from '$icons/eye_close.svelte';
@@ -6,32 +16,33 @@
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 
 	let show_password = false;
-	$: password_type = show_password ? 'text' : 'password';
 </script>
 
 <svelte:head>
 	<title>Register | AnimeCore</title>
 </svelte:head>
 
-<register-page class="flex h-full flex-col justify-between">
-	<form-section>
-		<span class="flex text-[1.25vw] font-bold uppercase tracking-wider text-white/95">
-			create your&nbsp
-			<div class="flex">
-				<span class="text-surface-50">c</span>
-				<span class="text-warning-400">o</span>
-				<span class="text-surface-50">r</span>
-				<span class="text-surface-50">e</span>
-			</div>
-			&nbspaccount
-		</span>
+<register-page>
+	<span class="flex hidden text-[1.25vw] font-bold uppercase tracking-wider text-white/95">
+		create your&nbsp
+		<div class="flex">
+			<span class="text-surface-50">c</span>
+			<span class="text-warning-400">o</span>
+			<span class="text-surface-50">r</span>
+			<span class="text-surface-50">e</span>
+		</div>
+		&nbspaccount
+	</span>
 
-		<form class="mt-[1.5vw]">
+	<form class="flex h-full flex-col justify-between py-[1.5vw]" method="POST" use:enhance>
+		<form-fields>
 			<email-field>
 				<label for="email" class="text-[1.1vw] font-semibold">Email</label>
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
+					bind:value={$form.email}
 					type="email"
+					name="email"
 					id="email"
 					placeholder="username@mail"
 					autofocus={true}
@@ -43,27 +54,22 @@
 						>we’ll send you a verification email, so please ensure it’s active</span
 					>
 				</info>
+				{#if $errors.email}<span class="text-[1vw] text-error-50">{$errors.email}</span>{/if}
 			</email-field>
 
 			<password-field>
 				<label for="password" class="mt-[1.5vw] text-[1.1vw] font-semibold">Password</label>
 				<div>
-					<div class="relative flex items-center">
+					<div class="relative flex flex-col">
 						<input
-							type={password_type}
+							bind:value={$form.password}
+							type="password"
 							id="password"
+							name="password"
 							placeholder="enter a strong password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						<show-password-icons
-							on:mousedown={() => (show_password = !show_password)}
-							class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
-						>
-							<svelte:component
-								this={show_password ? EyeClose : EyeOpen}
-								style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
-							/>
-						</show-password-icons>
+						{#if $errors.password}<span class="text-[1vw] text-error-50">{$errors.password}</span>{/if}
 					</div>
 					<password-strength class="mt-[1vw] flex flex-col">
 						<div class="flex gap-[0.75vw]">
@@ -112,36 +118,30 @@
 				<div>
 					<div class="relative flex items-center">
 						<input
-							type={password_type}
+							bind:value={$form.confirm_password}
+							type="password"
 							id="password"
+							name="confirm_password"
 							placeholder="re-enter your password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						<show-password-icons
-							on:mousedown={() => (show_password = !show_password)}
-							class="btn absolute right-[0.75vw] cursor-pointer p-0 text-surface-300 transition-opacity"
-						>
-							<svelte:component
-								this={show_password ? EyeClose : EyeOpen}
-								style={show_password ? 'width: 1.4vw;' : 'width: 1.75vw;'}
-							/>
-						</show-password-icons>
+						{#if $errors.confirm_password}<span class="text-[1vw] text-error-50">{$errors.confirm_password}</span>{/if}
 					</div>
 				</div>
 			</confirm-password-field>
-		</form>
-	</form-section>
+		</form-fields>
 
-	<div class="mt-[2vw] flex items-center justify-between">
-		<div class="flex flex-col">
-			<span class="text-[0.75vw] text-surface-100">Already have an account?</span>
-			<a href="/user/login" class="text-[1.1vw]">Login</a>
+		<div class="flex items-center justify-between">
+			<div class="flex flex-col">
+				<span class="text-[0.75vw] text-surface-100">Already have an account?</span>
+				<a href="/user/login" class="text-[1.1vw]">Login</a>
+			</div>
+			<button
+				class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold"
+			>
+				<span>Continue</span>
+				<ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
+			</button>
 		</div>
-		<button
-			class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold"
-		>
-			<span>Continue</span>
-			<ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
-		</button>
-	</div>
+	</form>
 </register-page>
