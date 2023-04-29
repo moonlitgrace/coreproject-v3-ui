@@ -117,7 +117,7 @@
 			</div>
 		{/if}
 	{/each}
-	<div class="absolute right-0 h-full w-1/2 px-[8vw] py-[2vw]">
+	<div class="absolute right-0 h-full w-1/2 px-[8vw] py-[2.2vw]">
 		<slot />
 	</div>
 </div>
