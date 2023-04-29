@@ -13,8 +13,7 @@
 	<title>Register | AnimeCore</title>
 </svelte:head>
 
-<register-page class="flex flex-col justify-between h-full">
-
+<register-page class="flex h-full flex-col justify-between">
 	<form-section>
 		<span class="flex text-[1.25vw] font-bold uppercase tracking-wider text-white/95">
 			create your&nbsp
@@ -66,7 +65,7 @@
 							/>
 						</show-password-icons>
 					</div>
-					<password-strength class="flex flex-col mt-[1vw]">
+					<password-strength class="mt-[1vw] flex flex-col">
 						<div class="flex gap-[0.75vw]">
 							{#each Array(4) as _}
 								<span
@@ -76,9 +75,12 @@
 						</div>
 
 						<div class="mt-[1vw]">
-							<span class="uppercase tracking-wider mt-[1vw] text-surface-50 text-[1vw] font-semibold">must contain</span>
+							<span
+								class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50"
+								>must contain</span
+							>
 
-							<div class="mt-[0.4vw] ml-[0.75vw] flex flex-col gap-[0.1vw]">
+							<div class="ml-[0.75vw] mt-[0.4vw] flex flex-col gap-[0.1vw]">
 								<div class="flex items-center gap-[0.75vw]">
 									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
 									<span class="text-[0.8vw] text-surface-300">minimum 8 characters</span>
@@ -93,7 +95,9 @@
 								</div>
 								<div class="flex items-center gap-[0.75vw]">
 									<Cross style="width: 0.9vw; color: indianred; opacity: 0.9;" />
-									<span class="text-[0.8vw] text-surface-300">minimum 1 lower-case or upper-case character</span>
+									<span class="text-[0.8vw] text-surface-300"
+										>minimum 1 lower-case or upper-case character</span
+									>
 								</div>
 							</div>
 						</div>
@@ -102,7 +106,9 @@
 			</password-field>
 
 			<confirm-password-field>
-				<label for="confirm-password" class="mt-[1.5vw] text-[1.1vw] font-semibold">Confirm Password</label>
+				<label for="confirm-password" class="mt-[1.5vw] text-[1.1vw] font-semibold"
+					>Confirm Password</label
+				>
 				<div>
 					<div class="relative flex items-center">
 						<input
@@ -131,7 +137,9 @@
 			<span class="text-[0.75vw] text-surface-100">Already have an account?</span>
 			<a href="/user/login" class="text-[1.1vw]">Login</a>
 		</div>
-		<button class="btn p-0 h-[2.75vw] px-[1.25vw] rounded-[0.5vw] bg-secondary-800 text-[0.95vw] font-semibold">
+		<button
+			class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold"
+		>
 			<span>Continue</span>
 			<ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
 		</button>
