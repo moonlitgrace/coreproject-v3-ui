@@ -95,7 +95,7 @@
 						>With a coreproject account, you can</span
 					>
 					<span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">
-						uhhh, do something super-duper special, I guess? I myself don’t know either
+						you can continue on animecore, mangacore and soundcore at same time
 					</span>
 				</div>
 
