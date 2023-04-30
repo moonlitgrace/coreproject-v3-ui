@@ -52,21 +52,16 @@
         }
 
         // Check for at least 1 number
-        if (!/(?=.*\d)/.test(password)) {
+        if (!.test(password)) {
             password_requirements[1].valid = false;
         } else {
             password_requirements[1].valid = true;
         }
 
-        // Check for at least 1 special character
-        if (!/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(password)) {
-            password_requirements[2].valid = false;
-        } else {
-            password_requirements[2].valid = true;
-        }
+    
 
         // Check for at least 1 lowercase or uppercase character
-        if (!/(?=.*[a-zA-Z])/.test(password)) {
+        if (!.test(password)) {
             password_requirements[3].valid = false;
         } else {
             password_requirements[3].valid = true;

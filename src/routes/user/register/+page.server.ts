@@ -10,7 +10,10 @@ const schema = z
         password: z
             .string()
             .min(8, "atleast_8")
-            .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).*$/, "one_lowercase,one_uppercase,one_number,one_special_character"),
+            .regex(/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/, "one_special_character")
+            .regex(/(?=.*\d)/, "one_number")
+            .regex(/(?=.*[A-Z])/, "one_uppercase")
+            .regex(/(?=.*[a-z])/, "one_lowercase"),
 
         confirm_password: z.string()
     })
