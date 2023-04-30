@@ -1,3 +1,3 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
-export const timer = writable<'start' | 'pause' | 'reset'>('start');
+export const timer = writable<"start" | "pause" | "reset">("start");
