@@ -8,7 +8,7 @@
 
     let anime_id = Number($page.params.id);
 
-    let anime = anime_list?.find((anime: any) => anime.id === anime_id);
+    let anime = anime_list?.find((anime) => anime.id === anime_id);
 
     const opengraph_html = new OpengraphGenerator({
         title: anime?.name ?? "",

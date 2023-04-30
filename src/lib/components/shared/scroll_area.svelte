@@ -10,7 +10,7 @@
 
     let scroll_percent = 0;
 
-    let element: HTMLDivElement | undefined;
+    let element: HTMLDivElement;
 
     onMount(() => {
         if (gradientMask) {
@@ -24,7 +24,7 @@
     });
 </script>
 
-<div
+<scroll-area
     bind:this={element}
     class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent >= 90}
     class:mask-middle={gradientMask && scroll_percent < 90 && scroll_percent >= 10}
@@ -36,10 +36,10 @@
     <div class="{klass} whitespace-pre-line">
         <slot />
     </div>
-</div>
+</scroll-area>
 
 <style lang="scss">
-    .scrollbar {
+    scroll-area {
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.12);
         /* fill parent */
@@ -69,27 +69,27 @@
         &::-webkit-scrollbar-track {
             background: transparent !important;
         }
-    }
 
-    .mask-top {
-        mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
-        mask-repeat: no-repeat;
-        mask-position: top;
-    }
-    .mask-bottom {
-        mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
-        mask-repeat: no-repeat;
-        mask-position: bottom;
-    }
-    .mask-middle {
-        mask-image: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.6) 20%,
-            rgba(7, 5, 25, 0.95) 40%,
-            rgba(7, 5, 25, 0.95) 80%,
-            rgba(0, 0, 0, 0.6) 100%
-        );
-        mask-repeat: no-repeat;
-        mask-position: bottom;
+        .mask-top {
+            mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
+            mask-repeat: no-repeat;
+            mask-position: top;
+        }
+        .mask-bottom {
+            mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
+            mask-repeat: no-repeat;
+            mask-position: bottom;
+        }
+        .mask-middle {
+            mask-image: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.6) 20%,
+                rgba(7, 5, 25, 0.95) 40%,
+                rgba(7, 5, 25, 0.95) 80%,
+                rgba(0, 0, 0, 0.6) 100%
+            );
+            mask-repeat: no-repeat;
+            mask-position: bottom;
+        }
     }
 </style>
