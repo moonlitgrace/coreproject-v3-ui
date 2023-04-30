@@ -129,15 +129,21 @@
 						/>
 					</div>
 					<password-strength class="mt-[1vw] flex flex-col">
-						<div class="flex gap-[0.75vw]">
-							{#each Array(password_strength) as _}
+						<div class="grid grid-cols-4 gap-[0.75vw]">
+							{#each Array(password_strength) as _, index}
+								{@const backgrounds = [
+									"bg-primary-800",
+									"bg-primary-700",
+									"bg-primary-600",
+									"bg-primary-500",
+								]}
 								<span
-									class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 bg-green-400 transition duration-300"
+									class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[index]}"
 								/>
 							{/each}
 							{#each Array(4 - password_strength) as _}
 								<span
-									class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] border-surface-50/50 transition duration-300"
+									class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300"
 								/>
 							{/each}
 						</div>
