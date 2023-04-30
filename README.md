@@ -1,28 +1,75 @@
-# v3 UI for CoreProject
+<div align="center">
 
-Currently in active development, watch main repo https://github.com/baseplate-admin/CoreProject
 
-## Getting started
+  <h2 align="center">ANIMECORE V3 UI</h2>
 
-First fork this repo and clone using
+  <p align="center">
+   <b>A modern anime streaming platform under CoreProject
+    <br><br>
+    <a href="https://github.com/baseplate-admin/CoreProject"><strong>Explore the docs »</strong></a>
+  </p>
+</div>
 
-```bash
-git clone https://github.com/your_username/CoreProject-V3-UI/
-cd CoreProject-V3-UI/
-```
+<p align="center">
+  <a href="https://github.com/sssuneeth/CoreProject-V3-UI/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/github/contributors/sssuneeth/CoreProject-V3-UI.svg?style=for-the-badge" >
+  </a>
+  <a href="https://github.com/sssuneeth/CoreProject-V3-UI/network/members" alt="Forks">
+    <img src="https://img.shields.io/github/forks/sssuneeth/CoreProject-V3-UI.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/sssuneeth/CoreProject-V3-UI/issues" alt="Issues">
+    <img src="https://img.shields.io/github/issues/sssuneeth/CoreProject-V3-UI.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/sssuneeth/CoreProject-V3-UI/blob/v2/LICENSE" alt="License - AGPL-3.0">
+    <img src="https://img.shields.io/github/license/sssuneeth/CoreProject-V3-UI.svg?style=for-the-badge">
+  </a>
 
-## Developing
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sssuneeth/CoreProject-V3-UI?style=for-the-badge">
+  <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/sssuneeth/CoreProject-V3-UI?style=for-the-badge">
+  <a href='https://discord.gg/7AraSmKqnN'><img alt="Discord" src="https://img.shields.io/discord/1039894823626362931?style=for-the-badge"></a>
+</p>
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Screenshots
 
-```bash
-npm run dev
+<p float="left">
+  <i>Click on the images to open full view in new tab</i>
+  <br>
+  <br>
+  <img src="https://imgbox.io/ib/mZwPoOMD11.png" alt="Home Page Mockup" width=49%>
+  <img src="https://imgbox.io/ib/OUbB4rsyCh.png" alt="Anime Info Page Mockup" width=49%>
+  <img src="https://imgbox.io/ib/zPypve2smU.png" alt="Register Page Mockup" width=49%>
+  <img src="https://imgbox.io/ib/22dteHTHrH.png" alt="Search Panel Mockup" width=49%>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+All features are under development.
+
+
+### Built with
+
+-   [svelte](https://svelte.dev/)
+-   [tailwind](https://tailwindcss.com)
+-   [typescript](https://www.typescriptlang.org)
+
+
+## Roadmap
+
+-   [x] Configure svelte
+-   [x] Logo & Design system
+-   [ ] [Mockups](https://www.figma.com/file/knyOkHUChnJpsAsmuILhOk/Core-Project) (All pages)
+-   [ ] Responsive Design
+-   [ ] Backend integration
+
+See the [open issues](https://github.com/sssuneeth/CoreProject-V3-UI/issues) and [projects](https://github.com/sssuneeth/CoreProject-V3-UI/projects?) for a full list of features we're working on (and need help with).
+
 
 ## Contributing
 
-Pull requests are welcome. <br/> For major changes, please open an issue first to discuss what you would like to change. <br> <br>
-Please make sure to update tests as appropriate.
+-   If you have a suggestion/idea that would make this project better, please create a pull request. All pull requests will be reviewed by us, and adjusted.
+
+-   You can also [open a new issue](https://github.com/sssuneeth/CoreProject-V3-UI/issues/new/choose) or [help us with an existing one](https://github.com/sssuneeth/CoreProject-V3-UI/issues).
+
+Other than that, you can also help the project by giving it a star! Your help is extremely appreciated :)
+
+
+## License
+
+Distributed under the AGPL-3.0 License. See [`LICENSE`](https://github.com/sssuneeth/CoreProject-V3-UI/blob/v2/LICENSE) for more information.
