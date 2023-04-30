@@ -19,44 +19,49 @@
 				return regex.test(email) ? null : 'Please enter a valid email address';
 			},
 			password: (password) => {
-				if (!/(?=.*\d)/.test(password)) {
-					password_requirements[1].valid = false;
-					return 'minimum 1 number';
-				} else {
-					password_requirements[1].valid = true;
-				}
-
-				if (!/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(password)) {
-					password_requirements[2].valid = false;
-					return 'minimum 1 special character';
-				} else {
-					password_requirements[2].valid = true;
-				}
-
-				if (!/(?=.*[a-z])/.test(password) || !/(?=.*[A-Z])/.test(password)) {
-					password_requirements[3].valid = false;
-					return 'minimum 1 lower-case or upper-case character';
-				} else {
-					password_requirements[3].valid = true;
-				}
-
-				if (password.length < 8) {
-					password_requirements[0].valid = false;
-					return 'minimum 8 characters';
-				} else {
-					password_requirements[0].valid = true;
-				}
-
-				return;
+				validate_password(password);
+				return password;
 			}
 		}
 	});
+
+	function validate_password(password: string) {
+		// Check minimum length requirement
+		if (password.length < 8) {
+			password_requirements[0].valid = false;
+		} else {
+			password_requirements[0].valid = true;
+		}
+
+		// Check for at least 1 number
+		if (!/(?=.*\d)/.test(password)) {
+			password_requirements[1].valid = false;
+		} else {
+			password_requirements[1].valid = true;
+		}
+
+		// Check for at least 1 special character
+		if (!/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(password)) {
+			password_requirements[2].valid = false;
+		} else {
+			password_requirements[2].valid = true;
+		}
+
+		// Check for at least 1 lowercase or uppercase character
+		if (!/(?=.*[a-zA-Z])/.test(password)) {
+			password_requirements[3].valid = false;
+		} else {
+			password_requirements[3].valid = true;
+		}
+
+		// Return true if all requirements are met, false otherwise
+		return password_requirements.every((requirement) => requirement.valid);
+	}
 
 	import Info from '$icons/info.svelte';
 	import Cross from '$icons/cross.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 	import Tick from '$icons/tick.svelte';
-
 </script>
 
 <svelte:head>
