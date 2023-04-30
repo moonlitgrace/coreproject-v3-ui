@@ -132,13 +132,15 @@
 						<div class="grid grid-cols-4 gap-[0.75vw]">
 							{#each Array(password_strength) as _, index}
 								{@const backgrounds = [
-									"bg-primary-800",
-									"bg-primary-700",
-									"bg-primary-600",
-									"bg-primary-500",
+									'bg-primary-800',
+									'bg-primary-700',
+									'bg-primary-600',
+									'bg-primary-500'
 								]}
 								<span
-									class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[index]}"
+									class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[
+										index
+									]}"
 								/>
 							{/each}
 							{#each Array(4 - password_strength) as _}
