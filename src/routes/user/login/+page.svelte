@@ -1,7 +1,4 @@
 <script>
-	
 </script>
 
-<div>
-	Login page form
-</div>
+<div>Login page form</div>

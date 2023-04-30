@@ -1,6 +1,5 @@
 <div align="center">
 
-
   <h2 align="center">ANIMECORE V3 UI</h2>
 
   <p align="center">
@@ -46,33 +45,29 @@
 
 All features are under development.
 
-
 ### Built with
 
--   [svelte](https://svelte.dev/)
--   [tailwind](https://tailwindcss.com)
--   [typescript](https://www.typescriptlang.org)
-
+- [svelte](https://svelte.dev/)
+- [tailwind](https://tailwindcss.com)
+- [typescript](https://www.typescriptlang.org)
 
 ## Roadmap
 
--   [x] Layout Design
--   [x] Logo & Design system
--   [ ] [Mockups](https://www.figma.com/file/knyOkHUChnJpsAsmuILhOk/Core-Project) (All pages)
--   [ ] Responsive Design
--   [ ] Backend integration
+- [x] Layout Design
+- [x] Logo & Design system
+- [ ] [Mockups](https://www.figma.com/file/knyOkHUChnJpsAsmuILhOk/Core-Project) (All pages)
+- [ ] Responsive Design
+- [ ] Backend integration
 
 See the [open issues](https://github.com/sssuneeth/CoreProject-V3-UI/issues) and [projects](https://github.com/sssuneeth/CoreProject-V3-UI/projects?) for a full list of features we're working on (and need help with).
 
-
 ## Contributing
 
--   If you have a suggestion/idea that would make this project better, please create a pull request. All pull requests will be reviewed by us, and adjusted.
+- If you have a suggestion/idea that would make this project better, please create a pull request. All pull requests will be reviewed by us, and adjusted.
 
--   You can also [open a new issue](https://github.com/sssuneeth/CoreProject-V3-UI/issues/new/choose) or [help us with an existing one](https://github.com/sssuneeth/CoreProject-V3-UI/issues).
+- You can also [open a new issue](https://github.com/sssuneeth/CoreProject-V3-UI/issues/new/choose) or [help us with an existing one](https://github.com/sssuneeth/CoreProject-V3-UI/issues).
 
 Other than that, you can also help the project by giving it a star! Your help is extremely appreciated :)
-
 
 ## License
 

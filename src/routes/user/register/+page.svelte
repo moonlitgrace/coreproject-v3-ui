@@ -8,11 +8,11 @@
 	import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core';
 	import zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 	import type { OptionsType } from '@zxcvbn-ts/core/dist/types';
-
+	import type { PageServerData } from './$types';
 	// Import languages
 	import zxcvbnEnPackage from '@zxcvbn-ts/language-en';
 
-	export let data: any;
+	export let data: PageServerData;
 
 	let password_strength = 0;
 

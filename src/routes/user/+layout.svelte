@@ -70,7 +70,7 @@
 				}
 			}}
 
-			<div class="fixed relative w-1/2" transition:blur|local={{ duration: 500 }}>
+			<div class="relative w-1/2" transition:blur|local={{ duration: 500 }}>
 				<div
 					class="h-[90vh] w-full bg-cover bg-center bg-no-repeat"
 					style="background-image: url('{item.image ?? ''}')"
