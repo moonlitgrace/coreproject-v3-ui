@@ -35,34 +35,22 @@
         <div class="mt-[1.5vw] flex gap-[4vw]">
             <div>
                 <span class="text-[1.2vw] font-semibold text-surface-50">anime</span>
-                <div
-                    class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 p-[1vw] shadow-lg"
-                >
+                <div class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 p-[1vw] shadow-lg">
                     <ScrollArea
                         offsetScrollbar
                         gradientMask
                     >
                         {#each Array(6) as _}
-                            <div
-                                class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20"
-                            >
+                            <div class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20">
                                 <img
                                     src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
                                     alt={search_query}
                                     class="h-[3.5vw] w-[3.5vw] rounded-[0.5vw] object-cover"
                                 />
                                 <div class="flex flex-col">
-                                    <span class="text-[1.1vw] font-semibold text-white">
-                                        Kimetsu no Yaiba
-                                    </span>
-                                    <span
-                                        class="text-[0.7vw] font-medium uppercase leading-none text-surface-200"
-                                    >
-                                        Demon slayer
-                                    </span>
-                                    <div
-                                        class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.7vw] text-surface-200"
-                                    >
+                                    <span class="text-[1.1vw] font-semibold text-white">Kimetsu no Yaiba</span>
+                                    <span class="text-[0.7vw] font-medium uppercase leading-none text-surface-200">Demon slayer</span>
+                                    <div class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.7vw] text-surface-200">
                                         <span>2006</span>
                                         <span>TV</span>
                                         <Circle style="width: 0.2vw;" />
@@ -77,12 +65,8 @@
 
             <div>
                 <span class="text-[1.2vw] font-semibold text-surface-50">manga</span>
-                <div
-                    class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
-                >
-                    <div
-                        class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
-                    >
+                <div class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+                    <div class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]">
                         <span class="font-medium leading-none">mangacore integration</span>
                         <span class="font-semibold leading-none">coming soon</span>
                     </div>
@@ -91,12 +75,8 @@
 
             <div>
                 <span class="text-[1.2vw] font-semibold text-surface-50">music</span>
-                <div
-                    class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg"
-                >
-                    <div
-                        class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]"
-                    >
+                <div class="mt-[0.2vw] h-[28.25vw] w-[21.875vw] rounded-[0.75vw] bg-surface-400 shadow-lg">
+                    <div class="flex h-full flex-col items-center justify-center gap-[0.2vw] text-[1.1vw]">
                         <span class="font-medium leading-none">soundcore integration</span>
                         <span class="font-semibold leading-none">coming soon</span>
                     </div>
@@ -111,7 +91,7 @@
             >
                 Explore
             </a>
-             page
+            page
         </span>
     </div>
 </search-panel>

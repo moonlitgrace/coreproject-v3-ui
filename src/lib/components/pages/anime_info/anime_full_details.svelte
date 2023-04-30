@@ -117,9 +117,7 @@
                     Cosplay <span class="font-semibold">37%</span>
                 </span>
 
-                <button
-                    class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]"
-                >
+                <button class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]">
                     Load more
                     <Chevron
                         style="width: 0.9vw;"
@@ -132,12 +130,8 @@
         <voiceovercase>
             <div class="mt-[2.5vw]">
                 <div class="flex items-center gap-3">
-                    <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">
-                        Voiceover Cast
-                    </span>
-                    <button
-                        class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]"
-                    >
+                    <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Voiceover Cast</span>
+                    <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline
                             style="width: 0.9vw;"
                             class="opacity-75"
@@ -147,9 +141,7 @@
 
                 <div class="mt-[1.25vw] flex flex-col">
                     <span class="text-[0.9375vw] text-surface-50">VAs</span>
-                    <button
-                        class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[6.625vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]"
-                    >
+                    <button class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[6.625vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]">
                         Japanese
                         <Chevron
                             style="width: 0.9vw;"
@@ -160,9 +152,7 @@
 
                 <casts>
                     <div class="mt-[1.875vw]">
-                        <div
-                            class="relative grid h-[7.5vw] w-[12.5vw] grid-cols-2 gap-[2px] overflow-hidden rounded-[0.875vw]"
-                        >
+                        <div class="relative grid h-[7.5vw] w-[12.5vw] grid-cols-2 gap-[2px] overflow-hidden rounded-[0.875vw]">
                             <div
                                 class="col-span-1 w-full bg-cover"
                                 style="
@@ -189,39 +179,27 @@
                                     Yuuichi Nakamura
                                 </span>
                             </div>
-                            <div
-                                class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
-                            />
+                            <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                         </div>
 
                         <div class="mt-[2.5vw] flex flex-col">
                             <div class="flex h-[2.25vw] w-[6.625vw]">
-                                <button
-                                    class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
-                                >
+                                <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                     <Chevron
                                         style="width: 1vw;"
                                         color="lightgray"
                                         class="rotate-180"
                                     />
                                 </button>
-                                <button
-                                    class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
-                                >
-                                    01
-                                </button>
-                                <button
-                                    class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
-                                >
+                                <button class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]">01</button>
+                                <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                     <Chevron
                                         style="width: 1vw;"
                                         color="lightgray"
                                     />
                                 </button>
                             </div>
-                            <span class="mt-[0.9375vw] text-[0.75vw] text-surface-50">
-                                Showing 1-5, out of 58 Voiceover Casts
-                            </span>
+                            <span class="mt-[0.9375vw] text-[0.75vw] text-surface-50">Showing 1-5, out of 58 Voiceover Casts</span>
                         </div>
                     </div>
                 </casts>
@@ -231,12 +209,8 @@
         <recommendations>
             <div class="mt-[2.5vw]">
                 <div class="flex items-center gap-3">
-                    <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">
-                        Recommendations
-                    </span>
-                    <button
-                        class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]"
-                    >
+                    <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Recommendations</span>
+                    <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline
                             style="width: 0.9vw;"
                             class="opacity-75"
@@ -256,14 +230,9 @@
                                 style="grid-area: 1 / 1 / 2 / 2"
                                 class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.75vw] font-medium"
                             >
-                                {voca.truncate(
-                                    "Yahari Ore no Seishun Love Come wa Machigatteiru.",
-                                    30
-                                )}
+                                {voca.truncate("Yahari Ore no Seishun Love Come wa Machigatteiru.", 30)}
                             </span>
-                            <div
-                                class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
-                            />
+                            <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                         </div>
                         <div
                             class="relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.875vw] bg-cover"
@@ -277,40 +246,28 @@
                             >
                                 {voca.truncate("Suzumiya Haruhi no Yuuutsu", 30)}
                             </span>
-                            <div
-                                class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25"
-                            />
+                            <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                         </div>
                     </div>
 
                     <div class="mt-[2.5vw] flex flex-col">
                         <div class="flex h-[2.25vw] w-[6.625vw]">
-                            <button
-                                class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
-                            >
+                            <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                 <Chevron
                                     style="width: 1vw;"
                                     color="lightgray"
                                     class="rotate-180"
                                 />
                             </button>
-                            <button
-                                class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]"
-                            >
-                                01
-                            </button>
-                            <button
-                                class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]"
-                            >
+                            <button class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]">01</button>
+                            <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-l-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                 <Chevron
                                     style="width: 1vw;"
                                     color="lightgray"
                                 />
                             </button>
                         </div>
-                        <span class="mt-[0.9375vw] text-[0.75vw] text-surface-50">
-                            Showing 1-8, out of 47 Recommendations
-                        </span>
+                        <span class="mt-[0.9375vw] text-[0.75vw] text-surface-50">Showing 1-8, out of 47 Recommendations</span>
                     </div>
                 </div>
             </div>

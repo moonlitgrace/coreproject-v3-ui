@@ -173,26 +173,7 @@ export class OpengraphGenerator {
     #image?: string;
     #video?: IVideo;
 
-    constructor({
-        title,
-        page_url,
-        description,
-        site_name,
-        locale,
-        audio,
-        image_url,
-        video,
-        twitter
-    }: {
-        title: string;
-        page_url: string;
-        description: string;
-        site_name: ISiteName;
-        locale: ILocale;
-        audio?: string;
-        image_url?: string;
-        video?: IVideo;
-    }) {
+    constructor({ title, page_url, description, site_name, locale, audio, image_url, video, twitter }: { title: string; page_url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
         this.#title = title;
         this.#url = page_url;
         this.#image = image_url;
@@ -244,45 +225,31 @@ export class OpengraphGenerator {
             video_opengraph_text += `<meta property="og:video" content="${this.#video.url}">`;
         }
         if (this.#video?.title) {
-            video_opengraph_text += `<meta property="og:video:title" content="${
-                this.#video?.title
-            }">`;
+            video_opengraph_text += `<meta property="og:video:title" content="${this.#video?.title}">`;
         }
         if (this.#video?.type) {
             video_opengraph_text += `<meta property="og:video:type" content="${this.#video.type}">`;
         }
         if (this.#video?.height) {
-            video_opengraph_text += `<meta property="og:video:height" content="${
-                this.#video.height
-            }">`;
+            video_opengraph_text += `<meta property="og:video:height" content="${this.#video.height}">`;
         }
         if (this.#video?.width) {
-            video_opengraph_text += `<meta property="og:video:width" content="${
-                this.#video.width
-            }">`;
+            video_opengraph_text += `<meta property="og:video:width" content="${this.#video.width}">`;
         }
         if (this.#video?.description) {
-            video_opengraph_text += `<meta property="og:video:description" content="${
-                this.#video.description
-            }">`;
+            video_opengraph_text += `<meta property="og:video:description" content="${this.#video.description}">`;
         }
         if (this.#video?.secure_url) {
-            video_opengraph_text += `<meta property="og:video:secure_url" content="${
-                this.#video.secure_url
-            }">`;
+            video_opengraph_text += `<meta property="og:video:secure_url" content="${this.#video.secure_url}">`;
         }
         if (this.#video?.tag) {
             video_opengraph_text += `<meta property="og:video:tag" content="Video Tag">`;
         }
         if (this.#video?.duration) {
-            video_opengraph_text += `<meta property="og:video:duration" content="${
-                this.#video.duration
-            }">`;
+            video_opengraph_text += `<meta property="og:video:duration" content="${this.#video.duration}">`;
         }
         if (this.#video?.release_date) {
-            video_opengraph_text += `<meta property="og:video:release_date" content="${
-                this.#video.release_date
-            }">`;
+            video_opengraph_text += `<meta property="og:video:release_date" content="${this.#video.release_date}">`;
         }
 
         return video_opengraph_text;

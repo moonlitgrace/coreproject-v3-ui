@@ -16,9 +16,7 @@
         if (gradientMask) {
             element?.addEventListener("scroll", (event) => {
                 const el = event?.currentTarget as HTMLElement;
-                scroll_percent = Math.round(
-                    (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100
-                );
+                scroll_percent = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
             });
         }
     });
@@ -29,9 +27,7 @@
     class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent >= 90}
     class:mask-middle={gradientMask && scroll_percent < 90 && scroll_percent >= 10}
     class:mask-bottom={gradientMask && scroll_percent < 10 && scroll_percent >= 0}
-    class="{parentClass} {offsetScrollbar
-        ? 'pr-[0.75vw]'
-        : 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
+    class="{parentClass} {offsetScrollbar ? 'pr-[0.75vw]' : 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
 >
     <div class="{klass} whitespace-pre-line">
         <slot />
@@ -81,13 +77,7 @@
             mask-position: bottom;
         }
         .mask-middle {
-            mask-image: linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.6) 20%,
-                rgba(7, 5, 25, 0.95) 40%,
-                rgba(7, 5, 25, 0.95) 80%,
-                rgba(0, 0, 0, 0.6) 100%
-            );
+            mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 20%, rgba(7, 5, 25, 0.95) 40%, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0.6) 100%);
             mask-repeat: no-repeat;
             mask-position: bottom;
         }

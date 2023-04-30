@@ -307,51 +307,33 @@
                                 $timerStore = "start";
                             }}
                         >
-                            <div
-                                class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
-                            />
+                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
                             <div class="absolute bottom-0 px-[3.75vw] py-[2.625vw]">
                                 <span class="text-[2vw] font-bold leading-[2.375vw]">
                                     {anime.name}
                                 </span>
                                 <p class="flex flex-wrap items-center gap-2 md:pt-[0.5vw]">
-                                    <span
-                                        class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-                                    >
+                                    <span class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.type}
                                     </span>
-                                    <span
-                                        class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-                                    >
+                                    <span class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span
-                                        class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-                                    >
-                                        Completed
-                                    </span>
-                                    <span
-                                        class="font-semibold capitalize md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-                                    >
+                                    <span class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
+                                    <span class="font-semibold capitalize md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span
-                                        class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']"
-                                    >
+                                    <span class="font-semibold md:text-[0.9375vw] md:leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
 
-                                <p
-                                    class="mt-[0.875vw] !text-[0.85vw] !leading-[1vw] text-surface-50/75"
-                                >
+                                <p class="mt-[0.875vw] !text-[0.85vw] !leading-[1vw] text-surface-50/75">
                                     {voca.truncate(anime.synopsis, 400)}
                                 </p>
 
                                 <div class="mt-[2.625vw] flex gap-[1vw]">
-                                    <button
-                                        class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-warning-400 text-[0.875vw] font-bold text-surface-900"
-                                    >
+                                    <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-warning-400 text-[0.875vw] font-bold text-surface-900">
                                         <PlayCircle
                                             style="width: 1.25vw;"
                                             class="text-surface-900"
@@ -359,9 +341,7 @@
                                         Ep 1
                                     </button>
 
-                                    <button
-                                        class="btn btn-icon h-[3.125vw] w-[6.5vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50"
-                                    >
+                                    <button class="btn btn-icon h-[3.125vw] w-[6.5vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
                                         <Info
                                             style="width: 1.25vw;"
                                             class="text-surface-50"
@@ -369,9 +349,7 @@
                                         Details
                                     </button>
 
-                                    <button
-                                        class="btn btn-icon h-[3.125vw] w-[3.125vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50"
-                                    >
+                                    <button class="btn btn-icon h-[3.125vw] w-[3.125vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
                                         <Edit
                                             variant="with_underline_around_pencil"
                                             style="width: 1.25vw;"
@@ -423,12 +401,7 @@
                 <div class="mt-[1.25vw] flex items-center gap-[0.9375vw]">
                     {#each latest_animes as _, index}
                         <button
-                            class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] {slide_buttons[
-                                index
-                            ].border} transition duration-300 hover:border-surface-50/50 {index ===
-                            main_hero_slide_active_index
-                                ? slide_buttons[index].background
-                                : ''}"
+                            class="h-[0.625vw] w-[6.25vw] rounded-[0.1875vw] border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
                             on:click={() => {
                                 timer?.reset();
                                 timer?.start();
@@ -446,9 +419,7 @@
                 <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
                     <SettingsOutline style="width: 0.8vw;" />
                 </button>
-                <button
-                    class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold"
-                >
+                <button class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
                     <Expand style="width: 0.8vw;" />
                     <span>Expand</span>
                 </button>
@@ -465,34 +436,23 @@
                         class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
                         style="background-image: url({anime.cover ?? ''})"
                     >
-                        <div
-                            class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0"
-                        />
+                        <div class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
                         <div class="absolute h-full w-full">
                             <div class="flex items-center justify-between p-[1.3125vw]">
                                 <div class="flex flex-col gap-[0.4vw]">
-                                    <span
-                                        class="text-[1vw] font-semibold leading-[1.1875vw] text-white"
-                                    >
+                                    <span class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                         {anime.name}
                                     </span>
                                     <div class="flex items-center gap-[0.5vw]">
-                                        <span
-                                            class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']"
-                                        >
-                                            Ep {anime.episode_number < 10
-                                                ? "0" + anime.episode_number
-                                                : anime.episode_number}
+                                        <span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+                                            Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
                                         <span class="text-[0.75vw]">
-                                            {new format_date(anime.release_date)
-                                                .format_to_time_from_now}
+                                            {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
                                     </div>
                                 </div>
-                                <button
-                                    class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900"
-                                >
+                                <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
                                     <Play style="width: 1.25vw;" />
                                 </button>
                             </div>
@@ -502,12 +462,8 @@
             </ScrollArea>
 
             <div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
-                <span class="text-[0.75vw] font-semibold">
-                    showing recently aired episodes from your Anime List
-                </span>
-                <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">
-                    Change to All
-                </button>
+                <span class="text-[0.75vw] font-semibold">showing recently aired episodes from your Anime List</span>
+                <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
             </div>
         </latest-episodes>
 
@@ -515,12 +471,8 @@
             class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
             style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
         >
-            <div
-                class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25"
-            />
-            <div
-                class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25"
-            />
+            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
+            <div class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
             <div class="absolute px-[1.875vw] pt-[2vw]">
                 <div class="flex flex-col gap-[0.2w]">
                     <span class="text-[1.5vw] font-bold">Welcome</span>
@@ -533,9 +485,7 @@
                         {@const item_icon = item[1].icon}
 
                         <div class="flex items-center gap-[1vw]">
-                            <button
-                                class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0"
-                            >
+                            <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
                                 <svelte:component
                                     this={item_icon.component}
                                     style={item_icon.style}
@@ -553,9 +503,7 @@
                         {#each Object.entries(icon_mapping.bottom) as item}
                             {@const item_icon = item[1].icon}
 
-                            <button
-                                class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0"
-                            >
+                            <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
                                 <svelte:component
                                     this={item_icon.component}
                                     style={item_icon.style}
@@ -588,15 +536,11 @@
                 </span>
 
                 <div class="flex items-center gap-[1vw]">
-                    <button
-                        class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold"
-                    >
+                    <button class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         Watching
                         <Chevron style="width: 1vw;" />
                     </button>
-                    <button
-                        class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold"
-                    >
+                    <button class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         Full List
                         <ArrowUpRight style="width: 1vw;" />
                     </button>
@@ -624,29 +568,19 @@
                             class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
                             style="background-image: url({anime.cover});"
                         >
-                            <div
-                                class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50"
-                            />
-                            <div
-                                class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0"
-                            >
+                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                            <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
                                 <span class="text-center text-[1vw] font-semibold text-white">
                                     {anime.name}
                                 </span>
-                                <span
-                                    class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200"
-                                >
+                                <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
                                     {anime.current_episode}/{anime.episodes_count}
                                 </span>
                             </div>
 
-                            <div
-                                class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                            >
+                            <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                 <div class="flex flex-col gap-[0.5vw]">
-                                    <button
-                                        class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900"
-                                    >
+                                    <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
                                         <PlayCircle
                                             style="width: 1.25vw;"
                                             class="text-surface-900"
@@ -654,9 +588,7 @@
                                         Ep {anime.current_episode}
                                     </button>
 
-                                    <button
-                                        class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50"
-                                    >
+                                    <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
                                         <Info
                                             style="width: 1.25vw;"
                                             class="text-surface-50"
@@ -676,12 +608,8 @@
                             class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
                             style="background-image: url({anime_cover});"
                         >
-                            <div
-                                class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50"
-                            />
-                            <div
-                                class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]"
-                            >
+                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
+                            <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
                                 <span class="text-[1vw] font-semibold text-white">
                                     {voca.truncate(anime_name, 30)}
                                 </span>
@@ -689,25 +617,19 @@
                                     {voca.truncate(anime_name, 50)}
                                 </span>
 
-                                <span
-                                    class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50"
-                                >
+                                <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
                                     {voca.truncate(anime_synopsis, 130)}
                                 </span>
 
                                 <div class="mt-[0.5vw] flex gap-[1vw]">
                                     {#each anime_genres as genre}
-                                        <span
-                                            class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]"
-                                        >
+                                        <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
                                             {genre}
                                         </span>
                                     {/each}
                                 </div>
 
-                                <div
-                                    class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]"
-                                >
+                                <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                                     <span>{anime_type}</span>
                                     <Circle
                                         style="width: 0.2vw;"
@@ -731,9 +653,7 @@
                                 </div>
                             </div>
 
-                            <div
-                                class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900"
-                            >
+                            <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
                                 <span>Watching</span>
                                 <Circle
                                     style="width: 0.2vw;"
