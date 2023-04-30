@@ -24,7 +24,7 @@
     ];
 
     // Client API:
-    const { form, errors, enhance } = superForm(data.form, {
+    const { form, errors, enhance, constraints } = superForm(data.form, {
         validationMethod: "oninput",
         validators: {
             email: (email) => {
@@ -111,12 +111,12 @@
                 <!-- svelte-ignore a11y-autofocus -->
                 <input
                     bind:value={$form.email}
-                    type="email"
                     name="email"
                     id="email"
                     placeholder="username@mail"
                     autofocus={true}
                     class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                    {...$constraints.email}
                 />
                 {#if $errors.email}
                     <span class="text-[0.75vw] text-surface-300">{$errors.email}</span>
@@ -144,6 +144,7 @@
                             name="password"
                             placeholder="enter a strong password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                            {...$constraints.password}
                         />
                     </div>
                     <password-strength class="mt-[1vw] flex flex-col">
@@ -203,6 +204,7 @@
                             name="confirm_password"
                             placeholder="re-enter your password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                            {...$constraints.confirm_password}
                         />
                         {#if $errors.confirm_password}
                             <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">

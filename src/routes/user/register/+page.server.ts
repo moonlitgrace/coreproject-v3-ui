@@ -9,11 +9,11 @@ const schema = z
 
         password: z
             .string()
-            .min(8, "atleast_8")
-            .regex(/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/, "one_special_character")
-            .regex(/(?=.*\d)/, "one_number")
-            .regex(/(?=.*[A-Z])/, "one_uppercase")
-            .regex(/(?=.*[a-z])/, "one_lowercase"),
+            .min(8, "must_be_at_least_8")
+            .refine((val) => /(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(val), "missing_one_special_character")
+            .refine((val) => /(?=.*\d)/.test(val), "missing_one_number")
+            .refine((val) => /(?=.*[A-Z])/.test(val), "missing_one_uppercase")
+            .refine((val) => /(?=.*[a-z])/.test(val), "missing_one_lowercase"),
 
         confirm_password: z.string()
     })
