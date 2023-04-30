@@ -5,24 +5,16 @@
 	import Cross from '$icons/cross.svelte';
 	import ArrowUpRight from '$icons/arrow_up_right.svelte';
 	import Tick from '$icons/tick.svelte';
-
 	import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core';
 	import zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
+	import type { OptionsType } from '@zxcvbn-ts/core/dist/types';
+
+	// Import languages
 	import zxcvbnEnPackage from '@zxcvbn-ts/language-en';
 
 	export let data: any;
 
 	let password_strength = 0;
-	// Configure ZXCVBN
-	const zxcvbn_options = {
-		translations: zxcvbnEnPackage.translations,
-		graphs: zxcvbnCommonPackage.adjacencyGraphs,
-		dictionary: {
-			...zxcvbnCommonPackage.dictionary,
-			...zxcvbnEnPackage.dictionary
-		}
-	};
-	zxcvbnOptions.setOptions(zxcvbn_options);
 
 	let password_requirements = [
 		{ text: 'minimum 8 characters', valid: false },
@@ -82,6 +74,19 @@
 		// Return true if all requirements are met, false otherwise
 		return password_requirements.every((requirement) => requirement.valid);
 	}
+
+	// Configure ZXCVBN
+	const zxcvbn_options: OptionsType = {
+		translations: zxcvbnEnPackage.translations,
+		graphs: zxcvbnCommonPackage.adjacencyGraphs,
+		dictionary: {
+			...zxcvbnCommonPackage.dictionary,
+			...zxcvbnEnPackage.dictionary,
+			userInputs: [...Object.values($form)]
+		}
+	};
+
+	zxcvbnOptions.setOptions(zxcvbn_options);
 </script>
 
 <svelte:head>
