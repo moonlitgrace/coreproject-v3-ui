@@ -5,6 +5,10 @@
 
   <p align="center">
    <b>A modern anime streaming platform under CoreProject
+     <br>
+   This is the V3 UI for <a href="https://github.com/baseplace-admin/CoreProject/">CoreProject</a> / <a href="https://github.com/sssuneeth/CoreProject-V3-UI/">AnimeCore<a/>
+     <br>
+     check <a href="https://coreproject.moe/anime/">v2 UI</a>
     <br><br>
     <a href="https://github.com/baseplate-admin/CoreProject"><strong>Explore the docs »</strong></a>
   </p>
@@ -28,7 +32,7 @@
   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/sssuneeth/CoreProject-V3-UI?style=for-the-badge">
   <a href='https://discord.gg/7AraSmKqnN'><img alt="Discord" src="https://img.shields.io/discord/1039894823626362931?style=for-the-badge"></a>
 </p>
-
+    
 ## Screenshots
 
 <p float="left">
