@@ -56,7 +56,7 @@ All features are under development.
 
 ## Roadmap
 
--   [x] Configure svelte
+-   [x] Layout Design
 -   [x] Logo & Design system
 -   [ ] [Mockups](https://www.figma.com/file/knyOkHUChnJpsAsmuILhOk/Core-Project) (All pages)
 -   [ ] Responsive Design
