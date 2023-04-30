@@ -19,8 +19,11 @@
 				return regex.test(email) ? null : 'Please enter a valid email address';
 			},
 			password: (password) => {
-				validate_password(password);
-				return password;
+				return validate_password(password) ? null : 'Password error';
+			},
+			confirm_password: (confirm_password) => {
+				let password: string = $form.password;
+				return confirm_password === password ? null : 'Passwords do not match';
 			}
 		}
 	});
@@ -94,13 +97,16 @@
 					autofocus={true}
 					class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 				/>
-				<info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-					<Info style="width: 0.9375vw; opacity: 0.7;" />
-					<span class="text-[0.75vw] text-surface-300"
-						>we’ll send you a verification email, so please ensure it’s active</span
-					>
-				</info>
-				{#if $errors.email}<span class="text-[1vw] text-error-50">{$errors.email}</span>{/if}
+				{#if $errors.email}
+					<span class="text-[0.75vw] text-surface-300">{$errors.email}</span>
+				{:else}
+					<info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
+						<Info style="width: 0.9375vw; opacity: 0.7;" />
+						<span class="text-[0.75vw] text-surface-300"
+							>we’ll send you a verification email, so please ensure it’s active</span
+						>
+					</info>
+				{/if}
 			</email-field>
 
 			<password-field>
@@ -155,7 +161,7 @@
 					>Confirm Password</label
 				>
 				<div>
-					<div class="relative flex items-center">
+					<div class="relative flex flex-col">
 						<input
 							bind:value={$form.confirm_password}
 							type="password"
@@ -164,9 +170,11 @@
 							placeholder="re-enter your password"
 							class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
 						/>
-						{#if $errors.confirm_password}<span class="text-[1vw] text-error-50"
+						{#if $errors.confirm_password}
+							<span class="mt-[0.5vw] text-[0.75vw] text-surface-300"
 								>{$errors.confirm_password}</span
-							>{/if}
+							>
+						{/if}
 					</div>
 				</div>
 			</confirm-password-field>
