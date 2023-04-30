@@ -42,10 +42,7 @@
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     // Local
-    let active_button:
-        | keyof typeof icon_mapping.top
-        | keyof typeof icon_mapping.middle
-        | keyof typeof icon_mapping.bottom;
+    let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
 
     const icon_mapping: {
         top: {
@@ -314,9 +311,7 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div
-                class="relative flex h-[10vh] items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]"
-            >
+            <div class="relative flex h-[10vh] items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw]">
                 <a href="/">
                     <Logo style="width: 2vw;" />
                 </a>
@@ -365,9 +360,7 @@
                                 href={item_url}
                                 style="text-decoration: none;"
                             >
-                                <div
-                                    class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] transition duration-100 hover:bg-surface-300/20"
-                                >
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] transition duration-100 hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
@@ -417,9 +410,7 @@
                             <a
                                 href={item_href ?? "javascript:void(0)"}
                                 type="button"
-                                class="{is_active
-                                    ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500'
-                                    : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
                             >
                                 <div class="inline-grid">
                                     {#if !is_active}
@@ -432,9 +423,7 @@
                                                 style={item_icon.style}
                                                 color={item_icon.color}
                                             />
-                                            <span
-                                                class="text-[0.875vw] capitalize leading-[1.05vw]"
-                                            >
+                                            <span class="text-[0.875vw] capitalize leading-[1.05vw]">
                                                 {item_name}
                                             </span>
                                         </div>

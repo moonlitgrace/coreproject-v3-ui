@@ -5,18 +5,12 @@ import type { Actions } from "./$types";
 
 const schema = z
     .object({
-        email: z
-            .string()
-            .email("Please enter a valid email address")
-            .min(10, "Email must be at least 10 characters long"),
+        email: z.string().email("Please enter a valid email address").min(10, "Email must be at least 10 characters long"),
 
         password: z
             .string()
             .min(8, "atleast_8")
-            .regex(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).*$/,
-                "one_lowercase,one_uppercase,one_number,one_special_character"
-            ),
+            .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])(?!.*\s).*$/, "one_lowercase,one_uppercase,one_number,one_special_character"),
 
         confirm_password: z.string()
     })

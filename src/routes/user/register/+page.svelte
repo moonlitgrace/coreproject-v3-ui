@@ -28,7 +28,8 @@
         validationMethod: "oninput",
         validators: {
             email: (email) => {
-                const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\])|(\[IPv6:(([a-f0-9]{1,4}:){7}|::([a-f0-9]{1,4}:){0,6}|([a-f0-9]{1,4}:){1}:([a-f0-9]{1,4}:){0,5}|([a-f0-9]{1,4}:){2}:([a-f0-9]{1,4}:){0,4}|([a-f0-9]{1,4}:){3}:([a-f0-9]{1,4}:){0,3}|([a-f0-9]{1,4}:){4}:([a-f0-9]{1,4}:){0,2}|([a-f0-9]{1,4}:){5}:([a-f0-9]{1,4}:){0,1})([a-f0-9]{1,4}|(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2})))\])|([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])*(\.[A-Za-z]{2,})+))$/; // Regular expression for validating email format
+                const regex =
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\])|(\[IPv6:(([a-f0-9]{1,4}:){7}|::([a-f0-9]{1,4}:){0,6}|([a-f0-9]{1,4}:){1}:([a-f0-9]{1,4}:){0,5}|([a-f0-9]{1,4}:){2}:([a-f0-9]{1,4}:){0,4}|([a-f0-9]{1,4}:){3}:([a-f0-9]{1,4}:){0,3}|([a-f0-9]{1,4}:){4}:([a-f0-9]{1,4}:){0,2}|([a-f0-9]{1,4}:){5}:([a-f0-9]{1,4}:){0,1})([a-f0-9]{1,4}|(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2})))\])|([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])*(\.[A-Za-z]{2,})+))$/; // Regular expression for validating email format
                 return regex.test(email) ? null : "Please enter a valid email address";
             },
             password: (password) => {
@@ -122,9 +123,7 @@
                 {:else}
                     <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
                         <Info style="width: 0.9375vw; opacity: 0.7;" />
-                        <span class="text-[0.75vw] text-surface-300">
-                            we’ll send you a verification email, so please ensure it’s active
-                        </span>
+                        <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
                     </info>
                 {/if}
             </email-field>
@@ -150,31 +149,16 @@
                     <password-strength class="mt-[1vw] flex flex-col">
                         <div class="grid grid-cols-4 gap-[0.75vw]">
                             {#each Array(password_strength) as _, index}
-                                {@const backgrounds = [
-                                    "bg-primary-800",
-                                    "bg-primary-700",
-                                    "bg-primary-600",
-                                    "bg-primary-500"
-                                ]}
-                                <span
-                                    class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[
-                                        index
-                                    ]}"
-                                />
+                                {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
+                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[index]}" />
                             {/each}
                             {#each Array(4 - password_strength) as _}
-                                <span
-                                    class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300"
-                                />
+                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300" />
                             {/each}
                         </div>
 
                         <div class="mt-[1vw]">
-                            <span
-                                class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50"
-                            >
-                                must contain
-                            </span>
+                            <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
                             <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
                                 {#each password_requirements as requirement}
                                     <div class="grid grid-cols-12 items-center">
@@ -240,9 +224,7 @@
                     Login
                 </a>
             </div>
-            <button
-                class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold"
-            >
+            <button class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold">
                 <span>Continue</span>
                 <ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
             </button>

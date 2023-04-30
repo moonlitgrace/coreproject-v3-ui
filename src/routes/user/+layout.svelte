@@ -77,46 +77,27 @@
                     style="background-image: url('{item.image ?? ''}')"
                 />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0"
-                />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
-                <div
-                    class="absolute inset-0 bottom-[6vw] flex flex-col items-center justify-center text-center"
-                >
-                    <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
-                        welcome to
-                    </span>
+                <div class="absolute inset-0 bottom-[6vw] flex flex-col items-center justify-center text-center">
+                    <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
                     <div class="mt-[0.5vw] flex items-center">
                         <CoreProject style="width: 10vw;" />
                         <span class="text-[1.75vw] font-bold text-surface-300">.moe</span>
                     </div>
-                    <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">
-                        Bridging the gap between streaming and torrenting sites with a modern and
-                        clean interface.
-                    </span>
+                    <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 
-                    <span class="mt-[4vw] text-[0.9vw] font-semibold">
-                        With a coreproject account, you can
-                    </span>
-                    <span
-                        class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200"
-                    >
-                        you can continue on animecore, mangacore and soundcore at same time
-                    </span>
+                    <span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
+                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">you can continue on animecore, mangacore and soundcore at same time</span>
                 </div>
 
                 <div class="absolute bottom-[1.85vw] left-[2vw]">
                     <div class="flex flex-col">
-                        <span
-                            class="text-[0.75vw] font-semibold uppercase tracking-widest text-surface-300/75"
-                        >
+                        <span class="text-[0.75vw] font-semibold uppercase tracking-widest text-surface-300/75">
                             Background from {type()}
                         </span>
                         <div class="flex items-center gap-[0.5vw]">
-                            <span
-                                class="text-[1vw] font-bold uppercase tracking-widest text-warning-400"
-                            >
+                            <span class="text-[1vw] font-bold uppercase tracking-widest text-warning-400">
                                 {item.name}
                             </span>
                             <button
