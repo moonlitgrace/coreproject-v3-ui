@@ -328,7 +328,7 @@
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[11vw] w-[72.2vw] items-center">
+                <form class="relative sm:hidden flex h-[11vw] w-[72.2vw] items-center">
                     <button class="btn absolute left-[3vw] p-0">
                         <Search style="width: 5vw; opacity: 0.75;" />
                     </button>
@@ -357,24 +357,24 @@
                 </button>
 
                 <div
-                    class="!left-[84.5vw] !top-[4.5vw] w-[12vw] rounded-[0.375vw] bg-surface-400 px-[0.75vw] py-[1.125vw] shadow-lg shadow-surface-900/50"
+                    class="!left-[55vw] sm:!left-[84.5vw] !top-[17.5vw] sm:!top-[4.5vw] w-[40vw] sm:w-[12vw] rounded-[1.75vw] sm:rounded-[0.375vw] bg-surface-400 px-[4vw] sm:px-[0.75vw] py-[4.5vw] sm:py-[1.125vw] shadow-lg shadow-surface-900/50"
                     data-popup="profileDropdown"
                 >
-                    <div class="flex gap-[0.8vw]">
+                    <div class="flex gap-[3vw] sm:gap-[0.8vw]">
                         <Avatar
-                            rounded="rounded-[0.375vw]"
-                            width="w-[2.5vw]"
+                            rounded="rounded-[1.2vw] sm:rounded-[0.375vw]"
+                            width="w-[8vw] sm:w-[2.5vw]"
                             cursor="cursor-pointer"
                             src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
                             initials="JD"
                         />
                         <div class="flex flex-col">
-                            <span class="text-[0.9vw] font-semibold">Username</span>
-                            <span class="text-[0.8vw] font-medium">email@domain.xyz</span>
+                            <span class="text-[3vw] sm:text-[0.9vw] font-semibold">Username</span>
+                            <span class="text-[2vw] sm:text-[0.8vw] font-medium">email@domain.xyz</span>
                         </div>
                     </div>
 
-                    <div class="mt-[1vw]">
+                    <div class="mt-[4vw] sm:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
                             {@const item_url = item[1].url}
@@ -384,14 +384,14 @@
                                 href={item_url}
                                 style="text-decoration: none;"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] transition duration-100 hover:bg-surface-300/20">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] sm:py-[0.5vw] transition duration-100 hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
                                         color={item_icon.color}
                                         class="col-span-1"
                                     />
-                                    <span class="col-span-4 text-[1vw] font-medium text-white">
+                                    <span class="col-span-4 text-[2.7vw] sm:text-[1vw] font-medium text-white">
                                         {item_name}
                                     </span>
                                 </div>
