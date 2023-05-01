@@ -312,14 +312,37 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative hidden h-[10vh] items-center justify-between py-[0.9375vw] pl-[2.1vw] pr-[3.75vw] sm:flex">
-                <a href="/">
+            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
+                <a
+                    href="/"
+                    class="hidden sm:block"
+                >
                     <Logo style="width: 2vw;" />
                 </a>
 
-                <a href="/">
+                <a
+                    href="/"
+                    class="hidden sm:block"
+                >
                     <AnimeCore style="width: 10vw;" />
                 </a>
+
+                <!-- Search form for mobile device -->
+                <form class="relative flex h-[11vw] w-[72.2vw] items-center">
+                    <button class="btn absolute left-[3vw] p-0">
+                        <Search style="width: 5vw; opacity: 0.75;" />
+                    </button>
+                    <!-- svelte-ignore a11y-autofocus -->
+                    <input
+                        type="text"
+                        placeholder="Search for animes, mangas, etc..."
+                        autofocus
+                        class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
+                    />
+                    <button class="btn absolute right-[3vw] top-[3vw] p-0">
+                        <MoreVertical style="width: 5vw; opacity: 0.9;" />
+                    </button>
+                </form>
 
                 <button
                     class="avatar"
@@ -376,25 +399,6 @@
                         {/each}
                     </div>
                 </div>
-            </div>
-
-            <!-- Header for mobile devices -->
-            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] sm:hidden">
-                <form class="relative flex h-[11vw] w-[72.2vw] items-center">
-                    <button class="btn absolute left-[3vw] p-0">
-                        <Search style="width: 5vw; opacity: 0.75;" />
-                    </button>
-                    <!-- svelte-ignore a11y-autofocus -->
-                    <input
-                        type="text"
-                        placeholder="Search for animes, mangas, etc..."
-                        autofocus
-                        class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
-                    />
-                    <button class="btn absolute right-[3vw] top-[3vw] p-0">
-                        <MoreVertical style="width: 5vw; opacity: 0.9;" />
-                    </button>
-                </form>
             </div>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
