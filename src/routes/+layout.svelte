@@ -349,8 +349,8 @@
                     use:popup={popupSettings}
                 >
                     <Avatar
-                        rounded="rounded-[0.375vw]"
-                        width="w-[3.125vw]"
+                        rounded="rounded-[1.66vw] sm:rounded-[0.375vw]"
+                        width="w-[11vw] sm:w-[3.125vw]"
                         src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
                         initials="JD"
                     />
