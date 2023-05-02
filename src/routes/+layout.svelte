@@ -517,26 +517,26 @@
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
                             style="text-decoration: none;"
-                            class="flex w-[15vw] flex-col items-center gap-[3vw]"
+                            class="flex w-[15vw] flex-col items-center gap-[2.5vw]"
                         >
                             <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-full w-full rounded-[2.5vw] p-0 h-[2.5rem]">
                                 <div transition:blur|local>
                                     {#if !is_active}
                                         <svelte:component
                                             this={component}
-                                            style="width: 5vw;"
+                                            style="width: 4.5vw;"
                                             color={item_icon.color}
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            style="width: 5vw;"
+                                            style="width: 4.5vw;"
                                             color="black"
                                         />
                                     {/if}
                                 </div>
                             </div>
-                            <span class="text-[3vw] font-bold capitalize leading-[1.05vw] text-surface-50">
+                            <span class="text-[2.75vw] font-bold capitalize leading-[1.05vw] text-surface-50">
                                 {item_name}
                             </span>
                         </a>
