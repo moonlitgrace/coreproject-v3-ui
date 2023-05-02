@@ -69,6 +69,7 @@
                     color: string;
                 };
                 url: undefined | string;
+                show_on_mobile: boolean;
             };
 
             discover: {
@@ -78,6 +79,7 @@
                     color: string;
                 };
                 url: undefined | string;
+                show_on_mobile: boolean;
             };
             list: {
                 icon: {
@@ -86,6 +88,7 @@
                     color: string;
                 };
                 url: undefined | string;
+                show_on_mobile: boolean;
             };
             schedule: {
                 icon: {
@@ -94,6 +97,7 @@
                     color: string;
                 };
                 url: undefined | string;
+                show_on_mobile: boolean;
             };
             forum: {
                 icon: {
@@ -102,6 +106,7 @@
                     color: string;
                 };
                 url: undefined | string;
+                show_on_mobile: boolean;
             };
         };
         bottom: {
@@ -177,7 +182,8 @@
                     style: "width: 1.25vw;",
                     color: "white"
                 },
-                url: "/"
+                url: "/",
+                show_on_mobile: true
             },
 
             discover: {
@@ -186,7 +192,8 @@
                     style: "width: 1.25vw;",
                     color: "white"
                 },
-                url: undefined
+                url: undefined,
+                show_on_mobile: true
             },
             list: {
                 icon: {
@@ -194,7 +201,8 @@
                     style: "width: 1.7vw",
                     color: "white"
                 },
-                url: undefined
+                url: undefined,
+                show_on_mobile: false
             },
             schedule: {
                 icon: {
@@ -202,7 +210,8 @@
                     style: "width: 1.25vw;",
                     color: "white"
                 },
-                url: undefined
+                url: undefined,
+                show_on_mobile: false
             },
             forum: {
                 icon: {
@@ -210,7 +219,8 @@
                     style: "width: 1.25vw;",
                     color: "white"
                 },
-                url: undefined
+                url: undefined,
+                show_on_mobile: true
             }
         },
         bottom: {
@@ -408,7 +418,7 @@
             </div>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
-            <div class="hidden sm:flex h-full w-[6.25vw] flex-col justify-between py-[2vw]">
+            <div class="hidden h-full w-[6.25vw] flex-col justify-between py-[2vw] sm:flex">
                 <div>
                     <div class="flex flex-col items-center gap-5">
                         {#each Object.entries(icon_mapping.top) as item}
@@ -498,9 +508,47 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            {#if mobile}
-                <div class="px-[5vw] py-[5vw]">Mobile nav bar</div>
-            {/if}
+            <div class="block h-[26vw] px-[8.8vw] py-[5vw] sm:hidden">
+                <div class="flex items-center justify-between gap-[1.5vw]">
+                    {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
+                        {@const item_name = item[0]}
+                        {@const item_icon = item[1].icon}
+                        {@const item_href = item[1].url}
+
+                        {@const component = item_icon.component}
+
+                        {@const is_active = active_button === item_name}
+
+                        <a
+                            href={item_href ?? "javascript:void(0)"}
+                            type="button"
+                            style="text-decoration: none;"
+                            class="flex h-14 w-[20vw] flex-col items-center gap-[3vw]"
+                        >
+                            <div class="{is_active ? 'relative bg-secondary-100 before:absolute before:top-0 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative h-full w-full rounded-[2.5vw] p-0">
+                                <div transition:blur|local>
+                                    {#if !is_active}
+                                        <svelte:component
+                                            this={component}
+                                            style="width: 5vw;"
+                                            color={item_icon.color}
+                                        />
+                                    {:else}
+                                        <svelte:component
+                                            this={component}
+                                            style="width: 5vw;"
+                                            color="black"
+                                        />
+                                    {/if}
+                                </div>
+                            </div>
+                            <span class="text-[3vw] font-bold capitalize leading-[1.05vw] text-surface-50">
+                                {item_name}
+                            </span>
+                        </a>
+                    {/each}
+                </div>
+            </div>
         </svelte:fragment>
 
         <slot />
