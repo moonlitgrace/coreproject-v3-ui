@@ -317,7 +317,7 @@
     }
 </script>
 
-<div class="relative h-screen">
+<div class="relative h-screen w-screen" style="height: -webkit-fill-available;">
     <Modal />
 
     <AppShell>
