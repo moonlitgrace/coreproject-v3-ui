@@ -502,7 +502,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex items-center justify-center h-[110px] px-[8.8vw] sm:hidden">
+            <div class="flex h-[110px] items-center justify-center px-[8.8vw] sm:hidden">
                 <div class="flex w-full items-start justify-center gap-[7vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
@@ -519,19 +519,19 @@
                             style="text-decoration: none;"
                             class="flex w-[15vw] flex-col items-center gap-[2.5vw]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative w-full rounded-[2.5vw] p-0 h-[50px]">
+                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[50px] w-full rounded-[2.5vw] p-0">
                                 <div transition:blur|local>
-                                    {#if !is_active}
+                                    {#if is_active}
                                         <svelte:component
                                             this={component}
                                             style="width: 4.5vw;"
-                                            color={item_icon.color}
+                                            color="black"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
                                             style="width: 4.5vw;"
-                                            color="black"
+                                            color={item_icon.color}
                                         />
                                     {/if}
                                 </div>
