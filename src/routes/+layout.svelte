@@ -503,7 +503,7 @@
 
         <svelte:fragment slot="footer">
             <div class="flex items-center justify-center h-max px-[8.8vw] sm:hidden">
-                <div class="flex h-[4.5rem] w-full items-start justify-center gap-[7vw]">
+                <div class="flex h-[8vh] w-full items-start justify-center gap-[7vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
