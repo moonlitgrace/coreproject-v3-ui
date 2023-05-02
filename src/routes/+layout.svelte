@@ -322,23 +322,23 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
+            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
                 <a
                     href="/"
-                    class="hidden sm:block"
+                    class="hidden md:flex"
                 >
                     <Logo style="width: 2vw;" />
                 </a>
 
                 <a
                     href="/"
-                    class="hidden sm:block"
+                    class="hidden md:flex"
                 >
                     <AnimeCore style="width: 10vw;" />
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[11vw] w-[72.2vw] items-center sm:hidden">
+                <form class="relative flex h-[11vw] w-[72.2vw] items-center md:hidden">
                     <button class="btn absolute left-[3vw] p-0">
                         <Search style="width: 5vw; opacity: 0.75;" />
                     </button>
@@ -359,32 +359,32 @@
                     use:popup={popupSettings}
                 >
                     <Avatar
-                        rounded="rounded-[1.66vw] sm:rounded-[0.375vw]"
-                        width="w-[11vw] sm:w-[3.125vw]"
+                        rounded="rounded-[1.66vw] md:rounded-[0.375vw]"
+                        width="w-[11vw] md:w-[3.125vw]"
                         src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
                         initials="JD"
                     />
                 </button>
 
                 <div
-                    class="!left-[55vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
+                    class="!left-[55vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[12vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profileDropdown"
                 >
-                    <div class="flex gap-[3vw] sm:gap-[0.8vw]">
+                    <div class="flex gap-[3vw] md:gap-[0.8vw]">
                         <Avatar
-                            rounded="rounded-[1.2vw] sm:rounded-[0.375vw]"
-                            width="w-[8vw] sm:w-[2.5vw]"
+                            rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
+                            width="w-[8vw] md:w-[2.5vw]"
                             cursor="cursor-pointer"
                             src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
                             initials="JD"
                         />
                         <div class="flex flex-col">
-                            <span class="text-[3vw] font-semibold sm:text-[0.9vw]">Username</span>
-                            <span class="text-[2vw] font-medium sm:text-[0.8vw]">email@domain.xyz</span>
+                            <span class="text-[3vw] font-semibold md:text-[0.9vw]">Username</span>
+                            <span class="text-[2vw] font-medium md:text-[0.8vw]">email@domain.xyz</span>
                         </div>
                     </div>
 
-                    <div class="mt-[4vw] sm:mt-[1vw]">
+                    <div class="mt-[4vw] md:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
                             {@const item_url = item[1].url}
@@ -394,14 +394,14 @@
                                 href={item_url}
                                 style="text-decoration: none;"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 hover:bg-surface-300/20 sm:py-[0.5vw]">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 hover:bg-surface-300/20 md:py-[0.5vw]">
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
                                         color={item_icon.color}
                                         class="col-span-1"
                                     />
-                                    <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
+                                    <span class="col-span-4 text-[2.7vw] font-medium text-white md:text-[1vw]">
                                         {item_name}
                                     </span>
                                 </div>
@@ -412,7 +412,7 @@
             </div>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
-            <div class="hidden h-full w-[6.25vw] flex-col justify-between py-[2vw] sm:flex">
+            <div class="hidden h-full w-[6.25vw] flex-col justify-between py-[2vw] md:flex">
                 <div>
                     <div class="flex flex-col items-center gap-5">
                         {#each Object.entries(icon_mapping.top) as item}
@@ -502,7 +502,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="block h-[26vw] px-[8.8vw] py-[5vw] sm:hidden">
+            <div class="block h-[26vw] px-[8.8vw] py-[5vw] md:hidden">
                 <div class="flex items-center justify-center gap-[10vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
