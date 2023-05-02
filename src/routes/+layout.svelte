@@ -11,7 +11,6 @@
     import type { ModalSettings, ModalComponent } from "@skeletonlabs/skeleton";
 
     import { blur } from "svelte/transition";
-    import { responsive_mode } from "$store/responsive";
 
     import SearchPanel from "$components/shared/search_panel.svelte";
 
@@ -42,10 +41,6 @@
     import { storePopup } from "@skeletonlabs/skeleton";
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
-    // check mobile mode
-    let mobile: boolean;
-    $: mobile = $responsive_mode === "mobile";
 
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
