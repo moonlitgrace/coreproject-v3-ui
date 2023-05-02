@@ -277,7 +277,7 @@
     <title>AnimeCore - A modern anime streaming site</title>
 </svelte:head>
 
-<div class="p-[1.25vw] pr-[3.75vw]">
+<div class="px-[5vw] sm:p-[1.25vw] sm:pr-[3.75vw]">
     <div class="flex justify-between">
         <latest-animes class="h-[27.875vw] w-[42.1875vw]">
             <div
@@ -313,17 +313,17 @@
                                     {anime.name}
                                 </span>
                                 <p class="flex flex-wrap items-center gap-2 pt-[0.5vw]">
-                                    <span class="font-semibold text-[0.9375vw] leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-[0.9375vw] font-semibold leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.type}
                                     </span>
-                                    <span class="font-semibold text-[0.9375vw] leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-[0.9375vw] font-semibold leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span class="font-semibold text-[0.9375vw] leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                                    <span class="font-semibold capitalize text-[0.9375vw] leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-[0.9375vw] font-semibold leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
+                                    <span class="text-[0.9375vw] font-semibold capitalize leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span class="font-semibold text-[0.9375vw] leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-[0.9375vw] font-semibold leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
@@ -413,7 +413,7 @@
             </div>
         </latest-animes>
 
-        <latest-episodes class="w-[21.5625vw]">
+        <latest-episodes class="w-[21.5625vw] hidden sm:block">
             <div class="flex items-center gap-[0.625vw]">
                 <span class="text-[1.25vw] font-bold">Latest Episodes</span>
                 <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
@@ -468,7 +468,7 @@
         </latest-episodes>
 
         <navigation-card
-            class="relative mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
+            class="relative hidden sm:block mt-[3.4vw] h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center"
             style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
         >
             <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
