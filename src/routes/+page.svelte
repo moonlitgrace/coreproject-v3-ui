@@ -277,9 +277,9 @@
     <title>AnimeCore - A modern anime streaming site</title>
 </svelte:head>
 
-<div class="px-[5vw] sm:p-[1.25vw] sm:pr-[3.75vw]">
+<div class="px-[3vw] sm:p-[1.25vw] sm:pr-[3.75vw]">
     <div class="flex justify-between">
-        <latest-animes class="h-[27.875vw] w-[42.1875vw]">
+        <latest-animes class="h-[55vw] sm:h-[27.875vw] w-full sm:w-[42.1875vw]">
             <div
                 use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
                 on:swipe={swipe_handler}
@@ -288,7 +288,7 @@
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
                         <div
-                            class="relative flex h-full w-full items-center rounded-t-[0.875vw] bg-cover bg-center"
+                            class="relative flex h-full w-full items-center rounded-t-[2vw] sm:rounded-t-[0.875vw] bg-cover bg-center"
                             style="
 								background-image: url('{anime.cover ?? ''}');
 								grid-area: 1 / 1 / 1000 / 1;
