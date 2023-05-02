@@ -277,7 +277,7 @@
     <title>AnimeCore - A modern anime streaming site</title>
 </svelte:head>
 
-<div class="p-[1.25vw] pr-[3.75vw]">
+<div class="px-[5vw] sm:p-[1.25vw] sm:pr-[3.75vw]">
     <div class="flex justify-between">
         <latest-animes class="h-[27.875vw] w-[42.1875vw]">
             <div
