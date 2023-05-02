@@ -317,12 +317,12 @@
     }
 </script>
 
-<div class="relative h-screen w-screen" style="height: -webkit-fill-available;">
+<div class="relative w-screen h-[93vh]">
     <Modal />
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
+            <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
                 <a
                     href="/"
                     class="hidden sm:flex"
@@ -342,11 +342,9 @@
                     <button class="btn absolute left-[3vw] p-0">
                         <Search style="width: 5vw; opacity: 0.75;" />
                     </button>
-                    <!-- svelte-ignore a11y-autofocus -->
                     <input
                         type="text"
                         placeholder="Search for animes, mangas, etc..."
-                        autofocus
                         class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
                     />
                     <button class="btn absolute right-[3vw] top-[3vw] p-0">
@@ -502,7 +500,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex !h-[17vw] items-center justify-center sm:hidden">
+            <div class="flex !h-[15vw] items-center justify-center sm:hidden">
                 <div class="flex items-start justify-center gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
