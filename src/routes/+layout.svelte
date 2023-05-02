@@ -46,7 +46,6 @@
     // check mobile mode
     let mobile: boolean;
     $: mobile = $responsive_mode === "mobile";
-    $: console.log(mobile);
 
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
