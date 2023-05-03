@@ -31,13 +31,13 @@
         validators: schema,
         onSubmit: ({ cancel }) => {
             if (!$form.email) {
-                document.getElementById('email')?.focus();
+                document.getElementById("email")?.focus();
                 cancel();
             } else if (!$form.password) {
-                document.getElementById('password')?.focus();
+                document.getElementById("password")?.focus();
                 cancel();
             } else if ($form.confirm_password !== $form.password) {
-                document.getElementById('confirm_password')?.focus();
+                document.getElementById("confirm_password")?.focus();
                 $errors.confirm_password = ["Passwords do not match"];
                 cancel();
             }
@@ -72,7 +72,7 @@
         if (event.target.value !== $form.password) {
             $errors.confirm_password = ["Passwords do not match"];
         }
-    })
+    });
 </script>
 
 <svelte:head>
