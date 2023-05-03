@@ -1,4 +1,9 @@
 <script lang="ts">
+    // Nprogress
+    import NProgress from "nprogress";
+    // NProgress css
+    import "nprogress/nprogress.css";
+
     // Your custom Skeleton theme:
     import "../theme.scss";
 
@@ -41,6 +46,22 @@
     import { storePopup } from "@skeletonlabs/skeleton";
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+    // Configure NProgress
+    NProgress.configure({
+        // Full list: https://github.com/rstacruz/nprogress#configuration
+        showSpinner: false,
+        minimum: 0.16
+    });
+
+    $: {
+        if ($navigating) {
+            NProgress.start();
+        }
+        if (!$navigating) {
+            NProgress.done();
+        }
+    }
 
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
