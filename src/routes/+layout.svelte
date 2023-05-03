@@ -374,7 +374,7 @@
                     class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
                     data-popup="profileDropdown"
                 >
-                    <div class="flex gap-[3vw] sm:gap-[0.8vw]">
+                    <div class="flex items-center gap-[3vw] sm:gap-[0.8vw]">
                         <Avatar
                             rounded="rounded-[1.2vw] sm:rounded-[0.375vw]"
                             width="w-[8vw] sm:w-[2.5vw]"
@@ -398,7 +398,7 @@
                                 href={item_url}
                                 style="text-decoration: none;"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 hover:bg-surface-300/20 sm:py-[0.5vw]">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
@@ -409,7 +409,7 @@
                                         this={item_icon.component}
                                         style="width: 4vw;"
                                         color={item_icon.color}
-                                        class="col-span-1"
+                                        class="col-span-1 flex sm:hidden"
                                     />
                                     <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
                                         {item_name}
