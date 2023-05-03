@@ -322,7 +322,7 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
+            <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[8vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
                 <a
                     href="/"
                     class="hidden sm:flex"
