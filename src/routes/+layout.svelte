@@ -329,6 +329,12 @@
                 >
                     <Logo style="width: 2vw;" />
                 </a>
+                <a
+                    href="/"
+                    class="flex sm:hidden"
+                >
+                    <Logo style="width: 7vw;" />
+                </a>
 
                 <a
                     href="/"
@@ -338,13 +344,13 @@
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[11vw] w-[72.2vw] items-center sm:hidden">
+                <form class="relative flex h-[11vw] w-[65vw] items-center sm:hidden">
                     <button class="btn absolute left-[3vw] p-0">
                         <Search style="width: 5vw; opacity: 0.75;" />
                     </button>
                     <input
                         type="text"
-                        placeholder="Search for animes, mangas, etc..."
+                        placeholder="Search for animes, mangas..."
                         class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
                     />
                     <button class="btn absolute right-[3vw] top-[3vw] p-0">
