@@ -32,6 +32,7 @@
         onSubmit: ({ cancel }) => {
             if (!$form.email) {
                 document.getElementById("email")?.focus();
+                $errors.email = ["Please enter a valid email address"]
                 cancel();
             } else if (!$form.password) {
                 document.getElementById("password")?.focus();
@@ -40,6 +41,8 @@
                 document.getElementById("confirm_password")?.focus();
                 $errors.confirm_password = ["Passwords do not match"];
                 cancel();
+            } else if (password_strength < 4) {
+                cancel()
             }
         }
     });
@@ -59,7 +62,7 @@
     const password_validation = _.debounce(() => {
         password_strength = zxcvbn($form.password).score;
 
-        let password_errors = $errors.password;
+        let password_errors = $errors.password ?? [];
         if (password_errors) {
             password_requirements[0].valid = !password_errors.includes("atleast_8");
             password_requirements[1].valid = !password_errors.includes("missing_one_number");
