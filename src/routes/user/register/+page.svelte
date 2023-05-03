@@ -27,10 +27,8 @@
     // Client API:
     const { form, errors, enhance, constraints } = superForm(data.form, {
         validationMethod: "oninput",
-        validators: schema,
+        validators: schema
     });
-
-    $: console.log($errors);
 
     // Configure ZXCVBN
     const zxcvbn_options: OptionsType = {
@@ -42,8 +40,9 @@
             userInputs: [...Object.values($form)]
         }
     };
-
     zxcvbnOptions.setOptions(zxcvbn_options);
+
+    $: console.log($errors.password);
 </script>
 
 <svelte:head>
@@ -66,20 +65,20 @@
                 </label>
                 <!-- svelte-ignore a11y-autofocus -->
                 <input
-                    bind:value="{$form.email}"
+                    bind:value={$form.email}
                     name="email"
                     id="email"
                     placeholder="username@mail"
-                    autofocus="{true}"
+                    autofocus={true}
                     class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
                 />
                 {#if $errors.email}
-                <span class="text-[0.75vw] mt-[0.5vw] text-surface-300">{$errors.email[0]}</span>
+                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.email[0]}</span>
                 {:else}
-                <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                    <Info style="width: 0.9375vw; opacity: 0.7" />
-                    <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
-                </info>
+                    <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
+                        <Info style="width: 0.9375vw; opacity: 0.7" />
+                        <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
+                    </info>
                 {/if}
             </email-field>
 
@@ -93,7 +92,7 @@
                 <div>
                     <div class="relative flex flex-col">
                         <input
-                            bind:value="{$form.password}"
+                            bind:value={$form.password}
                             type="text"
                             id="password"
                             name="password"
@@ -104,10 +103,12 @@
                     </div>
                     <password-strength class="mt-[1vw] flex flex-col">
                         <div class="grid grid-cols-4 gap-[0.75vw]">
-                            {#each Array(password_strength) as _, index} {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                            <span class="{backgrounds[index]} col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300" />
-                            {/each} {#each Array(4 - password_strength) as _}
-                            <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300" />
+                            {#each Array(password_strength) as _, index}
+                                {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
+                                <span class="{backgrounds[index]} col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300" />
+                            {/each}
+                            {#each Array(4 - password_strength) as _}
+                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300" />
                             {/each}
                         </div>
 
@@ -115,23 +116,23 @@
                             <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
                             <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
                                 {#each password_requirements as requirement}
-                                <div class="grid grid-cols-12 items-center">
-                                    {#if requirement.valid}
-                                    <svelte:component
-                                        this="{Tick}"
-                                        class="col-span-1"
-                                        style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
-                                    />
-                                    {:else}
-                                    <svelte:component
-                                        this="{Cross}"
-                                        class="col-span-1"
-                                        style="width: 0.9vw; color: red; opacity: 0.8"
-                                    />
-                                    {/if}
+                                    <div class="grid grid-cols-12 items-center">
+                                        {#if requirement.valid}
+                                            <svelte:component
+                                                this={Tick}
+                                                class="col-span-1"
+                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                            />
+                                        {:else}
+                                            <svelte:component
+                                                this={Cross}
+                                                class="col-span-1"
+                                                style="width: 0.9vw; color: red; opacity: 0.8"
+                                            />
+                                        {/if}
 
-                                    <span class="col-span-11 text-[0.8vw] text-surface-300">{requirement.text}</span>
-                                </div>
+                                        <span class="col-span-11 text-[0.8vw] text-surface-300">{requirement.text}</span>
+                                    </div>
                                 {/each}
                             </div>
                         </div>
@@ -149,7 +150,7 @@
                 <div>
                     <div class="relative flex flex-col">
                         <input
-                            bind:value="{$form.confirm_password}"
+                            bind:value={$form.confirm_password}
                             type="password"
                             id="password"
                             name="confirm_password"
@@ -158,7 +159,7 @@
                             {...$constraints.confirm_password}
                         />
                         {#if $errors.confirm_password}
-                        <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
+                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
                         {/if}
                     </div>
                 </div>
