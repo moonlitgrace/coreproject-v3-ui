@@ -29,10 +29,6 @@
     const { form, errors, enhance, constraints } = superForm(data.form, {
         validationMethod: "oninput",
         validators: schema,
-        onError: ({ result, message }) => {
-            console.log(result);
-            console.log(message);
-        }
     });
 
     // Configure ZXCVBN
@@ -47,7 +43,9 @@
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
 
-    const password_validation = _.debounce(() => {
+    const password_validation = _.debounce((event) => {
+        password_strength = zxcvbn(event.target.value).score;
+
         let password_errors = $errors.password;
         if (password_errors) {
             password_requirements[0].valid = !password_errors.includes("atleast_8");
