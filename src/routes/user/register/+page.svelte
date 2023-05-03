@@ -26,9 +26,22 @@
     ];
 
     // Client API:
-    const { form, errors, enhance, constraints } = superForm(data.form, {
+    const { form, errors, enhance } = superForm(data.form, {
         validationMethod: "oninput",
         validators: schema,
+        onSubmit: ({ cancel }) => {
+            if (!$form.email) {
+                document.getElementById('email')?.focus();
+                cancel();
+            } else if (!$form.password) {
+                document.getElementById('password')?.focus();
+                cancel();
+            } else if ($form.confirm_password !== $form.password) {
+                document.getElementById('confirm_password')?.focus();
+                $errors.confirm_password = ["Passwords do not match"];
+                cancel();
+            }
+        }
     });
 
     // Configure ZXCVBN
@@ -43,17 +56,23 @@
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
 
-    const password_validation = _.debounce((event) => {
-        password_strength = zxcvbn(event.target.value).score;
+    const password_validation = _.debounce(() => {
+        password_strength = zxcvbn($form.password).score;
 
         let password_errors = $errors.password;
         if (password_errors) {
             password_requirements[0].valid = !password_errors.includes("atleast_8");
             password_requirements[1].valid = !password_errors.includes("missing_one_number");
             password_requirements[2].valid = !password_errors.includes("missing_one_special_character");
-            password_requirements[3].valid = !password_errors.includes("missing_one_uppercase") || !password_errors.includes("missing_one_lowercase");
+            password_requirements[3].valid = !password_errors.includes("missing_one_upper_or_lowercase");
         }
     });
+
+    const confirm_password_validation = _.debounce((event) => {
+        if (event.target.value !== $form.password) {
+            $errors.confirm_password = ["Passwords do not match"];
+        }
+    })
 </script>
 
 <svelte:head>
@@ -110,7 +129,6 @@
                             placeholder="enter a strong password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
                             on:input={password_validation}
-                            {...$constraints.password}
                         />
                     </div>
                     <password-strength class="mt-[1vw] flex flex-col">
@@ -164,11 +182,11 @@
                         <input
                             bind:value={$form.confirm_password}
                             type="password"
-                            id="password"
+                            id="confirm_password"
                             name="confirm_password"
                             placeholder="re-enter your password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
-                            {...$constraints.confirm_password}
+                            on:input={confirm_password_validation}
                         />
                         {#if $errors.confirm_password}
                             <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
