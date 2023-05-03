@@ -42,7 +42,15 @@
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
 
-    $: console.log($errors.password);
+    $: {
+        let password_errors = $errors.password;
+        if (password_errors) {
+            password_requirements[0].valid = !password_errors.includes("atleast_8");
+            password_requirements[1].valid = !password_errors.includes("missing_one_number");
+            password_requirements[2].valid = !password_errors.includes("missing_one_special_character");
+            password_requirements[3].valid = !password_errors.includes("missing_one_uppercase") || !password_errors.includes("missing_one_lowercase");
+        }
+    }
 </script>
 
 <svelte:head>
