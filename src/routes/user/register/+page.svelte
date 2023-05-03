@@ -1,6 +1,7 @@
 <script lang="ts">
     import { superForm } from "sveltekit-superforms/client";
     import { schema } from "$data/schema/register_schema";
+    import _ from "lodash";
 
     import Info from "$icons/info.svelte";
     import Cross from "$icons/cross.svelte";
@@ -27,7 +28,11 @@
     // Client API:
     const { form, errors, enhance, constraints } = superForm(data.form, {
         validationMethod: "oninput",
-        validators: schema
+        validators: schema,
+        onError: ({ result, message }) => {
+            console.log(result);
+            console.log(message);
+        }
     });
 
     // Configure ZXCVBN
@@ -42,7 +47,7 @@
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
 
-    $: {
+    const password_validation = _.debounce(() => {
         let password_errors = $errors.password;
         if (password_errors) {
             password_requirements[0].valid = !password_errors.includes("atleast_8");
@@ -50,7 +55,7 @@
             password_requirements[2].valid = !password_errors.includes("missing_one_special_character");
             password_requirements[3].valid = !password_errors.includes("missing_one_uppercase") || !password_errors.includes("missing_one_lowercase");
         }
-    }
+    });
 </script>
 
 <svelte:head>
@@ -106,6 +111,7 @@
                             name="password"
                             placeholder="enter a strong password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                            on:input={password_validation}
                             {...$constraints.password}
                         />
                     </div>
