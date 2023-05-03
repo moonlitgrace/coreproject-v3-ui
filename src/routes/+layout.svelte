@@ -317,17 +317,23 @@
     }
 </script>
 
-<div class="relative h-screen">
+<div class="relative h-[100dvh] w-screen sm:h-screen">
     <Modal />
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[6vh] items-center justify-between px-[5vw] py-[10vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
+            <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[8vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
                 <a
                     href="/"
                     class="hidden sm:flex"
                 >
                     <Logo style="width: 2vw;" />
+                </a>
+                <a
+                    href="/"
+                    class="flex sm:hidden"
+                >
+                    <Logo style="width: 7vw;" />
                 </a>
 
                 <a
@@ -338,15 +344,13 @@
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[11vw] w-[72.2vw] items-center sm:hidden">
+                <form class="relative flex h-[11vw] w-[65vw] items-center sm:hidden">
                     <button class="btn absolute left-[3vw] p-0">
                         <Search style="width: 5vw; opacity: 0.75;" />
                     </button>
-                    <!-- svelte-ignore a11y-autofocus -->
                     <input
                         type="text"
-                        placeholder="Search for animes, mangas, etc..."
-                        autofocus
+                        placeholder="Search for animes, mangas..."
                         class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
                     />
                     <button class="btn absolute right-[3vw] top-[3vw] p-0">
@@ -367,10 +371,10 @@
                 </button>
 
                 <div
-                    class="!left-[55vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
+                    class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
                     data-popup="profileDropdown"
                 >
-                    <div class="flex gap-[3vw] sm:gap-[0.8vw]">
+                    <div class="flex items-center gap-[3vw] sm:gap-[0.8vw]">
                         <Avatar
                             rounded="rounded-[1.2vw] sm:rounded-[0.375vw]"
                             width="w-[8vw] sm:w-[2.5vw]"
@@ -384,7 +388,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-[4vw] sm:mt-[1vw]">
+                    <div class="mt-[3vw] sm:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
                             {@const item_url = item[1].url}
@@ -394,12 +398,18 @@
                                 href={item_url}
                                 style="text-decoration: none;"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 hover:bg-surface-300/20 sm:py-[0.5vw]">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
                                         color={item_icon.color}
-                                        class="col-span-1"
+                                        class="col-span-1 hidden sm:flex"
+                                    />
+                                    <svelte:component
+                                        this={item_icon.component}
+                                        style="width: 4vw;"
+                                        color={item_icon.color}
+                                        class="col-span-1 flex sm:hidden"
                                     />
                                     <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
                                         {item_name}
@@ -502,8 +512,8 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-[110px] items-center justify-center px-[8.8vw] sm:hidden">
-                <div class="flex w-full items-start justify-center gap-[7vw]">
+            <div class="flex h-[17vw] items-center justify-center sm:hidden">
+                <div class="flex items-start justify-center gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
@@ -517,14 +527,14 @@
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
                             style="text-decoration: none;"
-                            class="flex w-[15vw] flex-col items-center gap-[2.5vw]"
+                            class="flex flex-col items-center gap-[2.5vw]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[50px] w-full rounded-[2.5vw] p-0">
+                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[9vw] w-[15vw] rounded-[2.5vw] p-0">
                                 <div transition:blur|local>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            style="width: 4.5vw;"
+                                            style="width: 4.75vw;"
                                             color="black"
                                         />
                                     {:else}
