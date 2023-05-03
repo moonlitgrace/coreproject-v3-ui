@@ -317,7 +317,7 @@
     }
 </script>
 
-<div class="relative w-screen h-[93vh] sm:h-screen">
+<div class="relative h-[93vh] w-screen sm:h-screen">
     <Modal />
 
     <AppShell>
