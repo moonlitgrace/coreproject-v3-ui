@@ -371,7 +371,7 @@
                 </button>
 
                 <div
-                    class="!left-[55vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
+                    class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
                     data-popup="profileDropdown"
                 >
                     <div class="flex gap-[3vw] sm:gap-[0.8vw]">
@@ -388,7 +388,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-[4vw] sm:mt-[1vw]">
+                    <div class="mt-[3vw] sm:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
                             {@const item_url = item[1].url}
@@ -402,6 +402,12 @@
                                     <svelte:component
                                         this={item_icon.component}
                                         style={item_icon.style}
+                                        color={item_icon.color}
+                                        class="col-span-1 hidden sm:flex"
+                                    />
+                                    <svelte:component
+                                        this={item_icon.component}
+                                        style="width: 4vw;"
                                         color={item_icon.color}
                                         class="col-span-1"
                                     />
