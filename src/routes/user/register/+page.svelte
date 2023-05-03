@@ -32,7 +32,7 @@
         onSubmit: ({ cancel }) => {
             if (!$form.email) {
                 document.getElementById("email")?.focus();
-                $errors.email = ["Please enter a valid email address"]
+                $errors.email = ["Please enter a valid email address"];
                 cancel();
             } else if (!$form.password) {
                 document.getElementById("password")?.focus();
@@ -42,7 +42,7 @@
                 $errors.confirm_password = ["Passwords do not match"];
                 cancel();
             } else if (password_strength < 4) {
-                cancel()
+                cancel();
             }
         }
     });
@@ -138,10 +138,10 @@
                         <div class="grid grid-cols-4 gap-[0.75vw]">
                             {#each Array(password_strength) as _, index}
                                 {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                                <span class="{backgrounds[index]} col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300" />
+                                <span class="{backgrounds[index]} col-span-1 h-[0.625vw] w-full rounded-[0.1875vw]" />
                             {/each}
                             {#each Array(4 - password_strength) as _}
-                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300" />
+                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50" />
                             {/each}
                         </div>
 
@@ -154,13 +154,13 @@
                                             <svelte:component
                                                 this={Tick}
                                                 class="col-span-1"
-                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9;"
                                             />
                                         {:else}
                                             <svelte:component
                                                 this={Cross}
                                                 class="col-span-1"
-                                                style="width: 0.9vw; color: red; opacity: 0.8"
+                                                style="width: 0.9vw; color: red; opacity: 0.8;"
                                             />
                                         {/if}
 
