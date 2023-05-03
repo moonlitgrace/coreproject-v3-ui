@@ -317,7 +317,7 @@
     }
 </script>
 
-<div class="relative h-[93vh] w-screen sm:h-screen">
+<div class="relative h-[100dvh] w-screen sm:h-screen">
     <Modal />
 
     <AppShell>
@@ -512,7 +512,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex !h-[15vw] items-center justify-center sm:hidden">
+            <div class="flex h-[17vw] items-center justify-center sm:hidden">
                 <div class="flex items-start justify-center gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
