@@ -8,7 +8,6 @@ export default defineConfig({
     },
     build: {
         target: "esnext"
-        // ,sourcemap: true
     },
     test: {
         include: ["src/**/*.{test,spec}.{js,ts}"]

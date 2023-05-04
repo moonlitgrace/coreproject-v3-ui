@@ -1,5 +1,5 @@
 <script lang="ts">
-    // Nprogress
+    // NProgress
     import NProgress from "nprogress";
     // NProgress css
     import "nprogress/nprogress.css";
@@ -57,8 +57,7 @@
     $: {
         if ($navigating) {
             NProgress.start();
-        }
-        if (!$navigating) {
+        } else {
             NProgress.done();
         }
     }

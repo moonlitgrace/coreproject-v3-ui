@@ -1,5 +1,7 @@
 <script lang="ts">
     import { superForm } from "sveltekit-superforms/client";
+    import { schema } from "$data/schema/register_schema";
+    import _ from "lodash";
 
     import Info from "$icons/info.svelte";
     import Cross from "$icons/cross.svelte";
@@ -26,55 +28,24 @@
     // Client API:
     const { form, errors, enhance } = superForm(data.form, {
         validationMethod: "oninput",
-        validators: {
-            email: (email) => {
-                const regex =
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\])|(\[IPv6:(([a-f0-9]{1,4}:){7}|::([a-f0-9]{1,4}:){0,6}|([a-f0-9]{1,4}:){1}:([a-f0-9]{1,4}:){0,5}|([a-f0-9]{1,4}:){2}:([a-f0-9]{1,4}:){0,4}|([a-f0-9]{1,4}:){3}:([a-f0-9]{1,4}:){0,3}|([a-f0-9]{1,4}:){4}:([a-f0-9]{1,4}:){0,2}|([a-f0-9]{1,4}:){5}:([a-f0-9]{1,4}:){0,1})([a-f0-9]{1,4}|(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2})))\])|([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])*(\.[A-Za-z]{2,})+))$/; // Regular expression for validating email format
-                return regex.test(email) ? null : "Please enter a valid email address";
-            },
-            password: (password) => {
-                password_strength = zxcvbn(password).score;
-                return validate_password(password) ? null : "Password error";
-            },
-            confirm_password: (confirm_password) => {
-                let password: string = $form.password;
-                return confirm_password === password ? null : "Passwords do not match";
+        validators: schema,
+        onSubmit: ({ cancel }) => {
+            if (!$form.email) {
+                document.getElementById("email")?.focus();
+                $errors.email = ["Please enter a valid email address"];
+                cancel();
+            } else if (!$form.password) {
+                document.getElementById("password")?.focus();
+                cancel();
+            } else if ($form.confirm_password !== $form.password) {
+                document.getElementById("confirm_password")?.focus();
+                $errors.confirm_password = ["Passwords do not match"];
+                cancel();
+            } else if (password_strength < 4) {
+                cancel();
             }
         }
     });
-
-    function validate_password(password: string) {
-        // Check minimum length requirement
-        if (password.length < 8) {
-            password_requirements[0].valid = false;
-        } else {
-            password_requirements[0].valid = true;
-        }
-
-        // Check for at least 1 number
-        if (!/(?=.*\d)/.test(password)) {
-            password_requirements[1].valid = false;
-        } else {
-            password_requirements[1].valid = true;
-        }
-
-        // Check for at least 1 special character
-        if (!/(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(password)) {
-            password_requirements[2].valid = false;
-        } else {
-            password_requirements[2].valid = true;
-        }
-
-        // Check for at least 1 lowercase or uppercase character
-        if (!/(?=.*[a-zA-Z])/.test(password)) {
-            password_requirements[3].valid = false;
-        } else {
-            password_requirements[3].valid = true;
-        }
-
-        // Return true if all requirements are met, false otherwise
-        return password_requirements.every((requirement) => requirement.valid);
-    }
 
     // Configure ZXCVBN
     const zxcvbn_options: OptionsType = {
@@ -86,8 +57,25 @@
             userInputs: [...Object.values($form)]
         }
     };
-
     zxcvbnOptions.setOptions(zxcvbn_options);
+
+    const password_validation = _.debounce(() => {
+        password_strength = zxcvbn($form.password).score;
+
+        let password_errors = $errors.password ?? [];
+        if (password_errors) {
+            password_requirements[0].valid = !password_errors.includes("atleast_8");
+            password_requirements[1].valid = !password_errors.includes("missing_one_number");
+            password_requirements[2].valid = !password_errors.includes("missing_one_special_character");
+            password_requirements[3].valid = !password_errors.includes("missing_one_upper_or_lowercase");
+        }
+    });
+
+    const confirm_password_validation = _.debounce((event) => {
+        if (event.target.value !== $form.password) {
+            $errors.confirm_password = ["Passwords do not match"];
+        }
+    });
 </script>
 
 <svelte:head>
@@ -111,7 +99,6 @@
                 <!-- svelte-ignore a11y-autofocus -->
                 <input
                     bind:value={$form.email}
-                    type="email"
                     name="email"
                     id="email"
                     placeholder="username@mail"
@@ -119,10 +106,10 @@
                     class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
                 />
                 {#if $errors.email}
-                    <span class="text-[0.75vw] text-surface-300">{$errors.email}</span>
+                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.email[0]}</span>
                 {:else}
                     <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                        <Info style="width: 0.9375vw; opacity: 0.7;" />
+                        <Info style="width: 0.9375vw; opacity: 0.7" />
                         <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
                     </info>
                 {/if}
@@ -144,16 +131,17 @@
                             name="password"
                             placeholder="enter a strong password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                            on:input={password_validation}
                         />
                     </div>
                     <password-strength class="mt-[1vw] flex flex-col">
                         <div class="grid grid-cols-4 gap-[0.75vw]">
                             {#each Array(password_strength) as _, index}
                                 {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] transition duration-300 {backgrounds[index]}" />
+                                <span class="{backgrounds[index]} col-span-1 h-[0.625vw] w-full rounded-[0.1875vw]" />
                             {/each}
                             {#each Array(4 - password_strength) as _}
-                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50 transition duration-300" />
+                                <span class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.2vw] border-primary-50/50" />
                             {/each}
                         </div>
 
@@ -176,9 +164,7 @@
                                             />
                                         {/if}
 
-                                        <span class="col-span-11 text-[0.8vw] text-surface-300">
-                                            {requirement.text}
-                                        </span>
+                                        <span class="col-span-11 text-[0.8vw] text-surface-300">{requirement.text}</span>
                                     </div>
                                 {/each}
                             </div>
@@ -199,15 +185,14 @@
                         <input
                             bind:value={$form.confirm_password}
                             type="password"
-                            id="password"
+                            id="confirm_password"
                             name="confirm_password"
                             placeholder="re-enter your password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                            on:input={confirm_password_validation}
                         />
                         {#if $errors.confirm_password}
-                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">
-                                {$errors.confirm_password}
-                            </span>
+                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
                         {/if}
                     </div>
                 </div>
@@ -226,7 +211,7 @@
             </div>
             <button class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold">
                 <span>Continue</span>
-                <ArrowUpRight style="width: 1vw; transform: rotate(45deg);" />
+                <ArrowUpRight style="width: 1vw; transform: rotate(45deg)" />
             </button>
         </div>
     </form>
