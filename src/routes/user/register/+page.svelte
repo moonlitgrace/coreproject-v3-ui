@@ -1,6 +1,6 @@
 <script lang="ts">
     import { superForm } from "sveltekit-superforms/client";
-    import { schema } from "$data/schema/register_schema";
+    import { schema } from "$schemas/register";
     import _ from "lodash";
 
     import Info from "$icons/info.svelte";

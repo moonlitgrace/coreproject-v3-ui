@@ -18,19 +18,19 @@ const config = {
         // See https://kit.svelte.dev/docs/adapters for more information about adapters.
         adapter: is_static
             ? static_adapter({
-                fallback: "app.html",
-                // precompress: true,
-                strict: true
-            })
+                  fallback: "app.html",
+                  // precompress: true,
+                  strict: true
+              })
             : is_node
-                ? node_adapter({
-                    precompress: false
-                })
-                : vercel({
-                    // an array of dependencies that esbuild should treat
-                    // as external when bundling functions
-                    external: []
-                }),
+            ? node_adapter({
+                  precompress: false
+              })
+            : vercel({
+                  // an array of dependencies that esbuild should treat
+                  // as external when bundling functions
+                  external: []
+              }),
         alias: {
             $store: path.resolve("./src/lib/store"),
             $hooks: path.resolve("./src/hooks"),
@@ -40,7 +40,8 @@ const config = {
             $kaomoji: path.resolve("./src/lib/kaomoji"),
             $error: path.resolve("./src/lib/components/errors"),
             $functions: path.resolve("./src/lib/functions"),
-            $modals: path.resolve("./src/lib/components/modals")
+            $modals: path.resolve("./src/lib/components/modals"),
+            $schemas: path.resolve("./src/lib/schemas")
         }
     }
 };

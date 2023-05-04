@@ -1,7 +1,7 @@
 import { superValidate } from "sveltekit-superforms/server";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
-import { schema } from "$data/schema/register_schema";
+import { schema } from "$schemas/register";
 
 export const load = async () => {
     // Server API:
