@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { superForm } from "sveltekit-superforms/client";
-    import { schema } from "$schemas/register";
     import _ from "lodash";
 
     import Info from "$icons/info.svelte";
@@ -10,11 +8,8 @@
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import type { OptionsType } from "@zxcvbn-ts/core/dist/types";
-    import type { PageServerData } from "./$types";
     // Import languages
     import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
-
-    export let data: PageServerData;
 
     let password_strength = 0;
 
@@ -25,32 +20,6 @@
         { text: "minimum 1 lower-case or upper-case character", valid: false }
     ];
 
-    let email_input_element: HTMLInputElement;
-    let password_input_element: HTMLInputElement;
-    let confirm_password_input_element: HTMLInputElement;
-
-    // Client API:
-    const { form, errors, enhance } = superForm(data.form, {
-        validationMethod: "oninput",
-        validators: schema,
-        onSubmit: ({ cancel }) => {
-            if (!$form.email) {
-                email_input_element.focus();
-                $errors.email = ["Please enter a valid email address"];
-                cancel();
-            } else if (!$form.password) {
-                password_input_element.focus();
-                cancel();
-            } else if ($form.confirm_password !== $form.password) {
-                confirm_password_input_element.focus();
-                $errors.confirm_password = ["Passwords do not match"];
-                cancel();
-            } else if (password_strength < 4) {
-                cancel();
-            }
-        }
-    });
-
     // Configure ZXCVBN
     const zxcvbn_options: OptionsType = {
         translations: zxcvbnEnPackage.translations,
@@ -58,28 +27,9 @@
         dictionary: {
             ...zxcvbnCommonPackage.dictionary,
             ...zxcvbnEnPackage.dictionary,
-            userInputs: [...Object.values($form)]
         }
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
-
-    const password_validation = _.debounce(() => {
-        password_strength = zxcvbn($form.password).score;
-
-        let password_errors = $errors.password ?? [];
-        if (password_errors) {
-            password_requirements[0].valid = !password_errors.includes("atleast_8");
-            password_requirements[1].valid = !password_errors.includes("missing_one_number");
-            password_requirements[2].valid = !password_errors.includes("missing_one_special_character");
-            password_requirements[3].valid = !password_errors.includes("missing_one_upper_or_lowercase");
-        }
-    });
-
-    const confirm_password_validation = _.debounce((event) => {
-        if (event.target.value !== $form.password) {
-            $errors.confirm_password = ["Passwords do not match"];
-        }
-    });
 </script>
 
 <svelte:head>
@@ -89,8 +39,6 @@
 <register-page>
     <form
         class="flex h-full flex-col justify-between py-[1.5vw]"
-        method="POST"
-        use:enhance
     >
         <form-fields>
             <email-field>
@@ -102,22 +50,16 @@
                 </label>
                 <!-- svelte-ignore a11y-autofocus -->
                 <input
-                    bind:this={email_input_element}
-                    bind:value={$form.email}
                     name="email"
                     id="email"
                     placeholder="username@mail"
                     autofocus={true}
                     class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
                 />
-                {#if $errors.email}
-                    <span class="text-[0.75vw] text-surface-300">{$errors.email[0]}</span>
-                {:else}
-                    <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                        <Info style="width: 0.9375vw; opacity: 0.7" />
-                        <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
-                    </info>
-                {/if}
+                <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
+                    <Info style="width: 0.9375vw; opacity: 0.7" />
+                    <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
+                </info>
             </email-field>
 
             <password-field>
@@ -130,14 +72,11 @@
                 <div>
                     <div class="relative flex flex-col">
                         <input
-                            bind:this={password_input_element}
-                            bind:value={$form.password}
                             type="text"
                             id="password"
                             name="password"
                             placeholder="enter a strong password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
-                            on:input={password_validation}
                         />
                     </div>
                     <password-strength class="mt-[1vw] flex flex-col">
@@ -189,18 +128,12 @@
                 <div>
                     <div class="relative flex flex-col">
                         <input
-                            bind:this={confirm_password_input_element}
-                            bind:value={$form.confirm_password}
-                            type="password"
+                            type="text"
                             id="confirm_password"
                             name="confirm_password"
                             placeholder="re-enter your password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
-                            on:input={confirm_password_validation}
                         />
-                        {#if $errors.confirm_password}
-                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
-                        {/if}
                     </div>
                 </div>
             </confirm-password-field>
