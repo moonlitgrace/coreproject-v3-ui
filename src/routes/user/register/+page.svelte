@@ -26,7 +26,7 @@
         graphs: zxcvbnCommonPackage.adjacencyGraphs,
         dictionary: {
             ...zxcvbnCommonPackage.dictionary,
-            ...zxcvbnEnPackage.dictionary,
+            ...zxcvbnEnPackage.dictionary
         }
     };
     zxcvbnOptions.setOptions(zxcvbn_options);
@@ -37,9 +37,7 @@
 </svelte:head>
 
 <register-page>
-    <form
-        class="flex h-full flex-col justify-between py-[1.5vw]"
-    >
+    <form class="flex h-full flex-col justify-between py-[1.5vw]">
         <form-fields>
             <email-field>
                 <label
