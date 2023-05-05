@@ -5,8 +5,8 @@
 
 <form class="flex h-full flex-col justify-between">
     <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">verifying you (2fa)</span>
-  
-    <form-fields>    
+
+    <form-fields>
         <otp-field>
             <label
                 for="otp"
@@ -28,7 +28,7 @@
             </div>
         </otp-field>
 
-        <div class="flex flex-col items-start mt-[2vw]">
+        <div class="mt-[2vw] flex flex-col items-start">
             <button
                 type="button"
                 class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
