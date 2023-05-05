@@ -68,8 +68,6 @@
         missing_one_number: "minimum 1 number",
         missing_one_upper_or_lowercase: "minimum 1 lower-case or upper-case character"
     };
-
-    $: console.log($errors.password);
 </script>
 
 <svelte:head>
