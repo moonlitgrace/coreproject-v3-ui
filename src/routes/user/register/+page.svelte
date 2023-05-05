@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { ComponentType } from "svelte";
+
     // We import our page components (similar to the one above).
     let one = import("./step_one.svelte");
     let two = import("./step_two.svelte");
@@ -24,7 +26,8 @@
     }
 
     // Do some wizardy here later
-    let current_page: Promise<typeof import("./step_one.svelte") | typeof import("./step_two.svelte") | typeof import("./step_three.svelte")>;
+    // https://github.com/sveltejs/language-tools/issues/486#issuecomment-1372330560
+    let current_page: Promise<{ default: ComponentType }>;
 
     $: current_page = pages[page];
 </script>
