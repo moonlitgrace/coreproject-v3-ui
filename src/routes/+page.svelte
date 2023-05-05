@@ -153,7 +153,6 @@
                 title?: string;
                 icon: {
                     component: typeof SvelteComponentDev;
-                    style: string;
                     class: string;
                 };
             };
@@ -164,24 +163,21 @@
                 title: "Forums",
                 icon: {
                     component: Forum,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             },
             last_watched: {
                 title: "Last watched anime",
                 icon: {
                     component: Recent,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             },
             notifications: {
                 title: "Notifications",
                 icon: {
                     component: Notifications,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             }
         },
@@ -189,29 +185,25 @@
             language: {
                 icon: {
                     component: Language,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             },
             preferences: {
                 icon: {
                     component: Preference,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             },
             theme: {
                 icon: {
                     component: Moon,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             },
             settings: {
                 icon: {
                     component: SettingsOutline,
-                    style: "width: 1.25vw;",
-                    class: "text-surface-900"
+                    class: "text-surface-900 w-[1.25vw]"
                 }
             }
         }
@@ -289,24 +281,20 @@
                                 <div class="mb-[1vw] mt-[5vw] flex gap-[2.5vw] sm:mb-0 sm:mt-[2.625vw] sm:gap-[1vw]">
                                     <button class="btn btn-icon flex h-[10vw] w-[20vw] justify-center rounded-[2vw] bg-warning-400 text-[3vw] font-bold text-surface-900 sm:h-[3.125vw] sm:w-[5.4375vw] sm:rounded-[0.625vw] sm:text-[0.875vw]">
                                         <PlayCircle
-                                            style="width: 1.25vw;"
-                                            class="hidden text-surface-900 sm:flex"
+                                            class="hidden text-surface-900 sm:flex w-[1.25vw]"
                                         />
                                         <PlayCircle
-                                            style="width: 4vw;"
-                                            class="flex text-surface-900 sm:hidden"
+                                            class="flex text-surface-900 sm:hidden w-[4vw]"
                                         />
                                         <span>Ep 1</span>
                                     </button>
 
                                     <button class="btn btn-icon flex h-[10vw] w-[22vw] items-center justify-center rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-semibold text-surface-50 sm:h-[3.125vw] sm:w-[6.5vw] sm:rounded-[0.5vw] sm:text-[0.875vw] sm:font-bold">
                                         <Info
-                                            style="width: 1.25vw;"
-                                            class="hidden text-surface-50 sm:flex"
+                                            class="hidden text-surface-50 sm:flex w-[1.25vw]"
                                         />
                                         <Info
-                                            style="width: 4vw;"
-                                            class="flex text-surface-50 sm:hidden"
+                                            class="flex text-surface-50 sm:hidden w-[4vw]"
                                         />
                                         <span>Details</span>
                                     </button>
@@ -314,13 +302,11 @@
                                     <button class="btn btn-icon h-[10vw] w-[10vw] rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 sm:h-[3.125vw] sm:w-[3.125vw] sm:rounded-[0.5vw] sm:text-[0.875vw]">
                                         <Edit
                                             variant="with_underline_around_pencil"
-                                            style="width: 1.25vw;"
-                                            class="hidden text-surface-50 sm:flex"
+                                            class="hidden text-surface-50 sm:flex w-[1.25vw]"
                                         />
                                         <Edit
                                             variant="with_underline_around_pencil"
-                                            style="width: 3.5vw;"
-                                            class="flex text-surface-50 sm:hidden"
+                                            class="flex text-surface-50 sm:hidden w-[3.5vw]"
                                         />
                                     </button>
                                 </div>
@@ -345,9 +331,8 @@
                     }}
                 >
                     <Chevron
-                        style="width: 1.25vw;"
                         color="text-white"
-                        class="rotate-90"
+                        class="rotate-90 w-[1.25vw]"
                     />
                 </button>
                 <button
@@ -359,9 +344,8 @@
                     }}
                 >
                     <Chevron
-                        style="width: 1.25vw;"
                         color="text-white"
-                        class="-rotate-90"
+                        class="-rotate-90 w-[1.25vw]"
                     />
                 </button>
 
@@ -384,10 +368,10 @@
             <div class="flex items-center gap-[0.625vw]">
                 <span class="text-[1.25vw] font-bold">Latest Episodes</span>
                 <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-                    <SettingsOutline style="width: 0.8vw;" />
+                    <SettingsOutline class="w-[0.8vw]" />
                 </button>
                 <button class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
-                    <Expand style="width: 0.8vw;" />
+                    <Expand class="w-[0.8vw]" />
                     <span>Expand</span>
                 </button>
             </div>
@@ -420,7 +404,7 @@
                                     </div>
                                 </div>
                                 <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
-                                    <Play style="width: 1.25vw;" />
+                                    <Play class="w-[1.25vw]" />
                                 </button>
                             </div>
                         </div>
@@ -455,7 +439,6 @@
                             <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
                                 <svelte:component
                                     this={item_icon.component}
-                                    style={item_icon.style}
                                     class={item_icon.class}
                                 />
                             </button>
@@ -473,7 +456,6 @@
                             <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
                                 <svelte:component
                                     this={item_icon.component}
-                                    style={item_icon.style}
                                     class={item_icon.class}
                                 />
                             </button>
@@ -482,7 +464,7 @@
                 </div>
 
                 <div class="mt-[1vw] grid place-items-center">
-                    <CoreProject style="width: 6.375vw;" />
+                    <CoreProject class="w-[6.375vw]" />
                 </div>
             </div>
         </navigation-card>
@@ -493,7 +475,7 @@
             <div class="flex items-center gap-[0.625vw]">
                 <span class="text-[1.25vw] font-bold">My List</span>
                 <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-                    <SettingsOutline style="width: 0.9vw;" />
+                    <SettingsOutline class="w-[0.9vw]" />
                 </button>
             </div>
 
@@ -505,11 +487,11 @@
                 <div class="flex items-center gap-[1vw]">
                     <button class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         Watching
-                        <Chevron style="width: 1vw;" />
+                        <Chevron class="w-[1vw]" />
                     </button>
                     <button class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         Full List
-                        <ArrowUpRight style="width: 1vw;" />
+                        <ArrowUpRight class="w-[1vw]" />
                     </button>
                 </div>
             </div>
@@ -549,16 +531,14 @@
                                 <div class="flex flex-col gap-[0.5vw]">
                                     <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
                                         <PlayCircle
-                                            style="width: 1.25vw;"
-                                            class="text-surface-900"
+                                            class="text-surface-900 w-[1.25vw]"
                                         />
                                         Ep {anime.current_episode}
                                     </button>
 
                                     <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
                                         <Info
-                                            style="width: 1.25vw;"
-                                            class="text-surface-50"
+                                            class="text-surface-50 w-[1.25vw]"
                                         />
                                         Info
                                     </button>
@@ -599,8 +579,7 @@
                                 <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                                     <span>{anime_type}</span>
                                     <Circle
-                                        style="width: 0.2vw;"
-                                        class="text-surface-50"
+                                        class="text-surface-50 w-[0.2vw]"
                                     />
                                     <span class="capitalize">
                                         {new format_date(anime_release_date).format_to_season}
@@ -613,8 +592,7 @@
                                         69% <span class="text-surface-200">[7852 ratings]</span>
                                     </span>
                                     <Circle
-                                        style="width: 0.2vw;"
-                                        class="text-surface-50"
+                                        class="text-surface-50 w-[0.2vw]"
                                     />
                                     <span>{anime_studio_name}</span>
                                 </div>
@@ -623,8 +601,7 @@
                             <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
                                 <span>Watching</span>
                                 <Circle
-                                    style="width: 0.2vw;"
-                                    class="text-surface-900"
+                                    class="text-surface-900 w-[0.2vw]"
                                 />
                                 <span>
                                     {anime_current_episode}/{anime_episodes_count}
@@ -637,5 +614,4 @@
             </div>
         </div>
     </my-list>
-    <!-- <div class="w-full h-[1000px] bg-surface-400" /> -->
 </div>

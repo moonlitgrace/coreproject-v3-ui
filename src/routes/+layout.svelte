@@ -316,7 +316,7 @@
 
                             <a
                                 href={item_url}
-                                style="text-decoration: none;"
+                                class="!no-underline"
                             >
                                 <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
