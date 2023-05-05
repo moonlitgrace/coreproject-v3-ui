@@ -90,11 +90,21 @@
 </script>
 
 <form
-    class="flex h-full flex-col justify-between py-[1.5vw]"
+    class="flex h-full flex-col justify-between"
     method="POST"
     use:form
 >
     <form-fields>
+        <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white pb-[1vw]">
+            create your&nbsp;
+            <span class="flex items-center text-surface-50">
+                <span>c</span>
+                <span class="text-warning-400">o</span>
+                <span>r</span>
+                <span>e</span>
+            </span>
+            &nbsp;account
+        </span>
         <email-field>
             <label
                 for="email"
