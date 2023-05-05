@@ -16,9 +16,13 @@
 
     // Our handlers
     function onSubmit(values: CustomEvent) {
-        // If we're not on the last page, store our data and increase a step
-        pages_state[page] = values.detail;
-        page += 1;
+        if (page === pages.length - 1) {
+            // end of the page. do something.. Maybe seek for anime girls with stockings and leggings
+        } else {
+            // If we're not on the last page, store our data and increase a step
+            pages_state[page] = values.detail;
+            page += 1;
+        }
     }
 
     let current_page: typeof SvelteComponent;
