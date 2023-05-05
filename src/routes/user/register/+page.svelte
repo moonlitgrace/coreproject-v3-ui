@@ -45,7 +45,7 @@
         confirm_password: z.string()
     });
 
-    const { form, errors, data, isDirty } = createForm<z.infer<typeof schema>>({
+    const { form, errors, data, touched } = createForm<z.infer<typeof schema>>({
         extend: [reporter, validator({ schema })], // OR `extend: [validator],`
         onSubmit: (values) => {
             // ...
@@ -173,7 +173,7 @@
                                             <div class="flex flex-col gap-1">
                                                 {#each Object.values(password_error_mapping) as item}
                                                     <div class="flex gap-2">
-                                                        {#if $data.password && !$errors.password && !isDirty}
+                                                        {#if $data.password && !$errors.password && $touched.password}
                                                             <svelte:component
                                                                 this={Tick}
                                                                 style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
