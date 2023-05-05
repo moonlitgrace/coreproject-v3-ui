@@ -1,6 +1,6 @@
 <script lang="ts">
     import _ from "lodash";
-    import { createForm, getValue } from "felte";
+    import { createForm } from "felte";
     import Info from "$icons/info.svelte";
     import Cross from "$icons/cross.svelte";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
