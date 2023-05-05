@@ -145,9 +145,9 @@
                         </div>
 
                         <div class="mt-[1vw]">
-                            <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
-                            <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
-                                {#if mounted}
+                            {#if mounted}
+                                <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
+                                <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
                                     <ValidationMessage
                                         for="password"
                                         let:messages={message}
@@ -155,49 +155,51 @@
                                         <!-- So we get an array of items  -->
                                         {#if Array.isArray(message)}
                                             <!-- Logics for cross and ticks -->
-                                            {#each Object.entries(password_error_mapping) as item}
-                                                {@const object_key = item[0]}
-                                                {@const object_value = item[1]}
+                                            <div class="flex flex-col">
+                                                {#each Object.entries(password_error_mapping) as item}
+                                                    {@const object_key = item[0]}
+                                                    {@const object_value = item[1]}
 
-                                                <div class="mt-[0.5vw] flex gap-2">
-                                                    {#if message.includes(object_key)}
-                                                        <svelte:component
-                                                            this={Cross}
-                                                            class="w-[0.9vw] text-red-500 opacity-80"
-                                                        />
-                                                    {:else}
-                                                        <svelte:component
-                                                            this={Tick}
-                                                            class="w-[0.7vw] text-primary-400 opacity-90"
-                                                        />
-                                                    {/if}
-                                                    <span class="text-[0.75vw] text-surface-300">{object_value}</span>
-                                                </div>
-                                            {/each}
+                                                    <div class="grid grid-cols-12 items-center gap-2">
+                                                        {#if message.includes(object_key)}
+                                                            <svelte:component
+                                                                this={Cross}
+                                                                class="col-span-1 w-[0.9vw] text-red-500 opacity-80"
+                                                            />
+                                                        {:else}
+                                                            <svelte:component
+                                                                this={Tick}
+                                                                class="col-span-1 w-[0.7vw] text-primary-400 opacity-90"
+                                                            />
+                                                        {/if}
+                                                        <span class="col-span-11 text-[0.75vw] text-surface-300">{object_value}</span>
+                                                    </div>
+                                                {/each}
+                                            </div>
                                         {/if}
                                         <div slot="placeholder">
-                                            <div class="flex flex-col gap-1">
+                                            <div class="flex flex-col">
                                                 {#each Object.values(password_error_mapping) as item}
-                                                    <div class="flex gap-2">
+                                                    <div class="grid grid-cols-12 items-center gap-2">
                                                         {#if $data.password && !$errors.password && $touched.password}
                                                             <svelte:component
                                                                 this={Tick}
-                                                                class="w-[0.7vw] text-primary-400 opacity-90"
+                                                                class="col-span-1 w-[0.7vw] text-primary-400 opacity-90"
                                                             />
                                                         {:else}
                                                             <svelte:component
                                                                 this={Cross}
-                                                                class="w-[0.9vw] text-red-500 opacity-80"
+                                                                class="col-span-1 w-[0.9vw] text-red-500 opacity-80"
                                                             />
                                                         {/if}
-                                                        <span class="text-[0.8vw] text-surface-300">{item}</span>
+                                                        <span class="col-span-11 text-[0.75vw] text-surface-300">{item}</span>
                                                     </div>
                                                 {/each}
                                             </div>
                                         </div>
                                     </ValidationMessage>
-                                {/if}
-                            </div>
+                                </div>
+                            {/if}
                         </div>
                     </password-strength>
                 </div>
