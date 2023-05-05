@@ -37,7 +37,9 @@
 
     import { page, navigating } from "$app/stores";
 
-    import { beforeUpdate, type SvelteComponentDev } from "svelte/internal";
+    import type { SvelteComponentDev } from "svelte/internal";
+    import { beforeUpdate } from "svelte";
+    import { beforeNavigate } from "$app/navigation";
 
     // skeleton and floating-ui
     import { popup } from "@skeletonlabs/skeleton";
@@ -201,6 +203,7 @@
             Object.entries(_).forEach((item) => {
                 const button_name = item[0] as typeof active_button;
                 const internal_object = item[1];
+
                 if ("url" in internal_object) {
                     const url = internal_object.url as String;
                     if (url === $page.url.pathname) {
@@ -211,9 +214,10 @@
         });
     }
 
-    $: if ($navigating) {
+    beforeNavigate(async () => {
         change_url();
-    }
+    });
+
     beforeUpdate(() => {
         change_url();
     });
@@ -273,7 +277,7 @@
                         placeholder="Search for animes, mangas..."
                         class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
                     />
-                    <button class="btn absolute right-[3vw] top-[3vw] p-0 hidden">
+                    <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
                         <MoreVertical class="w-[5vw] opacity-90" />
                     </button>
                 </form>
@@ -327,7 +331,7 @@
                                     <svelte:component
                                         this={item_icon.component}
                                         color={item_icon.color}
-                                        class="col-span-1 flex sm:hidden w-[4vw]"
+                                        class="col-span-1 flex w-[4vw] sm:hidden"
                                     />
                                     <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
                                         {item_name}
