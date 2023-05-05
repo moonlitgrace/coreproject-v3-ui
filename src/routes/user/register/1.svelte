@@ -15,9 +15,6 @@
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
 
-    export let initialValues;
-    export let onSubmit;
-
     let password_strength = 0;
 
     const options = {
@@ -40,22 +37,38 @@
 
     const dispatch = createEventDispatcher();
 
-    export const schema = z.object({
-        email: z.string().email("Please enter a valid email address"),
+    export const schema = z
+        .object({
+            email: z.string().email("Please enter a valid email address"),
 
-        password: z
-            .string()
-            .min(8, "atleast_8")
-            .refine((val) => /(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(val), "missing_one_special_character")
-            .refine((val) => /(?=.*\d)/.test(val), "missing_one_number")
-            .refine((val) => /(?=.*[A-Z])|(?=.*[a-z])/.test(val), "missing_one_upper_or_lowercase"),
+            password: z
+                .string()
+                .min(8, "atleast_8")
+                .refine((val) => /(?=.*[!@#$%^&*()_+|~\-=?;:'",.<>{}[\]\\/])/.test(val), "missing_one_special_character")
+                .refine((val) => /(?=.*\d)/.test(val), "missing_one_number")
+                .refine((val) => /(?=.*[A-Z])|(?=.*[a-z])/.test(val), "missing_one_upper_or_lowercase"),
 
-        confirm_password: z.string()
-    });
+            confirm_password: z.string()
+        })
+        .superRefine(({ password, confirm_password }, ctx) => {
+            if (confirm_password !== password) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    message: "<b>Password</b> and <b>Confirm Password</b> doesn't match",
+                    path: ["confirm_password"]
+                });
+            }
+        });
 
     const { form, errors, data, touched } = createForm<z.infer<typeof schema>>({
-        initialValues,
-        onSubmit,
+        initialValues: {
+            email: "",
+            password: "",
+            confirm_password: ""
+        },
+        onSubmit: async (values) => {
+            dispatch("submit", values);
+        },
         extend: [reporter, validator({ schema })],
         validate: (values) => {
             // Configure ZXCVBN
@@ -223,7 +236,7 @@
                             for="confirm_password"
                             let:messages={message}
                         >
-                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{message}</span>
+                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{@html message}</span>
                             <div slot="placeholder" />
                         </ValidationMessage>
                     {/if}

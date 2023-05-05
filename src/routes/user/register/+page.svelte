@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { SvelteComponent } from "svelte";
+
     // We import our page components (similar to the one above).
     import One from "./1.svelte";
     import Two from "./2.svelte";
@@ -10,15 +12,18 @@
     let page = 0;
 
     // The state of all of our pages
-    let pagesState: Array<object> = [];
+    let pages_state: { [key: number]: {} } = [];
 
     // Our handlers
-    function onSubmit(values: {}) {
+    function onSubmit(values: CustomEvent) {
         // If we're not on the last page, store our data and increase a step
-        pagesState[page] = values;
-        pagesState = pagesState; // Triggering update
+        pages_state[page] = values.detail;
         page += 1;
     }
+
+    let current_page: typeof SvelteComponent;
+
+    $: current_page = pages[page];
 </script>
 
 <svelte:head>
@@ -27,7 +32,6 @@
 
 <!-- We display the current step here -->
 <svelte:component
-    this={pages[page]}
-    {onSubmit}
-    initialValues={pagesState[page]}
+    this={current_page}
+    on:submit={onSubmit}
 />
