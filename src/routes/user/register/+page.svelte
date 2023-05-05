@@ -153,7 +153,7 @@
                                         <!-- So we get an array of items  -->
                                         {#if Array.isArray(message)}
                                             <!-- Logics for cross -->
-                                            {#each message as crossed_item}
+                                            {#each Object.keys(password_error_mapping).filter((key) => !message.includes(key)) as crossed_item}
                                                 <div class="flex gap-2">
                                                     <svelte:component
                                                         this={Tick}
@@ -165,7 +165,7 @@
                                             {/each}
 
                                             <!-- Logics for cross items  -->
-                                            {#each Object.keys(password_error_mapping).filter((key) => !message.includes(key)) as ticked_item}
+                                            {#each message as ticked_item}
                                                 <div class="flex gap-2">
                                                     <svelte:component
                                                         this={Cross}
@@ -179,10 +179,18 @@
                                             <div class="flex flex-col gap-1">
                                                 {#each Object.values(password_error_mapping) as item}
                                                     <div class="flex gap-2">
-                                                        <svelte:component
-                                                            this={Cross}
-                                                            style="width: 0.9vw; color: red; opacity: 0.8"
-                                                        />
+                                                        {#if $errors.password}
+                                                            <svelte:component
+                                                                this={Cross}
+                                                                style="width: 0.9vw; color: red; opacity: 0.8"
+                                                            />
+                                                        {:else}
+                                                            <svelte:component
+                                                                this={Tick}
+                                                                class="col-span-1"
+                                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                            />
+                                                        {/if}
                                                         <span class="text-[0.8vw] text-surface-300">{item}</span>
                                                     </div>
                                                 {/each}
@@ -190,17 +198,6 @@
                                         </div>
                                     </ValidationMessage>
                                 {/if}
-                                <!-- {#each password_requirements as requirement}
-                                    <div class="grid grid-cols-12 items-center">
-                                        {#if requirement.valid}
-                                          
-                                        {:else}
-                                         
-                                        {/if}
-
-                                        <span class="col-span-11 text-[0.8vw] text-surface-300">{requirement.text}</span>
-                                    </div>
-                                {/each} -->
                             </div>
                         </div>
                     </password-strength>
