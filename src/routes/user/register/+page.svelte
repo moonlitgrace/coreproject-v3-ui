@@ -1,12 +1,10 @@
 <script lang="ts">
-    import type { SvelteComponent } from "svelte";
-
     // We import our page components (similar to the one above).
-    import One from "./step_one.svelte";
-    import Two from "./step_two.svelte";
-    import Three from "./step_three.svelte";
+    let one = import("./step_one.svelte");
+    let two = import("./step_two.svelte");
+    let three = import("./step_three.svelte");
 
-    const pages = [One, Two, Three];
+    const pages = [one, two, three];
 
     // The current page of our form.
     let page = 0;
@@ -25,7 +23,8 @@
         }
     }
 
-    let current_page: typeof SvelteComponent;
+    // Do some wizardy here later
+    let current_page: any;
 
     $: current_page = pages[page];
 </script>
@@ -35,7 +34,9 @@
 </svelte:head>
 
 <!-- We display the current step here -->
-<svelte:component
-    this={current_page}
-    on:submit={onSubmit}
-/>
+{#await current_page then Module}
+    <svelte:component
+        this={Module.default}
+        on:submit={onSubmit}
+    />
+{/await}
