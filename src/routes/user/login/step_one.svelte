@@ -1,5 +1,5 @@
 <script lang="ts">
-        import ArrowUpRight from "$icons/arrow_up_right.svelte";
+    import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
     import { createForm } from "felte";
     import { z } from "zod";
@@ -38,10 +38,13 @@
     });
 </script>
 
-<form class="flex h-full flex-col justify-between" use:form>
+<form
+    class="flex h-full flex-col justify-between"
+    use:form
+>
     <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">hey there! welcome back</span>
-  
-    <form-fields>    
+
+    <form-fields>
         <email-or-username-field>
             <label
                 for="email-or-username"
@@ -83,7 +86,7 @@
             </div>
         </password-field>
 
-        <div class="flex flex-col items-start mt-[3vw]">
+        <div class="mt-[3vw] flex flex-col items-start">
             <button
                 type="button"
                 class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
