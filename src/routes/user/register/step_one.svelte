@@ -7,7 +7,7 @@
     import { validator } from "@felte/validator-zod";
     import { z } from "zod";
     import { reporter, ValidationMessage } from "@felte/reporter-svelte";
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import { createEventDispatcher } from "svelte";
 
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
@@ -32,6 +32,9 @@
     let mounted = false;
     onMount(() => {
         mounted = true;
+    });
+    onDestroy(() => {
+        mounted = false;
     });
 
     const dispatch = createEventDispatcher();
@@ -264,7 +267,7 @@
         <div class="flex flex-col">
             <span class="text-[0.75vw] text-surface-100">Already have an account?</span>
             <a
-                href="/user/login"
+                href="./login"
                 class="text-[1.1vw]"
             >
                 Login
