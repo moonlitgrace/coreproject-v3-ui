@@ -31,7 +31,7 @@
             [key: string]: {
                 icon: {
                     component: typeof SvelteComponentDev;
-                    style: string;
+                    class: string;
                     color?: string;
                     variant?: boolean | string;
                 };
@@ -42,14 +42,14 @@
             read: {
                 icon: {
                     component: Read,
-                    style: "width: 1.5vw;",
+                    class: "w-[1.5vw]",
                     color: "bg-surface-500"
                 }
             },
             listen: {
                 icon: {
                     component: Listen,
-                    style: "width: 1.5vw;",
+                    class: "w-[1.5vw]",
                     color: "bg-surface-500"
                 }
             }
@@ -59,26 +59,26 @@
                 icon: {
                     component: Video,
                     variant: false,
-                    style: "width: 1.125vw;"
+                    class: "w-[1.125vw]"
                 }
             },
             edit: {
                 icon: {
                     component: Edit,
                     variant: "with_underline_around_pencil",
-                    style: "width: 1.125vw;"
+                    class: "w-[1.125vw]"
                 }
             },
             download: {
                 icon: {
                     component: Download,
-                    style: "width: 1.125vw;"
+                    class: "w-[1.125vw]"
                 }
             },
             share: {
                 icon: {
                     component: Share,
-                    style: "width: 1.125vw;"
+                    class: "w-[1.125vw]"
                 }
             }
         }
@@ -125,7 +125,7 @@
                         >
                             <div class="flex items-center justify-center md:gap-[0.7vw]">
                                 <PlayCircle
-                                    style="width: 1.875vw;"
+                                    class="w-[1.875vw]"
                                     color="white"
                                 />
                                 <div class="flex flex-col items-start">
@@ -139,7 +139,7 @@
                             {@const item_name = item[0]}
                             {@const item_icon = item[1].icon}
                             {@const component = item_icon.component}
-                            {@const component_style = item_icon.style}
+                            {@const component_class = item_icon.class}
                             {@const component_color = item_icon.color}
 
                             <button
@@ -149,7 +149,7 @@
                                 <div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
                                     <svelte:component
                                         this={component}
-                                        style={component_style}
+                                        class={component_class}
                                         color={component_color}
                                     />
                                     <span class="md:leading-[1vw]">{item_name}</span>
@@ -162,7 +162,7 @@
                         {#each Object.entries(icon_mapping.user_options_icons) as item}
                             {@const item_icon = item[1].icon}
                             {@const component = item_icon.component}
-                            {@const component_style = item_icon.style}
+                            {@const component_class = item_icon.class}
                             {@const component_variant = item_icon.variant}
 
                             <button
@@ -171,7 +171,7 @@
                             >
                                 <svelte:component
                                     this={component}
-                                    style={component_style}
+                                    class={component_class}
                                     variant={component_variant}
                                 />
                             </button>
@@ -185,8 +185,7 @@
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
                     <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline
-                            style="width: 0.9vw;"
-                            class="opacity-75"
+                            class="opacity-75 w-[0.9vw]"
                         />
                     </button>
                 </div>
@@ -215,7 +214,7 @@
                         Status:
                         <span class="text-warning-400">Watching</span>
                         <Chevron
-                            style="width: 0.625vw;"
+                            class="w-[0.625vw"
                             color="warning-400"
                         />
                     </div>
@@ -227,7 +226,7 @@
                         Your Score:
                         <span class="text-warning-400">Not Rated</span>
                         <Chevron
-                            style="width: 0.625vw;"
+                            class="w-[0.625vw]"
                             color="warning-400"
                         />
                     </div>
