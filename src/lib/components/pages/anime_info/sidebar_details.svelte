@@ -13,8 +13,7 @@
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
         <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline
-                style="width: 0.9vw;"
-                class="opacity-75"
+                class="opacity-75 w-[0.9vw]"
             />
         </button>
     </div>
@@ -38,7 +37,7 @@
 
         <button class="btn bg-secondary-100 text-surface-500 md:mt-[1.125vw] md:h-[2vh] md:w-[9vw] md:rounded-[0.18vw] md:text-[0.75vw] md:leading-[0.9vw]">
             <div class="flex items-center justify-center gap-1">
-                <TrendingUp style="width: 0.75vw;" />
+                <TrendingUp class="w-[0.75vw]" />
                 Detailed Distribution
             </div>
         </button>
@@ -54,9 +53,9 @@
                 <span class="font-bold md:text-[0.95vw] md:leading-[1.125vw]">92%</span>
                 <button class="btn btn-icon bg-secondary-100 p-1 text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]">
                     <Edit
-                        style="width: 0.75vw;"
                         variant="without_underline_around_pencil"
                         color="bg-surface-500"
+                        style="width: 0.75vw;"
                     />
                 </button>
             </div>
@@ -64,7 +63,7 @@
 
         <button class="btn btn-sm flex items-center gap-2 p-0 md:mt-[1.25vw] md:text-[0.75vw] md:leading-[0.9vw]">
             Add a review
-            <ExternalLink style="width: 0.75vw;" />
+            <ExternalLink class="w-[0.75vw]" />
         </button>
     </div>
 </div>
