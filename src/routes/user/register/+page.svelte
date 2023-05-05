@@ -24,7 +24,7 @@
     }
 
     // Do some wizardy here later
-    let current_page: any;
+    let current_page: Promise<typeof import("./step_one.svelte") | typeof import("./step_two.svelte") | typeof import("./step_three.svelte")>;
 
     $: current_page = pages[page];
 </script>
