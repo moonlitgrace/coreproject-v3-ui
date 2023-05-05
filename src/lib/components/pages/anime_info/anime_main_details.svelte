@@ -26,51 +26,14 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Edit from "$icons/edit.svelte";
     import Chevron from "$icons/chevron.svelte";
-
     const icon_mapping: {
-        anime_options: {
-            read: {
+        [key: string]: {
+            [key: string]: {
                 icon: {
                     component: typeof SvelteComponentDev;
                     style: string;
                     color?: string;
-                };
-            };
-            listen: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color?: string;
-                };
-            };
-        };
-        user_options_icons: {
-            video: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    variant?: string | boolean;
-                    style: string;
-                };
-            };
-            edit: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    variant?: string | boolean;
-                    style: string;
-                };
-            };
-            download: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    variant?: "with_underline_around_pencil" | "without_underline_around_pencil";
-                    style: string;
-                };
-            };
-            share: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    variant?: string | boolean;
-                    style: string;
+                    variant?: boolean | string;
                 };
             };
         };
