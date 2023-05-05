@@ -1,5 +1,4 @@
 <script lang="ts">
-    import _ from "lodash";
     import { createForm } from "felte";
     import Info from "$icons/info.svelte";
     import Cross from "$icons/cross.svelte";
@@ -37,7 +36,7 @@
 
     const dispatch = createEventDispatcher();
 
-    export const schema = z
+    const schema = z
         .object({
             email: z.string().email("Please enter a valid email address"),
 
