@@ -46,7 +46,12 @@
     });
 
     const { form, errors, data, touched } = createForm<z.infer<typeof schema>>({
-        extend: [reporter, validator({ schema })], // OR `extend: [validator],`
+        initialValues: {
+            email: "",
+            password: "",
+            confirm_password: ""
+        },
+        extend: [reporter, validator({ schema })],
         onSubmit: (values) => {
             // ...
         },
