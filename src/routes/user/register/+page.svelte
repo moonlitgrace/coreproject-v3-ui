@@ -50,10 +50,10 @@
         onSubmit: (values) => {
             // ...
         },
-        validate: (value) => {
+        validate: (values) => {
             // Configure ZXCVBN
-            if (value.password) {
-                password_strength = zxcvbn(value.password).score;
+            if (values.password) {
+                password_strength = zxcvbn(values.password).score;
             } else {
                 password_strength = 0;
             }
@@ -153,6 +153,7 @@
                                             {#each Object.entries(password_error_mapping) as item}
                                                 {@const object_key = item[0]}
                                                 {@const object_value = item[1]}
+
                                                 <div class="mt-[0.5vw] flex gap-2">
                                                     {#if message.includes(object_key)}
                                                         <svelte:component
