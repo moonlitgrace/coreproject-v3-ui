@@ -27,6 +27,8 @@
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
+    // Dont remove this unless you know what you are doing
+    // Is meant to be a temporary workaround
     let mounted = false;
     onMount(() => {
         mounted = true;
@@ -145,9 +147,9 @@
                         </div>
 
                         <div class="mt-[1vw]">
-                            {#if mounted}
-                                <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
-                                <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
+                            <span class="mt-[1vw] text-[1vw] font-semibold uppercase tracking-wider text-surface-50">must contain</span>
+                            <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
+                                {#if mounted}
                                     <ValidationMessage
                                         for="password"
                                         let:messages={message}
@@ -198,8 +200,8 @@
                                             </div>
                                         </div>
                                     </ValidationMessage>
-                                </div>
-                            {/if}
+                                {/if}
+                            </div>
                         </div>
                     </password-strength>
                 </div>
