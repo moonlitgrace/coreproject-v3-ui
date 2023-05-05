@@ -213,11 +213,11 @@
             });
         });
     }
-
+    // Run after navigation
     beforeNavigate(async () => {
         change_url();
     });
-
+    // Run first time
     beforeUpdate(() => {
         change_url();
     });
