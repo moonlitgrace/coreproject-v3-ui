@@ -13,6 +13,8 @@
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+   
+    let password_strength = 0;
 
     const options = {
         dictionary: {
@@ -59,8 +61,6 @@
             return undefined;
         }
     });
-
-    let password_strength = 0;
 
     const password_error_mapping: { [key: string]: string } = {
         atleast_8: "minimum 8 characters",
