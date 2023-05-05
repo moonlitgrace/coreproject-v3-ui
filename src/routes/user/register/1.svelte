@@ -115,7 +115,7 @@
                     for="email"
                     let:messages={message}
                 >
-                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{message}</span>
+                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{@html message}</span>
                     <div slot="placeholder">
                         <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
                             <Info class="w-[0.9vw] opacity-70" />
@@ -160,10 +160,10 @@
                             {#if mounted}
                                 <ValidationMessage
                                     for="password"
-                                    let:messages={message}
+                                    let:messages
                                 >
                                     <!-- So we get an array of items  -->
-                                    {#if Array.isArray(message)}
+                                    {#if Array.isArray(messages)}
                                         <!-- Logics for cross and ticks -->
                                         <div class="flex flex-col">
                                             {#each Object.entries(password_error_mapping) as item}
@@ -171,7 +171,7 @@
                                                 {@const object_value = item[1]}
 
                                                 <div class="grid grid-cols-12 items-center gap-2">
-                                                    {#if message.includes(object_key)}
+                                                    {#if messages.includes(object_key)}
                                                         <svelte:component
                                                             this={Cross}
                                                             class="col-span-1 w-[0.9vw] text-red-500 opacity-80"
@@ -182,7 +182,7 @@
                                                             class="col-span-1 w-[0.7vw] text-primary-400 opacity-90"
                                                         />
                                                     {/if}
-                                                    <span class="col-span-11 text-[0.75vw] text-surface-300">{object_value}</span>
+                                                    <span class="col-span-11 text-[0.75vw] text-surface-300">{@html object_value}</span>
                                                 </div>
                                             {/each}
                                         </div>
