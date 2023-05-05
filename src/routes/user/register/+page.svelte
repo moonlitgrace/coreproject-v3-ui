@@ -13,7 +13,7 @@
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
-   
+
     let password_strength = 0;
 
     const options = {
