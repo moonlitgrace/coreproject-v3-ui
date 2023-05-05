@@ -64,119 +64,19 @@
 
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
-
     const icon_mapping: {
-        top: {
-            search: {
+        // Top,middle,bottom
+        [key: string]: {
+            // Icon name
+            [key: string]: {
+                name?: string;
                 icon: {
                     component: typeof SvelteComponentDev;
                     style: string;
                     color: string;
                 };
-            };
-        };
-        middle: {
-            home: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-                show_on_mobile: boolean;
-            };
-
-            discover: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-                show_on_mobile: boolean;
-            };
-            list: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-                show_on_mobile: boolean;
-            };
-            schedule: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-                show_on_mobile: boolean;
-            };
-            forum: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-                show_on_mobile: boolean;
-            };
-        };
-        bottom: {
-            settings: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-            };
-            "misc.": {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-                url: undefined | string;
-            };
-        };
-        profile_dropdown: {
-            profile: {
-                name: string;
-                url: undefined | string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-            };
-            my_list: {
-                name: string;
-                url: undefined | string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-            };
-            theme: {
-                name: string;
-                url: undefined | string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
-            };
-            settings: {
-                name: string;
-                url: undefined | string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    color: string;
-                };
+                url?: string;
+                show_on_mobile?: boolean | undefined;
             };
         };
     } = {

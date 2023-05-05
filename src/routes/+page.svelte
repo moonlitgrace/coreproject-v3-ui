@@ -148,55 +148,9 @@
 
     /* Icons */
     const icon_mapping: {
-        left: {
-            forums: {
-                title: string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-            last_watched: {
-                title: string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-            notifications: {
-                title: string;
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-        };
-        bottom: {
-            language: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-            preferences: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-            theme: {
-                icon: {
-                    component: typeof SvelteComponentDev;
-                    style: string;
-                    class: string;
-                };
-            };
-            settings: {
+        [key: string]: {
+            [key: string]: {
+                title?: string;
                 icon: {
                     component: typeof SvelteComponentDev;
                     style: string;
