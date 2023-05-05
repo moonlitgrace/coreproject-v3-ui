@@ -82,7 +82,7 @@
                 <div class="absolute inset-0 bottom-[6vw] flex flex-col items-center justify-center text-center">
                     <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
                     <div class="mt-[0.5vw] flex items-center">
-                        <CoreProject style="width: 10vw;" />
+                        <CoreProject class="w-[10vw]" />
                         <span class="text-[1.75vw] font-bold text-surface-300">.moe</span>
                     </div>
                     <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
@@ -104,7 +104,7 @@
                                 class="btn p-0"
                                 on:click={change_index}
                             >
-                                <Refresh style="width: 0.8vw;" />
+                                <Refresh class="w-[0.8vw]" />
                             </button>
                         </div>
                     </div>
