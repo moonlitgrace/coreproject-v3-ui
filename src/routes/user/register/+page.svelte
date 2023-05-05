@@ -48,18 +48,15 @@
         onSubmit: (values) => {
             // ...
         },
-        debounced: {
-            timeout: 100,
-            validate: (value) => {
-                // Configure ZXCVBN
-                if (value.password) {
-                    password_strength = zxcvbn(value.password).score;
-                } else {
-                    password_strength = 0;
-                }
-
-                return undefined;
+        validate: (value) => {
+            // Configure ZXCVBN
+            if (value.password) {
+                password_strength = zxcvbn(value.password).score;
+            } else {
+                password_strength = 0;
             }
+
+            return undefined;
         }
     });
 
@@ -71,6 +68,8 @@
         missing_one_number: "minimum 1 number",
         missing_one_upper_or_lowercase: "minimum 1 lower-case or upper-case character"
     };
+
+    $: console.log($errors.password);
 </script>
 
 <svelte:head>
@@ -157,7 +156,6 @@
                                                 <div class="flex gap-2">
                                                     <svelte:component
                                                         this={Tick}
-                                                        class="col-span-1"
                                                         style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
                                                     />
                                                     <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{password_error_mapping[crossed_item]}</span>
@@ -179,16 +177,15 @@
                                             <div class="flex flex-col gap-1">
                                                 {#each Object.values(password_error_mapping) as item}
                                                     <div class="flex gap-2">
-                                                        {#if $errors.password}
+                                                        {#if $data.password}
                                                             <svelte:component
-                                                                this={Cross}
-                                                                style="width: 0.9vw; color: red; opacity: 0.8"
+                                                                this={Tick}
+                                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
                                                             />
                                                         {:else}
                                                             <svelte:component
-                                                                this={Tick}
-                                                                class="col-span-1"
-                                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                                this={Cross}
+                                                                style="width: 0.9vw; color: red; opacity: 0.8"
                                                             />
                                                         {/if}
                                                         <span class="text-[0.8vw] text-surface-300">{item}</span>
@@ -220,9 +217,15 @@
                             placeholder="re-enter your password"
                             class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
                         />
-                        <!-- {#if $errors.confirm_password}
-                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{$errors.confirm_password}</span>
-                        {/if} -->
+                        {#if mounted}
+                            <ValidationMessage
+                                for="confirm_password"
+                                let:messages={message}
+                            >
+                                <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{message}</span>
+                                <div slot="placeholder" />
+                            </ValidationMessage>
+                        {/if}
                     </div>
                 </div>
             </confirm-password-field>
