@@ -2,9 +2,9 @@
     import type { SvelteComponent } from "svelte";
 
     // We import our page components (similar to the one above).
-    import One from "./1.svelte";
-    import Two from "./2.svelte";
-    import Three from "./3.svelte";
+    import One from "./step_one.svelte";
+    import Two from "./step_two.svelte";
+    import Three from "./step_three.svelte";
 
     const pages = [One, Two, Three];
 
