@@ -89,10 +89,10 @@
     };
 
     const core_color_mapping: { [key: string]: string } = {
-        c: "text-white",
-        e: "text-white",
+        c: "text-surface-50",
+        e: "text-surface-50",
         o: "text-warning-400",
-        r: "text-white"
+        r: "text-surface-50"
     };
 </script>
 
