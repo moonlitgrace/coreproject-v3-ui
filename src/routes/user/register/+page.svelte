@@ -45,7 +45,7 @@
         confirm_password: z.string()
     });
 
-    const { form, errors, data } = createForm<z.infer<typeof schema>>({
+    const { form, errors, data, isDirty } = createForm<z.infer<typeof schema>>({
         extend: [reporter, validator({ schema })], // OR `extend: [validator],`
         onSubmit: (values) => {
             // ...
@@ -149,25 +149,23 @@
                                     >
                                         <!-- So we get an array of items  -->
                                         {#if Array.isArray(message)}
-                                            <!-- Logics for cross -->
-                                            {#each Object.keys(password_error_mapping).filter((key) => !message.includes(key)) as crossed_item}
-                                                <div class="flex gap-2">
-                                                    <svelte:component
-                                                        this={Tick}
-                                                        style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
-                                                    />
-                                                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{password_error_mapping[crossed_item]}</span>
-                                                </div>
-                                            {/each}
-
-                                            <!-- Logics for cross items  -->
-                                            {#each message as ticked_item}
-                                                <div class="flex gap-2">
-                                                    <svelte:component
-                                                        this={Cross}
-                                                        style="width: 0.9vw; color: red; opacity: 0.8"
-                                                    />
-                                                    <span class="text-[0.8vw] text-surface-300">{password_error_mapping[ticked_item]}</span>
+                                            <!-- Logics for cross and ticks -->
+                                            {#each Object.entries(password_error_mapping) as item}
+                                                {@const object_key = item[0]}
+                                                {@const object_value = item[1]}
+                                                <div class="mt-[0.5vw] flex gap-2">
+                                                    {#if message.includes(object_key)}
+                                                        <svelte:component
+                                                            this={Cross}
+                                                            style="width: 0.9vw; color: red; opacity: 0.8"
+                                                        />
+                                                    {:else}
+                                                        <svelte:component
+                                                            this={Tick}
+                                                            style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                        />
+                                                    {/if}
+                                                    <span class="text-[0.75vw] text-surface-300">{object_value}</span>
                                                 </div>
                                             {/each}
                                         {/if}
@@ -175,7 +173,7 @@
                                             <div class="flex flex-col gap-1">
                                                 {#each Object.values(password_error_mapping) as item}
                                                     <div class="flex gap-2">
-                                                        {#if $data.password}
+                                                        {#if $data.password && !$errors.password && !isDirty}
                                                             <svelte:component
                                                                 this={Tick}
                                                                 style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
