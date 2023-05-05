@@ -72,7 +72,7 @@
                 name?: string;
                 icon: {
                     component: typeof SvelteComponentDev;
-                    style: string;
+                    class: string;
                     color: string;
                 };
                 url?: string;
@@ -84,7 +84,7 @@
             search: {
                 icon: {
                     component: Search,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "black"
                 }
             }
@@ -93,7 +93,7 @@
             home: {
                 icon: {
                     component: Home,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: "/",
@@ -103,7 +103,7 @@
             discover: {
                 icon: {
                     component: Explore,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: undefined,
@@ -112,7 +112,7 @@
             list: {
                 icon: {
                     component: List,
-                    style: "width: 1.7vw",
+                    class: "w-[1.7vw]",
                     color: "white"
                 },
                 url: undefined,
@@ -121,7 +121,7 @@
             schedule: {
                 icon: {
                     component: Schedule,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: undefined,
@@ -130,7 +130,7 @@
             forum: {
                 icon: {
                     component: Forum,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: undefined,
@@ -141,7 +141,7 @@
             settings: {
                 icon: {
                     component: Settings,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: undefined
@@ -149,7 +149,7 @@
             "misc.": {
                 icon: {
                     component: Misc,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 },
                 url: undefined
@@ -161,7 +161,7 @@
                 url: "/profile/",
                 icon: {
                     component: User,
-                    style: "width: 1.25vw;",
+                    class: "w-[1.25vw]",
                     color: "white"
                 }
             },
@@ -170,7 +170,7 @@
                 url: "/mylist/",
                 icon: {
                     component: List,
-                    style: "width: 1.5vw;",
+                    class: "w-[1.5vw]",
                     color: "white"
                 }
             },
@@ -179,7 +179,7 @@
                 url: "/theme/",
                 icon: {
                     component: Moon,
-                    style: "width: 1.1vw;",
+                    class: "w-[1.1vw]",
                     color: "white"
                 }
             },
@@ -188,7 +188,7 @@
                 url: "/settings/",
                 icon: {
                     component: SettingsOutline,
-                    style: "width: 1.1vw;",
+                    class: "w-[1.1vw]",
                     color: "white"
                 }
             }
@@ -247,34 +247,34 @@
                     href="/"
                     class="hidden sm:flex"
                 >
-                    <Logo style="width: 2vw;" />
+                    <Logo class="w-[2vw]" />
                 </a>
                 <a
                     href="/"
                     class="flex sm:hidden"
                 >
-                    <Logo style="width: 7vw;" />
+                    <Logo class="w-[7vw]" />
                 </a>
 
                 <a
                     href="/"
                     class="hidden sm:flex"
                 >
-                    <AnimeCore style="width: 10vw;" />
+                    <AnimeCore class="w-[10vw]" />
                 </a>
 
                 <!-- Search form for mobile device -->
                 <form class="relative flex h-[11vw] w-[65vw] items-center sm:hidden">
                     <button class="btn absolute left-[3vw] p-0">
-                        <Search style="width: 5vw; opacity: 0.75;" />
+                        <Search class="w-[5vw] opacity-75" />
                     </button>
                     <input
                         type="text"
                         placeholder="Search for animes, mangas..."
                         class="h-full w-full rounded-[1.66vw] border-none bg-surface-400 px-[10.5vw] text-[3.33vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
                     />
-                    <button class="btn absolute right-[3vw] top-[3vw] p-0">
-                        <MoreVertical style="width: 5vw; opacity: 0.9;" />
+                    <button class="btn absolute right-[3vw] top-[3vw] p-0 hidden">
+                        <MoreVertical class="w-[5vw] opacity-90" />
                     </button>
                 </form>
 
@@ -321,15 +321,13 @@
                                 <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
-                                        style={item_icon.style}
                                         color={item_icon.color}
-                                        class="col-span-1 hidden sm:flex"
+                                        class="col-span-1 hidden sm:flex {item_icon.class}"
                                     />
                                     <svelte:component
                                         this={item_icon.component}
-                                        style="width: 4vw;"
                                         color={item_icon.color}
-                                        class="col-span-1 flex sm:hidden"
+                                        class="col-span-1 flex sm:hidden w-[4vw]"
                                     />
                                     <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
                                         {item_name}
@@ -354,7 +352,7 @@
                             >
                                 <svelte:component
                                     this={item_icon.component}
-                                    style={item_icon.style}
+                                    class={item_icon.class}
                                     color={item_icon.color}
                                 />
                             </button>
@@ -384,7 +382,7 @@
                                         >
                                             <svelte:component
                                                 this={component}
-                                                style={item_icon.style}
+                                                class={item_icon.class}
                                                 color={item_icon.color}
                                             />
                                             <span class="text-[0.875vw] capitalize leading-[1.05vw]">
@@ -398,7 +396,7 @@
                                         >
                                             <svelte:component
                                                 this={component}
-                                                style={item_icon.style}
+                                                class={item_icon.class}
                                                 color="black"
                                             />
                                         </div>
@@ -419,7 +417,7 @@
                         >
                             <svelte:component
                                 this={item_icon.component}
-                                style={item_icon.style}
+                                class={item_icon.class}
                                 color={item_icon.color}
                             />
                             <span class="!m-0 text-[0.875vw] capitalize leading-[1.05vw]">
@@ -446,21 +444,20 @@
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
-                            style="text-decoration: none;"
-                            class="flex flex-col items-center gap-[2.5vw]"
+                            class="flex flex-col items-center gap-[2.5vw] !no-underline"
                         >
                             <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[9vw] w-[15vw] rounded-[2.5vw] p-0">
                                 <div transition:blur|local>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            style="width: 4.75vw;"
+                                            class="w-[4.75vw]"
                                             color="black"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            style="width: 4.5vw;"
+                                            class="w-[4.5vw]"
                                             color={item_icon.color}
                                         />
                                     {/if}
