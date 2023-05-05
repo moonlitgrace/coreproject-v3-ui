@@ -108,7 +108,7 @@
                         <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{message}</span>
                         <div slot="placeholder">
                             <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                                <Info style="width: 0.9375vw; opacity: 0.7" />
+                                <Info class="w-[0.9vw] opacity-70" />
                                 <span class="text-[0.75vw] text-surface-300">we’ll send you a verification email, so please ensure it’s active</span>
                             </info>
                         </div>
@@ -163,12 +163,12 @@
                                                     {#if message.includes(object_key)}
                                                         <svelte:component
                                                             this={Cross}
-                                                            style="width: 0.9vw; color: red; opacity: 0.8"
+                                                            class="w-[0.9vw] text-red-500 opacity-80"
                                                         />
                                                     {:else}
                                                         <svelte:component
                                                             this={Tick}
-                                                            style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                            class="w-[0.7vw] text-primary-400 opacity-90"
                                                         />
                                                     {/if}
                                                     <span class="text-[0.75vw] text-surface-300">{object_value}</span>
@@ -182,12 +182,12 @@
                                                         {#if $data.password && !$errors.password && $touched.password}
                                                             <svelte:component
                                                                 this={Tick}
-                                                                style="width: 0.7vw; color: deepskyblue; opacity: 0.9"
+                                                                class="w-[0.7vw] text-primary-400 opacity-90"
                                                             />
                                                         {:else}
                                                             <svelte:component
                                                                 this={Cross}
-                                                                style="width: 0.9vw; color: red; opacity: 0.8"
+                                                                class="w-[0.9vw] text-red-500 opacity-80"
                                                             />
                                                         {/if}
                                                         <span class="text-[0.8vw] text-surface-300">{item}</span>
@@ -245,7 +245,7 @@
             </div>
             <button class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold">
                 <span>Continue</span>
-                <ArrowUpRight style="width: 1vw; transform: rotate(45deg)" />
+                <ArrowUpRight class="w-[1vw] rotate-45" />
             </button>
         </div>
     </form>
