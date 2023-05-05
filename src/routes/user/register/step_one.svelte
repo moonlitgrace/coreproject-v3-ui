@@ -87,6 +87,13 @@
         missing_one_number: "minimum 1 number",
         missing_one_upper_or_lowercase: "minimum 1 lower-case or upper-case character"
     };
+
+    const core_color_mapping: { [key: string]: string } = {
+        c: "text-white",
+        e: "text-white",
+        o: "text-warning-400",
+        r: "text-white"
+    };
 </script>
 
 <form
@@ -95,14 +102,13 @@
     use:form
 >
     <form-fields>
-        <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white pb-[1vw]">
+        <span class="flex items-center pb-[1vw] text-[1.2vw] font-bold uppercase tracking-widest text-white">
             create your&nbsp;
-            <span class="flex items-center text-surface-50">
-                <span>c</span>
-                <span class="text-warning-400">o</span>
-                <span>r</span>
-                <span>e</span>
-            </span>
+            <p class="inline-flex items-center text-surface-50">
+                {#each "core".split("") as item}
+                    <span class={core_color_mapping[item]}>{item}</span>
+                {/each}
+            </p>
             &nbsp;account
         </span>
         <email-field>
