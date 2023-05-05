@@ -16,6 +16,7 @@
         "format": "prettier --plugin-search-dir . --write ."
     },
     "devDependencies": {
+        "@felte/validator-zod": "^1.0.13",
         "@playwright/test": "^1.33.0",
         "@skeletonlabs/skeleton": "^1.2.5",
         "@sveltejs/adapter-node": "^1.2.4",
@@ -39,6 +40,7 @@
         "eslint": "^8.39.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-svelte3": "^4.0.0",
+        "felte": "^1.2.7",
         "lodash": "^4.17.21",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.23",
@@ -59,6 +61,7 @@
     },
     "type": "module",
     "dependencies": {
+        "@felte/reporter-svelte": "^1.1.5",
         "@floating-ui/dom": "^1.2.7"
     }
 }
