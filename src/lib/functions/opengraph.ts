@@ -173,13 +173,14 @@ export class OpengraphGenerator {
     #image?: string;
     #video?: IVideo;
 
-    constructor({ title, page_url, description, site_name, locale, audio, image_url, video, twitter }: { title: string; page_url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
+    constructor({ title, page_url, description, site_name, locale, audio, image_url, video }: { title: string; page_url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
         this.#title = title;
         this.#url = page_url;
         this.#image = image_url;
         this.#description = description;
         this.#site_name = site_name;
         this.#locale = locale;
+
         if (audio) {
             this.#audio = audio;
         }
