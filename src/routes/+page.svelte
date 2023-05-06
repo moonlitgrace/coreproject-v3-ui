@@ -280,33 +280,25 @@
 
                                 <div class="mb-[1vw] mt-[5vw] flex gap-[2.5vw] sm:mb-0 sm:mt-[2.625vw] sm:gap-[1vw]">
                                     <button class="btn btn-icon flex h-[10vw] w-[20vw] justify-center rounded-[2vw] bg-warning-400 text-[3vw] font-bold text-surface-900 sm:h-[3.125vw] sm:w-[5.4375vw] sm:rounded-[0.625vw] sm:text-[0.875vw]">
-                                        <PlayCircle
-                                            class="hidden text-surface-900 sm:flex w-[1.25vw]"
-                                        />
-                                        <PlayCircle
-                                            class="flex text-surface-900 sm:hidden w-[4vw]"
-                                        />
+                                        <PlayCircle class="hidden w-[1.25vw] text-surface-900 sm:flex" />
+                                        <PlayCircle class="flex w-[4vw] text-surface-900 sm:hidden" />
                                         <span>Ep 1</span>
                                     </button>
 
                                     <button class="btn btn-icon flex h-[10vw] w-[22vw] items-center justify-center rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-semibold text-surface-50 sm:h-[3.125vw] sm:w-[6.5vw] sm:rounded-[0.5vw] sm:text-[0.875vw] sm:font-bold">
-                                        <Info
-                                            class="hidden text-surface-50 sm:flex w-[1.25vw]"
-                                        />
-                                        <Info
-                                            class="flex text-surface-50 sm:hidden w-[4vw]"
-                                        />
+                                        <Info class="hidden w-[1.25vw] text-surface-50 sm:flex" />
+                                        <Info class="flex w-[4vw] text-surface-50 sm:hidden" />
                                         <span>Details</span>
                                     </button>
 
                                     <button class="btn btn-icon h-[10vw] w-[10vw] rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 sm:h-[3.125vw] sm:w-[3.125vw] sm:rounded-[0.5vw] sm:text-[0.875vw]">
                                         <Edit
                                             variant="with_underline_around_pencil"
-                                            class="hidden text-surface-50 sm:flex w-[1.25vw]"
+                                            class="hidden w-[1.25vw] text-surface-50 sm:flex"
                                         />
                                         <Edit
                                             variant="with_underline_around_pencil"
-                                            class="flex text-surface-50 sm:hidden w-[3.5vw]"
+                                            class="flex w-[3.5vw] text-surface-50 sm:hidden"
                                         />
                                     </button>
                                 </div>
@@ -332,7 +324,7 @@
                 >
                     <Chevron
                         color="text-white"
-                        class="rotate-90 w-[1.25vw]"
+                        class="w-[1.25vw] rotate-90"
                     />
                 </button>
                 <button
@@ -345,7 +337,7 @@
                 >
                     <Chevron
                         color="text-white"
-                        class="-rotate-90 w-[1.25vw]"
+                        class="w-[1.25vw] -rotate-90"
                     />
                 </button>
 
@@ -530,16 +522,12 @@
                             <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                 <div class="flex flex-col gap-[0.5vw]">
                                     <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                        <PlayCircle
-                                            class="text-surface-900 w-[1.25vw]"
-                                        />
+                                        <PlayCircle class="w-[1.25vw] text-surface-900" />
                                         Ep {anime.current_episode}
                                     </button>
 
                                     <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
-                                        <Info
-                                            class="text-surface-50 w-[1.25vw]"
-                                        />
+                                        <Info class="w-[1.25vw] text-surface-50" />
                                         Info
                                     </button>
                                 </div>
@@ -578,9 +566,7 @@
 
                                 <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                                     <span>{anime_type}</span>
-                                    <Circle
-                                        class="text-surface-50 w-[0.2vw]"
-                                    />
+                                    <Circle class="w-[0.2vw] text-surface-50" />
                                     <span class="capitalize">
                                         {new format_date(anime_release_date).format_to_season}
                                     </span>
@@ -591,18 +577,14 @@
                                     <span>
                                         69% <span class="text-surface-200">[7852 ratings]</span>
                                     </span>
-                                    <Circle
-                                        class="text-surface-50 w-[0.2vw]"
-                                    />
+                                    <Circle class="w-[0.2vw] text-surface-50" />
                                     <span>{anime_studio_name}</span>
                                 </div>
                             </div>
 
                             <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
                                 <span>Watching</span>
-                                <Circle
-                                    class="text-surface-900 w-[0.2vw]"
-                                />
+                                <Circle class="w-[0.2vw] text-surface-900" />
                                 <span>
                                     {anime_current_episode}/{anime_episodes_count}
                                 </span>

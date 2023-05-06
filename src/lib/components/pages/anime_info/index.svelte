@@ -18,9 +18,7 @@
         class="relative h-screen bg-cover"
         style="background-image: url({anime_cover ?? ''})"
     >
-        <TopRounded
-            class="fixed z-10 text-surface-900 w-[1.5vw]"
-        />
+        <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900" />
         <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50" />
         <div class="absolute h-full w-full md:p-[5vw]">
             <AnimeMainDetails

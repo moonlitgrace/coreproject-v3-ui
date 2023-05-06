@@ -18,9 +18,7 @@
     <div class="flex items-center gap-3">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
         <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-            <SettingsOutline
-                class="opacity-75 w-[0.9vw]"
-            />
+            <SettingsOutline class="w-[0.9vw] opacity-75" />
         </button>
     </div>
 
@@ -154,9 +152,7 @@
                 <div class="flex items-center gap-3">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
                     <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-                        <SettingsOutline
-                            class="opacity-75 w-[0.9vw]"
-                        />
+                        <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
 
@@ -192,9 +188,7 @@
                 <div class="flex items-center gap-3">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
                     <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-                        <SettingsOutline
-                            class="opacity-75 w-[0.9vw]"
-                        />
+                        <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
 
@@ -203,7 +197,7 @@
                         <button class="btn btn-sm mt-[0.3vw] h-[2.25vw] w-[7.3125vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]">
                             <Cross
                                 color="surface-50"
-                                class="rotate-45 w-[1vw]"
+                                class="w-[1vw] rotate-45"
                             />
                             Create New
                         </button>
