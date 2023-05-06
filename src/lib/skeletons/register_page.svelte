@@ -1,4 +1,4 @@
-<div class="flex h-full flex-col justify-between animate-pulse">
+<div class="flex h-full flex-col justify-between animate-pulse ">
     <form-fields>
         <div class="placeholder mb-[1.6vw] h-[1.2vw] w-[20.375vw]" />
 
@@ -47,10 +47,3 @@
         <div class="placeholder w-[7.75vw] h-[2.75vw]" />
     </div>
 </div>
-
-<style lang="scss">
-    .placeholder,
-    .placeholder-circle {
-        background-color: #1e2036 !important;
-    }
-</style>
