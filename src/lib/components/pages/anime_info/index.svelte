@@ -1,4 +1,8 @@
 <script lang="ts">
+    import TopRounded from "$icons/top_rounded.svelte";
+
+    import AnimeMainDetails from "./anime_main_details.svelte";
+
     export let anime_name: string;
     export let anime_alternative_name: string;
     export let anime_episodes_count: number;
@@ -8,9 +12,6 @@
     export let anime_cover: string;
 
     export let anime_episodes: any;
-
-    import TopRounded from "$icons/top_rounded.svelte";
-    import AnimeMainDetails from "./anime_main_details.svelte";
 </script>
 
 <div class="anime_info relative">

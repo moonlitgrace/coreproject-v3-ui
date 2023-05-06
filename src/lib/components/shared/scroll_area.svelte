@@ -1,12 +1,12 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+
     let klass = "";
     export { klass as class };
 
     export let parentClass = "";
     export let offsetScrollbar = false;
     export let gradientMask = false;
-
-    import { onMount } from "svelte";
 
     let scroll_percent = 0;
 

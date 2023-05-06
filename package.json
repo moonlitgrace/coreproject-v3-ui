@@ -25,6 +25,7 @@
         "@sveltejs/kit": "^1.16.2",
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/typography": "^0.5.9",
+        "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "@types/lodash": "^4.14.194",
         "@types/nprogress": "^0.2.0",
         "@types/voca": "^1.4.2",

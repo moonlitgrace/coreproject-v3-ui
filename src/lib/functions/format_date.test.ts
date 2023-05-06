@@ -1,5 +1,5 @@
 import { format_date } from "$functions/format_date";
-import { test, expect } from "vitest";
+import { expect, test } from "vitest";
 
 test("format date function", () => {
     const formated_date = new format_date("2023-03-11T02:37:40.790Z");

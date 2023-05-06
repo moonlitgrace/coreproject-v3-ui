@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { SVGAttributes } from "svelte/elements";
+
     interface $$Props extends SVGAttributes<SVGElement> {
         variant: "with_underline_around_pencil" | "without_underline_around_pencil";
     }

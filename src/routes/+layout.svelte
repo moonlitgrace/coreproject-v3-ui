@@ -1,52 +1,45 @@
 <script lang="ts">
-    // NProgress
-    import NProgress from "nprogress";
-    // NProgress css
-    import "nprogress/nprogress.css";
-
-    import voca from 'voca';
-    // Your custom Skeleton theme:
-    import "../theme.scss";
-
-    // This contains the bulk of Skeletons required styles:
-    import "@skeletonlabs/skeleton/styles/all.css";
-    // Most of your app wide CSS should be put in this file
-    import "../app.scss";
-    import { AppShell, Avatar } from "@skeletonlabs/skeleton";
-    import { Modal, modalStore } from "@skeletonlabs/skeleton";
-    import type { ModalSettings, ModalComponent } from "@skeletonlabs/skeleton";
-
-    import { blur } from "svelte/transition";
-
+    import { afterNavigate, beforeNavigate } from "$app/navigation";
+    import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
-
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
-    import Logo from "$icons/logo.svelte";
-    import Search from "$icons/search.svelte";
-    import Home from "$icons/home.svelte";
     import Explore from "$icons/explore.svelte";
-    import List from "$icons/list.svelte";
-    import Schedule from "$icons/schedule.svelte";
     import Forum from "$icons/forum.svelte";
-    import Settings from "$icons/settings.svelte";
+    import Home from "$icons/home.svelte";
+    import List from "$icons/list.svelte";
+    import Logo from "$icons/logo.svelte";
     import Misc from "$icons/misc.svelte";
-    import User from "$icons/user.svelte";
     import Moon from "$icons/moon.svelte";
-    import SettingsOutline from "$icons/settings_outline.svelte";
     import MoreVertical from "$icons/more_vertical.svelte";
-
-    import { page } from "$app/stores";
-
-    import type { SvelteComponentDev } from "svelte/internal";
-    import { beforeUpdate } from "svelte";
-    import { beforeNavigate, afterNavigate } from "$app/navigation";
-
+    import Schedule from "$icons/schedule.svelte";
+    import Search from "$icons/search.svelte";
+    import Settings from "$icons/settings.svelte";
+    import SettingsOutline from "$icons/settings_outline.svelte";
+    import User from "$icons/user.svelte";
+    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
+    import { AppShell, Avatar } from "@skeletonlabs/skeleton";
+    import { Modal, modalStore } from "@skeletonlabs/skeleton";
+    import type { ModalComponent, ModalSettings } from "@skeletonlabs/skeleton";
     // skeleton and floating-ui
     import { popup } from "@skeletonlabs/skeleton";
     import type { PopupSettings } from "@skeletonlabs/skeleton";
-    import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";
     import { storePopup } from "@skeletonlabs/skeleton";
+    // This contains the bulk of Skeletons required styles:
+    import "@skeletonlabs/skeleton/styles/all.css";
+    // NProgress
+    import NProgress from "nprogress";
+    import { beforeUpdate } from "svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
+    import { blur } from "svelte/transition";
+    import voca from "voca";
+
+    // Most of your app wide CSS should be put in this file
+    import "../app.scss";
+    // Custom SCSS
+    import "../nprogress.scss";
+    // Your custom Skeleton theme:
+    import "../theme.scss";
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
@@ -148,7 +141,7 @@
                 icon: {
                     component: User,
                     class: "w-[1.25vw] text-white"
-                },
+                }
             },
             my_list: {
                 name: "My List",

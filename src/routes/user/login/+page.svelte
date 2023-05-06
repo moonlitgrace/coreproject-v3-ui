@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { OpengraphGenerator } from "$functions/opengraph";
     import { page as svelte_store_page } from "$app/stores";
+    import { OpengraphGenerator } from "$functions/opengraph";
     import type { ComponentType } from "svelte";
 
     const opengraph_html = new OpengraphGenerator({

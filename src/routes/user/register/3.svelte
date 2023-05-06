@@ -1,8 +1,8 @@
 <script lang="ts">
     import Tick from "$icons/tick.svelte";
+    import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
-    import { focusTrap } from "@skeletonlabs/skeleton";
 
     export let pages_state: [
         {

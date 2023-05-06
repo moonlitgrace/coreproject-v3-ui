@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Info from "$icons/info.svelte";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
+    import Info from "$icons/info.svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
 </script>
 

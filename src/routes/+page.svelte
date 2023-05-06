@@ -1,44 +1,41 @@
 <script lang="ts">
     /* Mock datas */
+    import ScrollArea from "$components/shared/scroll_area.svelte";
     import { latest_animes } from "$data/mock/latest_animes";
-    import { my_list } from "$data/mock/my_list";
-
-    import { swipe } from "svelte-gestures";
-    import { format_date } from "$functions/format_date";
-    import voca from "voca";
     import { latest_episodes } from "$data/mock/latest_episodes";
-    import _ from "lodash";
-    import { Timer as EasyTimer } from "easytimer.js";
-    import { onDestroy, onMount } from "svelte";
+    import { my_list } from "$data/mock/my_list";
+    import { format_date } from "$functions/format_date";
+    import ArrowUpRight from "$icons/arrow_up_right.svelte";
+    import Chevron from "$icons/chevron.svelte";
+    import Circle from "$icons/circle.svelte";
+    import CoreProject from "$icons/core_project.svelte";
+    import Edit from "$icons/edit.svelte";
+    import Expand from "$icons/expand.svelte";
+    import Forum from "$icons/forum.svelte";
+    import Info from "$icons/info.svelte";
+    import Language from "$icons/language.svelte";
+    import Moon from "$icons/moon.svelte";
+    import Notifications from "$icons/notifications.svelte";
+    import Play from "$icons/play.svelte";
+    // icons
+    import PlayCircle from "$icons/play_circle.svelte";
+    import Preference from "$icons/preference.svelte";
+    import Recent from "$icons/recent.svelte";
+    import SettingsOutline from "$icons/settings_outline.svelte";
     import { timer as timerStore } from "$store/timer";
-    import { blur } from "svelte/transition";
-    import { tweened } from "svelte/motion";
-    import type { SvelteComponentDev } from "svelte/internal";
-
+    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     // skeleton and floating-ui
     import { popup } from "@skeletonlabs/skeleton";
     import type { PopupSettings } from "@skeletonlabs/skeleton";
-    import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";
     import { storePopup } from "@skeletonlabs/skeleton";
-
-    // icons
-    import PlayCircle from "$icons/play_circle.svelte";
-    import Info from "$icons/info.svelte";
-    import Edit from "$icons/edit.svelte";
-    import Chevron from "$icons/chevron.svelte";
-    import SettingsOutline from "$icons/settings_outline.svelte";
-    import Expand from "$icons/expand.svelte";
-    import ScrollArea from "$components/shared/scroll_area.svelte";
-    import Play from "$icons/play.svelte";
-    import Forum from "$icons/forum.svelte";
-    import Recent from "$icons/recent.svelte";
-    import Notifications from "$icons/notifications.svelte";
-    import Language from "$icons/language.svelte";
-    import Preference from "$icons/preference.svelte";
-    import Moon from "$icons/moon.svelte";
-    import CoreProject from "$icons/core_project.svelte";
-    import ArrowUpRight from "$icons/arrow_up_right.svelte";
-    import Circle from "$icons/circle.svelte";
+    import { Timer as EasyTimer } from "easytimer.js";
+    import _ from "lodash";
+    import { onDestroy, onMount } from "svelte";
+    import { swipe } from "svelte-gestures";
+    import type { SvelteComponentDev } from "svelte/internal";
+    import { tweened } from "svelte/motion";
+    import { blur } from "svelte/transition";
+    import voca from "voca";
 
     /* Slider codes */
     let main_hero_slide_active_index = 0;

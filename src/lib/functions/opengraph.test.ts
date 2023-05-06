@@ -1,5 +1,5 @@
-import { test, expect } from "vitest";
 import { OpengraphGenerator } from "$functions/opengraph";
+import { expect, test } from "vitest";
 
 test("opengraph function", () => {
     const opengraph_html = new OpengraphGenerator({

@@ -1,13 +1,13 @@
 <script lang="ts">
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
-    import { createForm } from "felte";
-    import { z } from "zod";
-    import { createEventDispatcher } from "svelte";
-    import { onMount, onDestroy } from "svelte";
+    import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
-    import { reporter, ValidationMessage } from "@felte/reporter-svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
+    import { createForm } from "felte";
+    import { createEventDispatcher } from "svelte";
+    import { onDestroy, onMount } from "svelte";
+    import { z } from "zod";
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
@@ -43,7 +43,7 @@
     class="flex h-full flex-col justify-between"
     use:form
     use:focusTrap={true}
-    >
+>
     <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">hey there! welcome back</span>
 
     <form-fields>

@@ -1,11 +1,10 @@
 <script lang="ts">
-    import StarRating from "svelte-star-rating";
-
+    import Edit from "$icons/edit.svelte";
+    import ExternalLink from "$icons/external_link.svelte";
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
     import TrendingUp from "$icons/trending_up.svelte";
-    import Edit from "$icons/edit.svelte";
-    import ExternalLink from "$icons/external_link.svelte";
+    import StarRating from "svelte-star-rating";
 </script>
 
 <div>

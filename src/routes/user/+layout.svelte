@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { onDestroy, onMount } from "svelte";
-    import { blur } from "svelte/transition";
-
     /* Icons */
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
+    import { onDestroy, onMount } from "svelte";
+    import { blur } from "svelte/transition";
 
     let choice_number: number;
     let choices: Array<{
