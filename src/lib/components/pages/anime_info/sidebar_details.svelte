@@ -18,8 +18,8 @@
 
     <div class="md:mt-[1.56vw]">
         <div class="flex items-center gap-1">
-            <span class="!border-b-2 !border-white/25 !pb-2 font-bold md:text-[2vw] md:leading-[1.5vw]">92%</span>
-            <span class="divider-vertical !m-0 !border-surface-50 font-semibold text-surface-50 md:pl-1 md:text-[0.75vw] md:leading-[0.8vw]">2.8k ratings</span>
+            <span class="border-b-2 border-white/25 pb-2 font-bold md:text-[2vw] md:leading-[1.5vw]">92%</span>
+            <span class="divider-vertical m-0 !border-surface-50 font-semibold text-surface-50 md:pl-1 md:text-[0.75vw] md:leading-[0.8vw]">2.8k ratings</span>
         </div>
 
         <div class="md:mt-[1.125vw]">

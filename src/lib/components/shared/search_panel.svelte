@@ -84,14 +84,15 @@
             </div>
         </div>
 
-        <span class="mt-[2vw] text-[0.8vw] text-surface-50">
-            Want even advanced searching with genres, time-ranges, tags and more? Try the <a
+        <p class="mt-[2vw] text-[0.8vw] text-surface-50">
+            Want even advanced searching with genres, time-ranges, tags and more? Try the
+            <a
                 href="/explore"
-                class="!text-surface-50"
+                class="unstyled text-surface-50 underline"
             >
                 Explore
             </a>
             page
-        </span>
+        </p>
     </div>
 </search-panel>

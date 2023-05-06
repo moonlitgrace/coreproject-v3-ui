@@ -35,11 +35,11 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import MoreVertical from "$icons/more_vertical.svelte";
 
-    import { page, navigating } from "$app/stores";
+    import { page } from "$app/stores";
 
     import type { SvelteComponentDev } from "svelte/internal";
     import { beforeUpdate } from "svelte";
-    import { beforeNavigate } from "$app/navigation";
+    import { beforeNavigate, afterNavigate } from "$app/navigation";
 
     // skeleton and floating-ui
     import { popup } from "@skeletonlabs/skeleton";
@@ -56,21 +56,13 @@
         minimum: 0.16
     });
 
-    $: {
-        if ($navigating) {
-            NProgress.start();
-        } else {
-            NProgress.done();
-        }
-    }
-
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
     const icon_mapping: {
         // Top,middle,bottom
-        [key: string]: {
+        [key in "top" | "middle" | "bottom" | "profile_dropdown"]: {
             // Icon name
-            [key: string]: {
+            [key in string]: {
                 name?: string;
                 icon: {
                     component: typeof SvelteComponentDev;
@@ -203,6 +195,10 @@
     // Run after navigation
     beforeNavigate(async () => {
         change_url();
+        NProgress.start();
+    });
+    afterNavigate(() => {
+        NProgress.done();
     });
     // Run first time
     beforeUpdate(() => {
@@ -298,7 +294,7 @@
 
                             <a
                                 href={item_href}
-                                class="{item_href ?? 'pointer-events-none'} !no-underline"
+                                class="{item_href ?? 'pointer-events-none'} unstyled"
                             >
                                 <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
@@ -408,7 +404,7 @@
         <svelte:fragment slot="footer">
             <div class="flex h-[17vw] items-center justify-center sm:hidden">
                 <div class="flex items-start justify-center gap-[5vw]">
-                    {#each Object.entries(icon_mapping.middle).filter(([key, value]) => value.show_on_mobile) as item}
+                    {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
                         {@const item_href = item[1].url}
@@ -420,7 +416,7 @@
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
-                            class="flex flex-col items-center gap-[2.5vw] !no-underline"
+                            class="unstyled flex flex-col items-center gap-[2.5vw]"
                         >
                             <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[9vw] w-[15vw] rounded-[2.5vw] p-0">
                                 <div transition:blur|local>
