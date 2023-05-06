@@ -42,15 +42,13 @@
             read: {
                 icon: {
                     component: Read,
-                    class: "w-[1.5vw]",
-                    color: "bg-surface-500"
+                    class: "w-[1.5vw] text-surface-500",
                 }
             },
             listen: {
                 icon: {
                     component: Listen,
-                    class: "w-[1.5vw]",
-                    color: "bg-surface-500"
+                    class: "w-[1.5vw] text-surface-500",
                 }
             }
         },
@@ -126,7 +124,6 @@
                             <div class="flex items-center justify-center md:gap-[0.7vw]">
                                 <PlayCircle
                                     class="w-[1.875vw]"
-                                    color="white"
                                 />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1.05vw]">Watch</span>
@@ -140,7 +137,6 @@
                             {@const item_icon = item[1].icon}
                             {@const component = item_icon.component}
                             {@const component_class = item_icon.class}
-                            {@const component_color = item_icon.color}
 
                             <button
                                 type="button"
@@ -150,7 +146,6 @@
                                     <svelte:component
                                         this={component}
                                         class={component_class}
-                                        color={component_color}
                                     />
                                     <span class="md:leading-[1vw]">{item_name}</span>
                                 </div>
@@ -214,8 +209,7 @@
                         Status:
                         <span class="text-warning-400">Watching</span>
                         <Chevron
-                            class="w-[0.625vw"
-                            color="warning-400"
+                            class="w-[0.625vw] text-warning-400"
                         />
                     </div>
                     <div class="flex items-center gap-1">
@@ -226,8 +220,7 @@
                         Your Score:
                         <span class="text-warning-400">Not Rated</span>
                         <Chevron
-                            class="w-[0.625vw]"
-                            color="warning-400"
+                            class="w-[0.625vw] text-warning-400"
                         />
                     </div>
                 </div>
