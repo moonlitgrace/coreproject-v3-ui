@@ -54,7 +54,7 @@
     });
 </script>
 
-<div class="relative grid h-[90vh] w-full">
+<div class="relative inline-grid h-full w-full grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
             {@const type = () => {
@@ -69,11 +69,12 @@
             }}
 
             <div
-                class="relative w-1/2"
+                class="relative"
+                style="grid-area: 1 / 1 / 1 / 1;"
                 transition:blur|local={{ duration: 500 }}
             >
                 <div
-                    class="h-[90vh] w-full bg-cover bg-center bg-no-repeat"
+                    class="h-full w-full bg-cover bg-center bg-no-repeat"
                     style="background-image: url('{item.image ?? ''}')"
                 />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
@@ -112,7 +113,10 @@
             </div>
         {/if}
     {/each}
-    <div class="absolute right-0 h-full w-1/2 px-[8vw] py-[2.2vw]">
+    <div
+        class="px-[8vw] py-[2.2vw]"
+        style="grid-area: 1 / 2 / 1 / 2;"
+    >
         <slot />
     </div>
 </div>

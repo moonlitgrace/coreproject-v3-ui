@@ -218,7 +218,7 @@
     }
 </script>
 
-<div class="relative h-[100dvh] w-screen sm:h-screen">
+<div class="relative h-[100dvh]">
     <Modal />
 
     <AppShell>
