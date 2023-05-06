@@ -10,9 +10,7 @@
     <div class="flex items-center gap-3">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Details</span>
         <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-            <SettingsOutline
-                class="opacity-75 w-[0.9vw]"
-            />
+            <SettingsOutline class="w-[0.9vw] opacity-75" />
         </button>
     </div>
 
@@ -131,9 +129,7 @@
                 <div class="flex items-center gap-3">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Voiceover Cast</span>
                     <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-                        <SettingsOutline
-                            class="opacity-75 w-[0.9vw]"
-                        />
+                        <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
 
@@ -185,7 +181,7 @@
                                 <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                     <Chevron
                                         color="lightgray"
-                                        class="rotate-180 w-[1vw]"
+                                        class="w-[1vw] rotate-180"
                                     />
                                 </button>
                                 <button class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]">01</button>
@@ -208,9 +204,7 @@
                 <div class="flex items-center gap-3">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Recommendations</span>
                     <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-                        <SettingsOutline
-                            class="opacity-75 w-[0.9vw]"
-                        />
+                        <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
 
@@ -251,7 +245,7 @@
                             <button class="btn btn-icon h-full w-full rounded-[0.5vw] rounded-r-none bg-surface-400 p-0 font-semibold leading-[0.9vw]">
                                 <Chevron
                                     color="lightgray"
-                                    class="rotate-180 w-[1vw]"
+                                    class="w-[1vw] rotate-180"
                                 />
                             </button>
                             <button class="btn btn-icon h-full w-full rounded-none bg-surface-400 p-0 text-[1vw] font-semibold leading-[0.9vw]">01</button>

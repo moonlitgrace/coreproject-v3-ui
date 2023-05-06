@@ -42,13 +42,13 @@
             read: {
                 icon: {
                     component: Read,
-                    class: "w-[1.5vw] text-surface-500",
+                    class: "w-[1.5vw] text-surface-500"
                 }
             },
             listen: {
                 icon: {
                     component: Listen,
-                    class: "w-[1.5vw] text-surface-500",
+                    class: "w-[1.5vw] text-surface-500"
                 }
             }
         },
@@ -122,9 +122,7 @@
                             class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
                         >
                             <div class="flex items-center justify-center md:gap-[0.7vw]">
-                                <PlayCircle
-                                    class="w-[1.875vw]"
-                                />
+                                <PlayCircle class="w-[1.875vw]" />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1.05vw]">Watch</span>
                                     <span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]">Ep 01</span>
@@ -179,9 +177,7 @@
                 <div class="flex items-center gap-3">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
                     <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-                        <SettingsOutline
-                            class="opacity-75 w-[0.9vw]"
-                        />
+                        <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
 
@@ -208,9 +204,7 @@
                     <div class="flex items-center gap-1">
                         Status:
                         <span class="text-warning-400">Watching</span>
-                        <Chevron
-                            class="w-[0.625vw] text-warning-400"
-                        />
+                        <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
                     <div class="flex items-center gap-1">
                         Episode:
@@ -219,9 +213,7 @@
                     <div class="flex items-center gap-1">
                         Your Score:
                         <span class="text-warning-400">Not Rated</span>
-                        <Chevron
-                            class="w-[0.625vw] text-warning-400"
-                        />
+                        <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
                 </div>
             </div>

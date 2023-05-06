@@ -302,12 +302,12 @@
                     <div class="mt-[3vw] sm:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
-                            {@const item_url = item[1].url}
+                            {@const item_href = item[1].url}
                             {@const item_name = item[1].name}
 
                             <a
-                                href={item_url}
-                                class="!no-underline"
+                                href={item_href}
+                                class="{item_href ?? 'pointer-events-none'} !no-underline"
                             >
                                 <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
@@ -360,10 +360,20 @@
                             <a
                                 href={item_href ?? "javascript:void(0)"}
                                 type="button"
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="{item_href ?? 'pointer-events-none'} {is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
                             >
                                 <div class="inline-grid">
-                                    {#if !is_active}
+                                    {#if is_active}
+                                        <div
+                                            class="absolute inset-0 flex items-center justify-center"
+                                            transition:blur|local
+                                        >
+                                            <svelte:component
+                                                this={component}
+                                                class="!text-black {item_icon.class}"
+                                            />
+                                        </div>
+                                    {:else}
                                         <div
                                             class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]"
                                             transition:blur|local
@@ -375,16 +385,6 @@
                                             <span class="text-[0.875vw] capitalize leading-[1.05vw]">
                                                 {item_name}
                                             </span>
-                                        </div>
-                                    {:else}
-                                        <div
-                                            class="absolute inset-0 flex items-center justify-center"
-                                            transition:blur|local
-                                        >
-                                            <svelte:component
-                                                this={component}
-                                                class="!text-black {item_icon.class}"
-                                            />
                                         </div>
                                     {/if}
                                 </div>

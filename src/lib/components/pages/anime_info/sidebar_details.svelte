@@ -12,9 +12,7 @@
     <div class="flex items-center gap-3">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
         <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
-            <SettingsOutline
-                class="opacity-75 w-[0.9vw]"
-            />
+            <SettingsOutline class="w-[0.9vw] opacity-75" />
         </button>
     </div>
 
