@@ -91,7 +91,7 @@
                 href="./reset-password"
                 class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
             >
-                {@html `< forgot password?>`}
+                {@html `< forgot password? >`}
             </a>
         </div>
     </form-fields>

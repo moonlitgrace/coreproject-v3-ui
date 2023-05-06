@@ -33,7 +33,7 @@
 </script>
 
 <svelte:head>
-    <title>Register | CoreProject</title>
+    <title>Login | CoreProject</title>
 </svelte:head>
 
 <!-- We display the current step here -->
