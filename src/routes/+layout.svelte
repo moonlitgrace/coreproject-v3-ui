@@ -1,10 +1,5 @@
 <script lang="ts">
-    // NProgress
-    import NProgress from "nprogress";
-    // NProgress css
-    import "nprogress/nprogress.css";
-
-    import voca from 'voca';
+    import voca from "voca";
     // Your custom Skeleton theme:
     import "../theme.scss";
 
@@ -12,6 +7,11 @@
     import "@skeletonlabs/skeleton/styles/all.css";
     // Most of your app wide CSS should be put in this file
     import "../app.scss";
+    // NProgress
+    import NProgress from "nprogress";
+    // Custom SCSS
+    import "../nprogress.scss";
+
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
     import type { ModalSettings, ModalComponent } from "@skeletonlabs/skeleton";
@@ -148,7 +148,7 @@
                 icon: {
                     component: User,
                     class: "w-[1.25vw] text-white"
-                },
+                }
             },
             my_list: {
                 name: "My List",
