@@ -1,13 +1,10 @@
 <script lang="ts">
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
-
 </script>
 
 <form class="flex h-full flex-col justify-between">
-    <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">
-        forgot password? don't worry!
-    </span>
+    <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">forgot password? don't worry!</span>
 
     <email-field>
         <label
