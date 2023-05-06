@@ -4,6 +4,7 @@
     // NProgress css
     import "nprogress/nprogress.css";
 
+    import voca from 'voca';
     // Your custom Skeleton theme:
     import "../theme.scss";
 
@@ -147,7 +148,7 @@
                 icon: {
                     component: User,
                     class: "w-[1.25vw] text-white"
-                }
+                },
             },
             my_list: {
                 name: "My List",
@@ -263,13 +264,13 @@
                     <Avatar
                         rounded="rounded-[1.66vw] sm:rounded-[0.375vw]"
                         width="w-[11vw] sm:w-[3.125vw]"
-                        src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
+                        src="https://i.postimg.cc/6pNGq1YL/345336.png"
                         initials="JD"
                     />
                 </button>
 
                 <div
-                    class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
+                    class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[13vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] sm:gap-[0.8vw]">
@@ -277,12 +278,12 @@
                             rounded="rounded-[1.2vw] sm:rounded-[0.375vw]"
                             width="w-[8vw] sm:w-[2.5vw]"
                             cursor="cursor-pointer"
-                            src="https://i.postimg.cc/MKgxM4Hv/Screenshot-from-2023-04-22-16-59-33.png"
+                            src="https://i.postimg.cc/6pNGq1YL/345336.png"
                             initials="JD"
                         />
                         <div class="flex flex-col">
-                            <span class="text-[3vw] font-semibold sm:text-[0.9vw]">Username</span>
-                            <span class="text-[2vw] font-medium sm:text-[0.8vw]">email@domain.xyz</span>
+                            <span class="text-[3vw] font-semibold sm:text-[0.9vw]">soraamamiya</span>
+                            <span class="text-[2vw] font-medium sm:text-[0.8vw]">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
                         </div>
                     </div>
 
