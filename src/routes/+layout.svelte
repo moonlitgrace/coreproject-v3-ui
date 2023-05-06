@@ -75,7 +75,6 @@
                 icon: {
                     component: typeof SvelteComponentDev;
                     class: string;
-                    color: string;
                 };
                 url?: string;
                 show_on_mobile?: boolean | undefined;
@@ -86,8 +85,7 @@
             search: {
                 icon: {
                     component: Search,
-                    class: "w-[1.25vw]",
-                    color: "black"
+                    class: "w-[1.25vw] text-black"
                 }
             }
         },
@@ -95,8 +93,7 @@
             home: {
                 icon: {
                     component: Home,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: "/",
                 show_on_mobile: true
@@ -105,8 +102,7 @@
             discover: {
                 icon: {
                     component: Explore,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: undefined,
                 show_on_mobile: true
@@ -114,8 +110,7 @@
             list: {
                 icon: {
                     component: List,
-                    class: "w-[1.7vw]",
-                    color: "white"
+                    class: "w-[1.7vw] text-white"
                 },
                 url: undefined,
                 show_on_mobile: false
@@ -123,8 +118,7 @@
             schedule: {
                 icon: {
                     component: Schedule,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: undefined,
                 show_on_mobile: false
@@ -132,8 +126,7 @@
             forum: {
                 icon: {
                     component: Forum,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: undefined,
                 show_on_mobile: true
@@ -143,16 +136,14 @@
             settings: {
                 icon: {
                     component: Settings,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: undefined
             },
             "misc.": {
                 icon: {
                     component: Misc,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 },
                 url: undefined
             }
@@ -160,38 +151,34 @@
         profile_dropdown: {
             profile: {
                 name: "Profile",
-                url: "/profile/",
+                url: undefined,
                 icon: {
                     component: User,
-                    class: "w-[1.25vw]",
-                    color: "white"
+                    class: "w-[1.25vw] text-white"
                 }
             },
             my_list: {
                 name: "My List",
-                url: "/mylist/",
+                url: undefined,
                 icon: {
                     component: List,
-                    class: "w-[1.5vw]",
-                    color: "white"
+                    class: "w-[1.5vw] text-white"
                 }
             },
             theme: {
                 name: "Theme",
-                url: "/theme/",
+                url: undefined,
                 icon: {
                     component: Moon,
-                    class: "w-[1.1vw]",
-                    color: "white"
+                    class: "w-[1.1vw] text-white"
                 }
             },
             settings: {
                 name: "Settings",
-                url: "/settings/",
+                url: undefined,
                 icon: {
                     component: SettingsOutline,
-                    class: "w-[1.1vw]",
-                    color: "white"
+                    class: "w-[1.1vw] text-white"
                 }
             }
         }
@@ -224,7 +211,7 @@
 
     let popupSettings: PopupSettings = {
         event: "click", // event
-        target: "profileDropdown" // data-popup value
+        target: "profile_dropdown" // data-popup value
     };
 
     // search panel //
@@ -296,7 +283,7 @@
 
                 <div
                     class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 sm:!left-[84.5vw] sm:!top-[4.5vw] sm:w-[12vw] sm:rounded-[0.375vw] sm:px-[0.75vw] sm:py-[1.125vw]"
-                    data-popup="profileDropdown"
+                    data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] sm:gap-[0.8vw]">
                         <Avatar
@@ -325,12 +312,10 @@
                                 <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 sm:py-[0.5vw] sm:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
-                                        color={item_icon.color}
                                         class="col-span-1 hidden sm:flex {item_icon.class}"
                                     />
                                     <svelte:component
                                         this={item_icon.component}
-                                        color={item_icon.color}
                                         class="col-span-1 flex w-[4vw] sm:hidden"
                                     />
                                     <span class="col-span-4 text-[2.7vw] font-medium text-white sm:text-[1vw]">
@@ -357,7 +342,6 @@
                                 <svelte:component
                                     this={item_icon.component}
                                     class={item_icon.class}
-                                    color={item_icon.color}
                                 />
                             </button>
                         {/each}
@@ -387,7 +371,6 @@
                                             <svelte:component
                                                 this={component}
                                                 class={item_icon.class}
-                                                color={item_icon.color}
                                             />
                                             <span class="text-[0.875vw] capitalize leading-[1.05vw]">
                                                 {item_name}
@@ -400,8 +383,7 @@
                                         >
                                             <svelte:component
                                                 this={component}
-                                                class={item_icon.class}
-                                                color="black"
+                                                class="!text-black {item_icon.class}"
                                             />
                                         </div>
                                     {/if}
@@ -422,7 +404,6 @@
                             <svelte:component
                                 this={item_icon.component}
                                 class={item_icon.class}
-                                color={item_icon.color}
                             />
                             <span class="!m-0 text-[0.875vw] capitalize leading-[1.05vw]">
                                 {item_name}
@@ -462,7 +443,6 @@
                                         <svelte:component
                                             this={component}
                                             class="w-[4.5vw]"
-                                            color={item_icon.color}
                                         />
                                     {/if}
                                 </div>
