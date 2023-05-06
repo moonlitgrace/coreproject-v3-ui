@@ -1,19 +1,18 @@
 <script lang="ts">
-    import { createForm } from "felte";
-    import Info from "$icons/info.svelte";
-    import Cross from "$icons/cross.svelte";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
+    import Cross from "$icons/cross.svelte";
+    import Info from "$icons/info.svelte";
     import Tick from "$icons/tick.svelte";
+    import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
-    import { z } from "zod";
-    import { reporter, ValidationMessage } from "@felte/reporter-svelte";
-    import { onMount, onDestroy } from "svelte";
-    import { createEventDispatcher } from "svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
-
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+    import { createForm } from "felte";
+    import { onDestroy, onMount } from "svelte";
+    import { createEventDispatcher } from "svelte";
+    import { z } from "zod";
 
     let password_strength = 0;
 

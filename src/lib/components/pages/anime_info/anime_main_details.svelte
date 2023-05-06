@@ -1,4 +1,22 @@
 <script lang="ts">
+    import AnimeEpisodes from "$components/pages/anime_info/anime_episodes.svelte";
+    import AnimeFullDetails from "$components/pages/anime_info/anime_full_details.svelte";
+    import SidebarDetails from "$components/pages/anime_info/sidebar_details.svelte";
+    import ScrollArea from "$components/shared/scroll_area.svelte";
+    import { format_date } from "$functions/format_date";
+    import Chevron from "$icons/chevron.svelte";
+    import Download from "$icons/download.svelte";
+    import Edit from "$icons/edit.svelte";
+    import Listen from "$icons/listen.svelte";
+    // icons
+    import PlayCircle from "$icons/play_circle.svelte";
+    import Read from "$icons/read.svelte";
+    import SettingsOutline from "$icons/settings_outline.svelte";
+    import Share from "$icons/share.svelte";
+    import Video from "$icons/video.svelte";
+    // types
+    import type { SvelteComponentDev } from "svelte/internal";
+
     export let anime_name: string;
     export let anime_alternative_name: string;
     export let anime_episodes_count: number;
@@ -8,24 +26,6 @@
 
     export let anime_episodes: any;
 
-    import ScrollArea from "$components/shared/scroll_area.svelte";
-    import { format_date } from "$functions/format_date";
-
-    import SidebarDetails from "$components/pages/anime_info/sidebar_details.svelte";
-    import AnimeFullDetails from "$components/pages/anime_info/anime_full_details.svelte";
-    import AnimeEpisodes from "$components/pages/anime_info/anime_episodes.svelte";
-    // types
-    import type { SvelteComponentDev } from "svelte/internal";
-    // icons
-    import PlayCircle from "$icons/play_circle.svelte";
-    import Read from "$icons/read.svelte";
-    import Listen from "$icons/listen.svelte";
-    import Video from "$icons/video.svelte";
-    import Download from "$icons/download.svelte";
-    import Share from "$icons/share.svelte";
-    import SettingsOutline from "$icons/settings_outline.svelte";
-    import Edit from "$icons/edit.svelte";
-    import Chevron from "$icons/chevron.svelte";
     const icon_mapping: {
         [key: string]: {
             [key: string]: {

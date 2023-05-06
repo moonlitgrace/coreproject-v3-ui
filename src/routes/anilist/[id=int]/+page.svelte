@@ -1,10 +1,9 @@
 <script lang="ts">
-    import AnimeInfoPage from "$components/pages/anime_info/index.svelte";
-    import { anime_list } from "$data/mock/anime_list";
-    import { anime_episodes } from "$data/mock/anime_episodes";
-
-    import { OpengraphGenerator } from "$functions/opengraph";
     import { page } from "$app/stores";
+    import AnimeInfoPage from "$components/pages/anime_info/index.svelte";
+    import { anime_episodes } from "$data/mock/anime_episodes";
+    import { anime_list } from "$data/mock/anime_list";
+    import { OpengraphGenerator } from "$functions/opengraph";
 
     let anime_id = Number($page.params.id);
 

@@ -1,17 +1,16 @@
 <script lang="ts">
-    export let anime_episodes: any;
-
     import { format_time } from "$functions/format_time";
-
-    // icons
-    import SettingsOutline from "$icons/settings_outline.svelte";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
-    import Search from "$icons/search.svelte";
-    import Warning from "$icons/warning.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Read from "$icons/read.svelte";
+    import Search from "$icons/search.svelte";
+    // icons
+    import SettingsOutline from "$icons/settings_outline.svelte";
+    import Warning from "$icons/warning.svelte";
+
+    export let anime_episodes: any;
 </script>
 
 <div class="my-[6vw]">

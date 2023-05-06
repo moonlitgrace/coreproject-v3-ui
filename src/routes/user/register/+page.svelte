@@ -1,9 +1,9 @@
 <script lang="ts">
-    import type { ComponentType } from "svelte";
     import { page as svelte_store_page } from "$app/stores";
-    import RegisterFormSkeleton from '$skeletons/register_page.svelte';
-
     import { OpengraphGenerator } from "$functions/opengraph";
+    import RegisterFormSkeleton from "$skeletons/register_page.svelte";
+    import type { ComponentType } from "svelte";
+
     const opengraph_html = new OpengraphGenerator({
         title: "Register Page",
         site_name: "CoreProject",
