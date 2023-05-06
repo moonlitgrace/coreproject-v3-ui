@@ -1,5 +1,18 @@
 <script lang="ts">
     import Tick from "$icons/tick.svelte";
+    import { createForm } from "felte";
+    import { createEventDispatcher } from "svelte";
+    export let pages_state: [
+        {
+            email: string;
+            password: string;
+            confirm_password: string;
+        },
+        {
+            username: string;
+            otp: string;
+        }
+    ];
 
     const core_color_mapping: { [key: string]: string } = {
         c: "text-surface-50",
@@ -7,9 +20,22 @@
         o: "text-warning-400",
         r: "text-surface-50"
     };
+
+    const dispatch = createEventDispatcher();
+
+    const { form } = createForm({
+        onSubmit: (values) => {
+            dispatch("submit", values);
+        }
+    });
+
+    const combined_object = Object.assign({}, ...pages_state);
 </script>
 
-<form class="flex h-full flex-col justify-between">
+<form
+    class="flex h-full flex-col justify-between"
+    use:form
+>
     <div class="flex flex-col items-start gap-[3vw]">
         <span class="flex items-center pb-[1vw] text-[1.2vw] font-bold uppercase tracking-widest text-white">
             welcome to&nbsp;
@@ -26,12 +52,12 @@
 
             <username class="flex flex-col pt-[1vw]">
                 <span class="text-[1.1vw] font-medium">Username</span>
-                <span class="text-[1.1vw] font-medium text-surface-300">soraamamiya#5017</span>
+                <span class="text-[1.1vw] font-medium text-surface-300">{combined_object.username}</span>
             </username>
 
             <email class="flex flex-col pt-[1.5vw]">
                 <span class="text-[1.1vw] font-medium">Email</span>
-                <span class="text-[1.1vw] font-medium text-surface-300">sora@amamiya.moe</span>
+                <span class="text-[1.1vw] font-medium text-surface-300">{combined_object.email}</span>
             </email>
         </user-info>
 

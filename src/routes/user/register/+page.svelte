@@ -13,9 +13,9 @@
     }).generate_opengraph();
 
     // We import our page components (similar to the one above).
-    let one = import("./step_one.svelte");
-    let two = import("./step_two.svelte");
-    let three = import("./step_three.svelte");
+    let one = import("./1.svelte");
+    let two = import("./2.svelte");
+    let three = import("./3.svelte");
 
     const pages = [one, two, three];
 
@@ -30,6 +30,7 @@
         if (page === pages.length - 1) {
             // end of the page. do something.. Maybe seek for anime girls with stockings and leggings
             // XD
+            console.log("ho ho ho, Wheres my anime girl?");
         } else {
             // If we're not on the last page, store our data and increase a step
             pages_state[page] = values.detail;
@@ -54,5 +55,6 @@
     <svelte:component
         this={Module.default}
         on:submit={onSubmit}
+        {pages_state}
     />
 {/await}
