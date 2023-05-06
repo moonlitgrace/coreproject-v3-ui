@@ -236,15 +236,8 @@
             <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[8vw] sm:h-[10vh] sm:py-[0.9375vw] sm:pl-[2.1vw] sm:pr-[3.75vw]">
                 <a
                     href="/"
-                    class="hidden sm:flex"
                 >
-                    <Logo class="w-[2vw]" />
-                </a>
-                <a
-                    href="/"
-                    class="flex sm:hidden"
-                >
-                    <Logo class="w-[7vw]" />
+                    <Logo class="w-[7vw] sm:w-[2vw]" />
                 </a>
 
                 <a
@@ -436,13 +429,12 @@
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            class="w-[4.75vw]"
-                                            color="black"
+                                            class="w-[4.75vw] text-surface-900"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            class="w-[4.5vw]"
+                                            class="w-[4.5vw] text-white"
                                         />
                                     {/if}
                                 </div>

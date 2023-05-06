@@ -87,12 +87,12 @@
         </password-field>
 
         <div class="mt-[3vw] flex flex-col items-start">
-            <button
-                type="button"
+            <a
+                href="./reset-password"
                 class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
             >
                 {@html `< forgot password?>`}
-            </button>
+            </a>
         </div>
     </form-fields>
 
