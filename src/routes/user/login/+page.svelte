@@ -2,8 +2,8 @@
     import type { ComponentType } from "svelte";
 
     // We import our page components (similar to the one above).
-    let one = import("./step_one.svelte");
-    let two = import("./step_two.svelte");
+    let one = import("./1.svelte");
+    let two = import("./2.svelte");
 
     const pages = [one, two];
 
