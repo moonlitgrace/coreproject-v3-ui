@@ -2,6 +2,8 @@
     import Tick from "$icons/tick.svelte";
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
+    import { focusTrap } from "@skeletonlabs/skeleton";
+
     export let pages_state: [
         {
             email: string;
@@ -35,6 +37,7 @@
 <form
     class="flex h-full flex-col justify-between"
     use:form
+    use:focusTrap={true}
 >
     <div class="flex flex-col items-start gap-[3vw]">
         <span class="flex items-center pb-[1vw] text-[1.2vw] font-bold uppercase tracking-widest text-white">

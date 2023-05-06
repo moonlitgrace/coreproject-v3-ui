@@ -7,6 +7,7 @@
     import { onMount, onDestroy } from "svelte";
     import { validator } from "@felte/validator-zod";
     import { reporter, ValidationMessage } from "@felte/reporter-svelte";
+    import { focusTrap } from "@skeletonlabs/skeleton";
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
@@ -41,7 +42,8 @@
 <form
     class="flex h-full flex-col justify-between"
     use:form
->
+    use:focusTrap={true}
+    >
     <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">hey there! welcome back</span>
 
     <form-fields>

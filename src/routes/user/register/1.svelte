@@ -9,6 +9,7 @@
     import { reporter, ValidationMessage } from "@felte/reporter-svelte";
     import { onMount, onDestroy } from "svelte";
     import { createEventDispatcher } from "svelte";
+    import { focusTrap } from "@skeletonlabs/skeleton";
 
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
     import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
@@ -103,6 +104,7 @@
     class="flex h-full flex-col justify-between"
     method="POST"
     use:form
+    use:focusTrap={true}
 >
     <form-fields>
         <span class="flex items-center pb-[1vw] text-[1.2vw] font-bold uppercase tracking-widest text-white">

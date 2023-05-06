@@ -1,9 +1,13 @@
 <script lang="ts">
     import Info from "$icons/info.svelte";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
+    import { focusTrap } from "@skeletonlabs/skeleton";
 </script>
 
-<form class="flex h-full flex-col justify-between">
+<form
+    class="flex h-full flex-col justify-between"
+    use:focusTrap={true}
+>
     <span class="flex items-center text-[1.2vw] font-bold uppercase tracking-widest text-white">verifying you (2fa)</span>
 
     <form-fields>
