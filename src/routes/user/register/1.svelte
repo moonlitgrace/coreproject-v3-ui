@@ -256,7 +256,7 @@
                             for="confirm_password"
                             let:messages={message}
                         >
-                            <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{@html message}</span>
+                            <span class="mt-[1.75vw] sm:mt-[0.5vw] text-[2.6vw] sm:text-[0.75vw] text-surface-300">{@html message}</span>
                             <div slot="placeholder" />
                         </ValidationMessage>
                     {/if}
