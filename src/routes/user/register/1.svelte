@@ -101,7 +101,7 @@
 </script>
 
 <form
-    class="flex h-max sm:h-full flex-col sm:justify-between bg-surface-900 p-[5vw] py-[7vw] sm:p-0 rounded-[4vw]"
+    class="flex h-max sm:h-full flex-col sm:justify-between bg-surface-900 p-[5vw] pt-[7vw] pb-[20vw] sm:p-0 rounded-t-[4vw] sm:rounded-none"
     method="POST"
     use:form
     use:focusTrap={true}
