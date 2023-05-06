@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { ComponentType } from "svelte";
     import { page as svelte_store_page } from "$app/stores";
+    import RegisterFormSkeleton from '$skeletons/register_page.svelte';
 
     import { OpengraphGenerator } from "$functions/opengraph";
     const opengraph_html = new OpengraphGenerator({
@@ -51,7 +52,9 @@
 </svelte:head>
 
 <!-- We display the current step here -->
-{#await current_page then Module}
+{#await current_page}
+    <RegisterFormSkeleton />
+{:then Module}
     <svelte:component
         this={Module.default}
         on:submit={onSubmit}
