@@ -55,7 +55,7 @@
             <input
                 name="email-or-username"
                 id="email-or-username"
-                placeholder="sora@amamiya.moe / soraamamiya"
+                placeholder="sora_amamiya@coreproject.moe / soraamamiya"
                 class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
             />
             <div slot="placeholder">
