@@ -100,7 +100,7 @@
 </script>
 
 <form
-    class="flex w-full h-max flex-col rounded-t-[0vw] bg-surface-900 p-[7vw] pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
+    class="flex w-full h-max flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
     use:focusTrap={false}
@@ -193,15 +193,15 @@
                                                     {#if messages.includes(object_key)}
                                                         <svelte:component
                                                             this={Cross}
-                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 md:w-[0.9vw]"
+                                                            class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
                                                         />
                                                     {:else}
                                                         <svelte:component
                                                             this={Tick}
-                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 md:w-[0.7vw]"
+                                                            class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
                                                         />
                                                     {/if}
-                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 md:text-[0.75vw]">{object_value}</span>
+                                                    <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{object_value}</span>
                                                 </div>
                                             {/each}
                                         </div>
@@ -213,7 +213,7 @@
                                                     {#if $data.password && !$errors.password && $touched.password}
                                                         <svelte:component
                                                             this={Tick}
-                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 md:w-[0.7vw]"
+                                                            class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
                                                         />
                                                     {:else}
                                                         <svelte:component
@@ -266,20 +266,20 @@
 
     <div class="mt-[7vw] flex items-center justify-between md:mt-0">
         <div class="flex flex-col">
-            <span class="text-[2.75vw] text-surface-100 md:text-[0.75vw]">Already have an account?</span>
+            <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
                 href="./login"
-                class="text-[4vw] md:text-[1.1vw]"
+                class="text-base md:text-[1.1vw]"
             >
                 Login
             </a>
         </div>
         <button
             type="submit"
-            class="btn h-[10vw] rounded-[2vw] bg-secondary-800 p-0 px-[4vw] text-[3.5vw] font-semibold md:h-[2.75vw] md:rounded-[0.5vw] md:px-[1.25vw] md:text-[0.95vw]"
+            class="btn h-12 rounded-lg bg-secondary-800 p-0 px-5 text-base font-semibold md:h-[2.75vw] md:rounded-[0.5vw] md:px-[1.25vw] md:text-[0.95vw]"
         >
             <span>Continue</span>
-            <ArrowUpRight class="w-[3vw] rotate-45 md:w-[1vw]" />
+            <ArrowUpRight class="w-4 rotate-45 md:w-[1vw]" />
         </button>
     </div>
 </form>
