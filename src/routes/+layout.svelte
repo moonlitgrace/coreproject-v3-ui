@@ -223,9 +223,9 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+            <div class="relative flex h-14 items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
                 <a href="/">
-                    <Logo class="w-[2.25rem] md:w-[2vw]" />
+                    <Logo class="w-6 md:w-[2vw]" />
                 </a>
 
                 <a
@@ -236,14 +236,14 @@
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[3rem] w-[65vw] items-center md:hidden">
-                    <button class="btn absolute left-[3vw] p-0">
-                        <Search class="w-[1.2rem] opacity-75" />
+                <form class="relative flex h-9 w-[65vw] items-center md:hidden">
+                    <button class="btn absolute left-3 p-0">
+                        <Search class="w-4 opacity-75" />
                     </button>
                     <input
                         type="text"
                         placeholder="Search for animes, mangas..."
-                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-[10.5vw] text-[0.9rem] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-10 text-xs font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
                     />
                     <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
                         <MoreVertical class="w-[5vw] opacity-90" />
@@ -256,14 +256,14 @@
                 >
                     <Avatar
                         rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                        width="w-[3rem] md:w-[3.125vw]"
+                        width="w-9 md:w-[3.125vw]"
                         src="https://i.postimg.cc/6pNGq1YL/345336.png"
                         initials="JD"
                     />
                 </button>
 
                 <div
-                    class="w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
+                    class="w-[40vw] !z-50 rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
