@@ -122,10 +122,10 @@
 </div>
 
 <style>
-    @media (max-width: 639px) {
+    @media (max-width: 767px) {
         .slot {
             grid-area: 1 /1 /1 /1 !important;
-            z-index: 9999;
+            z-index: 20 !important;
         }
     }
 </style>
