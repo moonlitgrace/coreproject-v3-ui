@@ -100,10 +100,10 @@
 </script>
 
 <form
-    class="flex h-max flex-col rounded-t-[4vw] bg-surface-900 p-[5vw] pb-[20vw] pt-[7vw] sm:h-full sm:justify-between sm:rounded-none sm:p-0"
+    class="flex w-full h-max flex-col rounded-t-[0vw] bg-surface-900 p-[7vw] pb-[10vw] pt-[7vw] sm:h-full sm:justify-between sm:rounded-none sm:p-0"
     method="POST"
     use:form
-    use:focusTrap={true}
+    use:focusTrap={false}
 >
     <form-fields>
         <span class="flex items-center pb-[5vw] text-[4vw] font-bold uppercase tracking-widest text-white sm:pb-[1vw] sm:text-[1.2vw]">
