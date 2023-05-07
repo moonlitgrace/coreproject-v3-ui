@@ -148,7 +148,7 @@
         <password-field>
             <label
                 for="password"
-                class="mt-[2vw] text-[4vw] font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
+                class="mt-[2vw] text-lg font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
             >
                 Password
             </label>
@@ -159,10 +159,10 @@
                         id="password"
                         name="password"
                         placeholder="enter a strong password"
-                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
+                        class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                     />
                 </div>
-                <password-strength class="mt-[2vw] flex flex-col md:mt-[1vw]">
+                <password-strength class="mt-2 flex flex-col md:mt-[1vw]">
                     <div class="grid grid-cols-4 gap-[1.5vw] md:gap-[0.75vw]">
                         {#each Array(password_strength) as _, index}
                             {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
@@ -173,9 +173,9 @@
                         {/each}
                     </div>
 
-                    <div class="mt-[3vw] md:mt-[1vw]">
-                        <span class="text-[3vw] font-semibold uppercase tracking-wider text-surface-50 md:text-[1vw]">must contain</span>
-                        <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
+                    <div class="mt-3 md:mt-[1vw]">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-surface-50 md:text-[1vw]">must contain</span>
+                        <div class="ml-2 mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
                             {#if mounted}
                                 <ValidationMessage
                                     for="password"
@@ -209,7 +209,7 @@
                                     <div slot="placeholder">
                                         <div class="flex flex-col gap-[0.5vw] md:gap-0">
                                             {#each Object.values(password_error_mapping) as item}
-                                                <div class="grid grid-cols-12 items-center gap-2">
+                                                <div class="grid grid-cols-12 items-center gap-5">
                                                     {#if $data.password && !$errors.password && $touched.password}
                                                         <svelte:component
                                                             this={Tick}
@@ -218,10 +218,10 @@
                                                     {:else}
                                                         <svelte:component
                                                             this={Cross}
-                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 md:w-[0.9vw]"
+                                                            class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
                                                         />
                                                     {/if}
-                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 md:text-[0.75vw]">{item}</span>
+                                                    <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{item}</span>
                                                 </div>
                                             {/each}
                                         </div>
@@ -237,7 +237,7 @@
         <confirm-password-field>
             <label
                 for="confirm-password"
-                class="mt-[2.5vw] text-[4vw] font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
+                class="mt-[2.5vw] text-lg font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
             >
                 Confirm Password
             </label>
@@ -248,7 +248,7 @@
                         id="confirm_password"
                         name="confirm_password"
                         placeholder="re-enter your password"
-                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
+                        class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                     />
                     {#if mounted}
                         <ValidationMessage
