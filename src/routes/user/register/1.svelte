@@ -106,7 +106,7 @@
     use:focusTrap={false}
 >
     <form-fields>
-        <span class="flex items-center pb-[5vw] text-[4vw] font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
+        <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
             create your&nbsp;
             <p class="unstyled inline-flex items-center">
                 {#each "core".split("") as item}
@@ -118,7 +118,7 @@
         <email-field class="flex flex-col">
             <label
                 for="email"
-                class="text-[4vw] font-semibold md:text-[1.1vw]"
+                class="text-lg font-semibold md:text-[1.1vw]"
             >
                 Email
             </label>
@@ -126,7 +126,7 @@
                 name="email"
                 id="email"
                 placeholder="sora@coreproject.moe"
-                class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
+                class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
 
             {#if mounted}
@@ -136,9 +136,9 @@
                 >
                     <span class="mt-[0.75vw] text-[2.75vw] text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                     <div slot="placeholder">
-                        <info class="mt-[0.75vw] flex items-center gap-[0.5vw] md:mt-[0.5vw]">
-                            <Info class="w-[1.75vw] opacity-70 md:w-[0.9vw]" />
-                            <span class="text-[2.6vw] text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
+                        <info class="mt-[0.75vw] flex items-center gap-2 md:mt-[0.5vw]">
+                            <Info class="w-3 opacity-70 md:w-[0.9vw]" />
+                            <span class="text-xs text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
                         </info>
                     </div>
                 </ValidationMessage>
