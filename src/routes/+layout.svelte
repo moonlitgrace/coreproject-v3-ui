@@ -223,9 +223,9 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[6vh] items-center justify-between px-[3vw] py-[2.25rem] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+            <div class="relative flex h-[5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
                 <a href="/">
-                    <Logo class="w-[2rem] md:w-[2vw]" />
+                    <Logo class="w-[2.25rem] md:w-[2vw]" />
                 </a>
 
                 <a
@@ -236,14 +236,14 @@
                 </a>
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-[2.75rem] w-[65vw] items-center md:hidden">
+                <form class="relative flex h-[3rem] w-[65vw] items-center md:hidden">
                     <button class="btn absolute left-[3vw] p-0">
                         <Search class="w-[1.2rem] opacity-75" />
                     </button>
                     <input
                         type="text"
                         placeholder="Search for animes, mangas..."
-                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 px-[10.5vw] text-[0.9rem] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-[10.5vw] text-[0.9rem] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
                     />
                     <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
                         <MoreVertical class="w-[5vw] opacity-90" />
@@ -256,14 +256,14 @@
                 >
                     <Avatar
                         rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                        width="w-[2.75rem] md:w-[3.125vw]"
+                        width="w-[3rem] md:w-[3.125vw]"
                         src="https://i.postimg.cc/6pNGq1YL/345336.png"
                         initials="JD"
                     />
                 </button>
 
                 <div
-                    class="!left-[57.5vw] !top-[17.5vw] w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
+                    class="w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
@@ -396,8 +396,8 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-[17vw] items-center justify-center md:hidden">
-                <div class="flex items-start justify-center gap-[5vw]">
+            <div class="flex h-[5rem] items-center justify-center md:hidden">
+                <div class="flex items-start justify-center gap-[1rem] md:gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
@@ -410,24 +410,24 @@
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
-                            class="unstyled flex flex-col items-center gap-[2.5vw]"
+                            class="unstyled flex flex-col items-center gap-[0.5vh]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[9vw] w-[15vw] rounded-[2.5vw] p-0">
+                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[2.75rem] w-[4.5rem] rounded-[0.75rem] p-0">
                                 <div transition:blur|local>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            class="w-[4.75vw] text-surface-900"
+                                            class="w-[1.4rem] text-surface-900"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            class="w-[4.5vw] text-white"
+                                            class="w-[1.4rem] text-white"
                                         />
                                     {/if}
                                 </div>
                             </div>
-                            <span class="text-[2.75vw] font-bold capitalize leading-[1.05vw] text-surface-50">
+                            <span class="text-[0.75rem] font-bold capitalize text-surface-50">
                                 {item_name}
                             </span>
                         </a>
