@@ -80,7 +80,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
-                <div class="hidden absolute inset-0 bottom-[6vw] md:flex flex-col items-center justify-center text-center">
+                <div class="absolute inset-0 bottom-[6vw] hidden flex-col items-center justify-center text-center md:flex">
                     <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
                     <div class="mt-[0.5vw] flex items-center">
                         <CoreProject class="w-[10vw]" />
@@ -92,20 +92,20 @@
                     <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">you can continue on animecore, mangacore and soundcore at same time</span>
                 </div>
 
-                <div class="absolute bottom-[1.85vw] hidden md:flex left-[2vw]">
+                <div class="absolute bottom-[1.85vw] left-[2vw] hidden md:flex">
                     <div class="flex flex-col">
-                        <span class="text-[2.25vw] md:text-[0.75vw] font-semibold uppercase tracking-widest text-surface-300/75">
+                        <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">
                             Background from {type()}
                         </span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
-                            <span class="text-[3vw] md:text-[1vw] font-bold uppercase tracking-widest text-warning-400">
+                            <span class="text-[3vw] font-bold uppercase tracking-widest text-warning-400 md:text-[1vw]">
                                 {item.name}
                             </span>
                             <button
                                 class="btn p-0"
                                 on:click={change_index}
                             >
-                                <Refresh class="w-[2vw] hidden md:flex md:w-[0.8vw]" />
+                                <Refresh class="hidden w-[2vw] md:flex md:w-[0.8vw]" />
                             </button>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
         {/if}
     {/each}
     <div
-        class="md:px-[8vw] md:py-[2.2vw] flex items-end justify-center md:block slot"
+        class="slot flex items-end justify-center md:block md:px-[8vw] md:py-[2.2vw]"
         style="grid-area: 1 / 2 / 1 / 2;"
     >
         <slot />
@@ -123,9 +123,9 @@
 
 <style>
     @media (max-width: 639px) {
-        .slot{
+        .slot {
             grid-area: 1 /1 /1 /1 !important;
-            z-index: 9999;;
+            z-index: 9999;
         }
     }
 </style>
