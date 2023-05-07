@@ -54,7 +54,7 @@
     });
 </script>
 
-<div class="relative inline-grid h-full w-full grid-cols-1 md:grid-cols-2">
+<div class="relative inline-grid h-[99%] w-full grid-cols-1 md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
             {@const type = () => {
