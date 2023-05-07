@@ -100,13 +100,13 @@
 </script>
 
 <form
-    class="flex w-full h-max flex-col rounded-t-[0vw] bg-surface-900 p-[7vw] pb-[10vw] pt-[7vw] sm:h-full sm:justify-between sm:rounded-none sm:p-0"
+    class="flex w-full h-max flex-col rounded-t-[0vw] bg-surface-900 p-[7vw] pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
     use:focusTrap={false}
 >
     <form-fields>
-        <span class="flex items-center pb-[5vw] text-[4vw] font-bold uppercase tracking-widest text-white sm:pb-[1vw] sm:text-[1.2vw]">
+        <span class="flex items-center pb-[5vw] text-[4vw] font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
             create your&nbsp;
             <p class="unstyled inline-flex items-center">
                 {#each "core".split("") as item}
@@ -118,7 +118,7 @@
         <email-field class="flex flex-col">
             <label
                 for="email"
-                class="text-[4vw] font-semibold sm:text-[1.1vw]"
+                class="text-[4vw] font-semibold md:text-[1.1vw]"
             >
                 Email
             </label>
@@ -126,7 +126,7 @@
                 name="email"
                 id="email"
                 placeholder="sora@coreproject.moe"
-                class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 sm:h-[3.125vw] sm:rounded-[0.75vw] sm:border-[0.2vw] sm:pl-[1vw] sm:text-[1.1vw]"
+                class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
 
             {#if mounted}
@@ -134,11 +134,11 @@
                     for="email"
                     let:messages={message}
                 >
-                    <span class="mt-[0.75vw] text-[2.75vw] text-surface-300 sm:mt-[0.5vw] sm:text-[0.75vw]">{@html message}</span>
+                    <span class="mt-[0.75vw] text-[2.75vw] text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                     <div slot="placeholder">
-                        <info class="mt-[0.75vw] flex items-center gap-[0.5vw] sm:mt-[0.5vw]">
-                            <Info class="w-[1.75vw] opacity-70 sm:w-[0.9vw]" />
-                            <span class="text-[2.6vw] text-surface-300 sm:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
+                        <info class="mt-[0.75vw] flex items-center gap-[0.5vw] md:mt-[0.5vw]">
+                            <Info class="w-[1.75vw] opacity-70 md:w-[0.9vw]" />
+                            <span class="text-[2.6vw] text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
                         </info>
                     </div>
                 </ValidationMessage>
@@ -148,7 +148,7 @@
         <password-field>
             <label
                 for="password"
-                class="mt-[2vw] text-[4vw] font-semibold sm:mt-[1.5vw] sm:text-[1.1vw]"
+                class="mt-[2vw] text-[4vw] font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
             >
                 Password
             </label>
@@ -159,22 +159,22 @@
                         id="password"
                         name="password"
                         placeholder="enter a strong password"
-                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 sm:h-[3.125vw] sm:rounded-[0.75vw] sm:border-[0.2vw] sm:pl-[1vw] sm:text-[1.1vw]"
+                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                     />
                 </div>
-                <password-strength class="mt-[2vw] flex flex-col sm:mt-[1vw]">
-                    <div class="grid grid-cols-4 gap-[1.5vw] sm:gap-[0.75vw]">
+                <password-strength class="mt-[2vw] flex flex-col md:mt-[1vw]">
+                    <div class="grid grid-cols-4 gap-[1.5vw] md:gap-[0.75vw]">
                         {#each Array(password_strength) as _, index}
                             {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                            <span class="{backgrounds[index]} col-span-1 h-[1.75vw] w-full rounded-[0.5vw] sm:h-[0.625vw] sm:rounded-[0.1875vw]" />
+                            <span class="{backgrounds[index]} col-span-1 h-[1.75vw] w-full rounded-[0.5vw] md:h-[0.625vw] md:rounded-[0.1875vw]" />
                         {/each}
                         {#each Array(4 - password_strength) as _}
-                            <span class="col-span-1 h-[1.75vw] w-full rounded-[0.5vw] border-[0.4vw] border-primary-50/50 sm:h-[0.625vw] sm:rounded-[0.1875vw] sm:border-[0.2vw]" />
+                            <span class="col-span-1 h-[1.75vw] w-full rounded-[0.5vw] border-[0.4vw] border-primary-50/50 md:h-[0.625vw] md:rounded-[0.1875vw] md:border-[0.2vw]" />
                         {/each}
                     </div>
 
-                    <div class="mt-[3vw] sm:mt-[1vw]">
-                        <span class="text-[3vw] font-semibold uppercase tracking-wider text-surface-50 sm:text-[1vw]">must contain</span>
+                    <div class="mt-[3vw] md:mt-[1vw]">
+                        <span class="text-[3vw] font-semibold uppercase tracking-wider text-surface-50 md:text-[1vw]">must contain</span>
                         <div class="ml-[0.75vw] mt-[0.4vw] flex w-3/5 flex-col gap-[0.1vw]">
                             {#if mounted}
                                 <ValidationMessage
@@ -184,7 +184,7 @@
                                     <!-- So we get an array of items  -->
                                     {#if Array.isArray(messages)}
                                         <!-- Logics for cross and ticks -->
-                                        <div class="flex flex-col gap-[0.5vw] sm:gap-0">
+                                        <div class="flex flex-col gap-[0.5vw] md:gap-0">
                                             {#each Object.entries(password_error_mapping) as item}
                                                 {@const object_key = item[0]}
                                                 {@const object_value = item[1]}
@@ -193,35 +193,35 @@
                                                     {#if messages.includes(object_key)}
                                                         <svelte:component
                                                             this={Cross}
-                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 sm:w-[0.9vw]"
+                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 md:w-[0.9vw]"
                                                         />
                                                     {:else}
                                                         <svelte:component
                                                             this={Tick}
-                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 sm:w-[0.7vw]"
+                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 md:w-[0.7vw]"
                                                         />
                                                     {/if}
-                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 sm:text-[0.75vw]">{object_value}</span>
+                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 md:text-[0.75vw]">{object_value}</span>
                                                 </div>
                                             {/each}
                                         </div>
                                     {/if}
                                     <div slot="placeholder">
-                                        <div class="flex flex-col gap-[0.5vw] sm:gap-0">
+                                        <div class="flex flex-col gap-[0.5vw] md:gap-0">
                                             {#each Object.values(password_error_mapping) as item}
                                                 <div class="grid grid-cols-12 items-center gap-2">
                                                     {#if $data.password && !$errors.password && $touched.password}
                                                         <svelte:component
                                                             this={Tick}
-                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 sm:w-[0.7vw]"
+                                                            class="col-span-1 w-[1.75vw] text-primary-400 opacity-90 md:w-[0.7vw]"
                                                         />
                                                     {:else}
                                                         <svelte:component
                                                             this={Cross}
-                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 sm:w-[0.9vw]"
+                                                            class="col-span-1 w-[2.5vw] text-red-500 opacity-80 md:w-[0.9vw]"
                                                         />
                                                     {/if}
-                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 sm:text-[0.75vw]">{item}</span>
+                                                    <span class="col-span-11 w-max text-[2.5vw] text-surface-300 md:text-[0.75vw]">{item}</span>
                                                 </div>
                                             {/each}
                                         </div>
@@ -237,7 +237,7 @@
         <confirm-password-field>
             <label
                 for="confirm-password"
-                class="mt-[2.5vw] text-[4vw] font-semibold sm:mt-[1.5vw] sm:text-[1.1vw]"
+                class="mt-[2.5vw] text-[4vw] font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
             >
                 Confirm Password
             </label>
@@ -248,14 +248,14 @@
                         id="confirm_password"
                         name="confirm_password"
                         placeholder="re-enter your password"
-                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 sm:h-[3.125vw] sm:rounded-[0.75vw] sm:border-[0.2vw] sm:pl-[1vw] sm:text-[1.1vw]"
+                        class="mt-[0.25vw] h-[10vw] w-full rounded-[2vw] border-[0.4vw] border-primary-500 bg-transparent pl-[4vw] text-[3.75vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                     />
                     {#if mounted}
                         <ValidationMessage
                             for="confirm_password"
                             let:messages={message}
                         >
-                            <span class="mt-[1.75vw] text-[2.6vw] text-surface-300 sm:mt-[0.5vw] sm:text-[0.75vw]">{@html message}</span>
+                            <span class="mt-[1.75vw] text-[2.6vw] text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                             <div slot="placeholder" />
                         </ValidationMessage>
                     {/if}
@@ -264,22 +264,22 @@
         </confirm-password-field>
     </form-fields>
 
-    <div class="mt-[7vw] flex items-center justify-between sm:mt-0">
+    <div class="mt-[7vw] flex items-center justify-between md:mt-0">
         <div class="flex flex-col">
-            <span class="text-[2.75vw] text-surface-100 sm:text-[0.75vw]">Already have an account?</span>
+            <span class="text-[2.75vw] text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
                 href="./login"
-                class="text-[4vw] sm:text-[1.1vw]"
+                class="text-[4vw] md:text-[1.1vw]"
             >
                 Login
             </a>
         </div>
         <button
             type="submit"
-            class="btn h-[10vw] rounded-[2vw] bg-secondary-800 p-0 px-[4vw] text-[3.5vw] font-semibold sm:h-[2.75vw] sm:rounded-[0.5vw] sm:px-[1.25vw] sm:text-[0.95vw]"
+            class="btn h-[10vw] rounded-[2vw] bg-secondary-800 p-0 px-[4vw] text-[3.5vw] font-semibold md:h-[2.75vw] md:rounded-[0.5vw] md:px-[1.25vw] md:text-[0.95vw]"
         >
             <span>Continue</span>
-            <ArrowUpRight class="w-[3vw] rotate-45 sm:w-[1vw]" />
+            <ArrowUpRight class="w-[3vw] rotate-45 md:w-[1vw]" />
         </button>
     </div>
 </form>
