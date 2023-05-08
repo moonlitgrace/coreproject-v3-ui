@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { onDestroy, onMount } from "svelte";
-    import { blur } from "svelte/transition";
-
     /* Icons */
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
+    import { onDestroy, onMount } from "svelte";
+    import { blur } from "svelte/transition";
 
     let choice_number: number;
     let choices: Array<{
@@ -54,7 +53,7 @@
     });
 </script>
 
-<div class="relative inline-grid h-[99%] w-full grid-cols-1 md:grid-cols-2">
+<root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
             {@const type = () => {
@@ -113,19 +112,16 @@
             </div>
         {/if}
     {/each}
-    <div
-        class="slot flex items-end justify-center md:block md:px-[8vw] md:py-[2.2vw]"
-        style="grid-area: 1 / 2 / 1 / 2;"
-    >
+    <div class="z-20 col-start-1 col-end-1 row-start-1 row-end-1 flex items-center justify-center md:col-start-2 md:col-end-2 md:block md:items-end md:px-[8vw] md:py-[2.2vw]">
         <slot />
     </div>
-</div>
+</root>
 
-<style>
-    @media (max-width: 767px) {
-        .slot {
-            grid-area: 1 /1 /1 /1 !important;
-            z-index: 20 !important;
-        }
-    }
+<style lang="postcss">
+    /* :global(#shell-header) {
+        display: none !important;
+    } */
+    /* :global(#shell-footer) {
+        display: none !important;
+    } */
 </style>
