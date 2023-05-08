@@ -1,7 +1,7 @@
 <script lang="ts">
     /* Icons */
-    import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
+    import { navbar_middle_section_variant } from "$store/navbar";
     import { onDestroy, onMount } from "svelte";
     import { blur } from "svelte/transition";
 
@@ -51,6 +51,16 @@
     onDestroy(() => {
         clearInterval(interval);
     });
+
+    // We are hiding the form on
+    $navbar_middle_section_variant = "logo";
+
+    const core_mapping: { [key: string]: string } = {
+        c: "text-[#dcd9f7]", // Not white #dcd9f7
+        o: "text-warning-500",
+        r: "text-[#dcd9f7]",
+        e: "text-[#dcd9f7]"
+    };
 </script>
 
 <root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
@@ -82,8 +92,17 @@
                 <div class="absolute inset-0 bottom-[6vw] hidden flex-col items-center justify-center text-center md:flex">
                     <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
                     <div class="mt-[0.5vw] flex items-center">
-                        <CoreProject class="w-[10vw]" />
-                        <span class="text-[1.75vw] font-bold text-surface-300">.moe</span>
+                        <p>
+                            {#each "core".split("") as letter}
+                                <span class="inline-flex text-[1.75vw] font-bold {core_mapping[letter]}">{letter}</span>
+                            {/each}
+                            {#each "project".split("") as letter}
+                                <span class="inline-flex text-[1.75vw] font-bold text-white">{letter}</span>
+                            {/each}
+                        </p>
+                        {#each ".moe".split("") as letter}
+                            <span class="inline-flex text-[1.75vw] font-bold text-surface-300">{letter}</span>
+                        {/each}
                     </div>
                     <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 

@@ -17,6 +17,7 @@
     import Settings from "$icons/settings.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
+    import { navbar_middle_section_variant } from "$store/navbar";
     import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
@@ -227,28 +228,37 @@
                 <a href="/">
                     <Logo class="w-9 md:w-[2vw]" />
                 </a>
-
-                <a
-                    href="/"
-                    class="hidden md:flex"
-                >
-                    <AnimeCore class="w-[10vw]" />
-                </a>
+                {#if $navbar_middle_section_variant === "logo"}
+                    <a
+                        href="/"
+                        class="flex"
+                    >
+                        <AnimeCore class="w-[18vh]" />
+                    </a>
+                {:else}
+                    <a
+                        href="/"
+                        class="hidden md:flex"
+                    >
+                        <AnimeCore class="w-[10vw]" />
+                    </a>{/if}
 
                 <!-- Search form for mobile device -->
-                <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                    <button class="btn absolute left-4 p-0">
-                        <Search class="w-5 opacity-75" />
-                    </button>
-                    <input
-                        type="text"
-                        placeholder="Search for animes, mangas..."
-                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
-                    />
-                    <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
-                        <MoreVertical class="w-[5vw] opacity-90" />
-                    </button>
-                </form>
+                {#if $navbar_middle_section_variant === "form"}
+                    <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                        <button class="btn absolute left-4 p-0">
+                            <Search class="w-5 opacity-75" />
+                        </button>
+                        <input
+                            type="text"
+                            placeholder="Search for animes, mangas..."
+                            class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                        />
+                        <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
+                            <MoreVertical class="w-[5vw] opacity-90" />
+                        </button>
+                    </form>
+                {/if}
 
                 <button
                     class="avatar"
