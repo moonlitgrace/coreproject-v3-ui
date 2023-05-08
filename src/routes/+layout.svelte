@@ -263,7 +263,7 @@
                 </button>
 
                 <div
-                    class="!z-50 w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
+                    class="w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
