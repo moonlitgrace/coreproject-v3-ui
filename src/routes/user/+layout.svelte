@@ -56,7 +56,7 @@
 <root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
-            {@const type = () => {
+            {@const type = (async function () {
                 switch (item.type) {
                     case "anime":
                         return "the anime";
@@ -65,7 +65,7 @@
                     default:
                         return "";
                 }
-            }}
+            })()}
 
             <div
                 class="relative"
@@ -94,7 +94,7 @@
                 <div class="absolute bottom-[1.85vw] left-[2vw] hidden md:flex">
                     <div class="flex flex-col">
                         <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">
-                            Background from {type()}
+                            Background from {type}
                         </span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
                             <span class="text-[3vw] font-bold uppercase tracking-widest text-warning-400 md:text-[1vw]">
