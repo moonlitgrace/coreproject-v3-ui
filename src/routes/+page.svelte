@@ -460,7 +460,7 @@
     </div>
 
     <my-list class="hidden md:flex">
-        <div class="mt-[2.1875vw] h-20 w-[68.125vw]">
+        <div class="mt-[2.1875vw] w-[68.125vw]">
             <div class="flex items-center gap-[0.625vw]">
                 <span class="text-[1.25vw] font-bold">My List</span>
                 <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
