@@ -233,7 +233,7 @@
                         href="/"
                         class="flex"
                     >
-                        <AnimeCore class="w-[18vh]" />
+                        <AnimeCore class="w-36 md:w-[10vw]" />
                     </a>
                 {:else}
                     <a
@@ -241,7 +241,8 @@
                         class="hidden md:flex"
                     >
                         <AnimeCore class="w-[10vw]" />
-                    </a>{/if}
+                    </a>
+                {/if}
 
                 <!-- Search form for mobile device -->
                 {#if $navbar_middle_section_variant === "form"}
@@ -406,8 +407,8 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-[5rem] items-center justify-center md:hidden">
-                <div class="flex items-start justify-center gap-[1rem] md:gap-[5vw]">
+            <div class="flex h-20 items-center justify-center md:hidden">
+                <div class="flex items-start justify-center gap-4 md:gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
@@ -422,22 +423,22 @@
                             type="button"
                             class="unstyled flex flex-col items-center gap-[0.5vh]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[2.75rem] w-[4.5rem] rounded-[0.75rem] p-0">
+                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-11 w-[4.5rem] rounded-[0.75rem] p-0">
                                 <div transition:blur|local>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            class="w-[1.4rem] text-surface-900"
+                                            class="w-5 text-surface-900"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            class="w-[1.4rem] text-white"
+                                            class="w-5 text-white"
                                         />
                                     {/if}
                                 </div>
                             </div>
-                            <span class="text-[0.75rem] font-bold capitalize text-surface-50">
+                            <span class="text-xs font-bold capitalize text-surface-50">
                                 {item_name}
                             </span>
                         </a>
