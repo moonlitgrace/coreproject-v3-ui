@@ -7,8 +7,8 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    import zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    import zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
+    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
@@ -100,7 +100,8 @@
 </script>
 
 <form
-    class="flex w-full h-max flex-col bg-surface-900 p-10 py-12 md:h-full md:justify-between md:rounded-none md:p-0"
+
+    class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
     use:focusTrap={false}
