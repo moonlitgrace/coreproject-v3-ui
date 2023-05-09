@@ -45,7 +45,6 @@
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     // Local
-    let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
     const icon_mapping: {
         // Top,middle,bottom
         [key in "top" | "middle" | "bottom" | "profile_dropdown"]: {
@@ -164,36 +163,16 @@
         }
     };
 
-    // Activate button based on Urls
-    function change_url() {
-        Object.values(icon_mapping).forEach((_) => {
-            Object.entries(_).forEach((item) => {
-                const button_name = item[0] as typeof active_button;
-                const internal_object = item[1];
-
-                if ("url" in internal_object) {
-                    const url = internal_object.url as String;
-                    if (url === $page.url.pathname) {
-                        active_button = button_name;
-                    }
-                }
-            });
-        });
-    }
-
     // Run after navigation
     beforeNavigate(async () => {
-        change_url();
         NProgress.start();
     });
     afterNavigate(() => {
-        change_url();
         NProgress.done();
     });
 
     // Run first time
     beforeUpdate(() => {
-        change_url();
         // Configure NProgress
         NProgress.configure({
             // Full list: https://github.com/rstacruz/nprogress#configuration
@@ -353,7 +332,7 @@
 
                             {@const component = item_icon.component}
 
-                            {@const is_active = active_button === item_name}
+                            {@const is_active = $page.url.pathname === item_href}
 
                             <a
                                 href={item_href ?? "javascript:void(0)"}
@@ -422,7 +401,7 @@
 
                         {@const component = item_icon.component}
 
-                        {@const is_active = active_button === item_name}
+                        {@const is_active = $page.url.pathname === item_href}
 
                         <a
                             href={item_href ?? "javascript:void(0)"}
