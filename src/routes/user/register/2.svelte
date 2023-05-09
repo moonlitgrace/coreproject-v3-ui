@@ -40,37 +40,37 @@
 </script>
 
 <form
-    class="flex h-full flex-col justify-between"
+    class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     use:form
     use:focusTrap={true}
 >
     <div class="flex flex-col items-start gap-[1.5vw]">
         <form-title>
-            <span class="text-[1.2vw] font-bold uppercase tracking-widest">choose your username and verify</span>
+            <span class="text-base md:text-[1.2vw] font-bold uppercase tracking-widest">choose your username and verify</span>
         </form-title>
 
         <username-field class="mt-[4vw] w-full">
             <label
                 for="username"
-                class="text-[1.1vw] font-semibold"
+                class="text-lg font-semibold md:text-[1.1vw]"
             >
                 Username
             </label>
             <input
                 name="username"
                 placeholder="choose any username"
-                class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
             {#if mounted}
                 <ValidationMessage
                     for="username"
                     let:messages={message}
                 >
-                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{@html message}</span>
+                    <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                     <div slot="placeholder">
-                        <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                            <Info class="w-[0.9vw] opacity-70" />
-                            <span class="text-[0.75vw] text-surface-300">you can change username in your user settings later, so go bonkers!</span>
+                        <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
+                            <Info class="w-3 opacity-70 md:w-[0.9vw]" />
+                            <span class="text-xs text-surface-300 md:text-[0.75vw]">you can change username in your user settings later, so go bonkers!</span>
                         </info>
                     </div>
                 </ValidationMessage>
@@ -80,26 +80,26 @@
         <otp-field class="w-full">
             <label
                 for="otp"
-                class="text-[1.1vw] font-semibold"
+                class="text-lg font-semibold md:text-[1.1vw]"
             >
                 One Time Verification Code
             </label>
             <input
                 name="otp"
                 placeholder="enter the code"
-                class="mt-[0.25vw] h-[3.125vw] w-full rounded-[0.75vw] border-[0.2vw] border-primary-500 bg-transparent pl-[1vw] text-[1.1vw] font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400"
+                class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
             {#if mounted}
                 <ValidationMessage
                     for="otp"
                     let:messages={message}
                 >
-                    <span class="mt-[0.5vw] text-[0.75vw] text-surface-300">{@html message}</span>
+                    <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
 
                     <div slot="placeholder">
-                        <info class="mt-[0.5vw] flex items-center gap-[0.5vw]">
-                            <Info class="w-[0.9vw] opacity-70" />
-                            <span class="text-[0.75vw] text-surface-300">if you didn’t receive the code, check your spam folder. Or use the resend button</span>
+                        <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
+                            <Info class="w-3 opacity-70 md:w-[0.9vw]" />
+                            <span class="text-xs text-surface-300 md:text-[0.75vw]">if you didn’t receive the code, check your spam folder. <br class="inline-flex sm:hidden" /> Or use the resend button</span>
                         </info>
                     </div>
                 </ValidationMessage>
@@ -109,35 +109,35 @@
         <div class="flex flex-col">
             <button
                 type="button"
-                class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
             >
                 {@html `< resend code >`}
             </button>
             <button
                 type="button"
-                class="btn p-0 text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
             >
                 {@html `< change email >`}
             </button>
         </div>
     </div>
 
-    <div class="flex items-center justify-between">
+    <div class="mt-[7vw] flex items-center justify-between md:mt-0">
         <div class="flex flex-col">
-            <span class="text-[0.75vw] text-surface-100">Already have an account?</span>
+            <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
                 href="./login"
-                class="text-[1.1vw]"
+                class="text-base md:text-[1.1vw]"
             >
                 Login
             </a>
         </div>
         <button
             type="submit"
-            class="btn h-[2.75vw] rounded-[0.5vw] bg-secondary-800 p-0 px-[1.25vw] text-[0.95vw] font-semibold"
+            class="btn h-12 rounded-lg bg-secondary-800 p-0 px-5 text-base font-semibold md:h-[2.75vw] md:rounded-[0.5vw] md:px-[1.25vw] md:text-[0.95vw]"
         >
             <span>Continue</span>
-            <ArrowUpRight class="w-[1vw] rotate-45" />
+            <ArrowUpRight class="w-4 rotate-45 md:w-[1vw]" />
         </button>
     </div>
 </form>
