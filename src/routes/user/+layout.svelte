@@ -3,7 +3,7 @@
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
-    import { onDestroy, onMount } from "svelte";
+    import { onDestroy, onMoun,beforeUpdate } from "svelte";
     import { blur } from "svelte/transition";
 
     let choice_number: number;
@@ -48,8 +48,11 @@
             change_index();
         }, 20000);
         change_index();
-        $navbar_middle_section_variant = "logo";
     });
+    beforeUpdate(()=>{
+        $navbar_middle_section_variant = "logo";
+
+    })
     onDestroy(() => {
         clearInterval(interval);
         $navbar_middle_section_variant = "form";
