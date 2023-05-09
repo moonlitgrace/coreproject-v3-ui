@@ -235,17 +235,15 @@
                     >
                         <AnimeCore class="w-36 md:w-[10vw]" />
                     </a>
-                {:else}
+                {:else if $navbar_middle_section_variant === "form"}
                     <a
                         href="/"
                         class="hidden md:flex"
                     >
                         <AnimeCore class="w-[10vw]" />
                     </a>
-                {/if}
 
-                <!-- Search form for mobile device -->
-                {#if $navbar_middle_section_variant === "form"}
+                    <!-- Search form for mobile device -->
                     <form class="relative flex h-12 w-[65vw] items-center md:hidden">
                         <button class="btn absolute left-4 p-0">
                             <Search class="w-5 opacity-75" />
