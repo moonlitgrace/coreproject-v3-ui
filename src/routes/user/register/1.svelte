@@ -100,7 +100,6 @@
 </script>
 
 <form
-
     class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
