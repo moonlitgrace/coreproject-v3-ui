@@ -44,13 +44,6 @@
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-    // Configure NProgress
-    NProgress.configure({
-        // Full list: https://github.com/rstacruz/nprogress#configuration
-        showSpinner: false,
-        minimum: 0.16
-    });
-
     // Local
     let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
     const icon_mapping: {
@@ -188,19 +181,25 @@
         });
     }
 
-    $: change_url();
-
     // Run after navigation
     beforeNavigate(async () => {
+        change_url();
         NProgress.start();
     });
     afterNavigate(() => {
+        change_url();
         NProgress.done();
     });
 
     // Run first time
     beforeUpdate(() => {
         change_url();
+        // Configure NProgress
+        NProgress.configure({
+            // Full list: https://github.com/rstacruz/nprogress#configuration
+            showSpinner: false,
+            minimum: 0.16
+        });
     });
 
     let popupSettings: PopupSettings = {
