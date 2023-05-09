@@ -193,8 +193,10 @@
         NProgress.start();
     });
     afterNavigate(() => {
+        change_url();
         NProgress.done();
     });
+    
     // Run first time
     beforeUpdate(() => {
         change_url();
