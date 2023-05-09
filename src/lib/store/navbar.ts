@@ -1,13 +1,13 @@
 import { page } from "$app/stores";
-import { get, readable } from "svelte/store";
+import { derived } from "svelte/store";
 
-export const navbar_middle_section_variant = readable<"form" | "logo" | undefined>(undefined, function start(set) {
-    const pathname = get(page).url.pathname;
+function get_logo_variant(pathname: string): "logo" | "form" {
     console.log(pathname);
-
     if (pathname.match("user")) {
-        set("logo");
+        return "logo";
     } else {
-        set("form");
+        return "form";
     }
-});
+}
+
+export const navbar_middle_section_variant = derived(page, ($page) => get_logo_variant($page.url.pathname));
