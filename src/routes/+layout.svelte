@@ -17,6 +17,7 @@
     import Settings from "$icons/settings.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
+    import { navbar_middle_section_variant } from "$store/navbar";
     import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
@@ -43,15 +44,7 @@
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-    // Configure NProgress
-    NProgress.configure({
-        // Full list: https://github.com/rstacruz/nprogress#configuration
-        showSpinner: false,
-        minimum: 0.16
-    });
-
     // Local
-    let active_button: keyof typeof icon_mapping.top | keyof typeof icon_mapping.middle | keyof typeof icon_mapping.bottom;
     const icon_mapping: {
         // Top,middle,bottom
         [key in "top" | "middle" | "bottom" | "profile_dropdown"]: {
@@ -170,33 +163,22 @@
         }
     };
 
-    // Activate button based on Urls
-    function change_url() {
-        Object.values(icon_mapping).forEach((_) => {
-            Object.entries(_).forEach((item) => {
-                const button_name = item[0] as typeof active_button;
-                const internal_object = item[1];
-
-                if ("url" in internal_object) {
-                    const url = internal_object.url as String;
-                    if (url === $page.url.pathname) {
-                        active_button = button_name;
-                    }
-                }
-            });
-        });
-    }
     // Run after navigation
     beforeNavigate(async () => {
-        change_url();
         NProgress.start();
     });
     afterNavigate(() => {
         NProgress.done();
     });
+
     // Run first time
     beforeUpdate(() => {
-        change_url();
+        // Configure NProgress
+        NProgress.configure({
+            // Full list: https://github.com/rstacruz/nprogress#configuration
+            showSpinner: false,
+            minimum: 0.16
+        });
     });
 
     let popupSettings: PopupSettings = {
@@ -228,27 +210,42 @@
                     <Logo class="w-9 md:w-[2vw]" />
                 </a>
 
-                <a
-                    href="/"
-                    class="hidden md:flex"
-                >
-                    <AnimeCore class="w-[10vw]" />
-                </a>
+                {#if $navbar_middle_section_variant === "logo"}
+                    <a
+                        href="/"
+                        class="absolute left-1/2 transform -translate-x-1/2"
+                        transition:blur|local
+                    >
+                        <AnimeCore class="w-36 md:w-[10vw]" />
+                    </a>
+                {:else if $navbar_middle_section_variant === "form"}
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2"
+                        transition:blur|local
+                    >
+                        <a
+                            href="/"
+                            class="hidden md:flex"
+                        >
+                            <AnimeCore class="w-[10vw]" />
+                        </a>
 
-                <!-- Search form for mobile device -->
-                <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                    <button class="btn absolute left-4 p-0">
-                        <Search class="w-5 opacity-75" />
-                    </button>
-                    <input
-                        type="text"
-                        placeholder="Search for animes, mangas..."
-                        class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
-                    />
-                    <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
-                        <MoreVertical class="w-[5vw] opacity-90" />
-                    </button>
-                </form>
+                        <!-- Search form for mobile device -->
+                        <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                            <button class="btn absolute left-4 p-0">
+                                <Search class="w-5 opacity-75" />
+                            </button>
+                            <input
+                                type="text"
+                                placeholder="Search for animes, mangas..."
+                                class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                            />
+                            <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
+                                <MoreVertical class="w-[5vw] opacity-90" />
+                            </button>
+                        </form>
+                    </div>
+                {/if}
 
                 <button
                     class="avatar"
@@ -336,7 +333,7 @@
 
                             {@const component = item_icon.component}
 
-                            {@const is_active = active_button === item_name}
+                            {@const is_active = $page.url.pathname === item_href}
 
                             <a
                                 href={item_href ?? "javascript:void(0)"}
@@ -396,8 +393,8 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-[5rem] items-center justify-center md:hidden">
-                <div class="flex items-start justify-center gap-[1rem] md:gap-[5vw]">
+            <div class="flex h-20 items-center justify-center md:hidden">
+                <div class="flex items-start justify-center gap-4 md:gap-[5vw]">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
@@ -405,29 +402,29 @@
 
                         {@const component = item_icon.component}
 
-                        {@const is_active = active_button === item_name}
+                        {@const is_active = $page.url.pathname === item_href}
 
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
                             class="unstyled flex flex-col items-center gap-[0.5vh]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-[2.75rem] w-[4.5rem] rounded-[0.75rem] p-0">
+                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-11 w-[4.5rem] rounded-[0.75rem] p-0">
                                 <div transition:blur|local>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            class="w-[1.4rem] text-surface-900"
+                                            class="w-5 text-surface-900"
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            class="w-[1.4rem] text-white"
+                                            class="w-5 text-white"
                                         />
                                     {/if}
                                 </div>
                             </div>
-                            <span class="text-[0.75rem] font-bold capitalize text-surface-50">
+                            <span class="text-xs font-bold capitalize text-surface-50">
                                 {item_name}
                             </span>
                         </a>

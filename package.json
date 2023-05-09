@@ -16,7 +16,9 @@
         "format": "prettier --plugin-search-dir . --write ."
     },
     "devDependencies": {
+        "@felte/reporter-svelte": "^1.1.5",
         "@felte/validator-zod": "^1.0.13",
+        "@floating-ui/dom": "^1.2.7",
         "@playwright/test": "^1.33.0",
         "@skeletonlabs/skeleton": "^1.2.5",
         "@sveltejs/adapter-node": "^1.2.4",
@@ -62,7 +64,5 @@
     },
     "type": "module",
     "dependencies": {
-        "@felte/reporter-svelte": "^1.1.5",
-        "@floating-ui/dom": "^1.2.7"
     }
 }

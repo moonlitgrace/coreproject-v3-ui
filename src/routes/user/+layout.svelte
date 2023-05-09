@@ -2,7 +2,8 @@
     /* Icons */
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
-    import { onDestroy, onMount } from "svelte";
+    import { navbar_middle_section_variant } from "$store/navbar";
+    import { beforeUpdate, onDestroy, onMount } from "svelte";
     import { blur } from "svelte/transition";
 
     let choice_number: number;
@@ -42,18 +43,20 @@
         choice_number = index;
     };
     let interval: NodeJS.Timer | undefined;
+
     onMount(() => {
         interval = setInterval(() => {
             change_index();
         }, 20000);
         change_index();
     });
+
     onDestroy(() => {
         clearInterval(interval);
     });
 </script>
 
-<root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
+<root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-full md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
             {@const type = (async function () {
@@ -82,8 +85,10 @@
                 <div class="absolute inset-0 bottom-[6vw] hidden flex-col items-center justify-center text-center md:flex">
                     <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
                     <div class="mt-[0.5vw] flex items-center">
-                        <CoreProject class="w-[10vw]" />
-                        <span class="text-[1.75vw] font-bold text-surface-300">.moe</span>
+                        <CoreProject />
+                        {#each ".moe".split("") as letter}
+                            <span class="inline-flex text-[1.75vw] font-bold text-surface-300">{letter}</span>
+                        {/each}
                     </div>
                     <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 

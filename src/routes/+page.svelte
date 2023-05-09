@@ -453,7 +453,7 @@
                 </div>
 
                 <div class="mt-[1vw] grid place-items-center">
-                    <CoreProject class="w-[6.375vw]" />
+                    <CoreProject />
                 </div>
             </div>
         </navigation-card>
