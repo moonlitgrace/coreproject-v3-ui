@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <div class="mt-[7vw] flex items-center justify-between md:mt-0">
+    <div class="mt-10 flex items-center justify-between md:mt-0">
         <div class="flex flex-col">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
