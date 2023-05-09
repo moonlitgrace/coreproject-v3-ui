@@ -40,7 +40,7 @@
     use:focusTrap={true}
 >
     <div class="flex flex-col items-start gap-[3vw]">
-        <span class="flex items-center pb-3 text-base md:text-[1.2vw] font-bold uppercase tracking-widest text-white">
+        <span class="flex items-center pb-3 text-base font-bold uppercase tracking-widest text-white md:text-[1.2vw]">
             welcome to&nbsp;
             <p class="inline-flex items-center text-surface-50">
                 {#each "core".split("") as item}
@@ -51,29 +51,29 @@
         </span>
 
         <user-info class="flex flex-col">
-            <span class="text-lg md:text-[1.5vw] font-semibold text-primary-500">Summary</span>
+            <span class="text-lg font-semibold text-primary-500 md:text-[1.5vw]">Summary</span>
 
             <username class="flex flex-col pt-5">
-                <span class="text-lg md:text-[1.1vw] font-medium">Username</span>
-                <span class="text-base md:text-[1.1vw] font-medium text-surface-300">{combined_object.username}</span>
+                <span class="text-lg font-medium md:text-[1.1vw]">Username</span>
+                <span class="text-base font-medium text-surface-300 md:text-[1.1vw]">{combined_object.username}</span>
             </username>
 
             <email class="flex flex-col pt-3">
-                <span class="text-lg md:text-[1.1vw] font-medium">Email</span>
-                <span class="text-base md:text-[1.1vw] font-medium text-surface-300">{combined_object.email}</span>
+                <span class="text-lg font-medium md:text-[1.1vw]">Email</span>
+                <span class="text-base font-medium text-surface-300 md:text-[1.1vw]">{combined_object.email}</span>
             </email>
         </user-info>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col items-start">
             <button
                 type="button"
-                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base font-semibold text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< resend code >`}
             </button>
             <button
                 type="button"
-                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base font-semibold text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< change email >`}
             </button>

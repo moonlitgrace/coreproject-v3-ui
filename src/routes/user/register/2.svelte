@@ -46,7 +46,7 @@
 >
     <div class="flex flex-col items-start gap-[1.5vw]">
         <form-title>
-            <span class="text-base md:text-[1.2vw] font-bold uppercase tracking-widest">choose your username and verify</span>
+            <span class="text-base font-bold uppercase tracking-widest md:text-[1.2vw]">choose your username and verify</span>
         </form-title>
 
         <username-field class="mt-[4vw] w-full">
@@ -77,7 +77,7 @@
             {/if}
         </username-field>
 
-        <otp-field class="w-full mt-2 md:mt-0">
+        <otp-field class="mt-2 w-full md:mt-0">
             <label
                 for="otp"
                 class="text-lg font-semibold md:text-[1.1vw]"
@@ -106,16 +106,16 @@
             {/if}
         </otp-field>
 
-        <div class="flex flex-col mt-3 md:mt-0">
+        <div class="mt-3 flex flex-col items-start md:mt-0">
             <button
                 type="button"
-                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base font-semibold text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< resend code >`}
             </button>
             <button
                 type="button"
-                class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
+                class="btn p-0 text-base font-semibold text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< change email >`}
             </button>
