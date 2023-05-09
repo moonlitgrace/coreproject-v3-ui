@@ -187,16 +187,17 @@
             });
         });
     }
+
+    $: change_url();
+
     // Run after navigation
     beforeNavigate(async () => {
-        change_url();
         NProgress.start();
     });
     afterNavigate(() => {
-        change_url();
         NProgress.done();
     });
-    
+
     // Run first time
     beforeUpdate(() => {
         change_url();
