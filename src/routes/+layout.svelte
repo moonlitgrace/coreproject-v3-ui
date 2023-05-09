@@ -232,31 +232,37 @@
                     <a
                         href="/"
                         class="flex"
+                        transition:blur|local
                     >
                         <AnimeCore class="w-36 md:w-[10vw]" />
                     </a>
                 {:else if $navbar_middle_section_variant === "form"}
-                    <a
-                        href="/"
-                        class="hidden md:flex"
+                    <div
+                        class="contents"
+                        transition:blur|local
                     >
-                        <AnimeCore class="w-[10vw]" />
-                    </a>
+                        <a
+                            href="/"
+                            class="hidden md:flex"
+                        >
+                            <AnimeCore class="w-[10vw]" />
+                        </a>
 
-                    <!-- Search form for mobile device -->
-                    <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                        <button class="btn absolute left-4 p-0">
-                            <Search class="w-5 opacity-75" />
-                        </button>
-                        <input
-                            type="text"
-                            placeholder="Search for animes, mangas..."
-                            class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
-                        />
-                        <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
-                            <MoreVertical class="w-[5vw] opacity-90" />
-                        </button>
-                    </form>
+                        <!-- Search form for mobile device -->
+                        <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                            <button class="btn absolute left-4 p-0">
+                                <Search class="w-5 opacity-75" />
+                            </button>
+                            <input
+                                type="text"
+                                placeholder="Search for animes, mangas..."
+                                class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                            />
+                            <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
+                                <MoreVertical class="w-[5vw] opacity-90" />
+                            </button>
+                        </form>
+                    </div>
                 {/if}
 
                 <button
