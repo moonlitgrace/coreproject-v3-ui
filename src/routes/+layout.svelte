@@ -213,7 +213,6 @@
                 {#if $navbar_middle_section_variant === "logo"}
                     <a
                         href="/"
-                        class="absolute left-1/2 transform -translate-x-1/2"
                         transition:blur|local
                     >
                         <AnimeCore class="w-36 md:w-[10vw]" />
