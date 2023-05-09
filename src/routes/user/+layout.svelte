@@ -48,13 +48,14 @@
             change_index();
         }, 20000);
         change_index();
+          $navbar_middle_section_variant = "logo";
     });
     onDestroy(() => {
         clearInterval(interval);
+          $navbar_middle_section_variant = "form";
     });
 
-    // We are hiding the form on
-    $navbar_middle_section_variant = "logo";
+    
 </script>
 
 <root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
