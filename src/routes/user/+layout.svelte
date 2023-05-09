@@ -51,12 +51,8 @@
         change_index();
     });
 
-    beforeUpdate(() => {
-        $navbar_middle_section_variant = "logo";
-    });
     onDestroy(() => {
         clearInterval(interval);
-        $navbar_middle_section_variant = "form";
     });
 </script>
 
