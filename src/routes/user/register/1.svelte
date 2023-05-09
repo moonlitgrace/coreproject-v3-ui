@@ -103,7 +103,7 @@
     class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
-    use:focusTrap={false}
+    use:focusTrap={true}
 >
     <form-fields>
         <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
@@ -155,7 +155,7 @@
             <div>
                 <div class="relative flex flex-col">
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         placeholder="enter a strong password"
@@ -265,7 +265,7 @@
     </form-fields>
 
     <div class="mt-[7vw] flex items-center justify-between md:mt-0">
-        <div class="flex flex-col">
+        <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
                 href="./login"
