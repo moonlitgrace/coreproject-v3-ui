@@ -77,7 +77,7 @@
             {/if}
         </username-field>
 
-        <otp-field class="w-full">
+        <otp-field class="w-full mt-2 md:mt-0">
             <label
                 for="otp"
                 class="text-lg font-semibold md:text-[1.1vw]"
@@ -99,14 +99,14 @@
                     <div slot="placeholder">
                         <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
                             <Info class="w-3 opacity-70 md:w-[0.9vw]" />
-                            <span class="text-xs text-surface-300 md:text-[0.75vw]">if you didn’t receive the code, check your spam folder. <br class="inline-flex sm:hidden" /> Or use the resend button</span>
+                            <span class="text-xs text-surface-300 md:text-[0.75vw]">if you didn’t receive the code, check your spam folder. Or use the resend button</span>
                         </info>
                     </div>
                 </ValidationMessage>
             {/if}
         </otp-field>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col mt-3 md:mt-0">
             <button
                 type="button"
                 class="btn p-0 text-base md:text-[1vw] font-semibold text-primary-600 underline"
