@@ -123,7 +123,7 @@
     </div>
 
     <div class="mt-10 flex items-center justify-between md:mt-0">
-        <div class="flex flex-col">
+        <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
                 href="./login"
