@@ -220,11 +220,11 @@
                 {:else if $navbar_middle_section_variant === "form"}
                     <div
                         class="absolute left-1/2 transform -translate-x-1/2"
-                        transition:blur|local
                     >
                         <a
                             href="/"
                             class="hidden md:flex"
+                            transition:blur|local
                         >
                             <AnimeCore class="w-[10vw]" />
                         </a>
