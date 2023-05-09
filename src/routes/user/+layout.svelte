@@ -56,7 +56,7 @@
     });
 </script>
 
-<root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-[calc(100vh-6.5rem)] md:grid-cols-2">
+<root class="relative inline-grid h-[calc(100vh-10rem)] w-full md:h-full md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
             {@const type = (async function () {
