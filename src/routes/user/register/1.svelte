@@ -100,7 +100,7 @@
 </script>
 
 <form
-    class="flex w-full h-max flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
+    class="flex w-full h-max flex-col bg-surface-900 p-10 py-12 md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
     use:focusTrap={false}
@@ -134,7 +134,7 @@
                     for="email"
                     let:messages={message}
                 >
-                    <span class="mt-[0.75vw] text-[2.75vw] text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
+                    <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                     <div slot="placeholder">
                         <info class="mt-[0.75vw] flex items-center gap-2 md:mt-[0.5vw]">
                             <Info class="w-3 opacity-70 md:w-[0.9vw]" />
@@ -255,7 +255,7 @@
                             for="confirm_password"
                             let:messages={message}
                         >
-                            <span class="mt-[1.75vw] text-[2.6vw] text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
+                            <span class="mt-[1.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
                             <div slot="placeholder" />
                         </ValidationMessage>
                     {/if}
