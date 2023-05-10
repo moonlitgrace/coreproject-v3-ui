@@ -13,6 +13,9 @@ export const latest_animes = [
 				sister back into a human, and kill the demon that massacred his family.`,
         updated: "2023-04-20T15:38:51.162Z",
         studios: ["ufotable"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 26
     },
     {
@@ -28,6 +31,9 @@ export const latest_animes = [
 			Hyouka follows the four members of the Classics Club—including Oreki's friends Satoshi Fukube and Mayaka Ibara—as they, driven by Chitanda's insatiable curiosity, solve the trivial yet intriguing mysteries that permeate their daily lives.`,
         updated: "2023-03-11T02:37:40.790Z",
         studios: ["Kyoto animations"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 9
     },
     {
@@ -41,6 +47,9 @@ export const latest_animes = [
 			Nowadays, Kousei lives a quiet and unassuming life as a junior high school student alongside his friends Tsubaki Sawabe and Ryouta Watari. While struggling to get over his mother's death, he continues to cling to music. His monochrome life turns upside down the day he encounters the eccentric violinist Kaori Miyazono, who thrusts him back into the spotlight as her accompanist. Through a little lie, these two young musicians grow closer together as Kaori tries to fill Kousei's world with color.`,
         updated: "2023-03-11T02:37:40.790Z",
         studios: ["A-1 Pictures"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 22
     },
     {
@@ -52,6 +61,9 @@ export const latest_animes = [
         synopsis: `Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal Titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.`,
         updated: "2013-04-7T02:37:40.790Z",
         studios: ["Wit Studio"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 25
     },
     {
@@ -63,6 +75,9 @@ export const latest_animes = [
         synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
         updated: "2020-10-3T02:37:40.790Z",
         studios: ["MAPPA"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 24
     },
     {
@@ -75,6 +90,9 @@ export const latest_animes = [
 			 For his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.`,
         updated: "2020-10-3T02:37:40.790Z",
         studios: [" Madhouse"],
+        genres: [
+            "Sic-Fic", "Action", "Echhi"
+        ],
         episodes_count: 24
     }
 ];
