@@ -7,7 +7,6 @@
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
     import { onDestroy, onMount } from "svelte";
-    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     // Broken
@@ -47,7 +46,7 @@
 >
     <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
 
-    <form-fields >
+    <form-fields>
         <email-or-username-field>
             <label
                 for="email-or-username"

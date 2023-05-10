@@ -12,7 +12,6 @@
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
-    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     let password_strength = 0;
