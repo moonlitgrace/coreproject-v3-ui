@@ -1,48 +1,19 @@
 <script lang="ts">
-    /* Icons */
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
     import { onDestroy, onMount } from "svelte";
     import { blur } from "svelte/transition";
+    import { latest_animes } from "$data/mock/latest_animes";
 
-    let choice_number: number;
-    let choices: Array<{
-        type: string;
-        name: string;
-        image: string;
-        credit?: string;
-    }> = [
-        {
-            type: "anime",
-            name: "Demon Slayer",
-            image: "https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg",
-            credit: "https://www.reddit.com/r/DemonSlayerAnime/comments/tpgpid/demon_slayer_4k_wallpaper/"
-        },
-        {
-            type: "anime",
-            name: "Attack on Titan",
-            image: "https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDQ0NTI1OTEyMDczODYy/attack-on-titan-season-1-review.jpg"
-        },
-        {
-            type: "anime",
-            name: "The Rise of the Shield Hero",
-            image: "https://anitrendz.net/news/wp-content/uploads/2021/03/Shield-Hero-2.jpg"
-        }
-    ];
-    let previous_index: number | undefined;
+    let choice_number = 1;
     const change_index = () => {
-        let index = Math.floor(Math.random() * choices.length);
-
-        // Ensure the new index is not the same as the previous index
-        while (index === previous_index) {
-            index = Math.floor(Math.random() * choices.length);
+        if (choice_number + 1 === latest_animes.length) {
+            choice_number = 1;
         }
-        // Update the previous index
-        previous_index = index;
-        choice_number = index;
+        choice_number++;
     };
-    let interval: NodeJS.Timer | undefined;
 
+    let interval: NodeJS.Timer | undefined;
     onMount(() => {
         interval = setInterval(() => {
             change_index();
@@ -56,19 +27,8 @@
 </script>
 
 <root class="relative inline-grid h-full w-full md:grid-cols-2">
-    {#each choices as item, index}
+    {#each latest_animes as item, index}
         {#if index === choice_number}
-            {@const type = (function () {
-                switch (item.type) {
-                    case "anime":
-                        return "the anime";
-                    case "pixiv":
-                        return "the artist";
-                    default:
-                        return "";
-                }
-            })()}
-
             <div
                 class="relative"
                 style="grid-area: 1 / 1 / 1 / 1;"
@@ -76,7 +36,7 @@
             >
                 <div
                     class="h-full w-full bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{item.image ?? ''}')"
+                    style="background-image: url('{item.cover ?? ''}')"
                 />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
@@ -89,16 +49,16 @@
                             <span class="inline-flex text-[1.75vw] font-bold text-surface-300">{letter}</span>
                         {/each}
                     </div>
-                    <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
+                    <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold leading-[1.75vw]">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 
                     <span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
-                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">you can continue on animecore, mangacore and soundcore at same time</span>
+                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200 leading-[1vw]">continue on animecore, mangacore and soundcore with same account.</span>
                 </div>
 
                 <div class="absolute bottom-[1.85vw] left-10 md:left-[2vw] md:flex">
                     <div class="flex flex-col">
                         <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">
-                            Background from {type}
+                            Background from anime
                         </span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
                             <span class="text-[3vw] font-bold uppercase tracking-widest text-warning-400 md:text-[1vw]">
