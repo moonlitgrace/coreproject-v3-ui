@@ -45,9 +45,9 @@
     use:form
     use:focusTrap={true}
 >
-    <span transition:blur|local class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
+    <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
 
-    <form-fields transition:blur|local >
+    <form-fields >
         <email-or-username-field>
             <label
                 for="email-or-username"
@@ -99,7 +99,7 @@
         </div>
     </form-fields>
 
-    <div class="mt-10 flex items-center justify-between md:mt-0" transition:blur|local>
+    <div class="mt-10 flex items-center justify-between md:mt-0">
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
             <a

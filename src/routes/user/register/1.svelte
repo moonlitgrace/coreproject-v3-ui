@@ -7,8 +7,8 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+    // import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
+    // import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
@@ -108,7 +108,7 @@
     use:form
     use:focusTrap={true}
 >
-    <form-fields transition:blur|local>
+    <form-fields>
         <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
             create your&nbsp;
             <p class="unstyled inline-flex items-center">
@@ -267,7 +267,7 @@
         </confirm-password-field>
     </form-fields>
 
-    <div class="mt-[7vw] flex items-center justify-between md:mt-0" transition:blur|local>
+    <div class="mt-[7vw] flex items-center justify-between md:mt-0">
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a

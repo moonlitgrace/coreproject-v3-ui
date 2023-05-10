@@ -96,7 +96,7 @@
                     <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200">you can continue on animecore, mangacore and soundcore at same time</span>
                 </div>
 
-                <div class="absolute bottom-[1.85vw] left-[2vw] hidden md:flex">
+                <div class="absolute bottom-[1.85vw] left-10 md:left-[2vw] md:flex">
                     <div class="flex flex-col">
                         <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">
                             Background from {type}
