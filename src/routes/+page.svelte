@@ -250,7 +250,7 @@
                                 $timerStore = "start";
                             }}
                         >
-                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 md:from-surface-900/95 to-surface-900/25" />
+                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
@@ -308,21 +308,19 @@
                     {/if}
                 {/each}
 
-                <div class="px-[3vw] flex gap-5 items-center md:block md:px-0">
+                <div class="flex items-center gap-5 px-[3vw] md:block md:px-0">
                     <div class="relative w-[60%] md:w-full">
                         <div
-                            class="h-[0.2rem] md:pr-0 absolute md:static md:h-[0.5vw] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
+                            class="absolute h-[0.2rem] md:static md:h-[0.145vw] md:h-[0.5vw] md:pr-0 {slide_buttons[main_hero_slide_active_index].background}"
                             style="width: {$tweened_progress_value}%;"
                         />
-                        <div
-                            class="h-[0.2rem] md:hidden opacity-20 {slide_buttons[main_hero_slide_active_index].background}"
-                        />
+                        <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
                     </div>
-                    
-                    <div class="w-full w-[40%] md:w-full grid grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:gap-[0.9375vw] md:px-0">
+
+                    <div class="grid w-[40%] w-full grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
-                                class="col-span-1 w-4 h-4 md:w-full rounded-full border-[0.2rem] md:border-[0.15vw] md:h-[0.625vw] md:rounded-[0.1875vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
+                                class="col-span-1 h-4 w-4 rounded-full border-[0.2rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
                                 on:click={() => {
                                     timer?.reset();
                                     timer?.start();
@@ -359,7 +357,6 @@
                         class="w-[1.25vw] -rotate-90"
                     />
                 </button>
-
             </div>
         </latest-animes>
 
