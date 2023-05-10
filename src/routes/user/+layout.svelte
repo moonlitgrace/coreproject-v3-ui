@@ -2,8 +2,7 @@
     /* Icons */
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
-    import { navbar_middle_section_variant } from "$store/navbar";
-    import { beforeUpdate, onDestroy, onMount } from "svelte";
+    import { onDestroy, onMount } from "svelte";
     import { blur } from "svelte/transition";
 
     let choice_number: number;
@@ -56,10 +55,10 @@
     });
 </script>
 
-<root class="relative inline-grid w-full h-full md:grid-cols-2">
+<root class="relative inline-grid h-full w-full md:grid-cols-2">
     {#each choices as item, index}
         {#if index === choice_number}
-            {@const type = (async function () {
+            {@const type = (function () {
                 switch (item.type) {
                     case "anime":
                         return "the anime";
