@@ -17,14 +17,16 @@
 
     let password_strength = 0;
 
-    const options = {
-        dictionary: {
-            ...zxcvbnCommonPackage.dictionary,
-            ...zxcvbnEnPackage.dictionary
-        }
-    };
+    // these zod configuration causing errors
 
-    zxcvbnOptions.setOptions(options);
+    // const options = {
+    //     dictionary: {
+    //         ...zxcvbnCommonPackage.dictionary,
+    //         ...zxcvbnEnPackage.dictionary
+    //     }
+    // };
+
+    // zxcvbnOptions.setOptions(options);
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
