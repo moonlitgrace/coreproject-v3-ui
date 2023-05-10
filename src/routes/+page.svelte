@@ -309,15 +309,15 @@
                 {/each}
 
                 <div class="flex items-center gap-5 px-[3vw] md:block md:px-0">
-                    <div class="relative w-[60%] md:w-full">
+                    <div class="relative basis-1/2 md:w-full">
                         <div
-                            class="absolute h-[0.2rem] md:static md:h-[0.145vw] md:h-[0.5vw] md:pr-0 {slide_buttons[main_hero_slide_active_index].background}"
+                            class="absolute h-[0.2rem] md:relative md:h-[0.145vw] md:pr-0 {slide_buttons[main_hero_slide_active_index].background}"
                             style="width: {$tweened_progress_value}%;"
                         />
                         <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
                     </div>
 
-                    <div class="grid w-[40%] w-full grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
+                    <div class="grid basis-1/2 w-full grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
                                 class="col-span-1 h-4 w-4 rounded-full border-[0.2rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
