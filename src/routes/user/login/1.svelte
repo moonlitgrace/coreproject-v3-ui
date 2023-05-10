@@ -7,6 +7,7 @@
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
     import { onDestroy, onMount } from "svelte";
+    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     // Broken
@@ -44,9 +45,9 @@
     use:form
     use:focusTrap={true}
 >
-    <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
+    <span transition:blur|local class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
 
-    <form-fields>
+    <form-fields transition:blur|local >
         <email-or-username-field>
             <label
                 for="email-or-username"
@@ -98,7 +99,7 @@
         </div>
     </form-fields>
 
-    <div class="mt-10 flex items-center justify-between md:mt-0">
+    <div class="mt-10 flex items-center justify-between md:mt-0" transition:blur|local>
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
             <a

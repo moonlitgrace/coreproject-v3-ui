@@ -12,6 +12,7 @@
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
+    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     let password_strength = 0;
@@ -105,7 +106,7 @@
     use:form
     use:focusTrap={true}
 >
-    <form-fields>
+    <form-fields transition:blur|local>
         <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
             create your&nbsp;
             <p class="unstyled inline-flex items-center">
@@ -264,7 +265,7 @@
         </confirm-password-field>
     </form-fields>
 
-    <div class="mt-[7vw] flex items-center justify-between md:mt-0">
+    <div class="mt-[7vw] flex items-center justify-between md:mt-0" transition:blur|local>
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
