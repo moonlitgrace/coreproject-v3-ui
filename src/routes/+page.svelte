@@ -222,7 +222,7 @@
 
 <div class="md:p-[1.25vw] md:pr-[3.75vw]">
     <div class="flex justify-between">
-        <latest-animes class="h-[65vw] w-full md:h-[27.875vw] md:w-[42.1875vw]">
+        <latest-animes class="h-80 w-full md:h-[27.875vw] md:w-[42.1875vw]">
             <div
                 use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
                 on:swipe={swipe_handler}
@@ -252,51 +252,55 @@
                         >
                             <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
-                                <span class="text-[7vw] font-bold leading-[2.375vw] md:text-[2vw]">
+                                <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
                                 <p class="flex flex-wrap items-center gap-2 pt-[2vw] md:pt-[0.5vw]">
-                                    <span class="text-[2.5vw] font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.type}
                                     </span>
-                                    <span class="text-[2.5vw] font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span class="text-[2.5vw] font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                                    <span class="text-[2.5vw] font-semibold capitalize leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
+                                    <span class="text-sm font-semibold capitalize leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span class="text-[2.5vw] font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
 
-                                <p class="pt-[2vw] !text-[2.5vw] !leading-[2.75vw] text-surface-50/75 md:pt-[0.875vw] md:!text-[0.85vw] md:!leading-[1vw]">
-                                    {voca.truncate(anime.synopsis, 400)}
+                                <div class="flex gap-1 pb-2 pt-3 md:gap-[0.5vw] md:pt-[0.35vw]">
+                                    {#each anime.genres as item}
+                                        <span class="rounded bg-surface-900/50 p-1 px-2 text-xs md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.4vw] md:text-[0.75vw] md:font-semibold">{item}</span>
+                                    {/each}
+                                </div>
+
+                                <p class="line-clamp-3 text-xs leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw]">
+                                    {anime.synopsis}
                                 </p>
 
-                                <div class="mb-[1vw] mt-[5vw] flex gap-[2.5vw] md:mb-0 md:mt-[2.625vw] md:gap-[1vw]">
-                                    <button class="btn btn-icon flex h-[10vw] w-[20vw] justify-center rounded-[2vw] bg-warning-400 text-[3vw] font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                        <PlayCircle class="hidden w-[1.25vw] text-surface-900 md:flex" />
-                                        <PlayCircle class="flex w-[4vw] text-surface-900 md:hidden" />
+                                <div class="my-3 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
+                                    <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                        <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
                                         <span>Ep 1</span>
                                     </button>
 
-                                    <button class="btn btn-icon flex h-[10vw] w-[22vw] items-center justify-center rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
-                                        <Info class="hidden w-[1.25vw] text-surface-50 md:flex" />
-                                        <Info class="flex w-[4vw] text-surface-50 md:hidden" />
+                                    <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg border-[0.2vw] border-surface-50/50 bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
+                                        <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                         <span>Details</span>
                                     </button>
 
-                                    <button class="btn btn-icon h-[10vw] w-[10vw] rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
+                                    <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
                                         <Edit
                                             variant="with_underline_around_pencil"
-                                            class="hidden w-[1.25vw] text-surface-50 md:flex"
+                                            class="w-5 text-surface-50 md:w-[1.25vw]"
                                         />
-                                        <Edit
+                                        <!-- <Edit
                                             variant="with_underline_around_pencil"
                                             class="flex w-[3.5vw] text-surface-50 md:hidden"
-                                        />
+                                        /> -->
                                     </button>
                                 </div>
                             </div>
