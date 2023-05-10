@@ -151,7 +151,7 @@
         <password-field>
             <label
                 for="password"
-                class="mt-[2vw] text-lg font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
+                class="mt-[2vw] text-lg font-semibold md:mt-[0.75vw] md:text-[1.1vw]"
             >
                 Password
             </label>
@@ -240,7 +240,7 @@
         <confirm-password-field>
             <label
                 for="confirm-password"
-                class="mt-[2.5vw] text-lg font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
+                class="mt-[2.5vw] text-lg font-semibold md:mt-[1vw] md:text-[1.1vw]"
             >
                 Confirm Password
             </label>
