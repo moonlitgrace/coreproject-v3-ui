@@ -434,6 +434,17 @@
                     <ArrowUpRight class="w-4" />
                 </button>
             </title>
+
+            <div class="mt-5 flex gap-5 flex-nowrap overflow-x-scroll scroll-smooth">
+                {#each latest_episodes as item}
+                    <episode class="w-36 flex-shrink-0 relative">
+                        <div>
+                            <img class="w-full h-52 rounded-2xl object-cover" src={item.cover} alt={item.name}>
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
+                        </div>
+                    </episode>
+                {/each}
+            </div>
         </latest-episodes-mobile>
 
         <navigation-card
