@@ -435,13 +435,18 @@
                 </button>
             </title>
 
-            <div class="mt-5 flex gap-5 flex-nowrap overflow-x-scroll scroll-smooth">
-                {#each latest_episodes as item}
-                    <episode class="w-36 flex-shrink-0 relative">
-                        <div>
-                            <img class="w-full h-52 rounded-2xl object-cover" src={item.cover} alt={item.name}>
+            <div class="mt-5 flex gap-5 flex-nowrap overflow-x-scroll pb-5 scroll-smooth">
+                {#each latest_episodes as anime}
+                    <episode class="w-36 flex-shrink-0">
+                        <div class="relative">
+                            <img class="w-full h-52 rounded-2xl object-cover" src={anime.cover} alt={anime.name}>
                             <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
                         </div>
+                        <span class="text-sm line-clamp-1 mt-2 text-white">{anime.name}</span>
+                        <p class="text-xs text-surface-50 mt-1">
+                            Ep {anime.episode_number}
+                            <span class="text-surface-300">aired {new format_date(anime.release_date).format_to_time_from_now}</span>
+                        </p>
                     </episode>
                 {/each}
             </div>
