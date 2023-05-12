@@ -424,14 +424,16 @@
         </latest-episodes>
 
         <latest-episodes-mobile class="mt-10 px-[3vw] md:hidden">
-            <p class="unstyled text-2xl font-semibold leading-none">Latest Episodes</p>
-            <div class="flex items-center justify-between gap-3">
-                <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
+            <title class="flex items-end justify-between">
+                <div class="flex flex-col gap-2">
+                    <p class="unstyled text-2xl font-semibold">Latest Episodes</p>
+                    <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
+                </div>
                 <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
                     <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
-            </div>
+            </title>
         </latest-episodes-mobile>
 
         <navigation-card
