@@ -427,8 +427,8 @@
             <p class="unstyled text-2xl font-semibold leading-none">Latest Episodes</p>
             <div class="flex items-center justify-between gap-3">
                 <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
-                <button class="btn gap-1 rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
-                    Full List
+                <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
+                    <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
             </div>
