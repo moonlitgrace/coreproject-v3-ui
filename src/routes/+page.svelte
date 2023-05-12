@@ -281,7 +281,7 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-4 md:mb-0 md:mt-[1.5vw]">
+                                <div class="my-4 md:mb-0 md:mt-[1.5vw] flex items-end justify-between">
                                     <div class="flex gap-3 md:gap-[1vw]">
                                         <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
@@ -300,6 +300,17 @@
                                             />
                                         </button>
                                     </div>
+
+                                    <swipe-directions class="md:hidden flex flex-col justify-center gap-1">
+                                        <left-swipe class="flex items-center justify-between gap-1 text-surface-300/75">
+                                            <Chevron class="w-3 rotate-90" />
+                                            <span class="text-xs font-medium">Swipe Left</span>
+                                        </left-swipe>
+                                        <right-swipe class="flex items-center justify-between gap-1 text-surface-300/75">
+                                            <span class="text-xs font-medium">Swipe Right</span>
+                                            <Chevron class="w-3 -rotate-90" />
+                                        </right-swipe>
+                                    </swipe-directions>
                                 </div>
                             </div>
                         </div>
@@ -416,7 +427,7 @@
             <p class="unstyled text-2xl font-semibold leading-none">Latest Episodes</p>
             <div class="flex items-center justify-between gap-3">
                 <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
-                <button class="btn gap-1 rounded bg-surface-400 px-3 py-2 text-sm font-semibold">
+                <button class="btn gap-1 rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
                     Full List
                     <ArrowUpRight class="w-4" />
                 </button>
