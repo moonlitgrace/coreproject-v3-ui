@@ -221,7 +221,7 @@
 </svelte:head>
 
 <div class="md:p-[1.25vw] md:pr-[3.75vw]">
-    <div class="flex flex-col md:flex-row justify-between">
+    <div class="flex flex-col justify-between md:flex-row">
         <latest-animes class="h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]">
             <div
                 use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
@@ -414,7 +414,7 @@
             </div>
         </latest-episodes>
 
-        <latest-episodes-mobile class="md:hidden mt-10 px-[3vw]">
+        <latest-episodes-mobile class="mt-10 px-[3vw] md:hidden">
             <p class="unstyled text-2xl font-semibold leading-none">Latest Episodes</p>
             <div class="flex items-center justify-between gap-3">
                 <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
