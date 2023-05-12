@@ -281,7 +281,7 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-4 md:mb-0 md:mt-[1.5vw] flex items-end justify-between">
+                                <div class="my-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
                                         <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
@@ -301,7 +301,7 @@
                                         </button>
                                     </div>
 
-                                    <swipe-directions class="md:hidden flex flex-col justify-center gap-1">
+                                    <swipe-directions class="flex flex-col justify-center gap-1 md:hidden">
                                         <left-swipe class="flex items-center justify-between gap-1 text-surface-300/75">
                                             <Chevron class="w-3 rotate-90" />
                                             <span class="text-xs font-medium">Swipe Left</span>
