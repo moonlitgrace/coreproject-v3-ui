@@ -255,7 +255,7 @@
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
-                                <p class="flex text-xs font-medium flex-wrap items-center gap-2 pt-3 md:pt-[0.5vw] md:text-[0.9375vw]">
+                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:pt-[0.5vw] md:text-[0.9375vw]">
                                     <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.type}
                                     </span>
@@ -277,7 +277,7 @@
                                     {/each}
                                 </div>
 
-                                <p class="line-clamp-3 text-xs leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw] font-medium">
+                                <p class="line-clamp-3 text-xs font-medium leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw]">
                                     {anime.synopsis}
                                 </p>
 
@@ -317,7 +317,7 @@
                         <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
                     </div>
 
-                    <div class="grid basis-1/2 w-full grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
+                    <div class="grid w-full basis-1/2 grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
                                 class="col-span-1 h-4 w-4 rounded-full border-[0.2rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
