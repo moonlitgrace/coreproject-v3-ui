@@ -281,27 +281,25 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-4 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
-                                    <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                        <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
-                                        <span>Ep 1</span>
-                                    </button>
+                                <div class="my-4 md:mb-0 md:mt-[1.5vw]">
+                                    <div class="flex gap-3 md:gap-[1vw]">
+                                        <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                            <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
+                                            <span>Ep 1</span>
+                                        </button>
 
-                                    <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg border-[0.2vw] border-surface-50/50 bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
-                                        <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
-                                        <span>Details</span>
-                                    </button>
+                                        <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg border-[0.2vw] border-surface-50/50 bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
+                                            <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
+                                            <span>Details</span>
+                                        </button>
 
-                                    <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
-                                        <Edit
-                                            variant="with_underline_around_pencil"
-                                            class="w-5 text-surface-50 md:w-[1.25vw]"
-                                        />
-                                        <!-- <Edit
-                                            variant="with_underline_around_pencil"
-                                            class="flex w-[3.5vw] text-surface-50 md:hidden"
-                                        /> -->
-                                    </button>
+                                        <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
+                                            <Edit
+                                                variant="with_underline_around_pencil"
+                                                class="w-5 text-surface-50 md:w-[1.25vw]"
+                                            />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
