@@ -255,18 +255,18 @@
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
-                                <p class="flex flex-wrap items-center gap-2 pt-3 md:pt-[0.5vw]">
-                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                <p class="flex text-xs font-medium flex-wrap items-center gap-2 pt-3 md:pt-[0.5vw] md:text-[0.9375vw]">
+                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.type}
                                     </span>
-                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                                    <span class="text-sm font-semibold capitalize leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
+                                    <span class="capitalize leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span class="text-sm font-semibold leading-[1.125vw] md:text-[0.9375vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
@@ -277,7 +277,7 @@
                                     {/each}
                                 </div>
 
-                                <p class="line-clamp-3 text-xs leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw]">
+                                <p class="line-clamp-3 text-xs leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw] font-medium">
                                     {anime.synopsis}
                                 </p>
 
