@@ -221,7 +221,7 @@
 </svelte:head>
 
 <div class="md:p-[1.25vw] md:pr-[3.75vw]">
-    <div class="flex justify-between">
+    <div class="flex flex-col md:flex-row justify-between">
         <latest-animes class="h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]">
             <div
                 use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
@@ -281,7 +281,7 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-3 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
+                                <div class="my-4 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
                                     <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                         <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
                                         <span>Ep 1</span>
@@ -413,6 +413,17 @@
                 <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
             </div>
         </latest-episodes>
+
+        <latest-episodes-mobile class="md:hidden mt-10 px-[3vw]">
+            <p class="unstyled text-2xl font-semibold leading-none">Latest Episodes</p>
+            <div class="flex items-center justify-between gap-3">
+                <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
+                <button class="btn gap-1 rounded bg-surface-400 px-3 py-2 text-sm font-semibold">
+                    Full List
+                    <ArrowUpRight class="w-4" />
+                </button>
+            </div>
+        </latest-episodes-mobile>
 
         <navigation-card
             class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center md:block"
