@@ -187,7 +187,7 @@
     };
 
     /** search panel */
-    async function show_search_modal(): void {
+    async function show_search_modal(): Promise<void> {
         const search_component: ModalComponent = { ref: SearchPanel };
         const search_modal: ModalSettings = {
             type: "component",
