@@ -285,16 +285,16 @@
                                 href={item_href}
                                 class="{item_href ?? 'pointer-events-none'} unstyled"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.5vw] py-[1.25vw] transition duration-100 md:py-[0.5vw] md:hover:bg-surface-300/20">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.4rem] md:p-[0.5vw] transition duration-100 md:py-[0.5vw] md:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         class="col-span-1 hidden md:flex {item_icon.class}"
                                     />
                                     <svelte:component
                                         this={item_icon.component}
-                                        class="col-span-1 flex w-[4vw] md:hidden"
+                                        class="col-span-1 flex w-5 md:hidden"
                                     />
-                                    <span class="col-span-4 text-[2.7vw] font-medium text-white md:text-[1vw]">
+                                    <span class="col-span-4 text-xs font-medium text-white md:text-[1vw]">
                                         {item_name}
                                     </span>
                                 </div>
