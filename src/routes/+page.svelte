@@ -417,7 +417,7 @@
         <latest-episodes-mobile class="mt-10 px-[3vw] md:hidden">
             <title class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
-                    <p class="unstyled text-2xl font-semibold">Latest Episodes</p>
+                    <p class="unstyled text-xl font-semibold">Latest Episodes</p>
                     <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
                 </div>
                 <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
@@ -634,11 +634,11 @@
         </div>
     </my-list>
 
-    <continue-watching>
-        <div class="mt-10 px-[3vw]">
+    <continue-watching-mobile class="md:hidden">
+        <div class="mt-5 px-[3vw]">
             <title class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
-                    <p class="unstyled text-2xl font-semibold">Continue Watching</p>
+                    <p class="unstyled text-xl font-semibold">Continue Watching</p>
                     <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
                 </div>
                 <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
@@ -668,5 +668,5 @@
                 {/each}
             </div>
         </div>
-    </continue-watching>
+    </continue-watching-mobile>
 </div>
