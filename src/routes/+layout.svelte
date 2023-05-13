@@ -265,7 +265,7 @@
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
                         <Avatar
                             rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
-                            width="w-[8vw] md:w-[2.5vw]"
+                            width="w-10 md:w-[2.5vw]"
                             cursor="cursor-pointer"
                             src="https://i.postimg.cc/6pNGq1YL/345336.png"
                             initials="JD"
