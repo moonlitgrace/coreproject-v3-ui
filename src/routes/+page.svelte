@@ -412,7 +412,7 @@
         </latest-episodes>
 
         <latest-episodes-mobile class="mt-10 px-[3vw] md:hidden">
-            <title class="flex items-end justify-between">
+            <div class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
                     <p class="unstyled text-xl font-semibold">Latest Episodes</p>
                     <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
@@ -421,7 +421,7 @@
                     <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
-            </title>
+            </div>
 
             <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each latest_episodes as anime}
@@ -633,7 +633,7 @@
 
     <continue-watching-mobile class="md:hidden">
         <div class="mt-5 px-[3vw]">
-            <title class="flex items-end justify-between">
+            <div class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
                     <p class="unstyled text-xl font-semibold">Continue Watching</p>
                     <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
@@ -642,7 +642,7 @@
                     <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
-            </title>
+            </div>
 
             <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each continue_watching as anime}
