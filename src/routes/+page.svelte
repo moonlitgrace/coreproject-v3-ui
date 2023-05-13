@@ -5,6 +5,7 @@
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { my_list } from "$data/mock/my_list";
+    import { popular_genres } from "$data/mock/popular_genres";
     import { format_date } from "$functions/format_date";
     import { format_time } from "$functions/format_time";
     import { OpengraphGenerator } from "$functions/opengraph";
@@ -675,4 +676,39 @@
             </div>
         </div>
     </continue-watching-mobile>
+
+    <popular-genres>
+        <div class="mt-5 px-[3vw]">
+            <div class="flex items-end justify-between">
+                <div class="flex flex-col gap-1">
+                    <p class="unstyled text-xl font-semibold">Popular Genres</p>
+                    <span class="text-xs font-medium text-surface-200">watch animes from popular genres</span>
+                </div>
+                <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
+                    <span>Full List</span>
+                    <ArrowUpRight class="w-4" />
+                </button>
+            </div>
+
+            <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
+                {#each popular_genres as genre}
+                    <genre
+                        class="relative flex bg-center bg-cover h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] p-5"
+                        style="background-image: url({genre.cover});"
+                    >
+                        <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
+                        <div class="absolute">
+                            <span class="text-xl font-bold text-white">{genre.title}</span>
+                            <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
+
+                            <button class="btn bg-warning-400 text-surface-900 font-semibold text-sm rounded-lg px-4 mt-3">
+                                <span>See All</span>
+                                <ArrowUpRight class="w-4" />
+                            </button>
+                        </div>
+                    </genre>
+                {/each}
+            </div>
+        </div>
+    </popular-genres>
 </div>
