@@ -677,7 +677,7 @@
         </div>
     </continue-watching-mobile>
 
-    <popular-genres>
+    <popular-genres class="md:hidden">
         <div class="mt-5 px-[3vw]">
             <div class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
@@ -693,7 +693,7 @@
             <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each popular_genres as genre}
                     <genre
-                        class="relative flex bg-center bg-cover h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] p-5"
+                        class="relative flex h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] bg-cover bg-center p-5"
                         style="background-image: url({genre.cover});"
                     >
                         <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
@@ -701,7 +701,7 @@
                             <span class="text-xl font-bold text-white">{genre.title}</span>
                             <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
 
-                            <button class="btn bg-warning-400 text-surface-900 font-semibold text-sm rounded-lg px-4 mt-3">
+                            <button class="btn mt-3 rounded-lg bg-warning-400 px-4 text-sm font-semibold text-surface-900">
                                 <span>See All</span>
                                 <ArrowUpRight class="w-4" />
                             </button>
