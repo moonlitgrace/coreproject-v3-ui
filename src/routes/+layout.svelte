@@ -259,14 +259,13 @@
                 </button>
 
                 <div
-                    class="w-[40vw] rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
+                    class="rounded-[1.75vw] bg-surface-400 px-[4vw] py-[4.5vw] shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
                         <Avatar
                             rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
                             width="w-10 md:w-[2.5vw]"
-                            cursor="cursor-pointer"
                             src="https://i.postimg.cc/6pNGq1YL/345336.png"
                             initials="JD"
                         />
