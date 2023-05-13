@@ -435,7 +435,7 @@
                 </button>
             </title>
 
-            <div class="mt-6 flex flex-nowrap gap-5 overflow-x-scroll scroll-smooth pb-5">
+            <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each latest_episodes as anime}
                     <episode class="w-36 flex-shrink-0">
                         <div class="relative">
