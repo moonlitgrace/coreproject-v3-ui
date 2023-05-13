@@ -320,8 +320,7 @@
                     <div class="grid w-full grid-cols-6 items-center md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
-                                class="col-span-1 h-4 w-full rounded-none border-[0.1rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] [&:first-child]:rounded-l [&:last-child]:rounded-r [&:not(:last-child)]:border-r-0 md:[&:not(:last-child)]:border-r-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index ===
-                                main_hero_slide_active_index
+                                class="col-span-1 h-4 w-full rounded-none border-[0.1rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] [&:not(:last-child)]:border-r-0 md:[&:not(:last-child)]:border-r-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index
                                     ? slide_buttons[index].background
                                     : ''}"
                                 on:click={() => {
