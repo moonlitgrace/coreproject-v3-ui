@@ -275,7 +275,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-[3vw] md:mt-[1vw]">
+                    <div class="mt-3 md:mt-[1vw]">
                         {#each Object.entries(icon_mapping.profile_dropdown) as item}
                             {@const item_icon = item[1].icon}
                             {@const item_href = item[1].url}
