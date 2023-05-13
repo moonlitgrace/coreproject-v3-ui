@@ -271,8 +271,8 @@
                             initials="JD"
                         />
                         <div class="flex flex-col">
-                            <span class="text-[3vw] font-semibold md:text-[0.9vw]">soraamamiya</span>
-                            <span class="text-[2vw] font-medium md:text-[0.8vw]">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
+                            <span class="text-base font-semibold md:text-[0.9vw]">soraamamiya</span>
+                            <span class="text-xs font-medium md:text-[0.8vw]">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
                         </div>
                     </div>
 
