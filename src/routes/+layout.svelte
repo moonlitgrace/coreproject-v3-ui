@@ -164,15 +164,15 @@
     };
 
     // Run after navigation
-    beforeNavigate(async () => {
+    beforeNavigate(async function () {
         NProgress.start();
     });
-    afterNavigate(() => {
+    afterNavigate(async function () {
         NProgress.done();
     });
 
     // Run first time
-    beforeUpdate(() => {
+    beforeUpdate(async function () {
         // Configure NProgress
         NProgress.configure({
             // Full list: https://github.com/rstacruz/nprogress#configuration
@@ -186,9 +186,8 @@
         target: "profile_dropdown" // data-popup value
     };
 
-    // search panel //
-
-    function show_search_modal(): void {
+    /** search panel */
+    async function show_search_modal(): void {
         const search_component: ModalComponent = { ref: SearchPanel };
         const search_modal: ModalSettings = {
             type: "component",
@@ -213,14 +212,14 @@
                 {#if $navbar_middle_section_variant === "logo"}
                     <a
                         href="/"
-                        class="absolute left-1/2 transform -translate-x-1/2"
+                        class="absolute left-1/2 -translate-x-1/2 transform"
                         transition:blur|local
                     >
                         <AnimeCore class="w-36 md:w-[10vw]" />
                     </a>
                 {:else if $navbar_middle_section_variant === "form"}
                     <div
-                        class="absolute left-1/2 transform -translate-x-1/2"
+                        class="absolute left-1/2 -translate-x-1/2 transform"
                         transition:blur|local
                     >
                         <a

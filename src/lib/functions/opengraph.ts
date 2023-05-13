@@ -1,3 +1,5 @@
+import { get } from "svelte/store";
+import { page } from "$app/stores";
 type ISiteName = "CoreProject" | "AnimeCore" | "MangaCore";
 
 type ILocale =
@@ -165,7 +167,7 @@ type IVideo = {
 
 export class OpengraphGenerator {
     #title: string;
-    #url: string;
+    #url = get(page).url.href;
     #description: string;
     #site_name: ISiteName;
     #locale: ILocale;
@@ -173,9 +175,8 @@ export class OpengraphGenerator {
     #image?: string;
     #video?: IVideo;
 
-    constructor({ title, page_url, description, site_name, locale, audio, image_url, video }: { title: string; page_url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
+    constructor({ title, description, site_name, locale, audio, image_url, video }: { title: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
         this.#title = title;
-        this.#url = page_url;
         this.#image = image_url;
         this.#description = description;
         this.#site_name = site_name;
@@ -193,7 +194,9 @@ export class OpengraphGenerator {
     }
 
     private get title() {
-        let title = `<meta property="og:title" content="${this.#title}">`;
+        let title = `<title>${this.#title}</title><meta property="og:title" content="${this.#title}">`;
+
+        // Handle Twitter
         title += `<meta name="twitter:title" content="${this.#title}" />`;
         return title;
     }
