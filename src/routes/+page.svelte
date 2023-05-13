@@ -300,17 +300,6 @@
                                             />
                                         </button>
                                     </div>
-
-                                    <swipe-directions class="flex flex-col justify-center gap-1 md:hidden">
-                                        <left-swipe class="flex items-center justify-between gap-1 text-surface-300/75">
-                                            <Chevron class="w-3 rotate-90" />
-                                            <span class="text-xs font-medium">Swipe Left</span>
-                                        </left-swipe>
-                                        <right-swipe class="flex items-center justify-between gap-1 text-surface-300/75">
-                                            <span class="text-xs font-medium">Swipe Right</span>
-                                            <Chevron class="w-3 -rotate-90" />
-                                        </right-swipe>
-                                    </swipe-directions>
                                 </div>
                             </div>
                         </div>
