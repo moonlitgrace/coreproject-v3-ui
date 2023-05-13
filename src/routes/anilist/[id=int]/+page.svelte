@@ -10,8 +10,7 @@
     let anime = anime_list?.find((anime) => anime.id === anime_id);
 
     const opengraph_html = new OpengraphGenerator({
-        title: anime?.name ?? "",
-        page_url: $page.url.href,
+        title: `Watch ${anime?.name} on AnimeCore`,
         description: anime?.synopsis ?? "",
         site_name: "CoreProject",
         locale: "en_US",
@@ -21,7 +20,6 @@
 
 <svelte:head>
     {@html opengraph_html}
-    <title>Watch {anime?.name} on AnimeCore</title>
 </svelte:head>
 
 {#if anime}

@@ -7,6 +7,7 @@
     import { my_list } from "$data/mock/my_list";
     import { format_date } from "$functions/format_date";
     import { format_time } from "$functions/format_time";
+    import { OpengraphGenerator } from "$functions/opengraph";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
@@ -207,6 +208,14 @@
             }
         }
     };
+
+    const opengraph_html = new OpengraphGenerator({
+        title: "AnimeCore - A modern anime streaming site",
+        site_name: "CoreProject",
+        image_url: "", // Use Opengraph later
+        locale: "en_US",
+        description: "The most modern anime streaming site"
+    }).generate_opengraph();
 </script>
 
 <svelte:window
@@ -219,7 +228,7 @@
 />
 
 <svelte:head>
-    <title>AnimeCore - A modern anime streaming site</title>
+    {@html opengraph_html}
 </svelte:head>
 
 <div class="md:p-[1.25vw] md:pr-[3.75vw]">
