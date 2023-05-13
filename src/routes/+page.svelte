@@ -308,8 +308,8 @@
                     {/if}
                 {/each}
 
-                <div class="flex items-center gap-5 px-[3vw] md:block md:px-0">
-                    <div class="relative basis-1/2 md:w-full">
+                <div class="flex flex-col items-center gap-4 px-[3vw] md:block md:px-0">
+                    <div class="relative w-full">
                         <div
                             class="absolute h-[0.2rem] md:relative md:h-[0.145vw] md:pr-0 {slide_buttons[main_hero_slide_active_index].background}"
                             style="width: {$tweened_progress_value}%;"
@@ -317,10 +317,10 @@
                         <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
                     </div>
 
-                    <div class="grid w-full basis-1/2 grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
+                    <div class="grid w-full grid-cols-6 items-center md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
-                                class="col-span-1 h-4 w-4 rounded-full border-[0.2rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
+                                class="col-span-1 h-4 w-full [&:first-child]:rounded-l [&:last-child]:rounded-r rounded-none border-[0.1rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] [&:not(:last-child)]:border-r-0 md:[&:not(:last-child)]:border-r-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
                                 on:click={() => {
                                     timer?.reset();
                                     timer?.start();
