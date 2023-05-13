@@ -3,6 +3,7 @@
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
+    import { continue_watching } from "$data/mock/continue_watching";
     import { my_list } from "$data/mock/my_list";
     import { format_date } from "$functions/format_date";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
@@ -433,7 +434,7 @@
                                 src={anime.cover}
                                 alt={anime.name}
                             />
-                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
                         </div>
                         <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
                         <p class="mt-1 text-xs text-surface-50">
@@ -631,4 +632,38 @@
             </div>
         </div>
     </my-list>
+
+    <continue-watching>
+        <div class="mt-10 px-[3vw]">
+            <title class="flex items-end justify-between">
+                <div class="flex flex-col gap-1">
+                    <p class="unstyled text-2xl font-semibold">Continue Watching</p>
+                    <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
+                </div>
+                <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
+                    <span>Full List</span>
+                    <ArrowUpRight class="w-4" />
+                </button>
+            </title>
+
+            <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
+                {#each continue_watching as anime}
+                    <episode class="w-36 flex-shrink-0">
+                        <div class="relative">
+                            <img
+                                class="h-52 w-full rounded-[1.25rem] object-cover"
+                                src={anime.banner}
+                                alt={anime.name}
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
+                        </div>
+                        <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
+                        <p class="mt-1 text-xs text-surface-50">
+                            <span>{anime.current_episode}/{anime.episodes_count}</span>
+                        </p>
+                    </episode>
+                {/each}
+            </div>
+        </div>
+    </continue-watching>
 </div>
