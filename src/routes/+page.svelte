@@ -283,7 +283,7 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
+                                <div class="mt-4 mb-2 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
                                         <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
@@ -317,7 +317,7 @@
                         <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
                     </div>
 
-                    <div class="grid w-full grid-cols-6 items-center md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
+                    <div class="hidden md:grid w-full grid-cols-6 items-center md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
                         {#each latest_animes as _, index}
                             <button
                                 class="col-span-1 h-4 w-full rounded-none border-[0.1rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] [&:not(:last-child)]:border-r-0 md:[&:not(:last-child)]:border-r-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index
