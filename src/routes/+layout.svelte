@@ -285,7 +285,7 @@
                                 href={item_href}
                                 class="{item_href ?? 'pointer-events-none'} unstyled"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.4rem] md:p-[0.5vw] transition duration-100 md:py-[0.5vw] md:hover:bg-surface-300/20">
+                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.4rem] transition duration-100 md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
                                         class="col-span-1 hidden md:flex {item_icon.class}"
