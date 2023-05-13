@@ -37,6 +37,7 @@
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
     import voca from "voca";
+    import { format_time } from "$functions/format_time";
 
     /* Slider codes */
     let main_hero_slide_active_index = 0;
@@ -658,8 +659,10 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
                         </div>
                         <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
-                        <p class="mt-1 text-xs text-surface-50">
+                        <p class="mt-1 text-xs text-surface-50 flex items-center gap-2">
                             <span>{anime.current_episode}/{anime.episodes_count}</span>
+                            <Circle class="w-1" />
+                            <span>{new format_time(anime.time_watched).format_seconds_to_time_stamp_duration}</span>
                         </p>
                     </episode>
                 {/each}
