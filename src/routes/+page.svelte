@@ -283,7 +283,7 @@
                                     {anime.synopsis}
                                 </p>
 
-                                <div class="my-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
+                                <div class="mb-2 mt-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
                                         <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
@@ -308,19 +308,16 @@
                     {/if}
                 {/each}
 
-                <div class="flex items-center gap-5 px-[3vw] md:block md:px-0">
-                    <div class="relative basis-1/2 md:w-full">
-                        <div
-                            class="absolute h-[0.2rem] md:relative md:h-[0.145vw] md:pr-0 {slide_buttons[main_hero_slide_active_index].background}"
-                            style="width: {$tweened_progress_value}%;"
-                        />
-                        <div class="h-[0.2rem] opacity-20 md:hidden {slide_buttons[main_hero_slide_active_index].background}" />
-                    </div>
+                <div class="flex flex-col px-[3vw] md:px-0">
+                    <div
+                        class="h-[0.2rem] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
+                        style="width: {$tweened_progress_value}%;"
+                    />
 
-                    <div class="grid w-full basis-1/2 grid-cols-6 items-center gap-4 px-[3vw] md:mt-[1.25vw] md:w-full md:gap-[0.9375vw] md:px-0">
+                    <div class="hidden w-full grid-cols-6 gap-[0.9375vw] md:mt-[1.25vw] md:grid">
                         {#each latest_animes as _, index}
                             <button
-                                class="col-span-1 h-4 w-4 rounded-full border-[0.2rem] md:h-[0.625vw] md:w-full md:rounded-[0.1875vw] md:border-[0.15vw] md:border-[0.2vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
+                                class="col-span-1 h-[0.625vw] w-full rounded-[0.1875vw] border-[0.15vw] {slide_buttons[index].border} transition duration-300 hover:border-surface-50/50 {index === main_hero_slide_active_index ? slide_buttons[index].background : ''}"
                                 on:click={() => {
                                     timer?.reset();
                                     timer?.start();
@@ -415,7 +412,7 @@
         </latest-episodes>
 
         <latest-episodes-mobile class="mt-10 px-[3vw] md:hidden">
-            <title class="flex items-end justify-between">
+            <div class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
                     <p class="unstyled text-xl font-semibold">Latest Episodes</p>
                     <span class="text-xs font-medium text-surface-200">newest released episodes from anime in your list</span>
@@ -424,7 +421,7 @@
                     <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
-            </title>
+            </div>
 
             <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each latest_episodes as anime}
@@ -636,7 +633,7 @@
 
     <continue-watching-mobile class="md:hidden">
         <div class="mt-5 px-[3vw]">
-            <title class="flex items-end justify-between">
+            <div class="flex items-end justify-between">
                 <div class="flex flex-col gap-1">
                     <p class="unstyled text-xl font-semibold">Continue Watching</p>
                     <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
@@ -645,7 +642,7 @@
                     <span>Full List</span>
                     <ArrowUpRight class="w-4" />
                 </button>
-            </title>
+            </div>
 
             <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
                 {#each continue_watching as anime}
