@@ -53,8 +53,23 @@ export const popular_genres = [
 				synopsis: `Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.`,
 				episodes_count: 24,
 				rating: 4.8
+			},
+			{
+				id: 7,
+				name: "Jujutsu Kaisen",
+				synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
+				banner: "https://images.ottplay.com/articles/2021q2/5_reasons_every_anim_OTTplay_news_cover_image_1_688.jpeg",
+				episodes_count: 12,
+				rating: 4.7
+			},
+			{
+				id: 8,
+				name: "You Lie in April",
+				banner: "https://files.otakustudy.com/wp-content/uploads/2020/10/10153058/your-lie-in-april-cover.jpg",
+				synopsis: `Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter.`,
+				episodes_count: 22,
+				rating: 4.3
 			}
-
 		]
 	},
 	{
@@ -111,6 +126,22 @@ export const popular_genres = [
 				synopsis: `Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.`,
 				episodes_count: 24,
 				rating: 4.8
+			},
+			{
+				id: 7,
+				name: "Jujutsu Kaisen",
+				synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
+				banner: "https://images.ottplay.com/articles/2021q2/5_reasons_every_anim_OTTplay_news_cover_image_1_688.jpeg",
+				episodes_count: 12,
+				rating: 4.7
+			},
+			{
+				id: 8,
+				name: "You Lie in April",
+				banner: "https://files.otakustudy.com/wp-content/uploads/2020/10/10153058/your-lie-in-april-cover.jpg",
+				synopsis: `Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter.`,
+				episodes_count: 22,
+				rating: 4.3
 			}
 
 		]
@@ -169,6 +200,22 @@ export const popular_genres = [
 				synopsis: `Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.`,
 				episodes_count: 24,
 				rating: 4.8
+			},
+			{
+				id: 7,
+				name: "Jujutsu Kaisen",
+				synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
+				banner: "https://images.ottplay.com/articles/2021q2/5_reasons_every_anim_OTTplay_news_cover_image_1_688.jpeg",
+				episodes_count: 12,
+				rating: 4.7
+			},
+			{
+				id: 8,
+				name: "You Lie in April",
+				banner: "https://files.otakustudy.com/wp-content/uploads/2020/10/10153058/your-lie-in-april-cover.jpg",
+				synopsis: `Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter.`,
+				episodes_count: 22,
+				rating: 4.3
 			}
 
 		]
