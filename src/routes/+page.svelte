@@ -150,6 +150,15 @@
     /* Manage Genres */
     let current_genre_id = 0;
 
+    const next_genre = () => {
+        if (current_genre_id + 1 === popular_genres.length){
+            current_genre_id = 0;
+            return;
+        }
+        current_genre_id += 1;
+        console.log(current_genre_id, popular_genres.length);
+    }
+
     /* Icons */
     const icon_mapping: {
         [key: string]: {
@@ -725,12 +734,13 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] h-[23vw]">
+                    <div class="mt-[1.5vw] h-[23vw] inline-grid w-full h-full">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div
+                                    transition:blur|local
                                     class="relative h-full rounded-r-[1vw] bg-cover bg-center"
-                                    style="background-image: url({genre.cover});"
+                                    style="background-image: url({genre.cover}); grid-area: 1 / 1 / 1000 / 1;"
                                 >
                                     <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/50" />
 
@@ -744,7 +754,7 @@
                                                     <span>See All</span>
                                                     <ArrowUpRight class="w-[1.25vw]" />
                                                 </button>
-                                                <button class="btn h-[3vw] w-[6.5vw] rounded-[0.55vw] bg-surface-50 p-0 text-[1.25vw] font-semibold text-surface-900">
+                                                <button on:click={next_genre} class="btn h-[3vw] w-[6.5vw] rounded-[0.55vw] bg-surface-50 p-0 text-[1.25vw] font-semibold text-surface-900">
                                                     <span>Next</span>
                                                     <Chevron class="w-[1.25vw] -rotate-90" />
                                                 </button>
