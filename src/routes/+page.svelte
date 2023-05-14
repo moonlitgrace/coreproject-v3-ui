@@ -686,7 +686,7 @@
                     <div class="flex items-end justify-between">
                         <div class="flex flex-col gap-1">
                             <p class="unstyled text-xl font-semibold">Popular Genres</p>
-                            <span class="text-xs font-medium text-surface-200">watch animes from popular genres</span>
+                            <span class="text-xs md:text-[1vw] font-medium md:font-semibold text-surface-200">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -700,6 +700,7 @@
                         </div>
                     </div>
 
+                    <!-- for mobile devices -->
                     <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5 md:hidden">
                         {#each popular_genres as genre}
                             <genre
@@ -718,6 +719,11 @@
                                 </div>
                             </genre>
                         {/each}
+                    </div>
+
+                    <!-- for medium devices -->
+                    <div class="mt-[1.5vw]">
+                        zsdf
                     </div>
                 </div>
             </popular-genres>
