@@ -14,7 +14,6 @@
     import Circle from "$icons/circle.svelte";
     import CoreProject from "$icons/core_project.svelte";
     import Edit from "$icons/edit.svelte";
-    import Expand from "$icons/expand.svelte";
     import Forum from "$icons/forum.svelte";
     import Info from "$icons/info.svelte";
     import Language from "$icons/language.svelte";
@@ -146,6 +145,9 @@
         event: "hover", // event
         target: "my_list_popup" // data-popup value
     };
+
+    /* Manage Genres */
+    let current_genre_id = 0
 
     /* Icons */
     const icon_mapping: {
@@ -686,7 +688,7 @@
                     <div class="flex items-end justify-between">
                         <div class="flex flex-col gap-1">
                             <p class="unstyled text-xl font-semibold">Popular Genres</p>
-                            <span class="text-xs md:text-[1vw] font-medium md:font-semibold text-surface-200">watch animes from popular genres</span>
+                            <span class="text-xs font-medium text-surface-200 md:text-[1vw] md:font-semibold">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -722,16 +724,22 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] grid grid-cols-5 grid-rows-2">
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="col-span-2">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
-                        <span class="">Fuck</span>
+                    <div class="mt-[1.5vw]">
+                        {#each popular_genres as genre, index}
+                            {#if index === current_genre_id}
+                                <div class="grid grid-cols-5 grid-rows-2">
+                                    <div>{genre.animes[0].name}</div>
+                                    <div>{genre.animes[1].name}</div>
+                                    <div>{genre.animes[2].name}</div>
+                                    <div>{genre.animes[3].name}</div>
+                                    <div>{genre.animes[4].name}</div>
+                                    <div class="col-span-2">{genre.title}</div>
+                                    <div>{genre.animes[5].name}</div>
+                                    <div>{genre.animes[6].name}</div>
+                                    <div>{genre.animes[7].name}</div>
+                                </div>
+                            {/if}
+                        {/each}
                     </div>
                 </div>
             </popular-genres>
