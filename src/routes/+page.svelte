@@ -747,10 +747,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="basis-2/3 flex gap-[1.5vw] mr-[2vw] overflow-x-scroll scroll-smooth">
+                                        <div class="basis-2/3 flex gap-[1.5vw]">
                                             {#each genre.animes as anime}
                                                 <div class="w-[12.5vw] relative bg-center bg-cover rounded-[1vw] h-[15vw] flex-shrink-0" style="background-image: url({anime.banner});">
-                                                    {anime.name}
+                                                    
+                                                    <div class="absolute inset-0 bg-gradient-to-t rounded-[1vw] from-surface-900/75 to-surface-900/25" />
+                                                    <div class="absolute inset-0 flex items-end justify-center">
+                                                        <span class="text-[1.1vw] font-semibold">{anime.name}</span>
+                                                    </div>
                                                 </div>
                                             {/each}
                                         </div>
