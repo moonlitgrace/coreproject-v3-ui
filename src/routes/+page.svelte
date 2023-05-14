@@ -151,13 +151,13 @@
     let current_genre_id = 0;
 
     const next_genre = () => {
-        if (current_genre_id + 1 === popular_genres.length){
+        if (current_genre_id + 1 === popular_genres.length) {
             current_genre_id = 0;
             return;
         }
         current_genre_id += 1;
         console.log(current_genre_id, popular_genres.length);
-    }
+    };
 
     /* Icons */
     const icon_mapping: {
@@ -734,7 +734,7 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] h-[23vw] inline-grid w-full h-full">
+                    <div class="mt-[1.5vw] inline-grid h-[23vw] h-full w-full">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div
@@ -754,7 +754,10 @@
                                                     <span>See All</span>
                                                     <ArrowUpRight class="w-[1.25vw]" />
                                                 </button>
-                                                <button on:click={next_genre} class="btn h-[3vw] w-[6.5vw] rounded-[0.55vw] bg-surface-50 p-0 text-[1.25vw] font-semibold text-surface-900">
+                                                <button
+                                                    on:click={next_genre}
+                                                    class="btn h-[3vw] w-[6.5vw] rounded-[0.55vw] bg-surface-50 p-0 text-[1.25vw] font-semibold text-surface-900"
+                                                >
                                                     <span>Next</span>
                                                     <Chevron class="w-[1.25vw] -rotate-90" />
                                                 </button>
@@ -764,7 +767,7 @@
                                         <div class="flex basis-2/3 gap-[1.5vw]">
                                             {#each genre.animes as anime}
                                                 <div
-                                                    class="group cursor-pointer relative h-[15vw] w-[12.5vw] flex-shrink-0 rounded-[1vw] bg-cover bg-center"
+                                                    class="group relative h-[15vw] w-[12.5vw] flex-shrink-0 cursor-pointer rounded-[1vw] bg-cover bg-center"
                                                     style="background-image: url({anime.banner});"
                                                 >
                                                     <div class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
