@@ -754,14 +754,30 @@
                                         <div class="flex basis-2/3 gap-[1.5vw]">
                                             {#each genre.animes as anime}
                                                 <div
-                                                    class="relative h-[15vw] w-[12.5vw] flex-shrink-0 rounded-[1vw] bg-cover bg-center"
+                                                    class="group cursor-pointer relative h-[15vw] w-[12.5vw] flex-shrink-0 rounded-[1vw] bg-cover bg-center"
                                                     style="background-image: url({anime.banner});"
                                                 >
                                                     <div class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
                                                     <div class="absolute inset-0 flex flex-col items-center justify-end text-center">
-                                                        <div class="px-[1vw]">
-                                                            <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
-                                                            <p class="unstyled mt-[0.3vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
+                                                        <div class="relative px-[1vw]">
+                                                            <div class="opacity-100 transition duration-300 group-hover:opacity-0">
+                                                                <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
+                                                                <p class="unstyled mt-[0.3vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
+                                                            </div>
+
+                                                            <div class="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
+                                                                <div class="flex flex-col gap-[0.5vw]">
+                                                                    <button class="btn btn-icon h-[3.125vw] w-[6vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
+                                                                        <PlayCircle class="w-[1.25vw] text-surface-900" />
+                                                                        Ep 1
+                                                                    </button>
+
+                                                                    <button class="btn btn-icon h-[3.125vw] w-[6vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
+                                                                        <Info class="w-[1.25vw] text-surface-50" />
+                                                                        Info
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
                                                         <div class="mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-surface-900 text-[0.75vw]">
@@ -770,7 +786,7 @@
                                                                 <Star class="w-[0.75vw] fill-warning-400 text-warning-400" />
                                                                 <span>
                                                                     <span class="text-warning-400">4.5</span>
-                                                                     rating
+                                                                    rating
                                                                 </span>
                                                             </span>
                                                         </div>
