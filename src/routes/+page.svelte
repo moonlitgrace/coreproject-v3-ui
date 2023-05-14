@@ -730,7 +730,7 @@
                                 <div class="h-full bg-cover bg-center rounded-r-[1vw] relative" style="background-image: url({genre.cover});">
                                     <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/50" />
                                     
-                                    <div class="absolute inset-0 flex items-center">
+                                    <div class="absolute inset-0 flex gap-[4vw] items-center">
                                         <div class="basis-1/3">
                                             <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
                                             <p class="unstyled leading-[1vw] text-surface-200 text-[0.85vw] mt-[1vw] line-clamp-4">{genre.description}</p>
@@ -745,6 +745,14 @@
                                                     <Chevron class="w-[1.25vw] -rotate-90" />
                                                 </button>
                                             </div>
+                                        </div>
+
+                                        <div class="basis-2/3 flex gap-[1.5vw] mr-[2vw] overflow-x-scroll scroll-smooth">
+                                            {#each genre.animes as anime}
+                                                <div class="w-[12.5vw] relative bg-center bg-cover rounded-[1vw] h-[15vw] flex-shrink-0" style="background-image: url({anime.banner});">
+                                                    {anime.name}
+                                                </div>
+                                            {/each}
                                         </div>
                                     </div>
                                 </div>
