@@ -742,7 +742,7 @@
                                     class="relative h-full rounded-r-[1vw] bg-cover bg-center"
                                     style="background-image: url({genre.cover}); grid-area: 1 / 1 / 1000 / 1;"
                                 >
-                                    <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/50" />
+                                    <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/90" />
 
                                     <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
