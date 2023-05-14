@@ -688,10 +688,16 @@
                             <p class="unstyled text-xl font-semibold">Popular Genres</p>
                             <span class="text-xs font-medium text-surface-200">watch animes from popular genres</span>
                         </div>
-                        <button class="btn rounded-md bg-surface-400 p-2 px-3 md:p-0 text-sm font-semibold md:h-[2.25vw] md:w-[5.625vw] md:rounded-[0.375vw] md:text-[0.875vw]">
-                            <span>Full List</span>
-                            <ArrowUpRight class="w-4 md:w-[1vw]" />
-                        </button>
+                        <div class="flex items-center gap-[1vw]">
+                            <button class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
+                                Popular
+                                <Chevron class="w-[1vw]" />
+                            </button>
+                            <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[5.625vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
+                                <span>Full List</span>
+                                <ArrowUpRight class="w-4 md:w-[1vw]" />
+                            </button>
+                        </div>
                     </div>
 
                     <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5 md:hidden">
