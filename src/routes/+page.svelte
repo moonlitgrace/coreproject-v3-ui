@@ -768,7 +768,7 @@
                                                     style="background-image: url({anime.banner});"
                                                 >
                                                     <div class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
-                                                    <div class="absolute inset-0 flex flex-col items-center justify-end text-center">
+                                                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                                                         <div class="relative px-[1vw]">
                                                             <div class="opacity-100 transition duration-300 group-hover:opacity-0">
                                                                 <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
@@ -790,7 +790,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-primary-600 text-[0.75vw]">
+                                                        <div class="absolute bottom-0 mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-primary-600 text-[0.75vw]">
                                                             <span>{anime.episodes_count} episodes</span>
                                                             <span class="flex items-center gap-[0.25vw]">
                                                                 <Star class="w-[0.75vw] fill-warning-400" />
