@@ -722,8 +722,16 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw]">
-                        zsdf
+                    <div class="mt-[1.5vw] grid grid-cols-5 grid-rows-2">
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="col-span-2">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
+                        <span class="">Fuck</span>
                     </div>
                 </div>
             </popular-genres>
