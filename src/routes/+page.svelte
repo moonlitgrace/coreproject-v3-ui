@@ -741,7 +741,7 @@
                                             </div>
                                         </div>
                                     {/each}
-                                    <div class="order-[5]">{genre.title}</div>
+                                    <div class="order-[5]">Oops! still in process :)</div>
                                 </div>
                             {/if}
                         {/each}
