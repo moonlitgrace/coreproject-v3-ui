@@ -508,209 +508,213 @@
         </navigation-card>
     </div>
 
-    <my-list class="hidden md:flex">
-        <div class="mt-[2.1875vw] basis-[76%]">
-            <div class="flex items-center gap-[0.625vw]">
-                <span class="text-[1.25vw] font-bold">My List</span>
-                <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-                    <SettingsOutline class="w-[0.9vw]" />
-                </button>
-            </div>
-
-            <div class="mt-[0.5vw] flex items-center justify-between">
-                <span class="text-[1vw] font-semibold text-surface-50">
-                    {my_list.length} anime in Watching
-                </span>
-
-                <div class="flex items-center gap-[1vw]">
-                    <button class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
-                        Watching
-                        <Chevron class="w-[1vw]" />
-                    </button>
-                    <button class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
-                        Full List
-                        <ArrowUpRight class="w-[1vw]" />
-                    </button>
-                </div>
-            </div>
-
-            <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
-                {#each my_list as anime}
-                    <div
-                        on:mouseenter={() => {
-                            anime_name = anime.name;
-                            anime_cover = anime.cover;
-                            anime_synopsis = anime.synopsis;
-                            anime_current_episode = String(anime.current_episode);
-                            anime_episodes_count = String(anime.episodes_count);
-                            anime_genres = anime.genres;
-                            anime_type = anime.type;
-                            anime_release_date = String(anime.release_date);
-                            anime_studio_name = String(anime.studios[0]);
-                        }}
-                        class="group"
-                        use:popup={popupSettings}
-                    >
-                        <div
-                            class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
-                            style="background-image: url({anime.cover});"
-                        >
-                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
-                            <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
-                                <span class="text-center text-[1vw] font-semibold text-white">
-                                    {anime.name}
-                                </span>
-                                <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
-                                    {anime.current_episode}/{anime.episodes_count}
-                                </span>
-                            </div>
-
-                            <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                <div class="flex flex-col gap-[0.5vw]">
-                                    <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                        <PlayCircle class="w-[1.25vw] text-surface-900" />
-                                        Ep {anime.current_episode}
-                                    </button>
-
-                                    <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
-                                        <Info class="w-[1.25vw] text-surface-50" />
-                                        Info
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+    <div class="md:flex">
+        <div class="md:basis-[76%]">
+            <my-list class="hidden md:flex">
+                <div class="mt-[2.1875vw] w-full">
+                    <div class="flex items-center gap-[0.625vw]">
+                        <span class="text-[1.25vw] font-bold">My List</span>
+                        <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+                            <SettingsOutline class="w-[0.9vw]" />
+                        </button>
                     </div>
 
-                    <div
-                        data-popup="my_list_popup"
-                        class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
-                    >
-                        <div
-                            class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
-                            style="background-image: url({anime_cover});"
-                        >
-                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
-                            <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-                                <span class="text-[1vw] font-semibold text-white">
-                                    {voca.truncate(anime_name, 30)}
-                                </span>
-                                <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
-                                    {voca.truncate(anime_name, 50)}
-                                </span>
+                    <div class="mt-[0.5vw] flex items-center justify-between">
+                        <span class="text-[1vw] font-semibold text-surface-50">
+                            {my_list.length} anime in Watching
+                        </span>
 
-                                <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-                                    {voca.truncate(anime_synopsis, 130)}
-                                </span>
-
-                                <div class="mt-[0.5vw] flex gap-[1vw]">
-                                    {#each anime_genres as genre}
-                                        <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
-                                            {genre}
-                                        </span>
-                                    {/each}
-                                </div>
-
-                                <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                                    <span>{anime_type}</span>
-                                    <Circle class="w-[0.2vw] text-surface-50" />
-                                    <span class="capitalize">
-                                        {new format_date(anime_release_date).format_to_season}
-                                    </span>
-                                    <span>{anime_episodes_count} episodes</span>
-                                </div>
-
-                                <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                                    <span>
-                                        69% <span class="text-surface-200">[7852 ratings]</span>
-                                    </span>
-                                    <Circle class="w-[0.2vw] text-surface-50" />
-                                    <span>{anime_studio_name}</span>
-                                </div>
-                            </div>
-
-                            <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
-                                <span>Watching</span>
-                                <Circle class="w-[0.2vw] text-surface-900" />
-                                <span>
-                                    {anime_current_episode}/{anime_episodes_count}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="arrow bg-surface-50" />
-                    </div>
-                {/each}
-            </div>
-        </div>
-    </my-list>
-
-    <continue-watching-mobile class="md:hidden">
-        <div class="mt-5 px-[3vw]">
-            <div class="flex items-end justify-between">
-                <div class="flex flex-col gap-1">
-                    <p class="unstyled text-xl font-semibold">Continue Watching</p>
-                    <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
-                </div>
-                <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
-                    <span>Full List</span>
-                    <ArrowUpRight class="w-4" />
-                </button>
-            </div>
-
-            <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
-                {#each continue_watching as anime}
-                    <episode class="w-36 flex-shrink-0">
-                        <div class="relative">
-                            <img
-                                class="h-52 w-full rounded-[1.25rem] object-cover"
-                                src={anime.banner}
-                                alt={anime.name}
-                            />
-                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
-                        </div>
-                        <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
-                        <p class="mt-1 flex items-center gap-2 text-xs text-surface-50">
-                            <span>{anime.current_episode}/{anime.episodes_count}</span>
-                            <Circle class="w-1" />
-                            <span>{new format_time(anime.time_watched).format_seconds_to_time_stamp_duration}</span>
-                        </p>
-                    </episode>
-                {/each}
-            </div>
-        </div>
-    </continue-watching-mobile>
-
-    <popular-genres class="md:hidden">
-        <div class="mt-5 px-[3vw]">
-            <div class="flex items-end justify-between">
-                <div class="flex flex-col gap-1">
-                    <p class="unstyled text-xl font-semibold">Popular Genres</p>
-                    <span class="text-xs font-medium text-surface-200">watch animes from popular genres</span>
-                </div>
-                <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
-                    <span>Full List</span>
-                    <ArrowUpRight class="w-4" />
-                </button>
-            </div>
-
-            <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
-                {#each popular_genres as genre}
-                    <genre
-                        class="relative flex h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] bg-cover bg-center p-5"
-                        style="background-image: url({genre.cover});"
-                    >
-                        <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
-                        <div class="absolute">
-                            <span class="text-xl font-bold text-white">{genre.title}</span>
-                            <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
-
-                            <button class="btn mt-3 rounded-lg bg-warning-400 px-4 text-sm font-semibold text-surface-900">
-                                <span>See All</span>
-                                <ArrowUpRight class="w-4" />
+                        <div class="flex items-center gap-[1vw]">
+                            <button class="btn btn-icon h-[2.25vw] w-[6.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
+                                Watching
+                                <Chevron class="w-[1vw]" />
+                            </button>
+                            <button class="btn btn-icon h-[2.25vw] w-[5.625vw] gap-[0.625vw] rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
+                                Full List
+                                <ArrowUpRight class="w-[1vw]" />
                             </button>
                         </div>
-                    </genre>
-                {/each}
-            </div>
+                    </div>
+
+                    <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
+                        {#each my_list as anime}
+                            <div
+                                on:mouseenter={() => {
+                                    anime_name = anime.name;
+                                    anime_cover = anime.cover;
+                                    anime_synopsis = anime.synopsis;
+                                    anime_current_episode = String(anime.current_episode);
+                                    anime_episodes_count = String(anime.episodes_count);
+                                    anime_genres = anime.genres;
+                                    anime_type = anime.type;
+                                    anime_release_date = String(anime.release_date);
+                                    anime_studio_name = String(anime.studios[0]);
+                                }}
+                                class="group"
+                                use:popup={popupSettings}
+                            >
+                                <div
+                                    class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
+                                    style="background-image: url({anime.cover});"
+                                >
+                                    <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                                    <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
+                                        <span class="text-center text-[1vw] font-semibold text-white">
+                                            {anime.name}
+                                        </span>
+                                        <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
+                                            {anime.current_episode}/{anime.episodes_count}
+                                        </span>
+                                    </div>
+
+                                    <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                        <div class="flex flex-col gap-[0.5vw]">
+                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
+                                                <PlayCircle class="w-[1.25vw] text-surface-900" />
+                                                Ep {anime.current_episode}
+                                            </button>
+
+                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
+                                                <Info class="w-[1.25vw] text-surface-50" />
+                                                Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                data-popup="my_list_popup"
+                                class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
+                            >
+                                <div
+                                    class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
+                                    style="background-image: url({anime_cover});"
+                                >
+                                    <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
+                                    <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
+                                        <span class="text-[1vw] font-semibold text-white">
+                                            {voca.truncate(anime_name, 30)}
+                                        </span>
+                                        <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
+                                            {voca.truncate(anime_name, 50)}
+                                        </span>
+
+                                        <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
+                                            {voca.truncate(anime_synopsis, 130)}
+                                        </span>
+
+                                        <div class="mt-[0.5vw] flex gap-[1vw]">
+                                            {#each anime_genres as genre}
+                                                <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
+                                                    {genre}
+                                                </span>
+                                            {/each}
+                                        </div>
+
+                                        <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                            <span>{anime_type}</span>
+                                            <Circle class="w-[0.2vw] text-surface-50" />
+                                            <span class="capitalize">
+                                                {new format_date(anime_release_date).format_to_season}
+                                            </span>
+                                            <span>{anime_episodes_count} episodes</span>
+                                        </div>
+
+                                        <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                            <span>
+                                                69% <span class="text-surface-200">[7852 ratings]</span>
+                                            </span>
+                                            <Circle class="w-[0.2vw] text-surface-50" />
+                                            <span>{anime_studio_name}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
+                                        <span>Watching</span>
+                                        <Circle class="w-[0.2vw] text-surface-900" />
+                                        <span>
+                                            {anime_current_episode}/{anime_episodes_count}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="arrow bg-surface-50" />
+                            </div>
+                        {/each}
+                    </div>
+                </div>
+            </my-list>
+
+            <continue-watching-mobile class="md:hidden">
+                <div class="mt-5 px-[3vw]">
+                    <div class="flex items-end justify-between">
+                        <div class="flex flex-col gap-1">
+                            <p class="unstyled text-xl font-semibold">Continue Watching</p>
+                            <span class="text-xs font-medium text-surface-200">resume from where you left off</span>
+                        </div>
+                        <button class="btn rounded-md bg-surface-400 px-3 py-2 text-sm font-semibold">
+                            <span>Full List</span>
+                            <ArrowUpRight class="w-4" />
+                        </button>
+                    </div>
+
+                    <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5">
+                        {#each continue_watching as anime}
+                            <episode class="w-36 flex-shrink-0">
+                                <div class="relative">
+                                    <img
+                                        class="h-52 w-full rounded-[1.25rem] object-cover"
+                                        src={anime.banner}
+                                        alt={anime.name}
+                                    />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
+                                </div>
+                                <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
+                                <p class="mt-1 flex items-center gap-2 text-xs text-surface-50">
+                                    <span>{anime.current_episode}/{anime.episodes_count}</span>
+                                    <Circle class="w-1" />
+                                    <span>{new format_time(anime.time_watched).format_seconds_to_time_stamp_duration}</span>
+                                </p>
+                            </episode>
+                        {/each}
+                    </div>
+                </div>
+            </continue-watching-mobile>
+
+            <popular-genres>
+                <div class="mt-5 px-[3vw] md:mt-3 md:px-0">
+                    <div class="flex items-end justify-between">
+                        <div class="flex flex-col gap-1">
+                            <p class="unstyled text-xl font-semibold">Popular Genres</p>
+                            <span class="text-xs font-medium text-surface-200">watch animes from popular genres</span>
+                        </div>
+                        <button class="btn rounded-md bg-surface-400 p-2 px-3 md:p-0 text-sm font-semibold md:h-[2.25vw] md:w-[5.625vw] md:rounded-[0.375vw] md:text-[0.875vw]">
+                            <span>Full List</span>
+                            <ArrowUpRight class="w-4 md:w-[1vw]" />
+                        </button>
+                    </div>
+
+                    <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5 md:hidden">
+                        {#each popular_genres as genre}
+                            <genre
+                                class="relative flex h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] bg-cover bg-center p-5"
+                                style="background-image: url({genre.cover});"
+                            >
+                                <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
+                                <div class="absolute">
+                                    <span class="text-xl font-bold text-white">{genre.title}</span>
+                                    <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
+
+                                    <button class="btn mt-3 rounded-lg bg-warning-400 px-4 text-sm font-semibold text-surface-900">
+                                        <span>See All</span>
+                                        <ArrowUpRight class="w-4" />
+                                    </button>
+                                </div>
+                            </genre>
+                        {/each}
+                    </div>
+                </div>
+            </popular-genres>
         </div>
-    </popular-genres>
+    </div>
 </div>
