@@ -368,14 +368,16 @@
         </latest-animes>
 
         <latest-episodes class="hidden w-[21.5625vw] md:block">
-            <div class="flex items-center gap-[0.625vw]">
-                <span class="text-[1.25vw] font-bold">Latest Episodes</span>
-                <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
-                    <SettingsOutline class="w-[0.8vw]" />
-                </button>
+            <div class="flex items-center justify-between pr-[0.75vw]">
+                <div class="flex items-center gap-[0.625vw]">
+                    <span class="text-[1.25vw] font-bold">Latest Episodes</span>
+                    <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+                        <SettingsOutline class="w-[0.8vw]" />
+                    </button>
+                </div>
                 <button class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
-                    <Expand class="w-[0.8vw]" />
-                    <span>Expand</span>
+                    <span>Full List</span>
+                    <ArrowUpRight class="w-[0.9vw]" />
                 </button>
             </div>
 
