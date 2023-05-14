@@ -25,6 +25,7 @@
     import Preference from "$icons/preference.svelte";
     import Recent from "$icons/recent.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
+    import Star from "$icons/star.svelte";
     import { timer as timerStore } from "$store/timer";
     import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     // skeleton and floating-ui
@@ -724,7 +725,7 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] h-[25vw]">
+                    <div class="mt-[1.5vw] h-[23vw]">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div class="h-full bg-cover bg-center rounded-r-[1vw] relative" style="background-image: url({genre.cover});">
@@ -751,9 +752,20 @@
                                             {#each genre.animes as anime}
                                                 <div class="w-[12.5vw] relative bg-center bg-cover rounded-[1vw] h-[15vw] flex-shrink-0" style="background-image: url({anime.banner});">
                                                     
-                                                    <div class="absolute inset-0 bg-gradient-to-t rounded-[1vw] from-surface-900/75 to-surface-900/25" />
-                                                    <div class="absolute inset-0 flex items-end justify-center">
-                                                        <span class="text-[1.1vw] font-semibold">{anime.name}</span>
+                                                    <div class="absolute inset-0 bg-gradient-to-t rounded-[1vw] from-surface-900 to-surface-900/25" />
+                                                    <div class="absolute inset-0 flex text-center flex-col items-center justify-end">
+                                                        <div class="px-[1vw]">
+                                                            <span class="text-[1.1vw] font-semibold line-clamp-2">{anime.name}</span>
+                                                            <p class="unstyled leading-[1vw] mt-[0.3vw] line-clamp-2 text-[0.74vw] text-surface-200">{anime.synopsis}</p>
+                                                        </div>
+
+                                                        <div class="mt-[2vw] h-[2vw] text-[0.75vw] gap-[0.5vw] bg-surface-900 w-full flex items-center justify-center rounded-b-[0.9vw]">
+                                                            <span>{anime.episodes_count} episodes</span>
+                                                            <span class="flex items-center gap-[0.25vw]">
+                                                                <Star class="w-[0.75vw] fill-warning-400 text-warning-400" />
+                                                                <span><span class="text-warning-400">4.5</span> rating</span>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             {/each}
