@@ -724,24 +724,29 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw]">
+                    <div class="mt-[1.5vw] h-[25vw]">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
-                                <div class="grid h-[30vw] grid-cols-5 grid-rows-2 gap-[1.5625vw]">
-                                    {#each genre.animes as anime}
-                                        <div
-                                            class="h-full w-full rounded-[0.875vw] relative bg-center bg-cover"
-                                            style="background-image: url({anime.banner});"
-                                        >
-                                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
-                                            <div class="absolute inset-0 flex items-end justify-center">
-                                                <div>
-                                                    <span>{anime.name}</span>
-                                                </div>
+                                <div class="h-full bg-cover bg-center rounded-r-[1vw] relative" style="background-image: url({genre.cover});">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/50" />
+                                    
+                                    <div class="absolute inset-0 flex items-center">
+                                        <div class="basis-1/3">
+                                            <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
+                                            <p class="unstyled leading-[1vw] text-surface-200 text-[0.85vw] mt-[1vw] line-clamp-4">{genre.description}</p>
+
+                                            <div class="mt-[1.5vw] flex items-center gap-[1vw]">
+                                                <button class="btn rounded-[0.55vw] bg-primary-500 text-[1.25vw] p-0 h-[3vw] w-[8vw] font-semibold">
+                                                    <span>See All</span>
+                                                    <ArrowUpRight class="w-[1.25vw]" />
+                                                </button>
+                                                <button class="btn rounded-[0.55vw] bg-surface-50 text-surface-900 text-[1.25vw] p-0 h-[3vw] w-[6.5vw] font-semibold">
+                                                    <span>Next</span>
+                                                    <Chevron class="w-[1.25vw] -rotate-90" />
+                                                </button>
                                             </div>
                                         </div>
-                                    {/each}
-                                    <div class="order-[5]">Oops! still in process :)</div>
+                                    </div>
                                 </div>
                             {/if}
                         {/each}
