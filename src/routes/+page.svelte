@@ -728,42 +728,50 @@
                     <div class="mt-[1.5vw] h-[23vw]">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
-                                <div class="h-full bg-cover bg-center rounded-r-[1vw] relative" style="background-image: url({genre.cover});">
+                                <div
+                                    class="relative h-full rounded-r-[1vw] bg-cover bg-center"
+                                    style="background-image: url({genre.cover});"
+                                >
                                     <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/50" />
-                                    
-                                    <div class="absolute inset-0 flex gap-[4vw] items-center">
+
+                                    <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
                                             <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
-                                            <p class="unstyled leading-[1vw] text-surface-200 text-[0.85vw] mt-[1vw] line-clamp-4">{genre.description}</p>
+                                            <p class="unstyled mt-[1vw] line-clamp-4 text-[0.85vw] leading-[1vw] text-surface-200">{genre.description}</p>
 
                                             <div class="mt-[1.5vw] flex items-center gap-[1vw]">
-                                                <button class="btn rounded-[0.55vw] bg-primary-500 text-[1.25vw] p-0 h-[3vw] w-[8vw] font-semibold">
+                                                <button class="btn h-[3vw] w-[8vw] rounded-[0.55vw] bg-primary-500 p-0 text-[1.25vw] font-semibold">
                                                     <span>See All</span>
                                                     <ArrowUpRight class="w-[1.25vw]" />
                                                 </button>
-                                                <button class="btn rounded-[0.55vw] bg-surface-50 text-surface-900 text-[1.25vw] p-0 h-[3vw] w-[6.5vw] font-semibold">
+                                                <button class="btn h-[3vw] w-[6.5vw] rounded-[0.55vw] bg-surface-50 p-0 text-[1.25vw] font-semibold text-surface-900">
                                                     <span>Next</span>
                                                     <Chevron class="w-[1.25vw] -rotate-90" />
                                                 </button>
                                             </div>
                                         </div>
 
-                                        <div class="basis-2/3 flex gap-[1.5vw]">
+                                        <div class="flex basis-2/3 gap-[1.5vw]">
                                             {#each genre.animes as anime}
-                                                <div class="w-[12.5vw] relative bg-center bg-cover rounded-[1vw] h-[15vw] flex-shrink-0" style="background-image: url({anime.banner});">
-                                                    
-                                                    <div class="absolute inset-0 bg-gradient-to-t rounded-[1vw] from-surface-900 to-surface-900/25" />
-                                                    <div class="absolute inset-0 flex text-center flex-col items-center justify-end">
+                                                <div
+                                                    class="relative h-[15vw] w-[12.5vw] flex-shrink-0 rounded-[1vw] bg-cover bg-center"
+                                                    style="background-image: url({anime.banner});"
+                                                >
+                                                    <div class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
+                                                    <div class="absolute inset-0 flex flex-col items-center justify-end text-center">
                                                         <div class="px-[1vw]">
-                                                            <span class="text-[1.1vw] font-semibold line-clamp-2">{anime.name}</span>
-                                                            <p class="unstyled leading-[1vw] mt-[0.3vw] line-clamp-2 text-[0.74vw] text-surface-200">{anime.synopsis}</p>
+                                                            <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
+                                                            <p class="unstyled mt-[0.3vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
                                                         </div>
 
-                                                        <div class="mt-[2vw] h-[2vw] text-[0.75vw] gap-[0.5vw] bg-surface-900 w-full flex items-center justify-center rounded-b-[0.9vw]">
+                                                        <div class="mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-surface-900 text-[0.75vw]">
                                                             <span>{anime.episodes_count} episodes</span>
                                                             <span class="flex items-center gap-[0.25vw]">
                                                                 <Star class="w-[0.75vw] fill-warning-400 text-warning-400" />
-                                                                <span><span class="text-warning-400">4.5</span> rating</span>
+                                                                <span>
+                                                                    <span class="text-warning-400">4.5</span>
+                                                                     rating
+                                                                </span>
                                                             </span>
                                                         </div>
                                                     </div>
