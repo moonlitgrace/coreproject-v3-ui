@@ -147,7 +147,7 @@
     };
 
     /* Manage Genres */
-    let current_genre_id = 0
+    let current_genre_id = 0;
 
     /* Icons */
     const icon_mapping: {
@@ -727,16 +727,21 @@
                     <div class="mt-[1.5vw]">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
-                                <div class="grid grid-cols-5 grid-rows-2">
-                                    <div>{genre.animes[0].name}</div>
-                                    <div>{genre.animes[1].name}</div>
-                                    <div>{genre.animes[2].name}</div>
-                                    <div>{genre.animes[3].name}</div>
-                                    <div>{genre.animes[4].name}</div>
-                                    <div class="col-span-2">{genre.title}</div>
-                                    <div>{genre.animes[5].name}</div>
-                                    <div>{genre.animes[6].name}</div>
-                                    <div>{genre.animes[7].name}</div>
+                                <div class="grid h-[30vw] grid-cols-5 grid-rows-2 gap-[1.5625vw]">
+                                    {#each genre.animes as anime}
+                                        <div
+                                            class="h-full w-full rounded-[0.875vw] relative bg-center bg-cover"
+                                            style="background-image: url({anime.banner});"
+                                        >
+                                            <div class="absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
+                                            <div class="absolute inset-0 flex items-end justify-center">
+                                                <div>
+                                                    <span>{anime.name}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/each}
+                                    <div class="order-[5]">{genre.title}</div>
                                 </div>
                             {/if}
                         {/each}
