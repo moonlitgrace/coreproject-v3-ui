@@ -790,13 +790,12 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-surface-900 text-[0.75vw]">
+                                                        <div class="mt-[2vw] flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[0.9vw] bg-primary-600 text-[0.75vw]">
                                                             <span>{anime.episodes_count} episodes</span>
                                                             <span class="flex items-center gap-[0.25vw]">
-                                                                <Star class="w-[0.75vw] fill-warning-400 text-warning-400" />
+                                                                <Star class="w-[0.75vw] fill-warning-400" />
                                                                 <span>
-                                                                    <span class="text-warning-400">4.5</span>
-                                                                    rating
+                                                                    {anime.rating} rating
                                                                 </span>
                                                             </span>
                                                         </div>
