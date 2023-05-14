@@ -34,7 +34,7 @@
     import { storePopup } from "@skeletonlabs/skeleton";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
-    import { onDestroy, onMount } from "svelte";
+    import { beforeUpdate, onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
@@ -111,7 +111,7 @@
         }
     }
 
-    onMount(() => {
+    beforeUpdate(() => {
         $timerStore = "start";
     });
     onDestroy(() => {
@@ -365,7 +365,7 @@
                 </button>
                 <button
                     class="btn btn-icon absolute -right-[1vw] top-[12vw] z-20 hidden h-[2.25vw] w-[2.25vw] rounded-[0.375vw] bg-secondary-800 md:flex"
-                    on:click={() => {
+                    on:click={async () => {
                         timer?.reset();
                         timer?.start();
                         add_one_to_main_hero_slide_active_index();
@@ -734,7 +734,7 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] inline-grid h-[23vw] h-full w-full">
+                    <div class="mt-[1.5vw] inline-grid h-[23vw] w-full">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div

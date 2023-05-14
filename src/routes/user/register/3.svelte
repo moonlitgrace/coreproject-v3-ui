@@ -16,7 +16,7 @@
         }
     ];
 
-    const core_color_mapping: { [key: string]: string } = {
+    const core_color_mapping: { [key in string]: string } = {
         c: "text-surface-50",
         e: "text-surface-50",
         o: "text-warning-400",

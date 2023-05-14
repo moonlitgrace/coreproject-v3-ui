@@ -7,8 +7,8 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    // import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    // import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
+    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
@@ -16,16 +16,14 @@
 
     let password_strength = 0;
 
-    // these zod configuration causing errors
+    const options = {
+        dictionary: {
+            ...zxcvbnCommonPackage.dictionary,
+            ...zxcvbnEnPackage.dictionary
+        }
+    };
 
-    // const options = {
-    //     dictionary: {
-    //         ...zxcvbnCommonPackage.dictionary,
-    //         ...zxcvbnEnPackage.dictionary
-    //     }
-    // };
-
-    // zxcvbnOptions.setOptions(options);
+    zxcvbnOptions.setOptions(options);
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
