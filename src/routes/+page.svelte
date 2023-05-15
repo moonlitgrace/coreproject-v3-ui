@@ -693,11 +693,11 @@
             </continue-watching-mobile>
 
             <popular-genres>
-                <div class="mt-5 px-[3vw] md:mt-3 md:px-0">
+                <div class="mt-5 px-[3vw] md:mt-[0.25vw] md:px-0">
                     <div class="flex items-end justify-between">
                         <div>
-                            <p class="unstyled text-xl md:text-[1.5vw] md:leading-[3vw] font-semibold">Popular Genres</p>
-                            <span class="text-xs font-medium text-surface-200 md:leading-none md:pt-[0.75vw] md:text-[1vw] md:font-semibold">watch animes from popular genres</span>
+                            <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
+                            <span class="text-xs font-medium text-surface-200 md:pt-[0.75vw] md:text-[1vw] md:font-semibold md:leading-none">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -733,7 +733,7 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] hidden md:inline-grid h-[23vw] w-full">
+                    <div class="mt-[1.5vw] hidden h-[23vw] w-full md:inline-grid">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div
