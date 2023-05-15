@@ -1,9 +1,9 @@
 <script lang="ts">
+    import { latest_animes } from "$data/mock/latest_animes";
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
     import { onDestroy, onMount } from "svelte";
     import { blur } from "svelte/transition";
-    import { latest_animes } from "$data/mock/latest_animes";
 
     let choice_number = 1;
     const change_index = () => {
@@ -52,14 +52,12 @@
                     <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold leading-[1.75vw]">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 
                     <span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
-                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium text-surface-200 leading-[1vw]">continue on animecore, mangacore and soundcore with same account.</span>
+                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium leading-[1vw] text-surface-200">continue on animecore, mangacore and soundcore with same account.</span>
                 </div>
 
                 <div class="absolute bottom-[1.85vw] left-10 md:left-[2vw] md:flex">
                     <div class="flex flex-col">
-                        <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">
-                            Background from anime
-                        </span>
+                        <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">Background from anime</span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
                             <span class="text-[3vw] font-bold uppercase tracking-widest text-warning-400 md:text-[1vw]">
                                 {item.name}
@@ -82,9 +80,9 @@
 </root>
 
 <style lang="postcss">
-    /* :global(#shell-header) {
-        display: none !important;
-    } */
+    :global(#page) {
+        @apply overflow-y-scroll md:overflow-y-hidden;
+    }
     /* :global(#shell-footer) {
         display: none !important;
     } */
