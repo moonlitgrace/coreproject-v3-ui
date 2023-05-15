@@ -156,7 +156,6 @@
             return;
         }
         current_genre_id += 1;
-        console.log(current_genre_id, popular_genres.length);
     };
 
     /* Icons */
@@ -694,11 +693,11 @@
             </continue-watching-mobile>
 
             <popular-genres>
-                <div class="mt-5 px-[3vw] md:mt-3 md:px-0">
+                <div class="mt-5 px-[3vw] md:mt-[0.25vw] md:px-0">
                     <div class="flex items-end justify-between">
-                        <div class="flex flex-col gap-1">
-                            <p class="unstyled text-xl font-semibold">Popular Genres</p>
-                            <span class="text-xs font-medium text-surface-200 md:text-[1vw] md:font-semibold">watch animes from popular genres</span>
+                        <div>
+                            <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
+                            <span class="text-xs font-medium text-surface-200 md:pt-[0.75vw] md:text-[1vw] md:font-semibold md:leading-none">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -734,15 +733,15 @@
                     </div>
 
                     <!-- for medium devices -->
-                    <div class="mt-[1.5vw] inline-grid h-[23vw] w-full">
+                    <div class="mt-[1.5vw] hidden h-[23vw] w-full md:inline-grid">
                         {#each popular_genres as genre, index}
                             {#if index === current_genre_id}
                                 <div
                                     transition:blur|local
-                                    class="relative h-full rounded-r-[1vw] bg-cover bg-center"
-                                    style="background-image: url({genre.cover}); grid-area: 1 / 1 / 1000 / 1;"
+                                    class="relative col-start-1 col-end-1 row-span-1 row-end-1 h-full rounded-r-[1vw] bg-cover bg-center"
+                                    style="background-image: url({genre.cover ?? ''});"
                                 >
-                                    <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/90" />
+                                    <gradient-overlay class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/90" />
 
                                     <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
@@ -767,29 +766,16 @@
                                         <div class="flex basis-2/3 gap-[1.5vw]">
                                             {#each genre.animes as anime}
                                                 <div
-                                                    class="group relative h-[15vw] w-[12.5vw] flex-shrink-0 cursor-pointer rounded-[1vw] bg-cover bg-center"
+                                                    class="relative h-[15vw] w-[12.5vw] flex-shrink-0 cursor-pointer rounded-[1vw] bg-cover bg-center"
                                                     style="background-image: url({anime.banner});"
                                                 >
-                                                    <div class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
+                                                    <gradient-overlay class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25" />
+
                                                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                                                        <div class="relative px-[1vw] pt-[4vw]">
-                                                            <div class="opacity-100 transition duration-300 group-hover:opacity-0">
+                                                        <div class="px-[1vw] pt-[4vw]">
+                                                            <div>
                                                                 <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
                                                                 <p class="unstyled mt-[0.3vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
-                                                            </div>
-
-                                                            <div class="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
-                                                                <div class="flex flex-col gap-[0.5vw]">
-                                                                    <button class="btn btn-icon h-[3.125vw] w-[6vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                                                        <PlayCircle class="w-[1.25vw] text-surface-900" />
-                                                                        Ep 1
-                                                                    </button>
-
-                                                                    <button class="btn btn-icon h-[3.125vw] w-[6vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
-                                                                        <Info class="w-[1.25vw] text-surface-50" />
-                                                                        Info
-                                                                    </button>
-                                                                </div>
                                                             </div>
                                                         </div>
 
