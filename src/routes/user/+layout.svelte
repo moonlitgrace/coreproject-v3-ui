@@ -81,7 +81,7 @@
 
 <style lang="postcss">
     :global(#page) {
-        @apply overflow-y-scroll md:overflow-y-hidden;
+        @apply overflow-y-hidden;
     }
     /* :global(#shell-footer) {
         display: none !important;
