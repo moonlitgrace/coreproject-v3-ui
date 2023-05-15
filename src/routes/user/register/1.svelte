@@ -192,24 +192,12 @@
 
                                                 <div class="grid grid-cols-12 items-center gap-2">
                                                     {#if messages.includes(object_key)}
-                                                        <div
-                                                            class="contents"
-                                                            transition:blur|local
-                                                        >
-                                                            <svelte:component
-                                                                this={Cross}
-                                                                class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
-                                                            />
+                                                        <div class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]">
+                                                            <svelte:component this={Cross} />
                                                         </div>
                                                     {:else}
-                                                        <div
-                                                            class="contents"
-                                                            transition:blur|local
-                                                        >
-                                                            <svelte:component
-                                                                this={Tick}
-                                                                class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
-                                                            />
+                                                        <div class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
+                                                            <svelte:component this={Tick} />
                                                         </div>
                                                     {/if}
                                                     <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{object_value}</span>
@@ -220,29 +208,17 @@
                                     <div slot="placeholder">
                                         <div class="flex flex-col gap-[0.5vw] md:gap-0">
                                             {#each Object.values(password_error_mapping) as item}
-                                                <div class="grid grid-cols-12 items-center gap-5">
+                                                <div class="flex items-center gap-2">
                                                     {#if $data.password && !$errors.password && $touched.password}
-                                                        <div
-                                                            class="contents"
-                                                            transition:blur|local
-                                                        >
-                                                            <svelte:component
-                                                                this={Tick}
-                                                                class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
-                                                            />
+                                                        <div class="w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
+                                                            <svelte:component this={Tick} />
                                                         </div>
                                                     {:else}
-                                                        <div
-                                                            class="contents"
-                                                            transition:blur|local
-                                                        >
-                                                            <svelte:component
-                                                                this={Cross}
-                                                                class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
-                                                            />
+                                                        <div class="w-4 text-red-500 opacity-80 md:w-[0.9vw]">
+                                                            <svelte:component this={Cross} />
                                                         </div>
                                                     {/if}
-                                                    <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{item}</span>
+                                                    <span class="text-xs text-surface-300 md:text-[0.75vw]">{item}</span>
                                                 </div>
                                             {/each}
                                         </div>
