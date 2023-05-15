@@ -12,6 +12,7 @@
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
+    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     let password_strength = 0;
@@ -106,15 +107,15 @@
     use:focusTrap={true}
 >
     <form-fields>
-        <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
-            create your&nbsp;
-            <p class="unstyled inline-flex items-center">
+        <div class="flex gap-2 whitespace-nowrap pb-[5vw] font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">
+            <p>create your</p>
+            <p class="unstyled">
                 {#each "core".split("") as item}
                     <span class={core_color_mapping[item]}>{item}</span>
                 {/each}
             </p>
-            &nbsp;account
-        </span>
+            <p>account</p>
+        </div>
         <email-field class="flex flex-col">
             <label
                 for="email"
@@ -191,15 +192,25 @@
 
                                                 <div class="grid grid-cols-12 items-center gap-2">
                                                     {#if messages.includes(object_key)}
-                                                        <svelte:component
-                                                            this={Cross}
-                                                            class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
-                                                        />
+                                                        <div
+                                                            class="contents"
+                                                            transition:blur|local
+                                                        >
+                                                            <svelte:component
+                                                                this={Cross}
+                                                                class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
+                                                            />
+                                                        </div>
                                                     {:else}
-                                                        <svelte:component
-                                                            this={Tick}
-                                                            class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
-                                                        />
+                                                        <div
+                                                            class="contents"
+                                                            transition:blur|local
+                                                        >
+                                                            <svelte:component
+                                                                this={Tick}
+                                                                class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
+                                                            />
+                                                        </div>
                                                     {/if}
                                                     <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{object_value}</span>
                                                 </div>
@@ -211,15 +222,25 @@
                                             {#each Object.values(password_error_mapping) as item}
                                                 <div class="grid grid-cols-12 items-center gap-5">
                                                     {#if $data.password && !$errors.password && $touched.password}
-                                                        <svelte:component
-                                                            this={Tick}
-                                                            class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
-                                                        />
+                                                        <div
+                                                            class="contents"
+                                                            transition:blur|local
+                                                        >
+                                                            <svelte:component
+                                                                this={Tick}
+                                                                class="col-span-1 w-3 text-primary-400 opacity-90 md:w-[0.7vw]"
+                                                            />
+                                                        </div>
                                                     {:else}
-                                                        <svelte:component
-                                                            this={Cross}
-                                                            class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
-                                                        />
+                                                        <div
+                                                            class="contents"
+                                                            transition:blur|local
+                                                        >
+                                                            <svelte:component
+                                                                this={Cross}
+                                                                class="col-span-1 w-4 text-red-500 opacity-80 md:w-[0.9vw]"
+                                                            />
+                                                        </div>
                                                     {/if}
                                                     <span class="col-span-11 w-max text-xs text-surface-300 md:text-[0.75vw]">{item}</span>
                                                 </div>
