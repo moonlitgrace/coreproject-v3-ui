@@ -142,9 +142,9 @@
     let anime_release_date: string;
     let anime_studio_name: string | undefined = undefined;
 
-    let popupSettings: PopupSettings = {
-        event: "hover", // event
-        target: "my_list_popup" // data-popup value
+    let mylistPopupSettings: PopupSettings = {
+        event: "hover",
+        target: "my_list_popup",
     };
 
     /* Manage Genres */
@@ -567,7 +567,7 @@
                                     anime_studio_name = String(anime.studios[0]);
                                 }}
                                 class="group"
-                                use:popup={popupSettings}
+                                use:popup={mylistPopupSettings}
                             >
                                 <div
                                     class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
@@ -601,7 +601,7 @@
 
                             <div
                                 data-popup="my_list_popup"
-                                class="!-top-[17vw] h-[15.625vw] w-[20vw] rounded-[1vw] hover:!hidden"
+                                class="h-[15.625vw] w-[20vw] rounded-[1vw]"
                             >
                                 <div
                                     class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
