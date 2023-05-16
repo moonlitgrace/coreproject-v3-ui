@@ -279,18 +279,22 @@
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
-                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:pt-[0.5vw] md:text-[0.9375vw]">
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.9375vw]">
+                                    <span class="leading-[1.125vw]">
                                         {anime.type}
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[.35vw]" />
+                                    <span class="leading-[1.125vw]">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                                    <span class="capitalize leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[.35vw]" />
+                                    <span class="leading-[1.125vw]">Completed</span>
+                                    <Circle class="w-[.35vw]" />
+                                    <span class="capitalize leading-[1.125vw]">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[.35vw]" />
+                                    <span class="leading-[1.125vw]">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
@@ -331,7 +335,7 @@
                 {/each}
 
                 <div class="flex flex-col px-[3vw] md:px-0">
-                    <div
+                    <progress-bar
                         class="h-[0.2rem] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
                         style="width: {$tweened_progress_value}%;"
                     />
@@ -394,7 +398,6 @@
             </div>
 
             <ScrollArea
-                gradientMask
                 offsetScrollbar
                 parentClass="mt-[1.5vw] max-h-[21.5625vw]"
                 class="flex flex-col gap-[1vw]"
@@ -404,7 +407,7 @@
                         class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
                         style="background-image: url({anime.cover ?? ''})"
                     >
-                        <div class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
                         <div class="absolute h-full w-full">
                             <div class="flex items-center justify-between p-[1.3125vw]">
                                 <div class="flex flex-col gap-[0.4vw]">
