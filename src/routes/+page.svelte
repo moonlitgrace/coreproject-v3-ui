@@ -273,7 +273,8 @@
                                 $timerStore = "start";
                             }}
                         >
-                            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />
+                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />
+                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:from-surface-900/75" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
