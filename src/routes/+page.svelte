@@ -145,6 +145,8 @@
     let mylistPopupSettings: PopupSettings = {
         event: "hover",
         target: "my_list_popup",
+        closeQuery: "",
+        placement: "top"
     };
 
     /* Manage Genres */
@@ -573,7 +575,7 @@
                                     class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
                                     style="background-image: url({anime.cover});"
                                 >
-                                    <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                                    <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
                                         <span class="text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
@@ -586,12 +588,12 @@
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                         <div class="flex flex-col gap-[0.5vw]">
                                             <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                                <PlayCircle class="w-[1.25vw] text-surface-900" />
+                                                <PlayCircle class="w-[1.25vw] text-surface-900 [&>*]:pointer-events-none" />
                                                 Ep {anime.current_episode}
                                             </button>
 
                                             <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
-                                                <Info class="w-[1.25vw] text-surface-50" />
+                                                <Info class="w-[1.25vw] text-surface-50 [&>*]:pointer-events-none" />
                                                 Info
                                             </button>
                                         </div>
@@ -601,7 +603,7 @@
 
                             <div
                                 data-popup="my_list_popup"
-                                class="h-[15.625vw] w-[20vw] rounded-[1vw]"
+                                class="z-20 h-[15.625vw] w-[20vw] rounded-[1vw]"
                             >
                                 <div
                                     class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
