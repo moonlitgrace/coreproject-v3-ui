@@ -132,16 +132,6 @@
     /* My list popups */
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-    // let anime_name: string | undefined = undefined;
-    // let anime_cover: string | undefined = undefined;
-    // let anime_synopsis: string | undefined = undefined;
-    // let anime_current_episode: string | undefined = undefined;
-    // let anime_episodes_count: string | undefined = undefined;
-    // let anime_genres: string[] = [];
-    // let anime_type: string | undefined = undefined;
-    // let anime_release_date: string;
-    // let anime_studio_name: string | undefined = undefined;
-
     let hovered_anime_id: number | undefined;
     let mylistPopupSettings: PopupSettings = {
         event: "hover",
@@ -560,9 +550,13 @@
                     <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                on:mouseenter={() => {
+                                on:mouseenter={(event) => {
                                     hovered_anime_id = anime.id;
                                     console.log(hovered_anime_id, anime.id);
+                                    console.log("Mouse entered", event.target);
+                                }}
+                                on:mouseleave={(event) => {
+                                    console.log("Mouse leaved", event.target);
                                 }}
                                 class="group"
                                 use:popup={mylistPopupSettings}
