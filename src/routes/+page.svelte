@@ -132,19 +132,20 @@
     /* My list popups */
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-    let anime_name: string | undefined = undefined;
-    let anime_cover: string | undefined = undefined;
-    let anime_synopsis: string | undefined = undefined;
-    let anime_current_episode: string | undefined = undefined;
-    let anime_episodes_count: string | undefined = undefined;
-    let anime_genres: string[] = [];
-    let anime_type: string | undefined = undefined;
-    let anime_release_date: string;
-    let anime_studio_name: string | undefined = undefined;
+    // let anime_name: string | undefined = undefined;
+    // let anime_cover: string | undefined = undefined;
+    // let anime_synopsis: string | undefined = undefined;
+    // let anime_current_episode: string | undefined = undefined;
+    // let anime_episodes_count: string | undefined = undefined;
+    // let anime_genres: string[] = [];
+    // let anime_type: string | undefined = undefined;
+    // let anime_release_date: string;
+    // let anime_studio_name: string | undefined = undefined;
 
+    let hovered_anime_id: number | undefined;
     let mylistPopupSettings: PopupSettings = {
         event: "hover",
-        target: "my_list_popup",
+        target: `my_list_popup_${hovered_anime_id}`,
         closeQuery: "",
         middleware: {
             offset: 15
@@ -560,15 +561,8 @@
                         {#each my_list as anime}
                             <div
                                 on:mouseenter={() => {
-                                    anime_name = anime.name;
-                                    anime_cover = anime.cover;
-                                    anime_synopsis = anime.synopsis;
-                                    anime_current_episode = String(anime.current_episode);
-                                    anime_episodes_count = String(anime.episodes_count);
-                                    anime_genres = anime.genres;
-                                    anime_type = anime.type;
-                                    anime_release_date = String(anime.release_date);
-                                    anime_studio_name = String(anime.studios[0]);
+                                    hovered_anime_id = anime.id;
+                                    console.log(hovered_anime_id, anime.id);
                                 }}
                                 class="group"
                                 use:popup={mylistPopupSettings}
@@ -604,28 +598,28 @@
                             </div>
 
                             <div
-                                data-popup="my_list_popup"
+                                data-popup="my_list_popup_{anime.id}"
                                 class="z-20 h-[15.625vw] w-[20vw] rounded-[1vw]"
                             >
                                 <div
                                     class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
-                                    style="background-image: url({anime_cover});"
+                                    style="background-image: url({anime.cover});"
                                 >
                                     <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
                                     <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
                                         <span class="text-[1vw] font-semibold text-white">
-                                            {voca.truncate(anime_name, 30)}
+                                            {voca.truncate(anime.name, 30)}
                                         </span>
                                         <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
-                                            {voca.truncate(anime_name, 50)}
+                                            {voca.truncate(anime.name, 50)}
                                         </span>
 
                                         <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-                                            {voca.truncate(anime_synopsis, 130)}
+                                            {voca.truncate(anime.synopsis, 130)}
                                         </span>
 
                                         <div class="mt-[0.5vw] flex gap-[1vw]">
-                                            {#each anime_genres as genre}
+                                            {#each anime.genres as genre}
                                                 <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
                                                     {genre}
                                                 </span>
@@ -633,12 +627,12 @@
                                         </div>
 
                                         <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                                            <span>{anime_type}</span>
+                                            <span>{anime.type}</span>
                                             <Circle class="w-[0.2vw] text-surface-50" />
                                             <span class="capitalize">
-                                                {new format_date(anime_release_date).format_to_season}
+                                                {new format_date(anime.release_date).format_to_season}
                                             </span>
-                                            <span>{anime_episodes_count} episodes</span>
+                                            <span>{anime.episodes_count} episodes</span>
                                         </div>
 
                                         <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
@@ -646,7 +640,7 @@
                                                 69% <span class="text-surface-200">[7852 ratings]</span>
                                             </span>
                                             <Circle class="w-[0.2vw] text-surface-50" />
-                                            <span>{anime_studio_name}</span>
+                                            <span>{anime.studios[0]}</span>
                                         </div>
                                     </div>
 
@@ -654,7 +648,7 @@
                                         <span>Watching</span>
                                         <Circle class="w-[0.2vw] text-surface-900" />
                                         <span>
-                                            {anime_current_episode}/{anime_episodes_count}
+                                            {anime.current_episode}/{anime.episodes_count}
                                         </span>
                                     </div>
                                 </div>
