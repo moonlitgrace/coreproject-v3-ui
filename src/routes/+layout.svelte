@@ -286,10 +286,10 @@
                                 href={item_href}
                                 class="{item_href ?? 'pointer-events-none'} unstyled"
                             >
-                                <div class="cursor-pointer flex gap-2 md:gap-[0.75vw] items-center rounded-[0.2vw] p-[0.4rem] transition duration-100 md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
+                                <div class="flex cursor-pointer items-center gap-2 rounded-[0.2vw] p-[0.4rem] transition duration-100 md:gap-[0.75vw] md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
-                                        class="hidden md:flex basis-[12%] {item_icon.class}"
+                                        class="hidden basis-[12%] md:flex {item_icon.class}"
                                     />
                                     <svelte:component
                                         this={item_icon.component}
