@@ -575,7 +575,7 @@
                                 >
                                     <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
-                                        <span class="text-center text-[1vw] font-semibold text-white leading-[1.35vw]">
+                                        <span class="text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
                                         </span>
                                         <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
@@ -708,7 +708,7 @@
                                 </button>
                             </div>
 
-                            <span class="text-xs font-medium text-surface-200 md:leading-[1vw] md:text-[1vw] md:font-semibold">watch animes from popular genres</span>
+                            <span class="text-xs font-medium text-surface-200 md:text-[1vw] md:font-semibold md:leading-[1vw]">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -757,7 +757,7 @@
                                     <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
                                             <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
-                                            <span class="text-[1vw] font-medium text-white leading-[2.5vw]">includes {genre.estimated_total_animes}+ animes</span>
+                                            <span class="text-[1vw] font-medium leading-[2.5vw] text-white">includes {genre.estimated_total_animes}+ animes</span>
                                             <p class="unstyled line-clamp-4 text-[0.85vw] leading-[1vw] text-surface-200">{genre.description}</p>
 
                                             <div class="mt-[1.5vw] flex items-center gap-[1vw]">
