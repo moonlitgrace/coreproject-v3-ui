@@ -747,7 +747,8 @@
                                     <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
                                             <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
-                                            <p class="unstyled mt-[1vw] line-clamp-4 text-[0.85vw] leading-[1vw] text-surface-200">{genre.description}</p>
+                                            <span class="text-[1vw] font-medium text-white leading-[2.5vw]">includes {genre.estimated_total_animes}+ animes</span>
+                                            <p class="unstyled line-clamp-4 text-[0.85vw] leading-[1vw] text-surface-200">{genre.description}</p>
 
                                             <div class="mt-[1.5vw] flex items-center gap-[1vw]">
                                                 <button class="btn h-[3vw] w-[8vw] rounded-[0.55vw] bg-primary-500 p-0 text-[1.25vw] font-semibold">
