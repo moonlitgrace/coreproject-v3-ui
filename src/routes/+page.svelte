@@ -132,13 +132,14 @@
     /* My list popups */
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-    let hovered_anime_id: number | undefined;
-    let mylistPopupSettings: PopupSettings = {
-        event: "hover",
-        target: `my_list_popup_${hovered_anime_id}`,
-        closeQuery: "",
-        middleware: {
-            offset: 15
+    let mylistPopupSettings = (anime_id: number): PopupSettings => {
+        return  {
+            event: "hover",
+            target: `my_list_popup_${anime_id}`,
+            closeQuery: "",
+            middleware: {
+                offset: 15
+            }
         }
     };
 
@@ -550,16 +551,8 @@
                     <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                on:mouseenter={(event) => {
-                                    hovered_anime_id = anime.id;
-                                    console.log(hovered_anime_id, anime.id);
-                                    console.log("Mouse entered", event.target);
-                                }}
-                                on:mouseleave={(event) => {
-                                    console.log("Mouse leaved", event.target);
-                                }}
                                 class="group"
-                                use:popup={mylistPopupSettings}
+                                use:popup={mylistPopupSettings(anime.id)}
                             >
                                 <div
                                     class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
@@ -578,7 +571,7 @@
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                         <div class="flex flex-col gap-[0.5vw]">
                                             <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                                <PlayCircle class="w-[1.25vw] text-surface-900 [&>*]:pointer-events-none" />
+                                                <PlayCircle class="w-[1.25vw] text-surface-900" />
                                                 Ep {anime.current_episode}
                                             </button>
 
