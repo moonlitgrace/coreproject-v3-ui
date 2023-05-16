@@ -23,7 +23,7 @@ export const latest_animes = [
         name: "Hyouka",
         type: "TV",
         aired_from: "2023-08-20T15:38:51.162Z",
-        cover: "https://imgbox.io/ib/JSf13DUhKz.jpg",
+        cover: "https://c4.wallpaperflare.com/wallpaper/470/72/942/hyouka-anime-chitanda-eru-fukube-satoshi-wallpaper-preview.jpg",
         synopsis: `High school freshman Houtarou Oreki has but one goal: to lead a gray life while conserving as much energy as he can. Unfortunately, his peaceful days come to an end when his older sister, Tomoe, forces him to save the memberless Classics Club from disbandment.
 
 			Luckily, Oreki's predicament seems to be over when he heads to the clubroom and discovers that his fellow first-year, Eru Chitanda, has already become a member. However, despite his obligation being fulfilled, Oreki finds himself entangled by Chitanda's curious and bubbly personality, soon joining the club of his own volition.

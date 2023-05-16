@@ -25,7 +25,7 @@ export const popular_genres = [
 			{
 				id: 3,
 				name: "Hyouka",
-				banner: "https://imgbox.io/ib/JSf13DUhKz.jpg",
+				banner: "https://c4.wallpaperflare.com/wallpaper/470/72/942/hyouka-anime-chitanda-eru-fukube-satoshi-wallpaper-preview.jpg",
 				synopsis: `High school freshman Houtarou Oreki has but one goal: to lead a gray life while conserving as much energy as he can. Unfortunately, his peaceful days come to an end when his older sister, Tomoe, forces him to save the memberless Classics Club from disbandment.`,
 				episodes_count: 9,
 				rating: 4.5
@@ -50,7 +50,7 @@ export const popular_genres = [
 			{
 				id: 2,
 				name: "Hyouka",
-				banner: "https://imgbox.io/ib/JSf13DUhKz.jpg",
+				banner: "https://c4.wallpaperflare.com/wallpaper/470/72/942/hyouka-anime-chitanda-eru-fukube-satoshi-wallpaper-preview.jpg",
 				synopsis: `High school freshman Houtarou Oreki has but one goal: to lead a gray life while conserving as much energy as he can. Unfortunately, his peaceful days come to an end when his older sister, Tomoe, forces him to save the memberless Classics Club from disbandment.`,
 				episodes_count: 9,
 				rating: 4.5
@@ -92,7 +92,7 @@ export const popular_genres = [
 			{
 				id: 3,
 				name: "Hyouka",
-				banner: "https://imgbox.io/ib/JSf13DUhKz.jpg",
+				banner: "https://c4.wallpaperflare.com/wallpaper/470/72/942/hyouka-anime-chitanda-eru-fukube-satoshi-wallpaper-preview.jpg",
 				synopsis: `High school freshman Houtarou Oreki has but one goal: to lead a gray life while conserving as much energy as he can. Unfortunately, his peaceful days come to an end when his older sister, Tomoe, forces him to save the memberless Classics Club from disbandment.`,
 				episodes_count: 9,
 				rating: 4.5
