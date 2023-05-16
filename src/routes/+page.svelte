@@ -283,17 +283,17 @@
                                     <span class="leading-[1.125vw]">
                                         {anime.type}
                                     </span>
-                                    <Circle class="w-[.35vw]" />
+                                    <Circle class="w-[0.35vw]" />
                                     <span class="leading-[1.125vw]">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <Circle class="w-[.35vw]" />
+                                    <Circle class="w-[0.35vw]" />
                                     <span class="leading-[1.125vw]">Completed</span>
-                                    <Circle class="w-[.35vw]" />
+                                    <Circle class="w-[0.35vw]" />
                                     <span class="capitalize leading-[1.125vw]">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <Circle class="w-[.35vw]" />
+                                    <Circle class="w-[0.35vw]" />
                                     <span class="leading-[1.125vw]">
                                         {anime.studios[0]}
                                     </span>
@@ -391,7 +391,7 @@
                         <SettingsOutline class="w-[0.8vw]" />
                     </button>
                 </div>
-                <button class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
+                <button class="btn btn-icon h-[1.75vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
                     <span>Full List</span>
                     <ArrowUpRight class="w-[0.9vw]" />
                 </button>
@@ -415,9 +415,10 @@
                                         {anime.name}
                                     </span>
                                     <div class="flex items-center gap-[0.5vw]">
-                                        <span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+                                        <span class="text-[0.75vw]">
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
+                                        <Circle class="w-[0.25vw] opacity-75" />
                                         <span class="text-[0.75vw]">
                                             {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
@@ -433,7 +434,7 @@
             </ScrollArea>
 
             <div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
-                <span class="text-[0.75vw] font-semibold">showing recently aired episodes from your Anime List</span>
+                <span class="text-[0.75vw] font-semibold md:leading-[1.25vw]">showing recently aired episodes from your Anime List</span>
                 <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
             </div>
         </latest-episodes>
