@@ -181,9 +181,10 @@
         });
     });
 
-    let popupSettings: PopupSettings = {
-        event: "click", // event
-        target: "profile_dropdown" // data-popup value
+    let profilePopupSettings: PopupSettings = {
+        event: "click",
+        target: "profile_dropdown",
+        placement: "bottom-end"
     };
 
     /** search panel */
@@ -248,7 +249,7 @@
 
                 <button
                     class="avatar"
-                    use:popup={popupSettings}
+                    use:popup={profilePopupSettings}
                 >
                     <Avatar
                         rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
@@ -259,7 +260,7 @@
                 </button>
 
                 <div
-                    class="rounded-xl bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:!left-[84.5vw] md:!top-[4.5vw] md:w-[13vw] md:rounded-[0.375vw] md:px-[0.75vw] md:py-[1.125vw]"
+                    class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]"
                     data-popup="profile_dropdown"
                 >
                     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
@@ -269,9 +270,9 @@
                             src="https://i.postimg.cc/6pNGq1YL/345336.png"
                             initials="JD"
                         />
-                        <div class="flex flex-col">
-                            <span class="text-base font-semibold md:text-[0.9vw]">soraamamiya</span>
-                            <span class="text-xs font-medium md:text-[0.8vw]">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
+                        <div class="flex flex-col md:gap-[0.5vw]">
+                            <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>
+                            <span class="text-xs font-medium md:text-[0.8vw] md:leading-none">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
                         </div>
                     </div>
 
@@ -285,16 +286,16 @@
                                 href={item_href}
                                 class="{item_href ?? 'pointer-events-none'} unstyled"
                             >
-                                <div class="grid cursor-pointer grid-cols-5 items-center rounded-[0.2vw] p-[0.4rem] transition duration-100 md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
+                                <div class="cursor-pointer flex gap-2 md:gap-[0.75vw] items-center rounded-[0.2vw] p-[0.4rem] transition duration-100 md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
                                     <svelte:component
                                         this={item_icon.component}
-                                        class="col-span-1 hidden md:flex {item_icon.class}"
+                                        class="hidden md:flex basis-[12%] {item_icon.class}"
                                     />
                                     <svelte:component
                                         this={item_icon.component}
-                                        class="col-span-1 flex w-5 md:hidden"
+                                        class=" flex w-5 basis-[12%] md:hidden"
                                     />
-                                    <span class="col-span-4 text-xs font-medium text-white md:text-[1vw]">
+                                    <span class=" text-xs font-medium text-white md:text-[0.9vw]">
                                         {item_name}
                                     </span>
                                 </div>
