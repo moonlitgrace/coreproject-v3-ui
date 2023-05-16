@@ -10,12 +10,12 @@
 <div class="flex select-none gap-1">
     <p>
         {#each "core".split("") as letter}
-            <span class="inline-flex text-[1.75vw] font-bold {core_mapping[letter]}">{letter}</span>
+            <span class="inline-flex text-[1.5vw] font-bold {core_mapping[letter]}">{letter}</span>
         {/each}
     </p>
     <p>
         {#each "project".split("") as letter}
-            <span class="inline-flex text-[1.75vw] font-bold text-white">{letter}</span>
+            <span class="inline-flex text-[1.5vw] font-bold text-white">{letter}</span>
         {/each}
     </p>
 </div>

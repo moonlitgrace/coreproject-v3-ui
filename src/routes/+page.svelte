@@ -279,18 +279,22 @@
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
-                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:pt-[0.5vw] md:text-[0.9375vw]">
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.9375vw]">
+                                    <span class="leading-[1.125vw]">
                                         {anime.type}
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[0.35vw]" />
+                                    <span class="leading-[1.125vw]">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                                    <span class="capitalize leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[0.35vw]" />
+                                    <span class="leading-[1.125vw]">Completed</span>
+                                    <Circle class="w-[0.35vw]" />
+                                    <span class="capitalize leading-[1.125vw]">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <span class="leading-[1.125vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                                    <Circle class="w-[0.35vw]" />
+                                    <span class="leading-[1.125vw]">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
@@ -331,7 +335,7 @@
                 {/each}
 
                 <div class="flex flex-col px-[3vw] md:px-0">
-                    <div
+                    <progress-bar
                         class="h-[0.2rem] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
                         style="width: {$tweened_progress_value}%;"
                     />
@@ -387,14 +391,13 @@
                         <SettingsOutline class="w-[0.8vw]" />
                     </button>
                 </div>
-                <button class="btn btn-icon h-[1.7vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
+                <button class="btn btn-icon h-[1.75vw] w-[6vw] rounded-[0.3vw] bg-surface-400 text-[0.9vw] font-semibold">
                     <span>Full List</span>
                     <ArrowUpRight class="w-[0.9vw]" />
                 </button>
             </div>
 
             <ScrollArea
-                gradientMask
                 offsetScrollbar
                 parentClass="mt-[1.5vw] max-h-[21.5625vw]"
                 class="flex flex-col gap-[1vw]"
@@ -404,7 +407,7 @@
                         class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
                         style="background-image: url({anime.cover ?? ''})"
                     >
-                        <div class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
                         <div class="absolute h-full w-full">
                             <div class="flex items-center justify-between p-[1.3125vw]">
                                 <div class="flex flex-col gap-[0.4vw]">
@@ -412,9 +415,10 @@
                                         {anime.name}
                                     </span>
                                     <div class="flex items-center gap-[0.5vw]">
-                                        <span class="text-[0.75vw] after:ml-[0.5vw] after:content-['.']">
+                                        <span class="text-[0.75vw]">
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
+                                        <Circle class="w-[0.25vw] opacity-75" />
                                         <span class="text-[0.75vw]">
                                             {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
@@ -430,7 +434,7 @@
             </ScrollArea>
 
             <div class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
-                <span class="text-[0.75vw] font-semibold">showing recently aired episodes from your Anime List</span>
+                <span class="text-[0.75vw] font-semibold md:leading-[1.25vw]">showing recently aired episodes from your Anime List</span>
                 <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
             </div>
         </latest-episodes>
@@ -472,12 +476,12 @@
             class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center md:block"
             style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
         >
-            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
-            <div class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
             <div class="absolute px-[1.875vw] pt-[2vw]">
                 <div class="flex flex-col gap-[0.2w]">
-                    <span class="text-[1.5vw] font-bold">Welcome</span>
-                    <span class="text-[0.875vw] font-semibold">Jump quickly into</span>
+                    <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
+                    <span class="text-[0.875vw] font-semibold leading-[2.5vw]">Jump quickly into</span>
                 </div>
 
                 <div class="mt-[1vw] flex flex-col gap-[0.625vw]">
@@ -498,7 +502,7 @@
                 </div>
 
                 <div class="mt-[0.4vw]">
-                    <span class="text-[0.9vw] font-semibold">More</span>
+                    <span class="text-[0.9vw] font-semibold leading-[1vw]">More</span>
                     <div class="mt-[0.75vw] flex gap-[0.9375vw]">
                         {#each Object.entries(icon_mapping.bottom) as item}
                             {@const item_icon = item[1].icon}
@@ -513,7 +517,7 @@
                     </div>
                 </div>
 
-                <div class="mt-[1vw] grid place-items-center">
+                <div class="mt-[1vw] flex items-center justify-center">
                     <CoreProject />
                 </div>
             </div>
@@ -571,7 +575,7 @@
                                 >
                                     <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
-                                        <span class="text-center text-[1vw] font-semibold text-white">
+                                        <span class="text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
                                         </span>
                                         <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
@@ -697,8 +701,14 @@
                 <div class="mt-5 px-[3vw] md:mt-[0.25vw] md:px-0">
                     <div class="flex items-end justify-between">
                         <div>
-                            <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
-                            <span class="text-xs font-medium text-surface-200 md:pt-[0.75vw] md:text-[1vw] md:font-semibold md:leading-none">watch animes from popular genres</span>
+                            <div class="flex items-center gap-[0.625vw]">
+                                <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
+                                <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+                                    <SettingsOutline class="w-[0.9vw]" />
+                                </button>
+                            </div>
+
+                            <span class="text-xs font-medium text-surface-200 md:text-[1vw] md:font-semibold md:leading-[1vw]">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
@@ -747,7 +757,7 @@
                                     <div class="absolute inset-0 flex items-center gap-[4vw]">
                                         <div class="basis-1/3">
                                             <p class="unstyled text-[2vw] font-bold">{genre.title}</p>
-                                            <span class="text-[1vw] font-medium text-white leading-[2.5vw]">includes {genre.estimated_total_animes}+ animes</span>
+                                            <span class="text-[1vw] font-medium leading-[2.5vw] text-white">includes {genre.estimated_total_animes}+ animes</span>
                                             <p class="unstyled line-clamp-4 text-[0.85vw] leading-[1vw] text-surface-200">{genre.description}</p>
 
                                             <div class="mt-[1.5vw] flex items-center gap-[1vw]">
