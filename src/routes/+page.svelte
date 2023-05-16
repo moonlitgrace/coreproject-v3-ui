@@ -146,7 +146,9 @@
         event: "hover",
         target: "my_list_popup",
         closeQuery: "",
-        placement: "top"
+        middleware: {
+            offset: 15
+        }
     };
 
     /* Manage Genres */
