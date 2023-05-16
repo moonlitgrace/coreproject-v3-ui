@@ -701,8 +701,14 @@
                 <div class="mt-5 px-[3vw] md:mt-[0.25vw] md:px-0">
                     <div class="flex items-end justify-between">
                         <div>
-                            <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
-                            <span class="text-xs font-medium text-surface-200 md:pt-[0.75vw] md:text-[1vw] md:font-semibold md:leading-none">watch animes from popular genres</span>
+                            <div class="flex items-center gap-[0.625vw]">
+                                <p class="unstyled text-xl font-semibold md:text-[1.5vw] md:leading-[3vw]">Popular Genres</p>
+                                <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+                                    <SettingsOutline class="w-[0.9vw]" />
+                                </button>
+                            </div>
+
+                            <span class="text-xs font-medium text-surface-200 md:leading-[1vw] md:text-[1vw] md:font-semibold">watch animes from popular genres</span>
                         </div>
                         <div class="flex items-center gap-[1vw]">
                             <button class="btn rounded-md bg-surface-400 p-2 px-3 text-sm font-semibold md:h-[2.25vw] md:w-[6vw] md:rounded-[0.375vw] md:p-0 md:text-[0.875vw]">
