@@ -476,12 +476,12 @@
             class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center md:block"
             style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
         >
-            <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
-            <div class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
             <div class="absolute px-[1.875vw] pt-[2vw]">
                 <div class="flex flex-col gap-[0.2w]">
-                    <span class="text-[1.5vw] font-bold">Welcome</span>
-                    <span class="text-[0.875vw] font-semibold">Jump quickly into</span>
+                    <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
+                    <span class="text-[0.875vw] font-semibold leading-[2.5vw]">Jump quickly into</span>
                 </div>
 
                 <div class="mt-[1vw] flex flex-col gap-[0.625vw]">
@@ -502,7 +502,7 @@
                 </div>
 
                 <div class="mt-[0.4vw]">
-                    <span class="text-[0.9vw] font-semibold">More</span>
+                    <span class="text-[0.9vw] font-semibold leading-[1vw]">More</span>
                     <div class="mt-[0.75vw] flex gap-[0.9375vw]">
                         {#each Object.entries(icon_mapping.bottom) as item}
                             {@const item_icon = item[1].icon}
@@ -517,7 +517,7 @@
                     </div>
                 </div>
 
-                <div class="mt-[1vw] grid place-items-center">
+                <div class="mt-[1vw] flex items-center justify-center">
                     <CoreProject />
                 </div>
             </div>
