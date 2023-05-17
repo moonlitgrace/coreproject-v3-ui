@@ -138,11 +138,7 @@
             placement: "right",
             animation: "shift-away",
             duration: [200, 50],
-            hideOnClick: false,
-            onCreate({ popper }) {
-                // Any easing function you want.
-                popper.style.transitionTimingFunction = "transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)";
-            }
+            hideOnClick: false
         });
     });
 
