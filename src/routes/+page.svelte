@@ -585,41 +585,40 @@
                             </div>
 
                             <div
+                                class="z-20 h-[18vw] w-[20vw] rounded-[1vw]"
                                 data-popup="my_list_popup_{anime.id}"
-                                class="z-20 h-[15.625vw] w-[20vw] rounded-[1vw]"
                             >
                                 <div
-                                    class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
+                                    class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
                                     style="background-image: url({anime.cover});"
                                 >
-                                    <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
+                                    <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                                    <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/75 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+
                                     <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-                                        <span class="text-[1vw] font-semibold text-white">
-                                            {voca.truncate(anime.name, 30)}
+                                        <span class="text-[1vw] font-semibold text-white leading-[1.25vw] line-clamp-1">
+                                            {anime.name}
                                         </span>
-                                        <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
-                                            {voca.truncate(anime.name, 50)}
-                                        </span>
-
-                                        <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-                                            {voca.truncate(anime.synopsis, 130)}
+                                        <span class="text-[0.75vw] tracking-wider line-clamp-1 font-semibold leading-[1.25vw] uppercase text-surface-50">
+                                            {anime.name}
                                         </span>
 
-                                        <div class="mt-[0.5vw] flex gap-[1vw]">
-                                            {#each anime.genres as genre}
-                                                <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
-                                                    {genre}
-                                                </span>
-                                            {/each}
-                                        </div>
-
-                                        <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                        <div class="mt-[0.25vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                                             <span>{anime.type}</span>
                                             <Circle class="w-[0.2vw] text-surface-50" />
                                             <span class="capitalize">
                                                 {new format_date(anime.release_date).format_to_season}
                                             </span>
+                                            <Circle class="w-[0.2vw] text-surface-50" />
                                             <span>{anime.episodes_count} episodes</span>
+                                        </div>
+
+                                        <div class="mt-[0.25vw] flex gap-[0.5vw]">
+                                            {#each anime.genres as genre}
+                                                <span class="rounded-[0.25vw] bg-surface-900/50 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
+                                                    {genre}
+                                                </span>
+                                            {/each}
                                         </div>
 
                                         <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
@@ -629,17 +628,21 @@
                                             <Circle class="w-[0.2vw] text-surface-50" />
                                             <span>{anime.studios[0]}</span>
                                         </div>
+
+                                        <span class="mt-[0.75vw] text-[0.75vw] line-clamp-3 font-medium leading-[1vw] text-surface-50">
+                                            {anime.synopsis}
+                                        </span>
+
                                     </div>
 
-                                    <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
-                                        <span>Watching</span>
-                                        <Circle class="w-[0.2vw] text-surface-900" />
+                                    <div class="absolute bottom-0 flex h-[1.75vw] w-full items-center justify-center gap-[0.5vw] bg-primary-500 text-[0.9vw] font-semibold">
+                                        <span class="font-medium">Watching</span>
+                                        <Circle class="w-[0.2vw]" />
                                         <span>
                                             {anime.current_episode}/{anime.episodes_count}
                                         </span>
                                     </div>
                                 </div>
-                                <div class="arrow bg-surface-50" />
                             </div>
                         {/each}
                     </div>
