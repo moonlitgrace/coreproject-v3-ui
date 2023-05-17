@@ -133,7 +133,8 @@
             hideOnClick: false,
             inertia: true,
             moveTransition: "transform 0.2s ease-out",
-            appendTo: "parent"
+            appendTo: "parent",
+            allowHTML: true,
         });
         const mylistTippyInstances = tippy(".mylistTrigger", {
             content(reference) {
@@ -143,7 +144,7 @@
             }
         });
         const myListSingleton = createSingleton(mylistTippyInstances, {
-            placement: "right"
+            placement: "top"
         });
     });
 
@@ -600,7 +601,7 @@
                                         <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
                                         <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/75 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
 
-                                        <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
+                                        <div class="absolute flex h-full flex-col justify-end rounded-[1vw] border-[0.25vw] border-b-0 border-surface-50/50 px-[1.5625vw] pb-[3vw]">
                                             <span class="line-clamp-1 text-[1vw] font-semibold leading-[1.25vw] text-white">
                                                 {anime.name}
                                             </span>
