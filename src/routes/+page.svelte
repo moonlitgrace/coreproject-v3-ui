@@ -127,18 +127,23 @@
 
     /* My list popups */
     onMount(() => {
-        const tippyInstances = tippy(".trigger", {
+        tippy.setDefaultProps({
+            duration: [300, 200],
+            animation: "shift-away",
+            hideOnClick: false,
+            inertia: true,
+            moveTransition: "transform 0.2s ease-out",
+            appendTo: "parent"
+        });
+        const mylistTippyInstances = tippy(".mylistTrigger", {
             content(reference) {
                 const id = reference.getAttribute("data-template");
                 const template = document.getElementById(id ?? "");
                 return template;
             }
         });
-        const singleton = createSingleton(tippyInstances, {
-            placement: "right",
-            animation: "shift-away",
-            duration: [200, 50],
-            hideOnClick: false
+        const myListSingleton = createSingleton(mylistTippyInstances, {
+            placement: "right"
         });
     });
 
@@ -550,8 +555,8 @@
                     <div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                class="trigger group basis-[14%]"
-                                data-template="popover"
+                                class="mylistTrigger group basis-[14%]"
+                                data-template="mylistPopover"
                             >
                                 <div
                                     class="relative flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
@@ -586,7 +591,7 @@
                             <div class="hidden">
                                 <div
                                     class="z-20 h-[18vw] w-[20vw] rounded-[1vw]"
-                                    id="popover"
+                                    id="mylistPopover"
                                 >
                                     <div
                                         class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
