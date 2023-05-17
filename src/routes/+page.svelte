@@ -547,17 +547,17 @@
                         </div>
                     </div>
 
-                    <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
+                    <div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                class="trigger group"
+                                class="trigger group basis-[14%]"
                                 data-template="popover"
                             >
                                 <div
-                                    class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
+                                    class="relative flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
                                     style="background-image: url({anime.cover});"
                                 >
-                                    <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                                    <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75" />
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
                                         <span class="text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
@@ -569,14 +569,14 @@
 
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                         <div class="flex flex-col gap-[0.5vw]">
-                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                                <PlayCircle class="w-[1.25vw] text-surface-900" />
-                                                Ep {anime.current_episode}
+                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] rounded-[0.625vw] bg-primary-500 text-[0.875vw] font-bold">
+                                                <PlayCircle class="w-[1.25vw]" />
+                                                <span>Ep {anime.current_episode}</span>
                                             </button>
 
-                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
-                                                <Info class="w-[1.25vw] text-surface-50 [&>*]:pointer-events-none" />
-                                                Info
+                                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
+                                                <Info class="w-[1.25vw]" />
+                                                <span>Info</span>
                                             </button>
                                         </div>
                                     </div>
