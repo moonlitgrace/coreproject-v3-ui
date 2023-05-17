@@ -27,11 +27,6 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Star from "$icons/star.svelte";
     import { timer as timerStore } from "$store/timer";
-    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
-    // skeleton and floating-ui
-    import { popup } from "@skeletonlabs/skeleton";
-    import type { PopupSettings } from "@skeletonlabs/skeleton";
-    import { storePopup } from "@skeletonlabs/skeleton";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
     import { beforeUpdate, onDestroy, onMount } from "svelte";
@@ -39,7 +34,8 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
-    import voca from "voca";
+    import tippy, { createSingleton } from "tippy.js";
+    import "tippy.js/animations/shift-away.css";
 
     /* Slider codes */
     let main_hero_slide_active_index = 0;
@@ -130,26 +126,21 @@
     ];
 
     /* My list popups */
-    storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
-    let anime_name: string | undefined = undefined;
-    let anime_cover: string | undefined = undefined;
-    let anime_synopsis: string | undefined = undefined;
-    let anime_current_episode: string | undefined = undefined;
-    let anime_episodes_count: string | undefined = undefined;
-    let anime_genres: string[] = [];
-    let anime_type: string | undefined = undefined;
-    let anime_release_date: string;
-    let anime_studio_name: string | undefined = undefined;
-
-    let mylistPopupSettings: PopupSettings = {
-        event: "hover",
-        target: "my_list_popup",
-        closeQuery: "",
-        middleware: {
-            offset: 15
-        }
-    };
+    onMount(() => {
+        const tippyInstances = tippy(".trigger", {
+            content(reference) {
+                const id = reference.getAttribute("data-template");
+                const template = document.getElementById(id ?? "");
+                return template;
+            }
+        });
+        const singleton = createSingleton(tippyInstances, {
+            placement: "right",
+            animation: "shift-away",
+            duration: [200, 50],
+            hideOnClick: false
+        });
+    });
 
     /* Manage Genres */
     let current_genre_id = 0;
@@ -559,19 +550,8 @@
                     <div class="relative mb-[2vw] mt-[1.5vw] grid grid-cols-7 gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                on:mouseenter={() => {
-                                    anime_name = anime.name;
-                                    anime_cover = anime.cover;
-                                    anime_synopsis = anime.synopsis;
-                                    anime_current_episode = String(anime.current_episode);
-                                    anime_episodes_count = String(anime.episodes_count);
-                                    anime_genres = anime.genres;
-                                    anime_type = anime.type;
-                                    anime_release_date = String(anime.release_date);
-                                    anime_studio_name = String(anime.studios[0]);
-                                }}
-                                class="group"
-                                use:popup={mylistPopupSettings}
+                                class="trigger group"
+                                data-template="popover"
                             >
                                 <div
                                     class="relative col-span-1 flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
@@ -590,7 +570,7 @@
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                         <div class="flex flex-col gap-[0.5vw]">
                                             <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] gap-[0.625vw] rounded-[0.625vw] bg-surface-50 text-[0.875vw] font-bold text-surface-900">
-                                                <PlayCircle class="w-[1.25vw] text-surface-900 [&>*]:pointer-events-none" />
+                                                <PlayCircle class="w-[1.25vw] text-surface-900" />
                                                 Ep {anime.current_episode}
                                             </button>
 
@@ -603,62 +583,66 @@
                                 </div>
                             </div>
 
-                            <div
-                                data-popup="my_list_popup"
-                                class="z-20 h-[15.625vw] w-[20vw] rounded-[1vw]"
-                            >
+                            <div class="hidden">
                                 <div
-                                    class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] border-[0.25vw] border-b-0 border-surface-300/75 bg-cover bg-center"
-                                    style="background-image: url({anime_cover});"
+                                    class="z-20 h-[18vw] w-[20vw] rounded-[1vw]"
+                                    id="popover"
                                 >
-                                    <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50 transition duration-300 group-hover:to-surface-900/50" />
-                                    <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-                                        <span class="text-[1vw] font-semibold text-white">
-                                            {voca.truncate(anime_name, 30)}
-                                        </span>
-                                        <span class="text-[0.75vw] font-semibold uppercase text-surface-50">
-                                            {voca.truncate(anime_name, 50)}
-                                        </span>
+                                    <div
+                                        class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
+                                        style="background-image: url({anime.cover});"
+                                    >
+                                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
+                                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/75 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
 
-                                        <span class="mt-[0.75vw] text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-                                            {voca.truncate(anime_synopsis, 130)}
-                                        </span>
+                                        <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
+                                            <span class="line-clamp-1 text-[1vw] font-semibold leading-[1.25vw] text-white">
+                                                {anime.name}
+                                            </span>
+                                            <span class="line-clamp-1 text-[0.75vw] font-semibold uppercase leading-[1.25vw] tracking-wider text-surface-50">
+                                                {anime.name}
+                                            </span>
 
-                                        <div class="mt-[0.5vw] flex gap-[1vw]">
-                                            {#each anime_genres as genre}
-                                                <span class="h-[1.25vw] rounded-[0.25vw] bg-secondary-800 px-[0.625vw] py-[0.25vw] text-[0.625vw] leading-[0.75vw]">
-                                                    {genre}
+                                            <div class="mt-[0.25vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                                <span>{anime.type}</span>
+                                                <Circle class="w-[0.2vw] text-surface-50" />
+                                                <span class="capitalize">
+                                                    {new format_date(anime.release_date).format_to_season}
                                                 </span>
-                                            {/each}
-                                        </div>
+                                                <Circle class="w-[0.2vw] text-surface-50" />
+                                                <span>{anime.episodes_count} episodes</span>
+                                            </div>
 
-                                        <div class="mt-[0.45vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                                            <span>{anime_type}</span>
-                                            <Circle class="w-[0.2vw] text-surface-50" />
-                                            <span class="capitalize">
-                                                {new format_date(anime_release_date).format_to_season}
+                                            <div class="mt-[0.25vw] flex gap-[0.5vw]">
+                                                {#each anime.genres as genre}
+                                                    <span class="rounded-[0.25vw] bg-surface-900/50 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
+                                                        {genre}
+                                                    </span>
+                                                {/each}
+                                            </div>
+
+                                            <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                                <span>
+                                                    69% <span class="text-surface-200">[7852 ratings]</span>
+                                                </span>
+                                                <Circle class="w-[0.2vw] text-surface-50" />
+                                                <span>{anime.studios[0]}</span>
+                                            </div>
+
+                                            <span class="mt-[0.75vw] line-clamp-3 text-[0.75vw] font-medium leading-[1vw] text-surface-50">
+                                                {anime.synopsis}
                                             </span>
-                                            <span>{anime_episodes_count} episodes</span>
                                         </div>
 
-                                        <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+                                        <div class="absolute bottom-0 flex h-[1.75vw] w-full items-center justify-center gap-[0.5vw] bg-primary-500 text-[0.9vw] font-semibold">
+                                            <span class="font-medium">Watching</span>
+                                            <Circle class="w-[0.2vw]" />
                                             <span>
-                                                69% <span class="text-surface-200">[7852 ratings]</span>
+                                                {anime.current_episode}/{anime.episodes_count}
                                             </span>
-                                            <Circle class="w-[0.2vw] text-surface-50" />
-                                            <span>{anime_studio_name}</span>
                                         </div>
-                                    </div>
-
-                                    <div class="absolute bottom-0 flex h-6 w-full items-center justify-center gap-[0.5vw] bg-surface-50 text-[0.9vw] font-semibold text-surface-900">
-                                        <span>Watching</span>
-                                        <Circle class="w-[0.2vw] text-surface-900" />
-                                        <span>
-                                            {anime_current_episode}/{anime_episodes_count}
-                                        </span>
                                     </div>
                                 </div>
-                                <div class="arrow bg-surface-50" />
                             </div>
                         {/each}
                     </div>
