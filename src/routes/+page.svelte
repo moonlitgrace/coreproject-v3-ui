@@ -39,7 +39,6 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
-    import voca from "voca";
 
     /* Slider codes */
     let main_hero_slide_active_index = 0;
@@ -133,14 +132,14 @@
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     let mylistPopupSettings = (anime_id: number): PopupSettings => {
-        return  {
+        return {
             event: "hover",
             target: `my_list_popup_${anime_id}`,
             closeQuery: "",
             middleware: {
                 offset: 15
             }
-        }
+        };
     };
 
     /* Manage Genres */
@@ -596,10 +595,10 @@
                                     <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/75 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
 
                                     <div class="absolute flex h-full flex-col justify-end px-[1.5625vw] pb-[3vw]">
-                                        <span class="text-[1vw] font-semibold text-white leading-[1.25vw] line-clamp-1">
+                                        <span class="line-clamp-1 text-[1vw] font-semibold leading-[1.25vw] text-white">
                                             {anime.name}
                                         </span>
-                                        <span class="text-[0.75vw] tracking-wider line-clamp-1 font-semibold leading-[1.25vw] uppercase text-surface-50">
+                                        <span class="line-clamp-1 text-[0.75vw] font-semibold uppercase leading-[1.25vw] tracking-wider text-surface-50">
                                             {anime.name}
                                         </span>
 
@@ -629,10 +628,9 @@
                                             <span>{anime.studios[0]}</span>
                                         </div>
 
-                                        <span class="mt-[0.75vw] text-[0.75vw] line-clamp-3 font-medium leading-[1vw] text-surface-50">
+                                        <span class="mt-[0.75vw] line-clamp-3 text-[0.75vw] font-medium leading-[1vw] text-surface-50">
                                             {anime.synopsis}
                                         </span>
-
                                     </div>
 
                                     <div class="absolute bottom-0 flex h-[1.75vw] w-full items-center justify-center gap-[0.5vw] bg-primary-500 text-[0.9vw] font-semibold">
