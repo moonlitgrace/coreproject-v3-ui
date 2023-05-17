@@ -769,17 +769,17 @@
                                                     class="group relative h-[15vw] w-[12.5vw] flex-shrink-0 cursor-pointer rounded-[1vw] bg-cover bg-center"
                                                     style="background-image: url({anime.banner});"
                                                 >
-                                                    <gradient-overlay class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25 group-hover:to-surface-900/50 transition-colors duration-300" />
+                                                    <gradient-overlay class="absolute inset-0 rounded-[1vw] bg-gradient-to-t from-surface-900 to-surface-900/25 transition-colors duration-300 group-hover:to-surface-900/50" />
 
                                                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                                                        <anime-details class="absolute px-[1vw] pt-[4vw] group-hover:opacity-0 transition-opacity duration-300">
+                                                        <anime-details class="absolute px-[1vw] pt-[4vw] transition-opacity duration-300 group-hover:opacity-0">
                                                             <div>
                                                                 <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
                                                                 <p class="unstyled mt-[0.3vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
                                                             </div>
                                                         </anime-details>
 
-                                                        <anime-options class="absolute flex flex-col gap-[0.5vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        <anime-options class="absolute flex flex-col gap-[0.5vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                                             <button class="btn btn-icon h-[3.125vw] w-[6vw] rounded-[0.625vw] bg-primary-500 text-[0.875vw] font-bold">
                                                                 <PlayCircle class="w-[1.25vw]" />
                                                                 <span>Ep 1</span>
