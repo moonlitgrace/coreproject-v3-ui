@@ -56,13 +56,12 @@
         "svelte-gestures": "^1.4.1",
         "svelte-star-rating": "^2.0.1",
         "tailwindcss": "^3.3.2",
+        "tippy.js": "^6.3.7",
         "tslib": "^2.4.1",
         "typescript": "^5.0.4",
         "vite": "^4.3.6",
         "vitest": "^0.31.0",
         "voca": "^1.4.0"
     },
-    "type": "module",
-    "dependencies": {
-    }
+    "type": "module"
 }
