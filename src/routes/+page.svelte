@@ -781,7 +781,7 @@
                                                             <div>
                                                                 <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
 
-                                                                <span class="line-clamp-1 text-[0.9vw] font-semibold uppercase leading-[1vw] mt-[0.1vw] text-surface-200">( {anime.name} )</span>
+                                                                <span class="mt-[0.1vw] line-clamp-1 text-[0.9vw] font-semibold uppercase leading-[1vw] text-surface-200">( {anime.name} )</span>
 
                                                                 <div class="mt-[0.25vw] flex items-center justify-center gap-[0.5vw] text-[0.75vw]">
                                                                     <span>{anime.type}</span>
