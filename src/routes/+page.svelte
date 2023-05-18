@@ -1,6 +1,6 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import MyListAnimeDetails from "$components/shared/tippyjs/MyListAnimeDetails.svelte";
+    import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
@@ -718,21 +718,17 @@
 
                                                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                                                         <anime-details class="absolute px-[1vw] pt-[2vw] transition-opacity duration-300 group-hover:opacity-0">
-                                                            <div>
-                                                                <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
+                                                            <span class="line-clamp-2 text-[1.1vw] font-semibold">{anime.name}</span>
 
-                                                                <span class="mt-[0.1vw] line-clamp-1 text-[0.9vw] font-semibold uppercase leading-[1vw] text-surface-200">( {anime.name} )</span>
-
-                                                                <div class="mt-[0.25vw] flex items-center justify-center gap-[0.5vw] text-[0.75vw]">
-                                                                    <span>{anime.type}</span>
-                                                                    <Circle class="w-[0.2vw] text-surface-50" />
-                                                                    <span class="capitalize">
-                                                                        {new format_date(anime.release_date).format_to_season}
-                                                                    </span>
-                                                                </div>
-
-                                                                <p class="unstyled mt-[0.5vw] line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
+                                                            <div class="flex items-center justify-center gap-[0.5vw] text-[0.75vw]">
+                                                                <span>{anime.type}</span>
+                                                                <Circle class="w-[0.2vw] text-surface-50" />
+                                                                <span class="capitalize">
+                                                                    {new format_date(anime.release_date).format_to_season}
+                                                                </span>
                                                             </div>
+
+                                                            <p class="unstyled line-clamp-2 text-[0.74vw] leading-[1vw] text-surface-200">{anime.synopsis}</p>
                                                         </anime-details>
 
                                                         <anime-options class="absolute flex flex-col gap-[0.5vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
