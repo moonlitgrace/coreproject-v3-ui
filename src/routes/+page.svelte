@@ -1,5 +1,4 @@
 <script lang="ts">
-    /* Mock datas */
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
@@ -20,7 +19,6 @@
     import Moon from "$icons/moon.svelte";
     import Notifications from "$icons/notifications.svelte";
     import Play from "$icons/play.svelte";
-    // icons
     import PlayCircle from "$icons/play_circle.svelte";
     import Preference from "$icons/preference.svelte";
     import Recent from "$icons/recent.svelte";
@@ -29,12 +27,12 @@
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
-    import { beforeUpdate, onDestroy, onMount } from "svelte";
+    import { beforeUpdate, onDestroy } from "svelte";
     import { swipe } from "svelte-gestures";
+    import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
-    import tippy, { createSingleton } from "tippy.js";
     import "tippy.js/animations/shift-away.css";
 
     /* Slider codes */
@@ -124,29 +122,6 @@
         { background: "bg-primary-300", border: "border-primary-300" },
         { background: "bg-error-300", border: "border-error-300" }
     ];
-
-    /* My list popups */
-    onMount(() => {
-        tippy.setDefaultProps({
-            duration: [300, 200],
-            animation: "shift-away",
-            hideOnClick: false,
-            inertia: true,
-            moveTransition: "transform 0.2s ease-out",
-            appendTo: "parent",
-            allowHTML: true,
-        });
-        const mylistTippyInstances = tippy(".mylistTrigger", {
-            content(reference) {
-                const id = reference.getAttribute("data-template");
-                const template = document.getElementById(id ?? "");
-                return template;
-            }
-        });
-        const myListSingleton = createSingleton(mylistTippyInstances, {
-            placement: "top"
-        });
-    });
 
     /* Manage Genres */
     let current_genre_id = 0;
@@ -556,8 +531,15 @@
                     <div class="relative mb-[2vw] mt-[1.5vw] flex gap-[1.5625vw]">
                         {#each my_list as anime}
                             <div
-                                class="mylistTrigger group basis-[14%]"
-                                data-template="mylistPopover"
+                                class="group basis-[14%]"
+                                use:tippy={{
+                                    allowHTML: true,
+                                    content: document.querySelector(".mylistAnimePopover") ?? undefined,
+                                    placement: "top",
+                                    animation: "shift-away",
+                                    hideOnClick: false,
+                                    appendTo: "parent"
+                                }}
                             >
                                 <div
                                     class="relative flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
@@ -590,10 +572,7 @@
                             </div>
 
                             <div class="hidden">
-                                <div
-                                    class="z-20 h-[18vw] w-[20vw] rounded-[1vw]"
-                                    id="mylistPopover"
-                                >
+                                <div class="mylistAnimePopover z-20 h-[18vw] w-[20vw] rounded-[1vw]">
                                     <div
                                         class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
                                         style="background-image: url({anime.cover});"
