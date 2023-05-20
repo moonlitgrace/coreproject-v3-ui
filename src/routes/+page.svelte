@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
@@ -250,9 +251,8 @@
                                 $timerStore = "start";
                             }}
                         >
-                            <LazyImage
+                            <ImageLoader
                                 src={anime.cover}
-                                placeholder="https://via.placeholder.com/720?text={anime.name}"
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
                                 alt={anime.name}
                             />
