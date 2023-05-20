@@ -27,6 +27,7 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Star from "$icons/star.svelte";
     import { timer as timerStore } from "$store/timer";
+    import { offset } from "@floating-ui/dom";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
     import { beforeUpdate, onDestroy } from "svelte";
@@ -36,6 +37,7 @@
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
     import "tippy.js/animations/shift-away.css";
+    import "tippy.js/dist/tippy.css";
 
     /* Slider codes */
     let main_hero_slide_active_index = 0;
@@ -544,8 +546,10 @@
                             <div
                                 class="group basis-[14%]"
                                 use:tippy={{
+                                    arrow: true,
                                     allowHTML: true,
                                     placement: "top",
+                                    offset: [0, 15],
                                     animation: "shift-away",
                                     hideOnClick: false,
                                     appendTo: "parent",
@@ -783,3 +787,18 @@
         </div>
     </div>
 </div>
+
+<style lang="postcss">
+    :global(.tippy-box) {
+        background: none;
+    }
+    :global(.tippy-box[data-placement^="top"] > .tippy-arrow:before) {
+        @apply border-t-primary-500;
+    }
+    :global(.tippy-box[data-placement^="bottom"] > .tippy-arrow:before) {
+        @apply border-b-surface-50/50;
+    }
+    :global(.tippy-content) {
+        padding: 0;
+    }
+</style>
