@@ -254,6 +254,7 @@
                                 src={anime.cover}
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
                                 alt={anime.name}
+                                placeholder_class="absolute"
                             />
 
                             <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />

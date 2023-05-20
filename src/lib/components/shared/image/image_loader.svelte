@@ -6,6 +6,7 @@
     export let alt: string;
     let klass: string;
     export { klass as class };
+    export let placeholder_class: string;
 </script>
 
 <IntersectionObserver
@@ -20,6 +21,6 @@
         />
     {:else}
     <!-- we can add another html place holder here with alt name -->
-        <span class={klass}>{alt}</span>
+        <span class={placeholder_class}>{alt}</span>
     {/if}
 </IntersectionObserver>
