@@ -256,8 +256,8 @@
                                 alt={anime.name}
                             />
 
-                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />
-                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:from-surface-900/75" />
+                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/30 md:to-surface-900/25 md:from-surface-900/95" />
+                            <gradient-overlay class="hidden md:flex absolute h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:from-surface-900/75" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
@@ -386,12 +386,10 @@
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime}
-                    <div
-                        class="relative flex h-[5vw]"
-                    >
+                    <div class="relative flex h-[5vw]">
                         <ImageLoader
                             src={anime.cover}
-                            class="absolute h-full w-full object-cover object-center rounded-[0.75vw] "
+                            class="absolute h-full w-full rounded-[0.75vw] object-cover object-center "
                             alt={anime.name}
                         />
                         <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
@@ -442,7 +440,7 @@
                 {#each latest_episodes as anime}
                     <episode class="w-36 flex-shrink-0">
                         <div class="relative">
-                            <img
+                            <ImageLoader
                                 class="h-52 w-full rounded-[1.25rem] object-cover"
                                 src={anime.cover}
                                 alt={anime.name}
