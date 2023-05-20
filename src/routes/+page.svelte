@@ -31,7 +31,6 @@
     import _ from "lodash";
     import { beforeUpdate, onDestroy } from "svelte";
     import { swipe } from "svelte-gestures";
-    import { LazyImage } from "svelte-lazy-image";
     import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
