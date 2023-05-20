@@ -387,9 +387,13 @@
             >
                 {#each latest_episodes as anime}
                     <div
-                        class="relative flex h-[5vw] items-center rounded-[0.75vw] bg-cover bg-center"
-                        style="background-image: url({anime.cover ?? ''})"
+                        class="relative flex h-[5vw]"
                     >
+                        <ImageLoader
+                            src={anime.cover}
+                            class="absolute h-full w-full object-cover object-center rounded-[0.75vw] "
+                            alt={anime.name}
+                        />
                         <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
                         <div class="absolute h-full w-full">
                             <div class="flex items-center justify-between p-[1.3125vw]">
