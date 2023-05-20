@@ -20,8 +20,7 @@
         />
     {:else}
         <div
-            class="placeholder h-full w-full animate-pulse !bg-surface-400"
-            class:absolute={klass.includes("absolute")}
+            class="placeholder animate-pulse !bg-surface-400 {klass}"
         />
     {/if}
 </IntersectionObserver>
