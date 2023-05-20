@@ -574,12 +574,18 @@
                                 }}
                             >
                                 <div
-                                    class="relative flex h-[12.5vw] w-full items-center rounded-[0.875vw] bg-cover bg-center"
-                                    style="background-image: url({anime.cover});"
+                                    class="relative flex h-[12.5vw] w-full"
                                 >
+                                    <ImageLoader 
+                                        src={anime.cover}
+                                        alt={anime.name}
+                                        class="absolute h-full w-full rounded-[0.875vw] object-center object-cover"
+                                    />
+
                                     <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75" />
+
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
-                                        <span class="text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
+                                        <span class="text-center line-clamp-2 text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
                                         </span>
                                         <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
