@@ -30,6 +30,7 @@
     import _ from "lodash";
     import { beforeUpdate, onDestroy } from "svelte";
     import { swipe } from "svelte-gestures";
+    import { LazyImage } from "svelte-lazy-image";
     import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
@@ -231,9 +232,8 @@
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
                         <div
-                            class="relative flex h-full w-full items-center bg-cover bg-center md:rounded-t-[0.875vw]"
+                            class="relative"
                             style="
-								background-image: url('{anime.cover ?? ''}');
 								grid-area: 1 / 1 / 1000 / 1;
 							"
                             transition:blur|local
@@ -250,6 +250,13 @@
                                 $timerStore = "start";
                             }}
                         >
+                            <LazyImage
+                                src={anime.cover}
+                                placeholder="https://via.placeholder.com/720?text={anime.name}"
+                                class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
+                                alt={anime.name}
+                            />
+
                             <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 md:from-surface-900/95" />
                             <gradient-overlay class="absolute h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:from-surface-900/75" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
