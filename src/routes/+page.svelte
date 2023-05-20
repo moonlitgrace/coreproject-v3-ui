@@ -256,8 +256,8 @@
                                 alt={anime.name}
                             />
 
-                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/30 md:to-surface-900/25 md:from-surface-900/95" />
-                            <gradient-overlay class="hidden md:flex absolute h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:from-surface-900/75" />
+                            <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
+                            <gradient-overlay class="absolute hidden h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/75" />
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
@@ -457,17 +457,14 @@
             </div>
         </latest-episodes-mobile>
 
-        <navigation-card
-            class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block"
-        >
-            <ImageLoader 
+        <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block">
+            <ImageLoader
                 src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
-                alt="Welcome Image"
-                class="absolute h-full w-full object-cover object-center rounded-[0.875vw]"
+                class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
             />
 
-            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
-            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900/95 to-surface-900/25" />
+
             <div class="absolute px-[1.875vw] pt-[2vw]">
                 <div class="flex flex-col gap-[0.2w]">
                     <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
@@ -572,20 +569,18 @@
                                         instance.setContent(node);
                                     }
                                 }}
-                            
->                                <div
-                                    class="relative h-[12.5vw] w-full"
-                                >
-                                    <ImageLoader 
+                            >
+                                <div class="relative h-[12.5vw] w-full">
+                                    <ImageLoader
                                         src={anime.cover}
                                         alt={anime.name}
-                                        class="absolute h-full w-full rounded-[0.875vw] object-center object-cover"
+                                        class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
                                     />
 
                                     <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75" />
 
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
-                                        <span class="text-center line-clamp-2 text-[1vw] font-semibold leading-[1.35vw] text-white">
+                                        <span class="line-clamp-2 text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
                                             {anime.name}
                                         </span>
                                         <span class="absolute bottom-[1vw] text-center text-[1vw] font-medium text-surface-200">
@@ -677,17 +672,15 @@
                     <!-- for mobile devices -->
                     <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5 md:hidden">
                         {#each popular_genres as genre}
-                            <genre
-                                class="relative h-40 w-72 flex-shrink-0"
-                            >
-                                <ImageLoader 
+                            <genre class="relative h-40 w-72 flex-shrink-0">
+                                <ImageLoader
                                     src={genre.cover}
                                     alt="Genre cover image"
-                                    class="absolute h-full w-full object-cover object-center rounded-[1.25rem]"
+                                    class="absolute h-full w-full rounded-[1.25rem] object-cover object-center"
                                 />
 
                                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
-                                <div class="absolute p-5 bottom-0">
+                                <div class="absolute bottom-0 p-5">
                                     <span class="text-xl font-bold text-white">{genre.title}</span>
                                     <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
 

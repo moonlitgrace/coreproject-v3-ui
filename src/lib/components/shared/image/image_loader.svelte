@@ -3,7 +3,7 @@
     import Image from "./image.svelte";
 
     export let src: string;
-    export let alt: string;
+    export let alt = "";
     let klass: string;
     export { klass as class };
 </script>
@@ -19,8 +19,6 @@
             {alt}
         />
     {:else}
-        <div
-            class="placeholder animate-pulse !bg-surface-400 {klass}"
-        />
+        <div class="placeholder animate-pulse !bg-surface-400 {klass}" />
     {/if}
 </IntersectionObserver>
