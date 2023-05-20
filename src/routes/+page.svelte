@@ -458,9 +458,14 @@
         </latest-episodes-mobile>
 
         <navigation-card
-            class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] rounded-[0.875vw] bg-cover bg-center md:block"
-            style="background-image: url(https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg)"
+            class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block"
         >
+            <ImageLoader 
+                src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
+                alt="Welcome Image"
+                class="absolute h-full w-full object-cover object-center rounded-[0.875vw]"
+            />
+
             <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
             <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
             <div class="absolute px-[1.875vw] pt-[2vw]">
