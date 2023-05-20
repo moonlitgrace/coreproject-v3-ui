@@ -6,7 +6,6 @@
     export let alt: string;
     let klass: string;
     export { klass as class };
-    export let placeholder_class: string;
 </script>
 
 <IntersectionObserver
@@ -20,7 +19,9 @@
             {alt}
         />
     {:else}
-    <!-- we can add another html place holder here with alt name -->
-        <span class={placeholder_class}>{alt}</span>
+        <div
+            class="placeholder h-full w-full animate-pulse !bg-surface-400"
+            class:absolute={klass.includes("absolute")}
+        />
     {/if}
 </IntersectionObserver>
