@@ -572,9 +572,9 @@
                                         instance.setContent(node);
                                     }
                                 }}
-                            >
-                                <div
-                                    class="relative flex h-[12.5vw] w-full"
+                            
+>                                <div
+                                    class="relative h-[12.5vw] w-full"
                                 >
                                     <ImageLoader 
                                         src={anime.cover}
@@ -630,7 +630,7 @@
                         {#each continue_watching as anime}
                             <episode class="w-36 flex-shrink-0">
                                 <div class="relative">
-                                    <img
+                                    <ImageLoader
                                         class="h-52 w-full rounded-[1.25rem] object-cover"
                                         src={anime.banner}
                                         alt={anime.name}
@@ -678,11 +678,16 @@
                     <div class="mt-6 flex gap-5 overflow-x-scroll scroll-smooth pb-5 md:hidden">
                         {#each popular_genres as genre}
                             <genre
-                                class="relative flex h-40 w-72 flex-shrink-0 items-end rounded-[1.25rem] bg-cover bg-center p-5"
-                                style="background-image: url({genre.cover});"
+                                class="relative h-40 w-72 flex-shrink-0"
                             >
+                                <ImageLoader 
+                                    src={genre.cover}
+                                    alt="Genre cover image"
+                                    class="absolute h-full w-full object-cover object-center rounded-[1.25rem]"
+                                />
+
                                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900/75 to-surface-900/25" />
-                                <div class="absolute">
+                                <div class="absolute p-5 bottom-0">
                                     <span class="text-xl font-bold text-white">{genre.title}</span>
                                     <p class="text-xs text-surface-200">includes {genre.estimated_total_animes}+ animes</p>
 
