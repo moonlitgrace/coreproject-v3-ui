@@ -560,7 +560,7 @@
                                     arrow: true,
                                     allowHTML: true,
                                     placement: "top",
-                                    offset: [0, 15],
+                                    offset: [0, 17],
                                     animation: "shift-away",
                                     hideOnClick: false,
                                     appendTo: "parent",
