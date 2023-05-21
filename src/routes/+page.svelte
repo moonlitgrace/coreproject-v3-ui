@@ -27,7 +27,6 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Star from "$icons/star.svelte";
     import { timer as timerStore } from "$store/timer";
-    import { offset } from "@floating-ui/dom";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
     import { beforeUpdate, onDestroy } from "svelte";
@@ -40,6 +39,7 @@
     import "tippy.js/dist/tippy.css";
 
     /* Slider codes */
+    let main_hero_slider_element: HTMLElement;
     let main_hero_slide_active_index = 0;
 
     const add_one_to_main_hero_slide_active_index = () => {
@@ -223,13 +223,26 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="md:p-[1.25vw] md:pr-[3.75vw]">
+<!-- svelte-ignore redundant-event-modifier -->
+<div
+    class="md:p-[1.25vw] md:pr-[3.75vw]"
+    on:scroll|passive={() => {
+        if (Math.abs(Number(main_hero_slider_element?.getBoundingClientRect().top)) >= Number(main_hero_slider_element.getBoundingClientRect().height)) {
+            $timerStore = "reset";
+        } else if (Math.abs(Number(main_hero_slider_element?.getBoundingClientRect().top)) > 0) {
+            $timerStore = "pause";
+        } else {
+            $timerStore = "start";
+        }
+    }}
+>
     <div class="flex flex-col justify-between md:flex-row">
         <latest-animes class="h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]">
             <div
                 use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
                 on:swipe={swipe_handler}
                 class="relative inline-grid h-full w-full"
+                bind:this={main_hero_slider_element}
             >
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
