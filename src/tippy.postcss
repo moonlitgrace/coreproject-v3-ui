@@ -1,1 +1,15 @@
+@import "tippy.js/dist/tippy.css";
+@import "tippy.js/animations/shift-away.css";
 
+.tippy-box {
+    background: none;
+}
+.tippy-box[data-placement^="top"] > .tippy-arrow:before {
+    @apply border-t-primary-500;
+}
+.tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+    @apply border-b-surface-50/50;
+}
+.tippy-content {
+    padding: 0;
+}
