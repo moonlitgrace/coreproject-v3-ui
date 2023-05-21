@@ -473,10 +473,11 @@
         <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block">
             <ImageLoader
                 src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
-                class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
+                class="absolute h-full w-full rounded-[0.875vw] object-cover object-center border-[0.25vw] border-b-0 border-surface-50"
             />
 
-            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900/95 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
 
             <div class="absolute px-[1.875vw] pt-[2vw]">
                 <div class="flex flex-col gap-[0.2w]">
