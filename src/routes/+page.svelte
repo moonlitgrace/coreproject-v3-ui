@@ -35,8 +35,6 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
-    import "tippy.js/animations/shift-away.css";
-    import "tippy.js/dist/tippy.css";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -800,18 +798,3 @@
         </div>
     </div>
 </div>
-
-<style lang="postcss">
-    :global(.tippy-box) {
-        background: none;
-    }
-    :global(.tippy-box[data-placement^="top"] > .tippy-arrow:before) {
-        @apply border-t-primary-500;
-    }
-    :global(.tippy-box[data-placement^="bottom"] > .tippy-arrow:before) {
-        @apply border-b-surface-50/50;
-    }
-    :global(.tippy-content) {
-        padding: 0;
-    }
-</style>

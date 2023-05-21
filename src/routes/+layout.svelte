@@ -42,7 +42,7 @@
     // Your custom Skeleton theme:
     import "../theme.scss";
     // Tippy
-    import "../tippy.postcss"
+    import "../tippy.postcss";
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
