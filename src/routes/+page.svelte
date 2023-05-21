@@ -405,22 +405,23 @@
                             class="absolute h-full w-full rounded-[0.75vw] object-cover object-center "
                             alt={anime.name}
                         />
-                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-tr from-surface-900 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
+
                         <div class="absolute h-full w-full">
-                            <div class="flex items-center justify-between p-[1.3125vw]">
+                            <div class="flex items-start justify-between p-[1.3125vw]">
                                 <div class="flex flex-col gap-[0.4vw]">
                                     <span class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                         {anime.name}
                                     </span>
-                                    <div class="flex items-center gap-[0.5vw]">
-                                        <span class="text-[0.75vw]">
+                                    <p class="unstyled text-[0.8vw]">
+                                        <span class="font-semibold">
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
-                                        <Circle class="w-[0.25vw] opacity-75" />
-                                        <span class="text-[0.75vw]">
-                                            {new format_date(anime.release_date).format_to_time_from_now}
+                                        <span>
+                                            aired {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
-                                    </div>
+                                    </p>
                                 </div>
                                 <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
                                     <Play class="w-[1.25vw]" />
