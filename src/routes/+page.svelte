@@ -270,7 +270,8 @@
                             />
 
                             <gradient-overlay class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
-                            <gradient-overlay class="absolute hidden h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/75" />
+                            <gradient-overlay class="absolute hidden h-full w-full bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/50" />
+
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
@@ -396,21 +397,21 @@
             <ScrollArea
                 offsetScrollbar
                 parentClass="mt-[1.5vw] max-h-[21.5625vw]"
-                class="flex flex-col gap-[1vw]"
+                class="space-y-[1vw]"
             >
                 {#each latest_episodes as anime}
-                    <div class="relative flex h-[5vw]">
+                    <div class="relative h-[5vw]">
                         <ImageLoader
                             src={anime.cover}
                             class="absolute h-full w-full rounded-[0.75vw] object-cover object-center "
                             alt={anime.name}
                         />
-                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
-                        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
+                        <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
 
-                        <div class="absolute h-full w-full">
+                        <div class="absolute inset-0">
                             <div class="flex items-start justify-between p-[1.3125vw]">
-                                <div class="flex flex-col gap-[0.4vw]">
+                                <div class="flex flex-col gap-[0.25vw]">
                                     <span class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                         {anime.name}
                                     </span>
@@ -477,7 +478,7 @@
                 class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-b-0 border-surface-50 object-cover object-center"
             />
 
-            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900/95 to-surface-900/25" />
+            <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
             <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
 
             <div class="absolute px-[1.875vw] pt-[2vw]">
