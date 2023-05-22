@@ -5,6 +5,7 @@
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
+    import { most_viewed } from "$data/mock/most_viewed";
     import { my_list } from "$data/mock/my_list";
     import { popular_genres } from "$data/mock/popular_genres";
     import { format_date } from "$functions/format_date";
@@ -26,7 +27,6 @@
     import Preference from "$icons/preference.svelte";
     import Recent from "$icons/recent.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
-    import Star from "$icons/star.svelte";
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
@@ -36,6 +36,7 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
+    import voca from "voca";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -679,20 +680,22 @@
                 </div>
 
                 <div class="mt-[1.1vw] w-full rounded-[0.5vw] bg-surface-400/50 p-[0.75vw]">
-                    {#each Array(5) as _, index}
-                        <div class="flex h-[4vw] cursor-pointer items-center justify-center gap-[1vw] rounded-[0.5vw] transition duration-300 hover:bg-surface-400">
-                            <span class="{index + 1 < 4 ? "border-b-2 border-primary-300 text-primary-300" : "text-primary-300/50"} text-[1.25vw] font-semibold">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
-                            <div class="flex items-center gap-[0.75vw]">
+                    {#each Object.entries(most_viewed.today) as anime_item, index}
+                        {@const anime = anime_item[1]}
+
+                        <div class="flex h-[4vw] cursor-pointer items-center gap-[1vw] rounded-[0.5vw] px-[0.75vw] transition duration-300 hover:bg-surface-400">
+                            <span class="{index + 1 < 4 ? 'border-b-2 border-primary-300 text-primary-300' : 'text-primary-300/50'} w-[1.5vw] text-[1.25vw] font-semibold">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
+                            <div class="flex items-center gap-[1vw]">
                                 <ImageLoader
-                                    src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
-                                    alt="Demon slayer"
-                                    class="h-[2.75vw] w-[2.75vw] rounded-[0.5vw] object-cover"
+                                    src={anime.cover ?? ""}
+                                    alt={anime.name}
+                                    class="h-[2.75vw] w-[2.75vw] basis-1/3 rounded-[0.5vw] object-cover object-center"
                                 />
                                 <div class="flex flex-col gap-[0.15vw]">
-                                    <span class="line-clamp-2 text-[1vw] font-semibold leading-none text-white">Kimetsu no Yaiba</span>
+                                    <span class="text-[1vw] font-semibold leading-none text-white">{voca.truncate(anime.name, 17)}</span>
                                     <div class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.75vw] leading-none text-surface-200">
                                         <EyeOpen class="w-[1.25vw]" />
-                                        <span>987654</span>
+                                        <span>{anime.views}</span>
                                     </div>
                                 </div>
                             </div>
