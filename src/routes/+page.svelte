@@ -418,7 +418,7 @@
                                     </span>
                                     <p class="unstyled text-[0.8vw]">
                                         <span class="font-semibold">
-                                            Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
+                                            Ep {anime.episode_number < 10 ? `0${anime.episode_number}` : anime.episode_number}
                                         </span>
                                         <span>
                                             aired {new format_date(anime.release_date).format_to_time_from_now}
@@ -678,10 +678,10 @@
                     <span class="flex w-full items-center justify-center bg-surface-400 opacity-50 transition-opacity duration-300 hover:opacity-100">Month</span>
                 </div>
 
-                <div class="mt-[1.1vw] h-[20vw] w-full rounded-[0.5vw] bg-surface-400/50 p-[0.75vw]">
-                    {#each Array(3) as _}
-                        <div class="flex cursor-pointer items-center justify-center gap-[1vw] rounded-[0.5vw] transition duration-300 hover:bg-surface-400 h-[4vw]">
-                            <span class="font-semibold text-primary-300 text-[1.25vw] border-b-2 border-primary-300">01</span>
+                <div class="mt-[1.1vw] w-full rounded-[0.5vw] bg-surface-400/50 p-[0.75vw]">
+                    {#each Array(5) as _, index}
+                        <div class="flex h-[4vw] cursor-pointer items-center justify-center gap-[1vw] rounded-[0.5vw] transition duration-300 hover:bg-surface-400">
+                            <span class="{index + 1 < 4 ? "border-b-2 border-primary-300 text-primary-300" : "text-primary-300/50"} text-[1.25vw] font-semibold">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
                             <div class="flex items-center gap-[0.75vw]">
                                 <ImageLoader
                                     src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
@@ -689,7 +689,7 @@
                                     class="h-[2.75vw] w-[2.75vw] rounded-[0.5vw] object-cover"
                                 />
                                 <div class="flex flex-col gap-[0.15vw]">
-                                    <span class="text-[1vw] line-clamp-2 font-semibold text-white leading-none">Kimetsu no Yaiba</span>
+                                    <span class="line-clamp-2 text-[1vw] font-semibold leading-none text-white">Kimetsu no Yaiba</span>
                                     <div class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.75vw] leading-none text-surface-200">
                                         <EyeOpen class="w-[1.25vw]" />
                                         <span>987654</span>
