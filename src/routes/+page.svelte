@@ -684,7 +684,7 @@
                         {@const anime = anime_item[1]}
 
                         <div class="flex h-[4vw] cursor-pointer items-center gap-[1vw] rounded-[0.5vw] px-[0.75vw] transition duration-300 hover:bg-surface-400">
-                            <span class="{index + 1 < 4 ? 'border-b-2 border-primary-300 text-primary-300' : 'text-primary-300/50'} w-[1.5vw] text-[1.25vw] font-semibold">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
+                            <span class="{index + 1 < 4 ? 'border-b-[0.2vw] border-primary-300 text-primary-300' : 'text-primary-300/50'} w-[1.5vw] text-[1.25vw] font-semibold leading-none">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
                             <div class="flex items-center gap-[1vw]">
                                 <ImageLoader
                                     src={anime.cover ?? ""}
