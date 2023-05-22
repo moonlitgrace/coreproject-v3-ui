@@ -595,7 +595,7 @@
                                         class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
                                     />
 
-                                    <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75" />
+                                    <gradient-overlay class=" absolute h-full w-full bg-gradient-to-t from-surface-900/90 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75" />
 
                                     <div class="absolute inset-0 grid w-full grid-cols-1 place-items-center transition duration-300 group-hover:opacity-0">
                                         <span class="line-clamp-2 text-center text-[1vw] font-semibold leading-[1.35vw] text-white">
