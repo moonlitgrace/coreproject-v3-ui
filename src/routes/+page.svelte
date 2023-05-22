@@ -527,10 +527,10 @@
         </navigation-card>
     </div>
 
-    <div class="md:flex">
+    <div class="mt-[2.1875vw] md:flex md:justify-between">
         <div class="md:basis-[76%]">
             <my-list class="hidden md:flex">
-                <div class="mt-[2.1875vw] w-full">
+                <div class="w-full">
                     <div class="flex items-center gap-[0.625vw]">
                         <span class="text-[1.25vw] font-bold">My List</span>
                         <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
@@ -661,6 +661,22 @@
                     </div>
                 </div>
             </continue-watching-mobile>
+        </div>
+
+        <div class="hidden w-[16.625vw] md:flex">
+            <most-viewed class="w-full">
+                <div class="flex items-center gap-[0.625vw]">
+                    <span class="text-[1.25vw] font-bold">Most Viewed</span>
+                    <button class="btn btn-icon h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400">
+                        <SettingsOutline class="w-[0.9vw]" />
+                    </button>
+                </div>
+                <div class="mt-[0.5vw] flex h-[2.5vw] w-full cursor-pointer justify-between overflow-hidden rounded-[0.5vw] text-[1vw] font-semibold">
+                    <span class="flex w-full items-center justify-center bg-surface-400">Today</span>
+                    <span class="flex w-full items-center justify-center bg-surface-400 opacity-50 transition-opacity duration-300 hover:opacity-100">Week</span>
+                    <span class="flex w-full items-center justify-center bg-surface-400 opacity-50 transition-opacity duration-300 hover:opacity-100">Month</span>
+                </div>
+            </most-viewed>
         </div>
     </div>
 </div>
