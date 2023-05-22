@@ -15,6 +15,7 @@
     import Circle from "$icons/circle.svelte";
     import CoreProject from "$icons/core_project.svelte";
     import Edit from "$icons/edit.svelte";
+    import EyeOpen from "$icons/eye_open.svelte";
     import Forum from "$icons/forum.svelte";
     import Info from "$icons/info.svelte";
     import Language from "$icons/language.svelte";
@@ -675,6 +676,28 @@
                     <span class="flex w-full items-center justify-center bg-surface-400">Today</span>
                     <span class="flex w-full items-center justify-center bg-surface-400 opacity-50 transition-opacity duration-300 hover:opacity-100">Week</span>
                     <span class="flex w-full items-center justify-center bg-surface-400 opacity-50 transition-opacity duration-300 hover:opacity-100">Month</span>
+                </div>
+
+                <div class="mt-[1.1vw] h-[20vw] w-full rounded-[0.5vw] bg-surface-400/50 p-[0.75vw]">
+                    {#each Array(3) as _}
+                        <div class="flex cursor-pointer items-center justify-center gap-[1vw] rounded-[0.5vw] transition duration-300 hover:bg-surface-400 h-[4vw]">
+                            <span class="font-semibold text-primary-300 text-[1.25vw] border-b-2 border-primary-300">01</span>
+                            <div class="flex items-center gap-[0.75vw]">
+                                <ImageLoader
+                                    src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
+                                    alt="Demon slayer"
+                                    class="h-[2.75vw] w-[2.75vw] rounded-[0.5vw] object-cover"
+                                />
+                                <div class="flex flex-col gap-[0.15vw]">
+                                    <span class="text-[1vw] line-clamp-2 font-semibold text-white leading-none">Kimetsu no Yaiba</span>
+                                    <div class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.75vw] leading-none text-surface-200">
+                                        <EyeOpen class="w-[1.25vw]" />
+                                        <span>987654</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {/each}
                 </div>
             </most-viewed>
         </div>
