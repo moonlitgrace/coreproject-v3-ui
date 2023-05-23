@@ -31,7 +31,7 @@
         "@types/lodash": "^4.14.194",
         "@types/nprogress": "^0.2.0",
         "@types/voca": "^1.4.2",
-        "@typescript-eslint/eslint-plugin": "^5.59.6",
+        "@typescript-eslint/eslint-plugin": "^5.59.7",
         "@typescript-eslint/parser": "^5.59.6",
         "@zxcvbn-ts/core": "^3.0.1",
         "@zxcvbn-ts/language-common": "^3.0.2",
