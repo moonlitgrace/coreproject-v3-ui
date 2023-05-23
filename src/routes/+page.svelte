@@ -1,6 +1,7 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import MostViewedAnimeDetails from "$components/shared/tippies/most_viewed_anime_details.svelte";
     import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
@@ -474,7 +475,7 @@
             </div>
         </latest-episodes-mobile>
 
-        <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block">
+        <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[18vw] md:block">
             <ImageLoader
                 src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
                 class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-b-0 border-surface-50 object-cover object-center"
@@ -530,7 +531,7 @@
     </div>
 
     <div class="mt-[2.1875vw] md:flex md:justify-between">
-        <div class="md:basis-[76%]">
+        <div class="md:basis-[75%]">
             <my-list class="hidden md:flex">
                 <div class="w-full">
                     <div class="flex items-center gap-[0.625vw]">
@@ -569,7 +570,7 @@
                                     animation: "shift-away",
                                     hideOnClick: false,
                                     appendTo: "parent",
-                                    onTrigger: async (instance) => {
+                                    onTrigger(instance) {
                                         const node = document.createElement("div");
                                         new MyListAnimeDetails({
                                             target: node,
@@ -665,7 +666,7 @@
             </continue-watching-mobile>
         </div>
 
-        <div class="hidden w-[16.625vw] md:flex">
+        <div class="hidden w-[18vw] md:flex">
             <most-viewed class="w-full">
                 <div class="flex items-center gap-[0.625vw]">
                     <span class="text-[1.25vw] font-bold">Most Viewed</span>
@@ -683,16 +684,47 @@
                     {#each Object.entries(most_viewed.today) as anime_item, index}
                         {@const anime = anime_item[1]}
 
-                        <div class="flex h-[4vw] cursor-pointer items-center gap-[1vw] rounded-[0.5vw] px-[0.75vw] transition duration-300 hover:bg-surface-400">
+                        <div
+                            class="flex h-[4vw] cursor-pointer items-center gap-[1vw] rounded-[0.5vw] px-[0.75vw] transition duration-300 hover:bg-surface-400"
+                            use:tippy={{
+                                arrow: true,
+                                allowHTML: true,
+                                placement: "left",
+                                offset: [0, 30],
+                                animation: "shift-away",
+                                hideOnClick: false,
+                                appendTo: "parent",
+                                onTrigger(instance) {
+                                    const node = document.createElement("div");
+                                    new MostViewedAnimeDetails({
+                                        target: node,
+                                        props: {
+                                            raking: index + 1,
+                                            anime_cover: anime.cover,
+                                            anime_name: anime.name,
+                                            anime_type: anime.type,
+                                            anime_genres: anime.genres,
+                                            anime_studios: anime.studios,
+                                            anime_synopsis: anime.synopsis,
+                                            anime_episodes_count: anime.episodes_count,
+                                            anime_release_date: anime.release_date
+                                        }
+                                    });
+                                    instance.setContent(node);
+                                }
+                            }}
+                        >
                             <span class="{index + 1 < 4 ? 'border-b-[0.2vw] border-primary-300 text-primary-300' : 'text-primary-300/50'} w-[1.5vw] text-[1.25vw] font-semibold leading-none">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
                             <div class="flex items-center gap-[1vw]">
                                 <ImageLoader
                                     src={anime.cover ?? ""}
                                     alt={anime.name}
-                                    class="h-[2.75vw] w-[2.75vw] basis-1/3 rounded-[0.5vw] object-cover object-center"
+                                    class="h-[2.75vw] w-[3vw] rounded-[0.4vw] object-cover object-center"
                                 />
-                                <div class="flex flex-col gap-[0.15vw]">
-                                    <span class="text-[1vw] font-semibold leading-none text-white">{voca.truncate(anime.name, 17)}</span>
+                                <div class="flex w-[10vw] flex-col gap-[0.15vw]">
+                                    <span class="text-[1vw] font-semibold leading-none text-white">
+                                        {voca.truncate(anime.name, 18)}
+                                    </span>
                                     <div class="flex items-center gap-[0.3vw] pt-[0.1vw] text-[0.75vw] leading-none text-surface-200">
                                         <EyeOpen class="w-[1.25vw]" />
                                         <span>{anime.views}</span>
