@@ -276,33 +276,33 @@
                                 <span class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
                                     {anime.name}
                                 </span>
-                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.9375vw]">
+                                <p class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:gap-[0.65vw] md:pt-[0.5vw] md:text-[0.9375vw]">
                                     <span class="leading-[1.125vw]">
                                         {anime.type}
                                     </span>
-                                    <Circle class="w-[0.35vw]" />
+                                    <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="leading-[1.125vw]">
                                         {anime.episodes_count} eps
                                     </span>
-                                    <Circle class="w-[0.35vw]" />
+                                    <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="leading-[1.125vw]">Completed</span>
-                                    <Circle class="w-[0.35vw]" />
+                                    <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="capitalize leading-[1.125vw]">
                                         {new format_date(anime.aired_from).format_to_season}
                                     </span>
-                                    <Circle class="w-[0.35vw]" />
+                                    <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="leading-[1.125vw]">
                                         {anime.studios[0]}
                                     </span>
                                 </p>
 
-                                <div class="flex gap-1 pb-2 pt-3 md:gap-[0.5vw] md:pt-[0.35vw]">
+                                <div class="flex gap-1 pb-2 pt-3 md:gap-[0.5vw] md:pt-[0.5vw]">
                                     {#each anime.genres as item}
-                                        <span class="rounded bg-surface-900/50 p-1 px-2 text-xs md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.4vw] md:text-[0.75vw] md:font-semibold">{item}</span>
+                                        <span class="rounded bg-surface-900 p-1 px-2 text-xs md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.4vw] md:text-[0.75vw] md:font-semibold">{item}</span>
                                     {/each}
                                 </div>
 
-                                <p class="line-clamp-3 text-xs font-medium leading-4 text-surface-50/75 md:line-clamp-4 md:pt-[0.875vw] md:text-[0.85vw] md:leading-[1vw]">
+                                <p class="line-clamp-3 text-xs font-medium leading-4 text-surface-200 md:line-clamp-4 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]">
                                     {anime.synopsis}
                                 </p>
 
