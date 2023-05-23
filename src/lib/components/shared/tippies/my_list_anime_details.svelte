@@ -39,15 +39,15 @@
                 <span>{anime_episodes_count} episodes</span>
             </div>
 
-            <div class="mt-[0.25vw] flex gap-[0.5vw]">
+            <div class="mt-[0.5vw] flex gap-[0.5vw]">
                 {#each anime_genres as genre}
-                    <span class="rounded-[0.25vw] bg-surface-900/50 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
+                    <span class="rounded-[0.25vw] bg-surface-900 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
                         {genre}
                     </span>
                 {/each}
             </div>
 
-            <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+            <div class="mt-[0.5vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                 <span>
                     69% <span class="text-surface-200">[7852 ratings]</span>
                 </span>
