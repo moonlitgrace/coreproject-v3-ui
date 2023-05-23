@@ -8,7 +8,6 @@
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { most_viewed } from "$data/mock/most_viewed";
     import { my_list } from "$data/mock/my_list";
-    import { popular_genres } from "$data/mock/popular_genres";
     import { format_date } from "$functions/format_date";
     import { format_time } from "$functions/format_time";
     import { OpengraphGenerator } from "$functions/opengraph";
@@ -127,17 +126,6 @@
         { background: "bg-primary-300", border: "border-primary-300" },
         { background: "bg-error-300", border: "border-error-300" }
     ];
-
-    /* Manage Genres */
-    let current_genre_id = 0;
-
-    const next_genre = () => {
-        if (current_genre_id + 1 === popular_genres.length) {
-            current_genre_id = 0;
-            return;
-        }
-        current_genre_id += 1;
-    };
 
     /* Icons */
     const icon_mapping: {
