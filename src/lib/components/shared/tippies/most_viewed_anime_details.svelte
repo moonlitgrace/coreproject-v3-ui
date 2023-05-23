@@ -31,27 +31,27 @@
 
             <div class="mt-[0.25vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                 <span>{anime_type}</span>
-                <Circle class="w-[0.2vw] text-surface-50" />
+                <Circle class="w-[0.2vw] opacity-75" />
                 <span class="capitalize">
                     {new format_date(anime_release_date).format_to_season}
                 </span>
-                <Circle class="w-[0.2vw] text-surface-50" />
+                <Circle class="w-[0.2vw] opacity-75" />
                 <span>{anime_episodes_count} episodes</span>
             </div>
 
-            <div class="mt-[0.25vw] flex gap-[0.5vw]">
+            <div class="mt-[0.5vw] flex gap-[0.5vw]">
                 {#each anime_genres as genre}
-                    <span class="rounded-[0.25vw] bg-surface-900/50 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
+                    <span class="rounded-[0.25vw] bg-surface-900 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
                         {genre}
                     </span>
                 {/each}
             </div>
 
-            <div class="mt-[0.1vw] flex items-center gap-[0.5vw] text-[0.75vw]">
+            <div class="mt-[0.5vw] flex items-center gap-[0.5vw] text-[0.75vw]">
                 <span>
                     69% <span class="text-surface-200">[7852 ratings]</span>
                 </span>
-                <Circle class="w-[0.2vw] text-surface-50" />
+                <Circle class="w-[0.2vw] opacity-75" />
                 <span>{anime_studios[0]}</span>
             </div>
 
@@ -60,7 +60,7 @@
             </span>
         </div>
 
-        <div class="absolute bottom-0 flex h-[1.75vw] w-full items-center justify-center gap-[0.5vw] bg-primary-500 text-[0.9vw] font-semibold">
+        <div class="absolute bottom-0 flex h-[2vw] w-full items-center justify-center gap-[0.5vw] rounded-b-[1vw] border-[0.25vw] border-t-0 border-surface-50/50 bg-surface-400 text-[0.9vw] font-semibold">
             <span class="font-medium">Ranking</span>
             <Circle class="w-[0.2vw]" />
             <span>
