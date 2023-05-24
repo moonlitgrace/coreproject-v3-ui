@@ -27,7 +27,7 @@
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
-    import { beforeUpdate, onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
     import { swipe } from "svelte-gestures";
     import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
