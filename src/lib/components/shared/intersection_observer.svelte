@@ -13,6 +13,7 @@
     onMount(() => {
         if (typeof IntersectionObserver !== "undefined") {
             const rootMargin = `${bottom}px ${left}px ${top}px ${right}px`;
+
             const observer = new IntersectionObserver(
                 (entries) => {
                     intersecting = entries[0].isIntersecting;
@@ -24,12 +25,16 @@
                     rootMargin
                 }
             );
+
             observer.observe(container);
             return () => observer.unobserve(container);
         }
     });
 </script>
 
-<div bind:this={container}>
+<div
+    class="h-full w-full"
+    bind:this={container}
+>
     <slot {intersecting} />
 </div>
