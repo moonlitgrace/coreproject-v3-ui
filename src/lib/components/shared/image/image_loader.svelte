@@ -1,5 +1,5 @@
 <script lang="ts">
-    import IntersectionObserver from "../intersection_observer.svelte";
+    import IntersectionObserver from "./intersection_observer.svelte";
     import Image from "./image.svelte";
 
     export let src: string;
