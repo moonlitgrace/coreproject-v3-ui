@@ -27,7 +27,7 @@
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import _ from "lodash";
-    import { onDestroy } from "svelte";
+    import { onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
     import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
@@ -104,6 +104,22 @@
                 break;
         }
     }
+
+    // Controls timer according to element visibility on viewport
+    onMount(() => {
+        if (typeof IntersectionObserver !== "undefined") {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    $timerStore = "start";
+                } else {
+                    $timerStore = "pause";
+                }
+            });
+
+            observer.observe(main_hero_slider_element);
+            return () => observer.unobserve(main_hero_slider_element);
+        }
+    });
 
     onDestroy(() => {
         timer.reset();
