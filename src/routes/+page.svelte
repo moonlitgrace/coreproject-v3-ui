@@ -458,10 +458,10 @@
             </div>
         </latest-episodes-mobile>
 
-        <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block">
+        <navigation-card class="relative mt-[3.4vw] hidden h-[24.5vw] w-[16.625vw] md:block">
             <ImageLoader
                 src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
-                class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-b-0 border-surface-50 object-cover object-center"
+                class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-surface-50 object-cover object-center"
             />
 
             <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
@@ -491,7 +491,7 @@
                 </div>
 
                 <div class="mt-[0.4vw]">
-                    <span class="text-[0.9vw] font-semibold leading-[1vw]">More</span>
+                    <span class="text-[0.9vw] font-semibold leading-none">More</span>
                     <div class="mt-[0.75vw] flex gap-[0.9375vw]">
                         {#each Object.entries(icon_mapping.bottom) as item}
                             {@const item_icon = item[1].icon}
