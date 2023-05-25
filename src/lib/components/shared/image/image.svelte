@@ -6,13 +6,13 @@
     let klass: string;
     export { klass as class };
 
-    let thisImage: HTMLImageElement;
+    let image: HTMLImageElement;
 </script>
 
 <img
     class={klass}
     {src}
     {alt}
-    bind:this={thisImage}
+    bind:this={image}
     transition:fade
 />

@@ -255,7 +255,6 @@
                             <ImageLoader
                                 src={anime.cover}
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
-                                alt={anime.name}
                             />
 
                             <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
@@ -393,7 +392,6 @@
                         <ImageLoader
                             src={anime.cover}
                             class="absolute h-full w-full rounded-[0.75vw] object-cover object-center"
-                            alt={anime.name}
                         />
                         <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
                         <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
@@ -404,14 +402,14 @@
                                     <span class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                         {anime.name}
                                     </span>
-                                    <p class="unstyled text-[0.8vw]">
+                                    <span class="flex items-center gap-[0.35vw] text-[0.8vw]">
                                         <span class="font-semibold">
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
                                         <span>
                                             aired {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
-                                    </p>
+                                    </span>
                                 </div>
                                 <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
                                     <Play class="w-[1.25vw]" />
@@ -447,7 +445,6 @@
                             <ImageLoader
                                 class="h-52 w-full rounded-[1.25rem] object-cover"
                                 src={anime.cover}
-                                alt={anime.name}
                             />
                             <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
                         </div>
@@ -461,10 +458,10 @@
             </div>
         </latest-episodes-mobile>
 
-        <navigation-card class="relative mt-[3.4vw] hidden h-[24.1325vw] w-[16.625vw] md:block">
+        <navigation-card class="relative mt-[3.4vw] hidden h-[24.5vw] w-[16.625vw] md:block">
             <ImageLoader
                 src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
-                class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-b-0 border-surface-50 object-cover object-center"
+                class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-surface-50 object-cover object-center"
             />
 
             <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
@@ -494,7 +491,7 @@
                 </div>
 
                 <div class="mt-[0.4vw]">
-                    <span class="text-[0.9vw] font-semibold leading-[1vw]">More</span>
+                    <span class="text-[0.9vw] font-semibold leading-none">More</span>
                     <div class="mt-[0.75vw] flex gap-[0.9375vw]">
                         {#each Object.entries(icon_mapping.bottom) as item}
                             {@const item_icon = item[1].icon}
