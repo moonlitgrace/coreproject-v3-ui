@@ -2,7 +2,7 @@
     import { fade } from "svelte/transition";
 
     export let src: string;
-    export let alt: string | undefined;
+    export let alt: string;
     let klass: string;
     export { klass as class };
 
