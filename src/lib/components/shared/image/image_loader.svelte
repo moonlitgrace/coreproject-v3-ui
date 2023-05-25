@@ -3,7 +3,7 @@
     import Image from "./image.svelte";
 
     export let src: string;
-    export let alt = "";
+    export let alt: string | undefined = undefined;
     let klass: string;
     export { klass as class };
 </script>

@@ -2,17 +2,17 @@
     import { fade } from "svelte/transition";
 
     export let src: string;
-    export let alt: string;
+    export let alt: string | undefined;
     let klass: string;
     export { klass as class };
 
-    let thisImage: HTMLImageElement;
+    let image: HTMLImageElement;
 </script>
 
 <img
     class={klass}
     {src}
     {alt}
-    bind:this={thisImage}
+    bind:this={image}
     transition:fade
 />

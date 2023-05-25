@@ -255,7 +255,6 @@
                             <ImageLoader
                                 src={anime.cover}
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
-                                alt={anime.name}
                             />
 
                             <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
@@ -393,7 +392,6 @@
                         <ImageLoader
                             src={anime.cover}
                             class="absolute h-full w-full rounded-[0.75vw] object-cover object-center"
-                            alt={anime.name}
                         />
                         <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
                         <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
@@ -404,14 +402,14 @@
                                     <span class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                         {anime.name}
                                     </span>
-                                    <p class="unstyled text-[0.8vw]">
+                                    <span class="flex items-center gap-[0.35vw] text-[0.8vw]">
                                         <span class="font-semibold">
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
                                         <span>
                                             aired {new format_date(anime.release_date).format_to_time_from_now}
                                         </span>
-                                    </p>
+                                    </span>
                                 </div>
                                 <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
                                     <Play class="w-[1.25vw]" />
@@ -447,7 +445,6 @@
                             <ImageLoader
                                 class="h-52 w-full rounded-[1.25rem] object-cover"
                                 src={anime.cover}
-                                alt={anime.name}
                             />
                             <div class="absolute inset-0 bg-gradient-to-t from-surface-900/25 to-surface-900/0" />
                         </div>
