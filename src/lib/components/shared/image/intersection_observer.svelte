@@ -11,24 +11,22 @@
     let container: HTMLDivElement;
 
     onMount(() => {
-        if (typeof IntersectionObserver !== "undefined") {
-            const rootMargin = `${bottom}px ${left}px ${top}px ${right}px`;
+        const rootMargin = `${bottom}px ${left}px ${top}px ${right}px`;
 
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    intersecting = entries[0].isIntersecting;
-                    if (intersecting && once) {
-                        observer.unobserve(container);
-                    }
-                },
-                {
-                    rootMargin
+        const observer = new IntersectionObserver(
+            (entries) => {
+                intersecting = entries[0].isIntersecting;
+                if (intersecting && once) {
+                    observer.unobserve(container);
                 }
-            );
+            },
+            {
+                rootMargin
+            }
+        );
 
-            observer.observe(container);
-            return () => observer.unobserve(container);
-        }
+        observer.observe(container);
+        return () => observer.unobserve(container);
     });
 </script>
 

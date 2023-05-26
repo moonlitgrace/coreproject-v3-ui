@@ -1,6 +1,6 @@
 <script lang="ts">
-    import IntersectionObserver from "./intersection_observer.svelte";
     import Image from "./image.svelte";
+    import IntersectionObserver from "./intersection_observer.svelte";
 
     export let src: string;
     export let alt = "";

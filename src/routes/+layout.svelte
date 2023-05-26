@@ -2,6 +2,7 @@
     import { afterNavigate, beforeNavigate } from "$app/navigation";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
+    import ProfileDropdown from "$components/shared/tippies/profile_dropdown.svelte";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
     import Explore from "$icons/explore.svelte";
@@ -18,22 +19,17 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
-    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
     import type { ModalComponent, ModalSettings } from "@skeletonlabs/skeleton";
-    // skeleton and floating-ui
-    import { popup } from "@skeletonlabs/skeleton";
-    import type { PopupSettings } from "@skeletonlabs/skeleton";
-    import { storePopup } from "@skeletonlabs/skeleton";
     // This contains the bulk of Skeletons required styles:
     import "@skeletonlabs/skeleton/styles/all.css";
     // NProgress
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
+    import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
     import { blur } from "svelte/transition";
-    import voca from "voca";
 
     // Most of your app wide CSS should be put in this file
     import "../app.scss";
@@ -43,8 +39,6 @@
     import "../theme.scss";
     // Tippy
     import "../tippy.postcss";
-
-    storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     // Local
     const icon_mapping: {
@@ -183,12 +177,6 @@
         });
     });
 
-    let profilePopupSettings: PopupSettings = {
-        event: "click",
-        target: "profile_dropdown",
-        placement: "bottom-end"
-    };
-
     /** search panel */
     async function show_search_modal(): Promise<void> {
         const search_component: ModalComponent = { ref: SearchPanel };
@@ -207,51 +195,71 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="relative flex h-[4.5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+            <div class="flex h-[4.5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
                 <a href="/">
                     <Logo class="w-9 md:w-[2vw]" />
                 </a>
 
-                {#if $navbar_middle_section_variant === "logo"}
-                    <a
-                        href="/"
-                        class="absolute left-1/2 -translate-x-1/2 transform"
-                        transition:blur|local
-                    >
-                        <AnimeCore class="w-36 md:w-[10vw]" />
-                    </a>
-                {:else if $navbar_middle_section_variant === "form"}
-                    <div
-                        class="absolute left-1/2 -translate-x-1/2 transform"
-                        transition:blur|local
-                    >
+                <div class="relative">
+                    {#if $navbar_middle_section_variant === "logo"}
                         <a
                             href="/"
-                            class="hidden md:flex"
+                            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                            transition:blur|local
                         >
-                            <AnimeCore class="w-[10vw]" />
+                            <AnimeCore class="w-36 md:w-[10vw]" />
                         </a>
+                    {:else if $navbar_middle_section_variant === "form"}
+                        <div
+                            transition:blur|local
+                            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                        >
+                            <a
+                                href="/"
+                                class="hidden md:flex"
+                            >
+                                <AnimeCore class="w-[10vw]" />
+                            </a>
 
-                        <!-- Search form for mobile device -->
-                        <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                            <button class="btn absolute left-4 p-0">
-                                <Search class="w-5 opacity-75" />
-                            </button>
-                            <input
-                                type="text"
-                                placeholder="Search for animes, mangas..."
-                                class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
-                            />
-                            <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
-                                <MoreVertical class="w-[5vw] opacity-90" />
-                            </button>
-                        </form>
-                    </div>
-                {/if}
+                            <!-- Search form for mobile device -->
+                            <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                                <button class="btn absolute left-4 p-0">
+                                    <Search class="w-5 opacity-75" />
+                                </button>
+                                <input
+                                    type="text"
+                                    placeholder="Search for animes, mangas..."
+                                    class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                                />
+                                <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
+                                    <MoreVertical class="w-[5vw] opacity-90" />
+                                </button>
+                            </form>
+                        </div>
+                    {/if}
+                </div>
 
                 <button
                     class="avatar"
-                    use:popup={profilePopupSettings}
+                    use:tippy={{
+                        trigger: "focus",
+                        arrow: false,
+                        allowHTML: true,
+                        placement: "bottom-end",
+                        offset: [0, 10],
+                        animation: "shift-away",
+                        hideOnClick: false,
+                        appendTo: "parent",
+                        onTrigger: async (instance) => {
+                            const node = document.createElement("div");
+                            new ProfileDropdown({
+                                target: node,
+                                props: { dropdown_icons: icon_mapping.profile_dropdown }
+                            });
+
+                            instance.setContent(node);
+                        }
+                    }}
                 >
                     <Avatar
                         rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
@@ -260,51 +268,6 @@
                         initials="JD"
                     />
                 </button>
-
-                <div
-                    class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]"
-                    data-popup="profile_dropdown"
-                >
-                    <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
-                        <Avatar
-                            rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
-                            width="w-10 md:w-[2.5vw]"
-                            src="https://i.postimg.cc/6pNGq1YL/345336.png"
-                            initials="JD"
-                        />
-                        <div class="flex flex-col md:gap-[0.5vw]">
-                            <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>
-                            <span class="text-xs font-medium md:text-[0.8vw] md:leading-none">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-3 md:mt-[1vw]">
-                        {#each Object.entries(icon_mapping.profile_dropdown) as item}
-                            {@const item_icon = item[1].icon}
-                            {@const item_href = item[1].url}
-                            {@const item_name = item[1].name}
-
-                            <a
-                                href={item_href}
-                                class="{item_href ?? 'pointer-events-none'} unstyled"
-                            >
-                                <div class="flex cursor-pointer items-center gap-2 rounded-[0.2vw] p-[0.4rem] transition duration-100 md:gap-[0.75vw] md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
-                                    <svelte:component
-                                        this={item_icon.component}
-                                        class="hidden basis-[12%] md:flex {item_icon.class}"
-                                    />
-                                    <svelte:component
-                                        this={item_icon.component}
-                                        class=" flex w-5 basis-[12%] md:hidden"
-                                    />
-                                    <span class=" text-xs font-medium text-white md:text-[0.9vw]">
-                                        {item_name}
-                                    </span>
-                                </div>
-                            </a>
-                        {/each}
-                    </div>
-                </div>
             </div>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
