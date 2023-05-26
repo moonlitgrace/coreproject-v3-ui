@@ -107,16 +107,14 @@
                     <div class="absolute inset-0 z-20 flex items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <button
                             type="button"
-                            class="btn rounded-[0.625vw] bg-surface-900/90 font-bold text-surface-50 md:h-[4.3vw] md:w-[7.5vw] md:text-[0.87vw]"
+                            class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
                         >
                             <div class="flex items-center justify-center md:gap-[0.7vw]">
                                 <PlayCircle
-                                    class="w-[1.875vw]"
-                                    color="white"
+                                    class="w-[1.5vw]"
                                 />
-                                <div class="flex flex-col items-start">
-                                    <span class="leading-[1.05vw]">Watch</span>
-                                    <span class="text-[0.625vw] font-normal leading-[0.9375vw] text-surface-100">
+                                <div class="flex flex-col items-start gap-[0.25vw]">
+                                    <span class="text-[1vw] font-bold leading-none">
                                         Ep {episode.episode_number}
                                     </span>
                                 </div>
@@ -124,12 +122,11 @@
                         </button>
                         <button
                             type="button"
-                            class="btn h-[4.3vw] w-[5vw] rounded-[0.625vw] bg-surface-900/50 text-[0.87vw] font-bold text-surface-50"
+                            class="btn h-[4vw] w-[5vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
                         >
-                            <div class="flex flex-col items-center justify-center md:gap-[0.7vw]">
+                            <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
                                 <Read
                                     class="w-[1.3vw]"
-                                    color="white"
                                 />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1vw]">Read</span>
