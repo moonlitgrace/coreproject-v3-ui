@@ -36,15 +36,16 @@
 
                 {@const is_array = Array.isArray(value)}
 
-                <!-- Only handle producers in this array field  -->
                 {#if is_array}
+                    <!-- Only handle producers in this array field  -->
                     <div class="flex flex-col text-[0.9375vw] text-surface-50">
                         <span class="font-semibold text-white">{key}</span>
-                        {#each value as item}
+                        {#each value.sort() as item}
                             <span>{item}</span>
                         {/each}
                     </div>
                 {:else}
+                    <!-- Handle everything else here  -->
                     <div class="text-[0.9375vw] text-surface-50">
                         <span class="font-semibold text-white">{key}</span>
                         <br />
