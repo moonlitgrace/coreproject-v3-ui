@@ -5,7 +5,7 @@ export const latest_animes = [
         type: "TV",
         aired_from: "2023-04-20T15:38:51.162Z",
         aired_to: "2023-04-20T15:38:51.162Z",
-        cover: "./images/DemonSlayer-bg.webp",
+        cover: "/images/DemonSlayer-bg.webp",
         synopsis: `It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a
 				living, finds his family slaughtered by a demon. To make matters worse, his younger sister
 				Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by
@@ -23,7 +23,7 @@ export const latest_animes = [
         name: "Hyouka",
         type: "TV",
         aired_from: "2023-08-20T15:38:51.162Z",
-        cover: "./images/Hyouka-bg.jpg",
+        cover: "/images/Hyouka-bg.jpg",
         synopsis: `High school freshman Houtarou Oreki has but one goal: to lead a gray life while conserving as much energy as he can. Unfortunately, his peaceful days come to an end when his older sister, Tomoe, forces him to save the memberless Classics Club from disbandment.
 
 			Luckily, Oreki's predicament seems to be over when he heads to the clubroom and discovers that his fellow first-year, Eru Chitanda, has already become a member. However, despite his obligation being fulfilled, Oreki finds himself entangled by Chitanda's curious and bubbly personality, soon joining the club of his own volition.
@@ -41,7 +41,7 @@ export const latest_animes = [
         name: "You Lie in April",
         type: "TV",
         aired_from: "2014-11-20T15:38:51.162Z",
-        cover: "./images/YourLieInApril-bg.jpg",
+        cover: "/images/YourLieInApril-bg.jpg",
         synopsis: `Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter. \n
 
 			Nowadays, Kousei lives a quiet and unassuming life as a junior high school student alongside his friends Tsubaki Sawabe and Ryouta Watari. While struggling to get over his mother's death, he continues to cling to music. His monochrome life turns upside down the day he encounters the eccentric violinist Kaori Miyazono, who thrusts him back into the spotlight as her accompanist. Through a little lie, these two young musicians grow closer together as Kaori tries to fill Kousei's world with color.`,
@@ -57,7 +57,7 @@ export const latest_animes = [
         name: "Attack on Titan",
         type: "TV",
         aired_from: "2014-11-20T15:38:51.162Z",
-        cover: "./images/AttackOnTitan-bg.jpg",
+        cover: "/images/AttackOnTitan-bg.jpg",
         synopsis: `Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal Titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.`,
         updated: "2013-04-7T02:37:40.790Z",
         studios: ["Wit Studio"],
@@ -71,7 +71,7 @@ export const latest_animes = [
         name: "Jujutsu Kaisen",
         type: "TV",
         aired_from: "2014-11-20T15:38:51.162Z",
-        cover: "./images/JujutsuKaisen.webp",
+        cover: "/images/JujutsuKaisen.webp",
         synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses."`,
         updated: "2020-10-3T02:37:40.790Z",
         studios: ["MAPPA"],
@@ -85,7 +85,7 @@ export const latest_animes = [
         name: "Death Note",
         type: "TV",
         aired_from: "2020-11-20T15:38:51.162Z",
-        cover: "./images/DeathNote-bg.avif",
+        cover: "/images/DeathNote-bg.avif",
         synopsis: `Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
 			 For his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.`,
         updated: "2020-10-3T02:37:40.790Z",
