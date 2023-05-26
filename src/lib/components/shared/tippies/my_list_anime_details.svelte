@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { format_date } from "$functions/format_date";
+    import { FormatDate } from "$functions/format_date";
     import Circle from "$icons/circle.svelte";
 
     export let anime_cover: string;
@@ -33,7 +33,7 @@
                 <span>{anime_type}</span>
                 <Circle class="w-[0.2vw] text-surface-50" />
                 <span class="capitalize">
-                    {new format_date(anime_release_date).format_to_season}
+                    {new FormatDate(anime_release_date).format_to_season}
                 </span>
                 <Circle class="w-[0.2vw] text-surface-50" />
                 <span>{anime_episodes_count} episodes</span>

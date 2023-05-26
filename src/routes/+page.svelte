@@ -6,8 +6,8 @@
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { my_list } from "$data/mock/my_list";
-    import { format_date } from "$functions/format_date";
-    import { format_time } from "$functions/format_time";
+    import { FormatDate } from "$functions/format_date";
+    import { FormatTime } from "$functions/format_time";
     import { OpengraphGenerator } from "$functions/opengraph";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Chevron from "$icons/chevron.svelte";
@@ -276,7 +276,7 @@
                                     <span class="leading-[1.125vw]">Completed</span>
                                     <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="capitalize leading-[1.125vw]">
-                                        {new format_date(anime.aired_from).format_to_season}
+                                        {new FormatDate(anime.aired_from).format_to_season}
                                     </span>
                                     <Circle class="w-[0.25vw] opacity-75" />
                                     <span class="leading-[1.125vw]">
@@ -407,7 +407,7 @@
                                             Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                         </span>
                                         <span>
-                                            aired {new format_date(anime.release_date).format_to_time_from_now}
+                                            aired {new FormatDate(anime.release_date).format_to_time_from_now}
                                         </span>
                                     </span>
                                 </div>
@@ -451,7 +451,7 @@
                         <span class="mt-2 line-clamp-1 text-sm font-semibold tracking-wide text-white">{anime.name}</span>
                         <p class="mt-1 text-xs text-surface-50">
                             Ep {anime.episode_number}
-                            <span class="text-surface-300">aired {new format_date(anime.release_date).format_to_time_from_now}</span>
+                            <span class="text-surface-300">aired {new FormatDate(anime.release_date).format_to_time_from_now}</span>
                         </p>
                     </episode>
                 {/each}
@@ -640,7 +640,7 @@
                                 <p class="mt-1 flex items-center gap-2 text-xs text-surface-50">
                                     <span>{anime.current_episode}/{anime.episodes_count}</span>
                                     <Circle class="w-1" />
-                                    <span>{new format_time(anime.time_watched).format_seconds_to_time_stamp_duration}</span>
+                                    <span>{new FormatTime(anime.time_watched).format_seconds_to_time_stamp_duration}</span>
                                 </p>
                             </episode>
                         {/each}
