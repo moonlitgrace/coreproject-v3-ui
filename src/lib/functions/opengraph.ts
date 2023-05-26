@@ -260,9 +260,7 @@ export class OpengraphGenerator {
     }
 
     public generate_opengraph() {
-        let opengraph_html = `
-            <meta property="og:type" content="website">
-		`;
+        let opengraph_html = `<meta property="og:type" content="website">`;
         opengraph_html += this.site_name;
         opengraph_html += this.locale;
         opengraph_html += this.title;
