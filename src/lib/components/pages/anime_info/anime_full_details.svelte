@@ -35,9 +35,7 @@
                 {@const key = details_item[0]}
                 {@const value = details_item[1]}
 
-                {@const is_array = Array.isArray(value)}
-
-                {#if is_array}
+                {#if Array.isArray(value)}
                     <!-- Only handle producers in this array field  -->
                     <div class="flex flex-col text-[0.9375vw] text-surface-50">
                         <p class="font-semibold text-white">{key}</p>
