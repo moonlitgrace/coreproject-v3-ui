@@ -3,7 +3,7 @@ import type { Duration } from "dayjs/plugin/duration";
 import duration from "dayjs/plugin/duration";
 import utc from "dayjs/plugin/utc";
 
-export class format_time {
+export class FormatTime {
     #duration: Duration;
 
     constructor(time: number) {
