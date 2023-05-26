@@ -1,5 +1,6 @@
 <script>
     import voca from "voca";
+    import { FormatDate } from "$functions/format_date";
 
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
@@ -10,9 +11,9 @@
         episodes: "22",
         "episode Duration": "26 Minutes",
         status: "finished",
-        "start date": "Apr 23, 2012",
-        "end date": "Sep 16, 2012",
-        season: "Spring 2012",
+        "start date": new FormatDate("2012-04-23").format_to_human_readable_form,
+        "end date": new FormatDate("2012-09-16").format_to_human_readable_form,
+        season: new FormatDate("2012-4").format_to_season,
         studios: "Kyoto Animation",
         producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
         source: "Night Novel"
@@ -34,22 +35,19 @@
                 {@const key = details_item[0]}
                 {@const value = details_item[1]}
 
-                {@const is_array = Array.isArray(value)}
-
-                {#if is_array}
+                {#if Array.isArray(value)}
                     <!-- Only handle producers in this array field  -->
                     <div class="flex flex-col text-[0.9375vw] text-surface-50">
-                        <span class="font-semibold text-white">{key}</span>
+                        <p class="font-semibold text-white">{key}</p>
                         {#each value.sort() as item}
-                            <span>{item}</span>
+                            <p>{item}</p>
                         {/each}
                     </div>
                 {:else}
                     <!-- Handle everything else here  -->
-                    <div class="text-[0.9375vw] text-surface-50">
-                        <span class="font-semibold text-white">{key}</span>
-                        <br />
-                        {value}
+                    <div class="flex flex-col text-[0.9375vw] text-surface-50">
+                        <p class="font-semibold text-white">{key}</p>
+                        <p>{value}</p>
                     </div>
                 {/if}
             {/each}
