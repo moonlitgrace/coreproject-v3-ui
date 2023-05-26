@@ -9,7 +9,7 @@ export const anime_episodes = [
     {
         id: 14,
         episode_number: 2,
-        episode_name: "  The Activities of the Esteemed Classic Literature Club",
+        episode_name: "The Activities of the Esteemed Classic Literature Club",
         episode_thumbnail: "https://reallifeanime.files.wordpress.com/2015/09/hyouka-episode-2-chitanda-sakuga-throw-1.png",
         episode_length: 1451
     },
