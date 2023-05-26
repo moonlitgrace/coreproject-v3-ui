@@ -3,7 +3,7 @@
     import AnimeFullDetails from "$components/pages/anime_info/anime_full_details.svelte";
     import SidebarDetails from "$components/pages/anime_info/sidebar_details.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import { format_date } from "$functions/format_date";
+    import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
     import Download from "$icons/download.svelte";
     import Edit from "$icons/edit.svelte";
@@ -111,7 +111,7 @@
                         </span>
                         <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
                         <span class="font-semibold capitalize md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
-                            {new format_date(anime_date).format_to_season}
+                            {new FormatDate(anime_date).format_to_season}
                         </span>
                         <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Kuschio animation</span>
                     </p>

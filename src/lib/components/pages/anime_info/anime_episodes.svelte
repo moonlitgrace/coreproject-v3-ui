@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { format_time } from "$functions/format_time";
+    import { FormatTime } from "$functions/format_time";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
@@ -101,7 +101,7 @@
                             style="grid-area: 1 / 1 / 2 / 2"
                             class="unstyled w-full pr-[0.7vw] text-end text-[0.75vw] font-semibold"
                         >
-                            {new format_time(episode.episode_length).format_seconds_to_time_stamp_duration}
+                            {new FormatTime(episode.episode_length).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
                     <div class="absolute inset-0 z-20 flex items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">

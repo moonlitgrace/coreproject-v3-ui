@@ -3,7 +3,7 @@ import localeData from "dayjs/plugin/localeData";
 import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
 
-export class format_date {
+export class FormatDate {
     #date: dayjs.Dayjs;
 
     constructor(date: string) {
