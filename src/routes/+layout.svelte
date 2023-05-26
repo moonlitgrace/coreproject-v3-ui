@@ -2,6 +2,7 @@
     import { afterNavigate, beforeNavigate } from "$app/navigation";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
+    import ProfileDropdown from "$components/shared/tippies/profile_dropdown.svelte";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
     import Explore from "$icons/explore.svelte";
@@ -18,22 +19,17 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
-    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
     import type { ModalComponent, ModalSettings } from "@skeletonlabs/skeleton";
-    // skeleton and floating-ui
-    import { popup } from "@skeletonlabs/skeleton";
-    import type { PopupSettings } from "@skeletonlabs/skeleton";
-    import { storePopup } from "@skeletonlabs/skeleton";
     // This contains the bulk of Skeletons required styles:
     import "@skeletonlabs/skeleton/styles/all.css";
     // NProgress
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
+    import tippy from "svelte-tippy";
     import type { SvelteComponentDev } from "svelte/internal";
     import { blur } from "svelte/transition";
-    import voca from "voca";
 
     // Most of your app wide CSS should be put in this file
     import "../app.scss";
@@ -43,8 +39,6 @@
     import "../theme.scss";
     // Tippy
     import "../tippy.postcss";
-
-    storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     // Local
     const icon_mapping: {
@@ -183,12 +177,6 @@
         });
     });
 
-    let profilePopupSettings: PopupSettings = {
-        event: "click",
-        target: "profile_dropdown",
-        placement: "bottom-end"
-    };
-
     /** search panel */
     async function show_search_modal(): Promise<void> {
         const search_component: ModalComponent = { ref: SearchPanel };
@@ -251,7 +239,25 @@
 
                 <button
                     class="avatar"
-                    use:popup={profilePopupSettings}
+                    use:tippy={{
+                        trigger: "focus",
+                        arrow: false,
+                        allowHTML: true,
+                        placement: "bottom-end",
+                        offset: [0, 10],
+                        animation: "shift-away",
+                        hideOnClick: false,
+                        appendTo: "parent",
+                        onTrigger: async (instance) => {
+                            const node = document.createElement("div");
+                            new ProfileDropdown({
+                                target: node,
+                                props: { dropdown_icons: icon_mapping.profile_dropdown }
+                            });
+
+                            instance.setContent(node);
+                        }
+                    }}
                 >
                     <Avatar
                         rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
@@ -260,51 +266,6 @@
                         initials="JD"
                     />
                 </button>
-
-                <div
-                    class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]"
-                    data-popup="profile_dropdown"
-                >
-                    <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
-                        <Avatar
-                            rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
-                            width="w-10 md:w-[2.5vw]"
-                            src="https://i.postimg.cc/6pNGq1YL/345336.png"
-                            initials="JD"
-                        />
-                        <div class="flex flex-col md:gap-[0.5vw]">
-                            <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>
-                            <span class="text-xs font-medium md:text-[0.8vw] md:leading-none">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-3 md:mt-[1vw]">
-                        {#each Object.entries(icon_mapping.profile_dropdown) as item}
-                            {@const item_icon = item[1].icon}
-                            {@const item_href = item[1].url}
-                            {@const item_name = item[1].name}
-
-                            <a
-                                href={item_href}
-                                class="{item_href ?? 'pointer-events-none'} unstyled"
-                            >
-                                <div class="flex cursor-pointer items-center gap-2 rounded-[0.2vw] p-[0.4rem] transition duration-100 md:gap-[0.75vw] md:p-[0.5vw] md:py-[0.5vw] md:hover:bg-surface-300/20">
-                                    <svelte:component
-                                        this={item_icon.component}
-                                        class="hidden basis-[12%] md:flex {item_icon.class}"
-                                    />
-                                    <svelte:component
-                                        this={item_icon.component}
-                                        class=" flex w-5 basis-[12%] md:hidden"
-                                    />
-                                    <span class=" text-xs font-medium text-white md:text-[0.9vw]">
-                                        {item_name}
-                                    </span>
-                                </div>
-                            </a>
-                        {/each}
-                    </div>
-                </div>
             </div>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
