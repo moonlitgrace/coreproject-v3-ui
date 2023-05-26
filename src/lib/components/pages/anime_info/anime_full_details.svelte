@@ -4,6 +4,20 @@
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Chevron from "$icons/chevron.svelte";
+
+    const anime_details = {
+        format: "TV",
+        episodes: "22",
+        "episode Duration": "26 Minutes",
+        status: "finished",
+        "start date": "Apr 23, 2012",
+        "end date": "Sep 16, 2012",
+        season: "Spring 2012",
+        studios: "Kyoto Animation",
+        producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
+        source: "Night Novel"
+        //tags: []
+    };
 </script>
 
 <div class="md:my-[6vw]">
@@ -15,113 +29,30 @@
     </div>
 
     <div class="md:mt-[1.56vw]">
-        <animedetails class="flex flex-col gap-[1.125vw]">
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Format</span>
-                <br />
-                TV
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Episodes</span>
-                <br />
-                22
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Episode Duration</span>
-                <br />
-                26 mins
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Status</span>
-                <br />
-                Finished
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Start Date</span>
-                <br />
-                Apr 23, 2012
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">End Date</span>
-                <br />
-                Sep 16, 2012
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Season</span>
-                <br />
-                Spring 2012
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Studios</span>
-                <br />
-                Kyoto Animation
-            </div>
-            <div class="flex flex-col text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Producers</span>
-                <span>Lantis</span>
-                <span>Kadokawa Shoten</span>
-                <span>Klock Worx</span>
-                <span>chara-ani.com</span>
-                <span>Animation Do</span>
-            </div>
-            <div class="text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Source</span>
-                <br />
-                Night Novel
-            </div>
-            <div class="flex flex-col text-[0.9375vw] text-surface-50">
-                <span class="font-semibold text-white">Tags</span>
-                <span>
-                    School Club <span class="font-semibold">95%</span>
-                </span>
-                <span>
-                    Detective <span class="font-semibold">91%</span>
-                </span>
-                <span>
-                    School <span class="font-semibold">87%</span>
-                </span>
-                <span>
-                    Male Protogonist <span class="font-semibold">81%</span>
-                </span>
-                <span>
-                    Surreal Comedy <span class="font-semibold">79%</span>
-                </span>
-                <span>
-                    Philosophy <span class="font-semibold">78%</span>
-                </span>
-                <span>
-                    Comming of Age <span class="font-semibold">73%</span>
-                </span>
-                <span>
-                    Episodic <span class="font-semibold">67%</span>
-                </span>
-                <span>
-                    Classic Literature <span class="font-semibold">65%</span>
-                </span>
-                <span>
-                    Felmale Protogonist <span class="font-semibold">65%</span>
-                </span>
-                <span>
-                    Hetrosexual <span class="font-semibold">65%</span>
-                </span>
-                <span>
-                    Rural <span class="font-semibold">52%</span>
-                </span>
-                <span>
-                    Primarily Teen Cast <span class="font-semibold">50%</span>
-                </span>
-                <span>
-                    Cosplay <span class="font-semibold">37%</span>
-                </span>
+        <animedetails class="flex flex-col gap-[1.125vw] capitalize">
+            {#each Object.entries(anime_details) as details_item}
+                {@const key = details_item[0]}
+                {@const value = details_item[1]}
 
-                <button class="btn btn-sm mt-[0.3vw] h-[1.875vw] w-[6vw] gap-1 rounded-[0.375vw] bg-surface-400 p-0 text-[0.75vw]">
-                    Load more
-                    <Chevron
-                        class="w-[0.9vw]"
-                        color="surface-50"
-                    />
-                </button>
-            </div>
+                {@const is_array = Array.isArray(value)}
+
+                {#if is_array}
+                    <!-- Only handle producers in this array field  -->
+                    <div class="flex flex-col text-[0.9375vw] text-surface-50">
+                        <span class="font-semibold text-white">{key}</span>
+                        {#each value.sort() as item}
+                            <span>{item}</span>
+                        {/each}
+                    </div>
+                {:else}
+                    <!-- Handle everything else here  -->
+                    <div class="text-[0.9375vw] text-surface-50">
+                        <span class="font-semibold text-white">{key}</span>
+                        <br />
+                        {value}
+                    </div>
+                {/if}
+            {/each}
         </animedetails>
 
         <voiceovercase>
