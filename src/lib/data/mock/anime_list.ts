@@ -9,8 +9,8 @@ export const anime_list = [
         source: null,
         aired_from: null,
         aired_to: null,
-        banner: "https://cdn.myanimelist.net/images/anime/13/50521.jpg",
-        cover: "https://c4.wallpaperflare.com/wallpaper/470/72/942/hyouka-anime-chitanda-eru-fukube-satoshi-wallpaper-preview.jpg",
+        banner: "/images/YourLieInApril-banner.jpg",
+        cover: "/images/Hyouka-bg.jpg",
         banner_background_color: "#2A1710",
         cover_background_color: "#D8E4D8",
         synopsis:
