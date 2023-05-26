@@ -47,10 +47,9 @@
                     </div>
                 {:else}
                     <!-- Handle everything else here  -->
-                    <div class="text-[0.9375vw] text-surface-50">
-                        <span class="font-semibold text-white">{key}</span>
-                        <br />
-                        {value}
+                    <div class="flex flex-col text-[0.9375vw] text-surface-50">
+                        <p class="font-semibold text-white">{key}</p>
+                        <p>{value}</p>
                     </div>
                 {/if}
             {/each}
