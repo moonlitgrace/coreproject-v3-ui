@@ -86,16 +86,16 @@
         {#each anime_episodes as episode}
             <div class="group col-span-4 flex cursor-pointer flex-col items-center text-center">
                 <div
-                    class="relative h-[12.5vw] w-full rounded-[0.625vw] border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300"
+                    class="rounded-b-0 relative h-[12.5vw] w-full rounded-[0.625vw] border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300"
                     style="background-image: url({episode.episode_thumbnail ?? ''})"
                 >
-                    <div class="absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900 to-transparent duration-300 group-hover:to-surface-900/50" />
+                    <div class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
                     <div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
                         <p
                             style="grid-area: 1 / 1 / 2 / 2"
                             class="w-full text-center text-[0.9375vw] font-bold"
                         >
-                            {episode.episode_number}
+                            {episode.episode_number < 10 ? `0${episode.episode_number}` : episode.episode_number}
                         </p>
                         <p
                             style="grid-area: 1 / 1 / 2 / 2"
@@ -120,7 +120,8 @@
                         </button>
                         <button
                             type="button"
-                            class="btn h-[4vw] w-[5vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                            class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                            disabled
                         >
                             <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
                                 <Read class="w-[1.3vw]" />
