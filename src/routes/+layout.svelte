@@ -27,7 +27,7 @@
     // NProgress
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
-    import tippy from "svelte-tippy";
+    import tippy from "tippy.js";
     import type { SvelteComponentDev } from "svelte/internal";
     import { blur } from "svelte/transition";
 
