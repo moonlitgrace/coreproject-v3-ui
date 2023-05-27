@@ -149,13 +149,14 @@
                     </button>
                 </div>
 
-                <div class="mt-[2.5vw]">
+                <div class="mt-[1.5vw]">
                     <form>
                         <textarea
                             class="h-[9vw] w-full rounded-t-[0.875vw] border-none bg-surface-900 p-[1.5625vw] pb-[2vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
-                            placeholder="Leave a comment"
+                            placeholder="Leave a comment
+e.g One peice is great..."
                         />
-                        <div class="bottom-0 z-10 h-[1.875vw] w-full rounded-b-[0.875vw] bg-surface-400 ring-2 ring-surface-400" />
+                        <div class="h-[1.875vw] w-full rounded-b-[0.875vw] bg-surface-400 ring-2 ring-surface-400" />
 
                         <div class="mt-[1.375vw] flex justify-between gap-[1vw]">
                             <div class="flex gap-[0.625vw]">
