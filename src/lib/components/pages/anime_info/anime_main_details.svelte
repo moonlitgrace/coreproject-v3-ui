@@ -88,32 +88,28 @@
         <div class="grid grid-cols-12 items-end justify-between">
             <div class="col-span-7 flex items-end pr-[2vw] md:gap-[3.125vw]">
                 <img
-                    class="md:w-[12.5vw] md:rounded-[1vw]"
+                    class="object-cover object-center md:h-[18vw] md:w-[12vw] md:rounded-[1vw]"
                     src={anime_banner}
                     alt={anime_name}
                 />
                 <div>
                     <span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime_name}</span>
 
-                    <p class="flex items-center gap-2 text-surface-100 md:pt-[0.625vw]">
-                        <span class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']">
-                            {anime_alternative_name}
-                        </span>
-                        <span class="font-medium md:text-[0.75vw] md:leading-[0.9vw] [&:not(:last-child)]:after:ml-2 [&:not(:last-child)]:after:content-['▪']">
-                            {anime_name}
-                        </span>
+                    <p class="unstyled flex items-center gap-2 font-bold font-semibold uppercase tracking-wider text-surface-50 text-white md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                        <span class="after:ml-2 after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
+                        <span>{anime_name}</span>
                     </p>
 
-                    <p class="flex flex-wrap items-center gap-2 md:pt-[0.5vw]">
-                        <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">TV</span>
-                        <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                    <p class="mt-[0.25vw] flex flex-wrap items-center gap-2 font-semibold md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
+                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">TV</span>
+                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
                             {anime_episodes_count} eps
                         </span>
-                        <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Completed</span>
-                        <span class="font-semibold capitalize md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">
+                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">Completed</span>
+                        <span class="capitalize after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
                             {new FormatDate(anime_date).format_to_season}
                         </span>
-                        <span class="font-semibold md:text-[0.625vw] md:leading-[0.75vw] [&:not(:last-child)]:after:ml-1 [&:not(:last-child)]:after:content-['▪']">Kuschio animation</span>
+                        <span class="uppercase tracking-wider">Kuschio animation</span>
                     </p>
 
                     <div class="flex items-center md:mt-[2.25vw] md:gap-[1.15vw]">
@@ -139,6 +135,7 @@
                             <button
                                 type="button"
                                 class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
+                                disabled
                             >
                                 <div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
                                     <svelte:component
