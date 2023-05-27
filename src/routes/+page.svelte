@@ -458,7 +458,7 @@
 
         <navigation-card class="relative mt-[3.4vw] hidden h-[24.5vw] w-[16.625vw] md:block">
             <ImageLoader
-                src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDEzMzE1NzI3MzA0MzI2/animes-like-kono-subarashii-sekai-ni-shukufuku-wo.jpg"
+                src="/images/NavigationBox-bg.jpg"
                 class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-surface-50 object-cover object-center"
             />
 
