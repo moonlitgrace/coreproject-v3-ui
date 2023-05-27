@@ -66,17 +66,17 @@
             background: transparent !important;
         }
 
-        .mask-top {
+        &.mask-top {
             mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
             mask-repeat: no-repeat;
             mask-position: top;
         }
-        .mask-bottom {
+        &.mask-bottom {
             mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
             mask-repeat: no-repeat;
             mask-position: bottom;
         }
-        .mask-middle {
+        &.mask-middle {
             mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 20%, rgba(7, 5, 25, 0.95) 40%, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0.6) 100%);
             mask-repeat: no-repeat;
             mask-position: bottom;
