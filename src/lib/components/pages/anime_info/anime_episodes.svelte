@@ -53,8 +53,8 @@
         </div>
 
         <div class="flex items-end gap-[0.75vw]">
-            <div class="flex flex-col gap-[0.5vw]">
-                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50">Type</span>
+            <div class="group flex flex-col gap-[0.5vw]">
+                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50 group-hover:text-white">Type</span>
                 <button class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]">
                     <span>Subbed</span>
                     <Chevron
@@ -63,8 +63,8 @@
                     />
                 </button>
             </div>
-            <div class="flex flex-col gap-[0.5vw]">
-                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50">Display Mode</span>
+            <div class="group flex flex-col gap-[0.5vw]">
+                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50 group-hover:text-white">Display Mode</span>
                 <button class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]">
                     <span>Thumbnails</span>
                     <Chevron
