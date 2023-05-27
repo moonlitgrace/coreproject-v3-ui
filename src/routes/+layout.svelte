@@ -195,80 +195,83 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <div class="flex h-[4.5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
-                <a href="/">
-                    <Logo class="w-9 md:w-[2vw]" />
-                </a>
+            <navbar class="flex h-[4.5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+                {#if ["form", "logo"].includes($navbar_middle_section_variant)}
+                    <a href="/">
+                        <Logo class="w-9 md:w-[2vw]" />
+                    </a>
 
-                <div class="relative">
-                    {#if $navbar_middle_section_variant === "logo"}
-                        <a
-                            href="/"
-                            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-                            transition:blur|local
-                        >
-                            <AnimeCore class="w-36 md:w-[10vw]" />
-                        </a>
-                    {:else if $navbar_middle_section_variant === "form"}
-                        <div
-                            transition:blur|local
-                            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-                        >
+                    <div class="relative">
+                        {#if $navbar_middle_section_variant === "logo"}
                             <a
                                 href="/"
-                                class="hidden md:flex"
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                                transition:blur|local
                             >
-                                <AnimeCore class="w-[10vw]" />
+                                <AnimeCore class="w-36 md:w-[10vw]" />
                             </a>
+                        {:else if $navbar_middle_section_variant === "form"}
+                            <div
+                                transition:blur|local
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                            >
+                                <a
+                                    href="/"
+                                    class="hidden md:flex"
+                                >
+                                    <AnimeCore class="w-[10vw]" />
+                                </a>
 
-                            <!-- Search form for mobile device -->
-                            <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                                <button class="btn absolute left-4 p-0">
-                                    <Search class="w-5 opacity-75" />
-                                </button>
-                                <input
-                                    type="text"
-                                    placeholder="Search for animes, mangas..."
-                                    class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
-                                />
-                                <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
-                                    <MoreVertical class="w-[5vw] opacity-90" />
-                                </button>
-                            </form>
-                        </div>
-                    {/if}
-                </div>
+                                <search-form>
+                                    <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                                        <button class="btn absolute left-4 p-0">
+                                            <Search class="w-5 opacity-75" />
+                                        </button>
+                                        <input
+                                            type="text"
+                                            placeholder="Search for animes, mangas..."
+                                            class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                                        />
+                                        <button class="btn absolute right-[3vw] top-[3vw] hidden p-0">
+                                            <MoreVertical class="w-[5vw] opacity-90" />
+                                        </button>
+                                    </form>
+                                </search-form>
+                            </div>
+                        {/if}
+                    </div>
 
-                <button
-                    class="avatar"
-                    use:tippy={{
-                        trigger: "focus",
-                        arrow: false,
-                        allowHTML: true,
-                        placement: "bottom-end",
-                        offset: [0, 10],
-                        animation: "shift-away",
-                        hideOnClick: false,
-                        appendTo: "parent",
-                        onTrigger: async (instance) => {
-                            const node = document.createElement("div");
-                            new ProfileDropdown({
-                                target: node,
-                                props: { dropdown_icons: icon_mapping.profile_dropdown }
-                            });
+                    <button
+                        class="avatar"
+                        use:tippy={{
+                            trigger: "focus",
+                            arrow: false,
+                            allowHTML: true,
+                            placement: "bottom-end",
+                            offset: [0, 10],
+                            animation: "shift-away",
+                            hideOnClick: false,
+                            appendTo: "parent",
+                            onTrigger: async (instance) => {
+                                const node = document.createElement("div");
+                                new ProfileDropdown({
+                                    target: node,
+                                    props: { dropdown_icons: icon_mapping.profile_dropdown }
+                                });
 
-                            instance.setContent(node);
-                        }
-                    }}
-                >
-                    <Avatar
-                        rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                        width="w-12 md:w-[3.125vw]"
-                        src="https://i.postimg.cc/6pNGq1YL/345336.png"
-                        initials="JD"
-                    />
-                </button>
-            </div>
+                                instance.setContent(node);
+                            }
+                        }}
+                    >
+                        <Avatar
+                            rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
+                            width="w-12 md:w-[3.125vw]"
+                            src="https://i.postimg.cc/6pNGq1YL/345336.png"
+                            initials="JD"
+                        />
+                    </button>
+                {/if}
+            </navbar>
         </svelte:fragment>
         <svelte:fragment slot="sidebarLeft">
             <div class="hidden h-full w-[6.25vw] flex-col justify-between py-[2vw] md:flex">

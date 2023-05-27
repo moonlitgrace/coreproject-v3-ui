@@ -1,5 +1,5 @@
 <script lang="ts">
-    const core_mapping: { [key: string]: string } = {
+    const core_mapping: { [key in string]: string } = {
         c: "text-[#dcd9f7]", // Not white #dcd9f7
         o: "text-warning-500",
         r: "text-[#dcd9f7]",

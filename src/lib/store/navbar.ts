@@ -1,8 +1,10 @@
 import { page } from "$app/stores";
 import { derived } from "svelte/store";
 
-function get_logo_variant(pathname: string): "logo" | "form" {
-    let logo_type: "logo" | "form";
+type ILogo = "logo" | "form";
+
+function get_logo_variant(pathname: string): ILogo {
+    let logo_type: ILogo;
 
     if (pathname.match(/user/gm)) {
         logo_type = "logo";

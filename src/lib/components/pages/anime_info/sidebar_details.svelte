@@ -45,7 +45,7 @@
                 <StarRating
                     rating={4.5}
                     config={{ fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)" }}
-                    style={"margin: 0; gap: 5px"}
+                    style="margin: 0; gap: 5px"
                 />
                 <span class="font-bold md:text-[0.95vw] md:leading-[1.125vw]">92%</span>
                 <button class="btn btn-icon bg-secondary-100 p-1 text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]">
