@@ -5,7 +5,7 @@
   <p align="center">
    <b>A modern anime streaming platform under CoreProject
      <br>
-   This is the V3 UI for <a href="https://github.com/baseplace-admin/CoreProject/">CoreProject</a> / <a href="https://github.com/Tokito69/CoreProject-V3-UI/">AnimeCore<a/>
+   This is the V3 UI for <a href="https://github.com/baseplate-admin/CoreProject/">CoreProject</a> / <a href="https://github.com/Tokito69/CoreProject-V3-UI/">AnimeCore<a/>
      <br>
      check <a href="https://coreproject.moe/anime/">v2 UI</a>
     <br><br>
