@@ -187,13 +187,13 @@
                     {anime_synopsis}
                 </ScrollArea>
 
-                <div class="flex gap-2 md:mt-3">
-                    <div class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]">Mystery</div>
-                    <div class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]">Romance</div>
-                    <div class="rounded bg-surface-500 px-[0.95vw] text-white md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.9vw]">Horror</div>
+                <div class="flex gap-2 text-white md:mt-3 md:text-[0.75vw] md:leading-[0.9vw]">
+                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</div>
+                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</div>
+                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</div>
                 </div>
 
-                <div class="flex w-max items-center gap-2 rounded bg-white/10 backdrop-blur-lg md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.625vw] md:leading-[0.75vw]">
+                <div class="flex w-max items-center gap-2 rounded bg-surface-50/10 backdrop-blur-lg md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
                     <div class="flex items-center gap-1">
                         Score:
                         <span class="text-warning-400">79</span>
