@@ -21,7 +21,7 @@
         </button>
     </div>
 
-    <div class="flex justify-between md:mt-[3vw]">
+    <div class="flex justify-between md:mt-[0.5vw]">
         <div class="flex items-end gap-[1.25vw]">
             <p class="flex items-end gap-[0.75vw]">
                 <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
@@ -30,23 +30,23 @@
             </p>
 
             <div>
-                <div class="relative flex w-max items-center">
-                    <span class="pr-[4.5vw] text-[0.75vw] font-medium">available in</span>
-                    <div class="absolute right-0 h-[0.08vw] w-[4vw] bg-white" />
+                <div class="flex w-full items-center gap-[1vw] leading-[1.5vw]">
+                    <span class="flex-shrink-0 text-[0.75vw] font-medium">Available in</span>
+                    <div class="h-[0.08vw] w-full bg-surface-300" />
                 </div>
 
                 <div>
-                    <div class="flex h-[1.8vw] items-center gap-[0.75vw]">
-                        <button class="btn btn-sm h-full rounded-[0.25vw] bg-surface-400 px-[0.9vw] text-[0.8vw] font-bold uppercase leading-[0.9vw]">sub</button>
+                    <div class="flex h-[1.8vw] items-center gap-[0.75vw] text-[0.75vw] font-bold">
+                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">sub</span>
 
-                        <button class="btn btn-sm h-full rounded-[0.25vw] bg-surface-400 px-[0.9vw] text-[0.8vw] font-bold uppercase leading-[0.9vw]">dub</button>
+                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">dub</span>
 
                         <span class="md:text-[0.6vw]">▪</span>
 
-                        <button class="btn btn-sm h-full rounded-[0.25vw] bg-surface-400 px-[0.9vw] text-[0.8vw] font-bold leading-[0.9vw]">1080p</button>
+                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">1080p</span>
 
-                        <button class="btn btn-sm h-full rounded-[0.25vw] bg-surface-400 px-[0.9vw] text-[0.8vw] font-bold leading-[0.9vw]">720p</button>
-                        <button class="btn btn-sm h-full rounded-[0.25vw] bg-surface-400 px-[0.9vw] text-[0.8vw] font-bold leading-[0.9vw]">480p</button>
+                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">720p</span>
+                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">480p</span>
                     </div>
                 </div>
             </div>
@@ -110,9 +110,7 @@
                             class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
                         >
                             <div class="flex items-center justify-center md:gap-[0.7vw]">
-                                <PlayCircle
-                                    class="w-[1.5vw]"
-                                />
+                                <PlayCircle class="w-[1.5vw]" />
                                 <div class="flex flex-col items-start gap-[0.25vw]">
                                     <span class="text-[1vw] font-bold leading-none">
                                         Ep {episode.episode_number}
@@ -125,9 +123,7 @@
                             class="btn h-[4vw] w-[5vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
                         >
                             <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
-                                <Read
-                                    class="w-[1.3vw]"
-                                />
+                                <Read class="w-[1.3vw]" />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1vw]">Read</span>
                                 </div>
