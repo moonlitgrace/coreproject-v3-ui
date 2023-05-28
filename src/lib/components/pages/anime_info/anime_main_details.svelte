@@ -86,16 +86,16 @@
 <div class="grid grid-cols-12 items-start">
     <div class="col-span-10 pr-[4vw]">
         <div class="grid grid-cols-12 items-end justify-between">
-            <div class="col-span-7 flex items-end pr-[2vw] md:gap-[3.125vw]">
+            <div class="col-span-7 flex items-end pr-[2vw] md:gap-[2.5vw]">
                 <img
-                    class="object-cover object-center md:h-[18vw] md:w-[12vw] md:rounded-[1vw]"
+                    class="object-cover object-center md:h-[18.25vw] md:w-[12vw] md:rounded-[1vw]"
                     src={anime_banner}
                     alt={anime_name}
                 />
                 <div>
-                    <span class="font-bold md:text-[2.5vw] md:leading-[3vw]">{anime_name}</span>
+                    <span class="font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
 
-                    <p class="unstyled flex items-center gap-2 font-bold font-semibold uppercase tracking-wider text-surface-50 text-white md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                    <p class="unstyled flex items-center gap-2 font-bold font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
                         <span class="after:ml-2 after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
                         <span>{anime_name}</span>
                     </p>
@@ -112,7 +112,7 @@
                         <span class="uppercase tracking-wider">Kuschio animation</span>
                     </p>
 
-                    <div class="flex items-center md:mt-[2.25vw] md:gap-[1.15vw]">
+                    <div class="mt-[1.5vw] flex items-center md:gap-[1.15vw]">
                         <button
                             type="button"
                             class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
@@ -121,7 +121,7 @@
                                 <PlayCircle class="w-[1.875vw]" />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1.05vw]">Watch</span>
-                                    <span class="font-normal leading-[0.9375vw] text-surface-100 md:text-[0.625vw]">Ep 01</span>
+                                    <span class="font-bold leading-[0.9375vw] text-surface-50 md:text-[0.625vw]">Ep 01</span>
                                 </div>
                             </div>
                         </button>
@@ -148,7 +148,7 @@
                         {/each}
                     </div>
 
-                    <div class="flex md:mt-[1.25vw] md:gap-[0.625vw]">
+                    <div class="flex md:mt-[1vw] md:gap-[0.625vw]">
                         {#each Object.entries(icon_mapping.user_options_icons) as item}
                             {@const item_icon = item[1].icon}
                             {@const component = item_icon.component}
@@ -171,7 +171,7 @@
             </div>
 
             <div class="col-span-5">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-[0.75vw]">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
                     <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -181,33 +181,33 @@
                 <ScrollArea
                     offsetScrollbar
                     gradientMask
-                    parentClass="mt-5"
-                    class="text-justify md:max-h-[9.5vw] md:text-[0.75vw] md:leading-[1vw]"
+                    parentClass="mt-[1.25vw]"
+                    class="text-justify md:max-h-[10.25vw] md:text-[0.75vw] md:leading-[1vw]"
                 >
                     {anime_synopsis}
                 </ScrollArea>
 
-                <div class="flex gap-2 text-white md:mt-3 md:text-[0.75vw] md:leading-[0.9vw]">
+                <div class="flex gap-[0.5vw] text-white md:mt-[1vw] md:text-[0.75vw] md:leading-[0.9vw]">
                     <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</div>
                     <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</div>
                     <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</div>
                 </div>
 
-                <div class="flex w-max items-center gap-2 rounded bg-surface-50/10 backdrop-blur-lg md:mt-3 md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
-                    <div class="flex items-center gap-1">
+                <div class="flex w-max items-center gap-[0.75vw] rounded bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
+                    <div class="flex items-center gap-[0.25vw]">
                         Score:
                         <span class="text-warning-400">79</span>
                     </div>
-                    <div class="flex items-center gap-1">
+                    <div class="flex items-center gap-[0.25vw]">
                         Status:
                         <span class="text-warning-400">Watching</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
-                    <div class="flex items-center gap-1">
+                    <div class="flex items-center gap-[0.25vw]">
                         Episode:
                         <span class="text-warning-400">0/{anime_episodes_count}</span>
                     </div>
-                    <div class="flex items-center gap-1">
+                    <div class="flex items-center gap-[0.25vw]">
                         Your Score:
                         <span class="text-warning-400">Not Rated</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />
