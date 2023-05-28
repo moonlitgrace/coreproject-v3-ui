@@ -9,6 +9,7 @@
     import StarRating from "svelte-star-rating";
     import Edit from "$icons/edit.svelte";
     import ExternalLink from "$icons/external_link.svelte";
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
 
     const anime_details = {
         format: "TV",
@@ -132,12 +133,12 @@
             <casts>
                 <div class="mt-[1vw]">
                     <div class="relative grid h-[7.5vw] w-[12.5vw] grid-cols-2 gap-[2px] overflow-hidden rounded-[0.75vw]">
-                        <div
-                            class="col-span-1 w-full bg-cover"
-                            style="
-									background-image: url(https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png);
-								"
-                        >
+                        <div class="relative col-span-1 w-full bg-cover">
+                            <ImageLoader
+                                src="https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png"
+                                class="absolute h-full w-full object-cover object-center"
+                            />
+
                             <span
                                 style="grid-area: 1 / 1 / 2 / 2"
                                 class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]"
@@ -145,12 +146,12 @@
                                 Houtarou Oreki
                             </span>
                         </div>
-                        <div
-                            class="col-span-1 w-full bg-cover"
-                            style="
-									background-image: url(https://cdn.myanimelist.net/images/voiceactors/1/74056.jpg);
-								"
-                        >
+                        <div class="relative col-span-1 w-full bg-cover">
+                            <ImageLoader
+                                src="https://cdn.myanimelist.net/images/voiceactors/1/74056.jpg"
+                                class="absolute h-full w-full object-cover object-center"
+                            />
+
                             <span
                                 style="grid-area: 1 / 1 / 2 / 2"
                                 class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]"
@@ -158,7 +159,7 @@
                                 Yuuichi Nakamura
                             </span>
                         </div>
-                        <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
+                        <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </div>
 
                     <div class="mt-[1.5vw] flex flex-col">
@@ -192,33 +193,37 @@
                     <a
                         href="/myanimelist/1"
                         class="card relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.75vw] bg-cover bg-center"
-                        style="
-								background-image: url(https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg);
-							"
                     >
+                        <ImageLoader
+                            src="https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg"
+                            class="absolute h-full w-full object-cover object-center"
+                        />
+
                         <span
                             style="grid-area: 1 / 1 / 2 / 2"
                             class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
                         >
                             Yahari Ore no Seishun Love Come wa Machigatteiru.
                         </span>
-                        <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
+                        <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </a>
 
                     <a
                         href="/myanimelist/1"
                         class="card relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.75vw] bg-cover"
-                        style="
-								background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698);
-							"
                     >
+                        <ImageLoader
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698"
+                            class="absolute h-full w-full object-cover object-center"
+                        />
+
                         <span
                             style="grid-area: 1 / 1 / 2 / 2"
                             class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
                         >
                             Suzumiya Haruhi no Yuuutsu
                         </span>
-                        <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
+                        <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </a>
                 </div>
 
