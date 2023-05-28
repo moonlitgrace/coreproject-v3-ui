@@ -235,11 +235,13 @@
                             href="/"
                             class="card flex grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
                         >
-                            <img
-                                src={post.banner}
-                                alt={post.title}
-                                class="col-span-2 h-full object-cover object-center"
-                            />
+                            <div class="col-span-2">
+                                <ImageLoader
+                                    src={post.banner}
+                                    alt={post.title}
+                                    class="w-full h-full object-cover object-center"
+                                />
+                            </div>
 
                             <div class="col-span-5 flex flex-col justify-between gap-[0.375vw] p-[1vw]">
                                 <div>
