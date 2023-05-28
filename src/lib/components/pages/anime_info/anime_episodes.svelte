@@ -2,6 +2,7 @@
     import { FormatTime } from "$functions/format_time";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
+    import Emoji from "$icons/emoji.svelte";
     import Listen from "$icons/listen.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
@@ -166,10 +167,18 @@
 
                 <div class="mt-[1vw]">
                     <form>
-                        <textarea
-                            class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
-                            placeholder="Leave a comment"
-                        />
+                        <div class="relative">
+                            <textarea
+                                class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
+                                placeholder="Leave a comment"
+                            />
+                            <button
+                                class="btn btn-icon absolute bottom-[0.75vw] right-[0.75vw] w-auto p-0"
+                                type="button"
+                            >
+                                <Emoji class="w-[1.5vw] opacity-75" />
+                            </button>
+                        </div>
 
                         <div class="mt-[0.75vw] flex justify-between gap-[1vw]">
                             <div class="flex gap-[0.625vw]">
