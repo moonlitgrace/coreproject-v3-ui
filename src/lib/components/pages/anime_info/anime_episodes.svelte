@@ -2,6 +2,7 @@
     import { FormatTime } from "$functions/format_time";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
+    import Listen from "$icons/listen.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Read from "$icons/read.svelte";
@@ -14,7 +15,7 @@
 </script>
 
 <div class="my-[6vw]">
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-[0.75vw]">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
         <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -23,7 +24,7 @@
 
     <div class="flex justify-between md:mt-[0.5vw]">
         <div class="flex items-end gap-[1.25vw]">
-            <p class="flex items-end gap-[0.75vw]">
+            <p class="flex items-center gap-[0.75vw]">
                 <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
                 <span class="font-semibold md:text-[1vw]">episodes</span>
                 <span class="md:text-[0.6vw]">▪</span>
@@ -118,18 +119,32 @@
                                 </div>
                             </div>
                         </button>
-                        <button
-                            type="button"
-                            class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
-                            disabled
-                        >
-                            <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
-                                <Read class="w-[1.3vw]" />
-                                <div class="flex flex-col items-start">
-                                    <span class="leading-[1vw]">Read</span>
+                        <div class="flex gap-[0.35vw]">
+                            <button
+                                type="button"
+                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                disabled
+                            >
+                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
+                                    <Read class="w-[1.3vw]" />
+                                    <div class="flex flex-col items-start">
+                                        <span class="leading-[1vw]">Read</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                disabled
+                            >
+                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
+                                    <Listen class="w-[1.3vw]" />
+                                    <div class="flex flex-col items-start">
+                                        <span class="leading-[1vw]">Lsiten</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <span class="pt-[0.75vw] text-[0.8vw] font-light leading-[0.9375vw] text-surface-50/75 transition duration-300 group-hover:text-surface-50">
