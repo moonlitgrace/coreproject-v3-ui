@@ -207,7 +207,7 @@
 
             <div class="mt-[0.75vw]">
                 <div class="flex items-end justify-between">
-                    <button class="btn btn-sm h-[2.4vw] w-[7.3125vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw]">
+                    <button class="btn btn-sm h-[2.4vw] w-[7.5vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         <Cross
                             color="surface-50"
                             class="w-[1vw] rotate-45"
@@ -226,29 +226,40 @@
 
                 <posts>
                     <div class="mt-[1.25vw] flex flex-col gap-[1vw]">
-                        {#each Array(2) as _}
-                            <div class="flex h-[5vw] w-full cursor-pointer items-center justify-between rounded-[0.625vw] bg-surface-400/90 p-[0.9375vw] duration-100 hover:bg-surface-400 active:scale-[99%]">
-                                <div class="flex items-center gap-[0.9375vw]">
+                        {#each Array(1) as _}
+                            <a
+                                href="/"
+                                class="card w-full overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                            >
+                                <div class="flex h-[10vw]">
                                     <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3d25tDiGpqytyz4lq6xVA7cRfr5ZzUxualk3sGvP9og69mx25t00e-fz5O0fd4up6EGJMQSSDlE&usqp=CAU&ec=48665698"
+                                        src="https://blog.sakugabooru.com/wp-content/uploads/2017/11/hk22-1038x576.jpg"
                                         alt=""
-                                        class="h-[3.125vw] w-[3.125vw] rounded-[0.375vw] object-cover"
+                                        class="h-full w-[7vw] object-cover object-center"
                                     />
 
-                                    <div class="flex flex-col gap-[0.375vw]">
-                                        <span class="text-[0.875vw] font-extrabold leading-[1.125vw]">Celebrating 10 years of Hyouka!</span>
-                                        <span class="text-[0.625vw] leading-[1.125v]">
-                                            <span>Posted by Eiennlaio</span>
-                                            <span class="divider-vertical ml-1 !border-white pl-1">14 hours ago</span>
-                                        </span>
+                                    <div class="flex flex-col justify-between gap-[0.375vw] px-[1vw] py-[0.75vw]">
+                                        <div>
+                                            <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">Celebrating 10 years of Hyouka! with all anime lovers.</span>
+                                            <span class="mt-[0.5vw] line-clamp-3 text-[0.75vw] font-medium leading-[1.125vw] text-surface-50">ousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters</span>
+                                        </div>
+
+                                        <div class="flex items-center justify-between text-[0.75vw] leading-[1.125v]">
+                                            <div>
+                                                <span>
+                                                    Posted by <span class="text-[0.85vw] font-semibold">Eiennlaio</span>
+                                                </span>
+                                                <span class="text-surface-50">14 hours ago</span>
+                                            </div>
+
+                                            <div class="flex items-center gap-[0.25vw]">
+                                                <MessageCircle class="w-[1.25vw]" />
+                                                <span>69</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="flex flex-col items-center">
-                                    <MessageCircle class="w-[1.25vw]" />
-                                    <span class="mt-[0.125vw] text-[0.625vw] font-light leading-[1.125vw]">69</span>
-                                </div>
-                            </div>
+                            </a>
                         {/each}
                     </div>
                 </posts>
