@@ -230,15 +230,15 @@
                     {#each forum_posts as post}
                         <a
                             href="/"
-                            class="card grid grid-cols-7 flex w-full overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                            class="card flex grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
                         >
                             <img
                                 src={post.banner}
                                 alt={post.title}
-                                class="h-full col-span-2 object-cover object-center"
+                                class="col-span-2 h-full object-cover object-center"
                             />
 
-                            <div class="flex col-span-5 flex-col justify-between gap-[0.375vw] p-[1vw]">
+                            <div class="col-span-5 flex flex-col justify-between gap-[0.375vw] p-[1vw]">
                                 <div>
                                     <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">
                                         {post.title}
@@ -259,7 +259,7 @@
                                     </div>
 
                                     <div class="flex items-center gap-[0.25vw]">
-                                        <MessageCircle class="w-[1.25vw]" />
+                                        <MessageCircle class="w-[1vw]" />
                                         <span>{post.responses}</span>
                                     </div>
                                 </div>
