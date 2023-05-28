@@ -1,6 +1,7 @@
 <script lang="ts">
     import AnimeEpisodes from "$components/pages/anime_info/anime_episodes.svelte";
     import AnimeFullDetails from "$components/pages/anime_info/anime_full_details.svelte";
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
@@ -86,7 +87,7 @@
     <div class="col-span-10 pr-[4vw]">
         <div class="grid grid-cols-12 items-end justify-between">
             <div class="col-span-7 flex items-end pr-[2vw] md:gap-[2.5vw]">
-                <img
+                <ImageLoader
                     class="object-cover object-center md:h-[18.25vw] md:w-[12vw] md:rounded-[1vw]"
                     src={anime_banner}
                     alt={anime_name}

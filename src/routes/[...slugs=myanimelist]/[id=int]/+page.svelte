@@ -4,6 +4,7 @@
     import { anime_episodes } from "$data/mock/anime_episodes";
     import { anime_list } from "$data/mock/anime_list";
     import { OpengraphGenerator } from "$functions/opengraph";
+    import TopRounded from "$icons/top_rounded.svelte";
 
     let anime_id = Number($page.params.id);
 
@@ -24,6 +25,7 @@
 </svelte:head>
 
 {#if anime}
+    <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900" />
     <AnimeInfoPage
         anime_name={anime.name}
         anime_alternative_name={anime.alternative_name}
