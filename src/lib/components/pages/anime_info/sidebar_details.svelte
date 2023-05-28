@@ -8,7 +8,7 @@
 </script>
 
 <div>
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-[0.75vw]">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Ratings</span>
         <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -17,8 +17,8 @@
 
     <div class="md:mt-[1.56vw]">
         <div class="flex items-center gap-1">
-            <span class="border-b-2 border-white/25 pb-2 font-bold md:text-[2vw] md:leading-[1.5vw]">92%</span>
-            <span class="divider-vertical m-0 !border-surface-50 font-semibold text-surface-50 md:pl-1 md:text-[0.75vw] md:leading-[0.8vw]">2.8k ratings</span>
+            <span class="border-b-2 border-surface-50/50 pb-[0.5vw] font-bold md:text-[2vw] md:leading-[1.5vw]">92%</span>
+            <span class="divider-vertical m-0 !border-surface-50/50 font-semibold text-surface-50 md:pl-1 md:text-[0.75vw] md:leading-[0.8vw]">2.8k ratings</span>
         </div>
 
         <div class="md:mt-[1.125vw]">
