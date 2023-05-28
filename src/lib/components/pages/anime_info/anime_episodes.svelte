@@ -22,7 +22,7 @@
         </button>
     </div>
 
-    <div class="flex justify-between md:mt-[0.5vw]">
+    <div class="flex justify-between">
         <div class="flex items-end gap-[1.25vw]">
             <p class="flex items-center gap-[0.75vw]">
                 <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
