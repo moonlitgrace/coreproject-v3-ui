@@ -31,7 +31,7 @@
 </script>
 
 <div
-    class="h-full w-full"
+    class="h-full"
     bind:this={container}
 >
     <slot {intersecting} />
