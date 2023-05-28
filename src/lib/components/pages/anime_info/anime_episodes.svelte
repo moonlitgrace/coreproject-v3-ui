@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { forum_posts } from "$data/mock/forum_posts";
+    import { FormatDate } from "$functions/format_date";
     import { FormatTime } from "$functions/format_time";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
@@ -224,44 +226,46 @@
                     </button>
                 </div>
 
-                <posts>
-                    <div class="mt-[1.25vw] flex flex-col gap-[1vw]">
-                        {#each Array(1) as _}
-                            <a
-                                href="/"
-                                class="card w-full overflow-hidden rounded-[0.625vw] !bg-surface-400"
-                            >
-                                <div class="flex h-[10vw]">
-                                    <img
-                                        src="https://blog.sakugabooru.com/wp-content/uploads/2017/11/hk22-1038x576.jpg"
-                                        alt=""
-                                        class="h-full w-[7vw] object-cover object-center"
-                                    />
+                <posts class="mt-[1.25vw] flex flex-col gap-[1vw]">
+                    {#each forum_posts as post}
+                        <a
+                            href="/"
+                            class="card flex h-[10vw] w-full overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                        >
+                            <img
+                                src={post.banner}
+                                alt={post.title}
+                                class="h-full w-[7vw] object-cover object-center"
+                            />
 
-                                    <div class="flex flex-col justify-between gap-[0.375vw] px-[1vw] py-[0.75vw]">
-                                        <div>
-                                            <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">Celebrating 10 years of Hyouka! with all anime lovers.</span>
-                                            <span class="mt-[0.5vw] line-clamp-3 text-[0.75vw] font-medium leading-[1.125vw] text-surface-50">ousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters</span>
-                                        </div>
+                            <div class="flex flex-col justify-between gap-[0.375vw] p-[1vw]">
+                                <div>
+                                    <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">
+                                        {post.title}
+                                    </span>
+                                    <span class="mt-[0.5vw] line-clamp-2 text-[0.75vw] font-medium leading-[1.125vw] text-surface-50">
+                                        {post.description}
+                                    </span>
+                                </div>
 
-                                        <div class="flex items-center justify-between text-[0.75vw] leading-[1.125v]">
-                                            <div>
-                                                <span>
-                                                    Posted by <span class="text-[0.85vw] font-semibold">Eiennlaio</span>
-                                                </span>
-                                                <span class="text-surface-50">14 hours ago</span>
-                                            </div>
+                                <div class="flex items-center justify-between text-[0.75vw] leading-[1.125v]">
+                                    <div>
+                                        <span>
+                                            Posted by <span class="text-[0.85vw] font-semibold">{post.auther}</span>
+                                        </span>
+                                        <span class="text-surface-50">
+                                            {new FormatDate(post.posted_on).format_to_time_from_now}
+                                        </span>
+                                    </div>
 
-                                            <div class="flex items-center gap-[0.25vw]">
-                                                <MessageCircle class="w-[1.25vw]" />
-                                                <span>69</span>
-                                            </div>
-                                        </div>
+                                    <div class="flex items-center gap-[0.25vw]">
+                                        <MessageCircle class="w-[1.25vw]" />
+                                        <span>{post.responses}</span>
                                     </div>
                                 </div>
-                            </a>
-                        {/each}
-                    </div>
+                            </div>
+                        </a>
+                    {/each}
                 </posts>
             </div>
         </forum-posts>
