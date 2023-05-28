@@ -187,36 +187,39 @@
                 </button>
             </div>
 
-            <div class="mt-[1.875vw]">
-                <div class="grid grid-cols-2 gap-[1.5vw]">
-                    <div
-                        class="relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.875vw] bg-cover bg-center"
+            <div class="mt-[1vw]">
+                <div class="grid grid-cols-2 gap-[1vw]">
+                    <a
+                        href="/myanimelist/1"
+                        class="card relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.75vw] bg-cover bg-center"
                         style="
 								background-image: url(https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg);
 							"
                     >
                         <span
                             style="grid-area: 1 / 1 / 2 / 2"
-                            class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.75vw] font-medium"
+                            class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
                         >
-                            {voca.truncate("Yahari Ore no Seishun Love Come wa Machigatteiru.", 30)}
+                            Yahari Ore no Seishun Love Come wa Machigatteiru.
                         </span>
                         <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
-                    </div>
-                    <div
-                        class="relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.875vw] bg-cover"
+                    </a>
+
+                    <a
+                        href="/myanimelist/1"
+                        class="card relative col-span-1 h-[9.375vw] w-full overflow-hidden rounded-[0.75vw] bg-cover"
                         style="
 								background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyHBqVsDb9uqO0weu_Hi4DdFs-AywgumizkZnLQys-TJc19oks1tofYGDqijII7qDxzZEMqVdstNg&usqp=CAU&ec=48665698);
 							"
                     >
                         <span
                             style="grid-area: 1 / 1 / 2 / 2"
-                            class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.75vw] font-medium"
+                            class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
                         >
-                            {voca.truncate("Suzumiya Haruhi no Yuuutsu", 30)}
+                            Suzumiya Haruhi no Yuuutsu
                         </span>
                         <div class="gradient absolute h-full w-full rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
-                    </div>
+                    </a>
                 </div>
 
                 <div class="mt-[1.5vw] flex flex-col">
