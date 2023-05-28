@@ -1,7 +1,6 @@
 <script lang="ts">
     import AnimeEpisodes from "$components/pages/anime_info/anime_episodes.svelte";
     import AnimeFullDetails from "$components/pages/anime_info/anime_full_details.svelte";
-    import SidebarDetails from "$components/pages/anime_info/sidebar_details.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
@@ -220,8 +219,6 @@
     </div>
 
     <div class="col-span-2">
-        <SidebarDetails />
-
         <AnimeFullDetails />
     </div>
 </div>
