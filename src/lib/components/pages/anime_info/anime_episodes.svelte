@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
     import { FormatTime } from "$functions/format_time";
@@ -89,11 +90,13 @@
     <div class="mt-[2.5vw] grid grid-cols-12 gap-[3.125vw]">
         {#each anime_episodes as episode}
             <div class="group col-span-4 flex cursor-pointer flex-col items-center text-center">
-                <div
-                    class="rounded-b-0 relative h-[12.5vw] w-full rounded-[0.625vw] border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300"
-                    style="background-image: url({episode.episode_thumbnail ?? ''})"
-                >
-                    <div class="absolute h-full w-full bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
+                <div class="relative h-[12.5vw] w-full border-b-[0.2vw] border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300">
+                    <ImageLoader
+                        src={episode.episode_thumbnail ?? ""}
+                        class="rounded-b-0 absolute h-full w-full rounded-[0.625vw] bg-cover bg-center"
+                    />
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
                     <div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
                         <p
                             style="grid-area: 1 / 1 / 2 / 2"

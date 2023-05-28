@@ -1,6 +1,5 @@
 <script lang="ts">
-    import TopRounded from "$icons/top_rounded.svelte";
-
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
     import AnimeMainDetails from "./anime_main_details.svelte";
 
     export let anime_name: string;
@@ -15,13 +14,14 @@
 </script>
 
 <div class="anime_info relative">
-    <div
-        class="relative h-screen bg-cover"
-        style="background-image: url({anime_cover ?? ''})"
-    >
-        <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900" />
-        <div class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/50" />
-        <div class="absolute h-full w-full md:p-[5vw]">
+    <div class="relative h-screen bg-cover" >
+        <ImageLoader 
+            src={anime_cover ?? ""}
+            class="absolute w-full h-full object-cover object-center rounded-tl-[1.5vw]"
+        />
+
+        <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/50" />
+        <div class="absolute inset-0 md:p-[5vw]">
             <AnimeMainDetails
                 {anime_name}
                 {anime_alternative_name}
