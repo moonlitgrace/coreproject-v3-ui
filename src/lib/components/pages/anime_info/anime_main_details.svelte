@@ -87,11 +87,13 @@
     <div class="col-span-10 pr-[4vw]">
         <div class="grid grid-cols-12 items-end justify-between">
             <div class="col-span-7 flex items-end pr-[2vw] md:gap-[2.5vw]">
-                <ImageLoader
-                    class="object-cover object-center md:h-[18.25vw] md:w-[12vw] md:rounded-[1vw]"
-                    src={anime_banner}
-                    alt={anime_name}
-                />
+                <div class="md:h-[18.25vw] md:w-[12vw]">
+                    <ImageLoader
+                        class="object-cover object-center h-full w-full md:rounded-[1vw]"
+                        src={anime_banner}
+                        alt={anime_name}
+                    />
+                </div>
                 <div>
                     <span class="font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
 
