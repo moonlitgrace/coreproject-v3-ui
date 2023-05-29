@@ -119,7 +119,7 @@
                             type="button"
                             class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw] md:text-[0.87vw]"
                         >
-                            <div class="flex space-x-[0.7vw]">
+                            <div class="flex gap-[0.7vw]">
                                 <PlayCircle class="w-[1.875vw]" />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1.05vw]">Watch</span>
@@ -173,7 +173,7 @@
             </div>
 
             <div class="col-span-5">
-                <div class="flex space-x-[0.75vw]">
+                <div class="flex gap-[0.75vw]">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
                     <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -195,21 +195,21 @@
                     <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</span>
                 </div>
 
-                <div class="flex w-max space-x-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
-                    <div class="flex space-x-[0.25vw]">
+                <div class="flex w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
+                    <div class="flex gap-[0.25vw]">
                         <span>Score:</span>
                         <span class="text-warning-400">79</span>
                     </div>
-                    <div class="flex space-x-[0.25vw]">
+                    <div class="flex gap-[0.25vw]">
                         <span>Status:</span>
                         <span class="text-warning-400">Watching</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
-                    <div class="flex space-x-[0.25vw]">
+                    <div class="flex gap-[0.25vw]">
                         <span>Episode:</span>
                         <span class="text-warning-400">0/{anime_episodes_count}</span>
                     </div>
-                    <div class="flex space-x-[0.25vw]">
+                    <div class="flex gap-[0.25vw]">
                         <span>Your Score:</span>
                         <span class="text-warning-400">Not Rated</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />

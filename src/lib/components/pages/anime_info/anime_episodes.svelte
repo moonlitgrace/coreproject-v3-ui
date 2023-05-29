@@ -19,7 +19,7 @@
 </script>
 
 <div class="my-[6vw]">
-    <div class="flex items-center gap-[0.75vw]">
+    <div class="space-x-[0.75vw]">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
         <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -28,7 +28,7 @@
 
     <div class="flex justify-between">
         <div class="flex items-end gap-[1.25vw]">
-            <p class="flex items-center gap-[0.75vw]">
+            <p class="flex gap-[0.75vw]">
                 <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
                 <span class="font-semibold md:text-[1vw]">episodes</span>
                 <span class="md:text-[0.6vw]">▪</span>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div>
-                    <div class="flex h-[1.8vw] items-center gap-[0.75vw] text-[0.75vw] font-bold">
+                    <div class="flex h-[1.8vw] gap-[0.75vw] text-[0.75vw] font-bold">
                         <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">sub</span>
 
                         <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">dub</span>
@@ -89,7 +89,7 @@
 
     <div class="mt-[2.5vw] grid grid-cols-12 gap-[3.125vw]">
         {#each anime_episodes as episode}
-            <div class="group col-span-4 flex cursor-pointer flex-col items-center text-center">
+            <div class="group col-span-4 flex flex-col items-center text-center">
                 <div class="relative h-[12.5vw] w-full border-b-[0.2vw] border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300">
                     <ImageLoader
                         src={episode.episode_thumbnail ?? ""}
@@ -116,13 +116,11 @@
                             type="button"
                             class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
                         >
-                            <div class="flex items-center justify-center md:gap-[0.7vw]">
+                            <div class="flex place-items-center md:gap-[0.7vw]">
                                 <PlayCircle class="w-[1.5vw]" />
-                                <div class="flex flex-col items-start gap-[0.25vw]">
-                                    <span class="text-[1vw] font-bold leading-none">
-                                        Ep {episode.episode_number}
-                                    </span>
-                                </div>
+                                <span class="text-[1vw] font-bold leading-none">
+                                    Ep {episode.episode_number}
+                                </span>
                             </div>
                         </button>
                         <div class="flex gap-[0.35vw]">
@@ -143,7 +141,7 @@
                                 class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
                                 disabled
                             >
-                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
+                                <div class="flex flex-col place-items-center md:gap-[0.35vw]">
                                     <Listen class="w-[1.3vw]" />
                                     <div class="flex flex-col items-start">
                                         <span class="leading-[1vw]">Lsiten</span>
@@ -162,7 +160,7 @@
 
     <div class="mt-[5vw] grid grid-cols-5 gap-[4.375vw]">
         <comment-box class="col-span-3">
-            <div class="flex items-center gap-[0.75vw]">
+            <div class="flex gap-[0.75vw]">
                 <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
                 <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -190,7 +188,7 @@
                             Please remember to follow our
                             <a
                                 href="/"
-                                class="unstyled text-surface-300 underline"
+                                class="unstyled text-surface-200 underline"
                             >
                                 community guidelines
                             </a>
@@ -203,7 +201,7 @@
             </form>
         </comment-box>
         <forum-posts class="col-span-2">
-            <div class="flex items-center gap-[0.75vw]">
+            <div class="flex gap-[0.75vw]">
                 <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
                 <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -211,8 +209,8 @@
             </div>
 
             <div class="mt-[0.75vw]">
-                <div class="flex items-end justify-between">
-                    <button class="btn btn-sm h-[2.4vw] w-[7.5vw] gap-2 rounded-[0.375vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
+                <div class="flex justify-between">
+                    <button class="btn btn-sm h-[2.4vw] w-[7.5vw] gap-2 rounded-[0.5vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
                         <Cross
                             color="surface-50"
                             class="w-[1vw] rotate-45"
@@ -243,7 +241,7 @@
                                 />
                             </div>
 
-                            <div class="col-span-5 flex flex-col justify-between gap-[0.375vw] p-[1vw]">
+                            <div class="col-span-5 flex flex-col gap-[0.375vw] p-[1vw]">
                                 <div>
                                     <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">
                                         {post.title}
@@ -253,7 +251,7 @@
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between text-[0.75vw]">
+                                <div class="flex items-center justify-between text-[0.75vw] mt-[0.75vw] leading-none">
                                     <div>
                                         <span>
                                             Posted by <span class="text-[0.85vw] font-semibold">{post.auther}</span>
