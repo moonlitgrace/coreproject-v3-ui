@@ -89,7 +89,7 @@
             <div class="col-span-7 flex items-end pr-[2vw] md:gap-[2.5vw]">
                 <div class="md:h-[18.25vw] md:w-[12vw]">
                     <ImageLoader
-                        class="object-cover object-center h-full w-full md:rounded-[1vw]"
+                        class="h-full w-full object-cover object-center md:rounded-[1vw]"
                         src={anime_banner}
                         alt={anime_name}
                     />
@@ -97,12 +97,12 @@
                 <div>
                     <span class="font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
 
-                    <p class="unstyled flex items-center gap-2 font-bold font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                        <span class="after:ml-2 after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
+                    <p class="unstyled space-x-[0.25vw] font-bold font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
                         <span>{anime_name}</span>
                     </p>
 
-                    <p class="mt-[0.25vw] flex flex-wrap items-center gap-2 font-semibold md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
+                    <p class="mt-[0.25vw] flex flex-wrap items-center gap-[0.5vw] font-semibold md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
                         <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">TV</span>
                         <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
                             {anime_episodes_count} eps
@@ -117,9 +117,9 @@
                     <div class="mt-[1.5vw] flex items-center md:gap-[1.15vw]">
                         <button
                             type="button"
-                            class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[6.75vw] md:rounded-[0.625vw] md:text-[0.87vw]"
+                            class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw] md:text-[0.87vw]"
                         >
-                            <div class="flex items-center justify-center md:gap-[0.7vw]">
+                            <div class="flex space-x-[0.7vw]">
                                 <PlayCircle class="w-[1.875vw]" />
                                 <div class="flex flex-col items-start">
                                     <span class="leading-[1.05vw]">Watch</span>
@@ -139,7 +139,7 @@
                                 class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
                                 disabled
                             >
-                                <div class="flex flex-col items-center justify-center md:gap-[0.68vw]">
+                                <div class="flex flex-col items-center md:gap-[0.68vw]">
                                     <svelte:component
                                         this={component}
                                         class={component_class}
@@ -173,7 +173,7 @@
             </div>
 
             <div class="col-span-5">
-                <div class="flex items-center gap-[0.75vw]">
+                <div class="flex space-x-[0.75vw]">
                     <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
                     <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -190,27 +190,27 @@
                 </ScrollArea>
 
                 <div class="flex gap-[0.5vw] text-white md:mt-[1vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</div>
-                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</div>
-                    <div class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</div>
+                    <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</span>
+                    <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</span>
+                    <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</span>
                 </div>
 
-                <div class="flex w-max items-center gap-[0.75vw] rounded bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
-                    <div class="flex items-center gap-[0.25vw]">
-                        Score:
+                <div class="flex w-max space-x-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
+                    <div class="flex space-x-[0.25vw]">
+                        <span>Score:</span>
                         <span class="text-warning-400">79</span>
                     </div>
-                    <div class="flex items-center gap-[0.25vw]">
-                        Status:
+                    <div class="flex space-x-[0.25vw]">
+                        <span>Status:</span>
                         <span class="text-warning-400">Watching</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
-                    <div class="flex items-center gap-[0.25vw]">
-                        Episode:
+                    <div class="flex space-x-[0.25vw]">
+                        <span>Episode:</span>
                         <span class="text-warning-400">0/{anime_episodes_count}</span>
                     </div>
-                    <div class="flex items-center gap-[0.25vw]">
-                        Your Score:
+                    <div class="flex space-x-[0.25vw]">
+                        <span>Your Score:</span>
                         <span class="text-warning-400">Not Rated</span>
                         <Chevron class="w-[0.625vw] text-warning-400" />
                     </div>
