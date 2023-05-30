@@ -27,9 +27,9 @@
     // NProgress
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
-    import tippy from "tippy.js";
     import type { SvelteComponentDev } from "svelte/internal";
     import { blur } from "svelte/transition";
+    import tippy from "tippy.js";
 
     // Most of your app wide CSS should be put in this file
     import "../app.scss";
@@ -244,14 +244,14 @@
                     <button
                         class="avatar"
                         use:tippy={{
-                            trigger: "focus",
+                            trigger: "click",
                             arrow: false,
                             allowHTML: true,
                             placement: "bottom-end",
                             offset: [0, 10],
                             animation: "shift-away",
-                            hideOnClick: false,
-                            appendTo: "parent",
+                            appendTo: document.body,
+                            interactive: true,
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
                                 new ProfileDropdown({
