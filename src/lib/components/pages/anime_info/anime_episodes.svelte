@@ -14,8 +14,12 @@
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Warning from "$icons/warning.svelte";
+    import EmojiPicker from "svelte-emoji-picker";
 
     export let anime_episodes: any;
+
+    /* Comment box logics */
+    let comment_text: string;
 </script>
 
 <div class="my-[6vw]">
@@ -167,11 +171,20 @@
                 </button>
             </div>
 
-            <form class="mt-[1vw]">
+            <form
+                class="mt-[1vw]"
+                on:submit|preventDefault
+            >
                 <div class="relative">
                     <textarea
                         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
                         placeholder="Leave a comment"
+                        bind:value={comment_text}
+                    />
+                    <!-- Need to style this -->
+                    <EmojiPicker
+                        fontSize="20px"
+                        bind:value={comment_text}
                     />
                     <button
                         class="btn btn-icon absolute bottom-[0.75vw] right-[0.75vw] w-auto p-0"
@@ -237,7 +250,7 @@
                                 <ImageLoader
                                     src={post.banner}
                                     alt={post.title}
-                                    class="w-full h-full object-cover object-center"
+                                    class="h-full w-full object-cover object-center"
                                 />
                             </div>
 
@@ -251,7 +264,7 @@
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between text-[0.75vw] mt-[0.75vw] leading-none">
+                                <div class="mt-[0.75vw] flex items-center justify-between text-[0.75vw] leading-none">
                                     <div>
                                         <span>
                                             Posted by <span class="text-[0.85vw] font-semibold">{post.auther}</span>
