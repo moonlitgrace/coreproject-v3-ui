@@ -29,7 +29,7 @@
     import _ from "lodash";
     import { onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
-    import tippy from "svelte-tippy";
+    import tippy from "tippy.js";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
