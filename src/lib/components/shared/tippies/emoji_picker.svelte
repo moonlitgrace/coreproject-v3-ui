@@ -26,8 +26,8 @@
 <style>
     emoji-picker {
         height: 25vw;
-        --num-columns: 7;
-        --emoji-size: 1.5vw;
+        --num-columns: 8;
+        --emoji-size: 1.25vw;
         --background: #1e2036;
         --button-hover-background: #3e405b;
         --button-active-background: #4d4f68;
