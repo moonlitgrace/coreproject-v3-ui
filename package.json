@@ -60,7 +60,7 @@
         "tslib": "^2.5.2",
         "typescript": "^5.0.4",
         "vite": "^4.3.9",
-        "vitest": "^0.31.1",
+        "vitest": "^0.31.2",
         "voca": "^1.4.1"
     },
     "type": "module"
