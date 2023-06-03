@@ -97,7 +97,7 @@
                 <div>
                     <span class="font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
 
-                    <p class="unstyled space-x-[0.25vw] font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                    <p class="unstyled flex gap-x-[0.25vw] font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
                         <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
                         <span>{anime_name}</span>
                     </p>
