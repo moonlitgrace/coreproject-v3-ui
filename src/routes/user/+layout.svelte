@@ -31,8 +31,7 @@
     {#each latest_animes as item, index}
         {#if index === CHOICE}
             <div
-                class="relative"
-                style="grid-area: 1 / 1 / 1 / 1;"
+                class="relative col-start-1 col-end-2 row-start-1 row-end-2"
                 transition:blur|local={{ duration: 500 }}
             >
                 <div

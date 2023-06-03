@@ -65,7 +65,7 @@
                 config={{ fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)" }}
                 style="margin: 0; gap: 5px"
             />
-            <span class="font-bold md:text-[0.95vw] leading-none">92%</span>
+            <span class="font-bold leading-none md:text-[0.95vw]">92%</span>
             <button class="btn btn-icon bg-secondary-100 p-[0.3vw] text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]">
                 <Edit
                     variant="without_underline_around_pencil"
@@ -139,12 +139,7 @@
                                 class="absolute h-full w-full object-cover object-center"
                             />
 
-                            <span
-                                style="grid-area: 1 / 1 / 2 / 2"
-                                class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]"
-                            >
-                                Houtarou Oreki
-                            </span>
+                            <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]">Houtarou Oreki</span>
                         </div>
                         <div class="relative col-span-1 w-full bg-cover">
                             <ImageLoader
@@ -152,12 +147,7 @@
                                 class="absolute h-full w-full object-cover object-center"
                             />
 
-                            <span
-                                style="grid-area: 1 / 1 / 2 / 2"
-                                class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]"
-                            >
-                                Yuuichi Nakamura
-                            </span>
+                            <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]">Yuuichi Nakamura</span>
                         </div>
                         <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </div>
@@ -199,12 +189,7 @@
                             class="absolute h-full w-full object-cover object-center"
                         />
 
-                        <span
-                            style="grid-area: 1 / 1 / 2 / 2"
-                            class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
-                        >
-                            Yahari Ore no Seishun Love Come wa Machigatteiru.
-                        </span>
+                        <span class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]">Yahari Ore no Seishun Love Come wa Machigatteiru.</span>
                         <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </a>
 
@@ -217,12 +202,7 @@
                             class="absolute h-full w-full object-cover object-center"
                         />
 
-                        <span
-                            style="grid-area: 1 / 1 / 2 / 2"
-                            class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]"
-                        >
-                            Suzumiya Haruhi no Yuuutsu
-                        </span>
+                        <span class="absolute bottom-[0.3vw] z-10 line-clamp-2 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw]">Suzumiya Haruhi no Yuuutsu</span>
                         <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                     </a>
                 </div>
