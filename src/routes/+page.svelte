@@ -29,10 +29,10 @@
     import _ from "lodash";
     import { onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
-    import tippy from "tippy.js";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
+    import tippy from "tippy.js";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -383,7 +383,7 @@
             <ScrollArea
                 offsetScrollbar
                 parentClass="mt-[1.5vw] max-h-[21.5625vw]"
-                class="space-y-[1vw]"
+                class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime}
                     <div class="relative h-[5vw]">
