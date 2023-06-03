@@ -29,10 +29,10 @@
     import _ from "lodash";
     import { onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
-    import tippy from "tippy.js";
     import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
+    import tippy from "tippy.js";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -232,10 +232,7 @@
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
                         <div
-                            class="relative"
-                            style="
-								grid-area: 1 / 1 / 1000 / 1;
-							"
+                            class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
                             transition:blur|local
                             on:mouseenter={() => {
                                 $timerStore = "pause";
