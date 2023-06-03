@@ -25,7 +25,7 @@
 </script>
 
 <div class="my-[6vw]">
-    <div class="space-x-[0.75vw]">
+    <div class="flex gap-x-[0.75vw]">
         <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
         <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
