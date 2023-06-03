@@ -2,22 +2,23 @@
     import { latest_animes } from "$data/mock/latest_animes";
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
-    import { onDestroy, onMount } from "svelte";
+    import { beforeUpdate, onDestroy } from "svelte";
     import { blur } from "svelte/transition";
 
-    let choice_number = 1;
+    let CHOICE: number;
+    let INTERVAL = 20_000;
+
     const change_index = () => {
-        if (choice_number + 1 === latest_animes.length) {
-            choice_number = 1;
-        }
-        choice_number++;
+        const index = Math.floor(Math.random() * latest_animes.length);
+        CHOICE = index;
     };
 
     let interval: NodeJS.Timer | undefined;
-    onMount(() => {
+    // Run it before the UI is updated to show current behaviour
+    beforeUpdate(() => {
         interval = setInterval(() => {
             change_index();
-        }, 20000);
+        }, INTERVAL);
         change_index();
     });
 
@@ -28,10 +29,9 @@
 
 <root class="relative inline-grid h-full w-full md:grid-cols-2">
     {#each latest_animes as item, index}
-        {#if index === choice_number}
+        {#if index === CHOICE}
             <div
-                class="relative"
-                style="grid-area: 1 / 1 / 1 / 1;"
+                class="relative col-start-1 col-end-2 row-start-1 row-end-2"
                 transition:blur|local={{ duration: 500 }}
             >
                 <div

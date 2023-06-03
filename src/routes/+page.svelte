@@ -232,10 +232,7 @@
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
                         <div
-                            class="relative"
-                            style="
-								grid-area: 1 / 1 / 1000 / 1;
-							"
+                            class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
                             transition:blur|local
                             on:mouseenter={() => {
                                 $timerStore = "pause";

@@ -104,16 +104,10 @@
 
                     <div class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
                     <div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
-                        <p
-                            style="grid-area: 1 / 1 / 2 / 2"
-                            class="w-full text-center text-[0.9375vw] font-bold"
-                        >
+                        <p class="col-start-1 col-end-2 row-start-1 row-end-2 w-full text-center text-[0.9375vw] font-bold">
                             {episode.episode_number < 10 ? `0${episode.episode_number}` : episode.episode_number}
                         </p>
-                        <p
-                            style="grid-area: 1 / 1 / 2 / 2"
-                            class="unstyled w-full pr-[0.7vw] text-end text-[0.75vw] font-semibold"
-                        >
+                        <p class="unstyled col-start-1 col-end-2 row-start-1 row-end-2 w-full pr-[0.7vw] text-end text-[0.75vw] font-semibold">
                             {new FormatTime(episode.episode_length).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
@@ -192,7 +186,7 @@
                             allowHTML: true,
                             animation: "shift-away",
                             hideOnClick: true,
-                            appendTo: "parent",
+                            appendTo: document.body,
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
                                 new EmojiPicker({
@@ -260,7 +254,7 @@
                     {#each forum_posts as post}
                         <a
                             href="/"
-                            class="card flex grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                            class="card grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
                         >
                             <div class="col-span-2">
                                 <ImageLoader
