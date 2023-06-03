@@ -39,7 +39,7 @@
         "@zxcvbn-ts/language-en": "^3.0.1",
         "autoprefixer": "^10.4.14",
         "cross-env": "^7.0.3",
-        "dayjs": "^1.11.7",
+        "dayjs": "^1.11.8",
         "easytimer.js": "^4.5.4",
         "emoji-picker-element": "^1.17.0",
         "eslint": "^8.41.0",
