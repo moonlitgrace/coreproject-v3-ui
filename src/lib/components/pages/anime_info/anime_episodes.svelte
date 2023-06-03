@@ -37,7 +37,7 @@
             <p class="flex gap-[0.75vw]">
                 <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
                 <span class="font-semibold md:text-[1vw]">episodes</span>
-                <span class="md:text-[0.6vw]">▪</span>
+                <span class="inline-flex items-center text-[1vw]">▪</span>
             </p>
 
             <div>
@@ -52,7 +52,7 @@
 
                         <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">dub</span>
 
-                        <span class="md:text-[0.6vw]">▪</span>
+                        <span class="inline-flex items-center text-[1vw]">▪</span>
 
                         <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">1080p</span>
 
