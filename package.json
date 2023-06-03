@@ -44,7 +44,7 @@
         "emoji-picker-element": "^1.17.0",
         "eslint": "^8.42.0",
         "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-svelte3": "^4.0.0",
+        "eslint-plugin-svelte": "^2.30.0",
         "felte": "^1.2.7",
         "insert-text-at-cursor": "^0.3.0",
         "lodash": "^4.17.21",
