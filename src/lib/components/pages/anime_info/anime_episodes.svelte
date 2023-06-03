@@ -260,7 +260,7 @@
                     {#each forum_posts as post}
                         <a
                             href="/"
-                            class="card flex grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                            class="card grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
                         >
                             <div class="col-span-2">
                                 <ImageLoader
