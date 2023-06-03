@@ -192,7 +192,7 @@
                             allowHTML: true,
                             animation: "shift-away",
                             hideOnClick: true,
-                            appendTo: "parent",
+                            appendTo: document.body,
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
                                 new EmojiPicker({
