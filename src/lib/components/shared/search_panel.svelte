@@ -43,7 +43,7 @@
                         {#each Array(6) as _}
                             <div class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20">
                                 <img
-                                    src="https://cdn-cfmok.nitrocdn.com/juJsjTwdTqWjkJBaBrLnvLeovPsDevAD/assets/images/optimized/rev-37d38d6/wp-content/uploads/1587837891_336_Demon-Slayer-Kimetsu-No-Yaiba-4K-Wallpapers-2020.jpg"
+                                    src="/images/DemonSlayer-bg.webp"
                                     alt={search_query}
                                     class="h-[3.5vw] w-[3.5vw] rounded-[0.5vw] object-cover"
                                 />
