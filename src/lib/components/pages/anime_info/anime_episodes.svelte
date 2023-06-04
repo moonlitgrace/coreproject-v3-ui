@@ -1,5 +1,6 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import TextEditor from "$components/shared/text_editor.svelte";
     import EmojiPicker from "$components/shared/tippies/emoji_picker.svelte";
     import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
@@ -169,13 +170,14 @@
 
             <form class="mt-[1vw]">
                 <div class="relative">
-                    <textarea
+                    <TextEditor />
+                    <!-- <textarea
                         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
                         placeholder="Leave a comment"
                         bind:value={comment_text}
                         bind:this={comment_box}
-                    />
-                    <button
+                    /> -->
+                    <!-- <button
                         class="btn btn-icon absolute bottom-[0.75vw] right-[0.75vw] w-auto p-0"
                         type="button"
                         use:tippy={{
@@ -201,7 +203,7 @@
                         }}
                     >
                         <Emoji class="w-[1.5vw] opacity-75" />
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="mt-[0.75vw] flex justify-between gap-[1vw]">
