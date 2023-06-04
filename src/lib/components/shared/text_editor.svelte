@@ -12,11 +12,11 @@
 
         // to get last typed word even its in middle
         const selection_start = target.selectionStart;
-        if (typeof selection_start === "number") {
-            const words_before_caret = input_text.substring(0, selection_start);
-            const words_list = words_before_caret.split(" ");
-            last_typed_word = words_list.at(-1);
-        }
+        if (typeof selection_start !== "number") return;
+        
+        const words_before_caret = input_text.substring(0, selection_start);
+        const words_list = words_before_caret.split(" ");
+        last_typed_word = words_list.at(-1);
 
         // check if last_typed_word starts with ":" and may or may not have subsequent word characters
         const emoji_code = last_typed_word?.match(/^:(\w*)$/);
