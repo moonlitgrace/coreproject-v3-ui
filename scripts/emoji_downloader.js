@@ -1,8 +1,14 @@
 import fs from "fs";
 import fetch from "node-fetch";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const emoji_data_path = "../src/lib/data/emojis.json";
-const download_path = "../static/emojis";
+// Polyfill. Remove it later
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const emoji_data_path = path.join(__dirname, "..", "src", "lib", "data", "emojis.json");
+const download_path = path.join(__dirname, "..", "static", "emojis");
 
 // Check if folder exists
 if (!fs.existsSync(download_path)) {
