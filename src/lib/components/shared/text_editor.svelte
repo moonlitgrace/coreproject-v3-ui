@@ -66,7 +66,7 @@
         placeholder="Leave a comment"
     />
     <!-- Basic popover ( will add better one later ) -->
-    {#if show_emoji_picker && caret_offset}
+    {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <div
             class="absolute flex flex-col bg-white p-[1vw] text-black"
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px;"
