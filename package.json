@@ -20,7 +20,7 @@
         "@felte/validator-zod": "^1.0.13",
         "@floating-ui/dom": "^1.2.9",
         "@playwright/test": "^1.34.3",
-        "@skeletonlabs/skeleton": "^1.6.2",
+        "@skeletonlabs/skeleton": "^1.7.1",
         "@sveltejs/adapter-node": "^1.2.4",
         "@sveltejs/adapter-static": "^2.0.2",
         "@sveltejs/adapter-vercel": "^3.0.1",
