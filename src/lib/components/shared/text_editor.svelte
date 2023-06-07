@@ -7,6 +7,8 @@
     let emoji_matches: string[] = [];
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
+    let active_emoji_index: number;
+    const SHOW_EMOJI_LIMIT = 5;
 
     const input_handler = (event: Event) => {
         const target = event.target as HTMLInputElement;
@@ -33,7 +35,7 @@
                 }
             }
 
-            // For fixed popover
+            // Popover settings
             if (caret_offset === null) {
                 const textarea_position = textarea_el.getBoundingClientRect();
                 const scroll_top = textarea_el.scrollTop;
@@ -49,12 +51,27 @@
                     height: caret_offset_height
                 };
             }
+            // Set first item active
+            active_emoji_index = 0;
         } else {
             emoji_matches = [];
             caret_offset = null;
             show_emoji_picker = false;
         }
     };
+
+    const handle_keydown = (event: KeyboardEvent) => {
+        if (!show_emoji_picker) return;
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
+        } else if (event.key === "ArrowDown") {
+            event.preventDefault();
+            active_emoji_index = (active_emoji_index + 1) % SHOW_EMOJI_LIMIT;
+        }
+        console.log(active_emoji_index);
+    };
+
     // close popover on "blur"
     afterUpdate(() =>
         textarea_el.addEventListener("blur", () => {
@@ -68,6 +85,7 @@
 <div class="relative">
     <textarea
         on:input={input_handler}
+        on:keydown={handle_keydown}
         bind:this={textarea_el}
         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
         placeholder="Leave a comment"
@@ -77,9 +95,13 @@
             class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
-            {#each emoji_matches.splice(0, 5) as emoji}
-                <div class="group flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white">
-                    <div class="placeholder-circle h-[1vw] w-[1vw] !bg-surface-300 group-hover:!bg-white" />
+            {#each emoji_matches.splice(0, 5) as emoji, index}
+                <div
+                    class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
+                    class:bg-primary-500={active_emoji_index === index}
+                    class:text-white={active_emoji_index === index}
+                >
+                    <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50" />
                     <span>{emoji}</span>
                 </div>
             {/each}
