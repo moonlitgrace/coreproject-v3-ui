@@ -74,11 +74,11 @@
     />
     {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <div
-            class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 rounded-[0.5vw] overflow-hidden bg-surface-400 text-[1vw] text-surface-50"
+            class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
             {#each emoji_matches.splice(0, 5) as emoji}
-                <div class="flex items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] group transition-colors hover:bg-primary-500 hover:text-white cursor-pointer">
+                <div class="group flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white">
                     <div class="placeholder-circle h-[1vw] w-[1vw] !bg-surface-300 group-hover:!bg-white" />
                     <span>{emoji}</span>
                 </div>
