@@ -56,11 +56,13 @@
         }
     };
     // close popover on "blur"
-    afterUpdate(() => textarea_el.addEventListener("blur", () => {
-        emoji_matches = [];
-        caret_offset = null;
-        show_emoji_picker = false;
-    }));
+    afterUpdate(() =>
+        textarea_el.addEventListener("blur", () => {
+            emoji_matches = [];
+            caret_offset = null;
+            show_emoji_picker = false;
+        })
+    );
 </script>
 
 <div class="relative">
@@ -70,14 +72,16 @@
         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
         placeholder="Leave a comment"
     />
-    <!-- Basic popover ( will add better one later ) -->
     {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <div
-            class="absolute flex flex-col bg-white p-[1vw] text-black"
-            style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px;"
+            class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 rounded-[0.5vw] overflow-hidden bg-surface-400 text-[1vw] text-surface-50"
+            style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
             {#each emoji_matches.splice(0, 5) as emoji}
-                <span>{emoji}</span>
+                <div class="flex items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] group transition-colors hover:bg-primary-500 hover:text-white cursor-pointer">
+                    <div class="placeholder-circle h-[1vw] w-[1vw] !bg-surface-300 group-hover:!bg-white" />
+                    <span>{emoji}</span>
+                </div>
             {/each}
         </div>
     {/if}
