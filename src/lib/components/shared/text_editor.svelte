@@ -18,11 +18,11 @@
         if (typeof selection_start !== "number") return;
 
         const words_before_caret = input_text.substring(0, selection_start);
-        const words_list = words_before_caret.split(" ");
+        const words_list = words_before_caret.split(/[\s\n]/);
         last_typed_word = words_list.at(-1);
 
         // check if last_typed_word starts with ":" and may or may not have subsequent word characters
-        const emoji_code = last_typed_word?.match(/^:(\w*)$/);
+        const emoji_code = last_typed_word?.match(/^:(\S*)$/);
         if (emoji_code) {
             show_emoji_picker = true;
             emoji_matches = [];
@@ -35,13 +35,18 @@
 
             // For fixed popover
             if (caret_offset === null) {
-                const caret_position = offset(textarea_el);
                 const textarea_position = textarea_el.getBoundingClientRect();
+                const scroll_top = textarea_el.scrollTop;
+
+                const caret_position = offset(textarea_el);
+                const caret_offset_top = caret_position.top - textarea_position.top;
+                const caret_offset_left = caret_position.left - textarea_position.left;
+                const caret_offset_height = caret_position.height + 5; // Add extra height
 
                 caret_offset = {
-                    top: caret_position.top - textarea_position.top,
-                    left: caret_position.left - textarea_position.left,
-                    height: caret_position.height + 5 // Add extra height
+                    top: caret_offset_top - scroll_top,
+                    left: caret_offset_left,
+                    height: caret_offset_height
                 };
             }
         } else {
