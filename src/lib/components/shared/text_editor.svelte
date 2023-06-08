@@ -8,7 +8,7 @@
     let emoji_matches: [{ emoji?: string; keyword?: string }?];
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
-    let active_emoji_index = 0;
+    let active_emoji_index: number;
     const SHOW_EMOJI_LIMIT = 5;
 
     const input_handler = (event: Event) => {
