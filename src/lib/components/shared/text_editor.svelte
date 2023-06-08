@@ -144,11 +144,13 @@
                         class:text-white={active_emoji_index === index}
                         on:mousedown={() => select_emoji(index)}
                     >
-                        <ImageLoader
-                            src={emoji}
-                            alt={keyword}
-                            class="h-[0.85vw] w-[0.85vw]"
-                        />
+                        <div class="h-[0.9vw] w-[0.9vw]">
+                            <ImageLoader
+                                src={emoji}
+                                alt={keyword}
+                                class="h-full w-full"
+                            />
+                        </div>
                         <span>{keyword}</span>
                     </div>
                 {/if}
