@@ -2,7 +2,7 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import { offset } from "caret-pos";
-    import { afterUpdate } from "svelte";
+    import { afterUpdate, tick } from "svelte";
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value: string;
@@ -71,7 +71,7 @@
 
     const handle_keydown = (event: KeyboardEvent) => {
         if (!show_emoji_picker) return;
-        
+
         if (event.key === "ArrowUp") {
             event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
@@ -84,11 +84,30 @@
         }
     };
 
-    const select_emoji = (emoji_index: number) => {
+    const select_emoji = async (emoji_index: number) => {
         const emoji_keyword = emoji_matches[emoji_index]?.keyword;
-        const emoji_code = [":", emoji_keyword, ":"].join("");
-        console.log(emoji_code);
-    }
+        const emoji_code = `:${emoji_keyword}:`;
+
+        const selection_start = textarea_element.selectionStart;
+        const selection_end = textarea_element.selectionEnd;
+
+        const text_before_selection = textarea_value.substring(0, selection_start);
+        const text_after_selection = textarea_value.substring(selection_end);
+
+        // replace last word before text selection with emoji code
+        const updated_text_before_selection = text_before_selection.replace(/\S+$/, emoji_code);
+        textarea_value = `${updated_text_before_selection} ${text_after_selection}`;
+
+        // set caret at the end of inserted emoji_code
+        await tick();
+        const caret_position = updated_text_before_selection.length + 1;
+        textarea_element.setSelectionRange(caret_position, caret_position);
+
+        // close emoji picker
+        show_emoji_picker = false;
+        caret_offset = null;
+        emoji_matches = [];
+    };
 
     // close popover on "blur"
     afterUpdate(() =>
