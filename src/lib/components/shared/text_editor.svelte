@@ -1,11 +1,11 @@
 <script lang="ts">
-    import emojis from "../../../../scripts/emojis.json";
+    import emojis from "$data/emojis.json";
     import { offset } from "caret-pos";
     import { afterUpdate } from "svelte";
 
     let textarea_element: HTMLTextAreaElement;
 
-    let emoji_matches: string[] = [];
+    let emoji_matches: [{ emoji?: string; keyword?: string }?];
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
@@ -34,9 +34,14 @@
             show_emoji_picker = true;
             emoji_matches = [];
 
-            for (const keyword of Object.keys(emojis)) {
+            for (const item of Object.entries(emojis)) {
+                const keyword = item[0];
+                const emoji = item[1];
                 if (keyword.includes(emoji_code[1])) {
-                    emoji_matches.push(keyword);
+                    emoji_matches.push({
+                        emoji: emoji,
+                        keyword: keyword
+                    });
                 }
             }
 
@@ -97,14 +102,22 @@
             class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
-            {#each emoji_matches.splice(0, 5) as emoji, index}
+            {#each emoji_matches.splice(0, 5) as item, index}
+                {@const emoji = item?.["emoji"]}
+                {@const keyword = item?.["keyword"]}
+
                 <div
                     class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
                     class:bg-primary-500={active_emoji_index === index}
                     class:text-white={active_emoji_index === index}
                 >
-                    <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50" />
-                    <span>{emoji}</span>
+                    <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50">
+                        <img
+                            src={emoji}
+                            alt={keyword}
+                        />
+                    </div>
+                    <span>{keyword}</span>
                 </div>
             {/each}
         </emoji-popover>
