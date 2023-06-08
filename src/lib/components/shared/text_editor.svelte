@@ -5,6 +5,7 @@
     import { afterUpdate } from "svelte";
 
     let textarea_element: HTMLTextAreaElement;
+    let textarea_value: string;
 
     let emoji_matches: [{ emoji?: string; keyword?: string }?];
     let show_emoji_picker = false;
@@ -71,9 +72,14 @@
     const handle_keydown = (event: KeyboardEvent) => {
         if (!show_emoji_picker) return;
         if (event.key === "ArrowUp") {
+            event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
         } else if (event.key === "ArrowDown") {
+            event.preventDefault();
             active_emoji_index = (active_emoji_index + 1) % SHOW_EMOJI_LIMIT;
+        } else if (event.key === "Enter") {
+            event.preventDefault();
+            // logic when emoji is selected
         }
     };
 
@@ -92,6 +98,7 @@
         on:input={input_handler}
         on:keydown={handle_keydown}
         bind:this={textarea_element}
+        bind:value={textarea_value}
         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
         placeholder="Leave a comment"
     />
