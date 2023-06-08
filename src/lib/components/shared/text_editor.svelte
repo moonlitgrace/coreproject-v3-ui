@@ -85,12 +85,9 @@
             const selection_text = textarea_element.value.substring(textarea_element.selectionStart, textarea_element.selectionEnd);
             if (!selection_text) return;
 
-            const regex = /\*\*(.*?)\*\*/;
-            const match = selection_text.match(regex);
-
-            if (match) {
-                const replacement_text = match[0];
-                textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + match[1] + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
+            if (textarea_element.value.substring(0, textarea_element.selectionStart + 2) == "**" && textarea_element.value.substring(textarea_element.selectionEnd - 2) == "**") {
+                const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
+                textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + replacement_text + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
             } else {
                 const replacement_text = `**${selection_text}**`;
                 textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + replacement_text + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
