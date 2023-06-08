@@ -1,5 +1,5 @@
 import fs from "fs";
-import fetch from "node-fetch";
+import fetch from "node-fetch-retry";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -29,7 +29,7 @@ fs.readFile(emoji_input_path, "utf8", async (err, data) => {
         const image_filename = `${download_path}/${emoji_name}.png`;
 
         try {
-            const response = await fetch(emoji_link);
+            const response = await fetch(emoji_link, { method: "GET", retry: 10, pause: 3000 });
             if (!response.ok) {
                 throw new Error("Error while downloading image. HTTP status " + response.status);
             }
