@@ -35,7 +35,7 @@
             show_emoji_picker = true;
             emoji_matches = [];
 
-            for (const item of Object.entries(emojis)) {
+            for (const item of Object.entries(emojis).sort()) {
                 const keyword = item[0];
                 const emoji = item[1];
                 if (keyword.includes(emoji_code[1])) {
@@ -117,12 +117,11 @@
                         class:bg-primary-500={active_emoji_index === index}
                         class:text-white={active_emoji_index === index}
                     >
-                        <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50">
-                            <ImageLoader
-                                src={emoji}
-                                alt={keyword}
-                            />
-                        </div>
+                        <ImageLoader
+                            src={emoji}
+                            alt={keyword}
+                            class="h-[0.85vw] w-[0.85vw]"
+                        />
                         <span>{keyword}</span>
                     </div>
                 {/if}
