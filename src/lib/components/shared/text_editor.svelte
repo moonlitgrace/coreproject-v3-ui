@@ -84,7 +84,7 @@
         }
     };
 
-    const select_emoji = async (emoji_index: number) => {
+    const select_emoji = (emoji_index: number) => {
         const emoji_keyword = emoji_matches[emoji_index]?.keyword;
         const emoji_code = `:${emoji_keyword}:`;
 
@@ -99,9 +99,10 @@
         textarea_value = `${updated_text_before_selection} ${text_after_selection}`;
 
         // set caret at the end of inserted emoji_code
-        await tick();
-        const caret_position = updated_text_before_selection.length + 1;
-        textarea_element.setSelectionRange(caret_position, caret_position);
+        tick().then(() => {
+            const caret_position = updated_text_before_selection.length + 1;
+            textarea_element.setSelectionRange(caret_position, caret_position);
+        });
 
         // close emoji picker
         show_emoji_picker = false;
