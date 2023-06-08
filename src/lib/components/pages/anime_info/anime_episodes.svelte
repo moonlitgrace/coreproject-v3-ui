@@ -171,39 +171,6 @@
             <form class="mt-[1vw]">
                 <div class="relative">
                     <TextEditor />
-                    <!-- <textarea
-                        class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-white/50"
-                        placeholder="Leave a comment"
-                        bind:value={comment_text}
-                        bind:this={comment_box}
-                    /> -->
-                    <!-- <button
-                        class="btn btn-icon absolute bottom-[0.75vw] right-[0.75vw] w-auto p-0"
-                        type="button"
-                        use:tippy={{
-                            trigger: "click",
-                            interactive: true,
-                            placement: "top-end",
-                            arrow: false,
-                            allowHTML: true,
-                            animation: "shift-away",
-                            hideOnClick: true,
-                            appendTo: document.body,
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new EmojiPicker({
-                                    target: node,
-                                    props: {
-                                        text_element: comment_box
-                                    }
-                                });
-
-                                instance.setContent(node);
-                            }
-                        }}
-                    >
-                        <Emoji class="w-[1.5vw] opacity-75" />
-                    </button> -->
                 </div>
 
                 <div class="mt-[0.75vw] flex justify-between gap-[1vw]">
