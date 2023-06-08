@@ -8,8 +8,7 @@
     let emoji_matches: [{ emoji?: string; keyword?: string }?];
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
-    let active_emoji_index: number;
-
+    let active_emoji_index = 0;
     const SHOW_EMOJI_LIMIT = 5;
 
     const input_handler = (event: Event) => {
@@ -71,10 +70,8 @@
     const handle_keydown = (event: KeyboardEvent) => {
         if (!show_emoji_picker) return;
         if (event.key === "ArrowUp") {
-            event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
         } else if (event.key === "ArrowDown") {
-            event.preventDefault();
             active_emoji_index = (active_emoji_index + 1) % SHOW_EMOJI_LIMIT;
         }
     };
@@ -102,23 +99,25 @@
             class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
-            {#each emoji_matches.splice(0, 5) as item, index}
-                {@const emoji = item?.["emoji"]}
-                {@const keyword = item?.["keyword"]}
+            {#each emoji_matches as item, index}
+                {#if index < SHOW_EMOJI_LIMIT}
+                    {@const emoji = item?.["emoji"]}
+                    {@const keyword = item?.["keyword"]}
 
-                <div
-                    class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
-                    class:bg-primary-500={active_emoji_index === index}
-                    class:text-white={active_emoji_index === index}
-                >
-                    <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50">
-                        <img
-                            src={emoji}
-                            alt={keyword}
-                        />
+                    <div
+                        class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
+                        class:bg-primary-500={active_emoji_index === index}
+                        class:text-white={active_emoji_index === index}
+                    >
+                        <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50">
+                            <img
+                                src={emoji}
+                                alt={keyword}
+                            />
+                        </div>
+                        <span>{keyword}</span>
                     </div>
-                    <span>{keyword}</span>
-                </div>
+                {/if}
             {/each}
         </emoji-popover>
     {/if}
