@@ -71,6 +71,7 @@
 
     const handle_keydown = (event: KeyboardEvent) => {
         if (!show_emoji_picker) return;
+        
         if (event.key === "ArrowUp") {
             event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
@@ -79,9 +80,15 @@
             active_emoji_index = (active_emoji_index + 1) % SHOW_EMOJI_LIMIT;
         } else if (event.key === "Enter") {
             event.preventDefault();
-            // logic when emoji is selected
+            select_emoji(active_emoji_index);
         }
     };
+
+    const select_emoji = (emoji_index: number) => {
+        const emoji_keyword = emoji_matches[emoji_index]?.keyword;
+        const emoji_code = [":", emoji_keyword, ":"].join("");
+        console.log(emoji_code);
+    }
 
     // close popover on "blur"
     afterUpdate(() =>
@@ -116,6 +123,7 @@
                         class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
                         class:bg-primary-500={active_emoji_index === index}
                         class:text-white={active_emoji_index === index}
+                        on:mousedown={() => select_emoji(index)}
                     >
                         <ImageLoader
                             src={emoji}
