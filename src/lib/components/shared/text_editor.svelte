@@ -74,10 +74,10 @@
 
         if (event.key === "ArrowUp") {
             event.preventDefault();
-            active_emoji_index = (active_emoji_index - 1 + SHOW_EMOJI_LIMIT) % SHOW_EMOJI_LIMIT;
+            active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
         } else if (event.key === "ArrowDown") {
             event.preventDefault();
-            active_emoji_index = (active_emoji_index + 1) % SHOW_EMOJI_LIMIT;
+            active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
         } else if (event.key === "Enter") {
             event.preventDefault();
             select_emoji(active_emoji_index);
