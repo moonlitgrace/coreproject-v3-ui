@@ -1,5 +1,6 @@
 <script lang="ts">
-    import emojis from "$data/emojis.json";
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import { emojis } from "$data/emojis";
     import { offset } from "caret-pos";
     import { afterUpdate } from "svelte";
 
@@ -101,8 +102,8 @@
         >
             {#each emoji_matches as item, index}
                 {#if index < SHOW_EMOJI_LIMIT}
-                    {@const emoji = item?.["emoji"]}
-                    {@const keyword = item?.["keyword"]}
+                    {@const emoji = item?.["emoji"] ?? ""}
+                    {@const keyword = item?.["keyword"] ?? ""}
 
                     <div
                         class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
@@ -110,7 +111,7 @@
                         class:text-white={active_emoji_index === index}
                     >
                         <div class="placeholder-circle h-[0.85vw] w-[0.85vw] !bg-surface-50">
-                            <img
+                            <ImageLoader
                                 src={emoji}
                                 alt={keyword}
                             />
