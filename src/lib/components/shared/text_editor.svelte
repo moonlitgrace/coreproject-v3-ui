@@ -11,7 +11,7 @@
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
-    const SHOW_EMOJI_LIMIT = 5;
+    const SHOWN_EMOJI_LIMIT = 5;
 
     const input_handler = (event: Event) => {
         const target = event.target as HTMLInputElement;
@@ -70,8 +70,6 @@
     };
 
     const handle_keydown = (event: KeyboardEvent) => {
-        if (!show_emoji_picker) return;
-
         if (event.key === "ArrowUp") {
             event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
@@ -81,6 +79,13 @@
         } else if (event.key === "Enter") {
             event.preventDefault();
             select_emoji(active_emoji_index);
+        } else if (event.ctrlKey && event.key === "b") {
+            event.preventDefault();
+
+            const selection_text = textarea_element.value.substring(textarea_element.selectionStart, textarea_element.selectionEnd);
+            const replacement_text = `**${selection_text}**`;
+            textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + replacement_text + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
+            
         }
     };
 
@@ -135,7 +140,7 @@
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
             {#each emoji_matches as item, index}
-                {#if index < SHOW_EMOJI_LIMIT}
+                {#if index < SHOWN_EMOJI_LIMIT}
                     {@const emoji = item?.["emoji"] ?? ""}
                     {@const keyword = item?.["keyword"] ?? ""}
 
