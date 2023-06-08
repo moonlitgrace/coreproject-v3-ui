@@ -41,7 +41,8 @@ fs.readFile(emoji_input_path, "utf8", async (err, data) => {
             console.error("Error while downloading image:", error);
             return;
         } finally {
-            emoji_map[emoji_name] = image_filename;
+            // svelte specific code
+            emoji_map[emoji_name] = `/emojis/${emoji_name}.png`;
         }
     }
 
