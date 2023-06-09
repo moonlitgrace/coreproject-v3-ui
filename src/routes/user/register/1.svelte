@@ -12,7 +12,6 @@
     import { createForm } from "felte";
     import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
-    import { blur } from "svelte/transition";
     import { z } from "zod";
 
     let password_strength = 0;
@@ -104,7 +103,7 @@
     class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
     method="POST"
     use:form
-    use:focusTrap={false}
+    use:focusTrap={true}
 >
     <form-fields>
         <div class="flex gap-2 whitespace-nowrap pb-10 font-bold uppercase leading-none tracking-widest text-white md:pb-[1.8vw] md:text-[1.2vw]">

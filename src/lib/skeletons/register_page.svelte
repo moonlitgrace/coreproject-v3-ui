@@ -1,5 +1,5 @@
 <script lang="ts">
-    const password_requirements_widths = {
+    const password_requirements_measures = {
         sm: ["7rem", "9rem", "6rem", "14.5rem"],
         md: ["7.1vw", "9vw", "5vw", "13vw"]
     };
@@ -34,7 +34,7 @@
                     <div class="placeholder h-3 w-[6.5rem] !bg-surface-400 md:h-[0.75vw] md:w-[7.2vw]" />
                     <div class="ml-3 mt-3 md:ml-[0.75vw] md:mt-[1vw]">
                         <div class="hidden flex-col gap-[0.5vw] md:flex">
-                            {#each Object.entries(password_requirements_widths.md) as item}
+                            {#each Object.entries(password_requirements_measures.md) as item}
                                 {@const width = item[1]}
                                 <div class="flex w-full gap-[0.75vw]">
                                     <div class="placeholder-circle h-[0.6vw] !bg-surface-400" />
@@ -43,7 +43,7 @@
                             {/each}
                         </div>
                         <div class="flex flex-col gap-2 md:hidden">
-                            {#each Object.entries(password_requirements_widths.sm) as item}
+                            {#each Object.entries(password_requirements_measures.sm) as item}
                                 {@const width = item[1]}
                                 <div class="flex w-full gap-2">
                                     <div class="placeholder-circle h-2 !bg-surface-400 md:h-[0.6vw]" />
