@@ -1,13 +1,11 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
-    import EmojiPicker from "$components/shared/tippies/emoji_picker.svelte";
     import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
     import { FormatTime } from "$functions/format_time";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
-    import Emoji from "$icons/emoji.svelte";
     import Listen from "$icons/listen.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
@@ -16,13 +14,8 @@
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Warning from "$icons/warning.svelte";
-    import tippy from "tippy.js";
 
     export let anime_episodes: any;
-
-    /* Comment box logics */
-    let comment_box: HTMLTextAreaElement;
-    let comment_text: string;
 </script>
 
 <div class="my-[6vw]">
