@@ -38,10 +38,10 @@
   <i>Click on the images to open full view in new tab</i>
   <br>
   <br>
-  <img src="https://imgbox.io/ib/mZwPoOMD11.png" alt="Home Page Mockup" width=49%>
-  <img src="https://imgbox.io/ib/OUbB4rsyCh.png" alt="Anime Info Page Mockup" width=49%>
-  <img src="https://imgbox.io/ib/zPypve2smU.png" alt="Register Page Mockup" width=49%>
-  <img src="https://imgbox.io/ib/22dteHTHrH.png" alt="Search Panel Mockup" width=49%>
+  <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/9107b245-d770-4050-af31-6d1f16559ead" alt="Home Page Mockup" width=49%>
+  <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/6e72e66f-aa1b-49b9-85d6-2c86b21c4c98" alt="Anime Info Page Mockup" width=49%>
+  <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/3f21b783-f511-418d-8f7c-375bef81afde" alt="Register Page Mockup" width=49%>
+  <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/04a82f6a-11db-4235-a4fd-816afcadb736" alt="Search Panel Mockup" width=49%>
 
 ## Contributing
 
