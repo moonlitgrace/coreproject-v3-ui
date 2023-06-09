@@ -4,6 +4,8 @@
     import { offset } from "caret-pos";
     import { afterUpdate, tick } from "svelte";
 
+    let typing_timer: NodeJS.Timer;
+
     let textarea_element: HTMLTextAreaElement;
     let textarea_value: string;
 
@@ -11,10 +13,18 @@
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
-    const SHOW_EMOJI_LIMIT = 5;
+    const SHOWN_EMOJI_LIMIT = 5;
+
+    const handle_typing_end = () => {
+        console.log("hello");
+    };
 
     const input_handler = (event: Event) => {
-        const target = event.target as HTMLInputElement;
+        
+        clearTimeout(typing_timer);
+        typing_timer = setTimeout(handle_typing_end, 1000);
+
+        const target = event.target as HTMLTextAreaElement;
         const input_text = target.value;
         let last_typed_word: string | undefined;
 
@@ -70,17 +80,62 @@
     };
 
     const handle_keydown = (event: KeyboardEvent) => {
-        if (!show_emoji_picker) return;
-
         if (event.key === "ArrowUp") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
         } else if (event.key === "ArrowDown") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
         } else if (event.key === "Enter") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             select_emoji(active_emoji_index);
+        }
+        // Bold functionality
+        else if (event.ctrlKey && event.key === "b") {
+            event.preventDefault();
+            const element = event.target as HTMLTextAreaElement;
+
+            const selection_start = element.selectionStart;
+            const selection_end = element.selectionEnd;
+            const selection_text = element.value.substring(selection_start, selection_end);
+
+            if (!selection_text) return;
+
+            if (element.value.substring(0, selection_start + 2) == "**" && element.value.substring(selection_end - 2) == "**") {
+                const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
+                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + replacement_text.length + 4);
+            } else {
+                const replacement_text = `**${selection_text}**`;
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
+            }
+        }
+        // Italic Functionality
+        else if (event.ctrlKey && event.key === "i") {
+            event.preventDefault();
+            const element = event.target as HTMLTextAreaElement;
+
+            const selection_start = element.selectionStart;
+            const selection_end = element.selectionEnd;
+            const selection_text = element.value.substring(selection_start, selection_end);
+
+            if (!selection_text) return;
+
+            if (element.value.substring(0, selection_start + 1) == "_" && element.value.substring(selection_end - 1) == "_") {
+                const replacement_text = selection_text.replace(/^\_|\_$/g, "");
+                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + replacement_text.length + 2);
+            } else {
+                const replacement_text = `_${selection_text}_`;
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
+            }
         }
     };
 
@@ -135,7 +190,7 @@
             style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
         >
             {#each emoji_matches as item, index}
-                {#if index < SHOW_EMOJI_LIMIT}
+                {#if index < SHOWN_EMOJI_LIMIT}
                     {@const emoji = item?.["emoji"] ?? ""}
                     {@const keyword = item?.["keyword"] ?? ""}
 
