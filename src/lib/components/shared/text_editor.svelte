@@ -115,7 +115,7 @@
                 element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + replacement_text.length + 4);
             } else {
                 const replacement_text = `**${selection_text}**`;
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
             }
         }
         // Italic Functionality
@@ -134,7 +134,7 @@
                 element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + replacement_text.length + 2);
             } else {
                 const replacement_text = `_${selection_text}_`;
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
             }
         }
     };
