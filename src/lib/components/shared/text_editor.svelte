@@ -123,6 +123,7 @@
 
                 element.setSelectionRange(selection_start, selection_end);
             } else {
+                /* `|hello|` -> `**|hello|**` **/
                 const replacement_text = `**${selection_text}**`;
                 element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
                 // set selection
@@ -154,6 +155,7 @@
 
                 element.setSelectionRange(selection_start, selection_end);
             } else {
+                /* `|hello|` -> `_|hello|_` **/
                 const replacement_text = `_${selection_text}_`;
                 element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
                 // set selection
