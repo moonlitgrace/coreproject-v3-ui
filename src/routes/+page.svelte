@@ -543,6 +543,7 @@
                                 use:tippy={{
                                     arrow: true,
                                     allowHTML: true,
+                                    interactive: true,
                                     placement: "top",
                                     offset: [0, 17],
                                     animation: "shift-away",
