@@ -115,9 +115,8 @@
             } else {
                 const replacement_text = `**${selection_text}**`;
                 element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-                // reset caret position
-                const caret_position = element.value.substring(0, selection_start).length + replacement_text.length - 2;
-                element.setSelectionRange(caret_position, caret_position);
+                // set selection
+                element.setSelectionRange(selection_start + 2, selection_end + 2);
             }
         }
         // Italic Functionality
@@ -137,9 +136,8 @@
             } else {
                 const replacement_text = `_${selection_text}_`;
                 element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-                // reset caret position
-                const caret_position = element.value.substring(0, selection_start).length + replacement_text.length - 1;
-                element.setSelectionRange(caret_position, caret_position);
+                // set selection
+                element.setSelectionRange(selection_start + 1, selection_end + 1);
             }
         }
     };
