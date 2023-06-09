@@ -81,16 +81,19 @@
             select_emoji(active_emoji_index);
         } else if (event.ctrlKey && event.key === "b") {
             event.preventDefault();
+            const selection_start = textarea_element.selectionStart;
+            const selection_end = textarea_element.selectionEnd;
 
-            const selection_text = textarea_element.value.substring(textarea_element.selectionStart, textarea_element.selectionEnd);
+            const selection_text = textarea_element.value.substring(selection_start, selection_end);
+
             if (!selection_text) return;
 
-            if (textarea_element.value.substring(0, textarea_element.selectionStart + 2) == "**" && textarea_element.value.substring(textarea_element.selectionEnd - 2) == "**") {
+            if (textarea_element.value.substring(0, selection_start + 2) == "**" && textarea_element.value.substring(selection_end - 2) == "**") {
                 const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + replacement_text + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
+                textarea_element.value = textarea_element.value.substring(0, selection_start - 2) + replacement_text + textarea_element.value.substring(selection_end + replacement_text.length + 4);
             } else {
                 const replacement_text = `**${selection_text}**`;
-                textarea_element.value = textarea_element.value.substring(0, textarea_element.selectionStart) + replacement_text + textarea_element.value.substring(textarea_element.selectionStart + replacement_text.length);
+                textarea_element.value = textarea_element.value.substring(0, selection_start) + replacement_text + textarea_element.value.substring(selection_end + replacement_text.length);
             }
         }
     };
