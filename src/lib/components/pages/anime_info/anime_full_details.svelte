@@ -1,5 +1,4 @@
 <script>
-    import voca from "voca";
     import { FormatDate } from "$functions/format_date";
 
     // icons

@@ -13,7 +13,7 @@
     export let anime_current_episode: number;
 </script>
 
-<div class="mylistAnimePopover z-20 h-[18vw] w-[20vw] rounded-[1vw]">
+<div class="z-20 h-[18vw] w-[20vw] rounded-[1vw]">
     <div
         class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
         style="background-image: url({anime_cover});"
