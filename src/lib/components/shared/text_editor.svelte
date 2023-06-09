@@ -113,15 +113,15 @@
             if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
                 /* `**|hello|**` -> `|hello|` **/
                 const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + replacement_text.length + 4);
+                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2);
 
                 element.setSelectionRange(selection_start - 2, selection_end - 2);
             } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
                 /* `|**hello**|` -> `|hello|` **/
                 const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + replacement_text.length + 4);
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
 
-                element.setSelectionRange(selection_start, selection_end);
+                element.setSelectionRange(selection_start, selection_end - 4);
             } else {
                 /* `|hello|` -> `**|hello|**` **/
                 const replacement_text = `**${selection_text}**`;
@@ -145,15 +145,15 @@
             if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
                 /* `_|hello|_` -> `|hello|` **/
                 const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + replacement_text.length + 2);
+                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1);
 
                 element.setSelectionRange(selection_start - 1, selection_end - 1);
             } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
                 /* `|_hello_|` -> `|hello|` **/
                 const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + replacement_text.length + 2);
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
 
-                element.setSelectionRange(selection_start, selection_end);
+                element.setSelectionRange(selection_start, selection_end - 2);
             } else {
                 /* `|hello|` -> `_|hello|_` **/
                 const replacement_text = `_${selection_text}_`;
