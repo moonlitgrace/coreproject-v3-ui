@@ -4,6 +4,8 @@
     import { offset } from "caret-pos";
     import { afterUpdate, tick } from "svelte";
 
+    let typing_timer: NodeJS.Timer;
+
     let textarea_element: HTMLTextAreaElement;
     let textarea_value: string;
 
@@ -13,8 +15,16 @@
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
+    const handle_typing_end = () => {
+        console.log("hello");
+    };
+
     const input_handler = (event: Event) => {
-        const target = event.target as HTMLInputElement;
+        
+        clearTimeout(typing_timer);
+        typing_timer = setTimeout(handle_typing_end, 1000);
+
+        const target = event.target as HTMLTextAreaElement;
         const input_text = target.value;
         let last_typed_word: string | undefined;
 
@@ -71,9 +81,15 @@
 
     const handle_keydown = (event: KeyboardEvent) => {
         if (event.key === "ArrowUp") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
         } else if (event.key === "ArrowDown") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
         } else if (event.key === "Enter") {
