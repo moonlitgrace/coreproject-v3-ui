@@ -77,23 +77,48 @@
             event.preventDefault();
             active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
         } else if (event.key === "Enter") {
+            // Dont do anything if the emoji picker is not open
+            if (!show_emoji_picker) return;
+
             event.preventDefault();
             select_emoji(active_emoji_index);
-        } else if (event.ctrlKey && event.key === "b") {
+        }
+        // Bold functionality
+        else if (event.ctrlKey && event.key === "b") {
             event.preventDefault();
-            const selection_start = textarea_element.selectionStart;
-            const selection_end = textarea_element.selectionEnd;
+            const element = event.target as HTMLTextAreaElement;
 
-            const selection_text = textarea_element.value.substring(selection_start, selection_end);
+            const selection_start = element.selectionStart;
+            const selection_end = element.selectionEnd;
+            const selection_text = element.value.substring(selection_start, selection_end);
 
             if (!selection_text) return;
 
-            if (textarea_element.value.substring(0, selection_start + 2) == "**" && textarea_element.value.substring(selection_end - 2) == "**") {
+            if (element.value.substring(0, selection_start + 2) == "**" && element.value.substring(selection_end - 2) == "**") {
                 const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                textarea_element.value = textarea_element.value.substring(0, selection_start - 2) + replacement_text + textarea_element.value.substring(selection_end + replacement_text.length + 4);
+                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + replacement_text.length + 4);
             } else {
                 const replacement_text = `**${selection_text}**`;
-                textarea_element.value = textarea_element.value.substring(0, selection_start) + replacement_text + textarea_element.value.substring(selection_end + replacement_text.length);
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
+            }
+        }
+        // Italic Functionality
+        else if (event.ctrlKey && event.key === "i") {
+            event.preventDefault();
+            const element = event.target as HTMLTextAreaElement;
+
+            const selection_start = element.selectionStart;
+            const selection_end = element.selectionEnd;
+            const selection_text = element.value.substring(selection_start, selection_end);
+
+            if (!selection_text) return;
+
+            if (element.value.substring(0, selection_start + 1) == "_" && element.value.substring(selection_end - 1) == "_") {
+                const replacement_text = selection_text.replace(/^\_|\_$/g, "");
+                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + replacement_text.length + 2);
+            } else {
+                const replacement_text = `_${selection_text}_`;
+                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end + replacement_text.length);
             }
         }
     };
