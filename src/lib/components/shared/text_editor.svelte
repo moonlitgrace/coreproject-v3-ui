@@ -4,8 +4,6 @@
     import { offset } from "caret-pos";
     import { tick } from "svelte";
 
-    let typing_timer: NodeJS.Timer;
-
     let textarea_element: HTMLTextAreaElement;
     let textarea_value: string;
 
@@ -24,9 +22,6 @@
     }
 
     async function handle_input(event: Event) {
-        clearTimeout(typing_timer);
-        typing_timer = setTimeout(handle_typing_end, 1000);
-
         const target = event.target as HTMLTextAreaElement;
         const input_text = target.value;
         let last_typed_word: string | undefined;
@@ -117,11 +112,17 @@
         }
     }
 
-    const handle_typing_end = () => {
-        console.log("hello");
-    };
-
     // Functions
+
+    async function insert_text({ target, text }: { target: HTMLTextAreaElement; text: string }) {
+        /**
+         * Thanks stackoverflow guy and mozilla dev ( Michal Čaplygin |myf| )
+         * Stackoverflow : https://stackoverflow.com/a/56509046
+         * Mozilla : https://bugzilla.mozilla.org/show_bug.cgi?id=1523270
+         */
+        target.select();
+        document.execCommand("insertText", false, text);
+    }
 
     async function italic_selected_text(element: HTMLTextAreaElement) {
         const selection_start = element.selectionStart;
@@ -134,20 +135,20 @@
         if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
             /* `_|hello|_` -> `|hello|` **/
             const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-            element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1);
+            await insert_text({ target: element, text: element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1) });
 
             element.setSelectionRange(selection_start - 1, selection_end - 1);
         } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
             /* `|_hello_|` -> `|hello|` **/
             const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
             element.setSelectionRange(selection_start, selection_end - 2);
         } else {
             /* `|hello|` -> `_|hello|_` **/
             const replacement_text = `_${selection_text}_`;
-            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-            // set selection
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+
             element.setSelectionRange(selection_start + 1, selection_end + 1);
         }
     }
@@ -163,20 +164,20 @@
         if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
             /* `**|hello|**` -> `|hello|` **/
             const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-            element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2);
+            await insert_text({ target: element, text: element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2) });
 
             element.setSelectionRange(selection_start - 2, selection_end - 2);
         } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
             /* `|**hello**|` -> `|hello|` **/
             const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
             element.setSelectionRange(selection_start, selection_end - 4);
         } else {
             /* `|hello|` -> `**|hello|**` **/
             const replacement_text = `**${selection_text}**`;
-            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-            // set selection
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+
             element.setSelectionRange(selection_start + 2, selection_end + 2);
         }
     }
