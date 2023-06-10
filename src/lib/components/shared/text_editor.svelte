@@ -2,24 +2,28 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import { offset } from "caret-pos";
-    import { afterUpdate, tick } from "svelte";
+    import { tick } from "svelte";
 
     let typing_timer: NodeJS.Timer;
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value: string;
 
-    let emoji_matches: [{ emoji?: string; keyword?: string }?];
+    let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
     let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
-    const handle_typing_end = () => {
-        console.log("hello");
-    };
+    // Hanlders
 
-    const input_handler = (event: Event) => {
+    async function handle_blur() {
+        emoji_matches = [];
+        caret_offset = null;
+        show_emoji_picker = false;
+    }
+
+    async function handle_input(event: Event) {
         clearTimeout(typing_timer);
         typing_timer = setTimeout(handle_typing_end, 1000);
 
@@ -76,95 +80,108 @@
             caret_offset = null;
             show_emoji_picker = false;
         }
-    };
+    }
 
-    const handle_keydown = (event: KeyboardEvent) => {
-        if (event.key === "ArrowUp") {
-            // Dont do anything if the emoji picker is not open
-            if (!show_emoji_picker) return;
-
-            event.preventDefault();
-            active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
-        } else if (event.key === "ArrowDown") {
-            // Dont do anything if the emoji picker is not open
-            if (!show_emoji_picker) return;
-
-            event.preventDefault();
-            active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
-        } else if (event.key === "Enter") {
-            // Dont do anything if the emoji picker is not open
-            if (!show_emoji_picker) return;
-
-            event.preventDefault();
-            select_emoji(active_emoji_index);
-        }
-        // Bold functionality
-        else if (event.ctrlKey && event.key === "b") {
-            event.preventDefault();
-            const element = event.target as HTMLTextAreaElement;
-
-            const selection_start = element.selectionStart;
-            const selection_end = element.selectionEnd;
-            const selection_text = element.value.substring(selection_start, selection_end);
-
-            if (!selection_text) return;
-
-            // Handle use cases like
-            if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
-                /* `**|hello|**` -> `|hello|` **/
-                const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2);
-
-                element.setSelectionRange(selection_start - 2, selection_end - 2);
-            } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
-                /* `|**hello**|` -> `|hello|` **/
-                const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-
-                element.setSelectionRange(selection_start, selection_end - 4);
-            } else {
-                /* `|hello|` -> `**|hello|**` **/
-                const replacement_text = `**${selection_text}**`;
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-                // set selection
-                element.setSelectionRange(selection_start + 2, selection_end + 2);
+    async function handle_keydown(event: KeyboardEvent) {
+        switch (event.key) {
+            /**Emoji specific codes*/
+            case "ArrowUp": {
+                event.preventDefault();
+                if (!show_emoji_picker) return;
+                active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
+                break;
+            }
+            case "ArrowDown": {
+                event.preventDefault();
+                if (!show_emoji_picker) return;
+                active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
+                break;
+            }
+            case "Enter": {
+                event.preventDefault();
+                if (!show_emoji_picker) return;
+                await select_emoji(active_emoji_index);
+                break;
+            }
+            /** Editor specific funtions */
+            case "CtrlKey" && "b": {
+                event.preventDefault();
+                await bold_selected_text(event.target as HTMLTextAreaElement);
+                break;
+            }
+            case "CtrlKey" && "i": {
+                event.preventDefault();
+                await italic_selected_text(event.target as HTMLTextAreaElement);
+                break;
             }
         }
-        // Italic Functionality
-        else if (event.ctrlKey && event.key === "i") {
-            event.preventDefault();
-            const element = event.target as HTMLTextAreaElement;
+    }
 
-            const selection_start = element.selectionStart;
-            const selection_end = element.selectionEnd;
-            const selection_text = element.value.substring(selection_start, selection_end);
-
-            if (!selection_text) return;
-
-            // Handle use cases like
-            if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
-                /* `_|hello|_` -> `|hello|` **/
-                const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-                element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1);
-
-                element.setSelectionRange(selection_start - 1, selection_end - 1);
-            } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
-                /* `|_hello_|` -> `|hello|` **/
-                const replacement_text = selection_text.replace(/^\_|\_$/g, "");
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-
-                element.setSelectionRange(selection_start, selection_end - 2);
-            } else {
-                /* `|hello|` -> `_|hello|_` **/
-                const replacement_text = `_${selection_text}_`;
-                element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
-                // set selection
-                element.setSelectionRange(selection_start + 1, selection_end + 1);
-            }
-        }
+    const handle_typing_end = () => {
+        console.log("hello");
     };
 
-    const select_emoji = (emoji_index: number) => {
+    // Functions
+
+    async function italic_selected_text(element: HTMLTextAreaElement) {
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+
+        if (!selection_text) return;
+
+        // Handle use cases like
+        if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
+            /* `_|hello|_` -> `|hello|` **/
+            const replacement_text = selection_text.replace(/^\_|\_$/g, "");
+            element.value = element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1);
+
+            element.setSelectionRange(selection_start - 1, selection_end - 1);
+        } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
+            /* `|_hello_|` -> `|hello|` **/
+            const replacement_text = selection_text.replace(/^\_|\_$/g, "");
+            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+
+            element.setSelectionRange(selection_start, selection_end - 2);
+        } else {
+            /* `|hello|` -> `_|hello|_` **/
+            const replacement_text = `_${selection_text}_`;
+            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+            // set selection
+            element.setSelectionRange(selection_start + 1, selection_end + 1);
+        }
+    }
+
+    async function bold_selected_text(element: HTMLTextAreaElement) {
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+
+        if (!selection_text) return;
+
+        // Handle use cases like
+        if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
+            /* `**|hello|**` -> `|hello|` **/
+            const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
+            element.value = element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2);
+
+            element.setSelectionRange(selection_start - 2, selection_end - 2);
+        } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
+            /* `|**hello**|` -> `|hello|` **/
+            const replacement_text = selection_text.replace(/^\*\*|\*\*$/g, "");
+            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+
+            element.setSelectionRange(selection_start, selection_end - 4);
+        } else {
+            /* `|hello|` -> `**|hello|**` **/
+            const replacement_text = `**${selection_text}**`;
+            element.value = element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end);
+            // set selection
+            element.setSelectionRange(selection_start + 2, selection_end + 2);
+        }
+    }
+
+    async function select_emoji(emoji_index: number) {
         const emoji_keyword = emoji_matches[emoji_index]?.keyword;
         const emoji_code = `:${emoji_keyword}:`;
 
@@ -188,22 +205,14 @@
         show_emoji_picker = false;
         caret_offset = null;
         emoji_matches = [];
-    };
-
-    // close popover on "blur"
-    afterUpdate(() =>
-        textarea_element.addEventListener("blur", () => {
-            emoji_matches = [];
-            caret_offset = null;
-            show_emoji_picker = false;
-        })
-    );
+    }
 </script>
 
 <div class="relative">
     <textarea
-        on:input={input_handler}
+        on:input={handle_input}
         on:keydown={handle_keydown}
+        on:blur={handle_blur}
         bind:this={textarea_element}
         bind:value={textarea_value}
         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-primary-500"
@@ -223,7 +232,7 @@
                         class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
                         class:bg-primary-500={active_emoji_index === index}
                         class:text-white={active_emoji_index === index}
-                        on:mousedown={() => select_emoji(index)}
+                        on:mousedown={async () => await select_emoji(index)}
                     >
                         <div class="h-[0.9vw] w-[0.9vw]">
                             <ImageLoader

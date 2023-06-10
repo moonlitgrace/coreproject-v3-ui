@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { Avatar } from "@skeletonlabs/skeleton";
+    import type { SvelteComponentDev } from "svelte/internal";
+    import voca from "voca";
 
     export let dropdown_icons: {
         [key in string]: {
@@ -11,11 +14,6 @@
             show_on_mobile?: boolean | undefined;
         };
     };
-
-    import { Avatar } from "@skeletonlabs/skeleton";
-    import type { SvelteComponentDev } from "svelte/internal";
-    import voca from "voca";
-
 </script>
 
 <div class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
