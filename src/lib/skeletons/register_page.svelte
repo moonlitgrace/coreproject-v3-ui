@@ -38,7 +38,10 @@
                                 {@const width = item[1]}
                                 <div class="flex w-full gap-[0.75vw]">
                                     <div class="placeholder-circle h-[0.6vw] !bg-surface-400" />
-                                    <div class="placeholder h-[0.5vw] !bg-surface-400 md:w-[{width}]" />
+                                    <div
+                                        class="placeholder h-[0.5vw] !bg-surface-400"
+                                        style="width: {width};"
+                                    />
                                 </div>
                             {/each}
                         </div>
