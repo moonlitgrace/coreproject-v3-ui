@@ -78,8 +78,8 @@
     }
 
     async function handle_keydown(event: KeyboardEvent) {
+        /**Emoji specific codes*/
         switch (event.key) {
-            /**Emoji specific codes*/
             case "ArrowUp": {
                 event.preventDefault();
                 if (!show_emoji_picker) return;
@@ -98,16 +98,24 @@
                 await select_emoji(active_emoji_index);
                 break;
             }
-            /** Editor specific funtions */
-            case "CtrlKey" && "b": {
-                event.preventDefault();
-                await bold_selected_text(event.target as HTMLTextAreaElement);
-                break;
-            }
-            case "CtrlKey" && "i": {
-                event.preventDefault();
-                await italic_selected_text(event.target as HTMLTextAreaElement);
-                break;
+        }
+
+        /**
+         * Editor specific funtions
+         * Triggered by `ctrlKey`
+         */
+        if (event.ctrlKey) {
+            switch (event.key) {
+                case "b": {
+                    event.preventDefault();
+                    await bold_selected_text(event.target as HTMLTextAreaElement);
+                    break;
+                }
+                case "i": {
+                    event.preventDefault();
+                    await italic_selected_text(event.target as HTMLTextAreaElement);
+                    break;
+                }
             }
         }
     }
