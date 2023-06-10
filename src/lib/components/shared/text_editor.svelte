@@ -107,13 +107,21 @@
         if (event.ctrlKey) {
             switch (event.key) {
                 case "b": {
+                    /** Bold Functionality */
                     event.preventDefault();
-                    await bold_selected_text(event.target as HTMLTextAreaElement);
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "**" });
                     break;
                 }
                 case "i": {
+                    /** Italic functionality */
                     event.preventDefault();
-                    await italic_selected_text(event.target as HTMLTextAreaElement);
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "_" });
+                    break;
+                }
+                case "e": {
+                    /** Code functionality */
+                    event.preventDefault();
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "`" });
                     break;
                 }
             }
@@ -143,37 +151,42 @@
 
         // Handle use cases like
         if (element.value.substring(selection_start - operator_length, selection_start) == operator && element.value.substring(selection_end, selection_end + operator_length) == operator) {
-            /* `<operator>|hello|<operator>` -> `|hello|` **/
+            /**
+             * `<operator>|hello|<operator>` -> `|hello|`
+             * `_|hello|_` -> `|hello|`
+             */
             if (selection_text) {
                 const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
                 await insert_text({ target: element, text: element.value.substring(0, selection_start - operator_length) + replacement_text + element.value.substring(selection_end + operator_length) });
+
                 element.setSelectionRange(selection_start - operator_length, selection_end - operator_length);
             } else {
-                /* `<operator>||<operator>` -> `||` **/
+                /**
+                 * `<operator>||<operator>` -> `||`
+                 * `_||_` -> `||`
+                 */
                 element.setSelectionRange(selection_start - operator_length, selection_end + operator_length);
                 document.execCommand("delete", false);
             }
         } else if (element.value.substring(selection_start, selection_start + operator_length) == operator && element.value.substring(selection_end - operator_length, selection_end) == operator) {
-            /* `|<operator>hello<operator>|` -> `|hello|` **/
+            /**
+             * `|<operator>hello<operator>|` -> `|hello|`
+             * `|_hello_|` -> `|hello|`
+             */
             const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
-            element.setSelectionRange(selection_start, selection_end - (operator_length + operator_length));
+            element.setSelectionRange(selection_start - operator_length, selection_end - operator_length);
         } else {
-            /* `|hello|` -> `<operator>|hello|<operator>` **/
+            /**
+             * `|hello|` -> `<operator>|hello|<operator>`
+             * `|hello|` -> `_|hello|_`
+             */
             const replacement_text = operator + selection_text + operator;
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
             element.setSelectionRange(selection_start + operator_length, selection_end + operator_length);
         }
-    }
-
-    async function italic_selected_text(element: HTMLTextAreaElement) {
-        await operate_selected_text({ element: element, operator: "_" });
-    }
-
-    async function bold_selected_text(element: HTMLTextAreaElement) {
-        await operate_selected_text({ element: element, operator: "**" });
     }
 
     async function select_emoji(emoji_index: number) {
