@@ -124,6 +124,12 @@
                     await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "`" });
                     break;
                 }
+                case "u": {
+                    /** Underline functionality */
+                    event.preventDefault();
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "__" });
+                    break;
+                }
             }
         }
     }
