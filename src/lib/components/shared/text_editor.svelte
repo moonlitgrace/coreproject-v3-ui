@@ -137,15 +137,19 @@
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
 
-        if (!selection_text) return;
-
         // Handle use cases like
         if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
             /* `_|hello|_` -> `|hello|` **/
             const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
-            await insert_text({ target: element, text: element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1) });
 
-            element.setSelectionRange(selection_start - 1, selection_end - 1);
+            if (selection_text) {
+                await insert_text({ target: element, text: element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1) });
+                element.setSelectionRange(selection_start - 1, selection_end - 1);
+            } else {
+                // Borked logic
+                textarea_element.value = element.value.substring(0, selection_start - 1) + element.value.substring(selection_end + 1);
+                element.setSelectionRange(selection_start - 1, selection_end - 1);
+            }
         } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
             /* `|_hello_|` -> `|hello|` **/
             const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
