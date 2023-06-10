@@ -140,9 +140,8 @@
         // Handle use cases like
         if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
             /* `_|hello|_` -> `|hello|` **/
-            const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
-
             if (selection_text) {
+                const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
                 await insert_text({ target: element, text: element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1) });
                 element.setSelectionRange(selection_start - 1, selection_end - 1);
             } else {
@@ -170,15 +169,17 @@
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
 
-        if (!selection_text) return;
-
         // Handle use cases like
         if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
             /* `**|hello|**` -> `|hello|` **/
-            const replacement_text = element.value.substring(selection_start - 2, selection_end + 2).replace(/^\*\*|\*\*$/g, "");
-            await insert_text({ target: element, text: element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2) });
-
-            element.setSelectionRange(selection_start - 2, selection_end - 2);
+            if (selection_text) {
+                const replacement_text = element.value.substring(selection_start - 2, selection_end + 2).replace(/^\*\*|\*\*$/g, "");
+                await insert_text({ target: element, text: element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2) });
+                element.setSelectionRange(selection_start - 2, selection_end - 2);
+            } else {
+                textarea_element.value = element.value.substring(0, selection_start - 2) + element.value.substring(selection_end + 2);
+                element.setSelectionRange(selection_start - 2, selection_end - 2);
+            }
         } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
             /* `|**hello**|` -> `|hello|` **/
             const replacement_text = element.value.substring(selection_start - 2, selection_end + 2).replace(/^\*\*|\*\*$/g, "");
