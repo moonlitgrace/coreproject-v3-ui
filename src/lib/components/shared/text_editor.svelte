@@ -132,68 +132,48 @@
         document.execCommand("insertText", false, text);
     }
 
-    async function italic_selected_text(element: HTMLTextAreaElement) {
+    async function operate_selected_text({ element, operator }: { element: HTMLTextAreaElement; operator: string }) {
         const selection_start = element.selectionStart;
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
 
+        const operator_length = operator.length;
+        const escaped_operator_regex = operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
+        const regex_pattern_for_operator = new RegExp(`^` + escaped_operator_regex + "|" + escaped_operator_regex + "$", "g");
+
         // Handle use cases like
-        if (element.value.substring(selection_start - 1, selection_start) == "_" && element.value.substring(selection_end, selection_end + 1) == "_") {
-            /* `_|hello|_` -> `|hello|` **/
+        if (element.value.substring(selection_start - operator_length, selection_start) == operator && element.value.substring(selection_end, selection_end + operator_length) == operator) {
+            /* `<operator>|hello|<operator>` -> `|hello|` **/
             if (selection_text) {
-                const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
-                await insert_text({ target: element, text: element.value.substring(0, selection_start - 1) + replacement_text + element.value.substring(selection_end + 1) });
-                element.setSelectionRange(selection_start - 1, selection_end - 1);
+                const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
+                await insert_text({ target: element, text: element.value.substring(0, selection_start - operator_length) + replacement_text + element.value.substring(selection_end + operator_length) });
+                element.setSelectionRange(selection_start - operator_length, selection_end - operator_length);
             } else {
-                /* `_||_` -> `||` **/
-                element.setSelectionRange(selection_start - 1, selection_end + 1);
+                /* `<operator>||<operator>` -> `||` **/
+                element.setSelectionRange(selection_start - operator_length, selection_end + operator_length);
                 document.execCommand("delete", false);
             }
-        } else if (element.value.substring(selection_start, selection_start + 1) == "_" && element.value.substring(selection_end - 1, selection_end) == "_") {
-            /* `|_hello_|` -> `|hello|` **/
-            const replacement_text = element.value.substring(selection_start - 1, selection_end + 1).replace(/^\_|\_$/g, "");
+        } else if (element.value.substring(selection_start, selection_start + operator_length) == operator && element.value.substring(selection_end - operator_length, selection_end) == operator) {
+            /* `|<operator>hello<operator>|` -> `|hello|` **/
+            const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
-            element.setSelectionRange(selection_start, selection_end - 2);
+            element.setSelectionRange(selection_start, selection_end - (operator_length + operator_length));
         } else {
-            /* `|hello|` -> `_|hello|_` **/
-            const replacement_text = `_${selection_text}_`;
+            /* `|hello|` -> `<operator>|hello|<operator>` **/
+            const replacement_text = operator + selection_text + operator;
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
-            element.setSelectionRange(selection_start + 1, selection_end + 1);
+            element.setSelectionRange(selection_start + operator_length, selection_end + operator_length);
         }
     }
 
+    async function italic_selected_text(element: HTMLTextAreaElement) {
+        await operate_selected_text({ element: element, operator: "_" });
+    }
+
     async function bold_selected_text(element: HTMLTextAreaElement) {
-        const selection_start = element.selectionStart;
-        const selection_end = element.selectionEnd;
-        const selection_text = element.value.substring(selection_start, selection_end);
-
-        // Handle use cases like
-        if (element.value.substring(selection_start - 2, selection_start) == "**" && element.value.substring(selection_end, selection_end + 2) == "**") {
-            /* `**|hello|**` -> `|hello|` **/
-            if (selection_text) {
-                const replacement_text = element.value.substring(selection_start - 2, selection_end + 2).replace(/^\*\*|\*\*$/g, "");
-                await insert_text({ target: element, text: element.value.substring(0, selection_start - 2) + replacement_text + element.value.substring(selection_end + 2) });
-                element.setSelectionRange(selection_start - 2, selection_end - 2);
-            } else {
-                /* `**||**` -> `||` **/
-                element.setSelectionRange(selection_start - 2, selection_end + 2);
-                document.execCommand("delete", false);
-            }
-        } else if (element.value.substring(selection_start, selection_start + 2) == "**" && element.value.substring(selection_end - 2, selection_end) == "**") {
-            /* `|**hello**|` -> `|hello|` **/
-            const replacement_text = element.value.substring(selection_start - 2, selection_end + 2).replace(/^\*\*|\*\*$/g, "");
-            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
-
-            element.setSelectionRange(selection_start, selection_end - 4);
-        } else {
-            /* `|hello|` -> `**|hello|**` **/
-            const replacement_text = `**${selection_text}**`;
-            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
-
-            element.setSelectionRange(selection_start + 2, selection_end + 2);
-        }
+        await operate_selected_text({ element: element, operator: "**" });
     }
 
     async function select_emoji(emoji_index: number) {
