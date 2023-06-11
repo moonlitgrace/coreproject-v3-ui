@@ -109,25 +109,25 @@
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "**" });
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "**", ending_operator: "**" });
                     break;
                 }
                 case "i": {
                     /** Italic functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "_" });
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "_", ending_operator: "_" });
                     break;
                 }
                 case "e": {
                     /** Code functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "`" });
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "`", ending_operator: "`" });
                     break;
                 }
                 case "u": {
                     /** Underline functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, operator: "__" });
+                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "<u>", ending_operator: "</u>" });
                     break;
                 }
             }
@@ -146,52 +146,49 @@
         document.execCommand("insertText", false, text);
     }
 
-    async function operate_selected_text({ element, operator }: { element: HTMLTextAreaElement; operator: string }) {
+    async function operate_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }) {
         const selection_start = element.selectionStart;
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
 
-        const operator_length = operator.length;
-        const escaped_operator_regex = operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
-        const regex_pattern_for_operator = new RegExp(`^` + escaped_operator_regex + "|" + escaped_operator_regex + "$", "g");
-
+        const regex_pattern_for_operator = new RegExp(`^` + starting_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "|" + ending_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "$", "g");
         // Handle use cases like
-        if (element.value.substring(selection_start - operator_length, selection_start) == operator && element.value.substring(selection_end, selection_end + operator_length) == operator) {
-            /**
-             * `<operator>|hello|<operator>` -> `|hello|`
-             * `_|hello|_` -> `|hello|`
-             */
+        if (element.value.substring(selection_start - starting_operator.length, selection_start) == starting_operator && element.value.substring(selection_end, selection_end + ending_operator.length) == ending_operator) {
             if (selection_text) {
-                const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
-                await insert_text({ target: element, text: element.value.substring(0, selection_start - operator_length) + replacement_text + element.value.substring(selection_end + operator_length) });
+                /**
+                 * `<starting_operator>|hello|<ending_operator>` -> `|hello|`
+                 * `_|hello|_` -> `|hello|`
+                 */
+                const replacement_text = element.value.substring(selection_start - starting_operator.length, selection_end + ending_operator.length).replace(regex_pattern_for_operator, "");
+                await insert_text({ target: element, text: element.value.substring(0, selection_start - starting_operator.length) + replacement_text + element.value.substring(selection_end + ending_operator.length) });
 
-                element.setSelectionRange(selection_start - operator_length, selection_end - operator_length);
+                element.setSelectionRange(selection_start - starting_operator.length, selection_end - starting_operator.length);
             } else {
                 /**
-                 * `<operator>||<operator>` -> `||`
+                 * `<starting_operator>||<ending_operator>` -> `||`
                  * `_||_` -> `||`
                  */
-                element.setSelectionRange(selection_start - operator_length, selection_end + operator_length);
+                element.setSelectionRange(selection_start - starting_operator.length, selection_end + ending_operator.length);
                 document.execCommand("delete", false);
             }
-        } else if (element.value.substring(selection_start, selection_start + operator_length) == operator && element.value.substring(selection_end - operator_length, selection_end) == operator) {
+        } else if (element.value.substring(selection_start, selection_start + starting_operator.length) == starting_operator && element.value.substring(selection_end - ending_operator.length, selection_end) == ending_operator) {
             /**
-             * `|<operator>hello<operator>|` -> `|hello|`
+             * `|<starting_opeator>hello<ending_operator>|` -> `|hello|`
              * `|_hello_|` -> `|hello|`
              */
-            const replacement_text = element.value.substring(selection_start - operator_length, selection_end + operator_length).replace(regex_pattern_for_operator, "");
+
+            const replacement_text = element.value.substring(selection_start - starting_operator.length, selection_end + ending_operator.length).replace(regex_pattern_for_operator, "");
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
 
-            element.setSelectionRange(selection_start - operator_length, selection_end - operator_length);
+            element.setSelectionRange(selection_start, selection_end - (starting_operator.length + ending_operator.length));
         } else {
             /**
              * `|hello|` -> `<operator>|hello|<operator>`
              * `|hello|` -> `_|hello|_`
              */
-            const replacement_text = operator + selection_text + operator;
+            const replacement_text = starting_operator + selection_text + ending_operator;
             await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
-
-            element.setSelectionRange(selection_start + operator_length, selection_end + operator_length);
+            element.setSelectionRange(selection_start + starting_operator.length, selection_end + starting_operator.length);
         }
     }
 
