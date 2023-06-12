@@ -4,6 +4,8 @@
     import { offset } from "caret-pos";
     import { tick } from "svelte";
 
+    import Markdown from "./markdown.svelte";
+
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
 
@@ -216,19 +218,60 @@
         caret_offset = null;
         emoji_matches = [];
     }
+
+    let tab_type: "edit" | "preview" = "edit";
+
+    const handle_edit_preview_button_click = (item: string) => {
+        tab_type = item as typeof tab_type;
+    };
 </script>
 
-<div class="relative">
-    <textarea
-        on:input={handle_input}
-        on:keydown={handle_keydown}
-        on:blur={handle_blur}
-        bind:this={textarea_element}
-        bind:value={textarea_value}
-        spellcheck="true"
-        class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-primary-500"
-        placeholder="Leave a comment"
-    />
+<div class="relative rounded-[0.75vw] ring-2 ring-[#7569E1]">
+    <textarea-navbar class="flex items-center rounded-t-[1vw] bg-[#1E2036]">
+        {#each ["edit", "preview"] as item, index}
+            {@const active = tab_type.toLowerCase() == item}
+            {@const first_item = index == 0}
+            <button
+                type="button"
+                on:click={() => {
+                    handle_edit_preview_button_click(item);
+                }}
+                class="{first_item ? 'rounded-tl-[1vw]' : ''} {active ? 'bg-[#03020c] text-surface-50' : 'text-surface-200'} px-[1.5vw] py-[0.75vw] text-[1vw] text-sm capitalize leading-[1.5vw] transition-colors duration-300"
+            >
+                {item}
+            </button>
+        {/each}
+    </textarea-navbar>
+    {#if tab_type === "edit"}
+        <textarea
+            on:input={handle_input}
+            on:keydown={handle_keydown}
+            on:blur={handle_blur}
+            bind:this={textarea_element}
+            bind:value={textarea_value}
+            spellcheck="true"
+            class="h-[8vw] w-full resize-none border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0"
+            placeholder="Leave a comment"
+        />
+    {:else if tab_type === "preview"}
+        <div class="h-[100%] min-h-[8.15vw] p-[1vw]">
+            <Markdown
+                markdown={textarea_value}
+                class="w-full border-none bg-surface-900 text-[1vw] leading-[1.5vw] text-surface-50 outline-none"
+            />
+        </div>
+    {/if}
+    <textarea-footer class="flex justify-between rounded-b-[1vw] bg-[#1E2036] px-[0.95vw] py-[0.1vw] text-[0.75vw] font-thin leading-[1.5vw] text-surface-200">
+        <div />
+        <div>
+            Learn more about <a
+                class="unstyled underline"
+                href="#"
+            >
+                core editor
+            </a>
+        </div>
+    </textarea-footer>
     {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <emoji-popover
             class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
