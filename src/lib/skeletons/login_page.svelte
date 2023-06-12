@@ -1,5 +1,5 @@
 <form class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0">
-    <div class="placeholder mb-[5vw] flex h-6 w-60 items-center !bg-surface-400 md:mb-[1vw]" />
+    <div class="placeholder mb-[5vw] flex h-6 w-60 items-center !bg-surface-400 md:mb-[1vw] md:w-[58%]" />
     <div>
         <div>
             <div class="placeholder mb-1.5 h-6 w-36 !bg-surface-400" />
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="mt-10 flex items-center justify-between md:mt-0">
-        <div class="flex flex-col gap-1 md:gap-0">
+        <div class="flex flex-col gap-1">
             <span class="placeholder h-5 w-36 !bg-surface-400" />
             <span class="placeholder h-5 w-12 !bg-surface-400" />
         </div>
