@@ -5,7 +5,7 @@
     import { beforeUpdate, onDestroy } from "svelte";
     import { blur } from "svelte/transition";
 
-    let CHOICE: number;
+    let CHOICE: number = 1;
     let INTERVAL = 20_000;
 
     const change_index = () => {
@@ -13,18 +13,18 @@
         CHOICE = index;
     };
 
-    let interval: NodeJS.Timer | undefined;
-    // Run it before the UI is updated to show current behaviour
-    beforeUpdate(() => {
-        interval = setInterval(() => {
-            change_index();
-        }, INTERVAL);
-        change_index();
-    });
+    // let interval: NodeJS.Timer | undefined;
+    // // Run it before the UI is updated to show current behaviour
+    // beforeUpdate(() => {
+    //     interval = setInterval(() => {
+    //         change_index();
+    //     }, INTERVAL);
+    //     change_index();
+    // });
 
-    onDestroy(() => {
-        clearInterval(interval);
-    });
+    // onDestroy(() => {
+    //     clearInterval(interval);
+    // });
 </script>
 
 <root class="relative inline-grid h-full w-full md:grid-cols-2">
