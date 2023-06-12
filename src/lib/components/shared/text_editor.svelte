@@ -5,7 +5,7 @@
     import { tick } from "svelte";
 
     let textarea_element: HTMLTextAreaElement;
-    let textarea_value: string;
+    let textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
