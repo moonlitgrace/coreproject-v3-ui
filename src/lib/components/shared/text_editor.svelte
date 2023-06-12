@@ -24,7 +24,7 @@
     async function handle_input(event: Event) {
         const target = event.target as HTMLTextAreaElement;
         const input_text = target.value;
-        let last_typed_word: string | undefined;
+        let last_typed_word: string;
 
         // to get last typed word even its in middle
         const selection_start = target.selectionStart;
@@ -32,7 +32,7 @@
 
         const words_before_caret = input_text.substring(0, selection_start);
         const words_list = words_before_caret.split(/[\s\n]/);
-        last_typed_word = words_list.at(-1);
+        last_typed_word = words_list.at(-1) ?? "";
 
         // check if last_typed_word starts with ":" that may or may not have subsequent word characters
         const emoji_code = last_typed_word?.match(/^:(\S*)$/);
