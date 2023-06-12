@@ -5,11 +5,13 @@ export default defineConfig({
     plugins: [sveltekit()],
     esbuild: {
         legalComments: "none",
+        // This is magix
+        minifyIdentifiers: false,
         // Disable console
         drop: ["console", "debugger"]
     },
     build: {
-        target: "esnext"
+        target: "es2015"
     },
     test: {
         include: ["src/**/*.{test,spec}.{js,ts}"]

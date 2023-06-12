@@ -1,7 +1,7 @@
 <script lang="ts">
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
-    import { ValidationMessage, reporter } from "@felte/reporter-svelte";
+    import { reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
