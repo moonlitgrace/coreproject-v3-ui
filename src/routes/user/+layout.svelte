@@ -2,28 +2,37 @@
     import { latest_animes } from "$data/mock/latest_animes";
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
+    import { Timer as EasyTimer } from "easytimer.js";
     import { beforeUpdate, onDestroy } from "svelte";
     import { blur } from "svelte/transition";
 
+    // Constants
     let CHOICE: number;
-    let INTERVAL = 20_000;
+
+    let timer = new EasyTimer({
+        target: {
+            seconds: 20
+        },
+        precision: "secondTenths"
+    });
+
+    timer.on("targetAchieved", () => {
+        change_index();
+    });
 
     const change_index = () => {
         const index = Math.floor(Math.random() * latest_animes.length);
         CHOICE = index;
+        timer.isRunning() ? timer.reset() : timer.start();
     };
 
-    let interval: NodeJS.Timer | undefined;
     // Run it before the UI is updated to show current behaviour
     beforeUpdate(() => {
-        interval = setInterval(() => {
-            change_index();
-        }, INTERVAL);
         change_index();
     });
 
     onDestroy(() => {
-        clearInterval(interval);
+        timer.stop();
     });
 </script>
 
