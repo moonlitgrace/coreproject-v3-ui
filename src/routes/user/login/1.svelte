@@ -46,7 +46,7 @@
 >
     <span class="flex items-center text-base font-bold uppercase leading-none tracking-widest text-white md:text-[1.2vw]">hey there! welcome back</span>
 
-    <form-fields class="flex flex-col gap-[5vw] md:block">
+    <form-fields class="flex flex-col gap-7 md:block">
         <email-or-username-field class="flex flex-col gap-[0.3rem] md:gap-[0.5vw]">
             <label
                 for="email-or-username"
