@@ -51,24 +51,24 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
                 <div class="absolute inset-0 bottom-[6vw] hidden flex-col items-center justify-center text-center md:flex">
-                    <span class="text-[0.75vw] font-semibold uppercase text-surface-50">welcome to</span>
-                    <div class="mt-[0.5vw] flex items-center">
+                    <span class="text-[0.75vw] font-semibold uppercase leading-none text-surface-50">welcome to</span>
+                    <div class="mt-[0.75vw] flex items-center leading-none">
                         <CoreProject />
                         {#each ".moe".split("") as letter}
-                            <span class="inline-flex text-[1.75vw] font-bold text-surface-300">{letter}</span>
+                            <span class="inline-flex text-[1.5vw] font-bold text-surface-300">{letter}</span>
                         {/each}
                     </div>
                     <span class="mt-[2.875vw] max-w-[22vw] text-[1.25vw] font-semibold leading-[1.75vw]">Bridging the gap between streaming and torrenting sites with a modern and clean interface.</span>
 
-                    <span class="mt-[4vw] text-[0.9vw] font-semibold">With a coreproject account, you can</span>
-                    <span class="mt-[0.75vw] max-w-[20.375vw] text-[0.9vw] font-medium leading-[1vw] text-surface-200">continue on animecore, mangacore and soundcore with same account.</span>
+                    <span class="mt-[4vw] text-[0.9vw] font-semibold leading-none">With a coreproject account, you can</span>
+                    <span class="mt-[1vw] max-w-[20.375vw] text-[0.9vw] font-medium leading-[1vw] text-surface-200">continue on animecore, mangacore and soundcore with same account.</span>
                 </div>
 
                 <div class="absolute bottom-[1.85vw] left-10 md:left-[2vw] md:flex">
-                    <div class="flex flex-col">
-                        <span class="text-[2.25vw] font-semibold uppercase tracking-widest text-surface-300/75 md:text-[0.75vw]">Background from anime</span>
+                    <div class="flex flex-col gap-[0.75vw]">
+                        <span class="text-[2.25vw] font-semibold uppercase leading-none tracking-widest text-surface-300/75 md:text-[0.75vw]">Background from anime</span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
-                            <span class="text-[3vw] font-bold uppercase tracking-widest text-warning-400 md:text-[1vw]">
+                            <span class="text-[3vw] font-bold uppercase leading-none tracking-widest text-warning-400 md:text-[1vw]">
                                 {item.name}
                             </span>
                             <button
