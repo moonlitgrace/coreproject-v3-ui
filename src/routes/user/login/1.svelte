@@ -40,13 +40,13 @@
 </script>
 
 <form
-    class="flex h-max w-full flex-col gap-[15vw] bg-surface-900 p-10 md:h-full md:justify-between md:gap-0 md:rounded-none"
+    class="flex h-max w-full flex-col gap-[15vw] bg-surface-900 p-10 md:h-full md:justify-between md:gap-0 md:rounded-none md:p-0"
     use:form
     use:focusTrap={true}
 >
     <span class="flex items-center text-base font-bold uppercase leading-none tracking-widest text-white md:text-[1.2vw]">hey there! welcome back</span>
 
-    <form-fields class="flex flex-col gap-[5vw]">
+    <form-fields class="flex flex-col gap-[5vw] md:block">
         <email-or-username-field class="flex flex-col gap-[0.3rem] md:gap-[0.5vw]">
             <label
                 for="email-or-username"
