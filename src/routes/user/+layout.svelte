@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="absolute bottom-[1.85vw] left-10 md:left-[2vw] md:flex">
-                    <div class="flex flex-col gap-[0.75vw]">
+                    <div class="flex flex-col gap-2 md:gap-[0.75vw]">
                         <span class="text-[2.25vw] font-semibold uppercase leading-none tracking-widest text-surface-300/75 md:text-[0.75vw]">Background from anime</span>
                         <div class="flex items-center gap-[2vw] md:gap-[0.5vw]">
                             <span class="text-[3vw] font-bold uppercase leading-none tracking-widest text-warning-400 md:text-[1vw]">
