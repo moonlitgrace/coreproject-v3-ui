@@ -8,9 +8,11 @@
     let klass = "";
 
     marked.use({
-        mangle: true,
+        mangle: false, // Isn't supported by typescript
         pedantic: false,
-        gfm: true
+        gfm: true,
+        // Disable
+        headerIds: false
     });
 
     let html: string;

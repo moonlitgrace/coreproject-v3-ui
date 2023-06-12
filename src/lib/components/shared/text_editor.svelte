@@ -226,6 +226,7 @@
         on:blur={handle_blur}
         bind:this={textarea_element}
         bind:value={textarea_value}
+        spellcheck="true"
         class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-primary-500"
         placeholder="Leave a comment"
     />
