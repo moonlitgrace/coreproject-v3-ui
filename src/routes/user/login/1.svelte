@@ -44,13 +44,13 @@
     use:form
     use:focusTrap={true}
 >
-    <span class="flex items-center pb-[5vw] text-base font-bold uppercase tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
+    <span class="flex items-center pb-[5vw] text-base font-bold uppercase leading-none tracking-widest text-white md:pb-[1vw] md:text-[1.2vw]">hey there! welcome back</span>
 
     <form-fields>
-        <email-or-username-field>
+        <email-or-username-field class="flex flex-col gap-[0.3rem] md:gap-[0.5vw]">
             <label
                 for="email-or-username"
-                class="text-lg font-semibold md:text-[1.1vw]"
+                class="text-lg font-semibold leading-none md:text-[1.1vw]"
             >
                 Email / Username
             </label>
@@ -58,20 +58,20 @@
                 name="email-or-username"
                 id="email-or-username"
                 placeholder="sora_amamiya@coreproject.moe / soraamamiya#0001"
-                class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
+                class="h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
             <div slot="placeholder">
-                <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
+                <info class="mt-[0.75vw] flex items-center gap-2 md:mt-[0.5vw]">
                     <Info class="w-3 opacity-70 md:w-[0.9vw]" />
-                    <span class="text-xs text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
+                    <span class="text-xs leading-none text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
                 </info>
             </div>
         </email-or-username-field>
 
-        <password-field>
+        <password-field class="mt-[1.5vw] flex flex-col gap-[0.3rem] md:gap-[0.5vw]">
             <label
                 for="password"
-                class="mt-[2vw] text-lg font-semibold md:mt-[1.5vw] md:text-[1.1vw]"
+                class="text-lg font-semibold leading-none md:text-[1.1vw]"
             >
                 Password
             </label>
@@ -82,7 +82,7 @@
                         id="password"
                         name="password"
                         placeholder="enter your existing password"
-                        class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
+                        class="h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                     />
                 </div>
             </div>
@@ -91,7 +91,7 @@
         <div class="mt-5 flex flex-col items-start md:mt-[3vw]">
             <a
                 href="./reset-password"
-                class="btn p-0 text-base font-semibold text-primary-600 underline md:text-[1vw]"
+                class="btn p-0 text-base font-semibold leading-none text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< forgot password? >`}
             </a>
@@ -99,11 +99,11 @@
     </form-fields>
 
     <div class="mt-10 flex items-center justify-between md:mt-0">
-        <div class="flex flex-col gap-1 md:gap-0">
-            <span class="text-xs text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
+        <div class="flex flex-col gap-1 md:gap-[0.5vw]">
+            <span class="text-xs leading-none text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
             <a
                 href="./register"
-                class="text-base md:text-[1.1vw]"
+                class="text-base leading-none md:text-[1.1vw]"
             >
                 Register
             </a>
