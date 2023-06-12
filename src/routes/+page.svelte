@@ -26,7 +26,6 @@
     import SettingsOutline from "$icons/settings_outline.svelte";
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
-    import _ from "lodash";
     import { onDestroy, onMount } from "svelte";
     import { swipe } from "svelte-gestures";
     import type { SvelteComponentDev } from "svelte/internal";
