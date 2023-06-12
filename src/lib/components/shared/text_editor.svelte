@@ -79,24 +79,23 @@
 
     async function handle_keydown(event: KeyboardEvent) {
         /**Emoji specific codes*/
-        switch (event.key) {
-            case "ArrowUp": {
-                event.preventDefault();
-                if (!show_emoji_picker) return;
-                active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
-                break;
-            }
-            case "ArrowDown": {
-                event.preventDefault();
-                if (!show_emoji_picker) return;
-                active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
-                break;
-            }
-            case "Enter": {
-                event.preventDefault();
-                if (!show_emoji_picker) return;
-                await select_emoji(active_emoji_index);
-                break;
+        if (show_emoji_picker) {
+            switch (event.key) {
+                case "ArrowUp": {
+                    event.preventDefault();
+                    active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
+                    break;
+                }
+                case "ArrowDown": {
+                    event.preventDefault();
+                    active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
+                    break;
+                }
+                case "Enter": {
+                    event.preventDefault();
+                    await select_emoji(active_emoji_index);
+                    break;
+                }
             }
         }
 
@@ -109,25 +108,25 @@
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "**", ending_operator: "**" });
+                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "**", ending_operator: "**" });
                     break;
                 }
                 case "i": {
                     /** Italic functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "_", ending_operator: "_" });
+                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "_", ending_operator: "_" });
                     break;
                 }
                 case "e": {
                     /** Code functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "`", ending_operator: "`" });
+                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "`", ending_operator: "`" });
                     break;
                 }
                 case "u": {
                     /** Underline functionality */
                     event.preventDefault();
-                    await operate_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "<u>", ending_operator: "</u>" });
+                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "<u>", ending_operator: "</u>" });
                     break;
                 }
             }
@@ -146,7 +145,7 @@
         document.execCommand("insertText", false, text);
     }
 
-    async function operate_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }) {
+    async function operate_on_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }) {
         const selection_start = element.selectionStart;
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
