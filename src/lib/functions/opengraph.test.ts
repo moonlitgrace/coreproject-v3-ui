@@ -4,7 +4,7 @@ import { expect, test } from "vitest";
 test("opengraph function", () => {
     const opengraph_html = new OpengraphGenerator({
         title: "Hello",
-        page_url: "https://example.com",
+        url: "https://example.com",
         description: "random",
         site_name: "CoreProject",
         locale: "en_US"

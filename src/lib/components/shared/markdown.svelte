@@ -9,7 +9,7 @@
 
     marked.use({
         mangle: false, // Isn't supported by typescript
-        pedantic: false,
+        pedantic: true,
         gfm: true,
         // Disable
         headerIds: false

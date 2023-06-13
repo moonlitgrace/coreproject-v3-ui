@@ -1,8 +1,15 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
+    import Bold from "$icons/bold.svelte";
+    import Hyperlink from "$icons/hyperlink.svelte";
+    import Italic from "$icons/italic.svelte";
+    import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
+
+    import Markdown from "./markdown.svelte";
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
@@ -12,6 +19,22 @@
     let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
+
+    // Functions
+    function is_valid_url(url_string: string) {
+        /**
+         * Credit : https://stackoverflow.com/a/43467144
+         */
+        let url;
+
+        try {
+            url = new URL(url_string);
+        } catch (_) {
+            return false;
+        }
+
+        return url.protocol === "http:" || url.protocol === "https:";
+    }
 
     // Hanlders
 
@@ -108,33 +131,81 @@
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "**", ending_operator: "**" });
+                    await bold_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "i": {
                     /** Italic functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "_", ending_operator: "_" });
+                    await italic_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "e": {
                     /** Code functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "`", ending_operator: "`" });
+                    await code_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "u": {
                     /** Underline functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "<u>", ending_operator: "</u>" });
+                    await underline_text(event.target as HTMLTextAreaElement);
+                    break;
+                }
+                case "k": {
+                    /** Hyperlink functionality */
+                    event.preventDefault();
+                    await hyperlink_text(event.target as HTMLTextAreaElement);
                     break;
                 }
             }
         }
     }
+    // Editor specific functions
+    async function bold_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "**", ending_operator: "**" });
+    }
+    async function italic_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "_", ending_operator: "_" });
+    }
+    async function code_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "`", ending_operator: "`" });
+    }
+    async function underline_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
+    }
+    async function hyperlink_text(element: HTMLTextAreaElement) {
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+        const replacement_text = `[${selection_text}]()`;
+
+        await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+        element.setSelectionRange(selection_start + selection_text.length + 3, selection_start + selection_text.length + 3);
+    }
+    // Special function
+    async function paste_text(event: ClipboardEvent & { currentTarget: HTMLTextAreaElement }) {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+
+        const clipboard_data = event.clipboardData?.getData("text") ?? "";
+        const clipboard_data_contains_url = is_valid_url(clipboard_data);
+
+        if (selection_text && clipboard_data_contains_url) {
+            const replacement_text = `[${selection_text}](${clipboard_data})`;
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+            element.setSelectionRange(selection_start + replacement_text.length, selection_start + replacement_text.length);
+        } else {
+            const replacement_text = clipboard_data;
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+        }
+    }
 
     // Functions
-
     async function insert_text({ target, text }: { target: HTMLTextAreaElement; text: string }) {
         /**
          * Thanks stackoverflow guy and mozilla dev ( Michal Čaplygin |myf| )
@@ -151,7 +222,8 @@
         const selection_text = element.value.substring(selection_start, selection_end);
 
         const regex_pattern_for_operator = new RegExp("^" + starting_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "|" + ending_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "$", "g");
-        // Handle use cases like
+
+        // Handle use cases
         if (element.value.substring(selection_start - starting_operator.length, selection_start) == starting_operator && element.value.substring(selection_end, selection_end + ending_operator.length) == ending_operator) {
             if (selection_text) {
                 /**
@@ -216,19 +288,133 @@
         caret_offset = null;
         emoji_matches = [];
     }
+
+    let tab_type: "edit" | "preview" = "edit";
+
+    const handle_edit_preview_button_click = (item: string) => {
+        tab_type = item as typeof tab_type;
+    };
+
+    const icon_and_function_mapping: {
+        [key: string]: {
+            function: (elemnt: HTMLElement) => void;
+            icon: {
+                component: typeof SvelteComponentDev;
+                class: string;
+            };
+        };
+    } = {
+        bold: {
+            function: (element) => {
+                bold_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Bold,
+                class: "w-[1.65vw] text-surface-200"
+            }
+        },
+        italic: {
+            function: (element) => {
+                italic_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Italic,
+                class: "h-[1.5vw] text-surface-200"
+            }
+        },
+        underline: {
+            function: (element) => {
+                underline_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Underline,
+                class: "h-[1.35vw] text-surface-200"
+            }
+        },
+        hyperlink: {
+            function: (element) => {
+                hyperlink_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Hyperlink,
+                class: "h-[1.25vw] text-surface-200 ml-[1vw]"
+            }
+        }
+    };
 </script>
 
-<div class="relative">
-    <textarea
-        on:input={handle_input}
-        on:keydown={handle_keydown}
-        on:blur={handle_blur}
-        bind:this={textarea_element}
-        bind:value={textarea_value}
-        spellcheck="true"
-        class="h-[8vw] w-full rounded-[0.75vw] border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none ring-2 ring-white/25 duration-300 ease-in-out placeholder:text-surface-200 focus:ring-2 focus:ring-primary-500"
-        placeholder="Leave a comment"
-    />
+<div class="relative overflow-hidden rounded-[0.75vw] ring-[0.15vw] ring-white/25 transition duration-300 focus-within:ring-primary-500">
+    <textarea-navbar class="flex h-[2.5vw] items-center justify-between bg-surface-400">
+        <div>
+            {#each ["edit", "preview"] as item, index}
+                {@const active = tab_type.toLowerCase() == item}
+                {@const first_item = index == 0}
+                <button
+                    type="button"
+                    on:click={() => {
+                        handle_edit_preview_button_click(item);
+                    }}
+                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} px-[1.5vw] py-[0.75vw] text-[1vw] capitalize leading-[1.5vw] transition-colors duration-100"
+                    class:rounded-tl-[1vw]={first_item}
+                >
+                    {item}
+                </button>
+            {/each}
+        </div>
+        <div class="flex place-items-center gap-[0.75vw] pr-[1vw]">
+            {#each Object.entries(icon_and_function_mapping) as item}
+                {@const icon = item[1].icon.component}
+                {@const icon_class = item[1].icon.class}
+                {@const button_function = item[1].function}
+
+                <button
+                    class="btn p-0"
+                    type="button"
+                    on:click={() => {
+                        button_function(textarea_element);
+                    }}
+                >
+                    <svelte:component
+                        this={icon}
+                        class={icon_class}
+                    />
+                </button>
+            {/each}
+        </div>
+    </textarea-navbar>
+    {#if tab_type === "edit"}
+        <textarea
+            on:paste={(event) => {
+                paste_text(event);
+            }}
+            on:input={handle_input}
+            on:keydown={handle_keydown}
+            on:blur={handle_blur}
+            bind:this={textarea_element}
+            bind:value={textarea_value}
+            spellcheck="true"
+            class="h-[8vw] w-full resize-none border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0"
+            placeholder="Leave a comment"
+        />
+    {:else if tab_type === "preview"}
+        <div class="h-[100%] min-h-[8.25vw] p-[1vw]">
+            <Markdown
+                markdown={textarea_value}
+                class="w-full border-none bg-surface-900 text-[1vw] leading-[1.5vw] text-surface-50 outline-none"
+            />
+        </div>
+    {/if}
+    <textarea-footer class="flex justify-between bg-surface-400 px-[1vw] py-[0.1vw] text-[0.75vw] font-thin leading-[1.5vw] text-surface-200">
+        <div />
+        <div>
+            Learn more about <a
+                class="unstyled underline"
+                href="/"
+            >
+                core editor
+            </a>
+        </div>
+    </textarea-footer>
     {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <emoji-popover
             class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
