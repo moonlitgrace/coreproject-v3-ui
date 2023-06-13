@@ -2,7 +2,7 @@
     import DOMPurify from "isomorphic-dompurify";
     import { marked } from "marked";
 
-    export let markdown = "";
+    export let markdown: string;
     export { klass as class };
 
     let klass = "";
@@ -11,6 +11,7 @@
         mangle: false, // Isn't supported by typescript
         pedantic: true,
         gfm: true,
+        breaks: true,
         // Disable
         headerIds: false
     });

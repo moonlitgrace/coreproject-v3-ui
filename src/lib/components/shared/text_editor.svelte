@@ -7,7 +7,7 @@
     import Markdown from "./markdown.svelte";
 
     let textarea_element: HTMLTextAreaElement;
-    let textarea_value = "";
+    let textarea_value: string;
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
@@ -266,7 +266,7 @@
         <div>
             Learn more about <a
                 class="unstyled underline"
-                href="#"
+                href="/"
             >
                 core editor
             </a>
