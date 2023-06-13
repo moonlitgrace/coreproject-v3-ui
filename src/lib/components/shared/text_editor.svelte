@@ -1,6 +1,10 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
+    import Bold from "$icons/bold.svelte";
+    import Hyperlink from "$icons/hyperlink.svelte";
+    import Italic from "$icons/italic.svelte";
+    import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
 
@@ -227,21 +231,49 @@
 </script>
 
 <div class="relative overflow-hidden rounded-[0.75vw] ring-[0.15vw] ring-white/25 transition duration-300 focus-within:ring-primary-500">
-    <textarea-navbar class="flex h-[2.5vw] items-center bg-surface-400">
-        {#each ["edit", "preview"] as item, index}
-            {@const active = tab_type.toLowerCase() == item}
-            {@const first_item = index == 0}
+    <textarea-navbar class="flex h-[2.5vw] items-center justify-between bg-surface-400">
+        <div>
+            {#each ["edit", "preview"] as item, index}
+                {@const active = tab_type.toLowerCase() == item}
+                {@const first_item = index == 0}
+                <button
+                    type="button"
+                    on:click={() => {
+                        handle_edit_preview_button_click(item);
+                    }}
+                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} px-[1.5vw] py-[0.75vw] text-[1vw] capitalize leading-[1.5vw] transition-colors duration-100"
+                    class:rounded-tl-[1vw]={first_item}
+                >
+                    {item}
+                </button>
+            {/each}
+        </div>
+        <div class="flex place-items-center gap-[0.5vw] pr-[1vw]">
             <button
+                class="btn p-0"
                 type="button"
-                on:click={() => {
-                    handle_edit_preview_button_click(item);
-                }}
-                class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} px-[1.5vw] py-[0.75vw] text-[1vw] capitalize leading-[1.5vw] transition-colors duration-100"
-                class:rounded-tl-[1vw]={first_item}
             >
-                {item}
+                <Bold class="w-[1.65vw] text-surface-200" />
             </button>
-        {/each}
+            <button
+                class="btn p-0"
+                type="button"
+            >
+                <Italic class="h-[1.5vw] text-surface-200" />
+            </button>
+            <button
+                class="btn p-0"
+                type="button"
+            >
+                <Underline class="h-[1.35vw] text-surface-200" />
+            </button>
+            <button
+                class="btn ml-[1vw] p-0"
+                type="button"
+            >
+                <Hyperlink class="h-[1.25vw] text-surface-200" />
+            </button>
+        </div>
     </textarea-navbar>
     {#if tab_type === "edit"}
         <textarea
