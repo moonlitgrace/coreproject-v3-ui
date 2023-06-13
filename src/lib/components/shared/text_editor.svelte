@@ -337,7 +337,7 @@
             },
             icon: {
                 component: Hyperlink,
-                class: "h-[1.25vw] text-surface-200"
+                class: "h-[1.25vw] text-surface-200 ml-[1vw]"
             }
         }
     };
@@ -361,14 +361,14 @@
                 </button>
             {/each}
         </div>
-        <div class="flex place-items-center gap-[0.5vw] pr-[1vw]">
+        <div class="flex place-items-center gap-[0.75vw] pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
                 {@const button_function = item[1].function}
 
                 <button
-                    class="btn ml-[1vw] p-0"
+                    class="btn p-0"
                     type="button"
                     on:click={() => {
                         button_function(textarea_element);
@@ -397,7 +397,7 @@
             placeholder="Leave a comment"
         />
     {:else if tab_type === "preview"}
-        <div class="h-[100%] min-h-[8.1vw] p-[1vw]">
+        <div class="h-[100%] min-h-[8.25vw] p-[1vw]">
             <Markdown
                 markdown={textarea_value}
                 class="w-full border-none bg-surface-900 text-[1vw] leading-[1.5vw] text-surface-50 outline-none"
