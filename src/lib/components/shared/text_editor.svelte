@@ -6,11 +6,9 @@
     import Italic from "$icons/italic.svelte";
     import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
-    import { entries } from "lodash";
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
 
-    import A1 from "../../../routes/user/login/1.svelte";
     import Markdown from "./markdown.svelte";
 
     let textarea_element: HTMLTextAreaElement;
