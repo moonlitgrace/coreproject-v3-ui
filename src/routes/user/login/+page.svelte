@@ -8,6 +8,7 @@
         title: "Register Page",
         site_name: "CoreProject",
         image_url: "", // Use Opengraph later
+        url: $svelte_store_page.url.href,
         locale: "en_US",
         description: "A page where you can register your core account"
     }).generate_opengraph();

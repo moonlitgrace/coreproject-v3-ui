@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
@@ -200,6 +201,7 @@
         title: "AnimeCore - A modern anime streaming site",
         site_name: "CoreProject",
         image_url: "", // Use Opengraph later
+        url: $page.url.href,
         locale: "en_US",
         description: "The most modern anime streaming site"
     }).generate_opengraph();
