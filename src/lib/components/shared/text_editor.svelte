@@ -20,6 +20,15 @@
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
+    // Functions
+    function is_valid_url(url_string: string) {
+        try {
+            return Boolean(new URL(url_string));
+        } catch (e) {
+            return false;
+        }
+    }
+
     // Hanlders
 
     async function handle_blur() {
@@ -136,6 +145,12 @@
                     await underline_text(event.target as HTMLTextAreaElement);
                     break;
                 }
+                case "k": {
+                    /** Hyperlink functionality */
+                    event.preventDefault();
+                    await hyperlink_text(event.target as HTMLTextAreaElement);
+                    break;
+                }
             }
         }
     }
@@ -151,6 +166,36 @@
     }
     async function underline_text(element: HTMLTextAreaElement) {
         await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
+    }
+    async function hyperlink_text(element: HTMLTextAreaElement) {
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+        const replacement_text = `[${selection_text}]()`;
+
+        await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+        element.setSelectionRange(selection_start + selection_text.length + 3, selection_start + selection_text.length + 3);
+    }
+    // Special function
+    async function paste_text(event: ClipboardEvent & { currentTarget: HTMLTextAreaElement }) {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const selection_start = element.selectionStart;
+        const selection_end = element.selectionEnd;
+        const selection_text = element.value.substring(selection_start, selection_end);
+
+        const clipboard_data = event.clipboardData?.getData("text") ?? "";
+        const clipboard_data_contains_url = is_valid_url(clipboard_data);
+
+        if (selection_text && clipboard_data_contains_url) {
+            const replacement_text = `[${selection_text}](${clipboard_data})`;
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+            element.setSelectionRange(selection_start + replacement_text.length, selection_start + replacement_text.length);
+        } else {
+            const replacement_text = clipboard_data;
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+        }
     }
 
     // Functions
@@ -170,7 +215,8 @@
         const selection_text = element.value.substring(selection_start, selection_end);
 
         const regex_pattern_for_operator = new RegExp("^" + starting_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "|" + ending_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "$", "g");
-        // Handle use cases like
+
+        // Handle use cases
         if (element.value.substring(selection_start - starting_operator.length, selection_start) == starting_operator && element.value.substring(selection_end, selection_end + ending_operator.length) == ending_operator) {
             if (selection_text) {
                 /**
@@ -277,6 +323,15 @@
                 component: Underline,
                 class: "h-[1.35vw] text-surface-200"
             }
+        },
+        hyperlink: {
+            function: (element) => {
+                hyperlink_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Hyperlink,
+                class: "h-[1.25vw] text-surface-200"
+            }
         }
     };
 </script>
@@ -322,6 +377,9 @@
     </textarea-navbar>
     {#if tab_type === "edit"}
         <textarea
+            on:paste={(event) => {
+                paste_text(event);
+            }}
             on:input={handle_input}
             on:keydown={handle_keydown}
             on:blur={handle_blur}
