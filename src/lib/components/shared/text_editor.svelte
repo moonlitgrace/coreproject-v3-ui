@@ -6,8 +6,11 @@
     import Italic from "$icons/italic.svelte";
     import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
+    import { entries } from "lodash";
     import { tick } from "svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
 
+    import A1 from "../../../routes/user/login/1.svelte";
     import Markdown from "./markdown.svelte";
 
     let textarea_element: HTMLTextAreaElement;
@@ -228,6 +231,31 @@
     const handle_edit_preview_button_click = (item: string) => {
         tab_type = item as typeof tab_type;
     };
+
+    /* Markdown options */
+    const markdown_options: {
+        [key: string]: {
+            component: typeof SvelteComponentDev;
+            height: string;
+        };
+    } = {
+        bold: {
+            component: Bold,
+            height: "[1.65vw]"
+        },
+        italic: {
+            component: Italic,
+            height: "[1.5vw]"
+        },
+        underline: {
+            component: Underline,
+            height: "[1.35vw]"
+        },
+        hyperlink: {
+            component: Hyperlink,
+            height: "[1.25vw]"
+        }
+    };
 </script>
 
 <div class="relative overflow-hidden rounded-[0.75vw] ring-[0.15vw] ring-white/25 transition duration-300 focus-within:ring-primary-500">
@@ -248,31 +276,21 @@
                 </button>
             {/each}
         </div>
-        <div class="flex place-items-center gap-[0.5vw] pr-[1vw]">
-            <button
-                class="btn p-0"
-                type="button"
-            >
-                <Bold class="w-[1.65vw] text-surface-200" />
-            </button>
-            <button
-                class="btn p-0"
-                type="button"
-            >
-                <Italic class="h-[1.5vw] text-surface-200" />
-            </button>
-            <button
-                class="btn p-0"
-                type="button"
-            >
-                <Underline class="h-[1.35vw] text-surface-200" />
-            </button>
-            <button
-                class="btn ml-[1vw] p-0"
-                type="button"
-            >
-                <Hyperlink class="h-[1.25vw] text-surface-200" />
-            </button>
+        <div class="flex place-items-center gap-[0.5vw] pr-[1vw] text-surface-300">
+            {#each Object.entries(markdown_options) as item}
+                {@const component = item[1].component}
+                {@const height = item[1].height}
+
+                <button
+                    class="btn p-0"
+                    type="button"
+                >
+                    <svelte:component
+                        this={component}
+                        class="h-{height}"
+                    />
+                </button>
+            {/each}
         </div>
     </textarea-navbar>
     {#if tab_type === "edit"}
