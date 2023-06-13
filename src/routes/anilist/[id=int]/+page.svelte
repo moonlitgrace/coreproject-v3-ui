@@ -12,6 +12,7 @@
     const opengraph_html = new OpengraphGenerator({
         title: `Watch ${anime?.name} on AnimeCore`,
         description: anime?.synopsis ?? "",
+        url: $page.url.href,
         site_name: "CoreProject",
         locale: "en_US",
         image_url: anime?.banner ?? ""

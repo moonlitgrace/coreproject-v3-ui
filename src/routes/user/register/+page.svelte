@@ -7,6 +7,8 @@
     const opengraph_html = new OpengraphGenerator({
         title: "Register Page",
         site_name: "CoreProject",
+        url: $svelte_store_page.url.href,
+
         image_url: "", // Use Opengraph later
         locale: "en_US",
         description: "A page where you can register your core account"
