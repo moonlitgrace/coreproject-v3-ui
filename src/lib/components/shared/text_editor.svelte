@@ -226,8 +226,8 @@
     };
 </script>
 
-<div class="relative rounded-[0.75vw] ring-2 ring-[#7569E1]">
-    <textarea-navbar class="flex items-center rounded-t-[1vw] bg-[#1E2036]">
+<div class="relative overflow-hidden rounded-[0.75vw] ring-[0.15vw] ring-white/25 transition duration-300 focus-within:ring-primary-500">
+    <textarea-navbar class="flex h-[2.5vw] items-center bg-surface-400">
         {#each ["edit", "preview"] as item, index}
             {@const active = tab_type.toLowerCase() == item}
             {@const first_item = index == 0}
@@ -236,7 +236,8 @@
                 on:click={() => {
                     handle_edit_preview_button_click(item);
                 }}
-                class="{first_item ? 'rounded-tl-[1vw]' : ''} {active ? 'bg-[#03020c] text-surface-50' : 'text-surface-200'} px-[1.5vw] py-[0.75vw] text-[1vw] text-sm capitalize leading-[1.5vw] transition-colors duration-300"
+                class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} px-[1.5vw] py-[0.75vw] text-[1vw] capitalize leading-[1.5vw] transition-colors duration-100"
+                class:rounded-tl-[1vw]={first_item}
             >
                 {item}
             </button>
@@ -261,7 +262,7 @@
             />
         </div>
     {/if}
-    <textarea-footer class="flex justify-between rounded-b-[1vw] bg-[#1E2036] px-[0.95vw] py-[0.1vw] text-[0.75vw] font-thin leading-[1.5vw] text-surface-200">
+    <textarea-footer class="flex justify-between bg-surface-400 px-[1vw] py-[0.1vw] text-[0.75vw] font-thin leading-[1.5vw] text-surface-200">
         <div />
         <div>
             Learn more about <a
