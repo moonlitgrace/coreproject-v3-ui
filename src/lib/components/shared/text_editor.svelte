@@ -308,8 +308,8 @@
                 <button
                     class="btn ml-[1vw] p-0"
                     type="button"
-                    on:click={(event) => {
-                        button_function(event.currentTarget);
+                    on:click={() => {
+                        button_function(textarea_element);
                     }}
                 >
                     <svelte:component
