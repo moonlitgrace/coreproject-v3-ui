@@ -115,33 +115,45 @@
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "**", ending_operator: "**" });
+                    await bold_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "i": {
                     /** Italic functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "_", ending_operator: "_" });
+                    await italic_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "e": {
                     /** Code functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "`", ending_operator: "`" });
+                    await code_text(event.target as HTMLTextAreaElement);
                     break;
                 }
                 case "u": {
                     /** Underline functionality */
                     event.preventDefault();
-                    await operate_on_selected_text({ element: event.target as HTMLTextAreaElement, starting_operator: "<u>", ending_operator: "</u>" });
+                    await underline_text(event.target as HTMLTextAreaElement);
                     break;
                 }
             }
         }
     }
+    // Editor specific functions
+    async function bold_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "**", ending_operator: "**" });
+    }
+    async function italic_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "_", ending_operator: "_" });
+    }
+    async function code_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "`", ending_operator: "`" });
+    }
+    async function underline_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
+    }
 
     // Functions
-
     async function insert_text({ target, text }: { target: HTMLTextAreaElement; text: string }) {
         /**
          * Thanks stackoverflow guy and mozilla dev ( Michal Čaplygin |myf| )
@@ -230,28 +242,41 @@
         tab_type = item as typeof tab_type;
     };
 
-    /* Markdown options */
-    const markdown_options: {
+    const icon_and_function_mapping: {
         [key: string]: {
-            component: typeof SvelteComponentDev;
-            height: string;
+            function: (elemnt: HTMLElement) => void;
+            icon: {
+                component: typeof SvelteComponentDev;
+                class: string;
+            };
         };
     } = {
         bold: {
-            component: Bold,
-            height: "[1.65vw]"
+            function: (element) => {
+                bold_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Bold,
+                class: "w-[1.65vw] text-surface-200"
+            }
         },
         italic: {
-            component: Italic,
-            height: "[1.5vw]"
+            function: (element) => {
+                italic_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Italic,
+                class: "h-[1.5vw] text-surface-200"
+            }
         },
         underline: {
-            component: Underline,
-            height: "[1.35vw]"
-        },
-        hyperlink: {
-            component: Hyperlink,
-            height: "[1.25vw]"
+            function: (element) => {
+                underline_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Underline,
+                class: "h-[1.35vw] text-surface-200"
+            }
         }
     };
 </script>
@@ -274,18 +299,22 @@
                 </button>
             {/each}
         </div>
-        <div class="flex place-items-center gap-[0.5vw] pr-[1vw] text-surface-300">
-            {#each Object.entries(markdown_options) as item}
-                {@const component = item[1].component}
-                {@const height = item[1].height}
+        <div class="flex place-items-center gap-[0.5vw] pr-[1vw]">
+            {#each Object.entries(icon_and_function_mapping) as item}
+                {@const icon = item[1].icon.component}
+                {@const icon_class = item[1].icon.class}
+                {@const button_function = item[1].function}
 
                 <button
-                    class="btn p-0"
+                    class="btn ml-[1vw] p-0"
                     type="button"
+                    on:click={(event) => {
+                        button_function(event.currentTarget);
+                    }}
                 >
                     <svelte:component
-                        this={component}
-                        class="h-{height}"
+                        this={icon}
+                        class={icon_class}
                     />
                 </button>
             {/each}
