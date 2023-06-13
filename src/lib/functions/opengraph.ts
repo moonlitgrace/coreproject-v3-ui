@@ -1,5 +1,3 @@
-import { get } from "svelte/store";
-import { page } from "$app/stores";
 type ISiteName = "CoreProject" | "AnimeCore" | "MangaCore";
 
 type ILocale =
@@ -167,7 +165,7 @@ type IVideo = {
 
 export class OpengraphGenerator {
     #title: string;
-    #url = get(page).url.href;
+    #url: string;
     #description: string;
     #site_name: ISiteName;
     #locale: ILocale;
@@ -175,8 +173,9 @@ export class OpengraphGenerator {
     #image?: string;
     #video?: IVideo;
 
-    constructor({ title, description, site_name, locale, audio, image_url, video }: { title: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
+    constructor({ title, url, description, site_name, locale, audio, image_url, video }: { title: string; url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
         this.#title = title;
+        this.#url = url;
         this.#image = image_url;
         this.#description = description;
         this.#site_name = site_name;
