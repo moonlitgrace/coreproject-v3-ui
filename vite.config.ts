@@ -6,12 +6,12 @@ export default defineConfig({
     esbuild: {
         legalComments: "none",
         // This is magix
-        minifyIdentifiers: false,
+        // minifyIdentifiers: false,
         // Disable console
         drop: ["console", "debugger"]
     },
     build: {
-        target: "es2015"
+        target: "esnext"
     },
     test: {
         include: ["src/**/*.{test,spec}.{js,ts}"]
