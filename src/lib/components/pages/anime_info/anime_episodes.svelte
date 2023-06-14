@@ -18,158 +18,161 @@
     export let anime_episodes: any;
 </script>
 
-<div class="my-[6vw]">
+<div class="my-7 md:my-[6vw]">
     <div class="flex gap-x-[0.75vw]">
-        <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
-        <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+        <span class="text-lg font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
+        <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
         </button>
     </div>
 
-    <div class="flex justify-between">
-        <div class="flex items-end gap-[1.25vw]">
-            <p class="flex gap-[0.75vw]">
-                <span class="font-bold leading-[0.9vw] md:text-[2vw] md:leading-[1.9vw]">23</span>
-                <span class="font-semibold md:text-[1vw]">episodes</span>
-                <span class="inline-flex items-center text-[1vw]">▪</span>
+    <div class="mt-5 flex flex-col justify-between gap-y-5 md:mt-0 md:flex-row md:gap-y-0">
+        <div class="flex items-end gap-2 md:gap-[1.25vw]">
+            <p class="flex items-center gap-1 md:gap-[0.75vw]">
+                <span class="text-base font-bold leading-none md:text-[2vw] md:leading-[1.9vw]">23</span>
+                <span class="text-xs font-semibold md:text-[1vw]">episodes</span>
+                <span class="inline-flex items-center text-[0.4rem] md:text-[1vw]">▪</span>
             </p>
 
             <div>
-                <div class="flex w-full items-center gap-[1vw] leading-[1.5vw]">
-                    <span class="flex-shrink-0 text-[0.75vw] font-medium">Available in</span>
-                    <div class="h-[0.08vw] w-full bg-surface-300" />
+                <div class="flex w-full items-center gap-2 leading-4 md:gap-[1vw] md:leading-[1.5vw]">
+                    <span class="flex-shrink-0 text-[0.5rem] font-medium md:text-[0.75vw]">Available in</span>
+                    <div class="h-[0.1rem] w-full bg-surface-50/25 md:h-[0.08vw] md:bg-surface-300" />
                 </div>
 
                 <div>
-                    <div class="flex h-[1.8vw] gap-[0.75vw] text-[0.75vw] font-bold">
-                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">sub</span>
+                    <div class="flex h-5 gap-2 text-[0.5rem] font-bold md:h-[1.8vw] md:gap-[0.75vw] md:text-[0.75vw]">
+                        {#each Array("sub", "dub") as item}
+                            <span class="flex h-full place-items-center rounded bg-surface-400 px-2 uppercase leading-[0.9vw] md:rounded-[0.25vw] md:px-[0.9vw]">
+                                {item}
+                            </span>
+                        {/each}
 
-                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] uppercase leading-[0.9vw]">dub</span>
+                        <span class="inline-flex items-center text-[0.4rem] md:text-[1vw]">▪</span>
 
-                        <span class="inline-flex items-center text-[1vw]">▪</span>
-
-                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">1080p</span>
-
-                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">720p</span>
-                        <span class="flex h-full place-items-center rounded-[0.25vw] bg-surface-400 px-[0.9vw] leading-[0.9vw]">480p</span>
+                        {#each Array("1080p", "720p", "480p") as resolution}
+                            <span class="flex h-full place-items-center rounded bg-surface-400 px-2 leading-[0.9vw] md:rounded-[0.25vw] md:px-[0.9vw]">
+                                {resolution}
+                            </span>
+                        {/each}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex items-end gap-[0.75vw]">
-            <div class="group flex flex-col gap-[0.5vw]">
-                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50 group-hover:text-white">Type</span>
-                <button class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]">
+        <div class="flex items-end gap-2 md:gap-[0.75vw]">
+            <div class="group flex flex-col gap-2 md:gap-[0.5vw]">
+                <span class="text-[0.65rem] leading-[0.9vw] text-surface-50 transition-colors duration-300 group-hover:text-white md:text-[0.75vw]">Type</span>
+                <button class="btn h-7 rounded bg-surface-400 px-3 text-[0.65rem] font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw] md:leading-[0.9vw]">
                     <span>Subbed</span>
                     <Chevron
-                        class="w-[1vw]"
+                        class="w-3 md:w-[1vw]"
                         color="lightgray"
                     />
                 </button>
             </div>
-            <div class="group flex flex-col gap-[0.5vw]">
-                <span class="text-[0.75vw] leading-[0.9vw] text-surface-50 group-hover:text-white">Display Mode</span>
-                <button class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]">
+            <div class="group flex flex-col gap-2 md:gap-[0.5vw]">
+                <span class="text-[0.65rem] leading-[0.9vw] text-surface-50 transition-colors duration-300 group-hover:text-white md:text-[0.75vw]">Display Mode</span>
+                <button class="btn h-7 rounded bg-surface-400 px-3 text-[0.65rem] font-semibold leading-[0.9vw] md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw]">
                     <span>Thumbnails</span>
                     <Chevron
-                        class="w-[1vw]"
+                        class="w-3 md:w-[1vw]"
                         color="lightgray"
                     />
                 </button>
             </div>
-            <button class="btn btn-icon h-[2.4vw] w-[2.4vw] rounded-[0.5vw] bg-surface-400 p-0 font-semibold leading-[0.9vw]">
+            <button class="btn btn-icon ml-auto h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]">
                 <Search
-                    class="w-[1vw]"
+                    class="w-3 md:w-[1vw]"
                     color="lightgray"
                 />
             </button>
         </div>
     </div>
 
-    <div class="mt-[2.5vw] grid grid-cols-12 gap-[3.125vw]">
+    <div class="mt-4 grid grid-cols-12 gap-[3.125vw] md:mt-[2.5vw]">
         {#each anime_episodes as episode}
-            <div class="group col-span-4 flex flex-col items-center text-center">
-                <div class="relative h-[12.5vw] w-full border-b-[0.2vw] border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300">
+            <div class="group col-span-6 flex flex-col items-center text-center md:col-span-4">
+                <div class="relative h-32 w-full border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[12.5vw] md:border-b-[0.2vw]">
                     <ImageLoader
                         src={episode.episode_thumbnail ?? ""}
-                        class="rounded-b-0 absolute h-full w-full rounded-[0.625vw] bg-cover bg-center"
+                        class="absolute h-full w-full rounded-t-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                     />
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
-                    <div class="absolute bottom-[0.3vw] grid w-full grid-cols-1 place-items-center">
-                        <p class="col-start-1 col-end-2 row-start-1 row-end-2 w-full text-center text-[0.9375vw] font-bold">
+                    <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
+                    <div class="absolute bottom-2 grid w-full grid-cols-1 place-items-center md:bottom-[0.3vw]">
+                        <p class="col-start-1 col-end-2 row-start-1 row-end-2 w-full text-center text-xs font-bold md:text-[0.9375vw]">
                             {episode.episode_number < 10 ? `0${episode.episode_number}` : episode.episode_number}
                         </p>
-                        <p class="unstyled col-start-1 col-end-2 row-start-1 row-end-2 w-full pr-[0.7vw] text-end text-[0.75vw] font-semibold">
+                        <p class="unstyled col-start-1 col-end-2 row-start-1 row-end-2 w-full pr-2 text-end text-xs font-semibold text-surface-50 md:pr-[0.7vw] md:text-[0.75vw]">
                             {new FormatTime(episode.episode_length).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
-                    <div class="absolute inset-0 z-20 flex items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <show-on-hover class="absolute inset-0 z-20 flex items-center justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:gap-[0.75vw]">
                         <button
                             type="button"
-                            class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
+                            class="btn h-12 w-[4.5rem] rounded-lg bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:rounded-[0.625vw]"
                         >
-                            <div class="flex place-items-center md:gap-[0.7vw]">
-                                <PlayCircle class="w-[1.5vw]" />
-                                <span class="text-[1vw] font-bold leading-none">
+                            <div class="flex place-items-center gap-2 md:gap-[0.7vw]">
+                                <PlayCircle class="w-4 md:w-[1.5vw]" />
+                                <span class="text-xs font-bold leading-none md:text-[1vw]">
                                     Ep {episode.episode_number}
                                 </span>
                             </div>
                         </button>
-                        <div class="flex gap-[0.35vw]">
+                        <div class="flex gap-1 md:gap-[0.35vw]">
                             <button
                                 type="button"
-                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                class="btn h-12 w-12 rounded-lg bg-surface-900 font-semibold text-surface-50 md:h-[4vw] md:w-[4vw] md:rounded-[0.625vw]"
                                 disabled
                             >
-                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
-                                    <Read class="w-[1.3vw]" />
+                                <div class="flex flex-col items-center justify-center gap-2 md:gap-[0.35vw]">
+                                    <Read class="w-4 md:w-[1.3vw]" />
                                     <div class="flex flex-col items-start">
-                                        <span class="leading-[1vw]">Read</span>
+                                        <span class="text-xs leading-[1vw] md:text-[0.87vw]">Read</span>
                                     </div>
                                 </div>
                             </button>
                             <button
                                 type="button"
-                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                class="btn h-12 w-12 rounded-lg bg-surface-900 font-semibold text-surface-50 md:h-[4vw] md:w-[4vw] md:rounded-[0.625vw]"
                                 disabled
                             >
-                                <div class="flex flex-col place-items-center md:gap-[0.35vw]">
-                                    <Listen class="w-[1.3vw]" />
+                                <div class="flex flex-col items-center justify-center gap-2 md:gap-[0.35vw]">
+                                    <Listen class="w-4 md:w-[1.3vw]" />
                                     <div class="flex flex-col items-start">
-                                        <span class="leading-[1vw]">Lsiten</span>
+                                        <span class="text-xs leading-[1vw] md:text-[0.87vw]">Lsiten</span>
                                     </div>
                                 </div>
                             </button>
                         </div>
-                    </div>
+                    </show-on-hover>
                 </div>
-                <span class="pt-[0.75vw] text-[0.8vw] font-light leading-[0.9375vw] text-surface-50/75 transition duration-300 group-hover:text-surface-50">
+                <span class="pt-2 text-[0.5rem] font-light leading-normal text-surface-50/75 transition duration-300 group-hover:text-surface-50 md:pt-[0.75vw] md:text-[0.8vw] md:leading-[0.9375vw]">
                     {episode.episode_name}
                 </span>
             </div>
         {/each}
     </div>
 
-    <div class="mt-[5vw] grid grid-cols-5 gap-[4.375vw]">
-        <comment-box class="col-span-3">
-            <div class="flex gap-[0.75vw]">
-                <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
-                <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+    <div class="mt-[5vw] grid grid-cols-12 gap-5 md:grid-cols-5 md:gap-[4.375vw]">
+        <comment-box class="col-span-12 md:col-span-3">
+            <div class="flex gap-2 md:gap-[0.75vw]">
+                <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
+                <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
                 </button>
             </div>
 
-            <form class="mt-[1vw]">
+            <form class="mt-3 md:mt-[1vw]">
                 <div class="relative">
                     <TextEditor />
                 </div>
 
-                <div class="mt-[0.75vw] flex justify-between gap-[1vw]">
-                    <div class="flex gap-[0.625vw]">
-                        <Warning class="w-[1.2vw]" />
-                        <p class="unstyled text-[0.75vw] font-light leading-[1.125vw] text-surface-300">
+                <div class="mt-4 flex justify-between gap-5 md:mt-[0.75vw] md:gap-[1vw]">
+                    <div class="flex items-center gap-3 md:gap-[0.625vw]">
+                        <Warning class="w-10 md:w-[1.2vw]" />
+                        <p class="unstyled text-[0.65rem] font-light leading-tight text-surface-300 md:text-[0.75vw] md:leading-[1.125vw]">
                             Please remember to follow our
                             <a
                                 href="/"
@@ -181,38 +184,38 @@
                         </p>
                     </div>
 
-                    <button class="btn btn-sm h-[2.2vw] w-[7vw] rounded-[0.375vw] bg-primary-500 text-[0.85vw]">Comment</button>
+                    <button class="btn btn-sm h-10 w-40 rounded-md bg-primary-500 text-sm md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
                 </div>
             </form>
         </comment-box>
-        <forum-posts class="col-span-2">
+        <forum-posts class="col-span-12 md:col-span-2">
             <div class="flex gap-[0.75vw]">
-                <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
-                <button class="btn btn-icon rounded bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+                <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
+                <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
                 </button>
             </div>
 
-            <div class="mt-[0.75vw]">
+            <div class="mt-4 md:mt-[0.75vw]">
                 <div class="flex justify-between">
-                    <button class="btn btn-sm h-[2.4vw] w-[7.5vw] gap-2 rounded-[0.5vw] bg-surface-400 p-0 text-[0.875vw] font-semibold">
+                    <button class="btn btn-sm h-8 gap-2 rounded bg-surface-400 p-0 px-4 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         <Cross
                             color="surface-50"
-                            class="w-[1vw] rotate-45"
+                            class="w-4 rotate-45 md:w-[1vw]"
                         />
                         Create New
                     </button>
 
-                    <button class="btn h-[2.4vw] rounded-[0.5vw] bg-surface-400 px-[0.9vw] text-[0.9vw] font-semibold leading-[0.9vw]">
+                    <button class="btn h-8 rounded bg-surface-400 px-4 text-xs font-semibold leading-[0.9vw] md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw]">
                         <span>Recent</span>
                         <Chevron
-                            class="w-[1vw]"
+                            class="w-4 md:w-[1vw]"
                             color="lightgray"
                         />
                     </button>
                 </div>
 
-                <posts class="mt-[1.25vw] flex flex-col gap-[1vw]">
+                <posts class="mt-[1.25vw] grid grid-cols-2 flex-col gap-[1vw] md:flex">
                     {#each forum_posts as post}
                         <a
                             href="/"

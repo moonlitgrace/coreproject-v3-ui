@@ -25,7 +25,7 @@
 </svelte:head>
 
 {#if anime}
-    <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900" />
+    <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900 hidden md:flex" />
     <AnimeInfoPage
         anime_name={anime.name}
         anime_alternative_name={anime.alternative_name}

@@ -310,7 +310,7 @@
             },
             icon: {
                 component: Bold,
-                class: "w-[1.65vw] text-surface-200"
+                class: "w-5 md:w-[1.65vw] text-surface-200"
             }
         },
         italic: {
@@ -319,7 +319,7 @@
             },
             icon: {
                 component: Italic,
-                class: "h-[1.5vw] text-surface-200"
+                class: "w-5 md:h-[1.5vw] text-surface-200"
             }
         },
         underline: {
@@ -328,7 +328,7 @@
             },
             icon: {
                 component: Underline,
-                class: "h-[1.35vw] text-surface-200"
+                class: "w-4 md:h-[1.35vw] text-surface-200"
             }
         },
         hyperlink: {
@@ -337,14 +337,14 @@
             },
             icon: {
                 component: Hyperlink,
-                class: "h-[1.25vw] text-surface-200 ml-[1vw]"
+                class: "w-4 md:h-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
             }
         }
     };
 </script>
 
-<div class="relative overflow-hidden rounded-[0.75vw] ring-[0.15vw] ring-white/25 transition duration-300 focus-within:ring-primary-500">
-    <textarea-navbar class="flex h-[2.5vw] items-center justify-between bg-surface-400">
+<div class="relative overflow-hidden rounded-lg ring-2 ring-white/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
+    <textarea-navbar class="flex h-8 items-center justify-between bg-surface-400 md:h-[2.5vw]">
         <div>
             {#each ["edit", "preview"] as item, index}
                 {@const active = tab_type.toLowerCase() == item}
@@ -354,14 +354,13 @@
                     on:click={() => {
                         handle_edit_preview_button_click(item);
                     }}
-                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} px-[1.5vw] py-[0.75vw] text-[1vw] capitalize leading-[1.5vw] transition-colors duration-100"
-                    class:rounded-tl-[1vw]={first_item}
+                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-auto md:px-[1.5vw] md:py-[0.75vw] md:text-[1vw]"
                 >
                     {item}
                 </button>
             {/each}
         </div>
-        <div class="flex place-items-center gap-[0.75vw] pr-[1vw]">
+        <div class="flex place-items-center gap-1 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
@@ -393,18 +392,18 @@
             bind:this={textarea_element}
             bind:value={textarea_value}
             spellcheck="true"
-            class="h-[8vw] w-full resize-none border-none bg-surface-900 p-[1vw] text-[1vw] leading-[1.5vw] text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0"
+            class="h-32 w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight md:leading-[1.5vw] text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:h-[8vw] md:p-[1vw] md:text-[1vw]"
             placeholder="Leave a comment"
         />
     {:else if tab_type === "preview"}
-        <div class="h-[100%] min-h-[8.25vw] p-[1vw]">
+        <div class="h-[8.22rem] md:min-h-[8.25vw] p-3 md:p-[1vw]">
             <Markdown
                 markdown={textarea_value}
-                class="w-full border-none bg-surface-900 text-[1vw] leading-[1.5vw] text-surface-50 outline-none"
+                class="w-full border-none bg-surface-900 text-sm md:text-[1vw] leading-tight md:leading-[1.5vw] text-surface-50 outline-none"
             />
         </div>
     {/if}
-    <textarea-footer class="flex justify-between bg-surface-400 px-[1vw] py-[0.1vw] text-[0.75vw] font-thin leading-[1.5vw] text-surface-200">
+    <textarea-footer class="flex justify-between bg-surface-400 px-4 py-2 text-[0.65rem] font-thin leading-[1.5vw] text-surface-200 md:px-[1vw] md:py-[0.1vw] md:text-[0.75vw]">
         <div />
         <div>
             Learn more about <a

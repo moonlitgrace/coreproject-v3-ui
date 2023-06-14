@@ -42,13 +42,13 @@
             read: {
                 icon: {
                     component: Read,
-                    class: "w-[1.5vw] text-surface-500"
+                    class: "w-4 md:w-[1.5vw] text-surface-500"
                 }
             },
             listen: {
                 icon: {
                     component: Listen,
-                    class: "w-[1.5vw] text-surface-500"
+                    class: "w-4 md:w-[1.5vw] text-surface-500"
                 }
             }
         },
@@ -57,52 +57,52 @@
                 icon: {
                     component: Video,
                     variant: false,
-                    class: "w-[1.125vw]"
+                    class: "w-4 md:w-[1.125vw]"
                 }
             },
             edit: {
                 icon: {
                     component: Edit,
                     variant: "with_underline_around_pencil",
-                    class: "w-[1.125vw]"
+                    class: "w-4 md:w-[1.125vw]"
                 }
             },
             download: {
                 icon: {
                     component: Download,
-                    class: "w-[1.125vw]"
+                    class: "w-4 md:w-[1.125vw]"
                 }
             },
             share: {
                 icon: {
                     component: Share,
-                    class: "w-[1.125vw]"
+                    class: "w-4 md:w-[1.125vw]"
                 }
             }
         }
     };
 </script>
 
-<div class="grid grid-cols-12 items-start">
-    <div class="col-span-10 pr-[4vw]">
+<div class="grid grid-cols-12 items-start p-5 md:p-0">
+    <div class="col-span-12 md:col-span-10 md:pr-[4vw]">
         <div class="grid grid-cols-12 items-end justify-between">
-            <div class="col-span-7 flex items-end pr-[2vw] md:gap-[2.5vw]">
-                <div class="md:h-[18.25vw] md:w-[12vw]">
+            <div class="col-span-12 flex items-end gap-7 pr-[2vw] md:col-span-7 md:gap-[2.5vw]">
+                <div class="h-52 w-36 md:h-[18.25vw] md:w-[12vw]">
                     <ImageLoader
-                        class="h-full w-full object-cover object-center md:rounded-[1vw]"
+                        class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
                         src={anime_banner}
                         alt={anime_name}
                     />
                 </div>
                 <div>
-                    <span class="font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
-                  
-                    <p class="unstyled flex gap-x-[0.25vw] font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
-                        <span>{anime_name}</span>
+                    <span class="text-2xl font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
+
+                    <p class="unstyled flex gap-x-[0.25vw] pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                        <span class="w-max after:ml-[0.5vw] after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
+                        <span class="w-max">{anime_name}</span>
                     </p>
 
-                    <p class="mt-[0.25vw] flex flex-wrap items-center gap-[0.5vw] font-semibold md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
+                    <p class="mt-1 flex flex-wrap items-center gap-[0.5vw] text-xs font-semibold md:mt-[0.25vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
                         <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">TV</span>
                         <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
                             {anime_episodes_count} eps
@@ -114,16 +114,16 @@
                         <span class="uppercase tracking-wider">Kuschio animation</span>
                     </p>
 
-                    <div class="mt-[1.5vw] flex items-center md:gap-[1.15vw]">
+                    <div class="mt-3 flex items-center gap-3 md:mt-[1.5vw] md:gap-[1.15vw]">
                         <button
                             type="button"
-                            class="btn bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw] md:text-[0.87vw]"
+                            class="btn h-14 w-28 rounded-lg bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw]"
                         >
-                            <div class="flex gap-[0.7vw]">
-                                <PlayCircle class="w-[1.875vw]" />
-                                <div class="flex flex-col items-start">
-                                    <span class="leading-[1.05vw]">Watch</span>
-                                    <span class="font-bold leading-[0.9375vw] text-surface-50 md:text-[0.625vw]">Ep 01</span>
+                            <div class="flex gap-3 md:gap-[0.7vw]">
+                                <PlayCircle class="w-5 md:w-[1.875vw]" />
+                                <div class="flex flex-col items-start gap-1">
+                                    <span class="text-sm leading-none md:text-[0.87vw]">Watch</span>
+                                    <span class="text-xs font-bold leading-none text-surface-50 md:text-[0.625vw]">Ep 01</span>
                                 </div>
                             </div>
                         </button>
@@ -136,21 +136,21 @@
 
                             <button
                                 type="button"
-                                class="btn bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
+                                class="btn h-14 w-14 rounded-lg bg-secondary-100 capitalize text-surface-500 md:h-[4.3vw] md:w-[4.3vw] md:rounded-[0.625vw] md:text-[0.87vw] md:font-semibold"
                                 disabled
                             >
-                                <div class="flex flex-col items-center md:gap-[0.68vw]">
+                                <div class="flex flex-col items-center gap-2 md:gap-[0.68vw]">
                                     <svelte:component
                                         this={component}
                                         class={component_class}
                                     />
-                                    <span class="md:leading-[1vw]">{item_name}</span>
+                                    <span class="leading-none">{item_name}</span>
                                 </div>
                             </button>
                         {/each}
                     </div>
 
-                    <div class="flex md:mt-[1vw] md:gap-[0.625vw]">
+                    <div class="mt-2 flex gap-2 md:mt-[1vw] md:gap-[0.625vw]">
                         {#each Object.entries(icon_mapping.user_options_icons) as item}
                             {@const item_icon = item[1].icon}
                             {@const component = item_icon.component}
@@ -159,7 +159,7 @@
 
                             <button
                                 type="button"
-                                class="btn btn-icon bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
+                                class="btn btn-icon w-7 rounded bg-warning-400 p-0 text-surface-500 md:w-[1.875vw] md:rounded-[0.25vw]"
                             >
                                 <svelte:component
                                     this={component}
@@ -172,10 +172,10 @@
                 </div>
             </div>
 
-            <div class="col-span-5">
+            <div class="col-span-12 mt-10 md:col-span-5 md:mt-0">
                 <div class="flex gap-[0.75vw]">
-                    <span class="font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
-                    <button class="btn btn-icon rounded-[0.1875vw] bg-surface-400 p-0 md:h-[1.5vw] md:w-[1.5vw]">
+                    <span class="text-lg font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Synopsis</span>
+                    <button class="btn btn-icon hidden rounded-[0.1875vw] bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline class="w-[0.9vw] opacity-75" />
                     </button>
                 </div>
@@ -183,19 +183,19 @@
                 <ScrollArea
                     offsetScrollbar
                     gradientMask
-                    parentClass="mt-[1.25vw]"
-                    class="text-justify md:max-h-[10.25vw] md:text-[0.75vw] md:leading-[1vw]"
+                    parentClass="mt-3 md:mt-[1.25vw]"
+                    class="h-40 text-justify text-xs md:max-h-[10.25vw] md:text-[0.75vw] md:leading-[1vw]"
                 >
                     {anime_synopsis}
                 </ScrollArea>
 
-                <div class="flex gap-[0.5vw] text-white md:mt-[1vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                <div class="hidden gap-[0.5vw] text-white md:mt-[1vw] md:flex md:text-[0.75vw] md:leading-[0.9vw]">
                     <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</span>
                     <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</span>
                     <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</span>
                 </div>
 
-                <div class="flex w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
+                <div class="hidden w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:flex md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
                     <div class="flex gap-[0.25vw]">
                         <span>Score:</span>
                         <span class="text-warning-400">79</span>
@@ -221,7 +221,7 @@
         <AnimeEpisodes {anime_episodes} />
     </div>
 
-    <div class="col-span-2">
+    <div class="col-span-12 md:col-span-2">
         <AnimeFullDetails />
     </div>
 </div>
