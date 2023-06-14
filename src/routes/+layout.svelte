@@ -11,13 +11,10 @@
     import List from "$icons/list.svelte";
     import Logo from "$icons/logo.svelte";
     import Misc from "$icons/misc.svelte";
-    import Moon from "$icons/moon.svelte";
     import MoreVertical from "$icons/more_vertical.svelte";
     import Schedule from "$icons/schedule.svelte";
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
-    import SettingsOutline from "$icons/settings_outline.svelte";
-    import User from "$icons/user.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
@@ -122,40 +119,6 @@
                 },
                 url: undefined
             }
-        },
-        profile_dropdown: {
-            profile: {
-                name: "Profile",
-                url: undefined,
-                icon: {
-                    component: User,
-                    class: "w-[1.25vw] text-white"
-                }
-            },
-            my_list: {
-                name: "My List",
-                url: undefined,
-                icon: {
-                    component: List,
-                    class: "w-[1.5vw] text-white"
-                }
-            },
-            theme: {
-                name: "Theme",
-                url: undefined,
-                icon: {
-                    component: Moon,
-                    class: "w-[1.1vw] text-white"
-                }
-            },
-            settings: {
-                name: "Settings",
-                url: undefined,
-                icon: {
-                    component: SettingsOutline,
-                    class: "w-[1.1vw] text-white"
-                }
-            }
         }
     };
 
@@ -255,8 +218,7 @@
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
                                 new ProfileDropdown({
-                                    target: node,
-                                    props: { dropdown_icons: icon_mapping.profile_dropdown }
+                                    target: node
                                 });
 
                                 instance.setContent(node);
