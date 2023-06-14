@@ -10,7 +10,6 @@
     import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
     import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
-    import { onDestroy, onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
     import { z } from "zod";
 
@@ -29,13 +28,6 @@
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
     // Dont remove this unless you know what you are doing
     // Is meant to be a temporary workaround
-    let mounted = false;
-    onMount(() => {
-        mounted = true;
-    });
-    onDestroy(() => {
-        mounted = false;
-    });
 
     const dispatch = createEventDispatcher();
 
@@ -129,20 +121,18 @@
                 class="h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
 
-            {#if mounted}
-                <ValidationMessage
-                    for="email"
-                    let:messages={message}
-                >
-                    <span class="mt-[0.75vw] text-xs leading-none text-surface-300 md:mt-0 md:text-[0.75vw]">{@html message}</span>
-                    <div slot="placeholder">
-                        <info class="flex items-center gap-2 md:gap-[0.5vw]">
-                            <Info class="w-3 opacity-70 md:w-[0.75vw]" />
-                            <span class="text-[0.7rem] leading-none text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
-                        </info>
-                    </div>
-                </ValidationMessage>
-            {/if}
+            <ValidationMessage
+                for="email"
+                let:messages={message}
+            >
+                <span class="mt-[0.75vw] text-xs leading-none text-surface-300 md:mt-0 md:text-[0.75vw]">{@html message}</span>
+                <div slot="placeholder">
+                    <info class="flex items-center gap-2 md:gap-[0.5vw]">
+                        <Info class="w-3 opacity-70 md:w-[0.75vw]" />
+                        <span class="text-[0.7rem] leading-none text-surface-300 md:text-[0.75vw]">we’ll send you a verification email, so please ensure it’s active</span>
+                    </info>
+                </div>
+            </ValidationMessage>
         </email-field>
 
         <password-field>
@@ -173,54 +163,52 @@
                 <div class="mt-3 md:mt-[1.25vw]">
                     <span class="text-sm font-semibold uppercase leading-none tracking-wider text-surface-50 md:text-[1vw]">must contain</span>
                     <div class="ml-2 mt-[0.4vw] flex flex-col gap-[0.1vw] md:w-3/5">
-                        {#if mounted}
-                            <ValidationMessage
-                                for="password"
-                                let:messages
-                            >
-                                <!-- So we get an array of items  -->
-                                {#if Array.isArray(messages)}
-                                    <!-- Logics for cross and ticks -->
-                                    <div class="flex flex-col gap-1 md:gap-[0.3vw]">
-                                        {#each Object.entries(password_error_mapping) as item}
-                                            {@const object_key = item[0]}
-                                            {@const object_value = item[1]}
+                        <ValidationMessage
+                            for="password"
+                            let:messages
+                        >
+                            <!-- So we get an array of items  -->
+                            {#if Array.isArray(messages)}
+                                <!-- Logics for cross and ticks -->
+                                <div class="flex flex-col gap-1 md:gap-[0.3vw]">
+                                    {#each Object.entries(password_error_mapping) as item}
+                                        {@const object_key = item[0]}
+                                        {@const object_value = item[1]}
 
-                                            <div class="flex items-center gap-2 md:gap-[0.5vw]">
-                                                {#if messages.includes(object_key)}
-                                                    <div class="w-3 text-red-500 opacity-80 md:w-[0.9vw]">
-                                                        <svelte:component this={Cross} />
-                                                    </div>
-                                                {:else}
-                                                    <div class="w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
-                                                        <svelte:component this={Tick} />
-                                                    </div>
-                                                {/if}
-                                                <span class="col-span-11 w-max text-xs leading-none text-surface-300 md:text-[0.75vw]">{object_value}</span>
-                                            </div>
-                                        {/each}
-                                    </div>
-                                {/if}
-                                <div slot="placeholder">
-                                    <div class="flex flex-col gap-1 md:gap-[0.3vw]">
-                                        {#each Object.values(password_error_mapping) as item}
-                                            <div class="flex items-center gap-2 md:gap-[0.5vw]">
-                                                {#if $data.password && !$errors.password && $touched.password}
-                                                    <div class="w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
-                                                        <svelte:component this={Tick} />
-                                                    </div>
-                                                {:else}
-                                                    <div class="w-3 text-red-500 opacity-80 md:w-[0.9vw]">
-                                                        <svelte:component this={Cross} />
-                                                    </div>
-                                                {/if}
-                                                <span class="text-[0.7rem] leading-none text-surface-300 md:text-[0.75vw]">{item}</span>
-                                            </div>
-                                        {/each}
-                                    </div>
+                                        <div class="flex items-center gap-2 md:gap-[0.5vw]">
+                                            {#if messages.includes(object_key)}
+                                                <div class="w-3 text-red-500 opacity-80 md:w-[0.9vw]">
+                                                    <svelte:component this={Cross} />
+                                                </div>
+                                            {:else}
+                                                <div class="w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
+                                                    <svelte:component this={Tick} />
+                                                </div>
+                                            {/if}
+                                            <span class="col-span-11 w-max text-xs leading-none text-surface-300 md:text-[0.75vw]">{object_value}</span>
+                                        </div>
+                                    {/each}
                                 </div>
-                            </ValidationMessage>
-                        {/if}
+                            {/if}
+                            <div slot="placeholder">
+                                <div class="flex flex-col gap-1 md:gap-[0.3vw]">
+                                    {#each Object.values(password_error_mapping) as item}
+                                        <div class="flex items-center gap-2 md:gap-[0.5vw]">
+                                            {#if $data.password && !$errors.password && $touched.password}
+                                                <div class="w-3 text-primary-400 opacity-90 md:w-[0.7vw]">
+                                                    <svelte:component this={Tick} />
+                                                </div>
+                                            {:else}
+                                                <div class="w-3 text-red-500 opacity-80 md:w-[0.9vw]">
+                                                    <svelte:component this={Cross} />
+                                                </div>
+                                            {/if}
+                                            <span class="text-[0.7rem] leading-none text-surface-300 md:text-[0.75vw]">{item}</span>
+                                        </div>
+                                    {/each}
+                                </div>
+                            </div>
+                        </ValidationMessage>
                     </div>
                 </div>
             </password-strength>
@@ -241,15 +229,13 @@
                     placeholder="re-enter your password"
                     class="mt-[0.3rem] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:mt-0 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
                 />
-                {#if mounted}
-                    <ValidationMessage
-                        for="confirm_password"
-                        let:messages={message}
-                    >
-                        <span class="mt-2 text-xs leading-none text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
-                        <div slot="placeholder" />
-                    </ValidationMessage>
-                {/if}
+                <ValidationMessage
+                    for="confirm_password"
+                    let:messages={message}
+                >
+                    <span class="mt-2 text-xs leading-none text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
+                    <div slot="placeholder" />
+                </ValidationMessage>
             </div>
         </confirm-password-field>
     </form-fields>

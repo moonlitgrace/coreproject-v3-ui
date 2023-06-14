@@ -6,20 +6,12 @@
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
-    import { onDestroy, onMount } from "svelte";
     import { z } from "zod";
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
     // Dont remove this unless you know what you are doing
     // Is meant to be a temporary workaround
-    let mounted = false;
-    onMount(() => {
-        mounted = true;
-    });
-    onDestroy(() => {
-        mounted = false;
-    });
 
     const dispatch = createEventDispatcher();
 

@@ -6,20 +6,12 @@
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
     import { createEventDispatcher } from "svelte";
-    import { onDestroy, onMount } from "svelte";
     import { z } from "zod";
 
     // Broken
     // See : https://github.com/pablo-abc/felte/issues/223#issuecomment-1510467575
     // Dont remove this unless you know what you are doing
     // Is meant to be a temporary workaround
-    let mounted = false;
-    onMount(() => {
-        mounted = true;
-    });
-    onDestroy(() => {
-        mounted = false;
-    });
 
     const dispatch = createEventDispatcher();
 
@@ -61,20 +53,18 @@
                 placeholder="choose any username"
                 class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
-            {#if mounted}
-                <ValidationMessage
-                    for="username"
-                    let:messages={message}
-                >
-                    <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
-                    <div slot="placeholder">
-                        <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
-                            <Info class="w-3 opacity-70 md:w-[0.9vw]" />
-                            <span class="text-xs text-surface-300 md:text-[0.75vw]">you can change username in your user settings later, so go bonkers!</span>
-                        </info>
-                    </div>
-                </ValidationMessage>
-            {/if}
+            <ValidationMessage
+                for="username"
+                let:messages={message}
+            >
+                <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
+                <div slot="placeholder">
+                    <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
+                        <Info class="w-3 opacity-70 md:w-[0.9vw]" />
+                        <span class="text-xs text-surface-300 md:text-[0.75vw]">you can change username in your user settings later, so go bonkers!</span>
+                    </info>
+                </div>
+            </ValidationMessage>
         </username-field>
 
         <otp-field class="mt-2 w-full md:mt-0">
@@ -89,21 +79,19 @@
                 placeholder="enter the code"
                 class="mt-[0.25vw] h-12 w-full rounded-xl border-[0.4vw] border-primary-500 bg-transparent pl-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.75vw] md:border-[0.2vw] md:pl-[1vw] md:text-[1.1vw]"
             />
-            {#if mounted}
-                <ValidationMessage
-                    for="otp"
-                    let:messages={message}
-                >
-                    <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
+            <ValidationMessage
+                for="otp"
+                let:messages={message}
+            >
+                <span class="mt-[0.75vw] text-xs text-surface-300 md:mt-[0.5vw] md:text-[0.75vw]">{@html message}</span>
 
-                    <div slot="placeholder">
-                        <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
-                            <Info class="w-3 opacity-70 md:w-[0.9vw]" />
-                            <span class="text-xs text-surface-300 md:text-[0.75vw]">if you didn’t receive the code, check your spam folder. Or use the resend button</span>
-                        </info>
-                    </div>
-                </ValidationMessage>
-            {/if}
+                <div slot="placeholder">
+                    <info class="mt-[0.75vw] flex items-start gap-2 md:mt-[0.5vw]">
+                        <Info class="w-3 opacity-70 md:w-[0.9vw]" />
+                        <span class="text-xs text-surface-300 md:text-[0.75vw]">if you didn’t receive the code, check your spam folder. Or use the resend button</span>
+                    </info>
+                </div>
+            </ValidationMessage>
         </otp-field>
 
         <div class="mt-3 flex flex-col items-start md:mt-0">

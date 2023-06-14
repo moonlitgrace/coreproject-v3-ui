@@ -1,6 +1,6 @@
 <script lang="ts">
-    import DOMPurify from "isomorphic-dompurify";
     import { marked } from "marked";
+    import xss from "xss";
 
     export let markdown = "";
     export { klass as class };
@@ -16,7 +16,7 @@
     });
 
     let html: string;
-    $: html = DOMPurify.sanitize(marked.parse(markdown));
+    $: html = xss(marked.parse(markdown));
 </script>
 
 <markdown class={klass}>
