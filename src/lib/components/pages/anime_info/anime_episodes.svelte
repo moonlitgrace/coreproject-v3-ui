@@ -155,8 +155,8 @@
         {/each}
     </div>
 
-    <div class="mt-[5vw] grid grid-cols-12 gap-5 md:grid-cols-5 md:gap-[4.375vw]">
-        <comment-box class="col-span-12 md:col-span-3">
+    <div class="mt-[5vw] flex grid-cols-5 flex-col flex-col-reverse gap-5 md:grid md:gap-[4.375vw]">
+        <comment-box class="md:col-span-3">
             <div class="flex gap-2 md:gap-[0.75vw]">
                 <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
                 <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
@@ -188,7 +188,7 @@
                 </div>
             </form>
         </comment-box>
-        <forum-posts class="col-span-12 md:col-span-2">
+        <forum-posts class="md:col-span-2">
             <div class="flex gap-[0.75vw]">
                 <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
                 <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
@@ -196,7 +196,7 @@
                 </button>
             </div>
 
-            <div class="mt-4 md:mt-[0.75vw]">
+            <div class="mt-3 md:mt-[0.75vw]">
                 <div class="flex justify-between">
                     <button class="btn btn-sm h-8 gap-2 rounded bg-surface-400 p-0 px-4 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         <Cross
@@ -215,13 +215,13 @@
                     </button>
                 </div>
 
-                <posts class="mt-[1.25vw] grid grid-cols-2 flex-col gap-[1vw] md:flex">
+                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1.25vw] md:flex md:gap-[1vw]">
                     {#each forum_posts as post}
                         <a
                             href="/"
-                            class="card grid w-full grid-cols-7 overflow-hidden rounded-[0.625vw] !bg-surface-400"
+                            class="card w-full grid-cols-7 overflow-hidden rounded-lg !bg-surface-400 md:grid md:rounded-[0.625vw]"
                         >
-                            <div class="col-span-2">
+                            <div class="col-span-2 h-16 md:h-full md:w-full">
                                 <ImageLoader
                                     src={post.banner}
                                     alt={post.title}
@@ -229,28 +229,28 @@
                                 />
                             </div>
 
-                            <div class="col-span-5 flex flex-col gap-[0.375vw] p-[1vw]">
+                            <div class="flex h-32 flex-col justify-between p-3 md:col-span-5 md:h-full md:gap-[0.375vw] md:p-[1vw]">
                                 <div>
-                                    <span class="line-clamp-2 text-[0.875vw] font-extrabold leading-[1.25vw]">
+                                    <span class="line-clamp-2 text-xs font-extrabold md:text-[0.875vw] md:leading-[1.25vw]">
                                         {post.title}
                                     </span>
-                                    <span class="mt-[0.5vw] line-clamp-2 text-[0.75vw] font-medium leading-[1.125vw] text-surface-50">
+                                    <span class="mt-2 line-clamp-3 text-[0.6rem] font-medium leading-snug text-surface-50 md:mt-[0.5vw] md:line-clamp-2 md:text-[0.75vw] md:leading-[1.125vw]">
                                         {post.description}
                                     </span>
                                 </div>
 
-                                <div class="mt-[0.75vw] flex items-center justify-between text-[0.75vw] leading-none">
+                                <div class=" flex items-center justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:text-[0.75vw]">
                                     <div>
                                         <span>
-                                            Posted by <span class="text-[0.85vw] font-semibold">{post.auther}</span>
+                                            Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{post.auther}</span>
                                         </span>
                                         <span class="text-surface-50">
                                             {new FormatDate(post.posted_on).format_to_time_from_now}
                                         </span>
                                     </div>
 
-                                    <div class="flex items-center gap-[0.25vw]">
-                                        <MessageCircle class="w-[1vw]" />
+                                    <div class="flex items-center gap-1 md:gap-[0.25vw]">
+                                        <MessageCircle class="w-3 md:w-[1vw]" />
                                         <span>{post.responses}</span>
                                     </div>
                                 </div>
