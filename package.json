@@ -49,9 +49,6 @@
         "felte": "^1.2.8",
         "lodash": "^4.17.21",
         "marked": "^5.1.0",
-        "marked-mangle": "^1.0.1",
-        "node-fetch": "^3.3.1",
-        "node-fetch-retry": "^2.0.1",
         "nprogress": "^0.2.0",
         "isomorphic-dompurify": "^1.6.0",
         "postcss": "^8.4.24",
@@ -72,5 +69,8 @@
         "voca": "^1.4.1"
     },
     "type": "module",
-    "dependencies": {}
+    "dependencies": {},
+    "workspaces": [
+        "./scripts"
+    ]
 }
