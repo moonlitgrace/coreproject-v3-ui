@@ -104,7 +104,7 @@
                         <span>{anime_name}</span>
                     </p>
 
-                    <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs font-semibold md:mt-[0.25vw] md:gap-x-[0.5vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
+                    <p class="mt-1 flex flex-wrap items-center gap-2 text-xs font-semibold md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
                         <span>TV</span>
                         <Circle class="w-[0.35rem] opacity-50" />
 
