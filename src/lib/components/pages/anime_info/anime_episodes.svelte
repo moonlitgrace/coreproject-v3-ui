@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="mt-4 grid grid-cols-12 gap-[3.125vw] md:mt-[2.5vw]">
+    <div class="mt-4 grid grid-cols-12 gap-5 md:gap-[3.125vw] md:mt-[2.5vw]">
         {#each anime_episodes as episode}
             <div class="group col-span-6 flex flex-col items-center text-center md:col-span-4">
                 <div class="relative h-32 w-full border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[12.5vw] md:border-b-[0.2vw]">
@@ -215,7 +215,7 @@
                     </button>
                 </div>
 
-                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1.25vw] md:flex md:gap-[1vw]">
+                <posts class="mt-4 grid grid-cols-2 flex-col gap-5 md:mt-[1.25vw] md:flex md:gap-[1vw]">
                     {#each forum_posts as post}
                         <a
                             href="/"

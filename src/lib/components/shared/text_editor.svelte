@@ -344,7 +344,7 @@
 </script>
 
 <div class="relative overflow-hidden rounded-lg ring-2 ring-white/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
-    <textarea-navbar class="flex h-8 items-center justify-between bg-surface-400 md:h-[2.5vw]">
+    <textarea-navbar class="flex h-8 items-center justify-between bg-surface-400/25 md:h-[2.5vw]">
         <div>
             {#each ["edit", "preview"] as item, index}
                 {@const active = tab_type.toLowerCase() == item}
@@ -403,7 +403,7 @@
             />
         </div>
     {/if}
-    <textarea-footer class="flex justify-between bg-surface-400 px-4 py-2 text-[0.65rem] font-thin leading-[1.5vw] text-surface-200 md:px-[1vw] md:py-[0.1vw] md:text-[0.75vw]">
+    <textarea-footer class="flex justify-between bg-surface-400/25 px-4 py-2 text-[0.65rem] font-thin leading-[1.5vw] text-surface-200 md:px-[1vw] md:py-[0.1vw] md:text-[0.75vw]">
         <div />
         <div>
             Learn more about <a
