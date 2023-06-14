@@ -396,7 +396,7 @@
             placeholder="Leave a comment"
         />
     {:else if tab_type === "preview"}
-        <div class="h-[8.22rem] p-3 md:h-full md:min-h-[8.25vw] md:p-[1vw]">
+        <div class="h-[7.22rem] p-3 md:h-full md:min-h-[8.25vw] md:p-[1vw]">
             <Markdown
                 markdown={textarea_value}
                 class="w-full border-none bg-surface-900 text-sm leading-tight text-surface-50 outline-none md:text-[1vw] md:leading-[1.5vw]"
