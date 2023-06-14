@@ -42,7 +42,7 @@
 
                 <div>
                     <div class="flex h-5 gap-2 text-[0.5rem] font-bold md:h-[1.8vw] md:gap-[0.75vw] md:text-[0.75vw]">
-                        {#each Array("sub", "dub") as item}
+                        {#each ["sub", "dub"] as item}
                             <span class="flex h-full place-items-center rounded bg-surface-400 px-2 uppercase leading-[0.9vw] md:rounded-[0.25vw] md:px-[0.9vw]">
                                 {item}
                             </span>
@@ -50,7 +50,7 @@
 
                         <span class="inline-flex items-center text-[0.4rem] md:text-[1vw]">▪</span>
 
-                        {#each Array("1080p", "720p", "480p") as resolution}
+                        {#each ["1080p", "720p", "480p"] as resolution}
                             <span class="flex h-full place-items-center rounded bg-surface-400 px-2 leading-[0.9vw] md:rounded-[0.25vw] md:px-[0.9vw]">
                                 {resolution}
                             </span>
