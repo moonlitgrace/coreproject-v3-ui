@@ -343,7 +343,7 @@
     };
 </script>
 
-<div class="relative overflow-hidden rounded-lg ring-2 ring-white/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
+<div class="relative overflow-hidden rounded-lg ring-2 ring-surface-300/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
     <textarea-navbar class="flex h-8 items-center justify-between bg-surface-400/25 md:h-[2.5vw]">
         <div>
             {#each ["edit", "preview"] as item, index}
@@ -360,7 +360,7 @@
                 </button>
             {/each}
         </div>
-        <div class="flex place-items-center gap-1 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
+        <div class="flex place-items-center gap-2 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
@@ -392,7 +392,7 @@
             bind:this={textarea_element}
             bind:value={textarea_value}
             spellcheck="true"
-            class="h-32 w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:h-[8vw] md:p-[1vw] md:text-[1vw] md:leading-[1.5vw]"
+            class="h-28 w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:h-[8vw] md:p-[1vw] md:text-[1vw] md:leading-[1.5vw]"
             placeholder="Leave a comment"
         />
     {:else if tab_type === "preview"}
