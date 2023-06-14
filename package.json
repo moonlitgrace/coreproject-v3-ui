@@ -46,7 +46,7 @@
         "eslint": "^8.42.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-svelte": "^2.30.0",
-        "felte": "^1.2.7",
+        "felte": "^1.2.8",
         "lodash": "^4.17.21",
         "marked": "^5.1.0",
         "marked-mangle": "^1.0.1",
