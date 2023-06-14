@@ -1,9 +1,13 @@
 <script lang="ts">
+    import List from "$icons/list.svelte";
+    import Moon from "$icons/moon.svelte";
+    import SettingsOutline from "$icons/settings_outline.svelte";
+    import User from "$icons/user.svelte";
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponentDev } from "svelte/internal";
     import voca from "voca";
 
-    export let dropdown_icons: {
+    let dropdown_icons: {
         [key in string]: {
             name?: string;
             icon: {
@@ -13,6 +17,39 @@
             url?: string;
             show_on_mobile?: boolean | undefined;
         };
+    } = {
+        profile: {
+            name: "Profile",
+            url: undefined,
+            icon: {
+                component: User,
+                class: "w-[1.25vw] text-white"
+            }
+        },
+        my_list: {
+            name: "My List",
+            url: undefined,
+            icon: {
+                component: List,
+                class: "w-[1.5vw] text-white"
+            }
+        },
+        theme: {
+            name: "Theme",
+            url: undefined,
+            icon: {
+                component: Moon,
+                class: "w-[1.1vw] text-white"
+            }
+        },
+        settings: {
+            name: "Settings",
+            url: undefined,
+            icon: {
+                component: SettingsOutline,
+                class: "w-[1.1vw] text-white"
+            }
+        }
     };
 </script>
 
