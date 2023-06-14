@@ -5,6 +5,7 @@
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
+    import Circle from "$icons/circle.svelte";
     import Download from "$icons/download.svelte";
     import Edit from "$icons/edit.svelte";
     import Listen from "$icons/listen.svelte";
@@ -83,10 +84,10 @@
     };
 </script>
 
-<div class="grid grid-cols-12 items-start p-5 md:p-0">
+<div class="grid grid-cols-12 items-start p-5 pt-10 md:p-0">
     <div class="col-span-12 md:col-span-10 md:pr-[4vw]">
         <div class="grid grid-cols-12 items-end justify-between">
-            <div class="col-span-12 flex items-end gap-7 pr-[2vw] md:col-span-7 md:gap-[2.5vw]">
+            <div class="col-span-12 flex items-end gap-5 md:col-span-7 md:gap-[2.5vw] md:pr-[2vw]">
                 <div class="h-52 w-36 md:h-[18.25vw] md:w-[12vw]">
                     <ImageLoader
                         class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
@@ -97,27 +98,36 @@
                 <div>
                     <span class="text-2xl font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
 
-                    <p class="unstyled flex gap-x-[0.25vw] pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                        <span class="w-max after:ml-[0.5vw] after:opacity-75 after:content-['▪']">{anime_alternative_name}</span>
-                        <span class="w-max">{anime_name}</span>
+                    <p class="unstyled flex flex-wrap gap-x-2 pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:gap-x-[0.25vw] md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                        <span>{anime_alternative_name}</span>
+                        <Circle class="w-[0.35rem] opacity-50" />
+                        <span>{anime_name}</span>
                     </p>
 
-                    <p class="mt-1 flex flex-wrap items-center gap-[0.5vw] text-xs font-semibold md:mt-[0.25vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
-                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">TV</span>
-                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
+                    <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs font-semibold md:mt-[0.25vw] md:gap-x-[0.5vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
+                        <span>TV</span>
+                        <Circle class="w-[0.35rem] opacity-50" />
+
+                        <span>
                             {anime_episodes_count} eps
                         </span>
-                        <span class="after:ml-[0.5vw] after:opacity-75 after:content-['▪']">Completed</span>
-                        <span class="capitalize after:ml-[0.5vw] after:opacity-75 after:content-['▪']">
+                        <Circle class="w-[0.35rem] opacity-50" />
+
+                        <span>Completed</span>
+                        <Circle class="w-[0.35rem] opacity-50" />
+
+                        <span class="capitalize">
                             {new FormatDate(anime_date).format_to_season}
                         </span>
+                        <Circle class="w-[0.35rem] opacity-50" />
+
                         <span class="uppercase tracking-wider">Kuschio animation</span>
                     </p>
 
                     <div class="mt-3 flex items-center gap-3 md:mt-[1.5vw] md:gap-[1.15vw]">
                         <button
                             type="button"
-                            class="btn h-14 w-28 rounded-lg bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw]"
+                            class="btn h-14 w-[6.5rem] rounded-lg bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw]"
                         >
                             <div class="flex gap-3 md:gap-[0.7vw]">
                                 <PlayCircle class="w-5 md:w-[1.875vw]" />
@@ -221,7 +231,7 @@
         <AnimeEpisodes {anime_episodes} />
     </div>
 
-    <div class="col-span-12 md:col-span-2">
+    <div class="hidden md:col-span-2 md:flex">
         <AnimeFullDetails />
     </div>
 </div>

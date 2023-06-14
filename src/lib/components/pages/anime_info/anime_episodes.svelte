@@ -155,7 +155,7 @@
         {/each}
     </div>
 
-    <div class="mt-[5vw] flex grid-cols-5 flex-col flex-col-reverse gap-5 md:grid md:gap-[4.375vw]">
+    <div class="mt-[5vw] flex grid-cols-5 flex-col gap-5 md:grid md:gap-[4.375vw]">
         <comment-box class="md:col-span-3">
             <div class="flex gap-2 md:gap-[0.75vw]">
                 <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
