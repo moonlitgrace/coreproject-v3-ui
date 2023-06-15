@@ -21,7 +21,7 @@
     });
 
     const change_index = () => {
-        const index = Math.floor(Math.random() * latest_animes.length);
+        const index = globalThis.Math.floor(globalThis.Math.random() * latest_animes.length);
         CHOICE = index;
         timer.isRunning() ? timer.reset() : timer.start();
     };
