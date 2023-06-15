@@ -16,7 +16,7 @@
         if (gradientMask) {
             element?.addEventListener("scroll", (event) => {
                 const el = event?.currentTarget as HTMLElement;
-                scroll_percent = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+                scroll_percent = globalThis.Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
             });
         }
     });
