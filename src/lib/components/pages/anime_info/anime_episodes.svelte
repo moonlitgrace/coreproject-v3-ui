@@ -94,10 +94,7 @@
 
     <div class="mt-4 grid grid-cols-12 gap-5 md:mt-[2.5vw] md:gap-[3.125vw]">
         {#each anime_episodes as episode}
-            <a
-                href="/watch/mal/1/?ep={episode.episode_number}"
-                class="group col-span-6 flex flex-col items-center text-center !text-inherit !no-underline md:col-span-4"
-            >
+            <div class="group col-span-6 flex flex-col items-center text-center !text-inherit !no-underline md:col-span-4">
                 <div class="relative h-32 w-full border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[12.5vw] md:border-b-[0.2vw]">
                     <ImageLoader
                         src={episode.episode_thumbnail ?? ""}
@@ -105,39 +102,59 @@
                     />
 
                     <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
-                    <div class="absolute bottom-2 grid w-full grid-cols-1 place-items-center md:bottom-[1vw]">
-                        <p class="col-start-1 col-end-2 row-start-1 row-end-2 hidden w-full text-center text-xs font-bold md:text-[0.9375vw]">
-                            {episode.episode_number < 10 ? `0${episode.episode_number}` : episode.episode_number}
+                    <div class="absolute bottom-0 flex w-full items-center justify-between p-[0.5vw]">
+                        <p class="rounded bg-surface-900/50 p-[0.45vw] text-xs font-bold tracking-wider text-surface-50 md:text-[0.8vw]">
+                            EP {episode.episode_number < 10 ? `0${episode.episode_number}` : episode.episode_number}
                         </p>
-                        <p class="unstyled col-start-1 col-end-2 row-start-1 row-end-2 w-full pr-2 text-end text-xs font-semibold text-surface-50 md:pr-[0.7vw] md:text-[0.75vw]">
-                            <span class="rounded bg-surface-900/50 p-[0.45vw] tracking-wider">
-                                {new FormatTime(episode.episode_length).format_seconds_to_time_stamp_duration}
-                            </span>
+                        <p class="unstyled rounded bg-surface-900/50 p-[0.45vw] text-xs font-semibold tracking-wider text-surface-50 md:text-[0.75vw]">
+                            {new FormatTime(episode.episode_length).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
 
-                    <show-on-hover class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:gap-[1vw] md:px-[1.5vw]">
-                        <span class="text-[1vw] font-semibold leading-[1.5vw] tracking-wide">{episode.episode_name}</span>
-
-                        <div class="flex items-center gap-[0.5vw]">
-                            <div class="flex items-center gap-[0.25vw]">
-                                <EyeOpen class="w-[1.25vw] opacity-75" />
-                                <span class="text-[0.75vw]">20k views</span>
+                    <show-on-hover class="absolute inset-0 z-20 flex items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <button
+                            type="button"
+                            class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
+                        >
+                            <div class="flex place-items-center md:gap-[0.7vw]">
+                                <PlayCircle class="w-[1.5vw]" />
+                                <span class="text-[1vw] font-bold leading-none">
+                                    Ep {episode.episode_number}
+                                </span>
                             </div>
-                            <Circle class="w-[0.25vw] opacity-50" />
-                            <span class="text-[0.75vw]">1 hr ago</span>
-                            <Circle class="w-[0.25vw] opacity-50" />
-                            <span class="text-[0.75vw]">
-                                {new FormatTime(episode.episode_length).format_seconds_to_minutes} mins
-                            </span>
+                        </button>
+                        <div class="flex gap-[0.35vw]">
+                            <button
+                                type="button"
+                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                disabled
+                            >
+                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
+                                    <Read class="w-[1.3vw]" />
+                                    <div class="flex flex-col items-start">
+                                        <span class="leading-[1vw]">Read</span>
+                                    </div>
+                                </div>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
+                                disabled
+                            >
+                                <div class="flex flex-col place-items-center md:gap-[0.35vw]">
+                                    <Listen class="w-[1.3vw]" />
+                                    <div class="flex flex-col items-start">
+                                        <span class="leading-[1vw]">Lsiten</span>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
                     </show-on-hover>
                 </div>
-                <span class="line-clamp-1 pt-2 text-[0.5rem] font-light leading-normal text-surface-50/75 transition duration-300 group-hover:text-surface-50 md:pt-[0.75vw] md:text-[0.85vw] md:leading-none">
-                    <span class="font-semibold">Ep {episode.episode_number}</span>
-                    - {episode.episode_name}
+                <span class="pt-[0.75vw] font-light text-surface-50/75 transition duration-300 group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
+                    {episode.episode_name} This looks cool no?
                 </span>
-            </a>
+            </div>
         {/each}
     </div>
 
