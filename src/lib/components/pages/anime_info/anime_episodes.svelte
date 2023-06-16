@@ -7,6 +7,7 @@
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
     import Cross from "$icons/cross.svelte";
+    import Filter from "$icons/filter.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
     import Search from "$icons/search.svelte";
     // icons
@@ -17,15 +18,15 @@
 </script>
 
 <div class="my-7 md:my-[6vw]">
-    <div class="flex gap-x-[0.75vw]">
+    <div class="flex border-b-2 border-surface-50/50 pb-1 md:gap-x-[0.75vw] md:border-none md:pb-0">
         <span class="text-lg font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</span>
         <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
             <SettingsOutline class="w-[0.9vw] opacity-75" />
         </button>
     </div>
 
-    <div class="mt-5 flex flex-col justify-between gap-y-5 md:mt-0 md:flex-row md:gap-y-0">
-        <div class="flex items-end gap-2 md:gap-[1.25vw]">
+    <div class="mt-2 flex flex-col justify-between gap-y-5 md:mt-0 md:flex-row md:gap-y-0">
+        <div class="hidden items-end gap-2 md:flex md:gap-[1.25vw]">
             <p class="flex items-center gap-1 md:gap-[0.75vw]">
                 <span class="text-base font-bold leading-none md:text-[2vw] md:leading-[1.9vw]">23</span>
                 <span class="text-xs font-semibold md:text-[1vw]">episodes</span>
@@ -58,8 +59,13 @@
             </div>
         </div>
 
-        <div class="flex items-end gap-2 md:gap-[0.75vw]">
-            <div class="group flex flex-col gap-2 md:gap-[0.5vw]">
+        <div class="flex items-center justify-between gap-2 md:items-end md:gap-[0.75vw]">
+            <p class="flex items-center gap-1 md:hidden">
+                <span class="text-base font-bold leading-none">23</span>
+                <span class="text-sm font-semibold text-surface-50">episodes</span>
+            </p>
+
+            <div class="group hidden flex-col gap-2 md:flex md:gap-[0.5vw]">
                 <span class="text-[0.65rem] leading-[0.9vw] text-surface-50 transition-colors duration-300 group-hover:text-white md:text-[0.75vw]">Type</span>
                 <button class="btn h-7 rounded bg-surface-400 px-3 text-[0.65rem] font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw] md:leading-[0.9vw]">
                     <span>Subbed</span>
@@ -69,7 +75,8 @@
                     />
                 </button>
             </div>
-            <div class="group flex flex-col gap-2 md:gap-[0.5vw]">
+
+            <div class="group hidden flex-col gap-2 md:flex md:gap-[0.5vw]">
                 <span class="text-[0.65rem] leading-[0.9vw] text-surface-50 transition-colors duration-300 group-hover:text-white md:text-[0.75vw]">Display Mode</span>
                 <button class="btn h-7 rounded bg-surface-400 px-3 text-[0.65rem] font-semibold leading-[0.9vw] md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw]">
                     <span>Thumbnails</span>
@@ -79,7 +86,7 @@
                     />
                 </button>
             </div>
-            <button class="btn btn-icon ml-auto h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]">
+            <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]">
                 <Search
                     class="w-3 md:w-[1vw]"
                     color="lightgray"
@@ -153,12 +160,26 @@
         {/each}
     </div>
 
-    <div class="mt-[5vw] flex grid-cols-5 flex-col gap-5 md:grid md:gap-[4.375vw]">
+    <div class="mt-10 flex grid-cols-5 flex-col gap-10 md:mt-[3vw] md:grid md:gap-[4.375vw]">
         <comment-box class="md:col-span-3">
-            <div class="flex gap-2 md:gap-[0.75vw]">
+            <div class="flex gap-2 border-b-2 border-surface-50/50 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
                 <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
                 <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
+                </button>
+            </div>
+
+            <div class="mt-2 flex items-center justify-between md:hidden">
+                <p class="flex items-center gap-1 md:hidden">
+                    <span class="text-base font-bold leading-none">69</span>
+                    <span class="text-sm font-semibold text-surface-50">comments</span>
+                </p>
+
+                <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]">
+                    <Filter
+                        class="w-3 md:w-[1vw]"
+                        color="lightgray"
+                    />
                 </button>
             </div>
 
@@ -182,38 +203,44 @@
                         </p>
                     </div>
 
-                    <button class="btn btn-sm h-10 w-40 rounded-md bg-primary-500 text-sm md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
+                    <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
                 </div>
             </form>
         </comment-box>
         <forum-posts class="md:col-span-2">
-            <div class="flex gap-[0.75vw]">
+            <div class="flex gap-2 border-b-2 border-surface-50/50 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
                 <span class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</span>
                 <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                     <SettingsOutline class="w-[0.9vw] opacity-75" />
                 </button>
             </div>
 
-            <div class="mt-3 md:mt-[0.75vw]">
-                <div class="flex justify-between">
-                    <button class="btn btn-sm h-8 gap-2 rounded bg-surface-400 p-0 px-4 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
-                        <Cross
-                            color="surface-50"
-                            class="w-4 rotate-45 md:w-[1vw]"
-                        />
-                        Create New
-                    </button>
+            <div class="mt-2 md:mt-[0.75vw]">
+                <div class="flex items-center justify-between">
+                    <p class="flex items-center gap-1 md:hidden">
+                        <span class="text-base font-bold leading-none">106</span>
+                        <span class="text-sm font-semibold text-surface-50">posts</span>
+                    </p>
 
-                    <button class="btn h-8 rounded bg-surface-400 px-4 text-xs font-semibold leading-[0.9vw] md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.9vw]">
-                        <span>Recent</span>
-                        <Chevron
-                            class="w-4 md:w-[1vw]"
-                            color="lightgray"
-                        />
-                    </button>
+                    <div class="flex items-center gap-2 md:w-full md:justify-between">
+                        <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                            <Cross
+                                color="surface-50"
+                                class="w-4 rotate-45 md:w-[1vw]"
+                            />
+                            Create New
+                        </button>
+
+                        <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]">
+                            <Filter
+                                class="w-3 md:w-[1vw]"
+                                color="lightgray"
+                            />
+                        </button>
+                    </div>
                 </div>
 
-                <posts class="mt-4 grid grid-cols-2 flex-col gap-5 md:mt-[1.25vw] md:flex md:gap-[1vw]">
+                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1.25vw] md:flex md:gap-[1vw]">
                     {#each forum_posts as post}
                         <a
                             href="/"
@@ -227,7 +254,7 @@
                                 />
                             </div>
 
-                            <div class="flex h-32 flex-col justify-between p-3 md:col-span-5 md:h-full md:gap-[0.375vw] md:p-[1vw]">
+                            <div class="flex h-36 flex-col justify-between p-3 md:col-span-5 md:h-full md:gap-[0.375vw] md:p-[1vw]">
                                 <div>
                                     <span class="line-clamp-2 text-xs font-extrabold md:text-[0.875vw] md:leading-[1.25vw]">
                                         {post.title}
@@ -237,8 +264,8 @@
                                     </span>
                                 </div>
 
-                                <div class=" flex items-center justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:text-[0.75vw]">
-                                    <div>
+                                <div class=" flex items-end justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:items-center md:text-[0.75vw]">
+                                    <div class="flex flex-col gap-1 md:flex-row md:gap-0">
                                         <span>
                                             Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{post.auther}</span>
                                         </span>
