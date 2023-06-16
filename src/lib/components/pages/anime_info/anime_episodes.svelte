@@ -102,42 +102,42 @@
 
             <a
                 href="/mal/1/watch?ep={episode_number}"
-                class="group relative col-span-6 flex flex-col !text-inherit !no-underline transition duration-300 md:col-span-4"
+                class="group relative col-span-12 flex gap-4 !text-inherit !no-underline transition duration-300 md:col-span-4"
             >
-                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[19vw] md:border-b-[0.2vw]">
-                    <div class="md:h-[12vw]">
+                <div class="relative basis-2/5 border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[19vw] md:w-full md:border-b-[0.2vw]">
+                    <div class="h-full md:h-[12vw]">
                         <ImageLoader
                             src={thumbnail ?? ""}
-                            class="h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-t-[0.625vw]"
+                            class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                         />
                     </div>
 
-                    <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300" />
-                    <div class="absolute top-0 flex w-full items-center justify-between p-[0.5vw]">
-                        <p class="rounded bg-surface-900/50 p-[0.45vw] text-xs font-bold tracking-wider text-surface-50 md:text-[0.8vw]">
+                    <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900 to-transparent transition duration-300 md:flex" />
+                    <div class="absolute bottom-0 flex w-full items-center justify-between p-1 md:top-0 md:p-[0.5vw]">
+                        <p class="rounded bg-surface-900/75 p-1 text-xs font-bold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.8vw]">
                             EP {episode_number < 10 ? `0${episode_number}` : episode_number}
                         </p>
-                        <p class="unstyled rounded bg-surface-900/50 p-[0.45vw] text-xs font-semibold tracking-wider text-surface-50 md:text-[0.75vw]">
+                        <p class="unstyled rounded bg-surface-900/75 p-1 py-0 text-[0.7rem] font-semibold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.75vw]">
                             {new FormatTime(duration).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
                 </div>
 
-                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 p-[1vw] transition duration-300 md:gap-[0.75vw] md:backdrop-blur-xl">
-                    <div class="relative flex flex-col items-start md:gap-[0.25vw]">
-                        <span class="w-[18vw] overflow-hidden whitespace-nowrap font-light text-surface-50/90 transition duration-300 group-hover:whitespace-normal group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
+                <episode-info class="bottom-0 flex h-full w-full basis-3/5 flex-col items-start justify-between transition duration-300 md:absolute md:h-auto md:gap-[0.75vw] md:bg-surface-900/75 md:p-[1vw] md:backdrop-blur-xl">
+                    <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
+                        <span class="text-sm font-light text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                             {title}
                         </span>
 
-                        <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
+                        <span class="text-xs font-light text-surface-200 transition duration-300 group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
                             {japanese_name}
                         </span>
 
-                        <gradient class="absolute right-0 h-full w-[2vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden" />
+                        <gradient class="absolute right-0 hidden h-full w-[2vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden md:flex" />
                     </div>
-                    <div class="flex w-full items-center md:mt-[0.25vw] md:gap-[0.65vw]">
+                    <div class="flex w-full items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
                         {#each episode.formats as format}
-                            <p class="unstyled rounded bg-surface-400/50 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]">{format}</p>
+                            <p class="unstyled rounded bg-surface-400 px-2 py-1 text-xs font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:py-[0.35vw] md:text-[0.8vw]">{format}</p>
                         {/each}
 
                         {#each episode.resolutions as resolution, index}
@@ -145,7 +145,7 @@
                             {@const fhd = resolution === "1080p"}
 
                             <p
-                                class="unstyled rounded bg-surface-400/25 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]"
+                                class="unstyled rounded bg-surface-400 px-2 py-1 text-xs font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/25 md:p-[0.45vw] md:py-[0.35vw] md:text-[0.8vw]"
                                 class:md:ml-[0.5vw]={index === 0}
                             >
                                 {hd ? "hd" : fhd ? "fhd" : "sd"}
