@@ -249,6 +249,7 @@
                  * `<starting_operator>||<ending_operator>` -> `||`
                  * `_||_` -> `||`
                  */
+                element.focus();
                 element.setSelectionRange(selection_start - starting_operator.length, selection_end + ending_operator.length);
                 document.execCommand("delete", false);
             }
