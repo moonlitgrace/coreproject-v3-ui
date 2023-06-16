@@ -111,9 +111,9 @@
                             class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                         />
                     </div>
-                    <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900 to-transparent transition duration-300 md:flex" />
+                    <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900 to-transparent transition duration-300 md:flex md:h-[12vw]" />
 
-                    <div class="absolute bottom-0 flex w-full justify-between p-1 md:p-[0.5vw]">
+                    <div class="absolute bottom-0 flex h-max w-full justify-between p-1 md:top-0 md:p-[0.5vw]">
                         <p class="rounded bg-surface-900/75 p-1 text-xs font-bold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.8vw]">
                             EP {episode_number < 10 ? `0${episode_number}` : episode_number}
                         </p>
@@ -123,7 +123,7 @@
                     </div>
                 </div>
 
-                <episode-info class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:bg-surface-900/75 md:p-[1vw] md:backdrop-blur-xl">
+                <episode-info class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900/75 md:p-[1vw] md:backdrop-blur-xl">
                     <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
                         <span class="text-[0.8rem] font-light leading-snug text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                             {title}
