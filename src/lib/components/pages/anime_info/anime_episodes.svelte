@@ -98,7 +98,7 @@
 
             <a
                 href="./watch/{episode_number}"
-                class="group relative col-span-12 grid grid-cols-12 gap-4 !text-inherit !no-underline transition duration-300 md:col-span-4"
+                class="unstyled group relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
             >
                 <div class="relative col-span-5 h-full w-full transition duration-300 md:col-span-12 md:h-[19vw] md:w-full">
                     <div class="h-24 md:h-[12vw] md:w-full">
