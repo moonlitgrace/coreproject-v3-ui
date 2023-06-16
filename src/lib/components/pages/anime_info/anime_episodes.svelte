@@ -133,7 +133,7 @@
                             {japanese_name}
                         </span>
 
-                        <gradient class="absolute right-0 h-full w-[3.5vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden" />
+                        <gradient class="absolute right-0 h-full w-[2vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden" />
                     </div>
                     <div class="flex w-full items-center md:mt-[0.25vw] md:gap-[0.65vw]">
                         {#each episode.formats as format}
