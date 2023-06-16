@@ -25,7 +25,7 @@
         /**
          * Credit : https://stackoverflow.com/a/43467144
          */
-        let url;
+        let url: URL;
 
         try {
             url = new URL(url_string);
@@ -178,12 +178,21 @@
         const selection_start = element.selectionStart;
         const selection_end = element.selectionEnd;
         const selection_text = element.value.substring(selection_start, selection_end);
-        const replacement_text = `[${selection_text}]()`;
 
-        await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
-        element.setSelectionRange(selection_start + selection_text.length + 3, selection_start + selection_text.length + 3);
+        // Handle use cases
+        if (element.value.substring(selection_start - 3, selection_start) == "[](" && element.value.substring(selection_end, selection_end + 1) == ")") {
+            /**
+             * [](||) -> ||
+             */
+            element.focus();
+            element.setSelectionRange(selection_start - 3, selection_end + 1);
+            document.execCommand("delete");
+        } else {
+            const replacement_text = `[${selection_text}]()`;
+            await insert_text({ target: element, text: element.value.substring(0, selection_start) + replacement_text + element.value.substring(selection_end) });
+            element.setSelectionRange(selection_start + selection_text.length + 3, selection_start + selection_text.length + 3);
+        }
     }
-    // Special function
     async function paste_text(event: ClipboardEvent & { currentTarget: HTMLTextAreaElement }) {
         event.preventDefault();
 
@@ -222,6 +231,7 @@
         const selection_text = element.value.substring(selection_start, selection_end);
 
         const regex_pattern_for_operator = new RegExp("^" + starting_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "|" + ending_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "$", "g");
+        element.focus();
 
         // Handle use cases
         if (element.value.substring(selection_start - starting_operator.length, selection_start) == starting_operator && element.value.substring(selection_end, selection_end + ending_operator.length) == ending_operator) {
