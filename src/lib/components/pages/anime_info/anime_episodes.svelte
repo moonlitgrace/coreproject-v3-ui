@@ -138,7 +138,7 @@
                     <div class="flex gap-2 leading-none md:mt-[0.25vw] md:gap-[0.65vw]">
                         <span class="text-[0.7rem] md:hidden">Available in:</span>
                         {#each episode.formats as format}
-                            <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:py-0 md:text-[0.8vw]">{format}</span>
+                            <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:text-[0.8vw]">{format}</span>
                         {/each}
 
                         {#each episode.resolutions as resolution, index}
@@ -146,7 +146,7 @@
                             {@const fhd = resolution === "1080p"}
 
                             <span
-                                class="text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:rounded md:bg-surface-400/25 md:p-[0.45vw] md:py-0 md:text-[0.8vw]"
+                                class="text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:rounded md:bg-surface-400/25 md:p-[0.45vw] md:text-[0.8vw]"
                                 class:md:ml-[0.5vw]={index === 0}
                             >
                                 {hd ? "hd" : fhd ? "fhd" : "sd"}
