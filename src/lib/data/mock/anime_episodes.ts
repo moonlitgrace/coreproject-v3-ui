@@ -1,86 +1,122 @@
 export const anime_episodes = [
     {
         id: 13,
-        episode_number: 1,
-        episode_name: "The Revival of the Long-established Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-1.png",
-        episode_length: 1254
+        number: 1,
+        title: "The Revival of the Long-established Classic Literature Club",
+        japanese_title: "老舗古典部復活 カッコいいですよね",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-1.png",
+        duration: 1254,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 14,
-        episode_number: 2,
-        episode_name: "The Activities of the Esteemed Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-2.png",
-        episode_length: 1451
+        number: 2,
+        title: "The Activities of the Esteemed Classic Literature Club",
+        japanese_title: "古典文学部の活動",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-2.png",
+        duration: 1451,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 15,
-        episode_number: 3,
-        episode_name: "The Descendants of the Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-3.png",
-        episode_length: 1257
+        number: 3,
+        title: "The Descendants of the Classic Literature Club",
+        japanese_title: "古典文学部の末裔",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-3.png",
+        duration: 1257,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 16,
-        episode_number: 4,
-        episode_name: "The Old Days of the Glorious Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-4.png",
-        episode_length: 1405
+        number: 4,
+        title: "The Old Days of the Glorious Classic Literature Club",
+        japanese_title: "栄光の古典文学クラブの昔",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-4.png",
+        duration: 1405,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p"]
     },
     {
         id: 17,
-        episode_number: 5,
-        episode_name: "The Truth of the Historic Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-5.png",
-        episode_length: 1382
+        number: 5,
+        title: "The Truth of the Historic Classic Literature Club",
+        japanese_title: "歴史的古典文学部の真実",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-5.png",
+        duration: 1382,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 18,
-        episode_number: 6,
-        episode_name: "To Commit a Grave Sin",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-6.png",
-        episode_length: 1436
+        number: 6,
+        title: "To Commit a Grave Sin",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-6.png",
+        japanese_title: "重大な罪を犯すには",
+        duration: 1436,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 13,
-        episode_number: 7,
-        episode_name: "The Revival of the Long-established Classic Literature Club",
-        episode_thumbnail: "https://reallifeanime.files.wordpress.com/2015/08/hyouka-episode-1-classics-club.png",
-        episode_length: 1254
+        number: 1,
+        title: "The Revival of the Long-established Classic Literature Club",
+        japanese_title: "老舗古典部復活 カッコいいですよね",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-1.png",
+        duration: 1254,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 14,
-        episode_number: 8,
-        episode_name: "  The Activities of the Esteemed Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-2.png",
-        episode_length: 1451
+        number: 2,
+        title: "The Activities of the Esteemed Classic Literature Club",
+        japanese_title: "古典文学部の活動",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-2.png",
+        duration: 1451,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 15,
-        episode_number: 9,
-        episode_name: "The Descendants of the Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-3.png",
-        episode_length: 1257
+        number: 3,
+        title: "The Descendants of the Classic Literature Club",
+        japanese_title: "古典文学部の末裔",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-3.png",
+        duration: 1257,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 16,
-        episode_number: 10,
-        episode_name: "The Old Days of the Glorious Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-4.png",
-        episode_length: 1405
+        number: 4,
+        title: "The Old Days of the Glorious Classic Literature Club",
+        japanese_title: "栄光の古典文学クラブの昔",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-4.png",
+        duration: 1405,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 17,
-        episode_number: 11,
-        episode_name: "The Truth of the Historic Classic Literature Club",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-5.png",
-        episode_length: 1382
+        number: 5,
+        title: "The Truth of the Historic Classic Literature Club",
+        japanese_title: "歴史的古典文学部の真実",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-5.png",
+        duration: 1382,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
     },
     {
         id: 18,
-        episode_number: 12,
-        episode_name: "To Commit a Grave Sin",
-        episode_thumbnail: "/images/episodes/hyouka/Hyouka-ep-6.png",
-        episode_length: 1436
-    }
+        number: 6,
+        title: "To Commit a Grave Sin",
+        thumbnail: "/images/episodes/hyouka/Hyouka-ep-6.png",
+        japanese_title: "重大な罪を犯すには",
+        duration: 1436,
+        formats: ["sub", "dub"],
+        resolutions: ["480p", "720p", "1080p"]
+    },
 ];

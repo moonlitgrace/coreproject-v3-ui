@@ -40,7 +40,7 @@
     // Local
     const icon_mapping: {
         // Top,middle,bottom
-        [key in "top" | "middle" | "bottom" | "profile_dropdown"]: {
+        [key in "top" | "middle" | "bottom"]: {
             // Icon name
             [key in string]: {
                 name?: string;
