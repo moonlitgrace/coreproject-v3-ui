@@ -104,7 +104,7 @@
                 href="/mal/1/watch?ep={episode_number}"
                 class="group relative col-span-12 flex gap-4 !text-inherit !no-underline transition duration-300 md:col-span-4"
             >
-                <div class="relative basis-2/5 border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[19vw] md:w-full md:border-b-[0.2vw]">
+                <div class="relative basis-2/5 border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[19vw] md:w-full md:basis-auto md:border-b-[0.2vw]">
                     <div class="h-full md:h-[12vw]">
                         <ImageLoader
                             src={thumbnail ?? ""}
@@ -113,17 +113,17 @@
                     </div>
 
                     <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900 to-transparent transition duration-300 md:flex" />
-                    <div class="absolute bottom-0 flex w-full items-center justify-between p-1 md:top-0 md:p-[0.5vw]">
+                    <div class="absolute top-0 flex w-full items-center justify-between p-1 md:top-0 md:p-[0.5vw]">
                         <p class="rounded bg-surface-900/75 p-1 text-xs font-bold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.8vw]">
                             EP {episode_number < 10 ? `0${episode_number}` : episode_number}
                         </p>
-                        <p class="unstyled rounded bg-surface-900/75 p-1 py-0 text-[0.7rem] font-semibold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.75vw]">
+                        <p class="unstyled rounded bg-surface-900/75 p-1 py-0 text-[0.7rem] font-semibold tracking-wider text-surface-50 md:bg-surface-900/50 md:px-[0.45vw] md:py-[0.1vw] md:text-[0.75vw]">
                             {new FormatTime(duration).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
                 </div>
 
-                <episode-info class="bottom-0 flex h-full w-full basis-3/5 flex-col items-start justify-between transition duration-300 md:absolute md:h-auto md:gap-[0.75vw] md:bg-surface-900/75 md:p-[1vw] md:backdrop-blur-xl">
+                <episode-info class="bottom-0 flex h-full w-full basis-3/5 flex-col items-start justify-between transition duration-300 md:absolute md:h-auto md:basis-auto md:gap-[0.75vw] md:bg-surface-900/75 md:p-[1vw] md:backdrop-blur-xl">
                     <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
                         <span class="text-sm font-light text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                             {title}
