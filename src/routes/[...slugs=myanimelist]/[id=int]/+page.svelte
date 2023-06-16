@@ -12,6 +12,7 @@
 
     const opengraph_html = new OpengraphGenerator({
         title: `Watch ${anime?.name} on AnimeCore`,
+        url: $page.url.href,
         description: anime?.synopsis ?? "",
         site_name: "CoreProject",
         locale: "en_US",
@@ -25,7 +26,7 @@
 </svelte:head>
 
 {#if anime}
-    <TopRounded class="fixed z-10 w-[1.5vw] text-surface-900 hidden md:flex" />
+    <TopRounded class="fixed z-10 hidden w-[1.5vw] text-surface-900 md:flex" />
     <AnimeInfoPage
         anime_name={anime.name}
         anime_alternative_name={anime.alternative_name}
