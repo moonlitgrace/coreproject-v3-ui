@@ -135,23 +135,24 @@
 
                         <gradient class="absolute right-0 hidden h-full w-[2vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden md:flex" />
                     </div>
-                    <div class="flex gap-2 leading-none md:mt-[0.25vw] md:gap-[0.65vw]">
+                    <div class="flex items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
                         <span class="text-[0.7rem] md:hidden">Available in:</span>
-                        {#each episode.formats as format}
-                            <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:text-[0.8vw]">{format}</span>
-                        {/each}
+                        <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
+                            {#each episode.formats as format}
+                                <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:text-[0.8vw]">{format}</span>
+                            {/each}
+                        </formats>
+                        <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
+                        <resolutions class="flex gap-2 leading-none md:gap-[0.65vw]">
+                            {#each episode.resolutions as resolution, index}
+                                {@const hd = resolution === "720p"}
+                                {@const fhd = resolution === "1080p"}
 
-                        {#each episode.resolutions as resolution, index}
-                            {@const hd = resolution === "720p"}
-                            {@const fhd = resolution === "1080p"}
-
-                            <span
-                                class="text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:rounded md:bg-surface-400/25 md:p-[0.45vw] md:text-[0.8vw]"
-                                class:md:ml-[0.5vw]={index === 0}
-                            >
-                                {hd ? "hd" : fhd ? "fhd" : "sd"}
-                            </span>
-                        {/each}
+                                <span class="text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:rounded md:bg-surface-400/25 md:p-[0.45vw] md:text-[0.8vw]">
+                                    {hd ? "hd" : fhd ? "fhd" : "sd"}
+                                </span>
+                            {/each}
+                        </resolutions>
                     </div>
                 </episode-info>
             </a>
