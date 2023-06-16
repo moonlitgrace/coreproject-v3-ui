@@ -124,13 +124,16 @@
                 </div>
 
                 <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 p-[1vw] transition duration-300 md:gap-[0.75vw] md:backdrop-blur-xl">
-                    <div class="flex flex-col items-start md:gap-[0.25vw]">
-                        <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
+                    <div class="relative flex flex-col items-start md:gap-[0.25vw]">
+                        <span class="w-[18vw] overflow-hidden whitespace-nowrap font-light text-surface-50/90 transition duration-300 group-hover:whitespace-normal group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
                             {title}
                         </span>
+
                         <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
                             {japanese_name}
                         </span>
+
+                        <gradient class="absolute right-0 h-full w-[3.5vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden" />
                     </div>
                     <div class="flex w-full items-center md:mt-[0.25vw] md:gap-[0.65vw]">
                         {#each episode.formats as format}
