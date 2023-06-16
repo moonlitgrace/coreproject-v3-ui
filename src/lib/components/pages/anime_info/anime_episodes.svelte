@@ -144,7 +144,7 @@
                         </formats>
                         <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
                         <resolutions class="flex gap-2 leading-none md:gap-[0.65vw]">
-                            {#each episode.resolutions as resolution, index}
+                            {#each episode.resolutions as resolution}
                                 {@const hd = resolution === "720p"}
                                 {@const fhd = resolution === "1080p"}
 
