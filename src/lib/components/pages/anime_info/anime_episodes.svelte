@@ -101,7 +101,7 @@
             {@const duration = episode.duration}
 
             <a
-                href="/mal/1/watch?ep={episode_number}"
+                href="./watch/{episode_number}"
                 class="group relative col-span-12 grid grid-cols-12 gap-4 !text-inherit !no-underline transition duration-300 md:col-span-4"
             >
                 <div class="relative col-span-5 h-full w-full transition duration-300 md:col-span-12 md:h-[19vw] md:w-full">
@@ -125,15 +125,13 @@
 
                 <episode-info-card class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
                     <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
-                        <span class="text-[0.8rem] font-light leading-snug text-white transition-colors duration-300 ease-in md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
+                        <episode-name class="text-[0.8rem] font-light leading-snug text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                             {title}
-                        </span>
+                        </episode-name>
 
                         <span class="text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
                             {japanese_name}
                         </span>
-
-                        <gradient class="absolute right-0 hidden h-full w-[2vw] bg-gradient-to-l from-surface-900 to-transparent group-hover:hidden md:flex" />
                     </div>
                     <div class="relative flex items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
                         <span class="text-[0.7rem] md:hidden">Available in:</span>
@@ -266,3 +264,14 @@
         </forum-posts>
     </div>
 </div>
+
+<style lang="scss">
+    episode-name {
+        &:not(.group-hover) {
+            /* if we need to change the width, we should change the 90% to higher  */
+            mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 90%, rgba(0, 0, 0, 0) 100%);
+            mask-repeat: no-repeat;
+            mask-position: right;
+        }
+    }
+</style>
