@@ -355,18 +355,17 @@
     };
 </script>
 
-<div class="relative overflow-hidden rounded-lg ring-2 ring-surface-300/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
-    <textarea-navbar class="flex h-8 items-center justify-between bg-surface-400/50 md:h-[2.5vw]">
+<div class="relative rounded-lg ring-2 ring-surface-300/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
+    <textarea-navbar class="flex h-8 items-center justify-between overflow-hidden rounded-t-lg bg-surface-400/50 md:h-[2.5vw] md:rounded-t-[0.75vw]">
         <div>
-            {#each ["edit", "preview"] as item, index}
+            {#each ["edit", "preview"] as item}
                 {@const active = tab_type.toLowerCase() == item}
-                {@const first_item = index == 0}
                 <button
                     type="button"
                     on:click={() => {
                         handle_edit_preview_button_click(item);
                     }}
-                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-auto md:px-[1.5vw] md:py-[0.75vw] md:text-[1vw]"
+                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-[2.5vw] md:px-[1.5vw] md:text-[1vw]"
                 >
                     {item}
                 </button>
