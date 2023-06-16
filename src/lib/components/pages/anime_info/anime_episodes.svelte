@@ -7,11 +7,7 @@
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
     import Cross from "$icons/cross.svelte";
-    import EyeOpen from "$icons/eye_open.svelte";
-    import Listen from "$icons/listen.svelte";
     import MessageCircle from "$icons/message_circle.svelte";
-    import PlayCircle from "$icons/play_circle.svelte";
-    import Read from "$icons/read.svelte";
     import Search from "$icons/search.svelte";
     // icons
     import SettingsOutline from "$icons/settings_outline.svelte";
