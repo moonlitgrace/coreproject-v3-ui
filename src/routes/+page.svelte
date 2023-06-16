@@ -220,7 +220,6 @@
     {@html opengraph_html}
 </svelte:head>
 
-<!-- svelte-ignore redundant-event-modifier -->
 <div class="md:p-[1.25vw] md:pr-[3.75vw]">
     <div class="flex flex-col justify-between md:flex-row">
         <latest-animes class="h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]">
