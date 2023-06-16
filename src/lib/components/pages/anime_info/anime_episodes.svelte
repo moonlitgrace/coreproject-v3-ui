@@ -104,11 +104,11 @@
                 href="/mal/1/watch?ep={episode_number}"
                 class="group relative col-span-6 flex flex-col !text-inherit !no-underline transition duration-300 md:col-span-4"
             >
-                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[17.75vw] md:border-b-[0.2vw]">
+                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[19vw] md:border-b-[0.2vw]">
                     <div class="md:h-[12vw]">
                         <ImageLoader
                             src={thumbnail ?? ""}
-                            class="h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-[0.625vw]"
+                            class="h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                         />
                     </div>
 
@@ -121,49 +121,9 @@
                             {new FormatTime(duration).format_seconds_to_time_stamp_duration}
                         </p>
                     </div>
-
-                    <show-on-hover class="absolute inset-0 z-20 flex hidden items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <button
-                            type="button"
-                            class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
-                        >
-                            <div class="flex place-items-center md:gap-[0.7vw]">
-                                <PlayCircle class="w-[1.5vw]" />
-                                <span class="text-[1vw] font-bold leading-none">
-                                    Ep {episode_number}
-                                </span>
-                            </div>
-                        </button>
-                        <div class="flex gap-[0.35vw]">
-                            <button
-                                type="button"
-                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
-                                disabled
-                            >
-                                <div class="flex flex-col items-center justify-center md:gap-[0.35vw]">
-                                    <Read class="w-[1.3vw]" />
-                                    <div class="flex flex-col items-start">
-                                        <span class="leading-[1vw]">Read</span>
-                                    </div>
-                                </div>
-                            </button>
-                            <button
-                                type="button"
-                                class="btn h-[4vw] w-[4vw] rounded-[0.625vw] bg-surface-900 text-[0.87vw] font-semibold text-surface-50"
-                                disabled
-                            >
-                                <div class="flex flex-col place-items-center md:gap-[0.35vw]">
-                                    <Listen class="w-[1.3vw]" />
-                                    <div class="flex flex-col items-start">
-                                        <span class="leading-[1vw]">Lsiten</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </show-on-hover>
                 </div>
 
-                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 pt-[1vw] transition duration-300 md:gap-[0.25vw] md:backdrop-blur-lg">
+                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 p-[1vw] transition duration-300 md:gap-[0.75vw] md:backdrop-blur-xl">
                     <div class="flex flex-col items-start md:gap-[0.25vw]">
                         <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
                             {title}
