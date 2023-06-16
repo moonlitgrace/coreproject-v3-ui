@@ -102,17 +102,17 @@
 
             <a
                 href="/mal/1/watch?ep={episode_number}"
-                class="group relative col-span-6 flex flex-col !text-inherit !no-underline md:col-span-4"
+                class="group relative col-span-6 flex flex-col !text-inherit !no-underline transition duration-300 md:col-span-4"
             >
-                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[14vw] md:border-b-[0.2vw]">
-                    <div class="md:h-[14vw]">
+                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[17.75vw] md:border-b-[0.2vw]">
+                    <div class="md:h-[12vw]">
                         <ImageLoader
                             src={thumbnail ?? ""}
-                            class="absolute h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-t-[0.625vw]"
+                            class="h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-[0.625vw]"
                         />
                     </div>
 
-                    <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
+                    <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300" />
                     <div class="absolute top-0 flex w-full items-center justify-between p-[0.5vw]">
                         <p class="rounded bg-surface-900/50 p-[0.45vw] text-xs font-bold tracking-wider text-surface-50 md:text-[0.8vw]">
                             EP {episode_number < 10 ? `0${episode_number}` : episode_number}
@@ -163,7 +163,7 @@
                     </show-on-hover>
                 </div>
 
-                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 p-[1vw] transition duration-300 md:gap-[0.25vw] md:backdrop-blur-md">
+                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 pt-[1vw] transition duration-300 md:gap-[0.25vw] md:backdrop-blur-lg">
                     <div class="flex flex-col items-start md:gap-[0.25vw]">
                         <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
                             {title}
