@@ -272,7 +272,7 @@
                                 <p class="flex items-center gap-1 md:gap-[0.75vw]">
                                     <span class="text-base font-bold leading-none md:text-[2vw] md:leading-[1.9vw]">23</span>
                                     <span class="text-xs font-semibold md:text-[1vw]">episodes</span>
-                                    <span class="inline-flex items-center text-[0.4rem] md:text-[1vw]">▪</span>
+                                    <Circle class="w-[0.4vw] opacity-50" />
                                 </p>
 
                                 <div>
@@ -289,7 +289,7 @@
                                                 </span>
                                             {/each}
 
-                                            <span class="inline-flex items-center text-[0.4rem] md:text-[1vw]">▪</span>
+                                            <Circle class="w-[0.4vw] opacity-50" />
 
                                             {#each ["1080p", "720p", "480p"] as resolution}
                                                 <span class="flex h-full place-items-center rounded bg-surface-400 px-2 leading-[0.9vw] md:rounded-[0.25vw] md:px-[0.9vw]">
@@ -507,7 +507,7 @@
                                                     </div>
 
                                                     <div class=" flex items-end justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:items-center md:text-[0.75vw]">
-                                                        <div class="flex flex-col gap-1 md:flex-row md:gap-0">
+                                                        <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-[0.25vw]">
                                                             <span>
                                                                 Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{post.auther}</span>
                                                             </span>
