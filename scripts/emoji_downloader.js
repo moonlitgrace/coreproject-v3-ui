@@ -1,6 +1,7 @@
 import fs from "fs";
 import fetch from "node-fetch-retry";
 import path from "path";
+import sharp from "sharp";
 import { fileURLToPath } from "url";
 
 // Polyfill. Remove it later
@@ -26,23 +27,27 @@ fs.readFile(emoji_input_path, "utf8", async (err, data) => {
     const emoji_map = {};
 
     for (const [emoji_name, emoji_link] of Object.entries(emojis_data)) {
-        const image_filename = `${download_path}/${emoji_name}.png`;
+        const image_filename = `${download_path}/${emoji_name}.avif`;
 
         try {
             const response = await fetch(emoji_link, { method: "GET", retry: 10, pause: 3000 });
             if (!response.ok) {
                 throw new Error("Error while downloading image. HTTP status " + response.status);
             }
+            // We get png files here
             const arrayBuffer = await response.arrayBuffer();
             const buffer = Buffer.from(arrayBuffer);
-            fs.writeFileSync(image_filename, buffer);
+
+            const avif_image_buffer = await sharp(buffer).avif({ effort: 9 }).toBuffer();
+
+            fs.writeFileSync(image_filename, avif_image_buffer);
             console.log(`Downloaded: ${emoji_name}`);
         } catch (error) {
             console.error("Error while downloading image:", error);
             return;
         } finally {
             // svelte specific code
-            emoji_map[emoji_name] = `/emojis/${emoji_name}.png`;
+            emoji_map[emoji_name] = `/emojis/${emoji_name}.avif`;
         }
     }
 
