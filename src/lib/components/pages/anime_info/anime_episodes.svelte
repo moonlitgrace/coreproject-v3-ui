@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <div class="mt-4 grid grid-cols-12 gap-5 md:mt-[2.5vw] md:gap-[3.125vw]">
+    <div class="mt-4 grid grid-cols-12 gap-5 md:mt-[2.5vw] md:gap-[2.5vw]">
         {#each anime_episodes as episode}
             {@const thumbnail = episode.thumbnail}
             {@const title = episode.title}
@@ -100,9 +100,12 @@
             {@const japanese_name = episode.japanese_title}
             {@const duration = episode.duration}
 
-            <div class="group col-span-6 flex flex-col !text-inherit !no-underline md:col-span-4">
-                <div class="relative h-32 w-full border-b-2 border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[12.5vw] md:border-b-[0.2vw]">
-                    <div class="md:h-[12.5vw]">
+            <a
+                href="/mal/1/watch?ep={episode_number}"
+                class="group relative col-span-6 flex flex-col !text-inherit !no-underline md:col-span-4"
+            >
+                <div class="relative h-32 w-full border-b-2 border-none border-surface-400 bg-cover transition duration-300 group-hover:border-surface-300 md:h-[14vw] md:border-b-[0.2vw]">
+                    <div class="md:h-[14vw]">
                         <ImageLoader
                             src={thumbnail ?? ""}
                             class="absolute h-full w-full shrink-0 rounded-t-lg bg-cover bg-center md:rounded-t-[0.625vw]"
@@ -110,7 +113,7 @@
                     </div>
 
                     <overlay-effect class="absolute inset-0 bg-gradient-to-t from-surface-900 to-transparent transition duration-300 group-hover:to-surface-900/50" />
-                    <div class="absolute bottom-0 flex w-full items-center justify-between p-[0.5vw]">
+                    <div class="absolute top-0 flex w-full items-center justify-between p-[0.5vw]">
                         <p class="rounded bg-surface-900/50 p-[0.45vw] text-xs font-bold tracking-wider text-surface-50 md:text-[0.8vw]">
                             EP {episode_number < 10 ? `0${episode_number}` : episode_number}
                         </p>
@@ -119,7 +122,7 @@
                         </p>
                     </div>
 
-                    <show-on-hover class="absolute inset-0 z-20 flex items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <show-on-hover class="absolute inset-0 z-20 flex hidden items-center justify-center gap-[0.75vw] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <button
                             type="button"
                             class="btn rounded-[0.625vw] bg-warning-400 font-bold text-surface-900 md:h-[4vw] md:w-[6.5vw] md:text-[0.87vw]"
@@ -160,34 +163,34 @@
                     </show-on-hover>
                 </div>
 
-                <episode-info class="flex h-full w-full flex-col items-start justify-between pt-[0.75vw] md:gap-[0.25vw]">
+                <episode-info class="absolute bottom-0 flex h-auto w-full flex-col items-start justify-between bg-surface-900/75 p-[1vw] transition duration-300 md:gap-[0.25vw] md:backdrop-blur-md">
                     <div class="flex flex-col items-start md:gap-[0.25vw]">
-                        <span class="font-light text-surface-50/75 transition duration-300 group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
+                        <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.9vw] md:leading-[1.25vw]">
                             {title}
                         </span>
-                        <span class="font-light text-surface-50/75 transition duration-300 group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
+                        <span class="line-clamp-1 font-light text-surface-50/75 transition duration-300 group-hover:line-clamp-none group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw]">
                             {japanese_name}
                         </span>
                     </div>
                     <div class="flex w-full items-center md:mt-[0.25vw] md:gap-[0.65vw]">
                         {#each episode.formats as format}
-                            <p class="unstyled rounded bg-surface-400 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]">{format}</p>
+                            <p class="unstyled rounded bg-surface-400/50 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]">{format}</p>
                         {/each}
 
                         {#each episode.resolutions as resolution, index}
-                            {@const has_hd = resolution === "720p"}
-                            {@const has_fhd = resolution === "1080p"}
+                            {@const hd = resolution === "720p"}
+                            {@const fhd = resolution === "1080p"}
 
                             <p
-                                class="unstyled rounded bg-surface-400/50 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]"
+                                class="unstyled rounded bg-surface-400/25 p-[0.45vw] py-[0.35vw] text-xs font-semibold uppercase tracking-wider text-surface-50 md:text-[0.8vw]"
                                 class:md:ml-[0.5vw]={index === 0}
                             >
-                                {has_hd ? "hd" : has_fhd ? "fhd" : "sd"}
+                                {hd ? "hd" : fhd ? "fhd" : "sd"}
                             </p>
                         {/each}
                     </div>
                 </episode-info>
-            </div>
+            </a>
         {/each}
     </div>
 
