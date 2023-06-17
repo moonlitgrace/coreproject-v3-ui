@@ -10,6 +10,7 @@
     import type { SvelteComponentDev } from "svelte/internal";
 
     import Markdown from "./markdown.svelte";
+    import Strike from "$icons/strike.svelte";
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
@@ -173,6 +174,9 @@
     }
     async function underline_text(element: HTMLTextAreaElement) {
         await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
+    }
+    async function strike_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "<s>", ending_operator: "</s>"});
     }
     async function hyperlink_text(element: HTMLTextAreaElement) {
         const selection_start = element.selectionStart;
@@ -341,6 +345,15 @@
             icon: {
                 component: Underline,
                 class: "w-4 md:h-[1.35vw] text-surface-200"
+            }
+        },
+        strike: {
+            function: (element) => {
+                strike_text(element as HTMLTextAreaElement)
+            },
+            icon: {
+                component: Strike,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
             }
         },
         hyperlink: {
