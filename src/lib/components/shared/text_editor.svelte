@@ -4,13 +4,13 @@
     import Bold from "$icons/bold.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
     import Italic from "$icons/italic.svelte";
+    import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
 
     import Markdown from "./markdown.svelte";
-    import Strike from "$icons/strike.svelte";
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
@@ -161,6 +161,15 @@
                 }
             }
         }
+
+        if (event.ctrlKey && event.shiftKey) {
+            switch (event.key) {
+                case "x":
+                    event.preventDefault();
+                    await strike_text(event.target as HTMLTextAreaElement);
+                    break;
+            }
+        }
     }
     // Editor specific functions
     async function bold_text(element: HTMLTextAreaElement) {
@@ -176,7 +185,7 @@
         await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
     }
     async function strike_text(element: HTMLTextAreaElement) {
-        await operate_on_selected_text({ element: element, starting_operator: "<s>", ending_operator: "</s>"});
+        await operate_on_selected_text({ element: element, starting_operator: "~~", ending_operator: "~~" });
     }
     async function hyperlink_text(element: HTMLTextAreaElement) {
         const selection_start = element.selectionStart;
@@ -349,7 +358,7 @@
         },
         strike: {
             function: (element) => {
-                strike_text(element as HTMLTextAreaElement)
+                strike_text(element as HTMLTextAreaElement);
             },
             icon: {
                 component: Strike,
