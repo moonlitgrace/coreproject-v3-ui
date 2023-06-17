@@ -387,12 +387,23 @@
                                             </formats>
                                             <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
                                             <resolutions class="flex gap-2 leading-none md:gap-[0.65vw]">
-                                                {#each episode.resolutions as resolution}
-                                                    {@const hd = resolution === "720p"}
-                                                    {@const fhd = resolution === "1080p"}
+                                                {#each episode.resolutions as episode_resolution}
+                                                    {@const resolution = (() => {
+                                                        switch (episode_resolution) {
+                                                            case "720p": {
+                                                                return "hd";
+                                                            }
+                                                            case "1080p": {
+                                                                return "fhd";
+                                                            }
+                                                            default: {
+                                                                return "sd";
+                                                            }
+                                                        }
+                                                    })()}
 
                                                     <span class="text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:rounded md:bg-surface-400/25 md:p-[0.45vw] md:text-[0.8vw]">
-                                                        {hd ? "hd" : fhd ? "fhd" : "sd"}
+                                                        {resolution}
                                                     </span>
                                                 {/each}
                                             </resolutions>
