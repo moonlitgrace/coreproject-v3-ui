@@ -1,5 +1,6 @@
 <script>
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import ImageLoader from "./image/image_loader.svelte";
 
     import Cross from "$icons/cross.svelte";
     import Circle from "$icons/circle.svelte";
@@ -44,8 +45,8 @@
                     >
                         {#each Array(6) as _}
                             <div class="flex cursor-pointer items-center gap-[0.75vw] rounded-[0.7vw] p-[0.8vw] transition duration-300 hover:bg-surface-300/20">
-                                <img
-                                    src="/images/DemonSlayer-bg.webp"
+                                <ImageLoader
+                                    src="/images/DemonSlayer-bg.avif"
                                     alt={search_query}
                                     class="h-[3.5vw] w-[3.5vw] rounded-[0.5vw] object-cover"
                                 />
