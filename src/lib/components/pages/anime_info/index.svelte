@@ -374,9 +374,9 @@
                                                 {title}
                                             </episode-name>
 
-                                            <span class="text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
+                                            <episode-japanese-name class="text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
                                                 {japanese_name}
-                                            </span>
+                                            </episode-japanese-name>
                                         </div>
                                         <div class="relative flex items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
@@ -738,6 +738,7 @@
 </div>
 
 <style lang="scss">
+    episode-japanese-name,
     episode-name {
         &:not(.group-hover) {
             /* if we need to change the width, we should change the 90% to higher  */
