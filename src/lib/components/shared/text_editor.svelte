@@ -6,6 +6,7 @@
     import Italic from "$icons/italic.svelte";
     import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
+    import Code from "$icons/code.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
@@ -362,6 +363,15 @@
             },
             icon: {
                 component: Strike,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            }
+        },
+        code: {
+            function: (element) => {
+                code_text(element as HTMLTextAreaElement)
+            },
+            icon: {
+                component: Code,
                 class: "w-5 md:w-[1.5vw] text-surface-200"
             }
         },
