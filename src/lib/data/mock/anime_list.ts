@@ -9,8 +9,8 @@ export const anime_list = [
         source: null,
         aired_from: null,
         aired_to: null,
-        banner: "/images/YourLieInApril-banner.jpg",
-        cover: "/images/Hyouka-bg.jpg",
+        banner: "/images/YourLieInApril-banner.avif",
+        cover: "/images/Hyouka-bg.avif",
         banner_background_color: "#2A1710",
         cover_background_color: "#D8E4D8",
         synopsis:

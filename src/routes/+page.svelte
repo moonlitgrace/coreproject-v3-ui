@@ -455,7 +455,7 @@
 
         <navigation-card class="relative mt-[3.4vw] hidden h-[24.5vw] w-[16.625vw] md:block">
             <ImageLoader
-                src="/images/NavigationBox-bg.jpg"
+                src="/images/NavigationBox-bg.avif"
                 class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-surface-50 object-cover object-center"
             />
 

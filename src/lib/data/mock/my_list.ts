@@ -2,7 +2,7 @@ export const my_list = [
     {
         id: 1,
         name: "Azur Lane",
-        cover: "/images/AzurLane.jpg",
+        cover: "/images/AzurLane.avif",
         synopsis: `
 				Azur Lane, a combination of all the different Camps in the world, was once successful in repelling the underwater menace, the Siren. Now splintered, they must face a new threat in Red Axis, former allies who crave to wield this otherworldly Siren technology for their own nefarious desires! Who will be victorious in the never-ending war between these battleship girls!?
 				Akagami no Shirayuki-hime depicts Shirayuki's journey toward a new life at the royal palace of Clarines, as well as Zen's endeavor to become a prince worthy of his title. As loyal friendships are forged and deadly enemies formed, Shirayuki and Zen slowly learn to support each other as they walk their own paths.
@@ -17,7 +17,7 @@ export const my_list = [
     {
         id: 2,
         name: "Akagami no Shirayuki-hime",
-        cover: "/images/AkagamiNoShirayuki.jpg",
+        cover: "/images/AkagamiNoShirayuki.avif",
         synopsis: `
 				Although her name means "snow white," Shirayuki is a cheerful, red-haired girl living in the country of Tanbarun who works diligently as an apothecary at her herbal shop. Her life changes drastically when she is noticed by the silly prince of Tanbarun, Prince Raji, who then tries to force her to become his concubine.
 				`,
@@ -31,7 +31,7 @@ export const my_list = [
     {
         id: 3,
         name: "GOLDEN BOY: Sasurai no Obenkyou Yarou",
-        cover: "/images/GoldenBoy.png",
+        cover: "/images/GoldenBoy.avif",
         synopsis: `
 				Kintarou Ooe is a specialist in part-time work, riding all over the highways and byways of Japan on his trusty steed, the Mikazuki 5, and finding employment wherever he can. His adventures bring him knowledge and experience that can't be taught in a classroom, from political corruption to the delicacy of a young woman's heart. With nothing but the open road before him—not to mention the many beautiful women along the way—Kintarou 
 				`,
@@ -45,7 +45,7 @@ export const my_list = [
     {
         id: 4,
         name: "7SEEDS",
-        cover: "/images/7Seeds.jpg",
+        cover: "/images/7Seeds.avif",
         synopsis: `
 				Imagine this: you are living a normal day in your life. Maybe you are out with friends, eating your family's home-cooked meal or spending time with your girlfriend. When you next wake up, you are suddenly thrust into a strange, new world, surrounded by five strangers on a rapidly sinking boat in the middle of a storm.
 				`,
@@ -59,7 +59,7 @@ export const my_list = [
     {
         id: 5,
         name: "Shakugan no Shana",
-        cover: "/images/ShakuganNoShana.jpeg",
+        cover: "/images/ShakuganNoShana.avif",
         synopsis: `
 				The world has become a slaughtering ground for the Crimson Denizens, mysterious beings from a parallel universe who thrive on the life energy of humans. These merciless murderers only leave behind scant remainders of souls called "Torches," which are mere residues that will eventually be destroyed, along with the very fact of the victims' existence from the minds of the living. In an ambitious endeavor to put an end to this invisible, hungry massacre, warriors called Flame Hazes relentlessly fight these monsters.
 				`,
@@ -87,7 +87,7 @@ export const my_list = [
     {
         id: 7,
         name: "To LOVE-Ru",
-        cover: "/images/ToLOVERu.jpg",
+        cover: "/images/ToLOVERu.avif",
         synopsis: `
 				Rito Yuuki never gets a break—he's always finding himself in lewd accidents with girls around him. Although his heart still yearns for Haruna, his childhood love, Rito can't help but question his feelings for Lala, the alien princess who appeared in front of him and declared she would marry him. But now, it's not just Lala he has to deal with: her younger twin sisters, Momo and Nana, have also traveled to Earth, wanting to meet their older sister's fiancé, and just as luck would have it, they end up staying at Rito's home.
 				`,
