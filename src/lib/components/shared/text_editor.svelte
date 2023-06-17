@@ -104,7 +104,7 @@
     async function handle_keydown(event: KeyboardEvent) {
         /**Emoji specific codes*/
         if (show_emoji_picker) {
-            switch (event.key) {
+            switch (event.key.toLowerCase()) {
                 case "ArrowUp": {
                     event.preventDefault();
                     active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
@@ -128,7 +128,7 @@
          * Triggered by `ctrlKey`
          */
         if (event.ctrlKey) {
-            switch (event.key) {
+            switch (event.key.toLowerCase()) {
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
@@ -163,7 +163,7 @@
         }
 
         if (event.ctrlKey && event.shiftKey) {
-            switch (event.key) {
+            switch (event.key.toLowerCase()) {
                 case "x":
                     event.preventDefault();
                     await strike_text(event.target as HTMLTextAreaElement);
