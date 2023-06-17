@@ -58,8 +58,8 @@
         <Avatar
             rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
             width="w-10 md:w-[2.5vw]"
-            src="https://i.postimg.cc/6pNGq1YL/345336.png"
-            initials="JD"
+            src="/images/Avatar.avif"
+            initials="SA"
         />
         <div class="flex flex-col md:gap-[0.5vw]">
             <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>

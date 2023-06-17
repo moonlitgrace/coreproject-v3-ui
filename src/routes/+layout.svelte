@@ -229,7 +229,7 @@
                         <Avatar
                             rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
                             width="w-12 md:w-[3.125vw]"
-                            src="https://i.postimg.cc/6pNGq1YL/345336.png"
+                            src="/images/Avatar.avif"
                             initials="JD"
                         />
                     </button>
