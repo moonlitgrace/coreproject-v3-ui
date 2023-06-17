@@ -380,7 +380,7 @@
                                                 {title}
                                             </episode-name>
 
-                                            <episode-japanese-name class="text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
+                                            <episode-japanese-name class="w-full text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
                                                 {japanese_name}
                                             </episode-japanese-name>
                                         </div>
