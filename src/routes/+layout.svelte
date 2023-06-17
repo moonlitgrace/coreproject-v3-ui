@@ -187,7 +187,10 @@
 
                                 <search-form>
                                     <form class="relative flex h-12 w-[65vw] items-center md:hidden">
-                                        <button class="btn absolute left-4 p-0" aria-label="Search">
+                                        <button
+                                            class="btn absolute left-4 p-0"
+                                            aria-label="Search"
+                                        >
                                             <Search class="w-5 opacity-75" />
                                         </button>
                                         <input

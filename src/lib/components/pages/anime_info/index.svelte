@@ -81,14 +81,14 @@
                 icon: {
                     component: Video,
                     variant: false,
-                    class: "w-4 md:w-[1.125vw]",
+                    class: "w-4 md:w-[1.125vw]"
                 }
             },
             edit: {
                 icon: {
                     component: Edit,
                     variant: "with_underline_around_pencil",
-                    class: "w-4 md:w-[1.125vw]",
+                    class: "w-4 md:w-[1.125vw]"
                 }
             },
             download: {
@@ -331,7 +331,10 @@
                                         />
                                     </button>
                                 </div>
-                                <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]" aria-label="Search">
+                                <button
+                                    class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
+                                    aria-label="Search"
+                                >
                                     <Search
                                         class="w-3 md:w-[1vw]"
                                         color="lightgray"
@@ -431,7 +434,10 @@
                                         <span class="text-sm font-semibold text-surface-50">comments</span>
                                     </p>
 
-                                    <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]" aria-label="Filter">
+                                    <button
+                                        class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
+                                        aria-label="Filter"
+                                    >
                                         <Filter
                                             class="w-3 md:w-[1vw]"
                                             color="lightgray"
@@ -487,7 +493,10 @@
                                                 Create New
                                             </button>
 
-                                            <button class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]" aria-label="Filter">
+                                            <button
+                                                class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
+                                                aria-label="Filter"
+                                            >
                                                 <Filter
                                                     class="w-3 md:w-[1vw]"
                                                     color="lightgray"
