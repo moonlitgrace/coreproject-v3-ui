@@ -1,31 +1,34 @@
-<script>
+<script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import ImageLoader from "./image/image_loader.svelte";
-
-    import Cross from "$icons/cross.svelte";
     import Circle from "$icons/circle.svelte";
+    import Cross from "$icons/cross.svelte";
     import Search from "$icons/search.svelte";
 
+    import ImageLoader from "./image/image_loader.svelte";
+
     // search input
-    let search_query = "Kimetsu no Yaiba";
+    let search_query: string;
 </script>
 
 <search-panel>
     <div class="mt-[3.5vw] flex flex-col items-center">
         <form class="relative flex h-[3.7vw] w-[37.5vw] items-center">
-            <button class="btn absolute left-[1.25vw] p-0">
+            <button
+                class="btn absolute left-[1.25vw] p-0"
+                aria-label="Search"
+            >
                 <Search style="width: 1.25vw;" />
             </button>
-            <!-- svelte-ignore a11y-autofocus -->
             <input
                 bind:value={search_query}
                 type="text"
                 placeholder="Search for animes, mangas and musics"
-                autofocus
                 class="h-full w-full rounded-[0.625vw] border-none bg-surface-400 pl-[3.50vw] text-[1.1vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
             />
 
             <button
+                type="button"
+                aria-label="Clear"
                 class="btn absolute right-[1.25vw] p-0"
                 on:click={() => {
                     search_query = "";
