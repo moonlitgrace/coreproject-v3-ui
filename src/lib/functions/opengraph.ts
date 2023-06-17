@@ -203,7 +203,8 @@ export class OpengraphGenerator {
         return `<meta property="og:url" content="${this.#url}">`;
     }
     private get description() {
-        let description = `<meta property="og:description" content="${this.#description}">`;
+        let description = `<meta name="description" content="${this.#description}">`;
+        description += `<meta property="og:description" content="${this.#description}">`;
         description += `<meta name="twitter:description" content="${this.#description}" />`;
 
         return description;
