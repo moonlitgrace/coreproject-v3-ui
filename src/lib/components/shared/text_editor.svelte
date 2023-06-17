@@ -45,12 +45,12 @@
     }
 
     async function handle_input(event: Event) {
-        const target = event.target as HTMLTextAreaElement;
-        const input_text = target.value;
+        const element = event.target as HTMLTextAreaElement;
+        const input_text = element.value;
         let last_typed_word: string;
 
         // to get last typed word even its in middle
-        const selection_start = target.selectionStart;
+        const selection_start = element.selectionStart;
         if (typeof selection_start !== "number") return;
 
         const words_before_caret = input_text.substring(0, selection_start);

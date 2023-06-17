@@ -48,7 +48,7 @@
                     src={item.cover ?? ""}
                     class="absolute h-full w-full object-cover"
                 />
-                
+
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
@@ -94,7 +94,4 @@
     :global(#page) {
         @apply overflow-y-hidden;
     }
-    /* :global(#shell-footer) {
-        display: none !important;
-    } */
 </style>
