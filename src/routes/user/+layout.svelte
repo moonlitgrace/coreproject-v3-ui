@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { latest_animes } from "$data/mock/latest_animes";
     import CoreProject from "$icons/core_project.svelte";
     import Refresh from "$icons/refresh.svelte";
@@ -43,10 +44,11 @@
                 class="relative col-start-1 col-end-2 row-start-1 row-end-2"
                 transition:blur|local={{ duration: 500 }}
             >
-                <div
-                    class="h-full w-full bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{item.cover ?? ''}')"
+                <ImageLoader
+                    src={item.cover ?? ""}
+                    class="absolute h-full w-full object-cover"
                 />
+                
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-900 to-surface-900/60" />
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/0" />
 
