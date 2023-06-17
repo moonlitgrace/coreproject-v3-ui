@@ -4,6 +4,7 @@
     import Bold from "$icons/bold.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
     import Italic from "$icons/italic.svelte";
+    import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
@@ -103,7 +104,7 @@
     async function handle_keydown(event: KeyboardEvent) {
         /**Emoji specific codes*/
         if (show_emoji_picker) {
-            switch (event.key) {
+            switch (event.key.toLowerCase()) {
                 case "ArrowUp": {
                     event.preventDefault();
                     active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
@@ -127,7 +128,7 @@
          * Triggered by `ctrlKey`
          */
         if (event.ctrlKey) {
-            switch (event.key) {
+            switch (event.key.toLowerCase()) {
                 case "b": {
                     /** Bold Functionality */
                     event.preventDefault();
@@ -160,6 +161,15 @@
                 }
             }
         }
+
+        if (event.ctrlKey && event.shiftKey) {
+            switch (event.key.toLowerCase()) {
+                case "x":
+                    event.preventDefault();
+                    await strike_text(event.target as HTMLTextAreaElement);
+                    break;
+            }
+        }
     }
     // Editor specific functions
     async function bold_text(element: HTMLTextAreaElement) {
@@ -173,6 +183,9 @@
     }
     async function underline_text(element: HTMLTextAreaElement) {
         await operate_on_selected_text({ element: element, starting_operator: "<u>", ending_operator: "</u>" });
+    }
+    async function strike_text(element: HTMLTextAreaElement) {
+        await operate_on_selected_text({ element: element, starting_operator: "~~", ending_operator: "~~" });
     }
     async function hyperlink_text(element: HTMLTextAreaElement) {
         const selection_start = element.selectionStart;
@@ -341,6 +354,15 @@
             icon: {
                 component: Underline,
                 class: "w-4 md:h-[1.35vw] text-surface-200"
+            }
+        },
+        strike: {
+            function: (element) => {
+                strike_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Strike,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
             }
         },
         hyperlink: {
