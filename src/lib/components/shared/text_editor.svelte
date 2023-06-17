@@ -373,6 +373,7 @@
         </div>
         <div class="flex place-items-center gap-2 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
+                {@const item_label = item[0]}
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
                 {@const button_function = item[1].function}
@@ -380,6 +381,7 @@
                 <button
                     class="btn p-0"
                     type="button"
+                    aria-label={item_label}
                     on:click={() => {
                         button_function(textarea_element);
                     }}
