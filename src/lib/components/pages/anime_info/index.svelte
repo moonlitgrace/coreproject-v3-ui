@@ -374,7 +374,7 @@
                                         </div>
                                     </div>
 
-                                    <episode-info-card class="relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:transition-max-height md:group-hover:max-h-[10vw]">
+                                    <episode-info-card class="relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:transition md:group-hover:max-h-[10vw]">
                                         <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
                                             <episode-name class="text-[0.8rem] font-light leading-snug text-white md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                                                 {title}
