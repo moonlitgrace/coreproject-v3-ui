@@ -359,7 +359,7 @@
                                         <div class="h-24 md:h-[12vw] md:w-full">
                                             <ImageLoader
                                                 src={thumbnail ?? ""}
-                                                class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
+                                                class="h-full w-full rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                                             />
                                         </div>
                                         <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent transition duration-300 md:flex md:h-[12vw]" />
@@ -374,9 +374,9 @@
                                         </div>
                                     </div>
 
-                                    <episode-info-card class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
+                                    <episode-info-card class="relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:transition-all md:group-hover:max-h-[10vw]">
                                         <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
-                                            <episode-name class="text-[0.8rem] font-light leading-snug text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
+                                            <episode-name class="text-[0.8rem] font-light leading-snug text-white md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
                                                 {title}
                                             </episode-name>
 
@@ -384,7 +384,7 @@
                                                 {japanese_name}
                                             </episode-japanese-name>
                                         </div>
-                                        <div class="relative flex items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
+                                        <div class="flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
                                             <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
                                                 {#each episode.formats as format}
