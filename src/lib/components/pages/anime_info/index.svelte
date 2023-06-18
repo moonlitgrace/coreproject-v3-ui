@@ -384,8 +384,8 @@
                                         </div>
                                     </div>
                                     <episode-info-card
-                                        style={episode_info_card_hovered ? "max-height:11vw !important" : "max-height:8vw"}
-                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
+                                        style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
+                                        class="pointer-events-none relative z-20 col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
                                         on:mouseleave={handle_mouseleave}
                                     >
                                         <div
@@ -394,12 +394,9 @@
                                         >
                                             <scroll-area
                                                 class="top-0 z-10 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
-                                                style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
+                                                on:mouseenter={handle_mouseenter}
                                             >
-                                                <div
-                                                    on:mouseenter={handle_mouseenter}
-                                                    class="pointer-events-auto h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                                >
+                                                <div class="pointer-events-auto z-10 h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                     <episode-name>
                                                         {title}
                                                     </episode-name>
