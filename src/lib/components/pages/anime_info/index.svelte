@@ -381,7 +381,7 @@
                                                 class="pointer-events-auto text-[0.8rem] font-light leading-snug text-white md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:whitespace-normal md:hover:text-surface-50"
                                             >
                                                 <episode-name>
-                                                    {title} {title} {title} {title} {title}
+                                                    {title}
                                                 </episode-name>
                                             </ScrollArea>
 
@@ -389,7 +389,7 @@
                                                 parentClass="md:max-h-[1vw] hover:md:max-h-[3.5vw]"
                                                 class="pointer-events-auto w-full text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75 md:hover:whitespace-normal"
                                             >
-                                                {japanese_name} {japanese_name} {japanese_name} {japanese_name} {japanese_name} {japanese_name}
+                                                {japanese_name}
                                             </ScrollArea>
                                         </div>
                                         <div class="flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
