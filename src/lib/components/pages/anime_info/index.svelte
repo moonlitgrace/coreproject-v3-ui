@@ -394,7 +394,7 @@
                                         >
                                             <scroll-area
                                                 class="top-0 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
-                                                on:mouseenter|stopPropagation={handle_mouseenter}
+                                                on:mouseenter|stopPropagation|self={handle_mouseenter}
                                             >
                                                 <div class="pointer-events-auto z-10 h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                     <episode-name>
@@ -403,7 +403,7 @@
                                                 </div>
                                             </scroll-area>
                                             <scroll-area
-                                                on:mouseenter|stopPropagation={handle_mouseenter}
+                                                on:mouseenter|stopPropagation|self={handle_mouseenter}
                                                 class="scrollbar bottom-[3.5vw] z-30 h-full max-h-6 w-full overflow-y-scroll overscroll-y-contain md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
                                             >
                                                 <div class="pointer-events-auto h-full w-full whitespace-pre-line text-[0.6rem] font-light leading-snug text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:bg-surface-900 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
