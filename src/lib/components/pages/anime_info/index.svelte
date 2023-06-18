@@ -356,6 +356,7 @@
                                 {@const episode_info_card_hovered = episode_info_card_hovered_array[index]}
                                 {@const handle_mouseenter = () => {
                                     episode_info_card_hovered_array[index] = true;
+                                    console.log("Entered");
                                 }}
                                 {@const handle_mouseleave = () => {
                                     episode_info_card_hovered_array[index] = false;
@@ -393,7 +394,7 @@
                                             style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
                                         >
                                             <scroll-area
-                                                class="top-0 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                class="top-0 h-full max-h-9 md:absolute md:max-h-[1vw] md:overflow-hidden md:hover:max-h-[3.75vw]"
                                                 on:mouseenter|stopPropagation|self={handle_mouseenter}
                                             >
                                                 <div class="pointer-events-auto z-10 h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
@@ -791,13 +792,7 @@
     // tailwind trasnitions seems not working
     @media (min-width: 768px) {
         episode-info-card {
-            max-height: 8vw;
-            transition: max-height 0.2s linear;
-
-            &:hover {
-                max-height: 11vw;
-                transition: max-height 0.2s linear;
-            }
+            transition: max-height 0.2s ease-in;
         }
     }
 </style>
