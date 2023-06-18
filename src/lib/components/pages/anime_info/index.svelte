@@ -374,14 +374,18 @@
                                         </div>
                                     </div>
 
-                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]                 md:duration-300 md:hover:max-h-[10vw] md:hover:transition">
+                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:max-h-[10vw] md:hover:transition">
                                         <div class="relative flex flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <ScrollArea
                                                 parentClass="md:max-h-[1vw] hover:md:max-h-[3.75vw]"
                                                 class="pointer-events-auto text-[0.8rem] font-light leading-snug text-white md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:whitespace-normal md:hover:text-surface-50"
                                             >
                                                 <episode-name>
-                                                    {title} {title} {title} {title} {title}
+                                                    {title}
+                                                    {title}
+                                                    {title}
+                                                    {title}
+                                                    {title}
                                                 </episode-name>
                                             </ScrollArea>
 
@@ -389,7 +393,12 @@
                                                 parentClass="md:max-h-[1vw] hover:md:max-h-[3.5vw]"
                                                 class="pointer-events-auto w-full text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75 md:hover:whitespace-normal"
                                             >
-                                                {japanese_name} {japanese_name} {japanese_name} {japanese_name} {japanese_name} {japanese_name}
+                                                {japanese_name}
+                                                {japanese_name}
+                                                {japanese_name}
+                                                {japanese_name}
+                                                {japanese_name}
+                                                {japanese_name}
                                             </ScrollArea>
                                         </div>
                                         <div class="flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
