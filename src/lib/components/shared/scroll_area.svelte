@@ -27,7 +27,7 @@
     class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent >= 90}
     class:mask-middle={gradientMask && scroll_percent < 90 && scroll_percent >= 10}
     class:mask-bottom={gradientMask && scroll_percent < 10 && scroll_percent >= 0}
-    class="{parentClass} {offsetScrollbar ? 'pr-[0.75vw]' : 'pr-0'} scrollbar overflow-y-scroll overscroll-y-contain"
+    class="{parentClass} {offsetScrollbar ? 'pr-[0.75vw]' : 'pr-0'} scrollbar h-full w-full overflow-y-scroll overscroll-y-contain"
 >
     <div class="{klass} whitespace-pre-line">
         <slot />
@@ -40,8 +40,6 @@
         scrollbar-color: rgba(255, 255, 255, 0.12);
         /* fill parent */
         display: block;
-        width: 100%;
-        height: 100%;
         /* set to some transparent color */
         border-color: rgba(255, 255, 255, 0);
         /* here we make the color transition */

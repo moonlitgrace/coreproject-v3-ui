@@ -385,7 +385,7 @@
                                     </div>
                                     <episode-info-card
                                         style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
-                                        class="pointer-events-none relative z-20 col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
+                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
                                         on:mouseleave={handle_mouseleave}
                                     >
                                         <div
@@ -393,8 +393,8 @@
                                             style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
                                         >
                                             <scroll-area
-                                                class="top-0 z-10 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
-                                                on:mouseenter={handle_mouseenter}
+                                                class="top-0 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                on:mouseenter|stopPropagation={handle_mouseenter}
                                             >
                                                 <div class="pointer-events-auto z-10 h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                     <episode-name>
@@ -402,14 +402,14 @@
                                                     </episode-name>
                                                 </div>
                                             </scroll-area>
-
-                                            <ScrollArea
-                                                parentClass="md:absolute z-30 bottom-[3.5vw] max-h-6 md:max-h-[1vw] md:hover:max-h-[3.75vw]"
-                                                class="pointer-events-auto h-full w-full text-[0.6rem] font-light leading-snug text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:bg-surface-900 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75"
+                                            <scroll-area
+                                                on:mouseenter|stopPropagation={handle_mouseenter}
+                                                class="scrollbar bottom-[3.5vw] z-30 h-full max-h-6 w-full overflow-y-scroll overscroll-y-contain md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
                                             >
-                                                {japanese_name}
-                                            </ScrollArea>
-                                            <div class="pointer-events-none absolute bottom-0 z-20 hidden h-[4vw] w-full bg-surface-900 md:flex" />
+                                                <div class="pointer-events-auto h-full w-full whitespace-pre-line text-[0.6rem] font-light leading-snug text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:bg-surface-900 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
+                                                    {japanese_name}
+                                                </div>
+                                            </scroll-area>
                                         </div>
                                         <div class="z-40 flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
@@ -792,11 +792,11 @@
     @media (min-width: 768px) {
         episode-info-card {
             max-height: 8vw;
-            transition: max-height 0.2s ease-in;
+            transition: max-height 0.2s linear;
 
             &:hover {
                 max-height: 11vw;
-                transition: max-height 0.2s ease-out;
+                transition: max-height 0.2s linear;
             }
         }
     }
