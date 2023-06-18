@@ -35,6 +35,8 @@
 
     export let anime_episodes: any;
 
+    let episode_info_card_hovered_array: Array<boolean> = new Array(anime_episodes.length).fill(false);
+
     const anime_details = {
         format: "TV",
         episodes: "22",
@@ -344,12 +346,20 @@
                         </div>
 
                         <div class="mt-4 grid grid-cols-12 gap-5 md:mt-[2.5vw] md:gap-[2.5vw]">
-                            {#each anime_episodes as episode}
+                            {#each anime_episodes as episode, index}
                                 {@const thumbnail = episode.thumbnail}
                                 {@const title = episode.title}
                                 {@const episode_number = episode.number}
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
+
+                                {@const episode_info_card_hovered = episode_info_card_hovered_array[index]}
+                                {@const handle_mouseenter = () => {
+                                    episode_info_card_hovered_array[index] = true;
+                                }}
+                                {@const handle_mouseleave = () => {
+                                    episode_info_card_hovered_array[index] = false;
+                                }}
 
                                 <a
                                     href="./watch/{episode_number}"
@@ -373,17 +383,28 @@
                                             </p>
                                         </div>
                                     </div>
-
-                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
-                                        <div class="md:gap-[0.5vw relative flex h-full w-full flex-col items-start gap-1">
-                                            <ScrollArea
-                                                parentClass="md:absolute z-10 top-0 max-h-9 md:max-h-[1vw] md:hover:max-h-[3.75vw]"
-                                                class="pointer-events-auto text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                    <episode-info-card
+                                        style={episode_info_card_hovered ? "max-height:11vw !important" : "max-height:8vw"}
+                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
+                                    >
+                                        <div
+                                            class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]"
+                                            style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
+                                        >
+                                            <scroll-area
+                                                class="top-0 z-10 h-full max-h-9 md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
                                             >
-                                                <episode-name>
-                                                    {title}
-                                                </episode-name>
-                                            </ScrollArea>
+                                                <div
+                                                    on:mouseenter={handle_mouseenter}
+                                                    on:mouseleave={handle_mouseenter}
+                                                    class="pointer-events-auto h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                >
+                                                    <episode-name>
+                                                        {title}
+                                                    </episode-name>
+                                                </div>
+                                            </scroll-area>
 
                                             <ScrollArea
                                                 parentClass="md:absolute z-30 bottom-[3.5vw] max-h-6 md:max-h-[1vw] md:hover:max-h-[3.75vw]"
