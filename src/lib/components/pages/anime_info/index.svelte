@@ -374,7 +374,7 @@
                                         </div>
                                     </div>
 
-                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]                 md:duration-300 md:hover:max-h-[10vw] md:hover:transition">
+                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:max-h-[10vw] md:hover:transition">
                                         <div class="relative flex flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <ScrollArea
                                                 parentClass="md:max-h-[1vw] hover:md:max-h-[3.75vw]"
