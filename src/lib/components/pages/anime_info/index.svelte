@@ -386,6 +386,7 @@
                                     <episode-info-card
                                         style={episode_info_card_hovered ? "max-height:11vw !important" : "max-height:8vw"}
                                         class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
+                                        on:mouseleave={handle_mouseleave}
                                     >
                                         <div
                                             class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]"
@@ -397,7 +398,6 @@
                                             >
                                                 <div
                                                     on:mouseenter={handle_mouseenter}
-                                                    on:mouseleave={handle_mouseenter}
                                                     class="pointer-events-auto h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 >
                                                     <episode-name>
