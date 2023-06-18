@@ -374,11 +374,11 @@
                                         </div>
                                     </div>
 
-                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:max-h-[8vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw] md:duration-300 md:hover:max-h-[10vw] md:hover:transition">
-                                        <div class="relative flex flex-col items-start gap-1 md:gap-[0.5vw]">
+                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
+                                        <div class="md:gap-[0.5vw relative flex h-full w-full flex-col items-start gap-1">
                                             <ScrollArea
-                                                parentClass="md:max-h-[1vw] hover:md:max-h-[3.75vw]"
-                                                class="pointer-events-auto text-[0.8rem] font-light leading-snug text-white md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:whitespace-normal md:hover:text-surface-50"
+                                                parentClass="md:absolute z-10 top-0 max-h-9 md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                class="pointer-events-auto text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                             >
                                                 <episode-name>
                                                     {title}
@@ -386,13 +386,14 @@
                                             </ScrollArea>
 
                                             <ScrollArea
-                                                parentClass="md:max-h-[1vw] hover:md:max-h-[3.5vw]"
-                                                class="pointer-events-auto w-full text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75 md:hover:whitespace-normal"
+                                                parentClass="md:absolute z-30 bottom-[3.5vw] max-h-6 md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                class="pointer-events-auto h-full w-full text-[0.6rem] font-light leading-snug text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:bg-surface-900 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75"
                                             >
                                                 {japanese_name}
                                             </ScrollArea>
+                                            <div class="pointer-events-none absolute bottom-0 z-20 hidden h-[4vw] w-full bg-surface-900 md:flex" />
                                         </div>
-                                        <div class="flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
+                                        <div class="z-40 flex items-center gap-2 md:absolute md:bottom-[1vw] md:gap-[0.65vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
                                             <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
                                                 {#each episode.formats as format}
@@ -767,3 +768,18 @@
         </div>
     </div>
 </div>
+
+<style lang="scss">
+    // tailwind trasnitions seems not working
+    @media (min-width: 768px) {
+        episode-info-card {
+            max-height: 8vw;
+            transition: max-height 0.2s ease-in;
+
+            &:hover {
+                max-height: 11vw;
+                transition: max-height 0.2s ease-out;
+            }
+        }
+    }
+</style>
