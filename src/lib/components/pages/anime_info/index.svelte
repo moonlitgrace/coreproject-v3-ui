@@ -356,7 +356,6 @@
                                 {@const episode_info_card_hovered = episode_info_card_hovered_array[index]}
                                 {@const handle_mouseenter = () => {
                                     episode_info_card_hovered_array[index] = true;
-                                    console.log("Entered");
                                 }}
                                 {@const handle_mouseleave = () => {
                                     episode_info_card_hovered_array[index] = false;
