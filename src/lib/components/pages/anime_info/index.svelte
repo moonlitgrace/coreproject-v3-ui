@@ -119,8 +119,8 @@
             <div class="grid grid-cols-12 items-start p-5 pt-10 md:p-0">
                 <div class="col-span-12 md:col-span-10 md:pr-[4vw]">
                     <div class="grid grid-cols-12 items-end justify-between">
-                        <div class="col-span-12 flex items-end gap-5 md:col-span-7 md:gap-[2vw] md:pr-[2vw]">
-                            <div class="h-52 w-36 md:h-[18.25vw] md:w-[12vw]">
+                        <div class="col-span-12 grid w-screen grid-flow-col items-end gap-5 md:col-span-7 md:w-auto md:gap-[2vw] md:pr-[2vw]">
+                            <div class="col-span-3 h-52 md:h-[18.25vw] md:w-[12vw]">
                                 <ImageLoader
                                     class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
                                     src={anime_banner}
