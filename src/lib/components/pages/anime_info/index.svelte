@@ -35,8 +35,6 @@
 
     export let anime_episodes: any;
 
-    let episode_info_card_hovered_array: Array<boolean> = new Array(anime_episodes.length).fill(false);
-
     const anime_details = {
         format: "TV",
         episodes: "22",
@@ -104,6 +102,32 @@
                     component: Share,
                     class: "w-4 md:w-[1.125vw]"
                 }
+            }
+        }
+    };
+
+    // Episodes card logics
+    let episode_info_heights: Array<number> = new Array(anime_episodes.length).fill(8);
+    let hovered_type: "title" | "japanese_title";
+
+    // Refactor these functions
+
+    const handle_episode_hover = (index: number) => {
+        if (hovered_type === "title") {
+            let element = document.querySelector(`#episode-name-${index}`) as HTMLElement;
+
+            if (element) {
+                const height_in_vw = (element.offsetHeight / window.innerWidth) * 100;
+                console.log(episode_info_heights[index] + Math.floor(height_in_vw));
+                episode_info_heights[index] = episode_info_heights[index] + Math.floor(height_in_vw);
+            }
+        } else if (hovered_type === "japanese_title") {
+            let element = document.querySelector(`#japanese-name-${index}`) as HTMLElement;
+
+            if (element) {
+                const height_in_vw = (element.offsetHeight / window.innerWidth) * 100;
+                console.log(episode_info_heights[index] + Math.floor(height_in_vw));
+                episode_info_heights[index] = episode_info_heights[index] + Math.floor(height_in_vw);
             }
         }
     };
@@ -353,12 +377,11 @@
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
 
-                                {@const episode_info_card_hovered = episode_info_card_hovered_array[index]}
                                 {@const handle_mouseenter = () => {
-                                    episode_info_card_hovered_array[index] = true;
+                                    handle_episode_hover(index);
                                 }}
                                 {@const handle_mouseleave = () => {
-                                    episode_info_card_hovered_array[index] = false;
+                                    episode_info_heights[index] = 8;
                                 }}
 
                                 <a
@@ -384,30 +407,41 @@
                                         </div>
                                     </div>
                                     <episode-info-card
-                                        style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
                                         class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
-                                        on:mouseleave={handle_mouseleave}
+                                        style="max-height: {episode_info_heights[index]}vw;"
                                     >
-                                        <div
-                                            class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]"
-                                            style={episode_info_card_hovered ? "max-height:11vw" : "max-height:8vw"}
-                                        >
+                                        <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <scroll-area
-                                                class="top-0 h-full max-h-9 md:absolute md:max-h-[1vw] md:overflow-hidden md:hover:max-h-[3.75vw]"
-                                                on:mouseenter|stopPropagation|self={handle_mouseenter}
+                                                id="scroll-area-{index}"
+                                                class="pointer-events-auto h-full max-h-9 md:max-h-[1vw] md:overflow-hidden md:hover:max-h-full"
+                                                on:mouseenter|stopPropagation|self={() => {
+                                                    handle_mouseenter();
+                                                    hovered_type = "title";
+                                                }}
+                                                on:mouseleave={handle_mouseleave}
                                             >
-                                                <div class="pointer-events-auto z-10 h-full text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
-                                                    <episode-name>
+                                                <div class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
+                                                    <episode-name id="episode-name-{index}">
                                                         {title}
                                                     </episode-name>
                                                 </div>
                                             </scroll-area>
                                             <scroll-area
-                                                on:mouseenter|stopPropagation|self={handle_mouseenter}
-                                                class="scrollbar bottom-[3.5vw] z-30 h-full max-h-6 w-full overflow-y-scroll overscroll-y-contain md:absolute md:max-h-[1vw] md:hover:max-h-[3.75vw]"
+                                                id="scroll-area-{index}"
+                                                class="pointer-events-auto h-full max-h-9 w-full md:absolute md:bottom-[3.5vw] md:max-h-[1vw] md:overflow-hidden md:hover:max-h-full"
+                                                on:mouseenter|stopPropagation|self={() => {
+                                                    handle_mouseenter();
+                                                    hovered_type = "japanese_title";
+                                                }}
+                                                on:mouseleave={handle_mouseleave}
                                             >
-                                                <div class="pointer-events-auto h-full w-full whitespace-pre-line text-[0.6rem] font-light leading-snug text-surface-200 transition-colors duration-300 ease-in hover:text-surface-50 md:bg-surface-900 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
-                                                    {japanese_name}
+                                                <div class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-400 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
+                                                    <japanese-name id="japanese-name-{index}">
+                                                        {japanese_name}
+                                                        {japanese_name}
+                                                        {japanese_name}
+                                                        {japanese_name}
+                                                    </japanese-name>
                                                 </div>
                                             </scroll-area>
                                         </div>
