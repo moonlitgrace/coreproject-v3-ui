@@ -426,7 +426,7 @@
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
-                        content: `<div class='bg-surface-400 px-3 py-2 text-surface-50 text-xs leading-2 whitespace-nowrap w-max rounded-lg md:text-[1vw]'>${xss(description)}</div>`,
+                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-3 py-2 text-xs text-surface-50 md:text-[1vw]'>${xss(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
                         offset: [0, 17],
