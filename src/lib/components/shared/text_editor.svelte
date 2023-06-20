@@ -24,6 +24,78 @@
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
+    // Icon Mapping
+    const icon_and_function_mapping: {
+        [key: string]: {
+            function: (elemnt: HTMLElement) => void;
+            icon: {
+                component: typeof SvelteComponentDev;
+                class: string;
+            };
+            description: string;
+        };
+    } = {
+        bold: {
+            function: (element) => {
+                bold_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Bold,
+                class: "w-5 md:w-[1.4vw]  text-surface-200"
+            },
+            description: "Add bold text, <Ctrl + b>"
+        },
+        italic: {
+            function: (element) => {
+                italic_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Italic,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add italic text, <Ctrl + i>"
+        },
+        underline: {
+            function: (element) => {
+                underline_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Underline,
+                class: "w-5 md:w-[1.35vw] text-surface-200"
+            },
+            description: "Add underline text, <Ctrl + u>"
+        },
+        strike: {
+            function: (element) => {
+                strike_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Strike,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add strikethrough text, <Ctrl + Shift + x>"
+        },
+        code: {
+            function: (element) => {
+                code_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Code,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add code text, <Ctrl + e>"
+        },
+        hyperlink: {
+            function: (element) => {
+                hyperlink_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Hyperlink,
+                class: "w-4 md:w-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
+            },
+            description: "Add hyperlinked text, <Ctrl + k>"
+        }
+    };
     // Functions
     function is_valid_url(url_string: string) {
         /**
@@ -321,78 +393,6 @@
 
     const handle_edit_preview_button_click = (item: string) => {
         tab_type = item as typeof tab_type;
-    };
-
-    const icon_and_function_mapping: {
-        [key: string]: {
-            function: (elemnt: HTMLElement) => void;
-            icon: {
-                component: typeof SvelteComponentDev;
-                class: string;
-            };
-            description: string;
-        };
-    } = {
-        bold: {
-            function: (element) => {
-                bold_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Bold,
-                class: "w-5 md:w-[1.4vw]  text-surface-200"
-            },
-            description: "Add bold text, <Ctrl + b>"
-        },
-        italic: {
-            function: (element) => {
-                italic_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Italic,
-                class: "w-5 md:w-[1.5vw] text-surface-200"
-            },
-            description: "Add italic text, <Ctrl + i>"
-        },
-        underline: {
-            function: (element) => {
-                underline_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Underline,
-                class: "w-5 md:w-[1.35vw] text-surface-200"
-            },
-            description: "Add underline text, <Ctrl + u>"
-        },
-        strike: {
-            function: (element) => {
-                strike_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Strike,
-                class: "w-5 md:w-[1.5vw] text-surface-200"
-            },
-            description: "Add strikethrough text, <Ctrl + Shift + x>"
-        },
-        code: {
-            function: (element) => {
-                code_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Code,
-                class: "w-5 md:w-[1.5vw] text-surface-200"
-            },
-            description: "Add code text, <Ctrl + e>"
-        },
-        hyperlink: {
-            function: (element) => {
-                hyperlink_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Hyperlink,
-                class: "w-4 md:w-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
-            },
-            description: "Add hyperlinked text, <Ctrl + k>"
-        }
     };
 </script>
 
