@@ -803,7 +803,12 @@
                 max-height: 1vw;
 
                 &:hover {
-                    max-height: var(--max-height-hover, 3.75vw);
+                    max-height: var(--max-height-hover);
+                }
+                &:not(:hover) {
+                    mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 75%, rgba(0, 0, 0, 0) 100%);
+                    mask-repeat: no-repeat;
+                    mask-position: right;
                 }
             }
         }
