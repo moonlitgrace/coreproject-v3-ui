@@ -388,19 +388,26 @@
                                         </div>
                                     </div>
                                     <episode-info-card
-                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-50/25 md:p-[1vw]"
+                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
                                         style="max-height: {episode_info_card_height[index]}vw;"
                                     >
                                         <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <scroll-area-title
-                                                class="pointer-events-auto w-full bg-white/25 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={() => (episode_info_card_height[index] = 8)}
                                             >
                                                 {title}
+                                                {title}
+                                                {title}
                                             </scroll-area-title>
-                                            <scroll-area-title class="pointer-events-auto w-full bg-white/25 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
+                                            <scroll-area-title
+                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                data-index={index}
+                                                on:mouseenter={handle_episode_title_hover}
+                                                on:mouseleave={() => (episode_info_card_height[index] = 8)}
+                                            >
                                                 {japanese_name}
                                                 {japanese_name}
                                                 {japanese_name}
@@ -791,7 +798,7 @@
 
             scroll-area-title {
                 transition: max-height 0.2s ease-in-out;
-                overflow-y: scroll;
+                overflow-y: hidden;
                 height: auto;
                 max-height: 1vw;
 
