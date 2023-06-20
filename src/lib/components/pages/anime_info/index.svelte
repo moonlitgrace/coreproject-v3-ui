@@ -397,11 +397,12 @@
                                     </div>
                                     <episode-info-card
                                         class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
-                                        style="max-height: {episode_info_card_height[index]}vw;"
+                                        style="max-height: {episode_info_card_height[index]}vw; transition: max-height 0.2s ease-in-out;"
                                     >
                                         <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                style="transition: max-height 0.2s ease-in-out;"
                                                 data-index={index}
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={handle_episode_title_leave}
@@ -409,8 +410,9 @@
                                                 {title}
                                             </scroll-area-title>
                                             <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
+                                                style="transition: max-height 0.2s ease-in-out;"
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={handle_episode_title_leave}
                                             >
@@ -795,24 +797,15 @@
 
 <style lang="scss">
     // tailwind trasnitions seems not working
-    @media (min-width: 768px) {
-        episode-info-card {
-            transition: max-height 0.2s ease-in-out;
-
-            scroll-area-title {
-                transition: max-height 0.2s ease-in-out;
-                overflow-y: hidden;
-                height: auto;
-                max-height: 1vw;
-
-                &:hover {
-                    max-height: var(--max-height-hover);
-                }
-                &:not(:hover) {
-                    mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 75%, rgba(0, 0, 0, 0) 100%);
-                    mask-repeat: no-repeat;
-                    mask-position: right;
-                }
+    episode-info-card {
+        scroll-area-title {
+            &:hover {
+                max-height: var(--max-height-hover);
+            }
+            &:not(:hover) {
+                mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 75%, rgba(0, 0, 0, 0) 100%);
+                mask-repeat: no-repeat;
+                mask-position: right;
             }
         }
     }
