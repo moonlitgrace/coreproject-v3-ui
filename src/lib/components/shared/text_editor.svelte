@@ -349,7 +349,7 @@
             },
             icon: {
                 component: Italic,
-                class: "w-5 md:h-[1.5vw] text-surface-200"
+                class: "w-5 md:w-[1.5vw] text-surface-200"
             },
             description: "Add italic text, <Ctrl + i>"
         },
@@ -359,7 +359,7 @@
             },
             icon: {
                 component: Underline,
-                class: "w-4 md:h-[1.35vw] text-surface-200"
+                class: "w-5 md:w-[1.35vw] text-surface-200"
             },
             description: "Add underline text, <Ctrl + u>"
         },
@@ -389,7 +389,7 @@
             },
             icon: {
                 component: Hyperlink,
-                class: "w-4 md:h-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
+                class: "w-4 md:w-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
             },
             description: "Add hyperlinked text, <Ctrl + k>"
         }
@@ -422,7 +422,7 @@
                 {@const description = item[1].description}
 
                 <button
-                    class="btn p-0"
+                    class="btn p-0 {icon_class}"
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
@@ -437,10 +437,7 @@
                         button_function(textarea_element);
                     }}
                 >
-                    <svelte:component
-                        this={icon}
-                        class={icon_class}
-                    />
+                    <svelte:component this={icon} />
                 </button>
             {/each}
         </div>
