@@ -112,12 +112,12 @@
     function handle_episode_title_hover(event: Event) {
         const element = event.target as HTMLElement;
         const index = Number(element.dataset.index);
-        const element_height_in_vw = Math.floor(element.scrollHeight / window.innerWidth * 100);
+        const element_height_in_vw = (element.scrollHeight / window.innerWidth) * 100;
         const updated_height = episode_info_card_height[index] + element_height_in_vw;
 
         // change height
-        episode_info_card_height[index] = 10;
-        console.log(updated_height);
+        episode_info_card_height[index] = updated_height - 1;
+        document.documentElement.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
     }
 </script>
 
@@ -364,6 +364,7 @@
                                 {@const episode_number = episode.number}
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
+
                                 <a
                                     href="./watch/{episode_number}"
                                     class="unstyled relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
@@ -386,7 +387,8 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <episode-info-card class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-50/25 md:p-[1vw]"
+                                    <episode-info-card
+                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-50/25 md:p-[1vw]"
                                         style="max-height: {episode_info_card_height[index]}vw;"
                                     >
                                         <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
@@ -396,9 +398,6 @@
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={() => (episode_info_card_height[index] = 8)}
                                             >
-                                                {title}
-                                                {title}
-                                                {title}
                                                 {title}
                                             </scroll-area-title>
                                             <scroll-area-title class="pointer-events-auto w-full bg-white/25 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
@@ -788,16 +787,16 @@
     // tailwind trasnitions seems not working
     @media (min-width: 768px) {
         episode-info-card {
-            transition: max-height 0.2s ease-in;
+            transition: max-height 0.2s ease-in-out;
 
             scroll-area-title {
-                transition: max-height 0.2s ease-in;
+                transition: max-height 0.2s ease-in-out;
                 overflow-y: scroll;
                 height: auto;
                 max-height: 1vw;
 
                 &:hover {
-                    max-height: 3.75vw;
+                    max-height: var(--max-height-hover, 3.75vw);
                 }
             }
         }
