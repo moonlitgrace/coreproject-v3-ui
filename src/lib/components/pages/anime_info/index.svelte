@@ -373,6 +373,8 @@
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
 
+                                {@const episode_card_max_height = episode_info_card_height[index]}
+
                                 <a
                                     href="./watch/{episode_number}"
                                     class="unstyled relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
@@ -397,7 +399,7 @@
                                     </div>
                                     <episode-info-card
                                         class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
-                                        style="max-height: {episode_info_card_height[index]}vw;"
+                                        style="max-height: {episode_card_max_height}vw;"
                                     >
                                         <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <scroll-area-title
