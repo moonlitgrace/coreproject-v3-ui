@@ -407,8 +407,6 @@
                                                 on:mouseleave={handle_episode_title_leave}
                                             >
                                                 {title}
-                                                {title}
-                                                {title}
                                             </scroll-area-title>
                                             <scroll-area-title
                                                 class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
@@ -417,12 +415,9 @@
                                                 on:mouseleave={handle_episode_title_leave}
                                             >
                                                 {japanese_name}
-                                                {japanese_name}
-                                                {japanese_name}
-                                                {japanese_name}
                                             </scroll-area-title>
                                         </div>
-                                        <div class="flex items-center gap-2">
+                                        <div class="absolute bottom-0 flex w-[18.5vw] items-center gap-2 bg-surface-900 pb-[1vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
                                             <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
                                                 {#each episode.formats as format}
