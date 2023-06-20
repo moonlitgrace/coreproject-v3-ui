@@ -339,7 +339,7 @@
             },
             icon: {
                 component: Bold,
-                class: "w-5 md:w-[1.65vw] text-surface-200"
+                class: "w-5 md:w-[1.4vw]  text-surface-200"
             },
             description: "Add bold text, <Ctrl + b>"
         },
@@ -426,7 +426,7 @@
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
-                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-3 py-2 text-xs text-surface-50 md:text-[1vw]'>${xss(description)}</div>`,
+                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-[0.625vw] py-[0.42vw] text-xs text-surface-50 md:text-[1vw]'>${xss(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
                         offset: [0, 17],
