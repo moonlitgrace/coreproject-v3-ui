@@ -399,13 +399,12 @@
                                         </div>
                                     </div>
                                     <episode-info-card
-                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
-                                        style="max-height: {max_height}vw; transition: max-height 0.2s ease-in-out;"
+                                        class="transition-height pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between duration-200 ease-in-out md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
+                                        style="max-height: {max_height}vw;"
                                     >
                                         <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
                                             <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                                style="transition: max-height 0.2s ease-in-out;"
+                                                class="transition-height pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-200 ease-in-out md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={handle_episode_title_leave}
@@ -413,9 +412,8 @@
                                                 {title}
                                             </scroll-area-title>
                                             <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                                class="transition-height pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-200 ease-in-out md:max-h-[1vw] md:overflow-y-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
-                                                style="transition: max-height 0.2s ease-in-out;"
                                                 on:mouseenter={handle_episode_title_hover}
                                                 on:mouseleave={handle_episode_title_leave}
                                             >
