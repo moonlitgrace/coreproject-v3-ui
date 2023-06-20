@@ -428,7 +428,7 @@
                         content: `<div class='bg-surface-400 px-3 py-1 text-surface-50 text-sm leading-2 rounded-lg'>${description}</div>`,
                         allowHTML: true,
                         arrow: false,
-                        offset: [0, 11.5],
+                        offset: [0, 17],
                         appendTo: document.body,
                         animation: "shift-away"
                     }}
