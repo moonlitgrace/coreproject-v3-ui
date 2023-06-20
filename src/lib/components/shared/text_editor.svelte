@@ -11,6 +11,7 @@
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
     import tippy from "tippy.js";
+    import xss from "xss";
 
     import Markdown from "./markdown.svelte";
 
@@ -340,7 +341,7 @@
                 component: Bold,
                 class: "w-5 md:w-[1.65vw] text-surface-200"
             },
-            description: "Add bold text, &lt;Ctrl + b&gt;"
+            description: "Add bold text, <Ctrl + b>"
         },
         italic: {
             function: (element) => {
@@ -350,7 +351,7 @@
                 component: Italic,
                 class: "w-5 md:h-[1.5vw] text-surface-200"
             },
-            description: "Add italic text, &lt;Ctrl + i&gt;"
+            description: "Add italic text, <Ctrl + i>"
         },
         underline: {
             function: (element) => {
@@ -360,7 +361,7 @@
                 component: Underline,
                 class: "w-4 md:h-[1.35vw] text-surface-200"
             },
-            description: "Add underline text, &lt;Ctrl + u&gt;"
+            description: "Add underline text, <Ctrl + u>"
         },
         strike: {
             function: (element) => {
@@ -370,7 +371,7 @@
                 component: Strike,
                 class: "w-5 md:w-[1.5vw] text-surface-200"
             },
-            description: "Add strikethrough text, &lt;Ctrl + Shift + x&gt;"
+            description: "Add strikethrough text, <Ctrl + Shift + x>"
         },
         code: {
             function: (element) => {
@@ -380,7 +381,7 @@
                 component: Code,
                 class: "w-5 md:w-[1.5vw] text-surface-200"
             },
-            description: "Add code text, &lt;Ctrl + e>"
+            description: "Add code text, <Ctrl + e>"
         },
         hyperlink: {
             function: (element) => {
@@ -390,7 +391,7 @@
                 component: Hyperlink,
                 class: "w-4 md:h-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
             },
-            description: "Add hyperlinked text, &lt;Ctrl + k&gt;"
+            description: "Add hyperlinked text, <Ctrl + k>"
         }
     };
 </script>
@@ -425,7 +426,7 @@
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
-                        content: `<div class='bg-surface-400 px-3 py-1 text-surface-50 text-xs leading-2 whitespace-nowrap w-max rounded-lg md:text-[1vw]'>${description}</div>`,
+                        content: `<div class='bg-surface-400 px-3 py-1 text-surface-50 text-xs leading-2 whitespace-nowrap w-max rounded-lg md:text-[1vw]'>${xss(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
                         offset: [0, 17],
