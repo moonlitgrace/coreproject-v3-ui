@@ -2,14 +2,16 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import Bold from "$icons/bold.svelte";
+    import Code from "$icons/code.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
     import Italic from "$icons/italic.svelte";
     import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
-    import Code from "$icons/code.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
+    import tippy from "tippy.js";
+    import xss from "xss";
 
     import Markdown from "./markdown.svelte";
 
@@ -22,6 +24,78 @@
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
+    // Icon Mapping
+    const icon_and_function_mapping: {
+        [key: string]: {
+            function: (elemnt: HTMLElement) => void;
+            icon: {
+                component: typeof SvelteComponentDev;
+                class: string;
+            };
+            description: string;
+        };
+    } = {
+        bold: {
+            function: (element) => {
+                bold_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Bold,
+                class: "w-5 md:w-[1.4vw]  text-surface-200"
+            },
+            description: "Add bold text, <Ctrl + b>"
+        },
+        italic: {
+            function: (element) => {
+                italic_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Italic,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add italic text, <Ctrl + i>"
+        },
+        underline: {
+            function: (element) => {
+                underline_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Underline,
+                class: "w-5 md:w-[1.35vw] text-surface-200"
+            },
+            description: "Add underline text, <Ctrl + u>"
+        },
+        strike: {
+            function: (element) => {
+                strike_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Strike,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add strikethrough text, <Ctrl + Shift + x>"
+        },
+        code: {
+            function: (element) => {
+                code_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Code,
+                class: "w-5 md:w-[1.5vw] text-surface-200"
+            },
+            description: "Add code text, <Ctrl + e>"
+        },
+        hyperlink: {
+            function: (element) => {
+                hyperlink_text(element as HTMLTextAreaElement);
+            },
+            icon: {
+                component: Hyperlink,
+                class: "w-4 md:w-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
+            },
+            description: "Add hyperlinked text, <Ctrl + k>"
+        }
+    };
     // Functions
     function is_valid_url(url_string: string) {
         /**
@@ -320,71 +394,6 @@
     const handle_edit_preview_button_click = (item: string) => {
         tab_type = item as typeof tab_type;
     };
-
-    const icon_and_function_mapping: {
-        [key: string]: {
-            function: (elemnt: HTMLElement) => void;
-            icon: {
-                component: typeof SvelteComponentDev;
-                class: string;
-            };
-        };
-    } = {
-        bold: {
-            function: (element) => {
-                bold_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Bold,
-                class: "w-5 md:w-[1.65vw] text-surface-200"
-            }
-        },
-        italic: {
-            function: (element) => {
-                italic_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Italic,
-                class: "w-5 md:h-[1.5vw] text-surface-200"
-            }
-        },
-        underline: {
-            function: (element) => {
-                underline_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Underline,
-                class: "w-4 md:h-[1.35vw] text-surface-200"
-            }
-        },
-        strike: {
-            function: (element) => {
-                strike_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Strike,
-                class: "w-5 md:w-[1.5vw] text-surface-200"
-            }
-        },
-        code: {
-            function: (element) => {
-                code_text(element as HTMLTextAreaElement)
-            },
-            icon: {
-                component: Code,
-                class: "w-5 md:w-[1.5vw] text-surface-200"
-            }
-        },
-        hyperlink: {
-            function: (element) => {
-                hyperlink_text(element as HTMLTextAreaElement);
-            },
-            icon: {
-                component: Hyperlink,
-                class: "w-4 md:h-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
-            }
-        }
-    };
 </script>
 
 <div class="relative rounded-lg ring-2 ring-surface-300/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
@@ -406,22 +415,29 @@
         <div class="flex place-items-center gap-2 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
                 {@const item_label = item[0]}
+
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
                 {@const button_function = item[1].function}
+                {@const description = item[1].description}
 
                 <button
-                    class="btn p-0"
+                    class="btn p-0 {icon_class}"
                     type="button"
                     aria-label={item_label}
+                    use:tippy={{
+                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${xss(description)}</div>`,
+                        allowHTML: true,
+                        arrow: false,
+                        offset: [0, 17],
+                        appendTo: document.body,
+                        animation: "shift-away"
+                    }}
                     on:click={() => {
                         button_function(textarea_element);
                     }}
                 >
-                    <svelte:component
-                        this={icon}
-                        class={icon_class}
-                    />
+                    <svelte:component this={icon} />
                 </button>
             {/each}
         </div>
