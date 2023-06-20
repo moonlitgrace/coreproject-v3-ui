@@ -117,7 +117,7 @@
 
         // change height
         episode_info_card_height[index] = updated_height - 1;
-        document.documentElement.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
+        element.parentElement?.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
     }
 
     function handle_episode_title_leave(event: Event) {
