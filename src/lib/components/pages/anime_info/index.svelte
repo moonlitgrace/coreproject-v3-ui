@@ -122,9 +122,9 @@
 
     function handle_episode_title_leave(event: Event) {
         const element = event.target as HTMLElement;
+        const index = Number(element.dataset.index);
 
         // reset height
-        const index = Number(element.dataset.index);
         episode_info_card_height_array[index] = 8;
         element.parentElement?.style.removeProperty("--max-height-hover");
     }
