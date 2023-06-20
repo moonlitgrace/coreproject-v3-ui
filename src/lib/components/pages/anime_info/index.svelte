@@ -364,7 +364,6 @@
                                 {@const episode_number = episode.number}
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
-
                                 <a
                                     href="./watch/{episode_number}"
                                     class="unstyled relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
