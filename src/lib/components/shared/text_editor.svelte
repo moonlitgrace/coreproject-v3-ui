@@ -2,14 +2,15 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import Bold from "$icons/bold.svelte";
+    import Code from "$icons/code.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
     import Italic from "$icons/italic.svelte";
     import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
-    import Code from "$icons/code.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
     import type { SvelteComponentDev } from "svelte/internal";
+    import tippy from "tippy.js";
 
     import Markdown from "./markdown.svelte";
 
@@ -328,6 +329,7 @@
                 component: typeof SvelteComponentDev;
                 class: string;
             };
+            description: string;
         };
     } = {
         bold: {
@@ -337,7 +339,8 @@
             icon: {
                 component: Bold,
                 class: "w-5 md:w-[1.65vw] text-surface-200"
-            }
+            },
+            description: "Add bold text, &lt;Ctrl + b&gt;"
         },
         italic: {
             function: (element) => {
@@ -346,7 +349,8 @@
             icon: {
                 component: Italic,
                 class: "w-5 md:h-[1.5vw] text-surface-200"
-            }
+            },
+            description: "Add italic text, &lt;Ctrl + i&gt;"
         },
         underline: {
             function: (element) => {
@@ -355,7 +359,8 @@
             icon: {
                 component: Underline,
                 class: "w-4 md:h-[1.35vw] text-surface-200"
-            }
+            },
+            description: "Add underline text, &lt;Ctrl + u&gt;"
         },
         strike: {
             function: (element) => {
@@ -364,16 +369,18 @@
             icon: {
                 component: Strike,
                 class: "w-5 md:w-[1.5vw] text-surface-200"
-            }
+            },
+            description: "Add strikethrough text, &lt;Ctrl + Shift + x&gt;"
         },
         code: {
             function: (element) => {
-                code_text(element as HTMLTextAreaElement)
+                code_text(element as HTMLTextAreaElement);
             },
             icon: {
                 component: Code,
                 class: "w-5 md:w-[1.5vw] text-surface-200"
-            }
+            },
+            description: "Add code text, &lt;Ctrl + e>"
         },
         hyperlink: {
             function: (element) => {
@@ -382,7 +389,8 @@
             icon: {
                 component: Hyperlink,
                 class: "w-4 md:h-[1.25vw] text-surface-200 ml-3 md:ml-[1vw]"
-            }
+            },
+            description: "Add hyperlinked text, &lt;Ctrl + k&gt;"
         }
     };
 </script>
@@ -406,14 +414,24 @@
         <div class="flex place-items-center gap-2 pr-4 md:gap-[0.75vw] md:pr-[1vw]">
             {#each Object.entries(icon_and_function_mapping) as item}
                 {@const item_label = item[0]}
+
                 {@const icon = item[1].icon.component}
                 {@const icon_class = item[1].icon.class}
                 {@const button_function = item[1].function}
+                {@const description = item[1].description}
 
                 <button
                     class="btn p-0"
                     type="button"
                     aria-label={item_label}
+                    use:tippy={{
+                        content: `<div class='bg-surface-400/75 px-3 py-1 text-surface-50 text-sm leading-2 rounded-lg'>${description}</div>`,
+                        allowHTML: true,
+                        arrow: false,
+                        offset: [0, 11.5],
+                        appendTo: document.body,
+                        animation: "shift-away"
+                    }}
                     on:click={() => {
                         button_function(textarea_element);
                     }}
