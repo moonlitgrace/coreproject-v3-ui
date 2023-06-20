@@ -107,16 +107,16 @@
     };
 
     // Thumbnail logics
-    let episode_info_card_height = new Array(anime_episodes.length).fill(8);
+    let episode_info_card_height_array = new Array(anime_episodes.length).fill(8);
 
     function handle_episode_title_hover(event: Event) {
         const element = event.target as HTMLElement;
         const index = Number(element.dataset.index);
         const element_height_in_vw = (element.scrollHeight / window.innerWidth) * 100;
-        const updated_height = episode_info_card_height[index] + element_height_in_vw;
+        const updated_height = episode_info_card_height_array[index] + element_height_in_vw;
 
         // change height
-        episode_info_card_height[index] = updated_height - 1;
+        episode_info_card_height_array[index] = updated_height - 1;
         element.parentElement?.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
     }
 
@@ -125,7 +125,8 @@
 
         // reset height
         const index = Number(element.dataset.index);
-        episode_info_card_height[index] = 8;
+        episode_info_card_height_array[index] = 8;
+        element.parentElement?.style.removeProperty("--max-height-hover");
     }
 </script>
 
@@ -373,7 +374,7 @@
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
 
-                                {@const max_height = episode_info_card_height[index]}
+                                {@const max_height = episode_info_card_height_array[index]}
 
                                 <a
                                     href="./watch/{episode_number}"
