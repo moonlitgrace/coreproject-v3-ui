@@ -119,6 +119,14 @@
         episode_info_card_height[index] = updated_height - 1;
         document.documentElement.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
     }
+
+    function handle_episode_title_leave(event: Event) {
+        const element = event.target as HTMLElement;
+
+        // reset height
+        const index = Number(element.dataset.index);
+        episode_info_card_height[index] = 8;
+    }
 </script>
 
 <div class="anime_info relative">
@@ -396,7 +404,7 @@
                                                 class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
                                                 on:mouseenter={handle_episode_title_hover}
-                                                on:mouseleave={() => (episode_info_card_height[index] = 8)}
+                                                on:mouseleave={handle_episode_title_leave}
                                             >
                                                 {title}
                                                 {title}
@@ -406,7 +414,7 @@
                                                 class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
                                                 data-index={index}
                                                 on:mouseenter={handle_episode_title_hover}
-                                                on:mouseleave={() => (episode_info_card_height[index] = 8)}
+                                                on:mouseleave={handle_episode_title_leave}
                                             >
                                                 {japanese_name}
                                                 {japanese_name}
