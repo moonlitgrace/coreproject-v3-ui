@@ -5,6 +5,7 @@
     import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
     import { FormatTime } from "$functions/format_time";
+    import { round_to_nearest_zero_point_five } from "$functions/math";
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
     import Cross from "$icons/cross.svelte";
@@ -19,10 +20,11 @@
     import Search from "$icons/search.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
     import Share from "$icons/share.svelte";
+    import Star from "$icons/star.svelte";
     import TrendingUp from "$icons/trending_up.svelte";
     import Video from "$icons/video.svelte";
     import Warning from "$icons/warning.svelte";
-    import StarRating from "svelte-star-rating";
+    import { Ratings } from "@skeletonlabs/skeleton";
     import type { SvelteComponentDev } from "svelte/internal";
 
     export let anime_name: string;
@@ -625,11 +627,32 @@
                             <div class="md:mt-[0.4vw]">
                                 <span class="font-semibold md:text-[0.9vw] md:leading-[0.9vw]">Your rating</span>
                                 <div class="flex items-end gap-[0.75vw] md:mt-[0.25vw]">
-                                    <StarRating
-                                        rating={4.5}
-                                        config={{ fullColor: "#DCD9F7", emptyColor: "rgb(220, 217, 247, 0.4)" }}
-                                        style="margin: 0; gap: 5px"
-                                    />
+                                    <Ratings
+                                        value={round_to_nearest_zero_point_five(3.5)}
+                                        max={5}
+                                    >
+                                        <svelte:fragment slot="empty">
+                                            <Star
+                                                color="white"
+                                                variant="empty"
+                                                fill_color="white"
+                                            />
+                                        </svelte:fragment>
+                                        <svelte:fragment slot="half">
+                                            <Star
+                                                color="white"
+                                                variant="half"
+                                                fill_color="white"
+                                            />
+                                        </svelte:fragment>
+                                        <svelte:fragment slot="full">
+                                            <Star
+                                                color="white"
+                                                variant="full"
+                                                fill_color="white"
+                                            />
+                                        </svelte:fragment>
+                                    </Ratings>
                                     <span class="font-bold leading-none md:text-[0.95vw]">92%</span>
                                     <button class="btn btn-icon bg-secondary-100 p-[0.3vw] text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]">
                                         <Edit
