@@ -4,7 +4,7 @@
     interface $$Props extends SVGAttributes<SVGElement> {
         variant: "with_underline_around_pencil" | "without_underline_around_pencil";
     }
-    const { variant, ...props } = $$props;
+    const { variant, ...props } = $$props as $$Props;
 </script>
 
 {#if variant === "with_underline_around_pencil"}
