@@ -105,28 +105,6 @@
             }
         }
     };
-
-    // Thumbnail logics
-    let episode_info_card_height = new Array(anime_episodes.length).fill(8);
-
-    function handle_episode_title_hover(event: Event) {
-        const element = event.target as HTMLElement;
-        const index = Number(element.dataset.index);
-        const element_height_in_vw = (element.scrollHeight / window.innerWidth) * 100;
-        const updated_height = episode_info_card_height[index] + element_height_in_vw;
-
-        // change height
-        episode_info_card_height[index] = updated_height - 1;
-        element.parentElement?.style.setProperty("--max-height-hover", `${element_height_in_vw}vw`);
-    }
-
-    function handle_episode_title_leave(event: Event) {
-        const element = event.target as HTMLElement;
-
-        // reset height
-        const index = Number(element.dataset.index);
-        episode_info_card_height[index] = 8;
-    }
 </script>
 
 <div class="anime_info relative">
@@ -366,24 +344,22 @@
                         </div>
 
                         <div class="mt-4 grid grid-cols-12 gap-5 md:mt-[2.5vw] md:gap-[2.5vw]">
-                            {#each anime_episodes as episode, index}
+                            {#each anime_episodes as episode}
                                 {@const thumbnail = episode.thumbnail}
                                 {@const title = episode.title}
                                 {@const episode_number = episode.number}
                                 {@const japanese_name = episode.japanese_title}
                                 {@const duration = episode.duration}
 
-                                {@const episode_card_max_height = episode_info_card_height[index]}
-
                                 <a
                                     href="./watch/{episode_number}"
-                                    class="unstyled relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
+                                    class="unstyled group relative col-span-12 grid grid-cols-12 gap-4 transition duration-300 md:col-span-4"
                                 >
                                     <div class="relative col-span-5 h-full w-full transition duration-300 md:col-span-12 md:h-[19vw] md:w-full">
                                         <div class="h-24 md:h-[12vw] md:w-full">
                                             <ImageLoader
                                                 src={thumbnail ?? ""}
-                                                class="h-full w-full rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
+                                                class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                                             />
                                         </div>
                                         <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent transition duration-300 md:flex md:h-[12vw]" />
@@ -397,29 +373,18 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <episode-info-card
-                                        class="pointer-events-none relative col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]"
-                                        style="max-height: {episode_card_max_height}vw;"
-                                    >
-                                        <div class="relative flex h-full w-full flex-col items-start gap-1 md:gap-[0.5vw]">
-                                            <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                                data-index={index}
-                                                on:mouseenter={handle_episode_title_hover}
-                                                on:mouseleave={handle_episode_title_leave}
-                                            >
+
+                                    <episode-info-card class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
+                                        <div class="relative flex w-full flex-col items-start gap-1 md:gap-[0.25vw]">
+                                            <episode-name class=" pointer-events-auto max-h-[1.5vw] w-full overflow-hidden bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] hover:overflow-y-scroll md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                 {title}
-                                            </scroll-area-title>
-                                            <scroll-area-title
-                                                class="pointer-events-auto w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                                data-index={index}
-                                                on:mouseenter={handle_episode_title_hover}
-                                                on:mouseleave={handle_episode_title_leave}
-                                            >
+                                            </episode-name>
+
+                                            <episode-japanese-name class="pointer-events-auto max-h-[1.3vw] w-full overflow-hidden bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] hover:overflow-y-scroll md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                 {japanese_name}
-                                            </scroll-area-title>
+                                            </episode-japanese-name>
                                         </div>
-                                        <div class="absolute bottom-0 flex w-[18.5vw] items-center gap-2 bg-surface-900 pb-[1vw]">
+                                        <div class="relative flex w-full items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
                                             <span class="text-[0.7rem] md:hidden">Available in:</span>
                                             <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
                                                 {#each episode.formats as format}
@@ -796,26 +761,16 @@
 </div>
 
 <style lang="scss">
-    // tailwind trasnitions seems not working
-    @media (min-width: 768px) {
-        episode-info-card {
-            transition: max-height 0.2s ease-in-out;
+    episode-japanese-name,
+    episode-name {
+        scrollbar-width: none;
+        transition-property: height mask-image;
 
-            scroll-area-title {
-                transition: max-height 0.2s ease-in-out;
-                overflow-y: hidden;
-                height: auto;
-                max-height: 1vw;
-
-                &:hover {
-                    max-height: var(--max-height-hover);
-                }
-                &:not(:hover) {
-                    mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 75%, rgba(0, 0, 0, 0) 100%);
-                    mask-repeat: no-repeat;
-                    mask-position: right;
-                }
-            }
+        &:not(:hover) {
+            /* if we need to change the width, we should change the 90% to higher  */
+            mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 90%, rgba(0, 0, 0, 0) 100%);
+            
+            mask-position: right;
         }
     }
 </style>

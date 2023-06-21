@@ -66,17 +66,14 @@
 
         &.mask-top {
             mask-image: linear-gradient(0deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
-            mask-repeat: no-repeat;
             mask-position: top;
         }
         &.mask-middle {
             mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 10%, rgba(7, 5, 25, 0.95) 20%, rgba(7, 5, 25, 0.95) 80%, rgba(7, 5, 25, 0.35) 90%);
-            mask-repeat: no-repeat;
             mask-position: bottom;
         }
         &.mask-bottom {
             mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
-            mask-repeat: no-repeat;
             mask-position: bottom;
         }
     }
