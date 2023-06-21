@@ -2,8 +2,8 @@ export const anime_episodes = [
     {
         id: 13,
         number: 1,
-        title: "The Revival of the Long-established Classic Literature Club",
-        japanese_title: "老舗古典部復活 カッコいいですよね",
+        title: "The Revival of the Long-established Classic Literature Club. The Descendants of the Classic Literature Club",
+        japanese_title: "老舗古典部復活 カッコいいですよね 栄光の古典文学クラブの昔 古典文学部の活動",
         thumbnail: "/images/episodes/hyouka/Hyouka-ep-1.avif",
         duration: 1254,
         formats: ["sub", "dub"],

@@ -179,18 +179,19 @@
     async function handle_keydown(event: KeyboardEvent) {
         /**Emoji specific codes*/
         if (show_emoji_picker) {
+            console.log("Activated");
             switch (event.key.toLowerCase()) {
-                case "ArrowUp": {
+                case "arrowup": {
                     event.preventDefault();
                     active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
                     break;
                 }
-                case "ArrowDown": {
+                case "arrowdown": {
                     event.preventDefault();
                     active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
                     break;
                 }
-                case "Enter": {
+                case "enter": {
                     event.preventDefault();
                     await select_emoji(active_emoji_index);
                     break;
