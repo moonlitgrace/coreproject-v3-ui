@@ -376,12 +376,12 @@
 
                                     <episode-info-card class="col-span-7 flex h-full w-full flex-col items-start justify-between transition duration-300 md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
                                         <div class="relative flex flex-col items-start gap-1 md:gap-[0.25vw]">
-                                            <episode-name class="w-full text-[0.8rem] font-light leading-snug text-white transition duration-300 md:w-[18vw] md:overflow-hidden md:whitespace-nowrap md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:group-hover:whitespace-normal md:group-hover:text-surface-50">
-                                                {title}
+                                            <episode-name class="max-h-[1.5vw] overflow-hidden transition-all duration-500 ease-in-out hover:max-h-[18vw] hover:overflow-y-scroll">
+                                                {title + title + title + title + title + title + title + title}
                                             </episode-name>
 
-                                            <episode-japanese-name class="w-full text-[0.6rem] font-light text-surface-200 transition-colors duration-300 ease-in group-hover:text-surface-50 md:text-[0.85vw] md:leading-[1.25vw] md:text-surface-50/75">
-                                                {japanese_name}
+                                            <episode-japanese-name class="max-h-[1.3vw] overflow-hidden transition-all duration-500 ease-in-out hover:max-h-[18vw] hover:overflow-y-scroll">
+                                                {japanese_name + japanese_name + japanese_name + japanese_name}
                                             </episode-japanese-name>
                                         </div>
                                         <div class="relative flex items-center gap-2 md:mt-[0.25vw] md:gap-[0.65vw]">
@@ -763,7 +763,7 @@
 <style lang="scss">
     episode-japanese-name,
     episode-name {
-        &:not(.group-hover) {
+        &:not(:hover) {
             /* if we need to change the width, we should change the 90% to higher  */
             mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 90%, rgba(0, 0, 0, 0) 100%);
             mask-repeat: no-repeat;
