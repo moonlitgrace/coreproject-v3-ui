@@ -764,7 +764,7 @@
     episode-japanese-name,
     episode-name {
         scrollbar-width: none;
-        transition-property: height mask-position;
+        transition-property: height mask-image;
 
         &:not(:hover) {
             /* if we need to change the width, we should change the 90% to higher  */
