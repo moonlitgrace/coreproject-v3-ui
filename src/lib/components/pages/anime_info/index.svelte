@@ -626,33 +626,38 @@
 
                             <div class="md:mt-[0.4vw]">
                                 <span class="font-semibold md:text-[0.9vw] md:leading-[0.9vw]">Your rating</span>
-                                <div class="flex items-end gap-[0.75vw] md:mt-[0.25vw]">
-                                    <Ratings
-                                        value={round_to_nearest_zero_point_five(3.5)}
-                                        max={5}
-                                    >
-                                        <svelte:fragment slot="empty">
-                                            <Star
-                                                color="white"
-                                                variant="empty"
-                                                fill_color="white"
-                                            />
-                                        </svelte:fragment>
-                                        <svelte:fragment slot="half">
-                                            <Star
-                                                color="white"
-                                                variant="half"
-                                                fill_color="white"
-                                            />
-                                        </svelte:fragment>
-                                        <svelte:fragment slot="full">
-                                            <Star
-                                                color="white"
-                                                variant="full"
-                                                fill_color="white"
-                                            />
-                                        </svelte:fragment>
-                                    </Ratings>
+                                <div class="flex items-center gap-[0.75vw] md:mt-[0.25vw]">
+                                    <ratings>
+                                        <Ratings
+                                            value={round_to_nearest_zero_point_five(4.5)}
+                                            max={5}
+                                        >
+                                            <svelte:fragment slot="empty">
+                                                <Star
+                                                    color="white"
+                                                    variant="empty"
+                                                    fill_color="white"
+                                                    class="w-[1.25vw]"
+                                                />
+                                            </svelte:fragment>
+                                            <svelte:fragment slot="half">
+                                                <Star
+                                                    color="white"
+                                                    variant="half"
+                                                    fill_color="white"
+                                                    class="w-[1.25vw]"
+                                                />
+                                            </svelte:fragment>
+                                            <svelte:fragment slot="full">
+                                                <Star
+                                                    color="white"
+                                                    variant="full"
+                                                    fill_color="white"
+                                                    class="w-[1.25vw]"
+                                                />
+                                            </svelte:fragment>
+                                        </Ratings>
+                                    </ratings>
                                     <span class="font-bold leading-none md:text-[0.95vw]">92%</span>
                                     <button class="btn btn-icon bg-secondary-100 p-[0.3vw] text-surface-500 md:w-[1.375vw] md:rounded-[0.19vw]">
                                         <Edit
