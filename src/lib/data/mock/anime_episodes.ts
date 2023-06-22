@@ -32,7 +32,7 @@ export const anime_episodes = [
     {
         id: 16,
         number: 4,
-        title: "The Old Days of the Glorious Classic Literature Club",
+        title: "The Old Days of the Glorious Classic Literature Club. The Truth of the Historic Classic Literature Club",
         japanese_title: "栄光の古典文学クラブの昔",
         thumbnail: "/images/episodes/hyouka/Hyouka-ep-4.avif",
         duration: 1405,
