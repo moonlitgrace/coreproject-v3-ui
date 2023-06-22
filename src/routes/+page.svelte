@@ -252,7 +252,7 @@
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
                             />
 
-                            <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
+                            <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/90 md:to-surface-900/25" />
                             <gradient-overlay class="absolute inset-0 hidden bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/50" />
 
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
@@ -300,12 +300,12 @@
                                             <span>Ep 1</span>
                                         </button>
 
-                                        <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg border-[0.2vw] border-surface-50/50 bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
+                                        <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                             <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                             <span>Details</span>
                                         </button>
 
-                                        <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
+                                        <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
                                             <Edit
                                                 variant="with_underline_around_pencil"
                                                 class="w-5 text-surface-50 md:w-[1.25vw]"
