@@ -364,7 +364,7 @@
                                                 class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                                             />
                                         </div>
-                                        <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent transition duration-300 md:flex md:h-[12vw]" />
+                                        <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent md:flex md:h-[12vw]" />
 
                                         <div class="absolute bottom-0 flex h-max w-full justify-between p-1 md:top-0 md:p-[0.5vw]">
                                             <p class="rounded bg-surface-900/75 p-1 text-xs font-bold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.8vw]">
