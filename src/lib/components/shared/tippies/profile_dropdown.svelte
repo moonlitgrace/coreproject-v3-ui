@@ -53,7 +53,7 @@
     };
 </script>
 
-<div class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
+<div class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
     <div class="flex items-center gap-[3vw] md:gap-[0.8vw]">
         <Avatar
             rounded="rounded-[1.2vw] md:rounded-[0.375vw]"
