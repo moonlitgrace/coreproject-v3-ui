@@ -364,7 +364,7 @@
                                                 class="h-full w-full shrink-0 rounded-lg bg-cover bg-center md:rounded-t-[0.625vw]"
                                             />
                                         </div>
-                                        <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent transition duration-300 md:flex md:h-[12vw]" />
+                                        <overlay-effect class="absolute inset-0 hidden bg-gradient-to-t from-surface-900/75 to-transparent md:flex md:h-[12vw]" />
 
                                         <div class="absolute bottom-0 flex h-max w-full justify-between p-1 md:top-0 md:p-[0.5vw]">
                                             <p class="rounded bg-surface-900/75 p-1 text-xs font-bold tracking-wider text-surface-50 md:bg-surface-900/50 md:p-[0.45vw] md:text-[0.8vw]">
@@ -378,11 +378,11 @@
 
                                     <episode-info-card class="col-span-7 flex h-full w-full flex-col items-start justify-between md:absolute md:bottom-0 md:col-span-12 md:h-auto md:gap-[0.75vw] md:rounded-b-[0.625vw] md:bg-surface-900 md:p-[1vw]">
                                         <div class="relative flex w-full flex-col items-start gap-1 md:gap-[0.25vw]">
-                                            <episode-name class="max-h-[1.25vw] w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] md:overflow-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
+                                            <episode-name class="md:hover:overflow-scroll-y max-h-[1.25vw] w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] md:overflow-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                 {title}
                                             </episode-name>
 
-                                            <episode-japanese-name class="max-h-[1.3vw] w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] md:overflow-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
+                                            <episode-japanese-name class="md:hover:overflow-scroll-y max-h-[1.3vw] w-full bg-surface-900 text-[0.8rem] font-light leading-snug text-white duration-500 ease-in-out hover:max-h-[18vw] md:overflow-hidden md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50">
                                                 {japanese_name}
                                             </episode-japanese-name>
                                         </div>
@@ -792,7 +792,6 @@
     episode-japanese-name,
     episode-name {
         scrollbar-width: none;
-        transition-property: height mask-image;
 
         &:not(:hover) {
             /* if we need to change the width, we should change the 90% to higher  */
