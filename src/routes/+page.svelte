@@ -126,12 +126,12 @@
 
     /* slide buttons colors */
     let slide_buttons = [
-        { background: "bg-error-400", border: "border-error-400" },
-        { background: "bg-white", border: "border-white" },
         { background: "bg-surface-50", border: "border-surface-50" },
+        { background: "bg-secondary-300", border: "border-error-400" },
         { background: "bg-warning-400", border: "border-warning-400" },
+        { background: "bg-white", border: "border-white" },
         { background: "bg-primary-300", border: "border-primary-300" },
-        { background: "bg-error-300", border: "border-error-300" }
+        { background: "bg-error-200", border: "border-error-200" }
     ];
 
     /* Icons */
@@ -295,7 +295,7 @@
 
                                 <div class="mb-2 mt-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
-                                        <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                        <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg {slide_buttons[main_hero_slide_active_index].background} text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
                                             <span>Ep 1</span>
                                         </button>
