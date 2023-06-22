@@ -214,7 +214,6 @@
                             placement: "bottom-end",
                             offset: [0, 10],
                             animation: "shift-away",
-                            appendTo: document.body,
                             interactive: true,
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
