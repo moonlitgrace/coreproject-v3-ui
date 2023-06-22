@@ -285,9 +285,13 @@
                                     {/each}
                                 </div>
 
-                                <p class="line-clamp-3 text-xs font-medium leading-4 text-surface-200 md:line-clamp-4 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]">
+                                <ScrollArea
+                                    gradientMask
+                                    parentClass="max-h-16 md:max-h-[6vw]"
+                                    class="text-xs font-medium leading-4 text-surface-200 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]"
+                                >
                                     {anime.synopsis}
-                                </p>
+                                </ScrollArea>
 
                                 <div class="mb-2 mt-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
