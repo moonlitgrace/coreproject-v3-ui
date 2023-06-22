@@ -126,12 +126,12 @@
 
     /* slide buttons colors */
     let slide_buttons = [
-        { background: "bg-error-400", border: "border-error-400" },
-        { background: "bg-white", border: "border-white" },
         { background: "bg-surface-50", border: "border-surface-50" },
+        { background: "bg-secondary-300", border: "border-error-400" },
         { background: "bg-warning-400", border: "border-warning-400" },
+        { background: "bg-white", border: "border-white" },
         { background: "bg-primary-300", border: "border-primary-300" },
-        { background: "bg-error-300", border: "border-error-300" }
+        { background: "bg-error-200", border: "border-error-200" }
     ];
 
     /* Icons */
@@ -231,6 +231,7 @@
             >
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
+                        {@const slide_button_background = slide_buttons[main_hero_slide_active_index].background}
                         <div
                             class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
                             transition:blur|local
@@ -252,7 +253,7 @@
                                 class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
                             />
 
-                            <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/95 md:to-surface-900/25" />
+                            <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/90 md:to-surface-900/25" />
                             <gradient-overlay class="absolute inset-0 hidden bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/50" />
 
                             <div class="absolute bottom-0 px-[3vw] py-[2.625vw] md:px-[3.75vw]">
@@ -295,17 +296,17 @@
 
                                 <div class="mb-2 mt-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
-                                        <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg bg-warning-400 text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                        <button class="{slide_button_background} btn btn-icon flex h-12 w-24 justify-center rounded-lg text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
                                             <span>Ep 1</span>
                                         </button>
 
-                                        <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg border-[0.2vw] border-surface-50/50 bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
+                                        <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                             <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                             <span>Details</span>
                                         </button>
 
-                                        <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
+                                        <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
                                             <Edit
                                                 variant="with_underline_around_pencil"
                                                 class="w-5 text-surface-50 md:w-[1.25vw]"
