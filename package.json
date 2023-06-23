@@ -47,6 +47,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-svelte": "^2.31.0",
         "felte": "^1.2.10",
+        "html-entities": "^2.3.6",
         "lodash": "^4.17.21",
         "marked": "^5.1.0",
         "nprogress": "^0.2.0",
