@@ -28,7 +28,7 @@
     import type { SvelteComponentDev } from "svelte/internal";
 
     export let anime_name: string;
-    export let anime_alternative_name: string;
+    export let japanese_name: string;
     export let anime_episodes_count: number;
     export let anime_date: string;
     export let anime_synopsis: string;
@@ -130,12 +130,10 @@
                                 />
                             </div>
                             <div>
-                                <span class="text-2xl font-bold md:text-[2.5vw] md:leading-[2.7vw]">{anime_name}</span>
+                                <span class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</span>
 
                                 <p class="unstyled flex flex-wrap gap-x-2 pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:gap-x-[0.25vw] md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                                    <span>{anime_alternative_name}</span>
-                                    <Circle class="w-[0.35rem] opacity-50" />
-                                    <span>{anime_name}</span>
+                                    <span>{japanese_name}</span>
                                 </p>
 
                                 <p class="mt-1 flex flex-wrap items-center gap-2 text-xs font-semibold md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
