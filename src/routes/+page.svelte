@@ -231,6 +231,7 @@
             >
                 {#each latest_animes as anime, index}
                     {#if index === main_hero_slide_active_index}
+                        {@const slide_button_background = slide_buttons[main_hero_slide_active_index].background}
                         <div
                             class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
                             transition:blur|local
@@ -295,7 +296,7 @@
 
                                 <div class="mb-2 mt-4 flex items-end justify-between md:mb-0 md:mt-[1.5vw]">
                                     <div class="flex gap-3 md:gap-[1vw]">
-                                        <button class="btn btn-icon flex h-12 w-24 justify-center rounded-lg {slide_buttons[main_hero_slide_active_index].background} text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                        <button class="{slide_button_background} btn btn-icon flex h-12 w-24 justify-center rounded-lg text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
                                             <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
                                             <span>Ep 1</span>
                                         </button>
