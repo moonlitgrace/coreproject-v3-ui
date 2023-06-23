@@ -129,7 +129,7 @@
                                     alt={anime_name}
                                     style="box-shadow: 0px 45px 100px 10px rgba(255, 255, 255, 0.10);"
                                 />
-                                <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/50 to-transparent md:hidden" />
+                                <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25 md:hidden" />
                             </div>
                             <div class="absolute bottom-0 col-span-12 p-5 md:static md:p-0">
                                 <span class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</span>
