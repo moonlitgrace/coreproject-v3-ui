@@ -113,7 +113,7 @@
     <div class="relative h-screen bg-cover">
         <ImageLoader
             src={anime_cover ?? ""}
-            class="absolute h-full w-full rounded-tl-[1.5vw] object-cover object-center"
+            class="absolute hidden h-full w-full rounded-tl-[1.5vw] object-cover object-center md:flex"
         />
 
         <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/50" />
@@ -121,15 +121,17 @@
             <div class="grid grid-cols-12 items-start p-5 pt-10 md:p-0">
                 <div class="col-span-12 md:col-span-10 md:pr-[4vw]">
                     <div class="grid grid-cols-12 items-end justify-between">
-                        <div class="col-span-12 grid w-screen grid-flow-col items-end gap-5 md:col-span-7 md:w-auto md:gap-[2vw] md:pr-[2vw]">
-                            <div class="col-span-3 h-52 md:h-[18.25vw] md:w-[12vw]">
+                        <div class="relative col-span-12 grid grid-cols-12 gap-5 md:col-span-7 md:flex md:w-full md:items-end md:gap-[2vw] md:pr-[2vw]">
+                            <div class="relative col-span-12 h-96 md:h-[18.25vw] md:w-[13vw] md:flex-shrink-0">
                                 <ImageLoader
                                     class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
                                     src={anime_banner}
                                     alt={anime_name}
+                                    style="box-shadow: 0px 45px 100px 10px rgba(255, 255, 255, 0.10);"
                                 />
+                                <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/50 to-transparent md:hidden" />
                             </div>
-                            <div>
+                            <div class="absolute bottom-0 col-span-12 p-5 md:static md:p-0">
                                 <span class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</span>
 
                                 <p class="unstyled flex flex-wrap gap-x-2 pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:gap-x-[0.25vw] md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
@@ -192,7 +194,7 @@
                                     {/each}
                                 </div>
 
-                                <div class="mt-2 flex gap-2 md:mt-[0.75vw] md:gap-[0.75vw]">
+                                <div class="mt-3 flex gap-2 md:mt-[0.75vw] md:gap-[0.75vw]">
                                     {#each Object.entries(icon_mapping.user_options_icons) as item}
                                         {@const item_label = item[0]}
                                         {@const item_icon = item[1].icon}
