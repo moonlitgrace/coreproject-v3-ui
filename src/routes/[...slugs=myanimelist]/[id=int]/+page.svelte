@@ -29,7 +29,7 @@
     <TopRounded class="fixed z-10 hidden w-[1.5vw] text-surface-900 md:flex" />
     <AnimeInfoPage
         anime_name={anime.name}
-        anime_alternative_name={anime.alternative_name}
+        japanese_name={anime.japanese_name}
         anime_episodes_count={anime.episodes_count}
         anime_date={anime.updated}
         anime_synopsis={anime.synopsis}

@@ -5,7 +5,7 @@ export const anime_list = [
         anilist_id: null,
         kitsu_id: null,
         name: "Your Lie in April",
-        alternative_name: "Shigatsu wa Kimi no Uso",
+        japanese_name: "四月は君の嘘",
         source: null,
         aired_from: null,
         aired_to: null,
