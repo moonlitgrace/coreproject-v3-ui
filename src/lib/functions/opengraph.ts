@@ -1,3 +1,5 @@
+import { encode } from "html-entities";
+
 type ISiteName = "CoreProject" | "AnimeCore" | "MangaCore";
 
 type ILocale =
@@ -150,18 +152,6 @@ type ILocale =
     | "zh_SG"
     | "zh_TW"
     | "zu_ZA";
-type IVideo = {
-    url: string;
-    type: string;
-    title: string;
-    description: string;
-    secure_url: string;
-    tag: string;
-    duration?: string;
-    release_date?: string;
-    width?: number;
-    height?: number;
-};
 
 export class OpengraphGenerator {
     #title: string;
@@ -171,13 +161,52 @@ export class OpengraphGenerator {
     #locale: ILocale;
     #audio?: string;
     #image?: string;
-    #video?: IVideo;
+    #video?: {
+        url: string;
+        type: string;
+        title: string;
+        description: string;
+        secure_url: string;
+        tag: string;
+        duration?: string;
+        release_date?: string;
+        width?: number;
+        height?: number;
+    };
 
-    constructor({ title, url, description, site_name, locale, audio, image_url, video }: { title: string; url: string; description: string; site_name: ISiteName; locale: ILocale; audio?: string; image_url?: string; video?: IVideo }) {
-        this.#title = title;
-        this.#url = url;
-        this.#image = image_url;
-        this.#description = description;
+    constructor({
+        title,
+        url,
+        description,
+        site_name,
+        locale,
+        audio,
+        image_url,
+        video
+    }: {
+        title: string;
+        url: string;
+        description: string;
+        site_name: ISiteName;
+        locale: ILocale;
+        audio?: string;
+        image_url?: string;
+        video?: {
+            url: string;
+            type: string;
+            title: string;
+            description: string;
+            secure_url: string;
+            tag: string;
+            duration?: string;
+            release_date?: string;
+            width?: number;
+            height?: number;
+        };
+    }) {
+        this.#title = encode(title);
+        this.#url = encodeURIComponent(url);
+        this.#description = encode(description);
         this.#site_name = site_name;
         this.#locale = locale;
 
@@ -185,7 +214,7 @@ export class OpengraphGenerator {
             this.#audio = audio;
         }
         if (image_url) {
-            this.#image = image_url;
+            this.#image = encodeURIComponent(image_url);
         }
         if (video) {
             this.#video = video;
