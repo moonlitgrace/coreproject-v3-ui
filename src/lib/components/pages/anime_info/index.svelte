@@ -109,11 +109,6 @@
     };
 </script>
 
-<gradient-effect
-    style="background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.10) 0%, transparent 100%); height: 900px;width: 800px;transform: translatex(-18px) translateY(-100px);z-index: 217;"
-    class="absolute inset-0 inline-block w-full"
-/>
-
 <div class="anime_info relative">
     <div class="relative h-screen bg-cover">
         <ImageLoader
@@ -132,6 +127,7 @@
                                     class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
                                     src={anime_banner}
                                     alt={anime_name}
+                                    style="box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.10);"
                                 />
                                 <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25 md:hidden" />
                             </div>
