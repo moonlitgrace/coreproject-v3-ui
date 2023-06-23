@@ -122,15 +122,15 @@
                 <div class="col-span-12 md:col-span-10 md:pr-[4vw]">
                     <div class="grid grid-cols-12 items-end justify-between">
                         <div class="relative col-span-12 grid grid-cols-12 gap-5 md:col-span-7 md:flex md:w-full md:items-end md:gap-[2vw] md:pr-[2vw]">
-                            <div class="relative col-span-12 h-96 md:h-[18.25vw] md:w-[13vw] md:flex-shrink-0">
+                            <anime-banner class="relative col-span-12 h-96 md:h-[18.25vw] md:w-[13vw] md:flex-shrink-0"
+                            >
                                 <ImageLoader
                                     class="h-full w-full rounded-xl object-cover object-center md:rounded-[1vw]"
                                     src={anime_banner}
                                     alt={anime_name}
-                                    style="box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.10);"
                                 />
-                                <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25 md:hidden" />
-                            </div>
+                                <overlay-gradient class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25 md:hidden" />
+                            </anime-banner>
                             <div class="absolute bottom-0 col-span-12 p-5 md:static md:p-0">
                                 <span class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</span>
 
