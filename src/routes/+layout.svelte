@@ -157,7 +157,7 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <navbar class="flex h-[4.5rem] items-center justify-between px-[3vw] md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+            <navbar class="absolute top-0 flex h-[4.5rem] w-full items-center justify-between bg-surface-900/95 px-[3vw] backdrop-blur-3xl md:static md:h-[10vh] md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw] md:bg-surface-900">
                 {#if ["form", "logo"].includes($navbar_middle_section_variant)}
                     <a href="/">
                         <Logo class="w-9 md:w-[2vw]" />
@@ -362,6 +362,8 @@
             </div>
         </svelte:fragment>
 
-        <slot />
+        <div class="mt-16 md:mt-0">
+            <slot />
+        </div>
     </AppShell>
 </div>
