@@ -808,7 +808,7 @@
 
     // Needs to convert to tailwind
     .radial-gradient {
-        background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 500%);
+        background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
         height: 25vw;
         width: 19vw;
         z-index: 9999;
@@ -816,11 +816,6 @@
         inset: 0;
         pointer-events: none;
         transform: translatex(-3vw) translateY(-3vw);
-
-        // need to adjust this
-        // Now I've a bad internet :(
-        mask-image: linear-gradient(180deg, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
-        mask-position: bottom;
 
         @media (max-width: 767px) {
             transform: translatex(-2rem) translateY(-7rem);
