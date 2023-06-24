@@ -118,5 +118,5 @@ export const anime_episodes = [
         duration: 1436,
         formats: ["sub", "dub"],
         resolutions: ["480p", "720p", "1080p"]
-    },
+    }
 ];
