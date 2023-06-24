@@ -823,8 +823,9 @@
         mask-position: bottom;
 
         @media (max-width: 767px) {
+            transform: translatex(-2rem) translateY(-7rem);
             height: 150%;
-            width: 111%;
+            width: 115%;
         }
     }
 </style>
