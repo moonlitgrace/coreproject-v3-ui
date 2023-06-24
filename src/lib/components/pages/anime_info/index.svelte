@@ -113,7 +113,7 @@
     <div class="relative h-screen bg-cover">
         <ImageLoader
             src={anime_cover ?? ""}
-            class="absolute hidden h-full w-full rounded-tl-[1.5vw] object-cover object-center md:flex"
+            class="absolute hidden h-full w-full select-none rounded-tl-[1.5vw] object-cover object-center md:flex"
         />
 
         <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/50" />
@@ -138,11 +138,11 @@
                                 <overlay-gradient class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/25 md:hidden" />
                             </anime-banner>
                             <div class="absolute bottom-0 col-span-12 p-5 md:static md:p-0">
-                                <span class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</span>
+                                <anime-name class="text-2xl font-bold md:text-[2vw] md:leading-[2.7vw]">{anime_name}</anime-name>
 
-                                <p class="unstyled flex flex-wrap gap-x-2 pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:gap-x-[0.25vw] md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
-                                    <span>{japanese_name}</span>
-                                </p>
+                                <anime-japanese-name class="unstyled flex flex-wrap gap-x-2 pt-2 text-xs font-semibold uppercase tracking-wider text-surface-50 md:gap-x-[0.25vw] md:pt-[0.625vw] md:text-[0.75vw] md:leading-[0.9vw]">
+                                    {japanese_name}
+                                </anime-japanese-name>
 
                                 <p class="mt-1 flex flex-wrap items-center gap-2 text-xs font-semibold md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
                                     <span>TV</span>
