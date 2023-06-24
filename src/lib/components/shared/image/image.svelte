@@ -3,6 +3,7 @@
 
     export let src: string;
     export let alt: string;
+    export let style: string;
     let klass: string;
     export { klass as class };
 
@@ -13,6 +14,7 @@
     class={klass}
     {src}
     {alt}
+    {style}
     bind:this={image}
     transition:fade|local
 />

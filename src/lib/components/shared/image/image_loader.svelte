@@ -4,6 +4,7 @@
 
     export let src: string;
     export let alt = "";
+    export let style = "";
     let klass = "";
     export { klass as class };
 </script>
@@ -17,6 +18,7 @@
             class={klass}
             {src}
             {alt}
+            {style}
         />
     {:else}
         <div class="placeholder animate-pulse !bg-surface-400 {klass}" />
