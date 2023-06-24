@@ -11,7 +11,6 @@
     import List from "$icons/list.svelte";
     import Logo from "$icons/logo.svelte";
     import Misc from "$icons/misc.svelte";
-    import MoreVertical from "$icons/more_vertical.svelte";
     import Schedule from "$icons/schedule.svelte";
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
