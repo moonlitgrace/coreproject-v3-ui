@@ -113,7 +113,7 @@
     <div class="relative h-screen bg-cover">
         <ImageLoader
             src={anime_cover ?? ""}
-            class="absolute h-full w-full rounded-tl-[1.5vw] object-cover object-center"
+            class="absolute h-full w-full select-none rounded-tl-[1.5vw] object-cover object-center"
         />
 
         <div class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/50" />
