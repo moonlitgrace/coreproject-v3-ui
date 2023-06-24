@@ -801,7 +801,6 @@
         &:not(:hover) {
             /* if we need to change the width, we should change the 90% to higher  */
             mask-image: linear-gradient(90deg, rgba(7, 5, 25, 0.95) 90%, rgba(0, 0, 0, 0) 100%);
-
             mask-position: right;
         }
 
