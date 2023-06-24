@@ -816,11 +816,12 @@
         inset: 0;
         pointer-events: none;
         transform: translatex(-3vw) translateY(-3vw);
+        mask-image: linear-gradient(to bottom, rgba(7, 5, 25, 0.95) 80%, rgba(0, 0, 0, 0) 100%);
 
         @media (max-width: 767px) {
             transform: translatex(-2rem) translateY(-7rem);
             height: 150%;
-            width: 115%;
+            width: 125%;
         }
     }
 </style>
