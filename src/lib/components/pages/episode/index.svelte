@@ -1,12 +1,16 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import Markdown from "$components/shared/markdown.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
     import { episode_comments } from "$data/mock/episode_comments";
+    import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
+    import Cross from "$icons/cross.svelte";
     import Download from "$icons/download.svelte";
+    import Filter from "$icons/filter.svelte";
     import Heart from "$icons/heart.svelte";
     import Next from "$icons/next.svelte";
     import Warning from "$icons/warning.svelte";
@@ -195,7 +199,7 @@
     </episode-content>
 
     <episode-media class="grid grid-cols-12 md:mt-[5vw] md:gap-[5vw]">
-        <comments-section class="flex flex-col md:col-span-6 md:gap-[0.75vw]">
+        <comments-section class="flex flex-col md:col-span-7 md:gap-[0.75vw]">
             <span class="font-semibold md:text-[1.35vw]">Comments</span>
 
             <form class="mt-3 md:mt-[1vw]">
@@ -258,7 +262,52 @@
                 {/each}
             </comments>
         </comments-section>
-        <forum class="flex flex-col md:col-span-4 md:gap-[0.75vw]">forum</forum>
+        <forum class="flex flex-col md:col-span-5 md:gap-[0.75vw]">
+            <forum-posts class="md:col-span-2">
+                <span class="font-semibold md:text-[1.35vw]">Forum Posts</span>
+
+                <forum-options class="flex items-center justify-between md:mt-[1.5vw]">
+                    <posts-count class="flex items-center gap-1 md:hidden">
+                        <span class="text-base font-bold leading-none">106</span>
+                        <span class="text-sm font-semibold text-surface-50">posts</span>
+                    </posts-count>
+
+                    <forum-buttons class="flex items-center gap-2 md:w-full md:justify-between">
+                        <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                            <Cross
+                                color="surface-50"
+                                class="w-4 rotate-45 md:w-[1vw]"
+                            />
+                            Create New
+                        </button>
+
+                        <button
+                            class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
+                            aria-label="Filter"
+                        >
+                            <Filter
+                                class="w-3 md:w-[1vw]"
+                                color="lightgray"
+                            />
+                        </button>
+                    </forum-buttons>
+                </forum-options>
+
+                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1.25vw] md:flex md:gap-[1vw]">
+                    {#each forum_posts as post}
+                        <ForumPosts
+                            post_title={post.title}
+                            post_banner={post.banner}
+                            post_description={post.description}
+                            auther={post.auther}
+                            posted_on_date={post.posted_on}
+                            link={post.link}
+                            responses={Number(post.responses)}
+                        />
+                    {/each}
+                </posts>
+            </forum-posts>
+        </forum>
     </episode-media>
 </episode-container>
 
