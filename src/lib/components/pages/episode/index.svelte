@@ -1,28 +1,59 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import Chevron from "$icons/chevron.svelte";
+    import Download from "$icons/download.svelte";
+    import Next from "$icons/next.svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
 
-    const video_player_preferences: {
-        [key: string]: {
-            enabled: boolean;
-            text: string;
+    const video_player_mapping: {
+        preferences: {
+            [key: string]: {
+                enabled: boolean;
+                text: string;
+            };
+        };
+        options: {
+            [key: string]: {
+                component: typeof SvelteComponentDev;
+                link: string;
+                class: string;
+            };
         };
     } = {
-        lights: {
-            enabled: false,
-            text: "Lights"
+        preferences: {
+            lights: {
+                enabled: false,
+                text: "Lights"
+            },
+            auto_play: {
+                enabled: true,
+                text: "Auto Play"
+            },
+            auto_next: {
+                enabled: true,
+                text: "Auto Next"
+            },
+            auto_skip_intro: {
+                enabled: true,
+                text: "Auto Skip Intro"
+            }
         },
-        auto_play: {
-            enabled: true,
-            text: "Auto Play"
-        },
-        auto_next: {
-            enabled: true,
-            text: "Auto Next"
-        },
-        auto_skip_intro: {
-            enabled: true,
-            text: "Auto Skip Intro"
+        options: {
+            download: {
+                component: Download,
+                link: "./",
+                class: "w-[1.4vw]"
+            },
+            prev: {
+                component: Next,
+                link: "./",
+                class: "w-[1.4vw] rotate-180"
+            },
+            next: {
+                component: Next,
+                link: "./",
+                class: "w-[1.4vw]"
+            }
         }
     };
 </script>
@@ -49,7 +80,7 @@
                         </button>
                     </sub-dub>
 
-                    {#each Object.entries(video_player_preferences) as item}
+                    {#each Object.entries(video_player_mapping.preferences) as item}
                         {@const text = item[1].text}
                         {@const enabled = item[1].enabled}
 
@@ -68,7 +99,24 @@
                         </button>
                     {/each}
                 </preferences>
-                <video-options />
+                <video-options class="flex items-center gap-[0.75vw]">
+                    {#each Object.entries(video_player_mapping.options) as item}
+                        {@const component = item[1].component}
+                        {@const link = item[1].link}
+                        {@const _class = item[1].class}
+
+                        <a
+                            href={link}
+                            class="unstyled"
+                            class:pointer-events-none={!link}
+                        >
+                            <svelte:component
+                                this={component}
+                                class={_class}
+                            />
+                        </a>
+                    {/each}
+                </video-options>
             </video-player-options>
         </video-player>
         <episode-info class="col-span-4">
