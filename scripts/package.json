@@ -7,5 +7,8 @@
         "node-fetch-retry": "^2.0.1",
         "sharp": "^0.32.1"
     },
-    "type": "module"
+    "type": "module",
+    "scripts": {
+        "build:emoji": "node ./emojis/downloader"
+    }
 }

@@ -8,9 +8,9 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const emoji_data_path = path.join(__dirname, "..", "src", "lib", "data", "emojis.json");
-const emoji_input_path = path.join(__dirname, "emojis.json");
-const download_path = path.join(__dirname, "..", "static", "emojis");
+const emoji_data_path = path.join(__dirname, "..", "..", "src", "lib", "data", "emojis.json");
+const emoji_input_path = path.join(__dirname, "data.json");
+const download_path = path.join(__dirname, "..", "..", "static", "emojis");
 
 // Check if folder exists
 if (!fs.existsSync(download_path)) {
