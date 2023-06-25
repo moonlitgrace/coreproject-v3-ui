@@ -1,10 +1,14 @@
 <script lang="ts">
+    import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import Chevron from "$icons/chevron.svelte";
     import Download from "$icons/download.svelte";
     import Next from "$icons/next.svelte";
+    import Search from "$icons/search.svelte";
     import type { SvelteComponentDev } from "svelte/internal";
     import tippy from "tippy.js";
+
+    $: episode_id = Number($page.params.id);
 
     const video_player_mapping: {
         preferences: {
@@ -135,7 +139,32 @@
             </video-player-options>
         </video-player>
         <episode-info class="col-span-4">
-            <episodes-picker />
+            <episodes-container class="flex flex-col md:gap-[1.5vw]">
+                <header class="flex items-center justify-between">
+                    <span class="font-semibold md:text-[1.35vw]">Episodes</span>
+                    <options class="flex items-center gap-[1vw]">
+                        <button class="btn p-0">
+                            <Search class="md:w-[1.25vw]" />
+                        </button>
+                        <button class="btn flex items-center bg-surface-400 font-semibold leading-none md:gap-[0.5vw] md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.5vw] md:text-[1vw]">
+                            EPS: 1 - 20
+                            <Chevron class="md:w-[1vw]" />
+                        </button>
+                    </options>
+                </header>
+
+                <episodes class="grid grid-cols-6 md:gap-x-[1vw] md:gap-y-[0.5vw]">
+                    {#each Array(20) as item, index}
+                        {@const episode_index = index + 1}
+                        <a
+                            href="./{episode_index}"
+                            class="{episode_index === episode_id ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:px-[2vw] md:py-[0.5vw] md:text-[1.2vw]"
+                        >
+                            {episode_index}
+                        </a>
+                    {/each}
+                </episodes>
+            </episodes-container>
             <episode-detail />
         </episode-info>
     </episode-content>
