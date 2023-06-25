@@ -138,8 +138,8 @@
                 </video-options>
             </video-player-options>
         </video-player>
-        <episode-info class="col-span-4">
-            <episodes-container class="flex flex-col md:gap-[1.5vw]">
+        <episode-info class="col-span-4 flex flex-col justify-between">
+            <episodes-container class="flex flex-col justify-between md:gap-[1.5vw]">
                 <header class="flex items-center justify-between">
                     <span class="font-semibold md:text-[1.35vw]">Episodes</span>
                     <options class="flex items-center gap-[1vw]">
@@ -154,7 +154,7 @@
                 </header>
 
                 <episodes class="grid grid-cols-6 md:gap-x-[1vw] md:gap-y-[0.5vw]">
-                    {#each Array(20) as item, index}
+                    {#each Array(35) as item, index}
                         {@const episode_index = index + 1}
                         <a
                             href="./{episode_index}"
@@ -165,7 +165,7 @@
                     {/each}
                 </episodes>
             </episodes-container>
-            <episode-detail class="block flex items-end md:mt-[5vw] md:gap-[1.5vw]">
+            <episode-detail class="block flex items-end md:gap-[1.5vw]">
                 <anime-banner class="relative md:h-[13vw] md:w-[9vw] md:flex-shrink-0">
                     <ImageLoader
                         class="h-full w-full object-cover object-center md:rounded-[0.5vw]"
@@ -175,10 +175,12 @@
                     <overlay-gradient class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
                 </anime-banner>
                 <episode-main-detail class="flex flex-col leading-none md:gap-[0.25vw]">
-                    <episode-title class="font-bold md:text-[1.5vw]">Deamon Slayer</episode-title>
+                    <anime-title class="font-bold text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[1.75vw] md:overflow-hidden md:text-[1.5vw] md:leading-[1.75vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">Deamon Slayer</anime-title>
+
                     <span class="text-surface-50 md:text-[1vw]">currently watching</span>
                     <span class="font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_id}</span>
-                    <span class="text-surface-50 md:text-[1vw] md:leading-[1.2vw]">A Connected Bond: Daybreak and First Light</span>
+
+                    <episode-name class="text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">A Connected Bond: Daybreak and First Light</episode-name>
 
                     <button
                         type="button"
@@ -192,3 +194,10 @@
         </episode-info>
     </episode-content>
 </episode-container>
+
+<style lang="scss">
+    anime-title,
+    episode-name {
+        scrollbar-width: none;
+    }
+</style>
