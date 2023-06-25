@@ -165,7 +165,30 @@
                     {/each}
                 </episodes>
             </episodes-container>
-            <episode-detail />
+            <episode-detail class="block flex items-end md:mt-[5vw] md:gap-[1.5vw]">
+                <anime-banner class="relative md:h-[13vw] md:w-[9vw] md:flex-shrink-0">
+                    <ImageLoader
+                        class="h-full w-full object-cover object-center md:rounded-[0.5vw]"
+                        src="/images/DemonSlayer-bg.avif"
+                        alt="Demon Slayer"
+                    />
+                    <overlay-gradient class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
+                </anime-banner>
+                <episode-main-detail class="flex flex-col leading-none md:gap-[0.25vw]">
+                    <episode-title class="font-bold md:text-[1.5vw]">Deamon Slayer</episode-title>
+                    <span class="text-surface-50 md:text-[1vw]">currently watching</span>
+                    <span class="font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_id}</span>
+                    <span class="text-surface-50 md:text-[1vw] md:leading-[1.2vw]">A Connected Bond: Daybreak and First Light</span>
+
+                    <button
+                        type="button"
+                        class="btn flex items-center bg-primary-600 p-0 font-bold text-white md:mt-[1vw] md:h-[3vw] md:gap-[0.5vw] md:rounded-[0.5vw]"
+                    >
+                        <span class="md:text-[1.1vw]">More Details</span>
+                        <Chevron class="-rotate-90 md:w-[1.25vw]" />
+                    </button>
+                </episode-main-detail>
+            </episode-detail>
         </episode-info>
     </episode-content>
 </episode-container>
