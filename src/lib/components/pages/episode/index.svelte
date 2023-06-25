@@ -148,12 +148,12 @@
                     </button>
                 </header>
 
-                <episodes class="grid grid-cols-6 md:gap-x-[1vw] md:gap-y-[0.5vw]">
+                <episodes class="grid grid-cols-6 md:gap-[0.75vw]">
                     {#each Array(30) as item, index}
                         {@const episode_index = index + 1}
                         <a
                             href="./{episode_index}"
-                            class="{episode_index === episode_id ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:px-[2vw] md:py-[0.75vw] md:text-[1.2vw]"
+                            class="{episode_index === episode_id ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
                         >
                             {episode_index}
                         </a>
