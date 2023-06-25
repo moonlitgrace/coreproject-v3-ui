@@ -4,6 +4,7 @@
     import Download from "$icons/download.svelte";
     import Next from "$icons/next.svelte";
     import type { SvelteComponentDev } from "svelte/internal";
+    import tippy from "tippy.js";
 
     const video_player_mapping: {
         preferences: {
@@ -17,6 +18,7 @@
                 component: typeof SvelteComponentDev;
                 link: string;
                 class: string;
+                text: string;
             };
         };
     } = {
@@ -42,17 +44,20 @@
             download: {
                 component: Download,
                 link: "./",
-                class: "w-[1.4vw]"
+                class: "w-[1.4vw]",
+                text: "Download"
             },
             prev: {
                 component: Next,
                 link: "./",
-                class: "w-[1.4vw] rotate-180"
+                class: "w-[1.4vw] rotate-180",
+                text: "Previous Episode"
             },
             next: {
                 component: Next,
                 link: "./",
-                class: "w-[1.4vw]"
+                class: "w-[1.4vw]",
+                text: "Next Episode"
             }
         }
     };
@@ -104,11 +109,21 @@
                         {@const component = item[1].component}
                         {@const link = item[1].link}
                         {@const _class = item[1].class}
+                        {@const text = item[1].text}
 
                         <a
                             href={link}
                             class="unstyled"
                             class:pointer-events-none={!link}
+                            use:tippy={{
+                                content: `<div class='leading-none w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.5vw] md:rounded-[0.35vw] md:text-[1vw]'>${text}</div>`,
+                                placement: "bottom",
+                                allowHTML: true,
+                                arrow: false,
+                                offset: [0, 17],
+                                appendTo: document.body,
+                                animation: "shift-away"
+                            }}
                         >
                             <svelte:component
                                 this={component}
