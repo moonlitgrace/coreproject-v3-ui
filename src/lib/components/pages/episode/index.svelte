@@ -1,10 +1,15 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import Markdown from "$components/shared/markdown.svelte";
+    import TextEditor from "$components/shared/text_editor.svelte";
+    import { episode_comments } from "$data/mock/episode_comments";
+    import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
     import Download from "$icons/download.svelte";
+    import Heart from "$icons/heart.svelte";
     import Next from "$icons/next.svelte";
-    import Search from "$icons/search.svelte";
+    import Warning from "$icons/warning.svelte";
     import type { SvelteComponentDev } from "svelte/internal";
     import tippy from "tippy.js";
 
@@ -188,6 +193,73 @@
             </episode-detail>
         </episode-info>
     </episode-content>
+
+    <episode-media class="grid grid-cols-12 md:mt-[5vw] md:gap-[5vw]">
+        <comments-section class="flex flex-col md:col-span-6 md:gap-[0.75vw]">
+            <span class="font-semibold md:text-[1.35vw]">Comments</span>
+
+            <form class="mt-3 md:mt-[1vw]">
+                <div class="relative">
+                    <TextEditor />
+                </div>
+
+                <div class="mt-4 flex justify-between gap-5 md:mt-[0.75vw] md:gap-[1vw]">
+                    <div class="flex items-center gap-3 md:gap-[0.625vw]">
+                        <Warning class="w-10 md:w-[1.2vw]" />
+                        <p class="unstyled text-[0.65rem] font-light leading-tight text-surface-300 md:text-[0.75vw] md:leading-[1.125vw]">
+                            Please remember to follow our
+                            <a
+                                href="/"
+                                class="unstyled text-surface-200 underline"
+                            >
+                                community guidelines
+                            </a>
+                            while commenting. Also please refrain from posting spoilers.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
+                </div>
+            </form>
+
+            <comments class="flex flex-col md:mt-[2vw] md:gap-[1.5vw]">
+                {#each episode_comments as comment}
+                    <comment class="flex md:gap-[1vw]">
+                        <a
+                            href="/user/"
+                            class="flex-shrink-0 md:h-[2vw] md:w-[2vw]"
+                        >
+                            <ImageLoader
+                                src={comment.user.profile_pic}
+                                alt="Avatar"
+                                class="h-full w-full shrink-0 rounded-full object-cover"
+                            />
+                        </a>
+                        <comment-details class="flex flex-col items-start">
+                            <a
+                                href="/user/"
+                                class="unstyled leading-none md:text-[1vw]"
+                            >
+                                <username>{comment.user.username}</username>
+                                <comment-time class="text-surface-300 md:text-[0.75vw] md:leading-[1.5vw]">{new FormatDate(comment.date).format_to_time_from_now}</comment-time>
+                            </a>
+
+                            <Markdown
+                                class="text-surface-50 md:text-[1vw] md:leading-[1.5vw]"
+                                markdown={comment.content}
+                            />
+
+                            <button class="btn p-0">
+                                <Heart class="text-surface-300 md:w-[1vw]" />
+                                <likes class="md:text-[0.75vw]">{comment.likes}</likes>
+                            </button>
+                        </comment-details>
+                    </comment>
+                {/each}
+            </comments>
+        </comments-section>
+        <forum class="flex flex-col md:col-span-4 md:gap-[0.75vw]">forum</forum>
+    </episode-media>
 </episode-container>
 
 <style lang="scss">
