@@ -112,13 +112,13 @@
         </uploads-options>
 
         <uploads-table class="mt-10 block md:mt-[3vw]">
-            <table class="w-full leading-none text-surface-50">
+            <table class="w-full border-separate border-spacing-y-2 leading-none text-surface-50 md:border-spacing-y-[0.25vw]">
                 <thead>
                     <tr class="text-left md:text-[1vw]">
                         <th>
                             <input
                                 type="checkbox"
-                                class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw]"
+                                class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw] md:border-[0.2vw]"
                             />
                         </th>
                         <th>
@@ -165,13 +165,13 @@
                     </tr>
                 </tbody>
                 <!-- spacing -->
-                <tbody class="border-separate border-spacing-10">
+                <tbody>
                     {#each Array(10) as _}
                         <tr>
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
                                     type="checkbox"
-                                    class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw]"
+                                    class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                                 />
                                 <button class="btn hidden p-0 md:flex">
                                     <Star
@@ -204,3 +204,10 @@
         </uploads-table>
     </uploads>
 </container>
+
+<style lang="scss">
+    // table {
+    //     border-collapse: separate;
+    //     border-spacing: 0 1vw;
+    // }
+</style>
