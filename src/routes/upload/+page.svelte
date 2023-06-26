@@ -152,34 +152,15 @@
                                 class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                             />
                         </th>
-                        <th>
-                            <div class="flex items-center md:gap-[0.5vw]">
-                                <span>Name</span>
-                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
-                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="flex items-center md:gap-[0.5vw]">
-                                <span>Type</span>
-                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
-                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="hidden items-center md:flex md:gap-[0.5vw]">
-                                <span>Data modified</span>
-                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
-                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="flex items-center md:gap-[0.5vw]">
-                                <span>Size</span>
-                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
-                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
-                            </div>
-                        </th>
+                        {#each ["name", "type", "date modified", "size"] as table_heading_item}
+                            <th>
+                                <div class="flex items-center md:gap-[0.5vw]">
+                                    <span class="capitalize">{table_heading_item}</span>
+                                    <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                    <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                                </div>
+                            </th>
+                        {/each}
                     </tr>
                 </thead>
                 <!-- spacing -->
@@ -191,6 +172,11 @@
                 <!-- spacing -->
                 <tbody>
                     {#each file_list ?? [] as file}
+                        {@const name = file.name}
+                        {@const last_modified = file.lastModified}
+                        {@const type = "[DIRECTORY]"}
+                        {@const size = prettyBytes(file.size)}
+
                         <tr>
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
@@ -205,20 +191,12 @@
                                     />
                                 </button>
                             </td>
-                            <td>
-                                <span class="md:text-[1vw]">{file.name}</span>
-                            </td>
-                            <td>
-                                <span class="hidden text-[1vw] md:flex">[DIRECTORY]</span>
-                                <span class="flex text-base md:hidden">[DIR]</span>
-                            </td>
-                            <td class="">
-                                <span class="hidden text-[1vw] md:flex">{file.lastModified}</span>
-                            </td>
-
-                            <td>
-                                <span class="md:text-[1vw]">{prettyBytes(file.size)}</span>
-                            </td>
+                            <!-- name  -->
+                            {#each [name, type, last_modified, size] as table_item}
+                                <td>
+                                    <span class="md:text-[1vw]">{table_item}</span>
+                                </td>
+                            {/each}
                         </tr>
                     {/each}
                 </tbody>
