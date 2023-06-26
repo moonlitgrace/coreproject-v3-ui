@@ -19,10 +19,12 @@
 
     export let episode_number: number | undefined;
 
+    const button_state_mapping: { [key: string]: boolean } = {
+        lights: false
+    };
     const video_player_mapping: {
         preferences: {
             [key: string]: {
-                enabled: boolean;
                 text: string;
             };
         };
@@ -37,20 +39,7 @@
     } = {
         preferences: {
             lights: {
-                enabled: false,
                 text: "Lights"
-            },
-            auto_play: {
-                enabled: true,
-                text: "Auto Play"
-            },
-            auto_next: {
-                enabled: true,
-                text: "Auto Next"
-            },
-            auto_skip_intro: {
-                enabled: true,
-                text: "Auto Skip Intro"
             }
         },
         options: {
@@ -100,13 +89,20 @@
 
                     {#each Object.entries(video_player_mapping.preferences) as item}
                         {@const text = item[1].text}
-                        {@const enabled = item[1].enabled}
+                        {@const enabled = button_state_mapping[item[0]]}
 
-                        {@const status = enabled ? "On" : "Off"}
-
-                        <button class="btn flex items-center p-0 text-xs leading-none md:text-[0.9vw]">
+                        <button
+                            class="btn flex items-center p-0 text-xs leading-none md:text-[0.9vw]"
+                            on:click={() => {
+                                button_state_mapping[item[0]] = !button_state_mapping[item[0]];
+                            }}
+                        >
                             <span>{text}:</span>
-                            <status class="{enabled ? 'text-warning-500' : 'text-primary-300'} font-semibold">{status}</status>
+                            {#if enabled}
+                                <status class="font-semibold text-warning-500">On</status>
+                            {:else}
+                                <status class="font-semibold text-primary-300">Off</status>
+                            {/if}
                         </button>
                     {/each}
                 </preferences>

@@ -19,7 +19,7 @@
         }
     };
 
-    marked.use({ renderer });
+    marked.use({ renderer, mangle: false });
 
     let html: string;
     $: html = xss(marked.parse(markdown));
