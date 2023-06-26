@@ -6,7 +6,16 @@ export const episode_comments = [
         },
         date: "2023-03-11T02:37:40.790Z",
         content: `Hi **Tokito** here! `,
-        likes: 999
+        likes: 1204
+    },
+    {
+        user: {
+            username: "Sora amamiya",
+            profile_pic: "/images/Avatar.avif"
+        },
+        date: "2023-01-11T02:37:40.790Z",
+        content: `**_Tokito_** Love you :P`,
+        likes: 106
     },
     {
         user: {
@@ -15,6 +24,6 @@ export const episode_comments = [
         },
         date: "2023-01-11T02:37:40.790Z",
         content: `This episode is damn good. **Tokito** is the best :P`,
-        likes: 99
-    },
+        likes: 69
+    }
 ]
