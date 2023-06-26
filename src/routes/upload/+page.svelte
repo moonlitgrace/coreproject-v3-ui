@@ -12,14 +12,15 @@
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
     import dayjs from "dayjs";
+    import _ from "lodash";
     import prettyBytes from "pretty-bytes";
 
-    let file_list: DataTransfer = new DataTransfer();
+    let file_list: Set<File> = new Set<File>();
 
     // Declare and handle the file_size
     let file_size = 0;
-    $: Array.from(file_list.items ?? []).forEach((item) => {
-        file_size += (item.getAsFile() ?? new File([""], "")).size;
+    $: (file_list ?? []).forEach((item) => {
+        file_size += item.size;
     });
 
     // Declare checkbox array
@@ -29,8 +30,11 @@
         const files = (e.target as HTMLInputElement).files as FileList;
 
         Array.from(files).forEach((file) => {
-            file_list.items.add(file);
+            if (!file_list.has(file)) {
+                file_list = new Set(file_list.add(file));
+            }
         });
+        console.log(file_list);
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -180,7 +184,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each file_list.files ?? [] as file, index}
+                    {#each Array.from(file_list) as file, index}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
                             /* 
