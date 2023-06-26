@@ -102,14 +102,7 @@
                         {@const text = item[1].text}
                         {@const enabled = item[1].enabled}
 
-                        {@const status = (() => {
-                            switch (enabled) {
-                                case true:
-                                    return "On";
-                                default:
-                                    return "Off";
-                            }
-                        })()}
+                        {@const status = (() => enabled ? "On" : "Off")()}
 
                         <button class="btn flex items-center p-0 leading-none md:text-[0.9vw]">
                             <span>{text}:</span>
