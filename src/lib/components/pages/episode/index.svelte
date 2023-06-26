@@ -152,12 +152,13 @@
 
                 <episodes class="grid grid-cols-6 md:gap-[0.75vw]">
                     {#each Array(30) as item, index}
-                        {@const episode_index = index + 1}
+                        {@const actual_index = index + 1}
+                        {@const button_active = actual_index === episode_number}
                         <a
-                            href="./{episode_index}"
-                            class="{episode_index === episode_number ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
+                            href="./{actual_index}"
+                            class="{button_active ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
                         >
-                            {episode_index}
+                            {actual_index}
                         </a>
                     {/each}
                 </episodes>
