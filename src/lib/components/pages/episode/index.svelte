@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { page } from "$app/stores";
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import Markdown from "$components/shared/markdown.svelte";
@@ -18,7 +17,7 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import tippy from "tippy.js";
 
-    $: episode_id = Number($page.params.id);
+    export let episode_number: number;
 
     const video_player_mapping: {
         preferences: {
@@ -163,7 +162,7 @@
                         {@const episode_index = index + 1}
                         <a
                             href="./{episode_index}"
-                            class="{episode_index === episode_id ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
+                            class="{episode_index === episode_number ? 'bg-primary-500' : 'bg-surface-400'} unstyled btn font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
                         >
                             {episode_index}
                         </a>
@@ -183,7 +182,7 @@
                     <anime-title class="font-bold text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[1.75vw] md:overflow-hidden md:text-[1.5vw] md:leading-[1.75vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">Deamon Slayer</anime-title>
 
                     <span class="text-surface-50 md:text-[1vw]">currently watching</span>
-                    <span class="font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_id}</span>
+                    <span class="font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_number}</span>
 
                     <episode-name class="text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">A Connected Bond: Daybreak and First Light</episode-name>
 
