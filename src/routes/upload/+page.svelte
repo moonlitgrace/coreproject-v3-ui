@@ -10,6 +10,19 @@
     import Upload from "$icons/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
+    import prettyBytes from "pretty-bytes";
+
+    let file_list: FileList;
+
+    // Declare and handle the file_size
+    let file_size = 0;
+    $: Array.from(file_list ?? []).forEach((item) => {
+        file_size += item.size;
+    });
+
+    function handle_file_change(e: Event): void {
+        const files = (e.target as HTMLInputElement).files as FileList;
+    }
 
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
@@ -39,13 +52,16 @@
                     meter="bg-primary-500"
                 />
                 <progress-info class="mt-5 flex flex-col gap-3 leading-none md:mt-[1.5vw] md:gap-[0.5vw]">
-                    <span class="font-semibold md:text-[1vw]">292.8 GB</span>
+                    <span class="font-semibold md:text-[1vw]">{prettyBytes(file_size)}</span>
                     <span class="text-surface-50 md:text-[1vw]">17 folders, 29 files</span>
                 </progress-info>
             </div>
         </upload-progress>
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
+                on:change={handle_file_change}
+                bind:files={file_list}
+                multiple={true}
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400 h-48 md:h-full"
                 border="border-none"
@@ -105,7 +121,7 @@
             </div>
 
             <div class="mt-5 flex justify-between md:mt-0 md:justify-start md:gap-[3vw]">
-                <button class="btn flex gap-3 p-0 text-base text-base font-semibold leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                <button class="btn flex gap-3 p-0 text-base font-semibold leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
                     <Edit
                         variant="without_underline_around_pencil"
                         class="w-4 md:w-[1vw]"
@@ -133,7 +149,7 @@
                         <th>
                             <input
                                 type="checkbox"
-                                class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw] md:border-[0.2vw]"
+                                class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                             />
                         </th>
                         <th>
@@ -181,7 +197,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each Array(10) as _}
+                    {#each file_list ?? [] as file}
                         <tr>
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
@@ -197,7 +213,7 @@
                                 </button>
                             </td>
                             <td>
-                                <span class="md:text-[1vw]">Attack on Titan SO1</span>
+                                <span class="md:text-[1vw]">{file.name}</span>
                             </td>
                             <td>
                                 <span class="hidden text-[1vw] md:flex">[DIRECTORY]</span>
@@ -210,7 +226,7 @@
                                 <span class="hidden text-[1vw] md:flex">2023-03-03</span>
                             </td>
                             <td>
-                                <span class="md:text-[1vw]">28.4 GB</span>
+                                <span class="md:text-[1vw]">{prettyBytes(file.size)}</span>
                             </td>
                         </tr>
                     {/each}
