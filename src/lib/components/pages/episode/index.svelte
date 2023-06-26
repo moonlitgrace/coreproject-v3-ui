@@ -187,8 +187,8 @@
                 <episode-main-detail class="absolute bottom-0 flex flex-col p-5 leading-none md:static md:gap-[0.25vw] md:p-0">
                     <anime-title class="text-xl font-bold duration-300 ease-in-out scrollbar-none md:h-auto md:max-h-[1.75vw] md:overflow-hidden md:text-[1.5vw] md:leading-[1.75vw] md:text-surface-50 md:hover:max-h-[5vw] md:hover:overflow-y-scroll">Deamon Slayer</anime-title>
 
-                    <span class="text-base text-surface-50 md:text-[1vw]">currently watching</span>
-                    <span class="text-base font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_number}</span>
+                    <span class="text-base text-surface-50 md:text-[1vw] md:leading-none">currently watching</span>
+                    <span class="text-base font-semibold md:my-[0.5vw] md:text-[1.25vw] md:leading-none">Episode: {episode_number}</span>
 
                     <episode-name class="text-sm duration-300 ease-in-out scrollbar-none md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:text-surface-50 md:hover:max-h-[5vw] md:hover:overflow-y-scroll">A Connected Bond: Daybreak and First Light</episode-name>
 
