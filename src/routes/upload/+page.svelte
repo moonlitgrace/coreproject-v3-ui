@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from "$app/stores";
+    import { OpengraphGenerator } from "$functions/opengraph";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import Delete from "$icons/delete.svelte";
@@ -8,7 +10,20 @@
     import Upload from "$icons/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
+
+    const opengraph_html = new OpengraphGenerator({
+        title: `Upload on AnimeCore`,
+        url: $page.url.href,
+        description: "",
+        site_name: "CoreProject",
+        locale: "en_US",
+        image_url: ""
+    }).generate_opengraph();
 </script>
+
+<svelte:head>
+    {@html opengraph_html}
+</svelte:head>
 
 <container class="block p-5 md:py-[2vw] md:pl-[5vw] md:pr-[3.75vw]">
     <upload-area class="grid grid-cols-12 gap-7 md:gap-[5vw] md:px-[10vw]">
