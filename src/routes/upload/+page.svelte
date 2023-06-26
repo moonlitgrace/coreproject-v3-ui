@@ -174,13 +174,6 @@
                             </div>
                         </th>
                         <th>
-                            <div class="hidden items-center md:flex md:gap-[0.5vw]">
-                                <span>Data created</span>
-                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
-                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
-                            </div>
-                        </th>
-                        <th>
                             <div class="flex items-center md:gap-[0.5vw]">
                                 <span>Size</span>
                                 <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
@@ -220,11 +213,9 @@
                                 <span class="flex text-base md:hidden">[DIR]</span>
                             </td>
                             <td class="">
-                                <span class="hidden text-[1vw] md:flex">2023-03-03</span>
+                                <span class="hidden text-[1vw] md:flex">{file.lastModified}</span>
                             </td>
-                            <td class="">
-                                <span class="hidden text-[1vw] md:flex">2023-03-03</span>
-                            </td>
+
                             <td>
                                 <span class="md:text-[1vw]">{prettyBytes(file.size)}</span>
                             </td>
