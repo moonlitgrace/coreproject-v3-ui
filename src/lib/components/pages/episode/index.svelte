@@ -293,7 +293,7 @@
                             post_title={post.title}
                             post_banner={post.banner}
                             post_description={post.description}
-                            auther={post.auther}
+                            author={post.author}
                             posted_on_date={post.posted_on}
                             link={post.link}
                             responses={Number(post.responses)}
