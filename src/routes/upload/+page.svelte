@@ -14,16 +14,22 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
-    let file_list: FileList;
+    let file_list: Map<string, File> = new Map<string, File>();
 
     // Declare and handle the file_size
     let file_size = 0;
-    $: Array.from(file_list ?? []).forEach((item) => {
+    $: Array.from(file_list.values()).forEach((item) => {
         file_size += item.size;
     });
 
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
+
+        Array.from(files).forEach((file) => {
+            if (!Array.from(file_list.keys()).includes(file.name)) {
+                file_list = file_list.set(file.name, file);
+            }
+        });
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -62,7 +68,6 @@
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
                 on:change={handle_file_change}
-                bind:files={file_list}
                 accept=".mp4,.mkv"
                 multiple={true}
                 name="files"
@@ -174,7 +179,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each file_list ?? [] as file}
+                    {#each Array.from(file_list.values()) as file}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
                             /* 
