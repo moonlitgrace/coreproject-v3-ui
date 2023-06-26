@@ -30,9 +30,11 @@
         // Emoji plugin
         markedEmoji(emoji_options),
         {
+            renderer,
             // Disable it as marked-mangle doesn't support typescript
             mangle: false,
-            renderer
+            // We dont need github like header prefix
+            headerIds: false
         }
     );
 
