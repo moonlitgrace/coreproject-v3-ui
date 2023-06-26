@@ -125,7 +125,7 @@
                         {#each Object.entries(video_player_mapping.options) as item}
                             {@const component = item[1].component}
                             {@const link = item[1].link}
-                            {@const _class = item[1].class}
+                            {@const klass = item[1].class}
                             {@const text = item[1].text}
 
                             <a
@@ -144,7 +144,7 @@
                             >
                                 <svelte:component
                                     this={component}
-                                    class={_class}
+                                    class={klass}
                                 />
                             </a>
                         {/each}
