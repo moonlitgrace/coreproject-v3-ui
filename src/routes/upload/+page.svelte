@@ -12,29 +12,18 @@
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
     import dayjs from "dayjs";
-    import _ from "lodash";
     import prettyBytes from "pretty-bytes";
 
-    let file_list: Set<File> = new Set<File>();
+    let file_list: FileList;
 
     // Declare and handle the file_size
     let file_size = 0;
-    $: (file_list ?? []).forEach((item) => {
+    $: Array.from(file_list ?? []).forEach((item) => {
         file_size += item.size;
     });
 
-    // Declare checkbox array
-    let checkbox_elements: Array<HTMLInputElement> = [];
-
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
-
-        Array.from(files).forEach((file) => {
-            if (!file_list.has(file)) {
-                file_list = new Set(file_list.add(file));
-            }
-        });
-        console.log(file_list);
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -73,6 +62,7 @@
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
                 on:change={handle_file_change}
+                bind:files={file_list}
                 accept=".mp4,.mkv"
                 multiple={true}
                 name="files"
@@ -184,7 +174,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each Array.from(file_list) as file, index}
+                    {#each file_list ?? [] as file}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
                             /* 
@@ -199,7 +189,6 @@
                         <tr>
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
-                                    bind:this={checkbox_elements[index]}
                                     type="checkbox"
                                     class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                                 />
