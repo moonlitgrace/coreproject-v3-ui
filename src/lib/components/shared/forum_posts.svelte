@@ -8,7 +8,7 @@
     export let post_banner: string;
     export let post_title: string;
     export let post_description: string;
-    export let auther: string;
+    export let author: string;
     export let posted_on_date: string;
     export let responses: number;
 </script>
@@ -37,9 +37,9 @@
 
         <post-infos class=" flex items-end justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:items-center md:text-[0.75vw]">
             <post-user-infos class="flex flex-col gap-1 md:flex-row md:items-center md:gap-[0.25vw]">
-                <post-auther-name>
-                    Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{auther}</span>
-                </post-auther-name>
+                <post-author-name>
+                    Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{author}</span>
+                </post-author-name>
                 <post-uploaded-date class="text-surface-50">
                     {new FormatDate(posted_on_date).format_to_time_from_now}
                 </post-uploaded-date>

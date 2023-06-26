@@ -4,7 +4,7 @@ export const forum_posts = [
 		title: "Celebrating 10 years of Hyouka!",
 		description: `Ousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters`,
 		banner: "https://blog.sakugabooru.com/wp-content/uploads/2017/11/hk22-1038x576.jpg",
-		auther: "Eiennlaio",
+		author: "Eiennlaio",
 		posted_on: "2023-04-20T15:38:51.162Z",
 		responses: 69
 	},
@@ -15,7 +15,7 @@ export const forum_posts = [
 					Player would be controlling Oreki in a 3D-esque environment and go around interrogate people around. You have choice of responses and see where that gets you.
 					Would you play a game like that based on Hyouka? `,
 		banner: "https://99px.ru/sstorage/53/2019/04/tmb_257550_218851.jpg",
-		auther: "simonitro",
+		author: "simonitro",
 		posted_on: "2022-11-20T15:38:51.162Z",
 		responses: 55
 	}

@@ -539,7 +539,7 @@
                                                     <div class=" flex items-end justify-between text-[0.6rem] leading-none md:mt-[0.75vw] md:items-center md:text-[0.75vw]">
                                                         <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-[0.25vw]">
                                                             <span>
-                                                                Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{post.auther}</span>
+                                                                Posted by <span class="text-[0.65rem] font-semibold md:text-[0.85vw]">{post.author}</span>
                                                             </span>
                                                             <span class="text-surface-50">
                                                                 {new FormatDate(post.posted_on).format_to_time_from_now}
