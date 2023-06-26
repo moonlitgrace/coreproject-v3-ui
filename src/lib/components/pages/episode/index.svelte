@@ -6,6 +6,7 @@
     import TextEditor from "$components/shared/text_editor.svelte";
     import { episode_comments } from "$data/mock/episode_comments";
     import { forum_posts } from "$data/mock/forum_posts";
+    import { recommendations } from "$data/mock/recommendations";
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
@@ -318,23 +319,35 @@
                 </load-more>
             </forum-posts>
 
-            <recommendations>
+            <recommendations-container>
                 <span class="font-semibold md:text-[1.35vw]">Recommendations</span>
 
                 <container class="grid grid-cols-3 md:mt-[1.25vw] md:gap-[1vw]">
-                    <a
-                        href="/myanimelist/1"
-                        class="group card relative col-span-1 w-full overflow-hidden rounded-[0.75vw] bg-cover bg-center md:h-[15vw]"
-                    >
-                        <ImageLoader
-                            src="https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg"
-                            class="h-full w-full object-cover object-center"
-                        />
+                    {#each recommendations as anime}
+                        <a
+                            href="/myanimelist/{anime.mal_id}"
+                            class="card relative col-span-1 w-full overflow-hidden bg-cover bg-center md:h-[15vw] md:rounded-[0.75vw]"
+                        >
+                            <ImageLoader
+                                src={anime.cover}
+                                class="h-full w-full object-cover object-center"
+                            />
 
-                        <anime-title class="absolute bottom-[0.3vw] z-10 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw] duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:group-hover:max-h-[7vw] md:group-hover:overflow-y-scroll">Yahari Ore no Seishun Love Come wa Machigatteiru.</anime-title>
+                            <anime-details class="absolute bottom-[1vw] z-10 flex w-full flex-col items-center px-[0.5vw] text-center md:gap-[0.25vw]">
+                                <anime-title class="text-[1vw] font-semibold duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:leading-[1.25vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll">
+                                    {anime.name}
+                                </anime-title>
+                                <anime-japanese-name class="leading-none md:text-[0.9vw]">
+                                    {anime.japanese_name}
+                                </anime-japanese-name>
+                                <anime-episodes-count class="leading-none text-surface-50 duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[0.9vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll">
+                                    Episodes: <b>{anime.episodes_count}</b>
+                                </anime-episodes-count>
+                            </anime-details>
 
-                        <gradient-overlay class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/80 to-surface-900/25" />
-                    </a>
+                            <gradient-overlay class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/80 to-surface-900/25" />
+                        </a>
+                    {/each}
                 </container>
 
                 <load-more class="block flex w-full justify-center md:mt-[1vw]">
@@ -346,7 +359,7 @@
                         />
                     </button>
                 </load-more>
-            </recommendations>
+            </recommendations-container>
         </forum-recommendations>
     </episode-media>
 </episode-container>
