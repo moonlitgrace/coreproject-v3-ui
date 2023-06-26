@@ -1,4 +1,8 @@
 <script lang="ts">
+    import Cross from "$icons/cross.svelte";
+    import Delete from "$icons/delete.svelte";
+    import Edit from "$icons/edit.svelte";
+    import Search from "$icons/search.svelte";
     import Upload from "$icons/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
@@ -52,9 +56,50 @@
         </upload-input>
     </upload-area>
 
-    <hr class="!border-t-[0.2vw] !border-primary-200/25 md:my-[3vw]" />
+    <hr class="!border-t-[0.2vw] !border-primary-200/25 md:mb-[1vw] md:mt-[3vw]" />
 
     <uploads>
-        <uploads-options />
+        <uploads-options class="flex justify-between">
+            <div class="flex items-center md:gap-[3vw]">
+                <form class="relative flex items-center">
+                    <button
+                        class="btn absolute left-[1vw] p-0"
+                        aria-label="Search"
+                    >
+                        <Search style="width: 1vw;" />
+                    </button>
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        class="h-full w-full border-none bg-surface-400 leading-none text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50 md:rounded-[0.5vw] md:py-[0.5vw] md:pl-[3vw] md:text-[1vw]"
+                    />
+                </form>
+                <button class="btn flex p-0 leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                    <Cross class="rotate-45 md:w-[1vw]" />
+                    New folder
+                </button>
+            </div>
+
+            <div class="flex md:gap-[3vw]">
+                <button class="btn flex p-0 leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                    <Edit
+                        variant="without_underline_around_pencil"
+                        class="md:w-[1vw]"
+                    />
+                    Rename
+                </button>
+                <button class="btn flex p-0 leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                    <Edit
+                        variant="with_underline_around_pencil"
+                        class="md:w-[1vw]"
+                    />
+                    Edit Details
+                </button>
+                <button class="btn flex p-0 leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                    <Delete class="md:w-[1vw]" />
+                    Delete
+                </button>
+            </div>
+        </uploads-options>
     </uploads>
 </container>
