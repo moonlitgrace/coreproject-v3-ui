@@ -5,14 +5,13 @@
 </script>
 
 <container class="block md:py-[2vw] md:pl-[5vw] md:pr-[3.75vw]">
-    <upload-area class="grid grid-cols-12 md:gap-[5vw]">
-        <upload-progress class="flex place-items-center md:col-span-6">
+    <upload-area class="grid grid-cols-12 md:gap-[5vw] md:px-[10vw]">
+        <upload-progress class="flex place-items-center md:col-span-7">
             <div class="w-full">
-                <ProgressBar
-                    label="Progress Bar"
+                <progress
                     value={30}
                     max={100}
-                    track="bg-surface-400"
+                    class="h-[0.9vw] !rounded !bg-surface-400"
                 />
                 <progress-info class="flex flex-col leading-none md:mt-[1vw] md:gap-[0.5vw]">
                     <span class="font-semibold md:text-[1vw]">699.5 GB</span>
@@ -20,7 +19,7 @@
                 </progress-info>
             </div>
         </upload-progress>
-        <upload-input class="md:col-span-6">
+        <upload-input class="md:col-span-5">
             <FileDropzone
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400"
@@ -42,4 +41,8 @@
     </upload-area>
 
     <hr class="!border-t-[0.2vw] !border-primary-200/25 md:my-[3vw]" />
+
+    <uploads>
+        <uploads-options />
+    </uploads>
 </container>
