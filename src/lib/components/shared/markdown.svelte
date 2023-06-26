@@ -1,11 +1,18 @@
 <script lang="ts">
+    import { emojis } from "$data/emojis";
     import { marked } from "marked";
+    import { markedEmoji } from "marked-emoji";
     import xss from "xss";
 
     export let markdown = "";
     export { klass as class };
 
     let klass = "";
+
+    const emoji_options = {
+        emojis,
+        unicode: false
+    };
 
     // Override function
     const renderer: marked.RendererObject = {
@@ -19,7 +26,17 @@
         }
     };
 
-    marked.use({ renderer, mangle: false });
+    marked.use(
+        // Emoji plugin
+        markedEmoji(emoji_options),
+        {
+            renderer,
+            // Disable it as marked-mangle doesn't support typescript
+            mangle: false,
+            // We dont need github like header prefix
+            headerIds: false
+        }
+    );
 
     let html: string;
     $: html = xss(marked.parse(markdown));
