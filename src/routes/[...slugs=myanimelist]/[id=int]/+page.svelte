@@ -22,7 +22,6 @@
 
 <svelte:head>
     {@html opengraph_html}
-    <title>Watch {anime?.name} on AnimeCore</title>
 </svelte:head>
 
 {#if anime}

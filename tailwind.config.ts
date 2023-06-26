@@ -6,7 +6,7 @@ const config: Config = {
     theme: {
         extend: {}
     },
-    plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), ...require("@skeletonlabs/skeleton/tailwind/skeleton.cjs")()]
+    plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("tailwind-scrollbar"), ...require("@skeletonlabs/skeleton/tailwind/skeleton.cjs")()]
 };
 
 export default config;
