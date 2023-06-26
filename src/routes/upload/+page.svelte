@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { FormatDate } from "$functions/format_date";
     import { OpengraphGenerator } from "$functions/opengraph";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
@@ -10,6 +11,7 @@
     import Upload from "$icons/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
+    import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
     let file_list: FileList;
@@ -173,7 +175,10 @@
                 <tbody>
                     {#each file_list ?? [] as file}
                         {@const name = file.name}
-                        {@const last_modified = file.lastModified}
+                        {@const last_modified = new FormatDate(
+                            /* Somehow things got fked up and dayjs expects it to be in seconds. So here we go with our logic */
+                            dayjs.unix(file.lastModified / 1000).toString()
+                        ).format_to_human_readable_form}
                         {@const type = "[DIRECTORY]"}
                         {@const size = prettyBytes(file.size)}
 
