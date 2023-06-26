@@ -63,6 +63,7 @@
             <FileDropzone
                 on:change={handle_file_change}
                 bind:files={file_list}
+                accept=".mp4,.mkv"
                 multiple={true}
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400 h-48 md:h-full"
