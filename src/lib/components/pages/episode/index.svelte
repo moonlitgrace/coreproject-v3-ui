@@ -17,7 +17,7 @@
     import type { SvelteComponentDev } from "svelte/internal";
     import tippy from "tippy.js";
 
-    export let episode_number: number;
+    export let episode_number: number | undefined;
 
     const video_player_mapping: {
         preferences: {
