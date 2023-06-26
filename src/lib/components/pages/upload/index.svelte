@@ -38,15 +38,15 @@
                     <Upload class="md:w-[2vw]" />
                 </svelte:fragment>
                 <svelte:fragment slot="message">
-                    <span class="font-semibold md:text-[1.1vw]">Upload a file</span>
+                    <span class="font-semibold text-surface-50 md:text-[1.1vw]">Upload a file</span>
                 </svelte:fragment>
                 <svelte:fragment slot="meta">
                     <divider class="flex items-center md:gap-[0.5vw]">
                         <left-border class="border-surface-300 md:w-[2vw] md:border-t-[0.1vw]" />
-                        <span class="font-semibold text-surface-300 md:text-[1vw]">Or</span>
+                        <span class="font-semibold text-surface-300 md:text-[0.9vw]">Or</span>
                         <right-border class="border-surface-300 md:w-[2vw] md:border-t-[0.1vw]" />
                     </divider>
-                    <span class="md:text-[1.1vw]">Browse</span>
+                    <span class="text-surface-50 md:text-[1.1vw]">Browse</span>
                 </svelte:fragment>
             </FileDropzone>
         </upload-input>
