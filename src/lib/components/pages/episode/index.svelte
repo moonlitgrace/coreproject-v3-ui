@@ -78,12 +78,11 @@
             </player>
             <video-player-options class="flex flex-col gap-2 p-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
                 <preferences class="flex gap-2 md:items-center md:gap-[1vw]">
-                    <sub-dub class="hidden items-center md:flex md:gap-[0.75vw]">
-                        <span class="font-semibold uppercase md:text-[1vw]">sub/dub:</span>
-                        <!-- need to make this a dropdown or add tippy js -->
-                        <button class="btn flex items-center bg-surface-400 leading-none md:gap-[0.5vw] md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.5vw] md:text-[1vw]">
+                    <sub-dub class="hidden items-center gap-[0.75vw] md:flex">
+                        <span class="text-[1vw] font-semibold uppercase">sub/dub:</span>
+                        <button class="btn flex items-center gap-[0.5vw] rounded-[0.35vw] bg-surface-400 px-[0.75vw] py-[0.5vw] text-[1vw] leading-none">
                             Vidstreaming (sub)
-                            <Chevron class="md:w-[1vw]" />
+                            <Chevron class="w-[1vw]" />
                         </button>
                     </sub-dub>
 
@@ -108,12 +107,11 @@
                 </preferences>
 
                 <div class="flex w-full items-center justify-between md:w-auto">
-                    <sub-dub class="flex items-center gap-2 md:hidden md:gap-[0.75vw]">
-                        <span class="text-xs font-semibold uppercase md:text-[1vw]">sub/dub:</span>
-                        <!-- need to make this a dropdown or add tippy js -->
-                        <button class="btn flex items-center gap-2 rounded bg-surface-400 px-3 py-2 text-xs leading-none md:gap-[0.5vw] md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.5vw] md:text-[1vw]">
+                    <sub-dub class="flex items-center gap-2 md:hidden">
+                        <span class="text-xs font-semibold uppercase">sub/dub:</span>
+                        <button class="btn flex items-center gap-2 rounded bg-surface-400 px-3 py-2 text-xs leading-none">
                             Vidstreaming (sub)
-                            <Chevron class="w-3 md:w-[1vw]" />
+                            <Chevron class="w-3" />
                         </button>
                     </sub-dub>
 
