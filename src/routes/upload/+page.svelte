@@ -1,8 +1,10 @@
 <script lang="ts">
+    import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import Delete from "$icons/delete.svelte";
     import Edit from "$icons/edit.svelte";
     import Search from "$icons/search.svelte";
+    import Star from "$icons/star.svelte";
     import Upload from "$icons/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
@@ -101,5 +103,96 @@
                 </button>
             </div>
         </uploads-options>
+
+        <uploads-table class="block md:mt-[3vw]">
+            <table class="w-full">
+                <thead>
+                    <tr class="text-left md:text-[1vw]">
+                        <th>
+                            <input
+                                type="checkbox"
+                                class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw]"
+                            />
+                        </th>
+                        <th>
+                            <div class="flex items-center md:gap-[0.5vw]">
+                                <span>Name</span>
+                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="flex items-center md:gap-[0.5vw]">
+                                <span>Type</span>
+                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="flex items-center md:gap-[0.5vw]">
+                                <span>Data modified</span>
+                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="flex items-center md:gap-[0.5vw]">
+                                <span>Data created</span>
+                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="flex items-center md:gap-[0.5vw]">
+                                <span>Size</span>
+                                <button class="btn p-0"><Chevron class="md:w-[1vw]" /></button>
+                                <button class="btn p-0"><Chevron class="rotate-180 opacity-50 md:w-[1vw]" /></button>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <!-- spacing -->
+                <tbody>
+                    <tr>
+                        <td class="md:h-[1vw]" />
+                    </tr>
+                </tbody>
+                <!-- spacing -->
+                <tbody class="">
+                    {#each Array(10) as _}
+                        <tr>
+                            <td class="flex items-center md:gap-[1vw]">
+                                <input
+                                    type="checkbox"
+                                    class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw]"
+                                />
+                                <button class="btn p-0">
+                                    <Star
+                                        variant="empty"
+                                        class="text-surface-50/50 md:w-[1.5vw]"
+                                        fill_color="none"
+                                    />
+                                </button>
+                            </td>
+                            <td>
+                                <span class="md:text-[1vw]">Attack on Titan SO1</span>
+                            </td>
+                            <td>
+                                <span class="md:text-[1vw]">[DIRECTORY]</span>
+                            </td>
+                            <td>
+                                <span class="md:text-[1vw]">2023-03-03</span>
+                            </td>
+                            <td>
+                                <span class="md:text-[1vw]">2023-03-03</span>
+                            </td>
+                            <td>
+                                <span class="md:text-[1vw]">28.4 GB</span>
+                            </td>
+                        </tr>
+                    {/each}
+                </tbody>
+            </table>
+        </uploads-table>
     </uploads>
 </container>
