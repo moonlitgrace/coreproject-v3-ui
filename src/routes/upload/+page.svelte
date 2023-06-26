@@ -212,10 +212,3 @@
         </uploads-table>
     </uploads>
 </container>
-
-<style lang="scss">
-    // table {
-    //     border-collapse: separate;
-    //     border-spacing: 0 1vw;
-    // }
-</style>
