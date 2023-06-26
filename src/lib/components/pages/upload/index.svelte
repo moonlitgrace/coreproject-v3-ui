@@ -6,16 +6,20 @@
 
 <container class="block md:py-[2vw] md:pl-[5vw] md:pr-[3.75vw]">
     <upload-area class="grid grid-cols-12 md:gap-[5vw] md:px-[10vw]">
-        <upload-progress class="flex place-items-center md:col-span-7">
+        <upload-progress class="flex items-end md:col-span-7 md:pb-[1.5vw]">
             <div class="w-full">
-                <progress
-                    value={30}
+                <ProgressBar
+                    label="Progress Bar"
+                    value={50}
                     max={100}
-                    class="h-[0.9vw] !rounded !bg-surface-400"
+                    height="md:h-[0.9vw]"
+                    rounded="md:rounded-[0.25vw]"
+                    track="bg-surface-400"
+                    meter="bg-primary-500"
                 />
-                <progress-info class="flex flex-col leading-none md:mt-[1vw] md:gap-[0.5vw]">
-                    <span class="font-semibold md:text-[1vw]">699.5 GB</span>
-                    <span class="text-surface-50 md:text-[1vw]">7 folders, 29 files</span>
+                <progress-info class="flex flex-col leading-none md:mt-[1.5vw] md:gap-[0.5vw]">
+                    <span class="font-semibold md:text-[1vw]">292.8 GB</span>
+                    <span class="text-surface-50 md:text-[1vw]">17 folders, 29 files</span>
                 </progress-info>
             </div>
         </upload-progress>
