@@ -262,50 +262,92 @@
                 {/each}
             </comments>
         </comments-section>
-        <forum-posts class="flex flex-col md:col-span-5 md:gap-[0.75vw]">
-            <span class="font-semibold md:text-[1.35vw]">Forum Posts</span>
+        <forum-recommendations class="flex flex-col md:col-span-5 md:gap-[2vw]">
+            <forum-posts>
+                <span class="font-semibold md:text-[1.35vw]">Forum Posts</span>
 
-            <forum-options class="flex items-center justify-between md:mt-[0.75vw]">
-                <posts-count class="flex items-center gap-1 md:hidden">
-                    <span class="text-base font-bold leading-none">106</span>
-                    <span class="text-sm font-semibold text-surface-50">posts</span>
-                </posts-count>
+                <forum-options class="flex items-center justify-between md:mt-[1.25vw]">
+                    <posts-count class="flex items-center gap-1 md:hidden">
+                        <span class="text-base font-bold leading-none">106</span>
+                        <span class="text-sm font-semibold text-surface-50">posts</span>
+                    </posts-count>
 
-                <forum-buttons class="flex items-center gap-2 md:w-full md:justify-between">
+                    <forum-buttons class="flex items-center gap-2 md:w-full md:justify-between">
+                        <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                            <Cross
+                                color="surface-50"
+                                class="w-4 rotate-45 md:w-[1vw]"
+                            />
+                            Create New
+                        </button>
+
+                        <button
+                            class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
+                            aria-label="Filter"
+                        >
+                            <Filter
+                                class="w-3 md:w-[1vw]"
+                                color="lightgray"
+                            />
+                        </button>
+                    </forum-buttons>
+                </forum-options>
+
+                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1vw] md:flex md:gap-[1vw]">
+                    {#each forum_posts as post}
+                        <ForumPosts
+                            post_title={post.title}
+                            post_banner={post.banner}
+                            post_description={post.description}
+                            auther={post.auther}
+                            posted_on_date={post.posted_on}
+                            link={post.link}
+                            responses={Number(post.responses)}
+                        />
+                    {/each}
+                </posts>
+
+                <load-more class="block flex w-full justify-center md:mt-[1vw]">
                     <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
-                        <Cross
+                        Load more
+                        <Chevron
                             color="surface-50"
-                            class="w-4 rotate-45 md:w-[1vw]"
+                            class="w-4 md:w-[1vw]"
                         />
-                        Create New
                     </button>
+                </load-more>
+            </forum-posts>
 
-                    <button
-                        class="btn btn-icon h-7 w-auto rounded bg-surface-400 p-0 font-semibold md:ml-0 md:h-[2.4vw] md:w-[2.4vw] md:rounded-[0.5vw] md:leading-[0.9vw]"
-                        aria-label="Filter"
+            <recommendations>
+                <span class="font-semibold md:text-[1.35vw]">Recommendations</span>
+
+                <container class="grid grid-cols-3 md:mt-[1.25vw] md:gap-[1vw]">
+                    <a
+                        href="/myanimelist/1"
+                        class="group card relative col-span-1 w-full overflow-hidden rounded-[0.75vw] bg-cover bg-center md:h-[15vw]"
                     >
-                        <Filter
-                            class="w-3 md:w-[1vw]"
-                            color="lightgray"
+                        <ImageLoader
+                            src="https://wallup.net/wp-content/uploads/2017/10/27/112470-Yahari_Ore_no_Seishun_Love_Comedy_wa_Machigatteiru-Yuigahama_Yui-Hikigaya_Hachiman.jpg"
+                            class="h-full w-full object-cover object-center"
+                        />
+
+                        <anime-title class="absolute bottom-[0.3vw] z-10 w-full px-[0.5vw] text-center text-[0.9vw] font-semibold leading-[1.25vw] duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:group-hover:max-h-[7vw] md:group-hover:overflow-y-scroll">Yahari Ore no Seishun Love Come wa Machigatteiru.</anime-title>
+
+                        <gradient-overlay class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/80 to-surface-900/25" />
+                    </a>
+                </container>
+
+                <load-more class="block flex w-full justify-center md:mt-[1vw]">
+                    <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                        Load more
+                        <Chevron
+                            color="surface-50"
+                            class="w-4 md:w-[1vw]"
                         />
                     </button>
-                </forum-buttons>
-            </forum-options>
-
-            <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1vw] md:flex md:gap-[1vw]">
-                {#each forum_posts as post}
-                    <ForumPosts
-                        post_title={post.title}
-                        post_banner={post.banner}
-                        post_description={post.description}
-                        auther={post.auther}
-                        posted_on_date={post.posted_on}
-                        link={post.link}
-                        responses={Number(post.responses)}
-                    />
-                {/each}
-            </posts>
-        </forum-posts>
+                </load-more>
+            </recommendations>
+        </forum-recommendations>
     </episode-media>
 </episode-container>
 
