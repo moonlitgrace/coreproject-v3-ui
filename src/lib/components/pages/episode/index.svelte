@@ -163,7 +163,7 @@
                     {/each}
                 </episodes>
             </episodes-container>
-            <episode-detail class="block flex items-end md:gap-[1.5vw]">
+            <episode-detail class=" flex items-end md:gap-[1.5vw]">
                 <anime-banner class="relative md:h-[13vw] md:w-[9vw] md:flex-shrink-0">
                     <ImageLoader
                         class="h-full w-full object-cover object-center md:rounded-[0.5vw]"
@@ -301,7 +301,7 @@
                     {/each}
                 </posts>
 
-                <load-more class="block flex w-full justify-center md:mt-[1vw]">
+                <load-more class=" flex w-full justify-center md:mt-[1vw]">
                     <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
@@ -343,7 +343,7 @@
                     {/each}
                 </container>
 
-                <load-more class="block flex w-full justify-center md:mt-[1vw]">
+                <load-more class=" flex w-full justify-center md:mt-[1vw]">
                     <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
