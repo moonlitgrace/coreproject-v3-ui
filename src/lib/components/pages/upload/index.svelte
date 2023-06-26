@@ -25,16 +25,24 @@
                 padding="md:p-[2vw] !bg-surface-400"
                 border="border-none"
                 rounded="md:rounded-[1vw]"
-                regionInterfaceText="flex flex-col place-items-center"
+                regionInterfaceText="flex flex-col place-items-center md:gap-[1vw]"
+                slotLead="leading-none"
+                slotMessage="leading-none"
+                slotMeta="leading-none flex flex-col md:gap-[0.25vw]"
             >
                 <svelte:fragment slot="lead">
-                    <Upload class="md:w-[3vw]" />
+                    <Upload class="md:w-[2vw]" />
                 </svelte:fragment>
                 <svelte:fragment slot="message">
-                    <span class="font-semibold leading-none md:text-[1.25vw]">Upload a file</span>
+                    <span class="font-semibold md:text-[1.1vw]">Upload a file</span>
                 </svelte:fragment>
                 <svelte:fragment slot="meta">
-                    <span class="leading-none md:text-[1.1vw]">Browse</span>
+                    <divider class="flex items-center md:gap-[0.5vw]">
+                        <left-border class="border-surface-300 md:w-[2vw] md:border-t-[0.1vw]" />
+                        <span class="font-semibold text-surface-300 md:text-[1vw]">Or</span>
+                        <right-border class="border-surface-300 md:w-[2vw] md:border-t-[0.1vw]" />
+                    </divider>
+                    <span class="md:text-[1.1vw]">Browse</span>
                 </svelte:fragment>
             </FileDropzone>
         </upload-input>
