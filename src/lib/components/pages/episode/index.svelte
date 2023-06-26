@@ -102,7 +102,7 @@
                         {@const text = item[1].text}
                         {@const enabled = item[1].enabled}
 
-                        {@const status = (() => enabled ? "On" : "Off")()}
+                        {@const status = enabled ? "On" : "Off"}
 
                         <button class="btn flex items-center p-0 leading-none md:text-[0.9vw]">
                             <span>{text}:</span>
@@ -114,7 +114,7 @@
                     {#each Object.entries(video_player_mapping.options) as item}
                         {@const component = item[1].component}
                         {@const link = item[1].link}
-                        {@const _class = item[1].class}
+                        {@const klass = item[1].class}
                         {@const text = item[1].text}
 
                         <a
@@ -133,7 +133,7 @@
                         >
                             <svelte:component
                                 this={component}
-                                class={_class}
+                                class={klass}
                             />
                         </a>
                     {/each}
@@ -173,12 +173,12 @@
                     <overlay-gradient class="absolute inset-0 bg-gradient-to-t from-surface-900/50 to-surface-900/25" />
                 </anime-banner>
                 <episode-main-detail class="flex flex-col leading-none md:gap-[0.25vw]">
-                    <anime-title class="font-bold text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[1.75vw] md:overflow-hidden md:text-[1.5vw] md:leading-[1.75vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">Deamon Slayer</anime-title>
+                    <anime-title class="font-bold text-surface-50 duration-300 ease-in-out scrollbar-none md:h-auto md:max-h-[1.75vw] md:overflow-hidden md:text-[1.5vw] md:leading-[1.75vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">Deamon Slayer</anime-title>
 
                     <span class="text-surface-50 md:text-[1vw]">currently watching</span>
                     <span class="font-semibold md:my-[0.5vw] md:text-[1.25vw]">Episode: {episode_number}</span>
 
-                    <episode-name class="text-surface-50 duration-300 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">A Connected Bond: Daybreak and First Light</episode-name>
+                    <episode-name class="text-surface-50 duration-300 ease-in-out scrollbar-none md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[5vw] md:hover:overflow-y-scroll">A Connected Bond: Daybreak and First Light</episode-name>
 
                     <button
                         type="button"
@@ -356,10 +356,3 @@
         </forum-recommendations>
     </episode-media>
 </episode-container>
-
-<style lang="scss">
-    anime-title,
-    episode-name {
-        scrollbar-width: none;
-    }
-</style>
