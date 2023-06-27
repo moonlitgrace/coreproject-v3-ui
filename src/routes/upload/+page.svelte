@@ -14,10 +14,25 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
+    let main_checkbox: boolean | undefined;
+    let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
 
-    // Declare and handle the file_size
+    function handle_main_checkbox_click(event: Event) {
+        const target = event.target as HTMLInputElement;
 
+        if (target.checked) {
+            checkbox_elements.forEach((element) => {
+                element.checked = true;
+            });
+        } else {
+            checkbox_elements.forEach((element) => {
+                element.checked = false;
+            });
+        }
+    }
+
+    // handle the file_size
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
         const file_list_names = data_list.map((data) => {
@@ -30,6 +45,7 @@
             }
         });
     }
+
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
         url: $page.url.href,
@@ -155,6 +171,8 @@
                     <tr class="text-left md:text-[1vw]">
                         <th>
                             <input
+                                bind:checked={main_checkbox}
+                                on:click={handle_main_checkbox_click}
                                 type="checkbox"
                                 class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                             />
@@ -178,7 +196,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each data_list as data}
+                    {#each data_list.sort() as data, index}
                         {@const file = data.file}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
@@ -194,6 +212,7 @@
                         <tr>
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
+                                    bind:this={checkbox_elements[index]}
                                     type="checkbox"
                                     class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                                 />
