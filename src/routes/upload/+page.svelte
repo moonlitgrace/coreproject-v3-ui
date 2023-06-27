@@ -15,10 +15,10 @@
     import prettyBytes from "pretty-bytes";
 
     let file_list: Array<File> = new Array<File>();
-
+        
     // Declare and handle the file_size
     let file_size = 0;
-    $: Array.from(file_list.values()).forEach((item) => {
+    $: file_list.forEach((item) => {
         file_size += item.size;
     });
 
