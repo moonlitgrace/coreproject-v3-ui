@@ -14,27 +14,22 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
-    let file_list: Array<File> = new Array<File>();
-        
+    let data_list: Array<{ file: File }> = new Array<{ file: File }>();
+
     // Declare and handle the file_size
-    let file_size = 0;
-    $: file_list.forEach((item) => {
-        file_size += item.size;
-    });
 
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
-        const file_list_names = file_list.map((file) => {
-            return file.name;
+        const file_list_names = data_list.map((data) => {
+            return data.file.name;
         });
 
         Array.from(files).forEach((file) => {
             if (!file_list_names.includes(file.name)) {
-                file_list = file_list.concat(file);
+                data_list = data_list.concat({ file: file });
             }
         });
     }
-
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
         url: $page.url.href,
@@ -55,7 +50,7 @@
             <div class="w-full text-center md:text-left">
                 <ProgressBar
                     label="Progress Bar"
-                    value={50}
+                    value={Array.isArray(data_list) && data_list.length === 0 ? 0 : undefined}
                     max={100}
                     height="h-3 md:h-[0.9vw]"
                     rounded="rounded md:rounded-[0.25vw]"
@@ -63,8 +58,10 @@
                     meter="bg-primary-500"
                 />
                 <progress-info class="mt-5 flex flex-col gap-3 leading-none md:mt-[1.5vw] md:gap-[0.5vw]">
-                    <span class="font-semibold md:text-[1vw]">{prettyBytes(file_size)}</span>
-                    <span class="text-surface-50 md:text-[1vw]">17 folders, 29 files</span>
+                    <span class="font-semibold md:text-[1vw]">
+                        {prettyBytes(data_list.reduce((a, b) => Number(a + b.file.size), 0))}
+                    </span>
+                    <span class="text-surface-50 md:text-[1vw]">{data_list.length} files</span>
                 </progress-info>
             </div>
         </upload-progress>
@@ -147,9 +144,9 @@
                     Edit Details
                 </button>
                 <button class="btn flex gap-3 p-0 text-base font-semibold leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                </button>
                     <Delete class="w-4 md:w-[1vw]" />
                     Delete
-                </button>
             </div>
         </uploads-options>
 
@@ -182,7 +179,8 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each file_list as file}
+                    {#each data_list as data}
+                        {@const file = data.file}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
                             /* 
