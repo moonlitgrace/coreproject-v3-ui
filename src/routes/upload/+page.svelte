@@ -14,7 +14,7 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
-    let file_list: Map<string, File> = new Map<string, File>();
+    let file_list: Array<File> = new Array<File>();
 
     // Declare and handle the file_size
     let file_size = 0;
@@ -24,10 +24,13 @@
 
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
+        const file_list_names = file_list.map((file) => {
+            return file.name;
+        });
 
         Array.from(files).forEach((file) => {
-            if (!Array.from(file_list.keys()).includes(file.name)) {
-                file_list = file_list.set(file.name, file);
+            if (!file_list_names.includes(file.name)) {
+                file_list = file_list.concat(file);
             }
         });
     }
@@ -179,7 +182,7 @@
                 </tbody>
                 <!-- spacing -->
                 <tbody>
-                    {#each Array.from(file_list.values()) as file}
+                    {#each file_list as file}
                         {@const name = file.name}
                         {@const last_modified = new FormatDate(
                             /* 
