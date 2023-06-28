@@ -13,10 +13,12 @@
     import { ProgressBar } from "@skeletonlabs/skeleton";
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
+    import { blur } from "svelte/transition";
 
     let main_checkbox: boolean | undefined;
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
+    let show_dropzone = false;
 
     function handle_main_checkbox_click(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -46,6 +48,46 @@
         });
     }
 
+    // file drag and drop
+    function on_drop_handler(event: DragEvent) {
+        event.preventDefault();
+        show_dropzone = false;
+        const files = event.dataTransfer?.files as FileList;
+        const file_list_names = data_list.map((data) => {
+            return data.file.name;
+        });
+
+        Array.from(files).forEach((file) => {
+            if (file.type === "video/mp4" || file.type === "video/mkv") {
+                if (!file_list_names.includes(file.name)) {
+                    data_list = data_list.concat({ file: file });
+                }
+            }
+        });
+    }
+
+    function on_dragover_handler(event: DragEvent) {
+        event.preventDefault();
+        show_dropzone = true;
+    }
+
+    function on_dragleave_hander(event: DragEvent) {
+        event.preventDefault();
+        show_dropzone = false;
+    }
+
+    function on_dropzone_dragover() {
+        const dropzone_element = document.querySelector("dropzone") as HTMLDivElement;
+        // change background
+        dropzone_element.classList.add("bg-surface-500/25");
+    }
+
+    function on_dropzone_dragleave() {
+        const dropzone_element = document.querySelector("dropzone") as HTMLDivElement;
+        // change background
+        dropzone_element.classList.remove("bg-surface-500/25");
+    }
+
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
         url: $page.url.href,
@@ -59,6 +101,31 @@
 <svelte:head>
     {@html opengraph_html}
 </svelte:head>
+
+<svelte:window
+    on:dragover={on_dragover_handler}
+    on:dragleave={on_dragleave_hander}
+    on:drop|preventDefault={() => (show_dropzone = false)}
+/>
+
+{#if show_dropzone}
+    <dropzone-background
+        transition:blur|local={{ duration: 200 }}
+        class="absolute inset-0 z-50 flex items-center justify-center bg-surface-900/80"
+    >
+        <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
+            <dropzone
+                on:dragover={on_dropzone_dragover}
+                on:drop={on_drop_handler}
+                on:dragleave={on_dropzone_dragleave}
+                class=" flex flex-col place-items-center gap-[1vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 px-[15vw] py-[5vw] transition duration-300 ease-in-out"
+            >
+                <Upload class="w-[5vw]" />
+                <span class="text-[1.25vw] font-semibold leading-none">Drop your files here to upload.</span>
+            </dropzone>
+        </dropzone-outer>
+    </dropzone-background>
+{/if}
 
 <container class="block p-5 md:py-[2vw] md:pl-[5vw] md:pr-[3.75vw]">
     <upload-area class="grid grid-cols-12 gap-7 md:gap-[5vw] md:px-[10vw]">
