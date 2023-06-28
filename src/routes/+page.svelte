@@ -235,7 +235,7 @@
                 {#if active}
                     <anime-slide
                         class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
-                        transition:blur|local
+                        transition:blur
                         on:mouseenter={() => {
                             $timerStore = "pause";
                         }}

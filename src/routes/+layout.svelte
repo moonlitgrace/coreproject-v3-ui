@@ -168,13 +168,13 @@
                             <a
                                 href="/"
                                 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-                                transition:blur|local
+                                transition:blur
                             >
                                 <AnimeCore class="w-36 md:w-[10vw]" />
                             </a>
                         {:else if $navbar_middle_section_variant === "form"}
                             <div
-                                transition:blur|local
+                                transition:blur
                                 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
                             >
                                 <a
@@ -273,7 +273,7 @@
                                     {#if is_active}
                                         <div
                                             class="absolute inset-0 flex items-center justify-center"
-                                            transition:blur|local
+                                            transition:blur
                                         >
                                             <svelte:component
                                                 this={component}
@@ -283,7 +283,7 @@
                                     {:else}
                                         <div
                                             class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]"
-                                            transition:blur|local
+                                            transition:blur
                                         >
                                             <svelte:component
                                                 this={component}
@@ -339,7 +339,7 @@
                             class="unstyled flex flex-col items-center gap-[0.5vh]"
                         >
                             <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-11 w-[4.5rem] rounded-[0.75rem] p-0">
-                                <div transition:blur|local>
+                                <div transition:blur>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
