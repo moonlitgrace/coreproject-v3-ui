@@ -1,8 +1,10 @@
 <script lang="ts">
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import Markdown from "$components/shared/markdown.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
+    import { episode_comments } from "$data/mock/episode_comments";
     import { forum_posts } from "$data/mock/forum_posts";
     import { FormatDate } from "$functions/format_date";
     import { FormatTime } from "$functions/format_time";
@@ -14,6 +16,7 @@
     import Edit from "$icons/edit.svelte";
     import ExternalLink from "$icons/external_link.svelte";
     import Filter from "$icons/filter.svelte";
+    import Heart from "$icons/heart.svelte";
     import Listen from "$icons/listen.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Read from "$icons/read.svelte";
@@ -470,6 +473,42 @@
                                 <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
                             </comment-submit>
                         </form>
+                        
+                        <comments class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
+                            {#each episode_comments as comment}
+                                <comment class="flex gap-3 md:gap-[1vw]">
+                                    <a
+                                        href="/user/"
+                                        class="h-7 w-7 flex-shrink-0 md:h-[2vw] md:w-[2vw]"
+                                    >
+                                        <ImageLoader
+                                            src={comment.user.profile_pic}
+                                            alt="Avatar"
+                                            class="h-full w-full shrink-0 rounded-full object-cover"
+                                        />
+                                    </a>
+                                    <comment-details class="flex flex-col items-start gap-1 md:gap-0">
+                                        <a
+                                            href="/user/"
+                                            class="unstyled text-xs leading-none md:text-[1vw]"
+                                        >
+                                            <username>{comment.user.username}</username>
+                                            <comment-time class="text-surface-300 md:text-[0.75vw] md:leading-[1.5vw]">{new FormatDate(comment.date).format_to_time_from_now}</comment-time>
+                                        </a>
+
+                                        <Markdown
+                                            class="text-sm leading-snug text-surface-50 md:text-[1vw] md:leading-[1.5vw]"
+                                            markdown={comment.content}
+                                        />
+
+                                        <button class="btn mt-2 p-0 md:mt-0">
+                                            <Heart class="w-3 text-surface-300 md:w-[1vw]" />
+                                            <likes class="text-xs md:text-[0.75vw]">{comment.likes}</likes>
+                                        </button>
+                                    </comment-details>
+                                </comment>
+                            {/each}
+                        </comments>
                     </comment-box>
                     <forum-posts class="md:col-span-2">
                         <section-header class="flex gap-2 border-b-2 border-surface-50/50 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
