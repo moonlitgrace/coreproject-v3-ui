@@ -473,7 +473,7 @@
                                 <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[7vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
                             </comment-submit>
                         </form>
-                        
+
                         <comments class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
                             {#each episode_comments as comment}
                                 <comment class="flex gap-3 md:gap-[1vw]">
