@@ -159,9 +159,10 @@
                     />
                     Edit Details
                 </button>
-                <button class="btn flex gap-3 p-0 text-base font-semibold leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]" />
-                <Delete class="w-4 md:w-[1vw]" />
-                Delete
+                <button class="btn flex gap-3 p-0 text-base font-semibold leading-none text-surface-50 md:gap-[0.5vw] md:rounded-[0.25vw] md:text-[1vw]">
+                    <Delete class="w-4 md:w-[1vw]" />
+                    Delete
+                </button>
             </div>
         </uploads-options>
 
