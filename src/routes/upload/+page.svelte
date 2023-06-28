@@ -15,10 +15,13 @@
     import prettyBytes from "pretty-bytes";
 
     let main_checkbox: boolean | undefined;
+    let main_checkbox_intermediate: boolean | undefined;
+    let checkbox_group: Array<string> = new Array<string>();
+
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
 
-    function handle_main_checkbox_click(event: Event) {
+    function handle_main_checkbox_change(event: Event) {
         const target = event.target as HTMLInputElement;
 
         if (target.checked) {
@@ -29,6 +32,19 @@
             checkbox_elements.forEach((element) => {
                 element.checked = false;
             });
+        }
+    }
+
+    function handle_sub_checkbox_change() {
+        if (checkbox_group.length === data_list.length) {
+            main_checkbox = true;
+            main_checkbox_intermediate = false;
+        } else if (checkbox_group.length !== data_list.length && checkbox_group.length !== 0) {
+            main_checkbox_intermediate = true;
+            main_checkbox = false;
+        } else {
+            main_checkbox_intermediate = false;
+            main_checkbox = false;
         }
     }
 
@@ -173,7 +189,8 @@
                         <th>
                             <input
                                 bind:checked={main_checkbox}
-                                on:click={handle_main_checkbox_click}
+                                bind:indeterminate={main_checkbox_intermediate}
+                                on:change={handle_main_checkbox_change}
                                 type="checkbox"
                                 class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                             />
@@ -214,6 +231,9 @@
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
                                     bind:this={checkbox_elements[index]}
+                                    bind:group={checkbox_group}
+                                    on:change={handle_sub_checkbox_change}
+                                    value={name}
                                     type="checkbox"
                                     class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                                 />
