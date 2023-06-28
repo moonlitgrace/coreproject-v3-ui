@@ -15,7 +15,6 @@
     import ExternalLink from "$icons/external_link.svelte";
     import Filter from "$icons/filter.svelte";
     import Listen from "$icons/listen.svelte";
-    import MessageCircle from "$icons/message_circle.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Read from "$icons/read.svelte";
     import Search from "$icons/search.svelte";
