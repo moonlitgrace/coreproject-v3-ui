@@ -167,6 +167,7 @@
                 slotLead="leading-none"
                 slotMessage="leading-none"
                 slotMeta="leading-none flex flex-col md:gap-[0.25vw]"
+                webkitDirectory={true}
             >
                 <svelte:fragment slot="lead">
                     <Upload class="w-9 md:w-[2vw]" />
