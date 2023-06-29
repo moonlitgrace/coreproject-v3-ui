@@ -35,6 +35,12 @@
         }
     }
 
+    // A key-value pair that includes mimetype and extension
+    const file_whitelist = {
+        "video/mp4": ".mp4",
+        "video/mkv": ".mkv"
+    };
+
     // handle the file_size
     function handle_file_change(e: Event): void {
         const files = (e.target as HTMLInputElement).files as FileList;
@@ -60,7 +66,7 @@
         });
 
         Array.from(files).forEach((file) => {
-            if (file.type === "video/mp4" || file.type === "video/mkv") {
+            if (Object.keys(file_whitelist).includes(file.type)) {
                 if (!file_list_names.includes(file.name)) {
                     data_list = data_list.concat({ file: file });
                 }
@@ -95,9 +101,13 @@
     >
         <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
             <dropzone
-                on:dragover|preventDefault={() => (dropzone_active = true)}
+                on:dragover|preventDefault={() => {
+                    dropzone_active = true;
+                }}
                 on:drop|preventDefault={on_drop_handler}
-                on:dragleave|preventDefault={() => (dropzone_active = false)}
+                on:dragleave|preventDefault={() => {
+                    dropzone_active = false;
+                }}
                 class="flex w-[50vw] flex-col place-items-center gap-[0.75vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 py-[4vw] transition duration-300 ease-in-out"
                 class:bg-surface-500={dropzone_active}
             >
@@ -133,7 +143,7 @@
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
                 on:change={handle_file_change}
-                accept=".mp4,.mkv"
+                accept={Object.keys(file_whitelist).join(",")}
                 multiple={true}
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400 h-48 md:h-full"
