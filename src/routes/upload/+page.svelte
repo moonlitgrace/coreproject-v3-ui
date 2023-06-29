@@ -19,7 +19,7 @@
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
     let show_dropzone = false;
-    let dropzone_element: HTMLDivElement;
+    let dropzone_active = false;
 
     function handle_main_checkbox_click(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -51,8 +51,9 @@
 
     // file drag and drop
     function on_drop_handler(event: DragEvent): void {
-        event.preventDefault();
         show_dropzone = false;
+        dropzone_active = false;
+
         const files = event.dataTransfer?.files as FileList;
         const file_list_names = data_list.map((data) => {
             return data.file.name;
@@ -94,14 +95,15 @@
     >
         <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
             <dropzone
-                bind:this={dropzone_element}
-                on:dragover|preventDefault={() => dropzone_element.classList.add("bg-surface-500/25")}
-                on:drop={on_drop_handler}
-                on:dragleave|preventDefault={() => dropzone_element.classList.remove("bg-surface-500/25")}
-                class=" flex flex-col place-items-center gap-[1vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 px-[15vw] py-[5vw] transition duration-300 ease-in-out"
+                on:dragover|preventDefault={() => (dropzone_active = true)}
+                on:drop|preventDefault={on_drop_handler}
+                on:dragleave|preventDefault={() => (dropzone_active = false)}
+                class="flex w-[50vw] flex-col place-items-center gap-[0.75vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 py-[4vw] transition duration-300 ease-in-out"
+                class:bg-surface-500={dropzone_active}
             >
-                <Upload class="w-[5vw]" />
-                <span class="text-[1.25vw] font-semibold leading-none">Drop your files here to upload.</span>
+                <Upload class="mb-[1.5vw] w-[5vw]" />
+                <span class="text-[1.25vw] font-semibold leading-none">Drop your files here to upload</span>
+                <span class="text-[1vw] leading-none text-surface-50">Allowed formats: mp4, mkv</span>
             </dropzone>
         </dropzone-outer>
     </dropzone-background>
