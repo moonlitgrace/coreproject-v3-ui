@@ -1,6 +1,7 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
     import hljs from "highlight.js";
+    import "highlight.js/scss/dark.scss";
     import { marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
@@ -49,10 +50,11 @@
         }
     );
 
-    let html: string;
-    $: html = xss(marked.parse(markdown));
+    let markdown_element: HTMLElement;
+    $: markdown_element && (markdown_element.innerHTML = marked.parse(markdown));
 </script>
 
-<markdown class={klass}>
-    {@html html}
-</markdown>
+<markdown
+    class={klass}
+    bind:this={markdown_element}
+/>
