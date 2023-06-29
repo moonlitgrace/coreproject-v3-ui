@@ -28,8 +28,8 @@
     import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import { onDestroy, onMount } from "svelte";
+    import type { SvelteComponent } from "svelte";
     import { swipe } from "svelte-gestures";
-    import type { SvelteComponentDev } from "svelte/internal";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
@@ -140,7 +140,7 @@
             [key: string]: {
                 title?: string;
                 icon: {
-                    component: typeof SvelteComponentDev;
+                    component: typeof SvelteComponent<{}>;
                     class: string;
                 };
             };
@@ -235,7 +235,7 @@
                 {#if active}
                     <anime-slide
                         class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
-                        transition:blur|local
+                        transition:blur
                         on:mouseenter={() => {
                             $timerStore = "pause";
                         }}
