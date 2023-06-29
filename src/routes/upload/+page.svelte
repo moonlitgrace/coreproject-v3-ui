@@ -14,9 +14,7 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
-    let main_checkbox: "intermediate" | "checked" | null = null;
-
-    let checkbox_group: Array<string> = new Array<string>();
+    let main_checkbox: HTMLInputElement;
 
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
@@ -36,12 +34,16 @@
     }
 
     function handle_sub_checkbox_change(): void {
-        if (checkbox_group.length === data_list.length) {
-            main_checkbox = "checked";
-        } else if (checkbox_group.length !== data_list.length && checkbox_group.length !== 0) {
-            main_checkbox = "intermediate";
+        const truthy_checkbox_array = checkbox_elements.filter((item) => {
+            return item.checked;
+        });
+
+        if (truthy_checkbox_array.length === data_list.length) {
+            main_checkbox.indeterminate = false;
+            main_checkbox.checked = true;
         } else {
-            main_checkbox = null;
+            main_checkbox.indeterminate = true;
+            main_checkbox.checked = false;
         }
     }
 
@@ -185,8 +187,7 @@
                     <tr class="text-left md:text-[1vw]">
                         <th>
                             <input
-                                checked={main_checkbox === "checked" ?? false}
-                                indeterminate={main_checkbox === "intermediate" ?? false}
+                                bind:this={main_checkbox}
                                 on:change={handle_main_checkbox_change}
                                 type="checkbox"
                                 class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
@@ -228,9 +229,7 @@
                             <td class="flex items-center md:gap-[1vw]">
                                 <input
                                     bind:this={checkbox_elements[index]}
-                                    bind:group={checkbox_group}
                                     on:change={handle_sub_checkbox_change}
-                                    value={name}
                                     type="checkbox"
                                     class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
                                 />
