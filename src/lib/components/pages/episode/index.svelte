@@ -14,7 +14,7 @@
     import Heart from "$icons/heart.svelte";
     import Next from "$icons/next.svelte";
     import Warning from "$icons/warning.svelte";
-    import type { SvelteComponentDev } from "svelte/internal";
+    import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
     export let episode_number: number | undefined;
@@ -30,7 +30,7 @@
         };
         options: {
             [key: string]: {
-                component: typeof SvelteComponentDev;
+                component: typeof SvelteComponent<any>;
                 link: string;
                 class: string;
                 text: string;

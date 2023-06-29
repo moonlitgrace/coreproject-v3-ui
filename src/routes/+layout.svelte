@@ -23,7 +23,7 @@
     // NProgress
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
-    import type { SvelteComponentDev } from "svelte/internal";
+    import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
 
@@ -44,7 +44,7 @@
             [key in string]: {
                 name?: string;
                 icon: {
-                    component: typeof SvelteComponentDev;
+                    component: typeof SvelteComponent<any>;
                     class: string;
                 };
                 url?: string;
