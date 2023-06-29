@@ -143,7 +143,7 @@
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
                 on:change={handle_file_change}
-                accept={Object.keys(file_whitelist).join(",")}
+                accept={Object.values(file_whitelist).join(",")}
                 multiple={true}
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400 h-48 md:h-full"
