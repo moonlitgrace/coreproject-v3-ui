@@ -14,8 +14,8 @@
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
 
-    let main_checkbox: boolean | undefined;
-    let main_checkbox_intermediate: boolean | undefined;
+    let main_checkbox: "intermediate" | "checked" | null = null;
+
     let checkbox_group: Array<string> = new Array<string>();
 
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
@@ -35,16 +35,13 @@
         }
     }
 
-    function handle_sub_checkbox_change() {
+    function handle_sub_checkbox_change(): void {
         if (checkbox_group.length === data_list.length) {
-            main_checkbox = true;
-            main_checkbox_intermediate = false;
+            main_checkbox = "checked";
         } else if (checkbox_group.length !== data_list.length && checkbox_group.length !== 0) {
-            main_checkbox_intermediate = true;
-            main_checkbox = false;
+            main_checkbox = "intermediate";
         } else {
-            main_checkbox_intermediate = false;
-            main_checkbox = false;
+            main_checkbox = null;
         }
     }
 
@@ -188,8 +185,8 @@
                     <tr class="text-left md:text-[1vw]">
                         <th>
                             <input
-                                bind:checked={main_checkbox}
-                                bind:indeterminate={main_checkbox_intermediate}
+                                checked={main_checkbox === "checked" ?? false}
+                                indeterminate={main_checkbox === "intermediate" ?? false}
                                 on:change={handle_main_checkbox_change}
                                 type="checkbox"
                                 class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
