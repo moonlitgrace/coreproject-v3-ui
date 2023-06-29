@@ -29,7 +29,7 @@
         [key: string]: {
             function: (elemnt: HTMLElement) => void;
             icon: {
-                component: typeof SvelteComponent<any>;
+                component: typeof SvelteComponent<{}>;
                 class: string;
             };
             description: string;

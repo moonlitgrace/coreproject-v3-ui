@@ -11,7 +11,7 @@
         [key in string]: {
             name?: string;
             icon: {
-                component: typeof SvelteComponent<any>;
+                component: typeof SvelteComponent<{}>;
                 class: string;
             };
             url?: string;

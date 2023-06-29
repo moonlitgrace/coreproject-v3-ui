@@ -140,7 +140,7 @@
             [key: string]: {
                 title?: string;
                 icon: {
-                    component: typeof SvelteComponent<any>;
+                    component: typeof SvelteComponent<{}>;
                     class: string;
                 };
             };

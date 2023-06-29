@@ -30,7 +30,7 @@
         };
         options: {
             [key: string]: {
-                component: typeof SvelteComponent<any>;
+                component: typeof SvelteComponent<{}>;
                 link: string;
                 class: string;
                 text: string;

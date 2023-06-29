@@ -29,6 +29,7 @@
     import Warning from "$icons/warning.svelte";
     import { Ratings } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
+    import type { SVGAttributes } from "svelte/elements";
 
     export let anime_name: string;
     export let japanese_name: string;
@@ -58,7 +59,7 @@
         [key: string]: {
             [key: string]: {
                 icon: {
-                    component: typeof SvelteComponent<any>;
+                    component: typeof SvelteComponent<{}>;
                     class: string;
                     color?: string;
                     variant?: boolean | string;
