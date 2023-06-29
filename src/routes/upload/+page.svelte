@@ -19,6 +19,7 @@
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
     let show_dropzone = false;
+    let dropzone_element: HTMLDivElement;
 
     function handle_main_checkbox_click(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -49,7 +50,7 @@
     }
 
     // file drag and drop
-    function on_drop_handler(event: DragEvent) {
+    function on_drop_handler(event: DragEvent): void {
         event.preventDefault();
         show_dropzone = false;
         const files = event.dataTransfer?.files as FileList;
@@ -64,28 +65,6 @@
                 }
             }
         });
-    }
-
-    function on_dragover_handler(event: DragEvent) {
-        event.preventDefault();
-        show_dropzone = true;
-    }
-
-    function on_dragleave_hander(event: DragEvent) {
-        event.preventDefault();
-        show_dropzone = false;
-    }
-
-    function on_dropzone_dragover() {
-        const dropzone_element = document.querySelector("dropzone") as HTMLDivElement;
-        // change background
-        dropzone_element.classList.add("bg-surface-500/25");
-    }
-
-    function on_dropzone_dragleave() {
-        const dropzone_element = document.querySelector("dropzone") as HTMLDivElement;
-        // change background
-        dropzone_element.classList.remove("bg-surface-500/25");
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -103,8 +82,8 @@
 </svelte:head>
 
 <svelte:window
-    on:dragover={on_dragover_handler}
-    on:dragleave={on_dragleave_hander}
+    on:dragover|preventDefault={() => (show_dropzone = true)}
+    on:dragleave|preventDefault={() => (show_dropzone = false)}
     on:drop|preventDefault={() => (show_dropzone = false)}
 />
 
@@ -115,9 +94,10 @@
     >
         <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
             <dropzone
-                on:dragover={on_dropzone_dragover}
+                bind:this={dropzone_element}
+                on:dragover|preventDefault={() => dropzone_element.classList.add("bg-surface-500/25")}
                 on:drop={on_drop_handler}
-                on:dragleave={on_dropzone_dragleave}
+                on:dragleave|preventDefault={() => dropzone_element.classList.remove("bg-surface-500/25")}
                 class=" flex flex-col place-items-center gap-[1vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 px-[15vw] py-[5vw] transition duration-300 ease-in-out"
             >
                 <Upload class="w-[5vw]" />
