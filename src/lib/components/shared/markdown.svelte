@@ -50,11 +50,10 @@
         }
     );
 
-    let markdown_element: HTMLElement;
-    $: markdown_element && (markdown_element.innerHTML = marked.parse(markdown));
+    let html: string;
+    $: html = marked.parse(markdown);
 </script>
 
-<markdown
-    class={klass}
-    bind:this={markdown_element}
-/>
+<markdown class={klass}>
+    {@html html}
+</markdown>
