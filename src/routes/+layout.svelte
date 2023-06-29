@@ -28,11 +28,11 @@
     import tippy from "tippy.js";
 
     // Most of your app wide CSS should be put in this file
-    import "../app.scss";
+    import "../app.css";
     // Custom SCSS
     import "../nprogress.scss";
     // Your custom Skeleton theme:
-    import "../theme.scss";
+    import "../theme.css";
     // Tippy
     import "../tippy.postcss";
 
