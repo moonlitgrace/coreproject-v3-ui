@@ -69,8 +69,6 @@
         });
     }
 
-    let elements: Array<File> = [];
-
     // file drag and drop
     function on_drop_handler(event: DragEvent): void {
         show_dropzone = false;
@@ -86,20 +84,24 @@
 
             if (file?.isDirectory) {
                 scan_directory(file as FileSystemDirectoryEntry);
-                console.log("I cant see", elements);
             }
         });
     }
 
     async function scan_directory(item: FileSystemDirectoryEntry) {
         let directory_reader = item.createReader();
+        const file_list_names = data_list.map((data) => {
+            return data.file.name;
+        });
 
         directory_reader.readEntries((entries) => {
             entries.forEach(async (entry) => {
                 if (entry.isFile) {
                     const item = entry as FileSystemFileEntry;
                     item.file(async (file) => {
-                        elements.push(file);
+                        if (!file_list_names.includes(file.name)) {
+                            data_list = data_list.concat({ file: file });
+                        }
                     });
                 } else if (entry.isDirectory) {
                     await scan_directory(entry as FileSystemDirectoryEntry);
