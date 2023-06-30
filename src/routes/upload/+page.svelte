@@ -210,7 +210,7 @@
                     <Upload class="w-9 md:w-[2vw]" />
                 </svelte:fragment>
                 <svelte:fragment slot="message">
-                    <span class="text-base font-semibold text-surface-50 md:text-[1.1vw]">Upload a file</span>
+                    <span class="text-base font-semibold text-surface-50 md:text-[1.1vw]">Drag and Drop files</span>
                 </svelte:fragment>
                 <svelte:fragment slot="meta">
                     <divider class="flex items-center justify-center gap-2 md:gap-[0.5vw]">
