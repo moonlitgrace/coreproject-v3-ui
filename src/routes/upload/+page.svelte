@@ -13,11 +13,14 @@
     import { ProgressBar } from "@skeletonlabs/skeleton";
     import dayjs from "dayjs";
     import prettyBytes from "pretty-bytes";
+    import { blur } from "svelte/transition";
 
     let main_checkbox: HTMLInputElement;
 
     let checkbox_elements: Array<HTMLInputElement> = new Array<HTMLInputElement>();
     let data_list: Array<{ file: File }> = new Array<{ file: File }>();
+    let show_dropzone = false;
+    let dropzone_active = false;
 
     function handle_main_checkbox_change(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -33,6 +36,11 @@
         }
     }
 
+    // A key-value pair that includes mimetype and extension
+    const file_whitelist = {
+        "video/mp4": ".mp4",
+        "video/mkv": ".mkv"
+    };
     function handle_sub_checkbox_change(): void {
         const truthy_checkbox_array = checkbox_elements.filter((item) => {
             return item.checked;
@@ -55,9 +63,65 @@
         });
 
         Array.from(files).forEach((file) => {
-            if (!file_list_names.includes(file.name)) {
-                data_list = data_list.concat({ file: file });
+            if (Object.keys(file_whitelist).includes(file.type)) {
+                if (!file_list_names.includes(file.name)) {
+                    data_list = data_list.concat({ file: file });
+                }
             }
+        });
+    }
+
+    // file drag and drop
+    function on_drop_handler(event: DragEvent): void {
+        show_dropzone = false;
+        dropzone_active = false;
+
+        const files = event.dataTransfer?.items as unknown as DataTransferItemList;
+        const file_list_names = data_list.map((data) => {
+            return data.file.name;
+        });
+
+        Array.from(files).forEach(async (item) => {
+            const entry = item.webkitGetAsEntry();
+
+            if (entry?.isDirectory) {
+                scan_directory(entry as FileSystemDirectoryEntry);
+            } else if (entry?.isFile) {
+                const file_entry = entry as FileSystemFileEntry;
+                file_entry.file((file) => {
+                    if (Object.keys(file_whitelist).includes(file.type)) {
+                        if (!file_list_names.includes(file.name)) {
+                            data_list = data_list.concat({ file: file });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    async function scan_directory(item: FileSystemDirectoryEntry) {
+        let directory_reader = item.createReader();
+        const file_list_names = data_list.map((data) => {
+            return data.file.name;
+        });
+
+        directory_reader.readEntries((entries) => {
+            entries.forEach(async (entry) => {
+                if (entry.isFile) {
+                    const item = entry as FileSystemFileEntry;
+                    item.file(async (file) => {
+                        const file_type = file.name.split(".")[1];
+
+                        if (Object.values(file_whitelist).includes(`.${file_type}`)) {
+                            if (!file_list_names.includes(file.name)) {
+                                data_list = data_list.concat({ file: file });
+                            }
+                        }
+                    });
+                } else if (entry.isDirectory) {
+                    await scan_directory(entry as FileSystemDirectoryEntry);
+                }
+            });
         });
     }
 
@@ -74,6 +138,37 @@
 <svelte:head>
     {@html opengraph_html}
 </svelte:head>
+
+<svelte:window
+    on:dragover|preventDefault={() => (show_dropzone = true)}
+    on:dragleave|preventDefault={() => (show_dropzone = false)}
+    on:drop|preventDefault={() => (show_dropzone = false)}
+/>
+
+{#if show_dropzone}
+    <dropzone-background
+        transition:blur|local={{ duration: 200 }}
+        class="absolute inset-0 z-50 flex items-center justify-center bg-surface-900/80"
+    >
+        <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
+            <dropzone
+                on:dragover|preventDefault={() => {
+                    dropzone_active = true;
+                }}
+                on:drop|preventDefault={on_drop_handler}
+                on:dragleave|preventDefault={() => {
+                    dropzone_active = false;
+                }}
+                class="flex w-[50vw] flex-col place-items-center gap-[0.75vw] rounded-[1vw] border-[0.2vw] border-dashed border-surface-50 bg-surface-400 py-[4vw] transition duration-300 ease-in-out"
+                class:bg-surface-500={dropzone_active}
+            >
+                <Upload class="mb-[1.5vw] w-[5vw]" />
+                <span class="text-[1.25vw] font-semibold leading-none">Drop your files here to upload</span>
+                <span class="text-[1vw] leading-none text-surface-50">Allowed formats: mp4, mkv</span>
+            </dropzone>
+        </dropzone-outer>
+    </dropzone-background>
+{/if}
 
 <container class="block p-5 md:py-[2vw] md:pl-[5vw] md:pr-[3.75vw]">
     <upload-area class="grid grid-cols-12 gap-7 md:gap-[5vw] md:px-[10vw]">
@@ -99,7 +194,7 @@
         <upload-input class="col-span-12 md:col-span-5">
             <FileDropzone
                 on:change={handle_file_change}
-                accept=".mp4,.mkv"
+                accept={Object.values(file_whitelist).join(",")}
                 multiple={true}
                 name="files"
                 padding="md:p-[2vw] !bg-surface-400 h-48 md:h-full"
