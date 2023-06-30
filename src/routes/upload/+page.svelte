@@ -80,10 +80,19 @@
         });
 
         Array.from(files).forEach(async (item) => {
-            const file = item.webkitGetAsEntry();
+            const entry = item.webkitGetAsEntry();
 
-            if (file?.isDirectory) {
-                scan_directory(file as FileSystemDirectoryEntry);
+            if (entry?.isDirectory) {
+                scan_directory(entry as FileSystemDirectoryEntry);
+            } else if (entry?.isFile) {
+                const file_entry = entry as FileSystemFileEntry;
+                file_entry.file((file) => {
+                    if (Object.keys(file_whitelist).includes(file.type)) {
+                        if (!file_list_names.includes(file.name)) {
+                            data_list = data_list.concat({ file: file });
+                        }
+                    }
+                });
             }
         });
     }
