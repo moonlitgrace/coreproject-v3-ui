@@ -63,8 +63,10 @@
         });
 
         Array.from(files).forEach((file) => {
-            if (!file_list_names.includes(file.name)) {
-                data_list = data_list.concat({ file: file });
+            if (Object.keys(file_whitelist).includes(file.type)) {
+                if (!file_list_names.includes(file.name)) {
+                    data_list = data_list.concat({ file: file });
+                }
             }
         });
     }
@@ -202,7 +204,6 @@
                 slotLead="leading-none"
                 slotMessage="leading-none"
                 slotMeta="leading-none flex flex-col md:gap-[0.25vw]"
-                webkitDirectory={true}
             >
                 <svelte:fragment slot="lead">
                     <Upload class="w-9 md:w-[2vw]" />
