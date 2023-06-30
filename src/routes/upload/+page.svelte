@@ -69,6 +69,8 @@
         });
     }
 
+    let elements: Array<File> = [];
+
     // file drag and drop
     function on_drop_handler(event: DragEvent): void {
         show_dropzone = false;
@@ -83,8 +85,8 @@
             const file = item.webkitGetAsEntry();
 
             if (file?.isDirectory) {
-                const files = await scan_directory(file as FileSystemDirectoryEntry);
-                console.log("I cant see", files);
+                scan_directory(file as FileSystemDirectoryEntry);
+                console.log("I cant see", elements);
             }
         });
     }
@@ -92,20 +94,18 @@
     async function scan_directory(item: FileSystemDirectoryEntry) {
         let directory_reader = item.createReader();
 
-        return new Promise((resolve) =>
-            directory_reader.readEntries((entries) => {
-                entries.forEach(async (entry) => {
-                    if (entry.isFile) {
-                        const item = entry as FileSystemFileEntry;
-                        item.file((file) => {
-                            resolve(file);
-                        });
-                    } else if (entry.isDirectory) {
-                        await scan_directory(entry as FileSystemDirectoryEntry);
-                    }
-                });
-            })
-        );
+        directory_reader.readEntries((entries) => {
+            entries.forEach(async (entry) => {
+                if (entry.isFile) {
+                    const item = entry as FileSystemFileEntry;
+                    item.file(async (file) => {
+                        elements.push(file);
+                    });
+                } else if (entry.isDirectory) {
+                    await scan_directory(entry as FileSystemDirectoryEntry);
+                }
+            });
+        });
     }
 
     const opengraph_html = new OpengraphGenerator({
