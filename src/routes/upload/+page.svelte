@@ -38,8 +38,8 @@
 
     // A key-value pair that includes mimetype and extension
     const file_whitelist = {
-        "video/mp4": ".mp4",
-        "video/mkv": ".mkv"
+        "video/mp4": "mp4",
+        "video/mkv": "mkv"
     };
     function handle_sub_checkbox_change(): void {
         const truthy_checkbox_array = checkbox_elements.filter((item) => {
@@ -99,8 +99,12 @@
                 if (entry.isFile) {
                     const item = entry as FileSystemFileEntry;
                     item.file(async (file) => {
-                        if (!file_list_names.includes(file.name)) {
-                            data_list = data_list.concat({ file: file });
+                        const file_type = file.name.split(".")[1];
+
+                        if (Object.values(file_whitelist).includes(file_type)) {
+                            if (!file_list_names.includes(file.name)) {
+                                data_list = data_list.concat({ file: file });
+                            }
                         }
                     });
                 } else if (entry.isDirectory) {
