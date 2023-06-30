@@ -81,30 +81,31 @@
 
         Array.from(files).forEach(async (item) => {
             const file = item.webkitGetAsEntry();
-            
-            if(file?.isDirectory){
+
+            if (file?.isDirectory) {
                 const files = await scan_directory(file as FileSystemDirectoryEntry);
                 console.log("I cant see", files);
             }
-        })
+        });
     }
 
     async function scan_directory(item: FileSystemDirectoryEntry) {
         let directory_reader = item.createReader();
-        
-        directory_reader.readEntries((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isFile){
-                    const item = entry as FileSystemFileEntry;
-                    item.file((file) => {
-                        console.log(file);
-                        return file;
-                    })
-                } else if (entry.isDirectory) {
-                    scan_directory(entry as FileSystemDirectoryEntry);
-                }
+
+        return new Promise((resolve) =>
+            directory_reader.readEntries((entries) => {
+                entries.forEach(async (entry) => {
+                    if (entry.isFile) {
+                        const item = entry as FileSystemFileEntry;
+                        item.file((file) => {
+                            resolve(file);
+                        });
+                    } else if (entry.isDirectory) {
+                        await scan_directory(entry as FileSystemDirectoryEntry);
+                    }
+                });
             })
-        })
+        );
     }
 
     const opengraph_html = new OpengraphGenerator({
