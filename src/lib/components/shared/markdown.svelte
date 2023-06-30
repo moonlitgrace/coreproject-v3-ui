@@ -5,9 +5,7 @@
     import { marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
-    import xss from "xss";
 
-    export let markdown = "";
     export { klass as class };
 
     let klass = "";
@@ -33,7 +31,7 @@
         // Highlight.js
         markedHighlight({
             langPrefix: "hljs language-",
-            highlight(code, lang) {
+            highlight: (code, lang) => {
                 const language = hljs.getLanguage(lang) ? lang : "plaintext";
                 return hljs.highlight(code, { language }).value;
             }
@@ -49,11 +47,12 @@
             headerIds: false
         }
     );
-
-    let html: string;
-    $: html = marked.parse(markdown);
 </script>
 
 <markdown class={klass}>
-    {@html html}
+    {@html marked.parse(`
+\`\`\`javascript
+const highlight = "code";
+\`\`\`
+    `)}
 </markdown>
