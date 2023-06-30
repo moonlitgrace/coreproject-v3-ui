@@ -74,18 +74,37 @@
         show_dropzone = false;
         dropzone_active = false;
 
-        const files = event.dataTransfer?.files as FileList;
+        const files = event.dataTransfer?.items as unknown as DataTransferItemList;
         const file_list_names = data_list.map((data) => {
             return data.file.name;
         });
 
-        Array.from(files).forEach((file) => {
-            if (Object.keys(file_whitelist).includes(file.type)) {
-                if (!file_list_names.includes(file.name)) {
-                    data_list = data_list.concat({ file: file });
-                }
+        Array.from(files).forEach(async (item) => {
+            const file = item.webkitGetAsEntry();
+            
+            if(file?.isDirectory){
+                const files = await scan_directory(file as FileSystemDirectoryEntry);
+                console.log("I cant see", files);
             }
-        });
+        })
+    }
+
+    async function scan_directory(item: FileSystemDirectoryEntry) {
+        let directory_reader = item.createReader();
+        
+        directory_reader.readEntries((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isFile){
+                    const item = entry as FileSystemFileEntry;
+                    item.file((file) => {
+                        console.log(file);
+                        return file;
+                    })
+                } else if (entry.isDirectory) {
+                    scan_directory(entry as FileSystemDirectoryEntry);
+                }
+            })
+        })
     }
 
     const opengraph_html = new OpengraphGenerator({
