@@ -487,6 +487,8 @@
                     {@const keyword = item?.["keyword"] ?? ""}
 
                     <div
+                        role="button"
+                        tabindex="0"
                         class="flex cursor-pointer items-center gap-[0.5vw] px-[0.75vw] py-[0.25vw] leading-[1.75vw] hover:bg-primary-500 hover:text-white"
                         class:bg-primary-500={active_emoji_index === index}
                         class:text-white={active_emoji_index === index}

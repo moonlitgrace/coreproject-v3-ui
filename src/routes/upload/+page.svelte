@@ -153,6 +153,8 @@
     >
         <dropzone-outer class="rounded-[1vw] bg-surface-400 p-[1.25vw]">
             <dropzone
+                role="button"
+                tabindex="0"
                 on:dragover|preventDefault={() => {
                     dropzone_active = true;
                 }}
