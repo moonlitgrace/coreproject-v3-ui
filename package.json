@@ -50,7 +50,7 @@
         "html-entities": "^2.4.0",
         "lodash": "^4.17.21",
         "marked": "^5.1.0",
-        "marked-emoji": "^1.1.1",
+        "marked-emoji": "^1.2.0",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.24",
         "prettier": "^2.8.8",
