@@ -351,11 +351,11 @@
                 </table>
             </uploads-table>
         {:else}
-            <empty-ui class="mt-[5vw] flex w-full items-center justify-center gap-[2vw]">
-                <EmptyUpload class="w-[10vw] stroke-surface-300 stroke-[0.15vw] text-white" />
-                <div class="flex flex-col gap-[0.75vw]">
-                    <span class="text-[1.4vw] font-semibold leading-none text-surface-50">Empty!</span>
-                    <span class="text-[1.1vw] leading-none text-surface-300">Upload something to make kokoro-chan happy</span>
+            <empty-ui class="mt-10 flex w-full flex-col items-center justify-center md:mt-[5vw] md:flex-row md:gap-[2vw]">
+                <EmptyUpload class="w-32 stroke-surface-50 stroke-[0.15vw] md:w-[10vw] md:stroke-surface-300" />
+                <div class="flex flex-col items-center gap-2 md:items-start md:gap-[0.75vw]">
+                    <span class="text-base font-semibold leading-none text-surface-50 md:text-[1.4vw]">Empty!</span>
+                    <span class="text-sm leading-none text-surface-300 md:text-[1.1vw]">Upload something to make kokoro-chan happy</span>
                 </div>
             </empty-ui>
         {/if}
