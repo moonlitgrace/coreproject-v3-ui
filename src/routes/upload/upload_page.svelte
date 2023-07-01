@@ -1,12 +1,10 @@
 <script lang="ts">
-    import { page } from "$app/stores";
     import { FormatDate } from "$functions/format_date";
-    import { OpengraphGenerator } from "$functions/opengraph";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import Delete from "$icons/delete.svelte";
     import Edit from "$icons/edit.svelte";
-    import EmptyUpload from "$icons/empty_upload.svelte";
+    import Ghost from "$icons/ghost.svelte";
     import Search from "$icons/search.svelte";
     import Star from "$icons/star.svelte";
     import Upload from "$icons/upload.svelte";
@@ -339,10 +337,18 @@
             </uploads-table>
         {:else}
             <empty-ui class="mt-10 flex w-full flex-col items-center justify-center md:mt-[5vw] md:flex-row md:gap-[2vw]">
-                <EmptyUpload class="w-32 stroke-surface-50 stroke-[0.15vw] md:w-[10vw] md:stroke-surface-300" />
+                <Ghost class="w-32 animate-bounce text-surface-300 md:w-[10vw]" />
                 <div class="flex flex-col items-center gap-2 md:items-start md:gap-[0.75vw]">
                     <span class="text-base font-semibold leading-none text-surface-50 md:text-[1.4vw]">Empty!</span>
-                    <span class="text-sm leading-none text-surface-300 md:text-[1.1vw]">Upload something to make kokoro-chan happy</span>
+                    <span class="text-sm leading-none text-surface-300 md:text-[1.1vw]">
+                        Upload something to make
+                        {#each "kokoro-chan".split("") as letter}
+                            <span class="inline-grid odd:text-warning-400 even:text-white">
+                                {letter}
+                            </span>
+                        {/each}
+                        happy
+                    </span>
                 </div>
             </empty-ui>
         {/if}
