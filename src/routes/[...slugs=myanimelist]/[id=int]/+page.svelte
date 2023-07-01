@@ -59,13 +59,13 @@
             <status class="text-center text-sm font-semibold text-surface-50 md:text-[1.1vw] md:leading-[1.5vw]">
                 Uh-oh, looks like our
                 {#each "kokoro-chan".split("") as letter}
-                    <span class="odd:text-warning-400 even:text-white">
+                    <span class="inline-grid odd:text-warning-400 even:text-white">
                         {letter}
                     </span>
                 {/each}
                 is worked really hard for the past few days and now has fallen asleep. You can wait for her to wake up by looking at the status page, or come say hi to other fellow
                 {#each "kokoro-chan".split("") as letter}
-                    <span class="odd:text-warning-400 even:text-white">
+                    <span class="inline-grid odd:text-warning-400 even:text-white">
                         {letter}
                     </span>
                 {/each}
