@@ -71,10 +71,13 @@
                 {/each}
                 worksippers! ah- also let's wish her sweat dreams!
             </status>
-            <button class="btn w-max gap-2 rounded-xl bg-primary-500 px-7 py-4 text-base font-semibold leading-none md:gap-[0.5vw] md:rounded-[0.75vw] md:px-[2vw] md:py-[1vw] md:text-[1.1vw]">
+            <a
+                href="/"
+                class="btn w-max gap-2 rounded-xl bg-primary-500 px-7 py-4 text-base font-semibold leading-none md:gap-[0.5vw] md:rounded-[0.75vw] md:px-[2vw] md:py-[1vw] md:text-[1.1vw]"
+            >
                 Go Home
                 <Chevron class="w-4 -rotate-90 md:w-[1.25vw]" />
-            </button>
+            </a>
         </context>
     </container>
 {/if}
