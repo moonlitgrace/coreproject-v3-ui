@@ -41,20 +41,18 @@
 {:else}
     <container class="relative flex h-[80vh] w-full flex-col items-center justify-center md:h-[90vh] md:gap-[1vw]">
         <radial-gradient
-            class="h-68 pointer-events-none absolute inset-0 z-10 hidden h-[40vw] w-[40vw] translate-x-[27vw] md:flex"
+            class="pointer-events-none absolute inset-0 hidden h-[40vw] w-[40vw] translate-x-[27vw] md:flex"
             style="
                 background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 75%);
             "
         />
         <four-zero-four class="flex items-center gap-5 text-[5rem] font-bold md:gap-[2vw] md:text-[7vw]">
             <span>4</span>
-            <ghost-animate>
-                <Ghost class="w-20 animate-bounce md:w-[7vw]" />
-            </ghost-animate>
+            <Ghost class="w-20 animate-bounce md:w-[7vw]" />
             <span>4</span>
         </four-zero-four>
 
-        <context class="flex max-w-[90%] flex-col items-center gap-5 md:max-w-[60vw] md:gap-[1.5vw] md:leading-[1.5vw]">
+        <context class="flex max-w-[90vw] flex-col items-center gap-5 md:max-w-[60vw] md:gap-[1.5vw] md:leading-[1.5vw]">
             <status-code class="text-xl font-semibold text-primary-400 md:text-[1.5vw]">404 - Page not found!</status-code>
             <status class="text-center text-sm font-semibold text-surface-50 md:text-[1.1vw] md:leading-[1.5vw]">
                 Uh-oh, looks like our
