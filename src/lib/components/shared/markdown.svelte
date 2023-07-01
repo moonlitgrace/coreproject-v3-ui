@@ -1,11 +1,10 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
-    import hljs from "highlight.js";
-    import "highlight.js/scss/dark.scss";
     import { marked } from "marked";
     import { markedEmoji } from "marked-emoji";
-    import { markedHighlight } from "marked-highlight";
+    import xss from "xss";
 
+    export let markdown = "";
     export { klass as class };
 
     let klass = "";
@@ -28,15 +27,6 @@
     };
 
     marked.use(
-        // Highlight.js
-        markedHighlight({
-            langPrefix: "hljs language-",
-            highlight: (code, lang) => {
-                const language = hljs.getLanguage(lang) ? lang : "plaintext";
-                return hljs.highlight(code, { language }).value;
-            }
-        }),
-
         // Emoji plugin
         markedEmoji(emoji_options),
         {
@@ -47,12 +37,11 @@
             headerIds: false
         }
     );
+
+    let html: string;
+    $: html = xss(marked.parse(markdown));
 </script>
 
 <markdown class={klass}>
-    {@html marked.parse(`
-\`\`\`javascript
-const highlight = "code";
-\`\`\`
-    `)}
+    {@html html}
 </markdown>
