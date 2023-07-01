@@ -353,7 +353,7 @@
                 <EmptyUpload class="w-[10vw] stroke-surface-300 stroke-[0.15vw] text-white" />
                 <div class="flex flex-col gap-[0.75vw]">
                     <span class="text-[1.4vw] font-semibold leading-none text-surface-50">Empty!</span>
-                    <span class="text-[1.1vw] leading-none text-surface-300">Upload something to make me happy :)</span>
+                    <span class="text-[1.1vw] leading-none text-surface-300">Upload something to make kokoro-chan happy</span>
                 </div>
             </empty-ui>
         {/if}
