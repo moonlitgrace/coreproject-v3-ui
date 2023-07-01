@@ -234,6 +234,7 @@
 
                 {#if active}
                     <anime-slide
+                        role="presentation"
                         class="relative col-start-1 col-end-2 row-start-1 row-end-[200]"
                         transition:blur
                         on:mouseenter={() => {
