@@ -12,7 +12,7 @@
     let anime = anime_list?.find((anime) => anime.id === anime_id);
 
     const opengraph_html = new OpengraphGenerator({
-        title: `Watch ${anime?.name} on AnimeCore`,
+        title: anime ? `Watch ${anime?.name} on AnimeCore` : "404 - Page not found!",
         url: $page.url.href,
         description: anime?.synopsis ?? "",
         site_name: "CoreProject",
