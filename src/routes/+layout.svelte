@@ -466,7 +466,7 @@
             </div>
         </svelte:fragment>
 
-        <div class="mt-16 md:mt-0">
+        <div class="mt-16 md:mt-0 h-full">
             <slot />
         </div>
     </AppShell>
