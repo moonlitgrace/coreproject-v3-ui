@@ -161,7 +161,7 @@
                 const caret_position = offset(textarea_element);
                 const caret_offset_top = caret_position.top - textarea_position.top;
                 const caret_offset_left = caret_position.left - textarea_position.left;
-                const caret_offset_height = caret_position.height + 5; // Add extra height
+                const caret_offset_height = caret_position.height + 45; // Add extra height
 
                 caret_offset = {
                     top: caret_offset_top - scroll_top,
