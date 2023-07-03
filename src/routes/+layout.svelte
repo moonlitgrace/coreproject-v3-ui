@@ -153,7 +153,7 @@
 </script>
 
 {#if style == "kokoro"}
-    <style>
+    <style lang="scss">
         :root {
             /* =~= Theme Properties =~= */
             --theme-font-family-base: "Kokoro", sans-serif;
