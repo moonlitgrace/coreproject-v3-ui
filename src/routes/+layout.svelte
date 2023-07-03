@@ -24,7 +24,8 @@
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
     import type { SvelteComponent } from "svelte";
-    import { blur } from "svelte/transition";
+    import { swipe } from "svelte-gestures";
+    import { blur, slide } from "svelte/transition";
     import tippy from "tippy.js";
 
     // Most of your app wide CSS should be put in this file
@@ -40,6 +41,7 @@
         [key in "top" | "middle" | "bottom"]: {
             // Icon name
             [key in string]: {
+                index?: number;
                 name?: string;
                 icon: {
                     component: typeof SvelteComponent<{}>;
@@ -60,6 +62,7 @@
         },
         middle: {
             home: {
+                index: 0,
                 icon: {
                     component: Home,
                     class: "w-[1.25vw] text-white"
@@ -69,22 +72,25 @@
             },
 
             discover: {
+                index: 1,
                 icon: {
                     component: Explore,
                     class: "w-[1.25vw] text-white"
                 },
-                url: undefined,
+                url: "/discover",
                 show_on_mobile: true
             },
             list: {
+                index: 2,
                 icon: {
                     component: List,
                     class: "w-[1.7vw] text-white"
                 },
-                url: undefined,
+                url: "/list",
                 show_on_mobile: false
             },
             schedule: {
+                index: 3,
                 icon: {
                     component: Schedule,
                     class: "w-[1.25vw] text-white"
@@ -93,6 +99,7 @@
                 show_on_mobile: false
             },
             forum: {
+                index: 4,
                 icon: {
                     component: Forum,
                     class: "w-[1.25vw] text-white"
@@ -151,6 +158,17 @@
 
     /** Theme function */
     let selected_theme: "coreproject" = "coreproject";
+
+    /** Sidebar active button*/
+    let active_button_index: number;
+
+    $: {
+        Object.values(icon_mapping.middle).forEach((item) => {
+            if (item.url === $page.url.pathname) {
+                active_button_index = item.index ?? 0;
+            }
+        });
+    }
 </script>
 
 <svelte:head>
@@ -358,8 +376,12 @@
                         {/each}
                     </div>
 
-                    <div class="mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
-                        {#each Object.entries(icon_mapping.middle) as item}
+                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
+                        <active-background
+                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-secondary-100 transition-transform duration-300 before:absolute before:-left-[0.12vw] before:top-[1.25vw] before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500"
+                            style="transform: translateY({active_button_index * 4.875}vw);"
+                        />
+                        {#each Object.entries(icon_mapping.middle) as item, index}
                             {@const item_name = item[0]}
                             {@const item_icon = item[1].icon}
                             {@const item_href = item[1].url}
@@ -371,13 +393,14 @@
                             <a
                                 href={item_href ?? "javascript:void(0)"}
                                 type="button"
-                                class="{item_href ?? 'pointer-events-none'} {is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="{item_href ?? 'pointer-events-none'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                on:click={() => (active_button_index = index)}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
                                         <div
                                             class="absolute inset-0 flex items-center justify-center"
-                                            transition:blur
+                                            transition:slide
                                         >
                                             <svelte:component
                                                 this={component}
