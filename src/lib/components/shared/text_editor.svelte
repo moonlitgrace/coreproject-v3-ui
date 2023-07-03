@@ -486,7 +486,8 @@
     {#if show_emoji_picker && caret_offset_left && caret_offset_top && emoji_matches.length > 0}
         <emoji-popover
             class="emoji_picker absolute flex min-w-[12vw] flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
-            style="top: {caret_offset_top}; left: {caret_offset_left};"
+            style:top={caret_offset_top}
+            style:left={caret_offset_left}
         >
             {#each emoji_matches as item, index}
                 {#if index < SHOWN_EMOJI_LIMIT}
