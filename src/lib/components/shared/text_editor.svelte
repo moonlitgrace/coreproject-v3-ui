@@ -15,6 +15,9 @@
 
     import Markdown from "./markdown.svelte";
 
+    let caret_offset_top: string;
+    let caret_offset_left: string;
+
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
 
@@ -158,15 +161,17 @@
                 const textarea_position = textarea_element.getBoundingClientRect();
                 const scroll_top = textarea_element.scrollTop;
 
+                // CSS
+                const line_height = getComputedStyle(textarea_element).getPropertyValue("line-height");
+
                 const caret_position = offset(textarea_element);
-                const caret_offset_top = caret_position.top - textarea_position.top;
-                const caret_offset_left = caret_position.left - textarea_position.left;
-                const caret_offset_height = caret_position.height + 45; // Add extra height
+
+                caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + ${line_height} + ${line_height})`;
 
                 caret_offset = {
-                    top: caret_offset_top - scroll_top,
-                    left: caret_offset_left,
-                    height: caret_offset_height
+                    top: 0,
+                    left: 0,
+                    height: 0
                 };
             }
         } else {
@@ -478,8 +483,8 @@
     </textarea-footer>
     {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
         <emoji-popover
-            class="emoji_picker absolute flex flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
-            style="top: {caret_offset?.top + caret_offset?.height}px; left: {caret_offset?.left}px; min-width: 12vw;"
+            class="emoji_picker absolute flex min-w-[12vw] flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
+            style="top: {caret_offset_top}; left: {caret_offset_left};"
         >
             {#each emoji_matches as item, index}
                 {#if index < SHOWN_EMOJI_LIMIT}
