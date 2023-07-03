@@ -15,6 +15,7 @@
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
+    import { theme } from "$store/theme";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
     import type { ModalComponent, ModalSettings } from "@skeletonlabs/skeleton";
@@ -148,11 +149,9 @@
         };
         modalStore.trigger(search_modal);
     }
-
-    let style: "kokoro" = "kokoro";
 </script>
 
-{#if style == "kokoro"}
+{#if $theme == "kokoro"}
     <style lang="scss">
         :root {
             /* =~= Theme Properties =~= */
