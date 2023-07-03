@@ -15,15 +15,14 @@
 
     import Markdown from "./markdown.svelte";
 
-    let caret_offset_top: string;
-    let caret_offset_left: string;
+    let caret_offset_top: string | null = null;
+    let caret_offset_left: string | null = null;
 
     let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
-    let caret_offset: { top: number; left: number; height: number } | null = null;
     let active_emoji_index: number;
     const SHOWN_EMOJI_LIMIT = 5;
 
@@ -119,8 +118,10 @@
 
     async function handle_blur() {
         emoji_matches = [];
-        caret_offset = null;
         show_emoji_picker = false;
+
+        caret_offset_top = null;
+        caret_offset_left = null;
     }
 
     async function handle_input(event: Event) {
@@ -157,7 +158,7 @@
             }
 
             // Popover settings
-            if (caret_offset === null) {
+            if (caret_offset_left === null || caret_offset_top == null) {
                 const textarea_position = textarea_element.getBoundingClientRect();
 
                 // CSS
@@ -168,17 +169,14 @@
                 // We need 2 times the line height to be actually effective.
                 caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + ${line_height} + ${line_height})`;
                 caret_offset_left = `calc(${caret_position.left - textarea_position.left}px)`;
-
-                caret_offset = {
-                    top: 0,
-                    left: 0,
-                    height: 0
-                };
             }
         } else {
             emoji_matches = [];
-            caret_offset = null;
             show_emoji_picker = false;
+
+            // Caret
+            caret_offset_top = null;
+            caret_offset_left = null;
         }
     }
 
@@ -392,8 +390,11 @@
 
         // close emoji picker
         show_emoji_picker = false;
-        caret_offset = null;
         emoji_matches = [];
+
+        // Caret controls
+        caret_offset_left = null;
+        caret_offset_top = null;
     }
 
     let tab_type: "edit" | "preview" = "edit";
@@ -482,7 +483,7 @@
             </a>
         </div>
     </textarea-footer>
-    {#if show_emoji_picker && caret_offset && emoji_matches.length > 0}
+    {#if show_emoji_picker && caret_offset_left && caret_offset_top && emoji_matches.length > 0}
         <emoji-popover
             class="emoji_picker absolute flex min-w-[12vw] flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style="top: {caret_offset_top}; left: {caret_offset_left};"
