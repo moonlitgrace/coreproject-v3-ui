@@ -159,14 +159,15 @@
             // Popover settings
             if (caret_offset === null) {
                 const textarea_position = textarea_element.getBoundingClientRect();
-                const scroll_top = textarea_element.scrollTop;
 
                 // CSS
                 const line_height = getComputedStyle(textarea_element).getPropertyValue("line-height");
 
                 const caret_position = offset(textarea_element);
 
+                // We need 2 times the line height to be actually effective.
                 caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + ${line_height} + ${line_height})`;
+                caret_offset_left = `calc(${caret_position.left - textarea_position.left}px)`;
 
                 caret_offset = {
                     top: 0,
