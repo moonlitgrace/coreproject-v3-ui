@@ -388,7 +388,7 @@
 
             <ScrollArea
                 offsetScrollbar
-                parentClass="mt-[1.5vw] max-h-[21.5625vw]"
+                parentClass="mt-[1vw] max-h-[22.25vw]"
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime}
@@ -422,7 +422,7 @@
                 {/each}
             </ScrollArea>
 
-            <section-bottom class="mt-[1vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
+            <section-bottom class="mt-[0.75vw] flex items-start justify-between gap-[2vw] pr-[0.75vw]">
                 <span class="text-[0.75vw] font-semibold md:leading-[1.25vw]">showing recently aired episodes from your Anime List</span>
                 <button class="btn p-0 text-[0.75vw] font-semibold text-warning-400">Change to All</button>
             </section-bottom>
