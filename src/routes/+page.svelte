@@ -405,7 +405,7 @@
                                 <episode-name class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
                                     {anime.name}
                                 </episode-name>
-                                <episode-dates class="flex items-center gap-[0.35vw] text-[0.8vw]">
+                                <episode-dates class="flex items-center gap-[0.35vw] text-[0.8vw] text-surface-50">
                                     <span class="font-semibold">
                                         Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
                                     </span>
