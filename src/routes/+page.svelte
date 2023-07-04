@@ -324,7 +324,7 @@
                 {/if}
             {/each}
 
-            <slide-progress class="absolute bottom-0 w-full flex flex-col px-[3vw] md:px-0">
+            <slide-progress class="absolute bottom-0 flex w-full flex-col px-[3vw] md:px-0">
                 <progress-bar
                     class="h-[0.2rem] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
                     style="width: {$tweened_progress_value}%;"
