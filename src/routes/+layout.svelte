@@ -149,6 +149,9 @@
         };
         modalStore.trigger(search_modal);
     }
+
+    /** vercel effect */
+    async function handle_mouseover() {}
 </script>
 
 {#if $theme == "kokoro"}
@@ -367,7 +370,8 @@
                             <a
                                 href={item_href ?? "javascript:void(0)"}
                                 type="button"
-                                class="{item_href ?? 'pointer-events-none'} {is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class:pointer-events-none={item_href}
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
