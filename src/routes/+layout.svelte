@@ -368,9 +368,9 @@
                             {@const is_active = $page.url.pathname === item_href}
 
                             <a
-                                href={item_href ?? "javascript:void(0)"}
+                                href={item_href}
                                 type="button"
-                                class:pointer-events-none={item_href}
+                                class:pointer-events-none={!item_href}
                                 class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
                             >
                                 <div class="inline-grid">
