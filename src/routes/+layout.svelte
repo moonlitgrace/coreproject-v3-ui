@@ -357,7 +357,8 @@
                         {/each}
                     </div>
 
-                    <div class="mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
+                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
+                        <div class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-white" />
                         {#each Object.entries(icon_mapping.middle) as item}
                             {@const item_name = item[0]}
                             {@const item_icon = item[1].icon}
@@ -371,9 +372,10 @@
                                 href={item_href ?? "javascript:void(0)"}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                style=""
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative z-0 w-[3.375vw] rounded-[0.5vw] p-0"
                             >
-                                <div class="inline-grid">
+                                <div class="z-20 inline-grid">
                                     {#if is_active}
                                         <div
                                             class="absolute inset-0 flex items-center justify-center"
