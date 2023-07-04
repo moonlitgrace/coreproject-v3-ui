@@ -25,7 +25,7 @@
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
     import type { SvelteComponent } from "svelte";
-    import { blur } from "svelte/transition";
+    import { blur, slide } from "svelte/transition";
     import tippy from "tippy.js";
 
     // Most of your app wide CSS should be put in this file
@@ -74,7 +74,7 @@
                     component: Explore,
                     class: "w-[1.25vw] text-white"
                 },
-                url: undefined,
+                url: "/explore",
                 show_on_mobile: true
             },
             list: {
@@ -82,7 +82,7 @@
                     component: List,
                     class: "w-[1.7vw] text-white"
                 },
-                url: undefined,
+                url: "/list",
                 show_on_mobile: false
             },
             schedule: {
@@ -151,7 +151,13 @@
     }
 
     /** vercel effect */
-    async function handle_mouseover() {}
+    let active_glider_element: HTMLDivElement;
+    let sidebar_buttons: Array<HTMLAnchorElement> = new Array<HTMLAnchorElement>();
+
+    function handle_mouseenter(index: number) {
+        const target = sidebar_buttons[index];
+        active_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+    }
 </script>
 
 {#if $theme == "kokoro"}
@@ -357,8 +363,13 @@
                         {/each}
                     </div>
 
-                    <div class="mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
-                        {#each Object.entries(icon_mapping.middle) as item}
+                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
+                        <active_glider
+                            bind:this={active_glider_element}
+                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-secondary-100 duration-300 ease-in-out before:absolute before:-left-[0.15vw] before:top-[1.2vw] before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500"
+                        />
+
+                        {#each Object.entries(icon_mapping.middle) as item, index}
                             {@const item_name = item[0]}
                             {@const item_icon = item[1].icon}
                             {@const item_href = item[1].url}
@@ -371,13 +382,15 @@
                                 href={item_href}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                bind:this={sidebar_buttons[index]}
+                                on:mouseenter={() => handle_mouseenter(index)}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
                                         <div
                                             class="absolute inset-0 flex items-center justify-center"
-                                            transition:blur
+                                            transition:slide
                                         >
                                             <svelte:component
                                                 this={component}
@@ -385,10 +398,7 @@
                                             />
                                         </div>
                                     {:else}
-                                        <div
-                                            class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]"
-                                            transition:blur
-                                        >
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]">
                                             <svelte:component
                                                 this={component}
                                                 class={item_icon.class}
