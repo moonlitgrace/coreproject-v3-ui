@@ -127,7 +127,7 @@
     /* slide buttons colors */
     let slide_buttons = [
         { background: "bg-surface-50", border: "border-surface-50" },
-        { background: "bg-secondary-300", border: "border-error-400" },
+        { background: "bg-secondary-300", border: "border-secondary-300" },
         { background: "bg-warning-400", border: "border-warning-400" },
         { background: "bg-white", border: "border-white" },
         { background: "bg-primary-300", border: "border-primary-300" },
