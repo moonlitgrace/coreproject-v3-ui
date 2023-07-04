@@ -1,7 +1,5 @@
 <script lang="ts">
-    import { page } from "$app/stores";
     import { FormatDate } from "$functions/format_date";
-    import { OpengraphGenerator } from "$functions/opengraph";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import Delete from "$icons/delete.svelte";
@@ -303,8 +301,9 @@
                             {@const name = file.name}
                             {@const last_modified = new FormatDate(
                                 /* 
-                                    Somehow things got fked up and dayjs expects it to be in seconds and we have the file.lastModified as milliseconds.
-                                    So here we go with our logic 
+                                    Somehow things got fked up.
+                                    dayjs expects `time` to be in seconds and we have the file.lastModified as milliseconds.
+                                    So here we go with our logic. 
                                 */
                                 dayjs.unix(file.lastModified / 1000).toString()
                             ).format_to_human_readable_form}
