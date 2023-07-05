@@ -21,8 +21,7 @@
              * Reason 1: Skeleton.dev is formatting `del` tag | Source : https://www.skeleton.dev/elements/typography
              * Reason 2: Marked.js is not allowing us to add unstyled class to rendered text.
              */
-            const output = `<s class='hello'>${text}</s>`;
-            console.log(output);
+            const output = `<s>${text}</s>`;
             return output;
         }
     };
