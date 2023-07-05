@@ -152,19 +152,18 @@
 
     /** vercel effect */
     let hover_glider_element: HTMLDivElement;
-    let sidebar_buttons: Array<HTMLAnchorElement> = new Array<HTMLAnchorElement>();
 
-    function handle_mouseenter(index: number) {
-        const target = sidebar_buttons[index];
-        
+    function handle_mouseenter(event: Event) {
+        const target = event.target as HTMLAnchorElement;
+
         if (getComputedStyle(hover_glider_element).getPropertyValue("opacity") === "0") {
             hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
             setTimeout(() => {
                 hover_glider_element.style.opacity = "100";
             }, 300);
         } else {
-            hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
             hover_glider_element.style.opacity = "100";
+            hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
         }
     }
 </script>
@@ -392,8 +391,7 @@
                                 type="button"
                                 class:pointer-events-none={!item_href}
                                 class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.5vw] p-0"
-                                bind:this={sidebar_buttons[index]}
-                                on:mouseenter={() => handle_mouseenter(index)}
+                                on:mouseenter={handle_mouseenter}
                                 on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
                             >
                                 <div class="inline-grid">
