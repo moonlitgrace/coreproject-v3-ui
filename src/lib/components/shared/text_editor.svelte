@@ -8,10 +8,10 @@
     import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
     import { offset } from "caret-pos";
+    import { sanitize } from "isomorphic-dompurify";
     import { tick } from "svelte";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
-    import xss from "xss";
 
     import Markdown from "./markdown.svelte";
 
@@ -434,7 +434,7 @@
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
-                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${xss(description)}</div>`,
+                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${sanitize(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
                         offset: [0, 17],
