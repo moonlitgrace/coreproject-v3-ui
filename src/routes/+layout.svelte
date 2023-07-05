@@ -398,7 +398,7 @@
                                     {#if is_active}
                                         <div
                                             class="absolute inset-0 flex items-center justify-center"
-                                            transition:slide
+                                            transition:blur
                                         >
                                             <svelte:component
                                                 this={component}
@@ -406,7 +406,10 @@
                                             />
                                         </div>
                                     {:else}
-                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.35vw]">
+                                        <div
+                                            class="absolute inset-0 flex flex-col items-center justify-center gap-[0.35vw]"
+                                            transition:blur
+                                        >
                                             <svelte:component
                                                 this={component}
                                                 class={item_icon.class}
