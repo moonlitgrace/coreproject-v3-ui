@@ -90,7 +90,7 @@
                     component: Schedule,
                     class: "w-[1.25vw] text-white"
                 },
-                url: undefined,
+                url: "/shedule",
                 show_on_mobile: false
             },
             forum: {
@@ -98,7 +98,7 @@
                     component: Forum,
                     class: "w-[1.25vw] text-white"
                 },
-                url: undefined,
+                url: "/forum",
                 show_on_mobile: true
             }
         },
@@ -364,10 +364,10 @@
                         {/each}
                     </div>
 
-                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
+                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.5vw]">
                         <active_glider
                             bind:this={hover_glider_element}
-                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-secondary-100/25 opacity-0 duration-300 ease-in-out"
+                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-white/10 opacity-0 duration-300 ease-in-out"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item, index}
@@ -387,6 +387,13 @@
                                 bind:this={sidebar_buttons[index]}
                                 on:mouseenter={() => handle_mouseenter(index)}
                                 on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
+                                use:tippy={{
+                                    content: `<span class="capitalize text-[1vw] bg-primary-500 leading-none px-[1vw] py-[0.5vw] font-semibold rounded-[0.35vw]">${item_name}</span>`,
+                                    allowHTML: true,
+                                    arrow: false,
+                                    placement: "right",
+                                    animation: "shift-away"
+                                }}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
@@ -400,12 +407,12 @@
                                             />
                                         </div>
                                     {:else}
-                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.75vw]">
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.25vw]">
                                             <svelte:component
                                                 this={component}
                                                 class={item_icon.class}
                                             />
-                                            <span class="text-[0.875vw] capitalize leading-[1.05vw]">
+                                            <span class="hidden text-[0.7vw] font-semibold capitalize leading-[1.05vw]">
                                                 {item_name}
                                             </span>
                                         </div>
