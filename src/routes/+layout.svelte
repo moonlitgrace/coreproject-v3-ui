@@ -400,7 +400,7 @@
                                             />
                                         </div>
                                     {:else}
-                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.25vw]">
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-[0.35vw]">
                                             <svelte:component
                                                 this={component}
                                                 class={item_icon.class}
