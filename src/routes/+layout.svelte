@@ -377,7 +377,7 @@
                             class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 ease-in-out duration-{GLIDER_TRANSITION_DURATION}"
                         />
 
-                        {#each Object.entries(icon_mapping.middle) as item, index}
+                        {#each Object.entries(icon_mapping.middle) as item}
                             {@const item_name = item[0]}
                             {@const item_icon = item[1].icon}
                             {@const item_href = item[1].url}
