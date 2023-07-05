@@ -151,12 +151,13 @@
     }
 
     /** vercel effect */
-    let active_glider_element: HTMLDivElement;
+    let hover_glider_element: HTMLDivElement;
     let sidebar_buttons: Array<HTMLAnchorElement> = new Array<HTMLAnchorElement>();
 
     function handle_mouseenter(index: number) {
+        hover_glider_element.style.opacity = "100";
         const target = sidebar_buttons[index];
-        active_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+        hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
     }
 </script>
 
@@ -365,8 +366,8 @@
 
                     <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[1.5vw]">
                         <active_glider
-                            bind:this={active_glider_element}
-                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-secondary-100 duration-300 ease-in-out before:absolute before:-left-[0.15vw] before:top-[1.2vw] before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500"
+                            bind:this={hover_glider_element}
+                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-secondary-100/25 opacity-0 duration-300 ease-in-out"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item, index}
@@ -382,9 +383,10 @@
                                 href={item_href}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
                                 bind:this={sidebar_buttons[index]}
                                 on:mouseenter={() => handle_mouseenter(index)}
+                                on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
