@@ -153,20 +153,17 @@
     /** vercel effect */
     let hover_glider_element: HTMLDivElement;
     let GLIDER_TRANSITION_DURATION = 100;
-    let GLIDER_OPACITY = 0;
-    let GLIDER_TRANSLATEY: number;
 
     function handle_mouseenter(event: MouseEvent) {
         const target = event.target as HTMLAnchorElement;
+        hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
 
         if (getComputedStyle(hover_glider_element).getPropertyValue("opacity") === "0") {
-            GLIDER_TRANSLATEY = target.offsetTop;
             setTimeout(() => {
-                GLIDER_OPACITY = 1;
+                hover_glider_element.style.opacity = "100";
             }, GLIDER_TRANSITION_DURATION);
         } else {
-            GLIDER_OPACITY = 1;
-            GLIDER_TRANSLATEY = target.offsetTop;
+            hover_glider_element.style.opacity = "100";
         }
     }
 </script>
@@ -377,8 +374,7 @@
                     <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]">
                         <active_glider
                             bind:this={hover_glider_element}
-                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 ease-in-out duration-{GLIDER_TRANSITION_DURATION} opacity-{GLIDER_OPACITY}"
-                            style="transform: translateY({GLIDER_TRANSLATEY}px);"
+                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 ease-in-out duration-{GLIDER_TRANSITION_DURATION}"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item, index}
@@ -396,7 +392,7 @@
                                 class:pointer-events-none={!item_href}
                                 class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.5vw] p-0"
                                 on:mouseenter={handle_mouseenter}
-                                on:mouseleave={() => (GLIDER_OPACITY = 0)}
+                                on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
