@@ -74,5 +74,8 @@
     "type": "module",
     "workspaces": [
         "./scripts"
-    ]
+    ],
+    "dependencies": {
+        "isomorphic-dompurify": "^1.7.0"
+    }
 }
