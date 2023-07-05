@@ -154,10 +154,18 @@
     let hover_glider_element: HTMLDivElement;
     let sidebar_buttons: Array<HTMLAnchorElement> = new Array<HTMLAnchorElement>();
 
-    async function handle_mouseenter(index: number) {
+    function handle_mouseenter(index: number) {
         const target = sidebar_buttons[index];
-        hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
-        hover_glider_element.style.opacity = "100";
+        
+        if (getComputedStyle(hover_glider_element).getPropertyValue("opacity") === "0") {
+            hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+            setTimeout(() => {
+                hover_glider_element.style.opacity = "100";
+            }, 300);
+        } else {
+            hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+            hover_glider_element.style.opacity = "100";
+        }
     }
 </script>
 
