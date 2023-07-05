@@ -152,6 +152,7 @@
 
     /** vercel effect */
     let hover_glider_element: HTMLDivElement;
+    let glider_transition_duration = 200;
 
     function handle_mouseenter(event: Event) {
         const target = event.target as HTMLAnchorElement;
@@ -160,7 +161,7 @@
             hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
             setTimeout(() => {
                 hover_glider_element.style.opacity = "100";
-            }, 300);
+            }, glider_transition_duration);
         } else {
             hover_glider_element.style.opacity = "100";
             hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
@@ -374,7 +375,7 @@
                     <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]">
                         <active_glider
                             bind:this={hover_glider_element}
-                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 opacity-0 duration-300 ease-in-out"
+                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 opacity-0 duration-{glider_transition_duration} ease-in-out"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item, index}
