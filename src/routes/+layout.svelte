@@ -154,10 +154,10 @@
     let hover_glider_element: HTMLDivElement;
     let sidebar_buttons: Array<HTMLAnchorElement> = new Array<HTMLAnchorElement>();
 
-    function handle_mouseenter(index: number) {
-        hover_glider_element.style.opacity = "100";
+    async function handle_mouseenter(index: number) {
         const target = sidebar_buttons[index];
         hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+        hover_glider_element.style.opacity = "100";
     }
 </script>
 
@@ -364,10 +364,10 @@
                         {/each}
                     </div>
 
-                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.5vw]">
+                    <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]">
                         <active_glider
                             bind:this={hover_glider_element}
-                            class="absolute h-[3.375vw] w-[3.375vw] rounded-[0.5vw] bg-white/10 opacity-0 duration-300 ease-in-out"
+                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 opacity-0 duration-300 ease-in-out"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item, index}
@@ -383,17 +383,10 @@
                                 href={item_href}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[3.375vw] rounded-[0.5vw] p-0"
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.5vw] p-0"
                                 bind:this={sidebar_buttons[index]}
                                 on:mouseenter={() => handle_mouseenter(index)}
                                 on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
-                                use:tippy={{
-                                    content: `<span class="capitalize text-[1vw] bg-primary-500 leading-none px-[1vw] py-[0.5vw] font-semibold rounded-[0.35vw]">${item_name}</span>`,
-                                    allowHTML: true,
-                                    arrow: false,
-                                    placement: "right",
-                                    animation: "shift-away"
-                                }}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
@@ -412,7 +405,7 @@
                                                 this={component}
                                                 class={item_icon.class}
                                             />
-                                            <span class="hidden text-[0.7vw] font-semibold capitalize leading-[1.05vw]">
+                                            <span class="text-[0.75vw] font-semibold capitalize leading-[1.05vw]">
                                                 {item_name}
                                             </span>
                                         </div>
@@ -423,19 +416,19 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col-reverse items-center gap-[1.5vw]">
+                <div class="flex flex-col-reverse items-center gap-[1vw]">
                     {#each Object.entries(icon_mapping.bottom) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
                         <button
                             type="button"
-                            class="bg-initial btn btn-icon w-[3.375vw] flex-col justify-center gap-[0.75vw] p-0 text-sm"
+                            class="bg-initial btn btn-icon w-[3.375vw] flex-col justify-center gap-[0.45vw] p-0 text-sm"
                         >
                             <svelte:component
                                 this={item_icon.component}
                                 class={item_icon.class}
                             />
-                            <span class="!m-0 text-[0.875vw] capitalize leading-[1.05vw]">
+                            <span class="!m-0 text-[0.75vw] font-semibold capitalize leading-[1.05vw]">
                                 {item_name}
                             </span>
                         </button>
