@@ -374,7 +374,7 @@
                     <div class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]">
                         <active_glider
                             bind:this={hover_glider_element}
-                            class="absolute h-[4vw] w-[4vw] rounded-[0.5vw] bg-white/10 ease-in-out duration-{GLIDER_TRANSITION_DURATION}"
+                            class="absolute h-[4vw] w-[4vw] rounded-[0.75vw] bg-white/10 opacity-0 ease-in-out duration-{GLIDER_TRANSITION_DURATION}"
                         />
 
                         {#each Object.entries(icon_mapping.middle) as item}
@@ -390,7 +390,7 @@
                                 href={item_href}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-0.5 before:z-10 before:h-[0.875vw] before:w-[0.25vw] before:rounded-lg before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.5vw] p-0"
+                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.75vw] p-0"
                                 on:mouseenter={handle_mouseenter}
                                 on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
                             >
