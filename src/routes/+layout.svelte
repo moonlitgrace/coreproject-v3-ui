@@ -280,7 +280,7 @@
                         <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
                     </a>
 
-                    <div class="relative">
+                    <div class="relative flex items-center">
                         {#if $navbar_middle_section_variant === "logo"}
                             <a
                                 href="/"
@@ -292,7 +292,7 @@
                         {:else if $navbar_middle_section_variant === "form"}
                             <div
                                 transition:blur
-                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                                class="absolute left-1/2 -translate-x-1/2"
                             >
                                 <a
                                     href="/"
