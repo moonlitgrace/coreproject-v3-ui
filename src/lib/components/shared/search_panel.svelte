@@ -30,9 +30,7 @@
                 type="button"
                 aria-label="Clear"
                 class="btn absolute right-[1.25vw] p-0"
-                on:click={() => {
-                    search_query = "";
-                }}
+                on:click={() => (search_query = "")}
             >
                 <Cross style="width: 1.5vw; opacity: 0.7;" />
             </button>
