@@ -461,22 +461,22 @@
             </animes-episodes>
         </latest-episodes-mobile>
 
-        <navigation-card class="relative mt-[3.4vw] hidden h-[24.5vw] w-[16.625vw] md:block">
+        <navigation-card class="relative mt-[2.75vw] hidden h-[24.5vw] w-[16.625vw] md:block">
             <ImageLoader
                 src="/images/NavigationBox-bg.avif"
-                class="absolute h-full w-full rounded-[0.875vw] border-[0.25vw] border-surface-50 object-cover object-center"
+                class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
             />
 
             <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
             <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
 
-            <navigation-content class="absolute inset-0 px-[1.875vw] pt-[2vw]">
+            <navigation-content class="absolute inset-0 flex flex-col justify-between px-[1.875vw] pt-[2vw]">
                 <section-header class="flex flex-col gap-[0.2w]">
                     <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
                     <span class="text-[0.875vw] font-semibold leading-[2.5vw]">Jump quickly into</span>
                 </section-header>
 
-                <navigation-left-buttons class="mt-[1vw] flex flex-col gap-[0.625vw]">
+                <navigation-left-buttons class="mt-[1vw] flex flex-col gap-[0.75vw]">
                     {#each Object.entries(icon_mapping.left) as item}
                         {@const item_title = item[1].title}
                         {@const item_icon = item[1].icon}
