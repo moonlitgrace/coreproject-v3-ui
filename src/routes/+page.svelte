@@ -599,7 +599,7 @@
                                 <span>Ep {anime.current_episode}</span>
                             </button>
 
-                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] rounded-[0.375vw] border-[0.2vw] border-surface-50/50 bg-surface-900 text-[0.875vw] font-bold text-surface-50">
+                            <button class="btn btn-icon h-[3.125vw] w-[5.4375vw] rounded-[0.625vw] bg-surface-900 text-[0.875vw] font-bold text-surface-50">
                                 <Info class="w-[1.25vw]" />
                                 <span>Info</span>
                             </button>
