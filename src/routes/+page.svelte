@@ -290,6 +290,7 @@
 
                             <ScrollArea
                                 gradientMask
+                                offsetScrollbar
                                 parentClass="max-h-16 md:max-h-[6vw]"
                                 class="text-xs font-medium leading-4 text-surface-200 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]"
                             >
