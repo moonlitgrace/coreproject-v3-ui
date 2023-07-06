@@ -269,7 +269,7 @@
     </style>
 {/if}
 
-<div class="relative h-[100dvh]">
+<div class="relative h-[100dvh] w-screen overflow-x-hidden">
     <Modal />
 
     <AppShell>
