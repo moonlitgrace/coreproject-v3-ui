@@ -258,7 +258,7 @@
                         <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900/90 to-surface-900/50 md:to-surface-900/25" />
                         <gradient-overlay class="absolute inset-0 hidden bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/50" />
 
-                        <anime-details class="absolute bottom-0 flex flex-col pb-7 pl-7 md:px-[3.75vw] md:py-[2.625vw]">
+                        <anime-details class="absolute bottom-7 left-7 flex flex-col md:bottom-0 md:left-0 md:px-[3.75vw] md:py-[2.625vw]">
                             <anime-name class="text-3xl font-bold md:text-[2vw] md:leading-[2.375vw]">
                                 {anime.name}
                             </anime-name>
