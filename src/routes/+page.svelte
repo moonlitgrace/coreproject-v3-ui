@@ -220,7 +220,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<home-container class="block md:p-[1.25vw] md:pr-[3.75vw]">
+<home-container class="block md:p-[1.25vw] md:pr-[3.75vw] mt-16 md:mt-0">
     <hero-section class="flex flex-col justify-between md:flex-row">
         <latest-animes-slider
             class="relative h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]"
