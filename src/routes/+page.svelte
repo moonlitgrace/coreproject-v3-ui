@@ -302,7 +302,7 @@
 
                             <options class="mb-2 mt-7 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
                                 <button class="{slide_button_background} btn btn-icon flex h-14 w-24 justify-center gap-1 rounded-xl text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                    <PlayCircle class="w-4 text-surface-900 md:w-[1.25vw]" />
+                                    <PlayCircle class="w-4 text-surface-900 md:w-[1vw]" />
                                     <span>Ep 1</span>
                                 </button>
 
