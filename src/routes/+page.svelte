@@ -220,7 +220,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<home-container class="block md:p-[1.25vw] md:pr-[3.75vw] mt-16 md:mt-0">
+<home-container class="mt-16 block md:mt-0 md:p-[1.25vw] md:pr-[3.75vw]">
     <hero-section class="flex flex-col justify-between md:flex-row">
         <latest-animes-slider
             class="relative h-[22.5rem] w-full md:h-[27.875vw] md:w-[42.1875vw]"
@@ -255,34 +255,37 @@
                             class="absolute h-full w-full object-cover object-center md:rounded-t-[0.875vw]"
                         />
 
-                        <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900 to-surface-900/30 md:from-surface-900/90 md:to-surface-900/25" />
+                        <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900/90 to-surface-900/50 md:to-surface-900/25" />
                         <gradient-overlay class="absolute inset-0 hidden bg-gradient-to-r from-surface-900 to-surface-900/25 md:flex md:from-surface-900/50" />
 
-                        <anime-details class="absolute bottom-0 px-4 py-[2.625vw] md:px-[3.75vw]">
-                            <anime-name class="text-3xl font-bold leading-[2.375vw] md:text-[2vw]">
+                        <anime-details class="absolute bottom-0 flex flex-col pb-7 pl-7 md:px-[3.75vw] md:py-[2.625vw]">
+                            <anime-name class="text-3xl font-bold md:text-[2vw] md:leading-[2.375vw]">
                                 {anime.name}
                             </anime-name>
-                            <anime-infos class="flex flex-wrap items-center gap-2 pt-3 text-xs font-medium md:gap-[0.65vw] md:pt-[0.5vw] md:text-[0.9375vw]">
+                            <japanese-name class="text-base font-semibold text-white/90 md:hidden md:text-[2vw] md:leading-[2.375vw]">
+                                {anime.japanese_name}
+                            </japanese-name>
+                            <anime-infos class="flex flex-wrap items-center gap-2 pt-4 text-xs font-semibold text-white/90 md:gap-[0.65vw] md:pt-[0.5vw] md:text-[0.9375vw]">
                                 <span class="leading-[1.125vw]">
                                     {anime.type}
                                 </span>
-                                <Circle class="w-[0.25vw] opacity-75" />
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="leading-[1.125vw]">
                                     {anime.episodes_count} eps
                                 </span>
-                                <Circle class="w-[0.25vw] opacity-75" />
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="leading-[1.125vw]">Completed</span>
-                                <Circle class="w-[0.25vw] opacity-75" />
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="capitalize leading-[1.125vw]">
                                     {new FormatDate(anime.aired_from).format_to_season}
                                 </span>
-                                <Circle class="w-[0.25vw] opacity-75" />
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="leading-[1.125vw]">
                                     {anime.studios[0]}
                                 </span>
                             </anime-infos>
 
-                            <anime-genres class="flex gap-1 pb-2 pt-3 md:gap-[0.5vw] md:pt-[0.5vw]">
+                            <anime-genres class="hidden gap-1 pb-2 pt-3 md:flex md:gap-[0.5vw] md:pt-[0.5vw]">
                                 {#each anime.genres as item}
                                     <span class="rounded bg-surface-900 p-1 px-2 text-xs md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.4vw] md:text-[0.75vw] md:font-semibold">{item}</span>
                                 {/each}
@@ -291,15 +294,15 @@
                             <ScrollArea
                                 gradientMask
                                 offsetScrollbar
-                                parentClass="max-h-16 md:max-h-[6vw]"
+                                parentClass="max-h-16 md:max-h-[6vw] hidden md:flex"
                                 class="text-xs font-medium leading-4 text-surface-200 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]"
                             >
                                 {anime.synopsis}
                             </ScrollArea>
 
-                            <options class="mb-2 mt-4 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
-                                <button class="{slide_button_background} btn btn-icon flex h-12 w-24 justify-center rounded-lg text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                    <PlayCircle class="w-5 text-surface-900 md:w-[1.25vw]" />
+                            <options class="mb-2 mt-7 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
+                                <button class="{slide_button_background} btn btn-icon flex h-14 w-24 justify-center gap-1 rounded-xl text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                    <PlayCircle class="w-4 text-surface-900 md:w-[1.25vw]" />
                                     <span>Ep 1</span>
                                 </button>
 
@@ -307,16 +310,16 @@
                                     href="./mal/{anime.mal_id}"
                                     class="unstyled"
                                 >
-                                    <button class="btn btn-icon flex h-12 w-28 items-center justify-center rounded-lg bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
+                                    <button class="btn btn-icon flex h-14 w-28 items-center justify-center rounded-xl bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                         <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                         <span>Details</span>
                                     </button>
                                 </a>
 
-                                <button class="btn btn-icon h-12 w-12 rounded-[1.5vw] bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
+                                <button class="btn btn-icon h-14 w-14 rounded-xl bg-surface-900 text-[3vw] font-bold text-surface-50 md:h-[3.125vw] md:w-[3.125vw] md:rounded-[0.5vw] md:text-[0.875vw]">
                                     <Edit
                                         variant="with_underline_around_pencil"
-                                        class="w-5 text-surface-50 md:w-[1.25vw]"
+                                        class="w-4 text-surface-50 md:w-[1.25vw]"
                                     />
                                 </button>
                             </options>
@@ -325,7 +328,7 @@
                 {/if}
             {/each}
 
-            <slide-progress class="absolute bottom-0 flex w-full flex-col px-[3vw] md:px-0">
+            <slide-progress class="absolute bottom-0 flex w-full flex-col">
                 <progress-bar
                     class="h-[0.2rem] md:h-[0.145vw] {slide_buttons[main_hero_slide_active_index].background}"
                     style="width: {$tweened_progress_value}%;"
