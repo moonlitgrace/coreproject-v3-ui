@@ -448,13 +448,14 @@
 
         <svelte:fragment slot="footer">
             <div class="flex h-20 items-center justify-center md:hidden">
-                <div class="flex items-start justify-center gap-4 md:gap-[5vw]">
+                <div class="flex items-start justify-center gap-4">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
                         {@const item_href = item[1].url}
 
                         {@const component = item_icon.component}
+                        {@const klass = "w-5"}
 
                         {@const is_active = $page.url.pathname === item_href}
 
@@ -463,17 +464,17 @@
                             type="button"
                             class="unstyled flex flex-col items-center gap-[0.5vh]"
                         >
-                            <div class="{is_active ? 'bg-secondary-100' : 'bg-initial'} btn btn-icon relative h-11 w-[4.5rem] rounded-[0.75rem] p-0">
+                            <div class="{is_active ? 'bg-primary-500' : 'bg-initial'} btn btn-icon h-12 w-20 rounded-xl p-0">
                                 <div transition:blur>
                                     {#if is_active}
                                         <svelte:component
                                             this={component}
-                                            class="w-5 text-surface-900"
+                                            class={klass}
                                         />
                                     {:else}
                                         <svelte:component
                                             this={component}
-                                            class="w-5 text-white"
+                                            class={klass}
                                         />
                                     {/if}
                                 </div>
