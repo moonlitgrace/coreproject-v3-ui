@@ -271,7 +271,7 @@
             </anime-main-infos>
 
             <anime-episodes-container class="my-7 block md:my-[6vw]">
-                <section-header class="flex border-b-2 border-surface-50/50 pb-1 md:gap-x-[0.75vw] md:border-none md:pb-0">
+                <section-header class="flex border-b-2 border-surface-50/10 pb-1 md:gap-x-[0.75vw] md:border-none md:pb-0">
                     <header-title class="text-lg font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Episodes</header-title>
                     <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                         <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -426,7 +426,7 @@
 
                 <anime-media-section class="mt-10 flex grid-cols-5 flex-col gap-10 md:mt-[3vw] md:grid md:gap-[4.375vw]">
                     <comment-box class="md:col-span-3">
-                        <section-header class="flex gap-2 border-b-2 border-surface-50/50 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
+                        <section-header class="flex gap-2 border-b-2 border-surface-50/10 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
                             <header-title class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Comments</header-title>
                             <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                                 <SettingsOutline class="w-[0.9vw] opacity-75" />
@@ -509,7 +509,7 @@
                         </comments>
                     </comment-box>
                     <forum-posts class="md:col-span-2">
-                        <section-header class="flex gap-2 border-b-2 border-surface-50/50 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
+                        <section-header class="flex gap-2 border-b-2 border-surface-50/10 pb-1 md:gap-[0.75vw] md:border-none md:pb-0">
                             <section-title class="text-base font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Forum Posts</section-title>
                             <button class="btn btn-icon hidden rounded bg-surface-400 p-0 md:flex md:h-[1.5vw] md:w-[1.5vw]">
                                 <SettingsOutline class="w-[0.9vw] opacity-75" />

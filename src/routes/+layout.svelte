@@ -447,8 +447,8 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-20 items-center justify-center md:hidden">
-                <div class="flex items-start justify-center gap-4">
+            <div class="flex h-24 items-center justify-center md:hidden">
+                <div class="flex items-start justify-center gap-5">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
                         {@const item_icon = item[1].icon}
