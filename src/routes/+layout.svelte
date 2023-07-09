@@ -69,7 +69,7 @@
                 show_on_mobile: true
             },
 
-            discover: {
+            explore: {
                 icon: {
                     component: Explore,
                     class: "w-[1.25vw] text-white"
