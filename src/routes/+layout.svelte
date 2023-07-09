@@ -274,10 +274,10 @@
 
     <AppShell>
         <svelte:fragment slot="header">
-            <navbar class="absolute top-0 flex h-[4.5rem] w-full items-center justify-between bg-surface-900/95 px-4 backdrop-blur-3xl md:static md:h-[10vh] md:bg-surface-900 md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+            <navbar class="absolute top-0 flex h-[8dvh] w-full items-center justify-between bg-surface-900/95 px-4 backdrop-blur-3xl md:static md:h-[10vh] md:bg-surface-900 md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
                 {#if ["form", "logo"].includes($navbar_middle_section_variant)}
                     <a href="/">
-                        <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
+                        <Logo class="w-[4dvh] pt-[1.25dvh] md:w-[2.25vw] md:pt-[0.75vw]" />
                     </a>
 
                     <div class="relative flex items-center">
@@ -302,17 +302,17 @@
                                 </a>
 
                                 <search-form>
-                                    <form class="relative flex h-12 w-[65vw] items-center md:hidden">
+                                    <form class="relative flex h-[5.25dvh] w-[65dvw] items-center md:hidden">
                                         <button
                                             class="btn absolute left-4 p-0"
                                             aria-label="Search"
                                         >
-                                            <Search class="w-5 opacity-75" />
+                                            <Search class="w-[2dvh] opacity-75" />
                                         </button>
                                         <input
                                             type="text"
                                             placeholder="Search for animes, mangas..."
-                                            class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-sm font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
+                                            class="h-full w-full rounded-[0.4rem] border-none bg-surface-400 pl-12 text-[1.75dvh] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-200"
                                         />
                                     </form>
                                 </search-form>
@@ -344,7 +344,7 @@
                     >
                         <Avatar
                             rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                            width="w-12 md:w-[3.125vw]"
+                            width="w-[5.25dvh] md:w-[3.125vw]"
                             src="/images/Avatar.avif"
                             initials="JD"
                         />
@@ -447,7 +447,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="footer">
-            <div class="flex h-24 items-center justify-center md:hidden">
+            <div class="flex h-[8dvh] items-center justify-center md:hidden">
                 <div class="flex items-start justify-center gap-5">
                     {#each Object.entries(icon_mapping.middle).filter(([_, value]) => value.show_on_mobile) as item}
                         {@const item_name = item[0]}
@@ -455,16 +455,16 @@
                         {@const item_href = item[1].url}
 
                         {@const component = item_icon.component}
-                        {@const klass = "w-5"}
+                        {@const klass = "w-[2.25dvh]"}
 
                         {@const is_active = $page.url.pathname === item_href}
 
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
-                            class="unstyled flex flex-col items-center gap-[0.5vh]"
+                            class="unstyled flex flex-col items-center gap-[0dvh]"
                         >
-                            <div class="{is_active ? 'bg-primary-500' : 'bg-initial'} btn btn-icon h-12 w-20 rounded-xl p-0">
+                            <div class="{is_active ? 'bg-primary-500' : 'bg-initial'} btn btn-icon h-[5dvh] w-[9dvh] rounded-xl p-0">
                                 <div transition:blur>
                                     {#if is_active}
                                         <svelte:component
@@ -479,7 +479,7 @@
                                     {/if}
                                 </div>
                             </div>
-                            <span class="text-xs font-bold capitalize text-surface-50">
+                            <span class="text-[1.25dvh] font-semibold capitalize text-surface-50 md:font-bold">
                                 {item_name}
                             </span>
                         </a>
