@@ -74,7 +74,7 @@
     <lights_overlay
         transition:blur={{ duration: 300 }}
         role="presentation"
-        class="absolute inset-0 z-20 bg-surface-900/95"
+        class="absolute inset-0 z-20 bg-black/95"
         on:mousedown={toggle_lights}
     />
 {/if}
