@@ -20,12 +20,9 @@
 
     export let episode_number: number | undefined;
 
-    let player_zindex = 0;
-
     const toggle_lights = () => {
         button_state_mapping.lights = !button_state_mapping.lights;
-        player_zindex = 999;
-    }
+    };
 
     const button_state_mapping: { [key: string]: boolean } = {
         lights: false
@@ -74,13 +71,18 @@
 </script>
 
 {#if button_state_mapping.lights}
-    <lights_overlay transition:blur={{ duration: 300 }} role="presentation" class="bg-surface-900/95 absolute inset-0 z-50" on:mousedown={toggle_lights} />
+    <lights_overlay
+        transition:blur={{ duration: 300 }}
+        role="presentation"
+        class="absolute inset-0 z-20 bg-surface-900/95"
+        on:mousedown={toggle_lights}
+    />
 {/if}
 
-<episode-container class="block md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw] mt-20 md:mt-0">
+<episode-container class="mt-20 block md:mt-0 md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
     <episode-content class="grid grid-cols-12 md:gap-[5vw]">
         <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
-            <player class="h-64 w-full md:h-[35vw] relative z-[{player_zindex}]">
+            <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
                 <!-- adding a image for now -->
                 <ImageLoader
                     src="/images/DemonSlayer-episode.webp"
@@ -103,7 +105,7 @@
                         {@const enabled = button_state_mapping[item[0]]}
 
                         <button
-                            class="btn flex items-center p-0 text-xs leading-none md:text-[0.9vw]"
+                            class="btn hidden items-center p-0 text-xs leading-none md:flex md:text-[0.9vw]"
                             on:click={toggle_lights}
                         >
                             <span>{text}:</span>
