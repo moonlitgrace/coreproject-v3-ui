@@ -185,7 +185,7 @@
                         class="unstyled flex flex-col leading-none md:gap-[0.25vw] md:text-[1.1vw]"
                     >
                         <span class="font-semibold uppercase">Demon Slayer S1</span>
-                        <span class="text-surface-50 md:text-[1vw]">Kimetsu yo yaika</span>
+                        <span class="text-surface-50 md:text-[1vw]">Kimetsu no yaiba</span>
                     </a>
                 </div>
                 <options>
