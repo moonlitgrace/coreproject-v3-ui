@@ -42,8 +42,8 @@
     </error-context>
     <character-image class="relative col-span-12 flex justify-center md:col-span-2">
         <gradient
-            class="absolute h-full"
-            style="background:radial-gradient(40vw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);width:calc(100% + 12vw)"
+            class="absolute h-full w-[calc(100%*1.5)]"
+            style="background:radial-gradient(40vw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
         />
 
         <img
