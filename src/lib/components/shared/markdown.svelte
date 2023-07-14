@@ -1,8 +1,11 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
+    import hljs from "highlight.js";
+    import "highlight.js/scss/github-dark.scss";
     import type { marked as markedType } from "marked";
     import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
+    import { markedHighlight } from "marked-highlight";
     import xss from "xss";
 
     export let markdown = "";
@@ -28,6 +31,14 @@
     };
 
     const marked = new Marked(
+        // Highlight.js
+        markedHighlight({
+            langPrefix: "hljs language-",
+            highlight: (code, lang) => {
+                const language = hljs.getLanguage(lang) ? lang : "plaintext";
+                return hljs.highlight(code, { language }).value;
+            }
+        }),
         // Emoji plugin
         markedEmoji(emoji_options),
         {
