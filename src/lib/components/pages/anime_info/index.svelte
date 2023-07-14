@@ -170,7 +170,7 @@
                                 class="btn h-14 w-[6.5rem] rounded-lg bg-primary-500 font-bold text-white md:h-[4.3vw] md:w-[7vw] md:rounded-[0.625vw]"
                             >
                                 <div class="flex gap-3 md:gap-[0.7vw]">
-                                    <PlayCircle class="w-5 md:w-[1.875vw]" />
+                                    <PlayCircle class="w-5 md:w-[1.5vw]" />
                                     <div class="flex flex-col items-start gap-1">
                                         <span class="text-sm leading-none md:text-[0.87vw]">Watch</span>
                                         <span class="text-xs font-bold leading-none text-surface-50 md:text-[0.625vw]">Ep 01</span>

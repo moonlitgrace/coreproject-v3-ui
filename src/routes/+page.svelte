@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
+    import MyListAnimeDetails from "$components/tippies/my_list_anime_details.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
