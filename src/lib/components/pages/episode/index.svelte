@@ -20,8 +20,6 @@
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
-    export let episode_number: number;
-
     const button_state_mapping: { [key: string]: boolean } = {
         lights: false
     };
@@ -66,6 +64,11 @@
             }
         }
     };
+
+    /** Episode Contents */
+    export let episode_number: number;
+    export let episode_details = `The autumn he was twelve, piano prodigy Kousei Arima suddenly found himself unable to play the piano after his mother's death. Ever since then, it's like he's been frozen in time. His childhood friend, Tsubaki Sawabe, watches over him with concern; one day, she invites him on a double date. Kousei's other childhood friend, Ryouta Watari, is being introduced to a certain girl. Kousei reluctantly heads over to the rendezvous spot. There, he sees a girl playing a melodica. This girl, who allegedly has a crush on Watari, is Kaori Miyazono. And she turns out to be a violinist!`;
+    export let episode_name = `Monotone/Colorful`;
 </script>
 
 <episode-container class="flex flex-col md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
@@ -203,10 +206,9 @@
                     regionCaret="md:w-[1vw]"
                 >
                     <svelte:fragment slot="lead">EP{episode_number}</svelte:fragment>
-                    <svelte:fragment slot="summary">Monotone/Colorful</svelte:fragment>
+                    <svelte:fragment slot="summary">{episode_name}</svelte:fragment>
                     <svelte:fragment slot="content">
-                        The autumn he was twelve, piano prodigy Kousei Arima suddenly found himself unable to play the piano after his mother's death. Ever since then, it's like he's been frozen in time. His childhood friend, Tsubaki Sawabe, watches over him with concern; one day, she invites him on a double date. Kousei's other childhood friend, Ryouta Watari, is being introduced to a certain
-                        girl. Kousei reluctantly heads over to the rendezvous spot. There, he sees a girl playing a melodica. This girl, who allegedly has a crush on Watari, is Kaori Miyazono. And she turns out to be a violinist!
+                        {episode_details}
                     </svelte:fragment>
                 </AccordionItem>
             </Accordion>
