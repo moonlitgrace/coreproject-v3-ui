@@ -1,11 +1,11 @@
 <script lang="ts">
     import Chevron from "$icons/chevron.svelte";
+    import _ from "lodash";
+
+    const mapping = _.sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
 </script>
 
-<section
-    class="relative grid h-full grid-cols-5 items-end justify-between md:px-[5vw]"
-    style="background-image: linear-gradient(to top left, rgba(117, 105, 225, 0.1) 0%, transparent 50%);"
->
+<section class="relative grid h-full grid-cols-5 items-end justify-between md:px-[5vw]">
     <error-context class="col-span-12 flex flex-col items-center leading-none md:col-span-3 md:mb-[12vw] md:items-start md:gap-[1vw]">
         <status-code class="text-7xl font-bold md:text-[7vw]">
             {#each "404".split("") as number}
@@ -40,11 +40,16 @@
             <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
         </a>
     </error-context>
-    <character class="col-span-12 flex justify-center md:col-span-2">
-        <img
-            src="/images/characters/eliane.png"
-            alt="Character 1"
-            class="h-full w-64 md:w-full"
+    <character-image class="relative col-span-12 flex justify-center md:col-span-2">
+        <gradient
+            class="absolute h-full"
+            style="background:radial-gradient(40vw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);width:calc(100% + 12vw)"
         />
-    </character>
+
+        <img
+            src={mapping?.image}
+            alt={mapping?.alt}
+            class="z-10 h-full w-64 md:w-full"
+        />
+    </character-image>
 </section>
