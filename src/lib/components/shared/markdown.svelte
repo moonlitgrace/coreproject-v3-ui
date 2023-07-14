@@ -1,6 +1,7 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
-    import { marked } from "marked";
+    import type { marked as markedType } from "marked";
+    import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import xss from "xss";
 
@@ -15,7 +16,7 @@
     };
 
     // Override function
-    const renderer: marked.RendererObject = {
+    const renderer: markedType.RendererObject = {
         del(text: string) {
             /** Dont convert s (tag) -> del (tag)
              * Reason 1: Skeleton.dev is formatting `del` tag | Source : https://www.skeleton.dev/elements/typography
@@ -26,7 +27,7 @@
         }
     };
 
-    marked.use(
+    const marked = new Marked(
         // Emoji plugin
         markedEmoji(emoji_options),
         {
