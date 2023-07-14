@@ -14,7 +14,7 @@
         </status-code>
         <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
         <span class="mt-5 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
-            Hi <u>Ealime</u>
+            Hi <u>{mapping?.alt}</u>
             here!
         </span>
         <context class="px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
