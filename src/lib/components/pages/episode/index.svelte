@@ -27,6 +27,7 @@
     const button_state_mapping: { [key: string]: boolean } = {
         lights: false
     };
+
     const video_player_mapping: {
         preferences: {
             [key: string]: {
