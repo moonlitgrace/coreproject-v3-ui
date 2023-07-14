@@ -36,7 +36,9 @@
             langPrefix: "hljs language-",
             highlight: (code, lang) => {
                 const language = hljs.getLanguage(lang) ? lang : "plaintext";
-                return hljs.highlight(code, { language }).value;
+                const return_value = hljs.highlight(code, { language }).value;
+                console.log(return_value);
+                return return_value;
             }
         }),
         // Emoji plugin
