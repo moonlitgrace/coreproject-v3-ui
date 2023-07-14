@@ -22,17 +22,17 @@
     });
 </script>
 
-<scroll-area
+<scroll-area-container
     bind:this={element}
     class:mask-top={gradientMask && scroll_percent <= 100 && scroll_percent >= 90}
     class:mask-middle={gradientMask && scroll_percent < 90 && scroll_percent >= 10}
     class:mask-bottom={gradientMask && scroll_percent < 10 && scroll_percent >= 0}
     class="{parentClass} {offsetScrollbar ? 'pr-[0.75vw]' : 'pr-0'} block h-full w-full overflow-y-scroll overscroll-y-contain scrollbar-thin"
 >
-    <div class="{klass} whitespace-pre-line">
+    <scroll-area class="{klass} block whitespace-pre-line">
         <slot />
-    </div>
-</scroll-area>
+    </scroll-area>
+</scroll-area-container>
 
 <style lang="scss">
     scroll-area {
@@ -57,6 +57,7 @@
             /* inherit border-color to inherit transitions */
             border-color: inherit;
         }
+
         &::-webkit-scrollbar-track {
             background: transparent !important;
         }
