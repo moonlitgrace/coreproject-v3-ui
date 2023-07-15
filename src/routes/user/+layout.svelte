@@ -45,6 +45,14 @@
     });
 </script>
 
+<svelte:head>
+    <style>
+        #page {
+            overflow-y: hidden;
+        }
+    </style>
+</svelte:head>
+
 <root class="relative inline-grid h-full w-full md:grid-cols-2">
     {#if image && name}
         {#key image}
@@ -97,9 +105,3 @@
         <slot />
     </div>
 </root>
-
-<style lang="postcss">
-    :global(#page) {
-        @apply overflow-y-hidden;
-    }
-</style>
