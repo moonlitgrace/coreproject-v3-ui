@@ -20,7 +20,7 @@
         },
         {
             image: {
-                src: "/images/characters/anime_girl/anime_girl_2.png",
+                src: "/images/characters/ichigo/ichigo.png",
                 alt: "Ichigo",
                 class: "ml-auto "
             },
