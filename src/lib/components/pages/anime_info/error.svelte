@@ -2,11 +2,24 @@
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
 
-    const items: Array<{ image: string; alt: string; class?: string }> = [
-        { image: "/images/characters/eliane/eliane.png", alt: "Elaine", class: "md:pr-[5vw]" },
-        { image: "/images/characters/anime_girl/anime_girl.png", alt: "Anime Girl", class: "object-contain self-end" }
+    const items: Array<{
+        image: { src: string; alt: string };
+        class?: string;
+        gradient: { mobile: string; desktop: string };
+    }> = [
+        {
+            image: {
+                src: "/images/characters/eliane/eliane.png",
+                alt: "Elaine"
+            },
+            class: "md:pr-[5vw]",
+            gradient: {
+                mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
+            }
+        }
     ];
-    const mapping = items[1];
+    const mapping = sample(items);
 </script>
 
 <svelte:head>
@@ -26,7 +39,7 @@
         </status-code>
         <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
         <span class="mt-5 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
-            Hi <u>{mapping?.alt}</u>
+            Hi <u>{mapping?.image?.alt}</u>
             here!
         </span>
         <context class="px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
@@ -52,12 +65,15 @@
             <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
         </a>
     </error-context>
-    <character-image class="relative col-span-5 flex justify-center md:col-span-2">
+    <character-image
+        class="relative col-span-5 flex justify-center md:col-span-2"
+        style="--mobile_gradient:{mapping?.gradient?.mobile}; --desktop_gradient:{mapping?.gradient?.desktop}"
+    >
         <gradient class="absolute" />
 
         <img
-            src={mapping?.image}
-            alt={mapping?.alt}
+            src={mapping?.image.src}
+            alt={mapping?.image.alt}
             class="{mapping?.class ?? ''} z-10 h-full max-h-screen"
         />
     </character-image>
@@ -68,14 +84,14 @@
     gradient {
         height: 50dvh;
         width: 100dvw;
-        background: radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
+        background: var(--mobile_gradient);
     }
 
     @media screen(md) {
         gradient {
             height: 40dvw;
             width: calc(100% * 2);
-            background: radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
+            background: var(--desktop_gradient);
         }
     }
 </style>
