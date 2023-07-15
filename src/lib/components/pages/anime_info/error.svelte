@@ -31,7 +31,10 @@
             }
         }
     ];
-    const mapping = sample(items)!; // This logically can't be undefined or null
+    const mapping: {
+        image: { src: string; alt: string; class?: string };
+        gradient: { mobile: string; desktop: string; class?: string };
+    } = sample(items)!; // This logically can't be undefined or null
 </script>
 
 <svelte:head>
