@@ -5,10 +5,10 @@
     const mapping = _.sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
 </script>
 
-<section class="relative grid h-full grid-cols-5 items-end justify-between md:px-[5vw]">
-    <error-context class="col-span-12 flex flex-col items-center leading-none md:col-span-3 md:mb-[12vw] md:items-start md:gap-[1vw]">
+<section class="relative flex h-full grid-cols-5 flex-col items-center justify-end gap-20 md:grid md:items-end md:gap-0 md:px-[5vw]">
+    <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw]">
         <status-code class="text-7xl font-bold md:text-[7vw]">
-            {#each "404".split("") as number}
+            {#each Array.from("404") as number}
                 <span class="odd:text-warning-400">{number}</span>
             {/each}
         </status-code>
@@ -33,14 +33,14 @@
             's worksippers! ah- also let's wish her sweat dreams!
         </context>
         <a
-            href="/"
+            href="/explore"
             class="btn mt-5 w-max gap-2 bg-primary-500 py-4 font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:py-[1vw] md:text-[1.1vw]"
         >
             Explore animes
             <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
         </a>
     </error-context>
-    <character-image class="relative col-span-12 flex justify-center md:col-span-2">
+    <character-image class="relative col-span-5 flex justify-center md:col-span-2">
         <gradient class="absolute" />
 
         <img
@@ -60,7 +60,7 @@
     /* For small screens */
     gradient {
         height: 50dvh;
-        width: 100vw;
+        width: 100dvw;
         background: radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
     }
 
