@@ -10,7 +10,8 @@
         {
             image: {
                 src: "/images/characters/eliane/eliane.png",
-                alt: "Elaine"
+                alt: "Elaine",
+                class: "md:h-[100dvh]"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
@@ -22,7 +23,7 @@
             image: {
                 src: "/images/characters/ichigo/ichigo.png",
                 alt: "Ichigo",
-                class: "ml-auto"
+                class: "ml-auto md:h-[100dvh]"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[100dvw] md:w-[calc(100%*2)]",
@@ -82,7 +83,7 @@
         <img
             src={mapping.image.src}
             alt={mapping.image.alt}
-            class="{mapping.image.class ?? ''} z-10 h-full max-h-screen"
+            class="{mapping.image.class ?? ''} relative object-contain object-bottom"
         />
     </character-image>
 </section>
