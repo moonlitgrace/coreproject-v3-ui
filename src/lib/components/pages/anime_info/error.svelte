@@ -12,9 +12,10 @@
                 src: "/images/characters/eliane/eliane.png",
                 alt: "Elaine"
             },
+            class: "",
             gradient: {
-                mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
-                desktop: "radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
+                mobile: "radial-gradient(50dvh circle at center, rgba(225, 225, 225, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(40dvw circle at center, rgba(225, 225, 225, 0.25) 0%, transparent 50%)"
             }
         },
         {
@@ -22,6 +23,7 @@
                 src: "/images/characters/anime_girl/anime_girl_2.png",
                 alt: "Sukuna"
             },
+            class: "ml-auto ",
             gradient: {
                 mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
@@ -75,7 +77,7 @@
         </a>
     </error-context>
     <character-image
-        class="relative col-span-5 flex justify-end md:col-span-2"
+        class="relative col-span-5 flex justify-center md:col-span-2"
         style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
     >
         <gradient class="absolute h-[50dvh] w-[100dvw] [background:var(--mobile-gradient)] md:h-[40dvw] md:w-[calc(100%*2)] md:[background:var(--desktop-gradient)]" />
@@ -83,7 +85,7 @@
         <img
             src={mapping.image.src}
             alt={mapping.image.alt}
-            class="{mapping.class ?? ''} z-10 h-full max-h-screen"
+            class="{mapping.class ?? ''} z-10 md:h-full md:max-h-screen"
         />
     </character-image>
 </section>
