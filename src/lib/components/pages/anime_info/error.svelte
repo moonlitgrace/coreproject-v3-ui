@@ -35,6 +35,11 @@
 </script>
 
 <svelte:head>
+    <link
+        href={mapping.image.src}
+        rel="preload"
+        as="image"
+    />
     <style>
         #page {
             overflow: hidden;
