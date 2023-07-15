@@ -3,10 +3,68 @@
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
 
-    const mapping = sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
+    const items: Array<{
+        image: { src: string; alt: string; class?: string };
+        gradient: { mobile: string; desktop: string; class?: string };
+    }> = [
+        {
+            image: {
+                src: "/images/characters/eliane/eliane.png",
+                alt: "Elaine"
+            },
+            gradient: {
+                class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
+                mobile: "radial-gradient(50dvh circle at center, rgba(252, 233, 214, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(40dvw circle at center, rgba(252, 233, 214, 0.25) 0%, transparent 50%)"
+            }
+        },
+        {
+            image: {
+                src: "/images/characters/ichigo/ichigo.png",
+                alt: "Ichigo",
+                class: "ml-auto"
+            },
+            gradient: {
+                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(50dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
+            }
+        },
+        {
+            image: {
+                src: "/images/characters/sasha/sasha.png",
+                alt: "Sasha"
+            },
+            gradient: {
+                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                mobile: "radial-gradient(50dvh circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(45dvw circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)"
+            }
+        },
+        {
+            image: {
+                src: "/images/characters/laura/laura.png",
+                alt: "Laura"
+            },
+            gradient: {
+                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                mobile: "radial-gradient(50dvh circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(45dvw circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)"
+            }
+        }
+    ];
+    const mapping: {
+        image: { src: string; alt: string; class?: string };
+        gradient: { mobile: string; desktop: string; class?: string };
+    } = sample(items)!; // This logically can't be undefined or null
 </script>
 
 <svelte:head>
+    <link
+        href={mapping.image.src}
+        rel="preload"
+        as="image"
+    />
     <style>
         #page {
             overflow: hidden;
@@ -14,8 +72,8 @@
     </style>
 </svelte:head>
 
-<section class="relative flex h-full grid-cols-5 flex-col items-center justify-end gap-20 md:grid md:items-end md:gap-0 md:px-[5vw]">
-    <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw]">
+<section class="relative flex h-full grid-cols-5 flex-col items-center justify-end gap-20 md:grid md:items-end md:gap-0">
+    <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
         <status-code class="text-7xl font-bold md:text-[7vw]">
             {#each "404".split("") as number}
                 <span class="odd:text-warning-400">{number}</span>
@@ -23,7 +81,7 @@
         </status-code>
         <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
         <span class="mt-5 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
-            Hi <u>{mapping?.alt}</u>
+            Hi <u>{mapping.image.alt}</u>
             here!
         </span>
         <context class="select-none px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
@@ -37,30 +95,16 @@
             <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
         </a>
     </error-context>
-    <character-image class="relative col-span-5 flex justify-center md:col-span-2">
-        <gradient class="absolute" />
+    <character-image
+        class="relative col-span-5 flex items-end justify-center md:col-span-2"
+        style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
+    >
+        <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
         <img
-            src={mapping?.image}
-            alt={mapping?.alt}
-            class="z-10 h-full w-64 md:w-full"
+            src={mapping.image.src}
+            alt={mapping.image.alt}
+            class="{mapping.image.class ?? ''} relative object-contain object-bottom md:h-[100dvh]"
         />
     </character-image>
 </section>
-
-<style lang="postcss">
-    /* For small screens */
-    gradient {
-        height: 50dvh;
-        width: 100dvw;
-        background: radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
-    }
-
-    @media screen(md) {
-        gradient {
-            height: 40dvw;
-            width: calc(100% * 2);
-            background: radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
-        }
-    }
-</style>
