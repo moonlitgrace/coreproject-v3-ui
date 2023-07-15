@@ -1,8 +1,8 @@
 <script lang="ts">
     import Chevron from "$icons/chevron.svelte";
-    import _ from "lodash";
+    import sample from "lodash/sample";
 
-    const mapping = _.sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
+    const mapping = sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
 </script>
 
 <section class="relative grid h-full grid-cols-5 items-end justify-between md:px-[5vw]">
