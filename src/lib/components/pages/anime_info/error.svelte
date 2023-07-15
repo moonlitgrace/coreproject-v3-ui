@@ -22,7 +22,7 @@
             image: {
                 src: "/images/characters/ichigo/ichigo.png",
                 alt: "Ichigo",
-                class: "ml-auto "
+                class: "ml-auto"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*1.2)]",
