@@ -29,6 +29,17 @@
                 mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(50dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
             }
+        },
+        {
+            image: {
+                src: "/images/characters/sasha/sasha.png",
+                alt: "Sasha"
+            },
+            gradient: {
+                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                mobile: "radial-gradient(50dvh circle at center, rgb(222, 163, 100, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(45dvw circle at center, rgb(222, 163, 100, 0.25) 0%, transparent 50%)"
+            }
         }
     ];
     const mapping: {
