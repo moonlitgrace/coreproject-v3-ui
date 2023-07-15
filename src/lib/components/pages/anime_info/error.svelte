@@ -67,9 +67,9 @@
     </error-context>
     <character-image
         class="relative col-span-5 flex justify-center md:col-span-2"
-        style="--mobile_gradient:{mapping.gradient.mobile}; --desktop_gradient:{mapping.gradient.desktop}"
+        style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
     >
-        <gradient class="absolute h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]" />
+        <gradient class="absolute h-[50dvh] w-[100dvw] [background:var(--mobile-gradient)] md:h-[40dvw] md:w-[calc(100%*2)] md:[background:var(--desktop-gradient)]" />
 
         <img
             src={mapping.image.src}
@@ -78,16 +78,3 @@
         />
     </character-image>
 </section>
-
-<style lang="postcss">
-    /* For small screens */
-    gradient {
-        background: var(--mobile_gradient);
-    }
-
-    @media screen(md) {
-        gradient {
-            background: var(--desktop_gradient);
-        }
-    }
-</style>
