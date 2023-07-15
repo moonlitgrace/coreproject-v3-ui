@@ -7,17 +7,18 @@
     import Italic from "$icons/italic.svelte";
     import Strike from "$icons/strike.svelte";
     import Underline from "$icons/underline.svelte";
+    import Markdown from "./markdown.svelte";
     import { offset } from "caret-pos";
     import { tick } from "svelte";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
     import xss from "xss";
 
-    import Markdown from "./markdown.svelte";
-
     let caret_offset_top: string | null = null;
     let caret_offset_left: string | null = null;
 
+    // Bindings
+    let textarea_element: HTMLTextAreaElement;
     let textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
@@ -154,7 +155,7 @@
                 const caret_position = offset(element);
 
                 // We need 2 times the line height to be actually effective.
-                caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + ${line_height} + ${line_height})`;
+                caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + (2 * ${line_height}))`;
                 caret_offset_left = `calc(${caret_position.left - textarea_position.left}px)`;
             }
         } else {
@@ -170,7 +171,6 @@
     async function handle_keydown(event: KeyboardEvent) {
         /**Emoji specific codes*/
         if (show_emoji_picker) {
-            console.log("Activated");
             switch (event.key.toLowerCase()) {
                 case "arrowup": {
                     event.preventDefault();
@@ -427,9 +427,7 @@
                         appendTo: document.body,
                         animation: "shift-away"
                     }}
-                    on:click={(event) => {
-                        button_function(event.currentTarget);
-                    }}
+                    on:click={() => button_function(textarea_element)}
                 >
                     <svelte:component this={icon} />
                 </button>
@@ -443,6 +441,7 @@
             on:keydown={handle_keydown}
             on:blur={handle_blur}
             bind:value={textarea_value}
+            bind:this={textarea_element}
             spellcheck="true"
             class="h-28 w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:h-[8vw] md:p-[1vw] md:text-[1vw] md:leading-[1.5vw]"
             placeholder="Leave a comment"
@@ -466,7 +465,7 @@
             </a>
         </div>
     </textarea-footer>
-    {#if show_emoji_picker && caret_offset_left && caret_offset_top && emoji_matches.length > 0}
+    {#if show_emoji_picker && emoji_matches.length > 0}
         <emoji-popover
             class="emoji_picker absolute flex min-w-[12vw] flex-col divide-y divide-surface-50/10 overflow-hidden rounded-[0.5vw] bg-surface-400 text-[1vw] text-surface-50"
             style:top={caret_offset_top}

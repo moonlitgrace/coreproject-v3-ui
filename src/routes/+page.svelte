@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import MyListAnimeDetails from "$components/shared/tippies/my_list_anime_details.svelte";
+    import MyListAnimeDetails from "$components/tippies/my_list_anime_details.svelte";
     import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
@@ -411,7 +411,7 @@
                                 </episode-name>
                                 <episode-dates class="flex items-center gap-[0.35vw] text-[0.8vw] text-surface-50">
                                     <span class="font-semibold">
-                                        Ep {anime.episode_number < 10 ? "0" + anime.episode_number : anime.episode_number}
+                                        Ep {String(anime.episode_number).padStart(2, "0")}
                                     </span>
                                     <span>
                                         aired {new FormatDate(anime.release_date).format_to_time_from_now}
