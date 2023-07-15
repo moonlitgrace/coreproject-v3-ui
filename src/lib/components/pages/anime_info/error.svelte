@@ -41,10 +41,7 @@
         </a>
     </error-context>
     <character-image class="relative col-span-12 flex justify-center md:col-span-2">
-        <gradient
-            class="absolute h-full w-[calc(100%*1.5)]"
-            style="background:radial-gradient(40vw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
-        />
+        <gradient class="absolute" />
 
         <img
             src={mapping?.image}
@@ -53,3 +50,25 @@
         />
     </character-image>
 </section>
+
+<style lang="postcss">
+    :global(
+        #page{
+            overflow:hidden;
+        }
+    )
+    /* For small screens */
+    gradient {
+        height: 50dvh;
+        width: 100vw;
+        background: radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
+    }
+
+    @media screen(md) {
+        gradient {
+            height: 40dvw;
+            width: calc(100% * 2);
+            background: radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%);
+        }
+    }
+</style>
