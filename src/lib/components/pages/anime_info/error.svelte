@@ -26,7 +26,7 @@
                 class: "ml-auto md:h-[100dvh]"
             },
             gradient: {
-                class: "h-[50dvh] w-[100dvw] md:h-[100dvw] md:w-[calc(100%*2)]",
+                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(50dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
             }
@@ -78,7 +78,7 @@
         class="relative col-span-5 flex items-center justify-center md:col-span-2"
         style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
     >
-        <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+        <gradient class="{mapping.gradient.class} absolute bottom-0 [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
         <img
             src={mapping.image.src}
