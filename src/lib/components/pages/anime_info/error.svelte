@@ -14,8 +14,8 @@
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
-                mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
-                desktop: "radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
+                mobile: "radial-gradient(50dvh circle at center, rgba(252, 233, 214, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(40dvw circle at center, rgba(252, 233, 214, 0.25) 0%, transparent 50%)"
             }
         },
         {
@@ -26,8 +26,8 @@
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*1.2)]",
-                mobile: "radial-gradient(50dvh circle at center, rgba(252, 233, 214, 0.55) 0%, transparent 50%)",
-                desktop: "radial-gradient(40dvw circle at center, rgba(252, 233, 214, 0.55) 0%, transparent 50%)"
+                mobile: "radial-gradient(50dvh circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)",
+                desktop: "radial-gradient(40dvw circle at center, rgba(117, 105, 225, 0.25) 0%, transparent 50%)"
             }
         }
     ];
