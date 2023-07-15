@@ -19,7 +19,7 @@
             }
         }
     ];
-    const mapping = sample(items);
+    const mapping = sample(items)!; // This logically can't be undefined or null
 </script>
 
 <svelte:head>
@@ -39,7 +39,7 @@
         </status-code>
         <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
         <span class="mt-5 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
-            Hi <u>{mapping?.image?.alt}</u>
+            Hi <u>{mapping.image.alt}</u>
             here!
         </span>
         <context class="px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
@@ -67,14 +67,14 @@
     </error-context>
     <character-image
         class="relative col-span-5 flex justify-center md:col-span-2"
-        style="--mobile_gradient:{mapping?.gradient?.mobile}; --desktop_gradient:{mapping?.gradient?.desktop}"
+        style="--mobile_gradient:{mapping.gradient.mobile}; --desktop_gradient:{mapping.gradient.desktop}"
     >
         <gradient class="absolute h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]" />
 
         <img
-            src={mapping?.image.src}
-            alt={mapping?.image.alt}
-            class="{mapping?.class ?? ''} z-10 h-full max-h-screen"
+            src={mapping.image.src}
+            alt={mapping.image.alt}
+            class="{mapping.class ?? ''} z-10 h-full max-h-screen"
         />
     </character-image>
 </section>
