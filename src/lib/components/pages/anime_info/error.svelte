@@ -69,7 +69,7 @@
         class="relative col-span-5 flex justify-center md:col-span-2"
         style="--mobile_gradient:{mapping?.gradient?.mobile}; --desktop_gradient:{mapping?.gradient?.desktop}"
     >
-        <gradient class="absolute" />
+        <gradient class="absolute h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]" />
 
         <img
             src={mapping?.image.src}
@@ -82,15 +82,11 @@
 <style lang="postcss">
     /* For small screens */
     gradient {
-        height: 50dvh;
-        width: 100dvw;
         background: var(--mobile_gradient);
     }
 
     @media screen(md) {
         gradient {
-            height: 40dvw;
-            width: calc(100% * 2);
             background: var(--desktop_gradient);
         }
     }
