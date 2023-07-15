@@ -10,8 +10,7 @@
         {
             image: {
                 src: "/images/characters/eliane/eliane.png",
-                alt: "Elaine",
-                class: "md:h-[100dvh]"
+                alt: "Elaine"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
@@ -23,7 +22,7 @@
             image: {
                 src: "/images/characters/ichigo/ichigo.png",
                 alt: "Ichigo",
-                class: "ml-auto md:h-[100dvh]"
+                class: "ml-auto"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
@@ -75,15 +74,15 @@
         </a>
     </error-context>
     <character-image
-        class="relative col-span-5 flex items-center justify-center md:col-span-2"
+        class="relative col-span-5 flex items-end justify-center md:col-span-2"
         style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
     >
-        <gradient class="{mapping.gradient.class} absolute bottom-0 [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+        <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
         <img
             src={mapping.image.src}
             alt={mapping.image.alt}
-            class="{mapping.image.class ?? ''} relative object-contain object-bottom"
+            class="{mapping.image.class ?? ''} relative object-contain object-bottom md:h-[100dvh]"
         />
     </character-image>
 </section>
