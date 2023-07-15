@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
 
@@ -26,19 +27,7 @@
             here!
         </span>
         <context class="px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
-            Uh-oh looks like our
-            {#each "kokoro-chan".split("") as letter}
-                <span class="inline-grid odd:text-warning-400">
-                    {letter}
-                </span>
-            {/each}
-            is working really hard for the past few days and now has fall asleep. You can wait for her to wake up by looking at the status page, or come say hi to other fellow
-            {#each "kokoro-chan".split("") as letter}
-                <span class="inline-grid odd:text-warning-400">
-                    {letter}
-                </span>
-            {/each}
-            's worksippers! ah- also let's wish her sweat dreams!
+            {@html format_kokoro_color(`Uh-oh looks like our kokoro-chan is working really hard for the past few days and now has fall asleep. You can wait for her to wake up by looking at the status page, or come say hi to other fellow kokoro-chan's worksippers! ah- also let's wish her sweat dreams!`)}
         </context>
         <a
             href="/explore"

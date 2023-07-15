@@ -15,7 +15,7 @@ const TAILWIND_COLOR_MAP: {
     [key: string]: string | undefined;
 } = {
     white: "text-white",
-    yellow: "text-warning"
+    yellow: "text-warning-400"
 };
 
 export function format_kokoro_color(input: string) {
