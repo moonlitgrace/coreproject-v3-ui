@@ -2,7 +2,11 @@
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
 
-    const mapping = sample([{ image: "/images/characters/eliane.png", alt: "Elaine" }]);
+    const items: Array<{ image: string; alt: string; class?: string }> = [
+        { image: "/images/characters/eliane/eliane.png", alt: "Elaine", class: "md:pr-[5vw]" },
+        { image: "/images/characters/anime_girl/anime_girl.png", alt: "Anime Girl", class: "object-contain self-end" }
+    ];
+    const mapping = items[1];
 </script>
 
 <svelte:head>
@@ -13,8 +17,8 @@
     </style>
 </svelte:head>
 
-<section class="relative flex h-full grid-cols-5 flex-col items-center justify-end gap-20 md:grid md:items-end md:gap-0 md:px-[5vw]">
-    <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw]">
+<section class="relative flex h-full grid-cols-5 flex-col items-center justify-end gap-20 md:grid md:items-end md:gap-0">
+    <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
         <status-code class="text-7xl font-bold md:text-[7vw]">
             {#each "404".split("") as number}
                 <span class="odd:text-warning-400">{number}</span>
@@ -54,7 +58,7 @@
         <img
             src={mapping?.image}
             alt={mapping?.alt}
-            class="z-10 h-full w-64 md:w-full"
+            class="{mapping?.class ?? ''} z-10 h-full max-h-screen"
         />
     </character-image>
 </section>
