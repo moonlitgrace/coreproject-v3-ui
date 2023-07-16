@@ -10,7 +10,7 @@
             <span class="inline-flex text-warning-400">API</span>
             token to continue
         </span>
-        <span class="italic text-surface-50 md:text-[1vw] md:leading-[2vw]">for seamless integration</span>
+        <span class="text-surface-50 md:text-[1vw] md:leading-[2vw]">for seamless integration</span>
 
         <providers class="md:mt-[5vw]">
             <streamsb class="flex flex-col">
