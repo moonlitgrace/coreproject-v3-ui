@@ -42,7 +42,8 @@ const config = {
             $error: path.resolve("./src/lib/components/errors"),
             $functions: path.resolve("./src/lib/functions"),
             $modals: path.resolve("./src/lib/components/modals"),
-            $skeletons: path.resolve("./src/lib/skeletons")
+            $skeletons: path.resolve("./src/lib/skeletons"),
+            $home: path.resolve("./")
         }
     }
 };
