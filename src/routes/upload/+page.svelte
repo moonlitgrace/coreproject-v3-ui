@@ -1,11 +1,12 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
+
     import Login from "./login.svelte";
+    import UploadPage from "./upload_page.svelte";
 
-    let upload_page = import("./upload_page.svelte");
+    let token = false; // check if token is valid
 
-    let current_page = upload_page;
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
         url: $page.url.href,
@@ -20,10 +21,9 @@
     {@html opengraph_html}
 </svelte:head>
 
-<!-- {#await current_page}
-    <Login />
-{:then Module} 
-    <svelte:component this={Module.default} />
-{/await} -->
-
-<Login />
+{#if token}
+    <UploadPage />
+{:else}
+    <!-- logic for testing -->
+    <Login on:submit={() => (token = true)} />
+{/if}

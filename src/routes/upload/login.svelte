@@ -61,8 +61,11 @@
     } = sample(items)!; // This logically can't be undefined or null
 </script>
 
-<login-container class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:gap-[5vw] md:pl-[3.75vw]">
-    <form class="col-span-12 mb-32 flex flex-col p-5 md:col-span-7 md:mt-[2vw]">
+<login-container class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]">
+    <form
+        class="col-span-12 mb-32 flex flex-col p-5 md:col-span-7 md:mb-0 md:mt-[2vw] md:p-0"
+        on:submit
+    >
         <span class="text-2xl font-semibold md:text-[1.5vw] md:leading-[1.5vw]">
             Paste your
             <span class="inline-flex text-warning-400">API</span>
