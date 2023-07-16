@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
+    import Login from "./login.svelte";
 
     let upload_page = import("./upload_page.svelte");
 
@@ -19,6 +20,10 @@
     {@html opengraph_html}
 </svelte:head>
 
-{#await current_page then page}
-    <svelte:component this={page.default} />
-{/await}
+<!-- {#await current_page}
+    <Login />
+{:then Module} 
+    <svelte:component this={Module.default} />
+{/await} -->
+
+<Login />
