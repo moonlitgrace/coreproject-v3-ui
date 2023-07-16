@@ -37,7 +37,7 @@
                 alt: "Sasha"
             },
             gradient: {
-                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(45dvw circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)"
             }
@@ -48,7 +48,7 @@
                 alt: "Laura"
             },
             gradient: {
-                class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
+                class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(45dvw circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)"
             }
@@ -80,7 +80,7 @@
                         placeholder="StreamSB token"
                         class="h-12 w-full rounded-xl border-2 border-primary-500 bg-transparent px-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.6vw] md:border-[0.2vw] md:px-[1vw] md:text-[1.1vw]"
                     />
-                    <button class="unstyled btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]">
+                    <button class="btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]">
                         <span>Continue</span>
                         <Chevron class="w-4 -rotate-90 md:w-[1vw]" />
                     </button>
@@ -92,7 +92,7 @@
         class="relative col-span-12 flex items-end justify-center md:col-span-5"
         style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
     >
-        <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+        <gradient class="{mapping.gradient.class} pointer-events-none absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
         <img
             src={mapping.image.src}
