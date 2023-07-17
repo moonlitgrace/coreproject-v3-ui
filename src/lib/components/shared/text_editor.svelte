@@ -174,12 +174,12 @@
             switch (event.key.toLowerCase()) {
                 case "arrowup": {
                     event.preventDefault();
-                    active_emoji_index = (active_emoji_index - 1 + emoji_matches.length) % emoji_matches.length;
+                    active_emoji_index = (active_emoji_index - 1 + SHOWN_EMOJI_LIMIT) % SHOWN_EMOJI_LIMIT;
                     break;
                 }
                 case "arrowdown": {
                     event.preventDefault();
-                    active_emoji_index = (active_emoji_index + 1) % emoji_matches.length;
+                    active_emoji_index = (active_emoji_index + 1) % SHOWN_EMOJI_LIMIT;
                     break;
                 }
                 case "enter": {
@@ -188,6 +188,7 @@
                     break;
                 }
             }
+            console.log(active_emoji_index);
         }
 
         /**
