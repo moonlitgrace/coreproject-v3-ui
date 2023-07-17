@@ -5,6 +5,7 @@
     import DOMPurify from "isomorphic-dompurify";
     import type { marked as markedType } from "marked";
     import { Marked } from "marked";
+    import type { MarkedEmojiOptions } from "marked-emoji";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
 
@@ -13,7 +14,7 @@
 
     let klass = "";
 
-    const emoji_options = {
+    const emoji_options: MarkedEmojiOptions = {
         emojis,
         unicode: false
     };
