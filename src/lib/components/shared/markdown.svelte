@@ -21,11 +21,6 @@
     // Override function
     const renderer: markedType.RendererObject = {
         del(text: string) {
-            /** Dont convert s (tag) -> del (tag)
-             * Reason 1: Skeleton.dev is formatting `del` tag | Source : https://www.skeleton.dev/elements/typography
-             * Reason 2: Marked.js is not allowing us to add unstyled class to rendered text.
-             */
-
             return `<del class='unstyled'>${text}</del>`;
         }
     };
@@ -36,9 +31,7 @@
             langPrefix: "hljs language-",
             highlight: (code, lang) => {
                 const language = hljs.getLanguage(lang) ? lang : "plaintext";
-                const return_value = hljs.highlight(code, { language }).value;
-                console.log(return_value);
-                return return_value;
+                return hljs.highlight(code, { language }).value;
             }
         }),
         // Emoji plugin
