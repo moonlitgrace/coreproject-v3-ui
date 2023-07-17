@@ -26,7 +26,7 @@
              * Reason 2: Marked.js is not allowing us to add unstyled class to rendered text.
              */
 
-            return `<s class='unstyled'>${text}</s>`;
+            return `<del class='unstyled'>${text}</del>`;
         }
     };
 
