@@ -49,6 +49,7 @@
         "felte": "^1.2.11",
         "highlight.js": "^11.8.0",
         "html-entities": "^2.4.0",
+        "isomorphic-dompurify": "^1.8.0",
         "lodash": "^4.17.21",
         "marked": "^5.1.1",
         "marked-emoji": "^1.2.0",
@@ -70,8 +71,7 @@
         "typescript": "^5.1.6",
         "vite": "^4.4.4",
         "vitest": "^0.33.0",
-        "voca": "^1.4.1",
-        "xss": "^1.0.14"
+        "voca": "^1.4.1"
     },
     "type": "module",
     "workspaces": [

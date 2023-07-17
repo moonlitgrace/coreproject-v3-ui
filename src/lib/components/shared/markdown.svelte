@@ -2,11 +2,11 @@
     import { emojis } from "$data/emojis";
     import hljs from "highlight.js";
     import "highlight.js/scss/github-dark.scss";
+    import DOMPurify from "isomorphic-dompurify";
     import type { marked as markedType } from "marked";
     import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
-    import xss from "xss";
 
     export let markdown = "";
     export { klass as class };
@@ -26,7 +26,7 @@
              * Reason 2: Marked.js is not allowing us to add unstyled class to rendered text.
              */
 
-            return `<s>${text}</s>`;
+            return `<s class='unstyled'>${text}</s>`;
         }
     };
 
@@ -53,7 +53,7 @@
     );
 
     let html: string;
-    $: html = xss(marked.parse(markdown));
+    $: html = DOMPurify.sanitize(marked.parse(markdown));
 </script>
 
 <markdown class={klass}>
