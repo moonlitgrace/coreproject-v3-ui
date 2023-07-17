@@ -188,7 +188,6 @@
                     break;
                 }
             }
-            console.log(active_emoji_index);
         }
 
         /**
