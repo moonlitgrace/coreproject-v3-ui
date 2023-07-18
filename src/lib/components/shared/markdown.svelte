@@ -8,6 +8,7 @@
     import type { MarkedEmojiOptions } from "marked-emoji";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
+    import { mangle } from "marked-mangle";
 
     export let markdown = "";
     export { klass as class };
@@ -37,6 +38,9 @@
         }),
         // Emoji plugin
         markedEmoji(emoji_options),
+        // Mangle plugin
+        mangle(),
+        // Marked defaults
         {
             renderer,
             // Disable it as marked-mangle doesn't support typescript
@@ -45,7 +49,7 @@
             headerIds: false
         }
     );
-
+   
     let html: string;
     $: html = sanitize(marked.parse(markdown));
 </script>
