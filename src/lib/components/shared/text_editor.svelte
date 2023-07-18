@@ -1,7 +1,7 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
-    import { sanitize } from "$functions/sanitize";
+    import { is_valid_url } from "$functions/is_valid_url";
     import Bold from "$icons/bold.svelte";
     import Code from "$icons/code.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
@@ -10,16 +10,16 @@
     import Underline from "$icons/underline.svelte";
     import Markdown from "./markdown.svelte";
     import { offset } from "caret-pos";
-    import { tick } from "svelte";
+    import { encode } from "html-entities";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
-    let caret_offset_top: string | null = null;
-    let caret_offset_left: string | null = null;
+    let caret_offset_top: string | null = null,
+        caret_offset_left: string | null = null;
 
     // Bindings
-    let textarea_element: HTMLTextAreaElement;
-    let textarea_value = "";
+    let textarea_element: HTMLTextAreaElement,
+        textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
@@ -86,21 +86,6 @@
             description: "Add hyperlinked text, <Ctrl + k>"
         }
     };
-    // Functions
-    function is_valid_url(url_string: string) {
-        /**
-         * Credit : https://stackoverflow.com/a/43467144
-         */
-        let url: URL;
-
-        try {
-            url = new URL(url_string);
-        } catch (_) {
-            return false;
-        }
-
-        return url.protocol === "http:" || url.protocol === "https:";
-    }
 
     // Hanlders
 
@@ -356,25 +341,23 @@
     }
 
     async function select_emoji({ emoji_index, element }: { emoji_index: number; element: HTMLElement }) {
-        const emoji_keyword = emoji_matches[emoji_index]?.keyword;
-        const emoji_code = `:${emoji_keyword}:`;
+        const emoji_keyword = emoji_matches[emoji_index]?.keyword,
+            emoji_code = `:${emoji_keyword}:`;
 
         const textarea_element = element as HTMLTextAreaElement;
-        const selection_start = textarea_element.selectionStart;
-        const selection_end = textarea_element.selectionEnd;
+        const selection_start = textarea_element.selectionStart,
+            selection_end = textarea_element.selectionEnd;
 
-        const text_before_selection = textarea_value.substring(0, selection_start);
-        const text_after_selection = textarea_value.substring(selection_end);
+        const text_before_selection = textarea_value.substring(0, selection_start),
+            text_after_selection = textarea_value.substring(selection_end);
 
         // replace last word before text selection with emoji code
         const updated_text_before_selection = text_before_selection.replace(/\S+$/, emoji_code);
-        textarea_value = `${updated_text_before_selection} ${text_after_selection}`;
+        await insert_text({ target: textarea_element, text: `${updated_text_before_selection} ${text_after_selection}` });
 
         // set caret at the end of inserted emoji_code
-        tick().then(() => {
-            const caret_position = updated_text_before_selection.length + 1;
-            textarea_element.setSelectionRange(caret_position, caret_position);
-        });
+        const caret_position = updated_text_before_selection.length + 1;
+        textarea_element.setSelectionRange(caret_position, caret_position);
 
         // close emoji picker
         show_emoji_picker = false;
@@ -420,7 +403,7 @@
                     type="button"
                     aria-label={item_label}
                     use:tippy={{
-                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${sanitize(description)}</div>`,
+                        content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${encode(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
                         offset: [0, 17],
