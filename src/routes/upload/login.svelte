@@ -1,9 +1,14 @@
 <script lang="ts">
     import { anime_girls_mapping } from "$data/characters/anime_girls_mapping";
     import Chevron from "$icons/chevron.svelte";
+    import { reporter } from "@felte/reporter-svelte";
+    import { validator } from "@felte/validator-zod";
+    import { focusTrap } from "@skeletonlabs/skeleton";
+    import { createForm } from "felte";
     import { sample } from "lodash";
-    import { onMount } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import { blur } from "svelte/transition";
+    import { z } from "zod";
 
     let mapping:
         | {
@@ -17,6 +22,23 @@
     onMount(() => {
         mapping = sample(anime_girls_mapping);
     });
+
+    // form validation
+    const dispatch = createEventDispatcher();
+
+    const schema = z.object({
+        streamsb: z.string()
+    });
+
+    const { form } = createForm<z.infer<typeof schema>>({
+        initialValues: {
+            streamsb: ""
+        },
+        onSubmit: async (values) => {
+            dispatch("submit", values);
+        },
+        extend: [reporter, validator({ schema })]
+    });
 </script>
 
 {#if mapping}
@@ -25,8 +47,9 @@
         class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]"
     >
         <form
+            use:form
+            use:focusTrap={true}
             class="col-span-12 mb-32 flex flex-col p-5 md:col-span-7 md:mb-0 md:mt-[2vw] md:p-0"
-            on:submit
         >
             <span class="text-2xl font-semibold md:text-[1.5vw] md:leading-[1.5vw]">
                 Paste your
