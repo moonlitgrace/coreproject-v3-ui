@@ -154,7 +154,7 @@
     let hover_glider_element: HTMLDivElement;
     let GLIDER_TRANSITION_DURATION = 200;
     let is_hovered = false;
-    let mouseLeaveTimeout: NodeJS.Timer | null = null;
+    let mouseleaveTimeout: NodeJS.Timer | null = null;
 
     function handle_mouseenter(event: MouseEvent) {
         const target = event.target as HTMLAnchorElement;
@@ -168,12 +168,12 @@
             GLIDER_TRANSITION_DURATION = 200;
         }
 
-        clearTimeout(mouseLeaveTimeout!);
+        clearTimeout(mouseleaveTimeout!);
     }
 
     function handle_mouseleave() {
-        // Delay the mouseleave event to allow time for moving to a sibling element
-        mouseLeaveTimeout = setTimeout(() => {
+        // Delay the mouseleave event to allow time ( GLIDER_TRANSITION_DURATION ) for moving to a sibling element
+        mouseleaveTimeout = setTimeout(() => {
             hover_glider_element.style.opacity = "0";
             is_hovered = false;
         }, GLIDER_TRANSITION_DURATION);
