@@ -21,7 +21,7 @@
     // Custom SCSS
     import "../nprogress.scss";
     // Tippy
-    import "../tippy.postcss";
+    import "../tippy.scss";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal, modalStore } from "@skeletonlabs/skeleton";
     import type { ModalComponent, ModalSettings } from "@skeletonlabs/skeleton";
@@ -31,7 +31,7 @@
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
     import type { SvelteComponent } from "svelte";
-    import { blur, slide } from "svelte/transition";
+    import { blur } from "svelte/transition";
     import tippy from "tippy.js";
 
     // Local
