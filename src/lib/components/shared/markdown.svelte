@@ -1,8 +1,8 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
+    import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
     import "highlight.js/scss/github-dark.scss";
-    import DOMPurify from "isomorphic-dompurify";
     import type { marked as markedType } from "marked";
     import { Marked } from "marked";
     import type { MarkedEmojiOptions } from "marked-emoji";
@@ -47,7 +47,7 @@
     );
 
     let html: string;
-    $: html = DOMPurify.sanitize(marked.parse(markdown));
+    $: html = sanitize(marked.parse(markdown));
 </script>
 
 <markdown class={klass}>
