@@ -19,4 +19,14 @@ test("test valid url", () => {
 
     const medium_link = `https://medium.com/@gordon_zhu/how-to-be-great-at-asking-questions-e37be04d0603`;
     expect(is_valid_url(medium_link)).toBe(true);
+
+    // This is a interesting one
+    const edge_case_domain = `http:www.example.com/main.html`;
+    expect(is_valid_url(edge_case_domain)).toBe(true);
+
+    const invalid_url = `www.example.com`;
+    expect(is_valid_url(invalid_url)).toBe(false);
+
+    const javascript_void = `javascript:void(0)`;
+    expect(is_valid_url(javascript_void)).toBe(false);
 });
