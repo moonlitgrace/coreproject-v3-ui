@@ -67,6 +67,7 @@
               image: { src: string; alt: string; class?: string };
               class?: string;
               gradient: { mobile: string; desktop: string; class?: string };
+              position: Array<"left" | "right">;
           }
         | undefined;
 
@@ -90,6 +91,9 @@
 </svelte:head>
 
 {#if mapping}
+    {@const image_position = sample(mapping.position)}
+    {@const image_left_or_right = ["left", "right"].filter((item) => item != image_position)[0]}
+
     <section
         transition:blur
         class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0"
