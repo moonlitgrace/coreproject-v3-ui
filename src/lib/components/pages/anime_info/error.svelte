@@ -63,6 +63,8 @@
               gradient: { mobile: string; desktop: string; class?: string };
           }
         | undefined;
+
+    // onMount is here to prevent double mount of this.
     onMount(() => {
         mapping = sample(items); // This logically can't be undefined or null
     });
