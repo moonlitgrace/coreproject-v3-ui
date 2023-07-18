@@ -168,6 +168,9 @@
         } else if(!is_siblings_hovered) {
             GLIDER_TRANSITION_DURATION = 200;
         }
+
+        clearTimeout(mouseLeaveTimeout!);
+        is_siblings_hovered = true;
     }
 
     function handle_mouseleave() {
@@ -177,11 +180,8 @@
             is_hovered = false;
             is_siblings_hovered = false;
         }, GLIDER_TRANSITION_DURATION);
-    }
-
-    function handle_siblings_mouseenter() {
-        clearTimeout(mouseLeaveTimeout!);
-        is_siblings_hovered = true;
+        
+        is_siblings_hovered = false;
     }
 </script>
 
@@ -412,8 +412,6 @@
                                 class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.75vw] p-0"
                                 on:mouseenter={handle_mouseenter}
                                 on:mouseleave={handle_mouseleave}
-                                on:mouseenter={handle_siblings_mouseenter}
-                                on:mouseleave={() => { is_siblings_hovered = false; }}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
