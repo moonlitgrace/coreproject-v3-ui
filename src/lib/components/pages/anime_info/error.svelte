@@ -2,6 +2,7 @@
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
+    import { onMount } from "svelte";
 
     const items: Array<{
         image: { src: string; alt: string; class?: string };
@@ -55,11 +56,14 @@
             }
         }
     ];
-    const mapping: {
+    let mapping: {
         image: { src: string; alt: string; class?: string };
         class?: string;
         gradient: { mobile: string; desktop: string; class?: string };
-    } = sample(items)!; // This logically can't be undefined or null
+    };
+    onMount(() => {
+        mapping = sample(items)!; // This logically can't be undefined or null
+    });
 </script>
 
 <svelte:head>
