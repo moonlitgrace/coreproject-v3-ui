@@ -1,6 +1,8 @@
 <script lang="ts">
     import Chevron from "$icons/chevron.svelte";
     import { sample } from "lodash";
+    import { onMount } from "svelte";
+    import { blur } from "svelte/transition";
 
     const items: Array<{
         image: { src: string; alt: string; class?: string };
@@ -54,53 +56,65 @@
             }
         }
     ];
-    const mapping: {
-        image: { src: string; alt: string; class?: string };
-        class?: string;
-        gradient: { mobile: string; desktop: string; class?: string };
-    } = sample(items)!; // This logically can't be undefined or null
+    let mapping:
+        | {
+              image: { src: string; alt: string; class?: string };
+              class?: string;
+              gradient: { mobile: string; desktop: string; class?: string };
+          }
+        | undefined; // This logically can't be undefined or null
+
+    // to prevent double mounting
+    onMount(() => {
+        mapping = sample(items);
+    });
 </script>
 
-<login-container class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]">
-    <form
-        class="col-span-12 mb-32 flex flex-col p-5 md:col-span-7 md:mb-0 md:mt-[2vw] md:p-0"
-        on:submit
+{#if mapping}
+    <login-container
+        transition:blur
+        class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]"
     >
-        <span class="text-2xl font-semibold md:text-[1.5vw] md:leading-[1.5vw]">
-            Paste your
-            <span class="inline-flex text-warning-400">API</span>
-            token
-        </span>
-        <span class="text-xl text-surface-50 md:text-[1vw] md:leading-[2vw]">for seamless integration</span>
+        <form
+            class="col-span-12 mb-32 flex flex-col p-5 md:col-span-7 md:mb-0 md:mt-[2vw] md:p-0"
+            on:submit
+        >
+            <span class="text-2xl font-semibold md:text-[1.5vw] md:leading-[1.5vw]">
+                Paste your
+                <span class="inline-flex text-warning-400">API</span>
+                token
+            </span>
+            <span class="text-xl text-surface-50 md:text-[1vw] md:leading-[2vw]">for seamless integration</span>
 
-        <providers class="mt-10 md:mt-[5vw]">
-            <streamsb class="flex flex-col">
-                <span class="text-xl font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Stream SB</span>
-                <span class="text-lg leading-snug text-surface-50 md:text-[1vw] md:leading-[1.25vw]">Insert your unique API token here to unlock the full potential of Streamsb's video services</span>
+            <providers class="mt-10 md:mt-[5vw]">
+                <streamsb class="flex flex-col">
+                    <span class="text-xl font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Stream SB</span>
+                    <span class="text-lg leading-snug text-surface-50 md:text-[1vw] md:leading-[1.25vw]">Insert your unique API token here to unlock the full potential of Streamsb's video services</span>
 
-                <token-input class="mt-5 flex justify-between gap-5 md:mt-[1vw] md:gap-[1vw]">
-                    <input
-                        placeholder="StreamSB token"
-                        class="h-12 w-full rounded-xl border-2 border-primary-500 bg-transparent px-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.6vw] md:border-[0.2vw] md:px-[1vw] md:text-[1.1vw]"
-                    />
-                    <button class="btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]">
-                        <span>Continue</span>
-                        <Chevron class="w-4 -rotate-90 md:w-[1vw]" />
-                    </button>
-                </token-input>
-            </streamsb>
-        </providers>
-    </form>
-    <character-image
-        class="relative col-span-12 flex items-end justify-center md:col-span-5"
-        style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
-    >
-        <gradient class="{mapping.gradient.class} pointer-events-none absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+                    <token-input class="mt-5 flex justify-between gap-5 md:mt-[1vw] md:gap-[1vw]">
+                        <input
+                            placeholder="StreamSB token"
+                            class="h-12 w-full rounded-xl border-2 border-primary-500 bg-transparent px-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.6vw] md:border-[0.2vw] md:px-[1vw] md:text-[1.1vw]"
+                        />
+                        <button class="btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]">
+                            <span>Continue</span>
+                            <Chevron class="w-4 -rotate-90 md:w-[1vw]" />
+                        </button>
+                    </token-input>
+                </streamsb>
+            </providers>
+        </form>
+        <character-image
+            class="relative col-span-12 flex items-end justify-center md:col-span-5"
+            style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
+        >
+            <gradient class="{mapping.gradient.class} pointer-events-none absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
-        <img
-            src={mapping.image.src}
-            alt={mapping.image.alt}
-            class="{mapping.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[90dvh]"
-        />
-    </character-image>
-</login-container>
+            <img
+                src={mapping.image.src}
+                alt={mapping.image.alt}
+                class="{mapping.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[90dvh]"
+            />
+        </character-image>
+    </login-container>
+{/if}
