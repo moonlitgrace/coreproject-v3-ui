@@ -165,7 +165,7 @@
             GLIDER_TRANSITION_DURATION = 50;
             hover_glider_element.style.opacity = "100";
             is_hovered = true;
-        } else if(!is_siblings_hovered) {
+        } else if (!is_siblings_hovered) {
             GLIDER_TRANSITION_DURATION = 200;
         }
 
@@ -180,7 +180,7 @@
             is_hovered = false;
             is_siblings_hovered = false;
         }, GLIDER_TRANSITION_DURATION);
-        
+
         is_siblings_hovered = false;
     }
 </script>
