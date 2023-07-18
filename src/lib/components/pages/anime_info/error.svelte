@@ -2,6 +2,7 @@
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
+    import { onMount } from "svelte";
 
     const items: Array<{
         image: { src: string; alt: string; class?: string };
@@ -55,16 +56,23 @@
             }
         }
     ];
-    const mapping: {
-        image: { src: string; alt: string; class?: string };
-        class?: string;
-        gradient: { mobile: string; desktop: string; class?: string };
-    } = sample(items)!; // This logically can't be undefined or null
+    let mapping:
+        | {
+              image: { src: string; alt: string; class?: string };
+              class?: string;
+              gradient: { mobile: string; desktop: string; class?: string };
+          }
+        | undefined;
+
+    // onMount is here to prevent double mount of this.
+    onMount(() => {
+        mapping = sample(items);
+    });
 </script>
 
 <svelte:head>
     <link
-        href={mapping.image.src}
+        href={mapping?.image?.src}
         rel="preload"
         as="image"
     />
@@ -75,7 +83,7 @@
     </style>
 </svelte:head>
 
-<section class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0">
+<section class="{mapping?.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0">
     <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
         <status-code class="text-7xl font-bold md:text-[7vw]">
             {#each "404".split("") as number}
@@ -84,7 +92,7 @@
         </status-code>
         <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
         <span class="mt-5 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
-            Hi <u>{mapping.image.alt}</u>
+            Hi <u>{mapping?.image.alt}</u>
             here!
         </span>
         <context class="select-none px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
@@ -100,14 +108,14 @@
     </error-context>
     <character-image
         class="relative col-span-5 flex items-end justify-center md:col-span-2"
-        style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
+        style="--mobile-gradient:{mapping?.gradient.mobile}; --desktop-gradient:{mapping?.gradient.desktop}"
     >
-        <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+        <gradient class="{mapping?.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
         <img
-            src={mapping.image.src}
-            alt={mapping.image.alt}
-            class="{mapping.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[100dvh]"
+            src={mapping?.image.src}
+            alt={mapping?.image.alt}
+            class="{mapping?.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[100dvh]"
         />
     </character-image>
 </section>
