@@ -2,6 +2,7 @@
     import { afterNavigate, beforeNavigate } from "$app/navigation";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
+    import { browser } from "$app/environment";
     import ProfileDropdown from "$components/tippies/profile_dropdown.svelte";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
@@ -385,7 +386,7 @@
 
                             {@const component = item_icon.component}
 
-                            {@const is_active = $page.url.pathname === item_href}
+                            {@const is_active = browser && $page.url.pathname === item_href}
 
                             <a
                                 href={item_href}
@@ -458,7 +459,7 @@
                         {@const component = item_icon.component}
                         {@const klass = "w-5"}
 
-                        {@const is_active = $page.url.pathname === item_href}
+                        {@const is_active = browser && $page.url.pathname === item_href}
 
                         <a
                             href={item_href ?? "javascript:void(0)"}

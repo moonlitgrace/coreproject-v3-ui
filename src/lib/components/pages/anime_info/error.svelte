@@ -2,7 +2,7 @@
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
-    import { onMount } from "svelte";
+    import { beforeUpdate } from "svelte";
 
     const items: Array<{
         image: { src: string; alt: string; class?: string };
@@ -64,8 +64,8 @@
           }
         | undefined;
 
-    // onMount is here to prevent double mount of this.
-    onMount(() => {
+    // beforeUpdate is here to prevent double mount of this.
+    beforeUpdate(() => {
         mapping = sample(items);
     });
 </script>
