@@ -10,7 +10,6 @@
     import Underline from "$icons/underline.svelte";
     import Markdown from "./markdown.svelte";
     import { offset } from "caret-pos";
-    import { tick } from "svelte";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
@@ -368,13 +367,11 @@
 
         // replace last word before text selection with emoji code
         const updated_text_before_selection = text_before_selection.replace(/\S+$/, emoji_code);
-        textarea_value = `${updated_text_before_selection} ${text_after_selection}`;
+        await insert_text({ target: textarea_element, text: `${updated_text_before_selection} ${text_after_selection}` });
 
         // set caret at the end of inserted emoji_code
-        tick().then(() => {
-            const caret_position = updated_text_before_selection.length + 1;
-            textarea_element.setSelectionRange(caret_position, caret_position);
-        });
+        const caret_position = updated_text_before_selection.length + 1;
+        textarea_element.setSelectionRange(caret_position, caret_position);
 
         // close emoji picker
         show_emoji_picker = false;
