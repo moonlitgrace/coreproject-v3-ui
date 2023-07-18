@@ -32,7 +32,7 @@
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
     import type { SvelteComponent } from "svelte";
-    import { blur, slide } from "svelte/transition";
+    import { blur } from "svelte/transition";
     import tippy from "tippy.js";
 
     // Local
