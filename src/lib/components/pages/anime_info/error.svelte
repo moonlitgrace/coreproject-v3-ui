@@ -52,8 +52,7 @@
         {
             image: {
                 src: "/images/characters/laura/laura.png",
-                alt: "Laura",
-                class: "md:px-[3.75vw]"
+                alt: "Laura"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
