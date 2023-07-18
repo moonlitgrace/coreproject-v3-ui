@@ -65,7 +65,7 @@
           }
         | undefined;
 
-    // beforeUpdate is here to prevent double mount of this.
+    // onMount is here to prevent double mount of this.
     onMount(() => {
         mapping = sample(items);
     });
