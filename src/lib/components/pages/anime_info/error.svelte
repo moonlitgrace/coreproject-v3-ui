@@ -92,10 +92,14 @@
 
 {#if mapping}
     {@const image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : mapping.position.filter((item) => item != sample(mapping?.position))[0]}
+    {@const left = image_left_or_right === "left" || false}
+    {@const right = image_left_or_right === "right" || false}
 
     <section
         transition:blur
-        class="{mapping.class} {image_left_or_right === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
+        class:md:flex-row-reverse={left}
+        class:md:flex-row={right}
+        class="{mapping.class} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
     >
         <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
@@ -123,7 +127,10 @@
             class="relative flex items-end justify-center md:w-[45dvw]"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
-            <gradient class="{mapping.gradient.class} {image_left_or_right === 'left' && 'md:ml-[8vw]'} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+            <gradient
+                class:md:ml-[8vw]={left}
+                class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
+            />
 
             <img
                 src={mapping.image.src}
