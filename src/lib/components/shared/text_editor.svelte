@@ -14,12 +14,12 @@
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
-    let caret_offset_top: string | null = null;
-    let caret_offset_left: string | null = null;
+    let caret_offset_top: string | null = null,
+        caret_offset_left: string | null = null;
 
     // Bindings
-    let textarea_element: HTMLTextAreaElement;
-    let textarea_value = "";
+    let textarea_element: HTMLTextAreaElement,
+        textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
@@ -341,15 +341,15 @@
     }
 
     async function select_emoji({ emoji_index, element }: { emoji_index: number; element: HTMLElement }) {
-        const emoji_keyword = emoji_matches[emoji_index]?.keyword;
-        const emoji_code = `:${emoji_keyword}:`;
+        const emoji_keyword = emoji_matches[emoji_index]?.keyword,
+            emoji_code = `:${emoji_keyword}:`;
 
         const textarea_element = element as HTMLTextAreaElement;
-        const selection_start = textarea_element.selectionStart;
-        const selection_end = textarea_element.selectionEnd;
+        const selection_start = textarea_element.selectionStart,
+            selection_end = textarea_element.selectionEnd;
 
-        const text_before_selection = textarea_value.substring(0, selection_start);
-        const text_after_selection = textarea_value.substring(selection_end);
+        const text_before_selection = textarea_value.substring(0, selection_start),
+            text_after_selection = textarea_value.substring(selection_end);
 
         // replace last word before text selection with emoji code
         const updated_text_before_selection = text_before_selection.replace(/\S+$/, emoji_code);
