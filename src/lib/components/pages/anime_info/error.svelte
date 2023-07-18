@@ -85,7 +85,10 @@
 </svelte:head>
 
 {#if mapping}
-    <section transition:blur class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0">
+    <section
+        transition:blur
+        class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0"
+    >
         <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
