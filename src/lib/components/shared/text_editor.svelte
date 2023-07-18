@@ -2,7 +2,6 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import { is_valid_url } from "$functions/is_valid_url";
-    import { encode } from "html-entities";
     import Bold from "$icons/bold.svelte";
     import Code from "$icons/code.svelte";
     import Hyperlink from "$icons/hyperlink.svelte";
@@ -11,6 +10,7 @@
     import Underline from "$icons/underline.svelte";
     import Markdown from "./markdown.svelte";
     import { offset } from "caret-pos";
+    import { encode } from "html-entities";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
