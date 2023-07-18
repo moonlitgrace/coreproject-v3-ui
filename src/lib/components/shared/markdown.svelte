@@ -49,7 +49,7 @@
             headerIds: false
         }
     );
-   
+
     let html: string;
     $: html = sanitize(marked.parse(markdown));
 </script>
