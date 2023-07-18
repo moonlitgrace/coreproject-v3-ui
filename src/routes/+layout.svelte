@@ -165,7 +165,7 @@
             GLIDER_TRANSITION_DURATION = 50;
             hover_glider_element.style.opacity = "100";
             is_hovered = true;
-        } else if (!is_siblings_hovered) {
+        } else {
             GLIDER_TRANSITION_DURATION = 200;
         }
 
