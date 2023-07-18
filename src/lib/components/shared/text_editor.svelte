@@ -417,26 +417,28 @@
             {/each}
         </div>
     </textarea-navbar>
-    {#if tab_type === "edit"}
-        <textarea
-            on:paste={(event) => paste_text(event)}
-            on:input={handle_input}
-            on:keydown={handle_keydown}
-            on:blur={handle_blur}
-            bind:value={textarea_value}
-            bind:this={textarea_element}
-            spellcheck="true"
-            class="h-28 w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:h-[8vw] md:p-[1vw] md:text-[1vw] md:leading-[1.5vw]"
-            placeholder="Leave a comment"
-        />
-    {:else if tab_type === "preview"}
-        <div class="h-[7.22rem] p-3 md:h-full md:min-h-[8.25vw] md:p-[1vw]">
-            <Markdown
-                markdown={textarea_value}
-                class="w-full border-none bg-surface-900 text-sm leading-tight text-surface-50 outline-none md:text-[1vw] md:leading-[1.5vw]"
+    <textarea-body class="block h-28 md:h-[8vw]">
+        {#if tab_type === "edit"}
+            <textarea
+                on:paste={(event) => paste_text(event)}
+                on:input={handle_input}
+                on:keydown={handle_keydown}
+                on:blur={handle_blur}
+                bind:value={textarea_value}
+                bind:this={textarea_element}
+                spellcheck="true"
+                class="w-full resize-none border-none bg-surface-900 p-3 text-sm leading-tight text-surface-50 outline-none duration-300 ease-in-out placeholder:text-surface-200 focus:ring-0 md:p-[1vw] md:text-[1vw] md:leading-[1.5vw]"
+                placeholder="Leave a comment"
             />
-        </div>
-    {/if}
+        {:else if tab_type === "preview"}
+            <div class="p-3 md:p-[1vw]">
+                <Markdown
+                    markdown={textarea_value}
+                    class="w-full border-none bg-surface-900 text-sm leading-tight text-surface-50 outline-none md:text-[1vw] md:leading-[1.5vw]"
+                />
+            </div>
+        {/if}
+    </textarea-body>
     <textarea-footer class="flex justify-between bg-surface-400/50 px-4 py-2 text-[0.65rem] font-thin leading-[1.5vw] text-surface-200 md:px-[1vw] md:py-[0.1vw] md:text-[0.75vw]">
         <div />
         <div>
