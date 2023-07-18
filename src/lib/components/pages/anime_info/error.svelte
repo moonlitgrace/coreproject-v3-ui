@@ -2,7 +2,8 @@
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
     import sample from "lodash/sample";
-    import { beforeUpdate } from "svelte";
+    import { onMount } from "svelte";
+    import { blur } from "svelte/transition";
 
     const items: Array<{
         image: { src: string; alt: string; class?: string };
@@ -64,8 +65,8 @@
           }
         | undefined;
 
-    // beforeUpdate is here to prevent double mount of this.
-    beforeUpdate(() => {
+    // onMount is here to prevent double mount of this.
+    onMount(() => {
         mapping = sample(items);
     });
 </script>
@@ -84,7 +85,10 @@
 </svelte:head>
 
 {#if mapping}
-    <section class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0">
+    <section
+        transition:blur
+        class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0"
+    >
         <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
