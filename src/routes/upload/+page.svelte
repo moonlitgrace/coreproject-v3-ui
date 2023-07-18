@@ -5,7 +5,11 @@
     import Login from "./login.svelte";
     import UploadPage from "./upload_page.svelte";
 
-    let token = false; // check if token is valid
+    let token: string | null = null; // check if token is valid
+
+    function on_submit(values: CustomEvent) {
+        token = values.detail;
+    }
 
     const opengraph_html = new OpengraphGenerator({
         title: `Upload on AnimeCore`,
@@ -25,5 +29,5 @@
     <UploadPage />
 {:else}
     <!-- logic for testing -->
-    <Login on:submit={() => (token = true)} />
+    <Login on:submit={on_submit} />
 {/if}

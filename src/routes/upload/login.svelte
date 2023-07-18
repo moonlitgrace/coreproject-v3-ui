@@ -1,7 +1,7 @@
 <script lang="ts">
     import { anime_girls_mapping } from "$data/characters/anime_girls_mapping";
     import Chevron from "$icons/chevron.svelte";
-    import { reporter } from "@felte/reporter-svelte";
+    import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
@@ -27,7 +27,7 @@
     const dispatch = createEventDispatcher();
 
     const schema = z.object({
-        streamsb: z.string()
+        streamsb: z.string().min(20, "Please provide a valid API token")
     });
 
     const { form } = createForm<z.infer<typeof schema>>({
@@ -59,20 +59,36 @@
             <span class="text-xl text-surface-50 md:text-[1vw] md:leading-[2vw]">for seamless integration</span>
 
             <providers class="mt-10 md:mt-[5vw]">
-                <streamsb class="flex flex-col">
+                <streamsb class="flex flex-col md:gap-[0.25vw]">
                     <span class="text-xl font-semibold md:text-[1.25vw] md:leading-[1.5vw]">Stream SB</span>
-                    <span class="text-lg leading-snug text-surface-50 md:text-[1vw] md:leading-[1.25vw]">Insert your unique API token here to unlock the full potential of Streamsb's video services</span>
-
-                    <token-input class="mt-5 flex justify-between gap-5 md:mt-[1vw] md:gap-[1vw]">
+                    <token-input class="flex justify-between gap-5 md:gap-[1vw]">
                         <input
+                            name="streamsb"
                             placeholder="StreamSB token"
                             class="h-12 w-full rounded-xl border-2 border-primary-500 bg-transparent px-5 text-base font-medium outline-none !ring-0 transition-all placeholder:text-white/50 focus:border-primary-400 md:h-[3.125vw] md:rounded-[0.6vw] md:border-[0.2vw] md:px-[1vw] md:text-[1.1vw]"
                         />
-                        <button class="btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]">
+                        <button
+                            type="submit"
+                            class="btn bg-primary-500 font-semibold leading-none md:rounded-[0.6vw] md:px-[1vw] md:py-[0.5vw] md:text-[1vw]"
+                        >
                             <span>Continue</span>
                             <Chevron class="w-4 -rotate-90 md:w-[1vw]" />
                         </button>
                     </token-input>
+                    <ValidationMessage
+                        for="streamsb"
+                        let:messages={message}
+                    >
+                        <span class="text-lg leading-snug text-surface-50 md:text-[1vw] md:leading-[1.25vw]">
+                            {@html message}
+                        </span>
+                        <span
+                            slot="placeholder"
+                            class="text-lg leading-snug text-surface-50 md:text-[1vw] md:leading-[1.25vw]"
+                        >
+                            Insert your unique API token here to unlock the full potential of Streamsb's video services
+                        </span>
+                    </ValidationMessage>
                 </streamsb>
             </providers>
         </form>
