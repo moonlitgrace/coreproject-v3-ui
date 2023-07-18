@@ -1,6 +1,7 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
+    import { is_valid_url } from "$functions/is_valid_url";
     import { sanitize } from "$functions/sanitize";
     import Bold from "$icons/bold.svelte";
     import Code from "$icons/code.svelte";
@@ -85,21 +86,6 @@
             description: "Add hyperlinked text, <Ctrl + k>"
         }
     };
-    // Functions
-    function is_valid_url(url_string: string) {
-        /**
-         * Credit : https://stackoverflow.com/a/43467144
-         */
-        let url: URL;
-
-        try {
-            url = new URL(url_string);
-        } catch (_) {
-            return false;
-        }
-
-        return url.protocol === "http:" || url.protocol === "https:";
-    }
 
     // Hanlders
 
