@@ -52,7 +52,8 @@
         {
             image: {
                 src: "/images/characters/laura/laura.png",
-                alt: "Laura"
+                alt: "Laura",
+                class: "md:px-[3.75vw]"
             },
             gradient: {
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
@@ -95,9 +96,9 @@
 
     <section
         transition:blur
-        class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0"
+        class="{mapping.class} {image_left_or_right === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
     >
-        <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
+        <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
                     <span class="odd:text-warning-400">{number}</span>
@@ -120,10 +121,10 @@
             </a>
         </error-context>
         <character-image
-            class="relative col-span-5 flex items-end justify-center md:col-span-2"
+            class="relative flex items-end justify-center md:w-[45dvw]"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
-            <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+            <gradient class="{mapping.gradient.class} {image_left_or_right === 'left' && 'md:ml-[8vw]'} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
 
             <img
                 src={mapping.image.src}
