@@ -368,7 +368,7 @@
 
         // replace last word before text selection with emoji code
         const updated_text_before_selection = text_before_selection.replace(/\S+$/, emoji_code);
-        textarea_value = `${updated_text_before_selection} ${text_after_selection}`;
+        await insert_text({ target: textarea_element, text: `${updated_text_before_selection} ${text_after_selection}` });
 
         // set caret at the end of inserted emoji_code
         tick().then(() => {
