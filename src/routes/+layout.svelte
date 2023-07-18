@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { afterNavigate, beforeNavigate } from "$app/navigation";
+    import { afterNavigate, beforeNavigate, preloadCode } from "$app/navigation";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
     import { browser } from "$app/environment";
@@ -152,19 +152,36 @@
 
     /** vercel effect */
     let hover_glider_element: HTMLDivElement;
-    let GLIDER_TRANSITION_DURATION = 100;
+    let GLIDER_TRANSITION_DURATION = 200;
+    let is_hovered = false;
+    let is_siblings_hovered = false;
+    let mouseLeaveTimeout: NodeJS.Timer | null = null;
 
     function handle_mouseenter(event: MouseEvent) {
         const target = event.target as HTMLAnchorElement;
         hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
 
-        if (getComputedStyle(hover_glider_element).getPropertyValue("opacity") === "0") {
-            setTimeout(() => {
-                hover_glider_element.style.opacity = "100";
-            }, GLIDER_TRANSITION_DURATION);
-        } else {
+        if (!is_hovered) {
+            GLIDER_TRANSITION_DURATION = 50;
             hover_glider_element.style.opacity = "100";
+            is_hovered = true;
+        } else if(!is_siblings_hovered) {
+            GLIDER_TRANSITION_DURATION = 200;
         }
+    }
+
+    function handle_mouseleave() {
+        // Delay the mouseleave event to allow time for moving to a sibling element
+        mouseLeaveTimeout = setTimeout(() => {
+            hover_glider_element.style.opacity = "0";
+            is_hovered = false;
+            is_siblings_hovered = false;
+        }, GLIDER_TRANSITION_DURATION);
+    }
+
+    function handle_siblings_mouseenter() {
+        clearTimeout(mouseLeaveTimeout!);
+        is_siblings_hovered = true;
     }
 </script>
 
@@ -394,7 +411,9 @@
                                 class:pointer-events-none={!item_href}
                                 class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.75vw] p-0"
                                 on:mouseenter={handle_mouseenter}
-                                on:mouseleave={() => (hover_glider_element.style.opacity = "0")}
+                                on:mouseleave={handle_mouseleave}
+                                on:mouseenter={handle_siblings_mouseenter}
+                                on:mouseleave={() => { is_siblings_hovered = false; }}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
