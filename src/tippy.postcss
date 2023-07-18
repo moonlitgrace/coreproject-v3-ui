@@ -3,17 +3,26 @@
 
 .tippy-box {
     @apply bg-transparent;
+
+    &[data-theme~="elaine"] {
+        &[data-placement^="top"] {
+            &.tippy-arrow:before {
+                @apply border-t-primary-500;
+                border-width: 0.75vw 0.75vw 0;
+                bottom: -0.5vw;
+            }
+        }
+
+        &[data-placement^="bottom"] {
+            &.tippy-arrow:before {
+                @apply border-b-surface-50/50;
+                border-width: 0 0.75vw 0.75vw;
+                top: -0.5vw;
+            }
+        }
+    }
 }
-.tippy-box[data-placement^="top"] > .tippy-arrow:before {
-    @apply border-t-primary-500;
-    border-width: 0.75vw 0.75vw 0;
-    bottom: -0.5vw;
-}
-.tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
-    @apply border-b-surface-50/50;
-    border-width: 0 0.75vw 0.75vw;
-    top: -0.5vw;
-}
+
 .tippy-content {
     @apply p-0;
 }

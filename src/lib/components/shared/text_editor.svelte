@@ -408,7 +408,8 @@
                         arrow: false,
                         offset: [0, 17],
                         appendTo: document.body,
-                        animation: "shift-away"
+                        animation: "shift-away",
+                        theme: "elaine"
                     }}
                     on:click={() => button_function(textarea_element)}
                 >

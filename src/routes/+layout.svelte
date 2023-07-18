@@ -333,6 +333,7 @@
                             animation: "shift-away",
                             appendTo: document.body,
                             interactive: true,
+                            theme: "elaine",
                             onTrigger: async (instance) => {
                                 const node = document.createElement("div");
                                 new ProfileDropdown({
