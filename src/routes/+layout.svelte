@@ -154,7 +154,6 @@
     let hover_glider_element: HTMLDivElement;
     let GLIDER_TRANSITION_DURATION = 200;
     let is_hovered = false;
-    let is_siblings_hovered = false;
     let mouseLeaveTimeout: NodeJS.Timer | null = null;
 
     function handle_mouseenter(event: MouseEvent) {
@@ -170,7 +169,6 @@
         }
 
         clearTimeout(mouseLeaveTimeout!);
-        is_siblings_hovered = true;
     }
 
     function handle_mouseleave() {
@@ -178,10 +176,7 @@
         mouseLeaveTimeout = setTimeout(() => {
             hover_glider_element.style.opacity = "0";
             is_hovered = false;
-            is_siblings_hovered = false;
         }, GLIDER_TRANSITION_DURATION);
-
-        is_siblings_hovered = false;
     }
 </script>
 
