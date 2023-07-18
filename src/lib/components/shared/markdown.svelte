@@ -55,5 +55,9 @@
 </script>
 
 <markdown class={klass}>
-    {@html html}
+    {#if html}
+        {@html html}
+    {:else}
+        <span class="text-sm text-surface-50 md:text-[1vw]">Nothing to preview</span>
+    {/if}
 </markdown>
