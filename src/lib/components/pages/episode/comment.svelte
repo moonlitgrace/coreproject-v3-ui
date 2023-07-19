@@ -99,7 +99,7 @@
                         on:click={() => (show_replies = false)}
                     >
                         <span>Close replies</span>
-                        <Chevron class="md:w-[0.8vw] -rotate-180" />
+                        <Chevron class="-rotate-180 md:w-[0.8vw]" />
                     </button>
                 {:else}
                     <button
