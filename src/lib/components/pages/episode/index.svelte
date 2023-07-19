@@ -339,6 +339,14 @@
                                 </button>
                                 <button class="btn p-0 text-xs uppercase text-surface-50 md:text-[0.8vw]">Replay</button>
                             </options>
+
+                            {#if Array.isArray(comment.replies) && comment.replies.length}
+                                <replies-section class="md:mt-[0.25vw]">
+                                    <button class="btn p-0 text-warning-400">
+                                        <span>View replies</span>
+                                    </button>
+                                </replies-section>
+                            {/if}
                         </comment-details>
                     </comment>
                 {/each}
