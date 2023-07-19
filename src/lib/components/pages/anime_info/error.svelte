@@ -94,7 +94,7 @@
     {@const image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : mapping.position.filter((item) => item != sample(mapping?.position))[0]}
     {@const left = image_left_or_right === "left"}
     {@const right = image_left_or_right === "right"}
-
+    {console.log(image_left_or_right)}
     <section
         transition:blur
         class:md:flex-row-reverse={left}
