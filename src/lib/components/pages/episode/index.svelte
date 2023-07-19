@@ -344,6 +344,7 @@
                                 <replies-section class="md:mt-[0.25vw]">
                                     <button class="btn p-0 text-warning-400">
                                         <span>View replies</span>
+                                        <Chevron class="md:w-[0.8vw]" />
                                     </button>
                                 </replies-section>
                             {/if}
