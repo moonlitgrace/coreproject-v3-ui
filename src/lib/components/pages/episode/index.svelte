@@ -332,10 +332,12 @@
                                 markdown={comment.content}
                             />
 
-                            <button class="btn mt-2 p-0 md:mt-0">
-                                <Heart class="w-3 text-surface-300 md:w-[1vw]" />
-                                <likes class="text-xs md:text-[0.75vw]">{comment.likes}</likes>
-                            </button>
+                            <options class="mt-2 md:mt-[0.5vw]">
+                                <button class="btn p-0">
+                                    <Heart class="w-3 text-surface-300 md:w-[1vw]" />
+                                    <likes class="text-xs md:text-[0.75vw]">{comment.likes}</likes>
+                                </button>
+                            </options>
                         </comment-details>
                     </comment>
                 {/each}
