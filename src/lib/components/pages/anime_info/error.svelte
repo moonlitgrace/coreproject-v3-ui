@@ -1,7 +1,6 @@
 <script lang="ts">
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
-    import { position } from "caret-pos";
     import sample from "lodash/sample";
     import { onMount } from "svelte";
     import { blur } from "svelte/transition";
