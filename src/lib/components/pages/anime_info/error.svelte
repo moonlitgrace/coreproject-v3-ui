@@ -1,6 +1,7 @@
 <script lang="ts">
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/chevron.svelte";
+    import { position } from "caret-pos";
     import sample from "lodash/sample";
     import { onMount } from "svelte";
     import { blur } from "svelte/transition";
@@ -91,14 +92,14 @@
 </svelte:head>
 
 {#if mapping}
-    {@const image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : mapping.position.filter((item) => item != sample(mapping?.position))[0] ||= 'right'}
-    {@const left = image_left_or_right === "left"}
-    {@const right = image_left_or_right === "right"}
+    {@const is_image_left_or_right = mapping.position && mapping.position.length > 0 && (mapping.position.length === 1 ? mapping.position[0] : sample(mapping.position))}
+    {@const on_left = is_image_left_or_right === "left"}
+    {@const on_right = is_image_left_or_right === "right"}
 
-<section
+    <section
         transition:blur
-        class:md:flex-row-reverse={left}
-        class:md:flex-row={right}
+        class:md:flex-row-reverse={on_left}
+        class:md:flex-row={on_right}
         class="{mapping.class} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
     >
         <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
@@ -128,7 +129,7 @@
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
             <gradient
-                class:md:ml-[8vw]={left}
+                class:md:ml-[8vw]={on_left}
                 class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
             />
 
