@@ -94,6 +94,13 @@
                             </reply-details>
                         </reply>
                     {/each}
+                    <button
+                        class="btn p-0 text-warning-400 md:mt-[0.25vw]"
+                        on:click={() => (show_replies = false)}
+                    >
+                        <span>Close replies</span>
+                        <Chevron class="md:w-[0.8vw] -rotate-180" />
+                    </button>
                 {:else}
                     <button
                         class="btn p-0 text-warning-400"
