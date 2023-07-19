@@ -92,8 +92,8 @@
 
 {#if mapping}
     {@const image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : mapping.position.filter((item) => item != sample(mapping?.position))[0]}
-    {@const left = image_left_or_right === "left" || false}
-    {@const right = image_left_or_right === "right" || false}
+    {@const left = image_left_or_right === "left"}
+    {@const right = image_left_or_right === "right"}
 
     <section
         transition:blur
