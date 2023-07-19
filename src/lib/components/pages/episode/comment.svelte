@@ -60,7 +60,7 @@
             <replies-section class="md:mt-[0.25vw]">
                 {#if show_replies}
                     {#each comment_replies as reply}
-                        <reply class="flex gap-3 md:gap-[1vw] md:mt-[1vw]">
+                        <reply class="flex gap-3 md:mt-[1vw] md:gap-[1vw]">
                             <a
                                 href="/user/"
                                 class="h-7 w-7 flex-shrink-0 md:h-[2vw] md:w-[2vw]"
