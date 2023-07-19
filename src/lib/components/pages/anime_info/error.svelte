@@ -9,6 +9,7 @@
         image: { src: string; alt: string; class?: string };
         class?: string;
         gradient: { mobile: string; desktop: string; class?: string };
+        position: Array<"left" | "right">;
     }> = [
         {
             image: {
@@ -19,7 +20,8 @@
                 class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(218, 202, 207, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(40dvw circle at center, rgba(218, 202, 207, 0.25) 0%, transparent 50%)"
-            }
+            },
+            position: ["left", "right"]
         },
         {
             image: {
@@ -32,7 +34,8 @@
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(45dvh circle at center, rgba(137, 155, 206, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(45dvw circle at center, rgba(137, 155, 206, 0.25) 0%, transparent 50%)"
-            }
+            },
+            position: ["right"]
         },
         {
             image: {
@@ -43,7 +46,8 @@
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(45dvw circle at center, rgba(181, 124, 82, 0.25) 0%, transparent 50%)"
-            }
+            },
+            position: ["left", "right"]
         },
         {
             image: {
@@ -54,7 +58,8 @@
                 class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
                 mobile: "radial-gradient(50dvh circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)",
                 desktop: "radial-gradient(45dvw circle at center, rgba(243, 243, 243, 0.25) 0%, transparent 50%)"
-            }
+            },
+            position: ["left", "right"]
         }
     ];
     let mapping:
@@ -62,6 +67,7 @@
               image: { src: string; alt: string; class?: string };
               class?: string;
               gradient: { mobile: string; desktop: string; class?: string };
+              position: Array<"left" | "right">;
           }
         | undefined;
 
@@ -85,11 +91,17 @@
 </svelte:head>
 
 {#if mapping}
-    <section
+    {@const image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : mapping.position.filter((item) => item != sample(mapping?.position))[0] ||= 'right'}
+    {@const left = image_left_or_right === "left"}
+    {@const right = image_left_or_right === "right"}
+
+<section
         transition:blur
-        class="{mapping.class} relative flex h-full grid-cols-5 flex-col justify-end gap-20 md:grid md:items-end md:gap-0"
+        class:md:flex-row-reverse={left}
+        class:md:flex-row={right}
+        class="{mapping.class} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
     >
-        <error-context class="col-span-5 flex flex-col items-center leading-none md:col-span-3 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
+        <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
                     <span class="odd:text-warning-400">{number}</span>
@@ -112,10 +124,13 @@
             </a>
         </error-context>
         <character-image
-            class="relative col-span-5 flex items-end justify-center md:col-span-2"
+            class="relative flex items-end justify-center md:w-[45dvw]"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
-            <gradient class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+            <gradient
+                class:md:ml-[8vw]={left}
+                class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
+            />
 
             <img
                 src={mapping.image.src}
