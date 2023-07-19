@@ -90,7 +90,6 @@
                                         <Heart class="w-3 text-surface-300 md:w-[1vw]" />
                                         <likes class="text-xs md:text-[0.75vw]">{reply.likes}</likes>
                                     </button>
-                                    <button class="btn p-0 text-xs uppercase text-surface-50 md:text-[0.8vw]">Replay</button>
                                 </options>
                             </reply-details>
                         </reply>
