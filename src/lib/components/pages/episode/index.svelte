@@ -332,14 +332,12 @@
                                 markdown={comment.content}
                             />
 
-                            <options class="mt-2 md:mt-[0.75vw] flex items-center md:gap-[0.75vw]">
+                            <options class="mt-2 flex items-center md:mt-[0.75vw] md:gap-[0.75vw]">
                                 <button class="btn p-0">
                                     <Heart class="w-3 text-surface-300 md:w-[1vw]" />
                                     <likes class="text-xs md:text-[0.75vw]">{comment.likes}</likes>
                                 </button>
-                                <button class="btn p-0 text-xs uppercase text-surface-50 md:text-[0.8vw]">
-                                    Replay
-                                </button>
+                                <button class="btn p-0 text-xs uppercase text-surface-50 md:text-[0.8vw]">Replay</button>
                             </options>
                         </comment-details>
                     </comment>
