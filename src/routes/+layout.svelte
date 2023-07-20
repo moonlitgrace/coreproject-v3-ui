@@ -2,7 +2,6 @@
     import { afterNavigate, beforeNavigate } from "$app/navigation";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
-    import { browser } from "$app/environment";
     import ProfileDropdown from "$components/tippies/profile_dropdown.svelte";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
