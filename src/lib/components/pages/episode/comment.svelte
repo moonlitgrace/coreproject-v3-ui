@@ -20,7 +20,7 @@
         likes: number;
     }>;
 
-    let show_replies = false;
+    export let show_replies = false;
 </script>
 
 <comment class="flex gap-3 md:gap-[1vw]">
@@ -59,6 +59,13 @@
         {#if Array.isArray(comment_replies) && comment_replies.length}
             <replies-section class="md:mt-[0.25vw]">
                 {#if show_replies}
+                    <button
+                        class="btn p-0 text-warning-400"
+                        on:click={() => (show_replies = false)}
+                    >
+                        <span>Close replies</span>
+                        <Chevron class="-rotate-180 md:w-[0.8vw]" />
+                    </button>
                     {#each comment_replies as reply}
                         <reply class="flex gap-3 md:mt-[1vw] md:gap-[1vw]">
                             <a
@@ -94,13 +101,6 @@
                             </reply-details>
                         </reply>
                     {/each}
-                    <button
-                        class="btn p-0 text-warning-400 md:mt-[0.25vw]"
-                        on:click={() => (show_replies = false)}
-                    >
-                        <span>Close replies</span>
-                        <Chevron class="-rotate-180 md:w-[0.8vw]" />
-                    </button>
                 {:else}
                     <button
                         class="btn p-0 text-warning-400"

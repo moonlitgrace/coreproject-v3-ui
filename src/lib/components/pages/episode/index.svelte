@@ -321,7 +321,7 @@
             </comment-form>
 
             <comments class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
-                {#each episode_comments as comment}
+                {#each episode_comments as comment, index}
                     <Comment
                         comment_user_profile_pic={comment.user.profile_pic}
                         comment_username={comment.user.username}
@@ -329,6 +329,7 @@
                         comment_content={comment.content}
                         comment_likes={comment.likes}
                         comment_replies={comment.replies}
+                        show_replies={index === 0}
                     />
                 {/each}
             </comments>
