@@ -16,7 +16,7 @@
     import PlayCircle from "$icons/play_circle.svelte";
     import Share from "$icons/share.svelte";
     import Warning from "$icons/warning.svelte";
-    import { Accordion, AccordionItem } from "@skeletonlabs/skeleton";
+    import { Accordion, AccordionItem, Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
@@ -284,27 +284,41 @@
                 </button>
             </comments-info>
 
-            <form class="mt-3 md:mt-[1vw]">
-                <TextEditor />
+            <comment-form class="flex md:gap-[1vw]">
+                <a
+                    href="/user/"
+                    class="h-7 w-7 flex-shrink-0 md:mt-[0.5vw] md:h-[2vw] md:w-[2vw]"
+                >
+                    <ImageLoader
+                        src="/images/DemonSlayer-bg.avif"
+                        alt="Avatar"
+                        class="h-full w-full shrink-0 rounded-full object-cover"
+                    />
+                </a>
+                <form class="mt-3 flex flex-col md:mt-[1vw] md:gap-[0.75vw]">
+                    <span class="leading-none text-surface-50 md:text-[1vw]">
+                        Comment as <strong>Tokito</strong>
+                    </span>
+                    <TextEditor />
+                    <warning-submit class="flex justify-between gap-5 md:gap-[1vw]">
+                        <warning class="flex items-center gap-3 md:gap-[0.625vw]">
+                            <Warning class="w-10 md:w-[1.2vw]" />
+                            <p class="unstyled text-[0.65rem] font-light leading-tight text-surface-300 md:text-[0.75vw] md:leading-[1.125vw]">
+                                Please remember to follow our
+                                <a
+                                    href="/"
+                                    class="unstyled text-surface-200 underline"
+                                >
+                                    community guidelines
+                                </a>
+                                while commenting. Also please refrain from posting spoilers.
+                            </p>
+                        </warning>
 
-                <warning-submit class="mt-4 flex justify-between gap-5 md:mt-[0.75vw] md:gap-[1vw]">
-                    <warning class="flex items-center gap-3 md:gap-[0.625vw]">
-                        <Warning class="w-10 md:w-[1.2vw]" />
-                        <p class="unstyled text-[0.65rem] font-light leading-tight text-surface-300 md:text-[0.75vw] md:leading-[1.125vw]">
-                            Please remember to follow our
-                            <a
-                                href="/"
-                                class="unstyled text-surface-200 underline"
-                            >
-                                community guidelines
-                            </a>
-                            while commenting. Also please refrain from posting spoilers.
-                        </p>
-                    </warning>
-
-                    <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[6vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
-                </warning-submit>
-            </form>
+                        <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[6vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
+                    </warning-submit>
+                </form>
+            </comment-form>
 
             <comments class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
                 {#each episode_comments as comment}
