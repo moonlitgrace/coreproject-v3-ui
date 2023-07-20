@@ -398,7 +398,7 @@
 
                             {@const component = item_icon.component}
 
-                            {@const is_active = browser && $page.url.pathname === item_href}
+                            {@const is_active = $page.url.pathname === item_href}
 
                             <a
                                 href={item_href}
@@ -471,7 +471,7 @@
                         {@const component = item_icon.component}
                         {@const klass = "w-5"}
 
-                        {@const is_active = browser && $page.url.pathname === item_href}
+                        {@const is_active = $page.url.pathname === item_href}
 
                         <a
                             href={item_href ?? "javascript:void(0)"}
