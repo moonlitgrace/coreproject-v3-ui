@@ -91,7 +91,7 @@
 </svelte:head>
 
 {#if mapping}
-    {@const is_image_left_or_right = mapping.position.length === 1 ? mapping.position[0] : sample(mapping.position)}
+    {@const is_image_left_or_right = sample(mapping.position)}
     {@const on_left = is_image_left_or_right === "left"}
     {@const on_right = is_image_left_or_right === "right"}
 
