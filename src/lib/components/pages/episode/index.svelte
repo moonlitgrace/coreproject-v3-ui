@@ -82,15 +82,15 @@
     <lights_overlay
         transition:blur={{ duration: 300 }}
         role="presentation"
-        class="pointer-events-none absolute inset-0 z-20 bg-black/95"
+        class="absolute inset-0 z-20 bg-black/95"
         on:mousedown={toggle_lights}
     />
 {/if}
 
 <episode-container class="flex flex-col md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
     <episode-content class="grid grid-cols-12 md:gap-[5vw]">
-        <video-player class="col-span-12 flex flex-col md:z-30 md:col-span-8 md:gap-[0.75vw]">
-            <player class="relative h-64 w-full md:h-[35vw]">
+        <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
+            <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
                 <!-- adding a image for now -->
                 <ImageLoader
                     src="/images/DemonSlayer-episode.webp"
