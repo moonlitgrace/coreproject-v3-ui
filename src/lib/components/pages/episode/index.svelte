@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Comment from "$components/shared/comment.svelte";
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
@@ -17,7 +18,6 @@
     import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
-    import Comment from "$components/shared/comments.svelte";
 
     /* Comment section logics */
     let comment_body: string;
