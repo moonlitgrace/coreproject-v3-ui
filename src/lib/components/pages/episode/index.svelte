@@ -17,7 +17,7 @@
     import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
-    import Comment from "./comment.svelte";
+    import Comment from "$components/shared/comments.svelte";
 
     /* Comment section logics */
     let comment_body: string;

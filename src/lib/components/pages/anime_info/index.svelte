@@ -30,7 +30,7 @@
     import { Ratings } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
     import type { SVGAttributes } from "svelte/elements";
-    import Comment from "../episode/comment.svelte";
+    import Comment from "$components/shared/comment.svelte";
 
     export let anime_name: string;
     export let japanese_name: string;
