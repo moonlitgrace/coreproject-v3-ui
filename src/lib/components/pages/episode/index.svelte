@@ -20,13 +20,7 @@
     import Comment from "./comment.svelte";
 
     /* Comment section logics */
-    let comment_form_data: {
-        body: string;
-        is_spoiler: boolean;
-    } = {
-        body: "",
-        is_spoiler: false
-    };
+    let comment_body: string;
 
     /* Video player options */
     const toggle_lights = () => {
@@ -306,15 +300,7 @@
                     <span class="leading-none text-surface-50 md:text-[1vw]">
                         Comment as <strong>Tokito</strong>
                     </span>
-                    <TextEditor textarea_value={comment_form_data.body} />
-                    <mark-spoiler class="flex items-center md:gap-[0.5vw]">
-                        <input
-                            bind:checked={comment_form_data.is_spoiler}
-                            type="checkbox"
-                            class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
-                        />
-                        <span class="text-error-50 md:text-[1vw]">Mark as Spoiler</span>
-                    </mark-spoiler>
+                    <TextEditor textarea_value={comment_body} />
                     <warning-submit class="flex justify-between gap-5 md:gap-[1vw]">
                         <warning class="flex items-center gap-3 md:gap-[0.625vw]">
                             <Warning class="w-10 md:w-[1.2vw]" />
