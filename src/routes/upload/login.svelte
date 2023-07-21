@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { anime_girls_mapping } from "$data/characters/anime_girls_mapping";
+    import { fish_mapping } from "$data/fish_mapping";
     import Chevron from "$icons/chevron.svelte";
     import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
@@ -10,17 +10,11 @@
     import { blur } from "svelte/transition";
     import { z } from "zod";
 
-    let mapping:
-        | {
-              image: { src: string; alt: string; class?: string };
-              class?: string;
-              gradient: { mobile: string; desktop: string; class?: string };
-          }
-        | undefined; // This logically can't be undefined or null
+    let mapping: (typeof fish_mapping)[0] | undefined; // This logically can't be undefined or null
 
     // to prevent double mounting
     onMount(() => {
-        mapping = sample(anime_girls_mapping);
+        mapping = sample(fish_mapping);
     });
 
     // form validation
