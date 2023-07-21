@@ -14,12 +14,13 @@
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
 
+    export let textarea_value = "";
+
     let caret_offset_top: string | null = null,
         caret_offset_left: string | null = null;
 
     // Bindings
     let textarea_element: HTMLTextAreaElement;
-    export let textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
