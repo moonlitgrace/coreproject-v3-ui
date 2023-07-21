@@ -77,5 +77,8 @@
     "workspaces": [
         "./scripts"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "@vime/core": "^5.4.1",
+        "@vime/svelte": "^5.4.1"
+    }
 }
