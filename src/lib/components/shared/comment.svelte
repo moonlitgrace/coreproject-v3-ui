@@ -48,7 +48,7 @@
             markdown={comment_content}
         />
 
-        <options class="mt-2 flex items-center md:mt-[0.75vw] md:gap-[0.75vw]">
+        <options class="mt-2 flex items-center gap-3 md:mt-[0.75vw] md:gap-[0.75vw]">
             <button class="btn p-0">
                 <Heart class="w-3 text-surface-300 md:w-[1vw]" />
                 <likes class="text-xs md:text-[0.75vw]">{comment_likes}</likes>
@@ -63,11 +63,11 @@
                         class="btn p-0 text-warning-400"
                         on:click={() => (show_replies = false)}
                     >
-                        <span>Close replies</span>
-                        <Chevron class="-rotate-180 md:w-[0.8vw]" />
+                        <span class="text-sm md:text-[0.95vw]">Close replies</span>
+                        <Chevron class="w-3 -rotate-180 md:w-[0.8vw]" />
                     </button>
                     {#each comment_replies as reply}
-                        <reply class="flex gap-3 md:mt-[1vw] md:gap-[1vw]">
+                        <reply class="mt-2 flex gap-3 md:mt-[1vw] md:gap-[1vw]">
                             <a
                                 href="/user/"
                                 class="h-7 w-7 flex-shrink-0 md:h-[2vw] md:w-[2vw]"
@@ -106,7 +106,7 @@
                         class="btn p-0 text-warning-400"
                         on:click={() => (show_replies = true)}
                     >
-                        <span>View replies</span>
+                        <span class="text-sm md:text-[0.95vw]">View replies</span>
                         <Chevron class="md:w-[0.8vw]" />
                     </button>
                 {/if}
