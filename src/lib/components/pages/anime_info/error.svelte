@@ -61,7 +61,7 @@
             </a>
         </error-context>
         <character-image
-            class="relative flex items-end justify-center md:w-[45dvw]"
+            class="pointer-events-none relative flex items-end justify-center md:w-[45dvw]"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
             <gradient
