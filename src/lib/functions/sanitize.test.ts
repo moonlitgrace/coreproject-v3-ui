@@ -7,4 +7,7 @@ test("sanitize function", () => {
 
     const image_src = `<img src='#' alt='sora_amamiya' onerror=alert(1) />`;
     expect(sanitize(image_src)).toBe(`<img src="#" alt="sora_amamiya" />`);
+
+    const blockquote_src = `<blockquote class='hello'>hello</blockquote>`;
+    expect(sanitize(blockquote_src)).toBe(`<blockquote class="hello">hello</blockquote>`);
 });
