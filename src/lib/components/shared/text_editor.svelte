@@ -18,8 +18,8 @@
         caret_offset_left: string | null = null;
 
     // Bindings
-    let textarea_element: HTMLTextAreaElement,
-        textarea_value = "";
+    let textarea_element: HTMLTextAreaElement;
+    export let textarea_value = "";
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;
