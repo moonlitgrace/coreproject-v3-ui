@@ -1,6 +1,7 @@
 <script lang="ts">
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import Markdown from "$components/shared/markdown.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
     import { episode_comments } from "$data/mock/episode_comments";
@@ -15,6 +16,7 @@
     import Edit from "$icons/edit.svelte";
     import ExternalLink from "$icons/external_link.svelte";
     import Filter from "$icons/filter.svelte";
+    import Heart from "$icons/heart.svelte";
     import Listen from "$icons/listen.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Read from "$icons/read.svelte";
@@ -27,6 +29,7 @@
     import Warning from "$icons/warning.svelte";
     import { Ratings } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
+    import type { SVGAttributes } from "svelte/elements";
     import Comment from "$components/shared/comment.svelte";
 
     export let anime_name: string;
