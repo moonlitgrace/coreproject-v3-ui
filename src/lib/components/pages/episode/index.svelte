@@ -300,6 +300,13 @@
                         Comment as <strong>Tokito</strong>
                     </span>
                     <TextEditor />
+                    <mark-spoiler class="flex items-center md:gap-[0.5vw]">
+                        <input
+                            type="checkbox"
+                            class="cursor-pointer rounded border-2 bg-transparent focus:ring-0 focus:ring-offset-0 md:h-[1.25vw] md:w-[1.25vw] md:border-[0.2vw]"
+                        />
+                        <span class="md:text-[1vw] text-error-50">Mark as Spoiler</span>
+                    </mark-spoiler>
                     <warning-submit class="flex justify-between gap-5 md:gap-[1vw]">
                         <warning class="flex items-center gap-3 md:gap-[0.625vw]">
                             <Warning class="w-10 md:w-[1.2vw]" />
