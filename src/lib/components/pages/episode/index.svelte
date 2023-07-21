@@ -87,11 +87,15 @@
 <svelte:head>
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
+        href="https://cdn.jsdelivr.net/npm/vidstack/styles/defaults.min.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/vidstack/styles/community-skin/video.min.css"
     />
     <script
         type="module"
-        src="https://cdn.jsdelivr.net/npm/@vime/core@^5/dist/vime/vime.esm.js"
+        src="https://cdn.jsdelivr.net/npm/vidstack/dist/cdn/prod.js"
     ></script>
 </svelte:head>
 
@@ -109,19 +113,12 @@
         <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
             <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
                 <!-- adding a image for now -->
-                <vm-player
-                    theme="dark"
-                    style="--vm-player-theme: #e86c8b;"
+                <media-player
+                    src="https://delivery225.akamai-video-content.com/hls2/01/13330/po7z1hr84lwa_n/index-v1-a1.m3u8?t=RpNyaAHg7S9xBY6e4NgjkXk1FneP_Ig0XEIFXsIQfd4&s=1689916224&e=10800&f=66654304&srv=sto238&client=118.179.115.241&asn=23956"
+                    controls
                 >
-                    <vm-hls version="latest">
-                        <source
-                            data-src="https://delivery225.akamai-video-content.com/hls2/01/13330/po7z1hr84lwa_n/index-v1-a1.m3u8?t=RpNyaAHg7S9xBY6e4NgjkXk1FneP_Ig0XEIFXsIQfd4&s=1689916224&e=10800&f=66654304&srv=sto238"
-                            type="application/x-mpegURL"
-                        />
-                    </vm-hls>
-
-                    <vm-default-ui />
-                </vm-player>
+                    <media-outlet />
+                </media-player>
             </player>
             <video-player-options class="flex flex-col gap-2 p-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
                 <preferences class="flex gap-2 md:items-center md:gap-[1vw]">
