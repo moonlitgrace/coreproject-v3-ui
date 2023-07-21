@@ -19,7 +19,7 @@
 
     // Bindings
     let textarea_element: HTMLTextAreaElement;
-    export let textarea_value = "";
+    export let textarea_value: string;
 
     let emoji_matches: [{ emoji: string; keyword: string }?];
     let show_emoji_picker = false;

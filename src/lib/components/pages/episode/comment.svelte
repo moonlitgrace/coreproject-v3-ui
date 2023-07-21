@@ -4,12 +4,14 @@
     import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
     import Heart from "$icons/heart.svelte";
+    import { blur } from "svelte/transition";
 
     export let comment_user_profile_pic: string;
     export let comment_username: string;
     export let comment_date: string;
     export let comment_content: string;
     export let comment_likes: number;
+    export let comment_is_spoiler: boolean;
     export let comment_replies: Array<{
         user: {
             username: string;
@@ -43,10 +45,19 @@
             <comment-time class="text-surface-300 md:text-[0.75vw] md:leading-[1.5vw]">{new FormatDate(comment_date).format_to_time_from_now}</comment-time>
         </a>
 
-        <Markdown
-            class="text-sm leading-snug text-surface-50 md:text-[1vw] md:leading-[1.5vw]"
-            markdown={comment_content}
-        />
+        <comment-content class="relative">
+            {#if comment_is_spoiler}
+                <spoiler-overlay
+                    transition:blur
+                    class="absolute inset-0 cursor-pointer bg-surface-400 md:rounded-[0.25vw]"
+                    on:click={() => (comment_is_spoiler = false)}
+                />
+            {/if}
+            <Markdown
+                class="text-sm leading-snug text-surface-50 md:text-[1vw] md:leading-[1.5vw]"
+                markdown={comment_content}
+            />
+        </comment-content>
 
         <options class="mt-2 flex items-center md:mt-[0.75vw] md:gap-[0.75vw]">
             <button class="btn p-0">

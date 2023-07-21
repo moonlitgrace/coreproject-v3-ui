@@ -344,6 +344,7 @@
                         comment_content={comment.content}
                         comment_likes={comment.likes}
                         comment_replies={comment.replies}
+                        comment_is_spoiler={comment.is_spoiler}
                         show_replies={index === 0}
                     />
                 {/each}
