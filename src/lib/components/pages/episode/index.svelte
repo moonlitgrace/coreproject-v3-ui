@@ -1,22 +1,19 @@
 <script lang="ts">
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
-    import Markdown from "$components/shared/markdown.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
     import { episode_comments } from "$data/mock/episode_comments";
     import { forum_posts } from "$data/mock/forum_posts";
     import { recommendations } from "$data/mock/recommendations";
-    import { FormatDate } from "$functions/format_date";
     import Chevron from "$icons/chevron.svelte";
     import Cross from "$icons/cross.svelte";
     import Download from "$icons/download.svelte";
     import Filter from "$icons/filter.svelte";
-    import Heart from "$icons/heart.svelte";
     import Next from "$icons/next.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Share from "$icons/share.svelte";
     import Warning from "$icons/warning.svelte";
-    import { Accordion, AccordionItem, Avatar } from "@skeletonlabs/skeleton";
+    import { Accordion, AccordionItem } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
