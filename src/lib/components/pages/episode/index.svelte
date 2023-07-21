@@ -82,10 +82,6 @@
     export let episode_number: number;
     export let episode_details = `The autumn he was twelve, piano prodigy Kousei Arima suddenly found himself unable to play the piano after his mother's death. Ever since then, it's like he's been frozen in time. His childhood friend, Tsubaki Sawabe, watches over him with concern; one day, she invites him on a double date. Kousei's other childhood friend, Ryouta Watari, is being introduced to a certain girl. Kousei reluctantly heads over to the rendezvous spot. There, he sees a girl playing a melodica. This girl, who allegedly has a crush on Watari, is Kaori Miyazono. And she turns out to be a violinist!`;
     export let episode_name = `Monotone/Colorful`;
-
-    import { Player, DefaultUi, Hls } from "@vime/svelte";
-    import v from "voca";
-    const hlsConfig = { autoStartLoad: true, startPosition: -1, debug: true };
 </script>
 
 <svelte:head>
@@ -93,6 +89,10 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
     />
+    <script
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/@vime/core@^5/dist/vime/vime.esm.js"
+    ></script>
 </svelte:head>
 
 {#if button_state_mapping.lights}
@@ -109,22 +109,19 @@
         <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
             <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
                 <!-- adding a image for now -->
-                <Player
+                <vm-player
                     theme="dark"
                     style="--vm-player-theme: #e86c8b;"
                 >
-                    <Hls
-                        version="latest"
-                        config={hlsConfig}
-                    >
+                    <vm-hls version="latest">
                         <source
                             data-src="https://delivery225.akamai-video-content.com/hls2/01/13330/po7z1hr84lwa_n/index-v1-a1.m3u8?t=RpNyaAHg7S9xBY6e4NgjkXk1FneP_Ig0XEIFXsIQfd4&s=1689916224&e=10800&f=66654304&srv=sto238"
                             type="application/x-mpegURL"
                         />
-                    </Hls>
+                    </vm-hls>
 
-                    <DefaultUi />
-                </Player>
+                    <vm-default-ui />
+                </vm-player>
             </player>
             <video-player-options class="flex flex-col gap-2 p-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
                 <preferences class="flex gap-2 md:items-center md:gap-[1vw]">
