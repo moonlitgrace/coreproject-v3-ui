@@ -312,12 +312,12 @@ export class OpengraphGenerator {
         opengraph_html += this.url;
         opengraph_html += this.description;
 
-        opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
         if (this.#audio) {
             opengraph_html += this.audio;
         }
         if (this.#image) {
             opengraph_html += this.image;
+            opengraph_html += `<meta name="twitter:card" content="summary_large_image" />`;
         }
         if (this.#video) {
             opengraph_html += this.video;
