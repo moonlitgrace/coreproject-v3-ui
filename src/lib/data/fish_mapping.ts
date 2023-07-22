@@ -67,5 +67,17 @@ export const fish_mapping: Array<{
             desktop: "radial-gradient(45dvw circle at center, #a9988e 0%, transparent 50%)"
         },
         position: ["right"]
+    },
+    {
+        image: {
+            src: "/images/characters/eliane/eliane_2.png",
+            alt: "Elaine"
+        },
+        gradient: {
+            class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
+            mobile: "radial-gradient(50dvh circle at center, rgba(231, 220, 221, 0.1) 0%, transparent 50%)",
+            desktop: "radial-gradient(40dvw circle at center, rgba(231, 220, 221, 0.45) 0%, transparent 50%)"
+        },
+        position: ["left", "right"]
     }
 ];
