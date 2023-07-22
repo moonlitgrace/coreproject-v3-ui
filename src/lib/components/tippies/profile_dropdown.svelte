@@ -5,7 +5,6 @@
     import User from "$icons/user.svelte";
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
-    import truncate from "lodash/truncate";
 
     let dropdown_icons: {
         [key in string]: {
