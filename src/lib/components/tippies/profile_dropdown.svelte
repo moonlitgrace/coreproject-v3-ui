@@ -5,7 +5,7 @@
     import User from "$icons/user.svelte";
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
-    import voca from "voca";
+    import truncate from "lodash/truncate";
 
     let dropdown_icons: {
         [key in string]: {
@@ -63,7 +63,11 @@
         />
         <div class="flex flex-col md:gap-[0.5vw]">
             <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>
-            <span class="text-xs font-medium md:text-[0.8vw] md:leading-none">{voca.truncate("sora_amamiya@coreproject.moe", 17)}</span>
+            <span class="text-xs font-medium md:text-[0.8vw] md:leading-none">
+                {truncate("sora_amamiya@coreproject.moe", {
+                    length: 17
+                })}
+            </span>
         </div>
     </div>
 
