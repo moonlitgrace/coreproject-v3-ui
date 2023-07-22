@@ -63,10 +63,10 @@ export const fish_mapping: Array<{
         },
         gradient: {
             class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
-            mobile: "radial-gradient(50dvh circle at center, #a9988e 0%, transparent 50%)",
-            desktop: "radial-gradient(45dvw circle at center, #a9988e 0%, transparent 50%)"
+            mobile: "radial-gradient(50dvh circle at center, rgba(171, 143, 125, 0.3) 0%, transparent 50%)",
+            desktop: "radial-gradient(45dvw circle at center, rgba(171, 143, 125, 0.6) 0%, transparent 50%)"
         },
-        position: ["right"]
+        position: ["right", "left"]
     },
     {
         image: {
@@ -75,8 +75,8 @@ export const fish_mapping: Array<{
         },
         gradient: {
             class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
-            mobile: "radial-gradient(50dvh circle at center, rgba(231, 220, 221, 0.1) 0%, transparent 50%)",
-            desktop: "radial-gradient(40dvw circle at center, rgba(231, 220, 221, 0.45) 0%, transparent 50%)"
+            mobile: "radial-gradient(50dvh circle at center, rgba(231, 220, 221, 0.2) 0%, transparent 50%)",
+            desktop: "radial-gradient(40dvw circle at center, rgba(231, 220, 221, 0.25) 0%, transparent 50%)"
         },
         position: ["left", "right"]
     }
