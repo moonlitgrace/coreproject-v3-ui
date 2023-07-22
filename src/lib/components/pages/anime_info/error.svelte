@@ -10,7 +10,7 @@
 
     // onMount is here to prevent double mount of this.
     onMount(() => {
-        mapping = sample(fish_mapping);
+        mapping = fish_mapping.at(-1);
     });
 </script>
 
