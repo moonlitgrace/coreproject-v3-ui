@@ -7,11 +7,13 @@
     export let gradientMask = false;
 </script>
 
-<scroll-area
-    class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} mask-bottom block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
->
+<scroll-area class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} mask-bottom block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin">
     <div class="{klass} whitespace-pre-line">
         <slot />
+
+        {#if gradientMask}
+            <div class="h-[15%]" />
+        {/if}
     </div>
 </scroll-area>
 
