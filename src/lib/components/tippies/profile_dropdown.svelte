@@ -6,6 +6,8 @@
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
 
+    import { beforeUpdate } from "svelte";
+
     let dropdown_icons: {
         [key in string]: {
             name?: string;
@@ -50,6 +52,8 @@
             }
         }
     };
+
+    beforeUpdate(() => {});
 </script>
 
 <div class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
@@ -66,8 +70,8 @@
             class="col-span-9 line-clamp-1 flex flex-col md:gap-[0.25vw]"
             style="mask-image: linear-gradient(to right, rgba(7, 5, 25) 75%, rgba(0, 0, 0, 0) 100%);"
         >
-            <span class="text-base font-semibold md:text-[1vw] md:leading-none">soraamamiya</span>
-            <span class="text-xs font-medium md:text-[0.8vw]">sora_amamiya@coreproject.moe</span>
+            <span class="text-base font-semibold md:text-[1vw] md:leading-none overflow-x-scroll scrollbar-none">soraamamiya</span>
+            <span class="text-xs font-medium md:text-[0.8vw] overflow-x-scroll scrollbar-none">sora_amamiya@coreproject.moe</span>
         </div>
     </div>
 
