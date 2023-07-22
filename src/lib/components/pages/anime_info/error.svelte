@@ -66,7 +66,7 @@
         >
             <gradient
                 class:md:ml-[8vw]={on_left}
-                class="{mapping.gradient.class} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
+                class="{mapping.gradient.class ?? ''} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
             />
 
             <img
