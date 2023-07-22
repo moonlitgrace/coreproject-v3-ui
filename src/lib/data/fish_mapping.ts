@@ -44,8 +44,8 @@ export const fish_mapping: Array<{
     },
     {
         image: {
-            src: "/images/characters/laura/laura.png",
-            alt: "Laura"
+            src: "/images/characters/exy/exy.png",
+            alt: "Exy"
         },
         gradient: {
             class: "h-[50dvh] w-[100dvw] md:h-[50dvw] md:w-[calc(100%*2)]",
