@@ -249,7 +249,7 @@
                         <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</span>
                     </anime-genres>
 
-                    <anime-scores class="hidden w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:flex md:px-[0.75vw] md:py-[0.375vw] md:text-[0.65vw] md:leading-[0.75vw]">
+                    <anime-scores class="hidden w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:flex md:px-[0.75vw] md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.75vw]">
                         <score class="flex gap-[0.25vw]">
                             <span>Score:</span>
                             <span class="text-warning-400">79</span>
