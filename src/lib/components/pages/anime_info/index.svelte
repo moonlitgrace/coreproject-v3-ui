@@ -252,20 +252,20 @@
                     <anime-scores class="hidden w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:flex md:px-[0.75vw] md:py-[0.375vw] md:text-[0.75vw] md:leading-[0.75vw]">
                         <score class="flex gap-[0.25vw]">
                             <span>Score:</span>
-                            <span class="text-warning-400">79</span>
+                            <span class="text-warning-400 font-semibold">79</span>
                         </score>
                         <status class="flex gap-[0.25vw]">
                             <span>Status:</span>
-                            <span class="text-warning-400">Watching</span>
+                            <span class="text-warning-400 font-semibold">Watching</span>
                             <Chevron class="w-[0.625vw] text-warning-400" />
                         </status>
                         <episodes-count class="flex gap-[0.25vw]">
                             <span>Episode:</span>
-                            <span class="text-warning-400">0/{anime_episodes_count}</span>
+                            <span class="text-warning-400 font-semibold">0/{anime_episodes_count}</span>
                         </episodes-count>
                         <your-scrore class="flex gap-[0.25vw]">
                             <span>Your Score:</span>
-                            <span class="text-warning-400">Not Rated</span>
+                            <span class="text-warning-400 font-semibold">Not Rated</span>
                             <Chevron class="w-[0.625vw] text-warning-400" />
                         </your-scrore>
                     </anime-scores>
