@@ -676,14 +676,14 @@
                     </div>
 
                     <casts class="mt-[1vw] block">
-                        <casts-cards class="relative grid h-[7.5vw] w-[12.5vw] grid-cols-2 gap-[2px] overflow-hidden rounded-[0.75vw]">
+                        <casts-cards class="relative grid h-[9vw] w-full grid-cols-2 gap-[2px] overflow-hidden rounded-[0.75vw]">
                             <cast-image class="relative col-span-1 w-full bg-cover">
                                 <ImageLoader
                                     src="https://s4.anilist.co/file/anilistcdn/character/large/b55131-ypodHQCyHbzD.png"
                                     class="absolute h-full w-full object-cover object-center"
                                 />
 
-                                <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]">Houtarou Oreki</span>
+                                <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1vw] md:px-[1vw]">Houtarou Oreki</span>
                             </cast-image>
                             <cast-details class="relative col-span-1 w-full bg-cover">
                                 <ImageLoader
@@ -691,7 +691,7 @@
                                     class="absolute h-full w-full object-cover object-center"
                                 />
 
-                                <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1.25vw]">Yuuichi Nakamura</span>
+                                <span class="absolute bottom-[0.3vw] z-10 w-full text-center text-[0.9vw] font-bold leading-[1vw] md:px-[1vw]">Yuuichi Nakamura</span>
                             </cast-details>
                             <gradient-overlay class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/75 to-surface-900/25" />
                         </casts-cards>
