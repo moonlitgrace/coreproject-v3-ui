@@ -49,6 +49,16 @@
             headerIds: false
         }
     );
+    marked.use({
+        extensions: [
+            {
+                name: "emoji",
+                renderer: (token) => {
+                    return `<img class="inline-flex" alt="${token.name}" src="${token.emoji}">`;
+                }
+            }
+        ]
+    });
 
     let html: string;
     $: html = sanitize(marked.parse(markdown));
