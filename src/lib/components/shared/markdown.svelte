@@ -43,7 +43,7 @@
                 {
                     name: "emoji",
                     renderer: (token) => {
-                        return `<img class="inline-flex w-4 justify-center align-center -translate-y-0.5" alt="${token.name}" src="${token.emoji}">`;
+                        return `<img class="inline-flex w-4 justify-center align-center -translate-y-0.5 md:w-[1vw]" alt="${token.name}" src="${token.emoji}">`;
                     }
                 }
             ]
