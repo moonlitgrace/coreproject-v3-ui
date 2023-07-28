@@ -38,6 +38,16 @@
         }),
         // Emoji plugin
         markedEmoji(emoji_options),
+        {
+            extensions: [
+                {
+                    name: "emoji",
+                    renderer: (token) => {
+                        return `<img class="inline-flex w-4 justify-center align-center -translate-y-0.5" alt="${token.name}" src="${token.emoji}">`;
+                    }
+                }
+            ]
+        },
         // Mangle plugin
         mangle(),
         // Marked defaults
@@ -47,19 +57,6 @@
             headerIds: false
         }
     );
-
-    // Hack the emoji thing
-    // https://github.com/UziTech/marked-emoji/issues/112#issuecomment-1646454563
-    marked.use({
-        extensions: [
-            {
-                name: "emoji",
-                renderer: (token) => {
-                    return `<img class="inline-flex" alt="${token.name}" src="${token.emoji}">`;
-                }
-            }
-        ]
-    });
 
     let html: string;
     $: html = sanitize(marked.parse(markdown));
