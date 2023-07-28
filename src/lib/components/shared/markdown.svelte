@@ -43,12 +43,13 @@
         // Marked defaults
         {
             renderer,
-            // Disable it as marked-mangle doesn't support typescript
-            mangle: false,
             // We dont need github like header prefix
             headerIds: false
         }
     );
+
+    // Hack the emoji thing
+    // https://github.com/UziTech/marked-emoji/issues/112#issuecomment-1646454563
     marked.use({
         extensions: [
             {
