@@ -281,7 +281,7 @@
     }
 
     // Functions
-    async function insert_text({ target, text }: { target: HTMLTextAreaElement; text: string }) {
+    async function insert_text({ target, text }: { target: HTMLTextAreaElement; text: string }): Promise<void> {
         /**
          * Thanks stackoverflow guy and mozilla dev ( Michal Čaplygin |myf| )
          * Stackoverflow : https://stackoverflow.com/a/56509046
@@ -291,7 +291,7 @@
         document.execCommand("insertText", false, text);
     }
 
-    async function operate_on_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }) {
+    async function operate_on_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }): Promise<void> {
         element.focus();
 
         const selection_start = element.selectionStart;
@@ -341,11 +341,12 @@
         }
     }
 
-    async function select_emoji({ emoji_index, element }: { emoji_index: number; element: HTMLElement }) {
+    async function select_emoji({ emoji_index, element }: { emoji_index: number; element: HTMLElement }): Promise<void> {
+        const textarea_element = element as HTMLTextAreaElement;
+
         const emoji_keyword = emoji_matches[emoji_index]?.keyword,
             emoji_code = `:${emoji_keyword}:`;
 
-        const textarea_element = element as HTMLTextAreaElement;
         const selection_start = textarea_element.selectionStart,
             selection_end = textarea_element.selectionEnd;
 
@@ -371,7 +372,9 @@
 
     let tab_type: "edit" | "preview" = "edit";
 
-    const handle_edit_preview_button_click = (item: string) => (tab_type = item as typeof tab_type);
+    async function handle_edit_preview_button_click(item: string): Promise<void> {
+        tab_type = item as typeof tab_type;
+    }
 </script>
 
 <div class="relative rounded-lg ring-2 ring-surface-300/25 transition duration-300 focus-within:ring-primary-500 md:rounded-[0.75vw] md:ring-[0.15vw]">
@@ -381,9 +384,7 @@
                 {@const active = tab_type.toLowerCase() == item}
                 <button
                     type="button"
-                    on:click={() => {
-                        handle_edit_preview_button_click(item);
-                    }}
+                    on:click={() => handle_edit_preview_button_click(item)}
                     class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-[2.5vw] md:px-[1.5vw] md:text-[1vw]"
                 >
                     {item}
