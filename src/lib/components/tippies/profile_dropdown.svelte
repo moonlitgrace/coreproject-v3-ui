@@ -6,8 +6,6 @@
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
 
-    import { beforeUpdate, onMount } from "svelte";
-
     let dropdown_icons: {
         [key in string]: {
             name?: string;
