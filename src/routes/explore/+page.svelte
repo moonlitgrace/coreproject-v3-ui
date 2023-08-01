@@ -87,7 +87,7 @@
 				<span class="md:text-[1vw] text-surface-50">Crowd Favorites: Anime Hits and Hype</span>
 			</headings>
 
-			<result-animes class="md:mt-[1.25vw] grid grid-cols-6 md:gap-[1.25vw]">
+			<result-animes class="md:mt-[1.25vw] grid grid-cols-6 md:gap-[1.25vw] relative">
 				{#each trending_animes as anime}
 					<anime class="leading-none flex flex-col md:gap-[0.75vw]">
 						<ImageLoader src={anime.cover} class="w-full md:h-[20vw] md:rounded-[0.75vw]" />
@@ -103,6 +103,14 @@
 						</div>
 					</anime>
 				{/each}
+
+				<scroll-buttons>
+					<right-scroll class="absolute -right-[1.5vw] top-[8.5vw]">
+						<button class="btn rounded-full md:p-[1vw] bg-surface-400">
+							<Chevron class="md:w-[1.5vw] -rotate-90" />
+						</button>
+					</right-scroll>
+				</scroll-buttons>
 			</result-animes>
 		</trending-now>
 	</results-section>
