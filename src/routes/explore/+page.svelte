@@ -3,6 +3,7 @@
 	import { page } from "$app/stores";
 	import Search from "$icons/search.svelte";
 	import Chevron from "$icons/chevron.svelte";
+	import Preference from "$icons/preference.svelte";
 
 	const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
@@ -24,7 +25,7 @@
 		<span class="leading-none md:text-[1.1vw] font-semibold text-surface-50">Unleash your inner Otaku: Explore anime wonders</span>
 	</section-headings>
 
-	<filter-options class="md:mt-[2vw] block flex justify-between">
+	<filter-options class="md:mt-[2vw] block flex justify-between items-end">
 		<search class="flex flex-col md:gap-[0.5vw]">
 			<span class="md:text-[1.1vw] leading-none font-semibold text-surface-50">Search Animes</span>
 			<div class="relative flex items-center">
@@ -69,5 +70,10 @@
 				/>
 			</div>
 		</season>
+		<more-filter-option>
+			<button class="btn md:p-[1vw] md:rounded-[0.5vw] bg-surface-400">
+				<Preference class="md:w-[1vw]" />
+			</button>
+		</more-filter-option>
 	</filter-options>
 </section>
