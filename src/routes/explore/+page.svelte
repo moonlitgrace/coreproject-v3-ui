@@ -4,6 +4,9 @@
 	import Search from "$icons/search.svelte";
 	import Chevron from "$icons/chevron.svelte";
 	import Preference from "$icons/preference.svelte";
+	import Circle from "$icons/circle.svelte";
+	import { trending_animes } from "$data/mock/trending.ts";
+	import ImageLoader from "$components/shared/image/image_loader.svelte";
 
 	const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
@@ -76,4 +79,31 @@
 			</button>
 		</more-filter-option>
 	</filter-options>
+
+	<results-section class="md:mt-[4vw] block">
+		<trending-now>
+			<headings class="flex flex-col leading-none md:gap-[0.35vw]">
+				<span class="md:text-[1.25vw] font-semibold">Trending Now</span>
+				<span class="md:text-[1vw] text-surface-50">Crowd Favorites: Anime Hits and Hype</span>
+			</headings>
+
+			<result-animes class="md:mt-[1.25vw] grid grid-cols-6 md:gap-[1.25vw]">
+				{#each trending_animes as anime}
+					<anime class="leading-none flex flex-col md:gap-[0.75vw]">
+						<ImageLoader src={anime.cover} class="w-full md:h-[20vw] md:rounded-[0.75vw]" />
+						<div class="flex flex-col md:gap-[0.35vw]">
+							<anime_name class="line-clamp-1 md:text-[1.1vw] font-semibold">{anime.name}</anime_name>
+							<anime_info class="md:text-[0.9vw] text-surface-50 flex items-center md:gap-[0.5vw]">
+								<genre>{anime.genre}</genre>
+								<Circle class="md:w-[0.25vw]" />
+								<year>{anime.year}</year>
+								<Circle class="md:w-[0.25vw]" />
+								<episodes_count>{anime.episodes_count} eps</episodes_count>
+							</anime_info>
+						</div>
+					</anime>
+				{/each}
+			</result-animes>
+		</trending-now>
+	</results-section>
 </section>
