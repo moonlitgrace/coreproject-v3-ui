@@ -22,10 +22,13 @@
     // Bindings
     let textarea_element: HTMLTextAreaElement;
 
-    let emoji_matches: [{ emoji: string; keyword: string }?];
-    let show_emoji_picker = false;
-    let active_emoji_index: number;
-    const SHOWN_EMOJI_LIMIT = 5;
+    let emoji_matches: Array<{
+            emoji: string;
+            keyword: string;
+        }>,
+        show_emoji_picker = false,
+        active_emoji_index: number,
+        SHOWN_EMOJI_LIMIT = 5;
 
     // Icon Mapping
     const icon_and_function_mapping: {
