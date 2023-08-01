@@ -87,25 +87,27 @@
 				<span class="md:text-[1vw] text-surface-50">Crowd Favorites: Anime Hits and Hype</span>
 			</headings>
 
-			<result-animes class="md:mt-[1.25vw] grid grid-cols-6 md:gap-[1.25vw] relative">
-				{#each trending_animes as anime}
-					<anime class="leading-none flex flex-col md:gap-[0.75vw]">
-						<ImageLoader src={anime.cover} class="w-full md:h-[20vw] md:rounded-[0.75vw]" />
-						<div class="flex flex-col md:gap-[0.35vw]">
-							<anime_name class="line-clamp-1 md:text-[1.1vw] font-semibold">{anime.name}</anime_name>
-							<anime_info class="md:text-[0.9vw] text-surface-50 flex items-center md:gap-[0.5vw]">
-								<genre>{anime.genre}</genre>
-								<Circle class="md:w-[0.25vw]" />
-								<year>{anime.year}</year>
-								<Circle class="md:w-[0.25vw]" />
-								<episodes_count>{anime.episodes_count} eps</episodes_count>
-							</anime_info>
-						</div>
-					</anime>
-				{/each}
+			<result-animes class="md:mt-[1.25vw] block relative">
+				<div class="flex md:gap-[1.25vw] overflow-x-scroll scroll-smooth scrollbar-none snap-x">
+					{#each trending_animes as anime}
+						<anime class="leading-none md:w-[13.95vw] snap-start flex-shrink-0 flex flex-col md:gap-[0.75vw]">
+							<ImageLoader src={anime.cover} class="w-full md:h-[20vw] md:rounded-[0.75vw]" />
+							<div class="flex flex-col md:gap-[0.35vw]">
+								<anime_name class="line-clamp-1 md:text-[1.1vw] font-semibold">{anime.name}</anime_name>
+								<anime_info class="md:text-[0.9vw] text-surface-50 flex items-center md:gap-[0.5vw]">
+									<genre>{anime.genre}</genre>
+									<Circle class="md:w-[0.25vw]" />
+									<year>{anime.year}</year>
+									<Circle class="md:w-[0.25vw]" />
+									<episodes_count>{anime.episodes_count} eps</episodes_count>
+								</anime_info>
+							</div>
+						</anime>
+					{/each}
+				</div>
 
 				<scroll-buttons>
-					<right-scroll class="absolute -right-[1.5vw] top-[8.5vw]">
+					<right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10">
 						<button class="btn rounded-full md:p-[1vw] bg-surface-400">
 							<Chevron class="md:w-[1.5vw] -rotate-90" />
 						</button>
