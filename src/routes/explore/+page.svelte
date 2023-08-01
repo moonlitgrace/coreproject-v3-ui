@@ -32,7 +32,7 @@
 				<input
 					type="text"
 					placeholder="Looking for specific anime? start here..."
-					class="md:pl-[3vw] focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none"
+					class="md:pl-[3vw] focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none md:w-[40vw]"
 				/>
 			</div>
 		</search>
@@ -43,10 +43,31 @@
 				<input
 					type="text"
 					placeholder="Any"
-					class="focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none md:w-[12.5vw]"
+					class="md:pl-[1vw] focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none md:w-[12.5vw]"
 				/>
 			</div>
 		</genres>
-
+		<year class="flex flex-col md:gap-[0.5vw]">
+			<span class="md:text-[1.1vw] leading-none font-semibold text-surface-50">Year</span>
+			<div class="relative flex items-center">
+				<Chevron class="md:w-[1.25vw] text-surface-50 absolute right-0 md:mr-[1vw] pointer-events-none" />
+				<input
+					type="text"
+					placeholder="Any"
+					class="md:pl-[1vw] focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none md:w-[12.5vw]"
+				/>
+			</div>
+		</year>
+		<season class="flex flex-col md:gap-[0.5vw]">
+			<span class="md:text-[1.1vw] leading-none font-semibold text-surface-50">Season</span>
+			<div class="relative flex items-center">
+				<Chevron class="md:w-[1.25vw] text-surface-50 absolute right-0 md:mr-[1vw] pointer-events-none" />
+				<input
+					type="text"
+					placeholder="Any"
+					class="md:pl-[1vw] focus:ring-0 bg-surface-400 placeholder:text-surface-50 md:rounded-[0.5vw] border-none md:py-[0.8vw] md:text-[1vw] leading-none md:w-[12.5vw]"
+				/>
+			</div>
+		</season>
 	</filter-options>
 </section>
