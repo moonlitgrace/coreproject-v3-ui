@@ -70,7 +70,9 @@
         <genres class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Genres</span>
             <div class="relative flex items-center">
-                <Chevron class="pointer-events-none absolute right-0 text-surface-50 md:mr-[1vw] md:w-[1.25vw]" />
+                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
+                	<Chevron class="text-surface-50" />
+                </button>
                 <input
                     type="text"
                     placeholder="Any"
@@ -81,7 +83,9 @@
         <year class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Year</span>
             <div class="relative flex items-center">
-                <Chevron class="pointer-events-none absolute right-0 text-surface-50 md:mr-[1vw] md:w-[1.25vw]" />
+                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
+                	<Chevron class="text-surface-50" />
+                </button>
                 <input
                     type="text"
                     placeholder="Any"
@@ -92,7 +96,9 @@
         <season class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Season</span>
             <div class="relative flex items-center">
-                <Chevron class="pointer-events-none absolute right-0 text-surface-50 md:mr-[1vw] md:w-[1.25vw]" />
+                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
+                	<Chevron class="text-surface-50" />
+                </button>
                 <input
                     type="text"
                     placeholder="Any"
