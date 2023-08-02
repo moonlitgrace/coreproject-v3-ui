@@ -11,7 +11,7 @@
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
-    let NO_SHOW_NEW_ITEMS = 2,
+    let SHOW_NEW_CARDS_COUNT = 2,
         trending_animes_scroll_element: HTMLElement,
         show_scroll_buttons = {
             left: false,
@@ -19,10 +19,10 @@
         };
 
     function handle_scroll_right(element: HTMLElement) {
-        element.scrollLeft += NO_SHOW_NEW_ITEMS * 200;
+        element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
     }
     function handle_scroll_left(element: HTMLElement) {
-        element.scrollLeft -= NO_SHOW_NEW_ITEMS * 200;
+        element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
     }
 
     function handle_scroll(event: UIEvent) {
