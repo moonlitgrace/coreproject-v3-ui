@@ -22,10 +22,13 @@
     // Bindings
     let textarea_element: HTMLTextAreaElement;
 
-    let emoji_matches: [{ emoji: string; keyword: string }?];
-    let show_emoji_picker = false;
-    let active_emoji_index: number;
-    const SHOWN_EMOJI_LIMIT = 5;
+    let emoji_matches: Array<{
+            emoji: string;
+            keyword: string;
+        }>,
+        show_emoji_picker = false,
+        active_emoji_index: number,
+        SHOWN_EMOJI_LIMIT = 5;
 
     // Icon Mapping
     const icon_and_function_mapping: {
@@ -89,7 +92,6 @@
     };
 
     // Hanlders
-
     async function handle_blur() {
         emoji_matches = [];
         show_emoji_picker = false;
@@ -113,7 +115,14 @@
 
         // check if last_typed_word starts with ":" that may or may not have subsequent word characters
         const emoji_code = last_typed_word?.match(/^:(\S*)$/);
-        if (emoji_code) {
+        if (!emoji_code) {
+            emoji_matches = [];
+            show_emoji_picker = false;
+
+            // Caret
+            caret_offset_top = null;
+            caret_offset_left = null;
+        } else {
             // Set first item active
             active_emoji_index = 0;
 
@@ -132,7 +141,7 @@
             }
 
             // Popover settings
-            if (caret_offset_left === null || caret_offset_top == null) {
+            if (caret_offset_left === null && caret_offset_top == null) {
                 const textarea_position = element.getBoundingClientRect();
 
                 // CSS
@@ -144,13 +153,6 @@
                 caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + (2 * ${line_height}))`;
                 caret_offset_left = `calc(${caret_position.left - textarea_position.left}px)`;
             }
-        } else {
-            emoji_matches = [];
-            show_emoji_picker = false;
-
-            // Caret
-            caret_offset_top = null;
-            caret_offset_left = null;
         }
     }
 
@@ -241,9 +243,9 @@
         await operate_on_selected_text({ element: element, starting_operator: "~~", ending_operator: "~~" });
     }
     async function hyperlink_text(element: HTMLTextAreaElement) {
-        const selection_start = element.selectionStart;
-        const selection_end = element.selectionEnd;
-        const selection_text = element.value.substring(selection_start, selection_end);
+        const selection_start = element.selectionStart,
+            selection_end = element.selectionEnd,
+            selection_text = element.value.substring(selection_start, selection_end);
 
         // Handle use cases
         if (element.value.substring(selection_start - 3, selection_start) == "[](" && element.value.substring(selection_end, selection_end + 1) == ")") {
@@ -261,14 +263,14 @@
     }
     async function paste_text(event: ClipboardEvent & { currentTarget: HTMLTextAreaElement }) {
         event.preventDefault();
-
         const element = event.currentTarget;
-        const selection_start = element.selectionStart;
-        const selection_end = element.selectionEnd;
-        const selection_text = element.value.substring(selection_start, selection_end);
 
-        const clipboard_data = event.clipboardData?.getData("text") ?? "";
-        const clipboard_data_contains_url = is_valid_url(clipboard_data);
+        const selection_start = element.selectionStart,
+            selection_end = element.selectionEnd,
+            selection_text = element.value.substring(selection_start, selection_end);
+
+        const clipboard_data = event.clipboardData?.getData("text") ?? "",
+            clipboard_data_contains_url = is_valid_url(clipboard_data);
 
         if (selection_text && clipboard_data_contains_url) {
             const replacement_text = `[${selection_text}](${clipboard_data})`;
@@ -294,9 +296,9 @@
     async function operate_on_selected_text({ element, starting_operator, ending_operator }: { element: HTMLTextAreaElement; starting_operator: string; ending_operator: string }): Promise<void> {
         element.focus();
 
-        const selection_start = element.selectionStart;
-        const selection_end = element.selectionEnd;
-        const selection_text = element.value.substring(selection_start, selection_end);
+        const selection_start = element.selectionStart,
+            selection_end = element.selectionEnd,
+            selection_text = element.value.substring(selection_start, selection_end);
 
         const regex_pattern_for_operator = new RegExp("^" + starting_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "|" + ending_operator.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&") + "$", "g");
 
