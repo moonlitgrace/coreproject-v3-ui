@@ -7,17 +7,30 @@
 	import Circle from "$icons/circle.svelte";
 	import { trending_animes } from "$data/mock/trending";
 	import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import { blur } from "svelte/transition";
 
 	/* Anime cards scroll */
 	// no:of items to show on each scroll
-	const NO_SHOW_NEW_ITEMS = 2;
-	let trending_animes_scroll_element: HTMLElement;
+	let NO_SHOW_NEW_ITEMS = 2,
+	trending_animes_scroll_element: HTMLElement,
+	show_scroll_buttons = {
+		left: false,
+		right: true,
+	}
 
 	function handle_scroll_right(element: HTMLElement) {
 		element.scrollLeft += NO_SHOW_NEW_ITEMS * 200;
 	}
 	function handle_scroll_left(element: HTMLElement) {
 		element.scrollLeft -= NO_SHOW_NEW_ITEMS * 200;
+	}
+
+	function handle_scroll(event: UIEvent) {
+		const element = event.target as HTMLElement;
+		// check if scroll end is not reached
+		show_scroll_buttons.right = Math.abs(element.scrollLeft) !== element.scrollWidth - element.clientWidth;
+		// check if its not scroll start pos
+		show_scroll_buttons.left = Math.abs(element.scrollLeft) !== 0;
 	}
 
 	const opengraph_html = new OpengraphGenerator({
@@ -103,6 +116,7 @@
 				<div
 					class="flex md:gap-[1.25vw] overflow-x-scroll scroll-smooth scrollbar-none snap-x"
 					bind:this={trending_animes_scroll_element}
+					on:scroll={handle_scroll}
 				>
 					{#each trending_animes as anime}
 						<anime class="leading-none md:w-[13.7vw] snap-start flex-shrink-0 flex flex-col md:gap-[0.75vw]">
@@ -122,22 +136,26 @@
 				</div>
 
 				<scroll-buttons>
-					<right-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10">
-						<button
-							class="btn rounded-full md:p-[1vw] bg-surface-400"
-							on:click={() => handle_scroll_left(trending_animes_scroll_element)}
-						>
-							<Chevron class="md:w-[1.5vw] rotate-90" />
-						</button>
-					</right-scroll>
-					<right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10">
-						<button
-							class="btn rounded-full md:p-[1vw] bg-surface-400"
-							on:click={() => handle_scroll_right(trending_animes_scroll_element)}
-						>
-							<Chevron class="md:w-[1.5vw] -rotate-90" />
-						</button>
-					</right-scroll>
+					{#if show_scroll_buttons.left}
+						<left-scroll transition:blur={{ duration: 300 }} class="absolute -left-[1.5vw] top-[8.5vw] z-10">
+							<button
+								class="btn rounded-full md:p-[1vw] bg-surface-400"
+								on:click={() => handle_scroll_left(trending_animes_scroll_element)}
+							>
+								<Chevron class="md:w-[1.5vw] rotate-90" />
+							</button>
+						</left-scroll>
+					{/if}
+					{#if show_scroll_buttons.right}
+						<right-scroll transition:blur={{ duration: 300 }} class="absolute -right-[1.5vw] top-[8.5vw] z-10">
+							<button
+								class="btn rounded-full md:p-[1vw] bg-surface-400"
+								on:click={() => handle_scroll_right(trending_animes_scroll_element)}
+							>
+								<Chevron class="md:w-[1.5vw] -rotate-90" />
+							</button>
+						</right-scroll>
+					{/if}
 				</scroll-buttons>
 			</result-animes>
 		</trending-now>
