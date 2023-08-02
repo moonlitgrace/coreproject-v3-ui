@@ -63,15 +63,15 @@
                 <input
                     type="text"
                     placeholder="Looking for specific anime? start here..."
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[40vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[43.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
         <genres class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Genres</span>
             <div class="relative flex items-center">
-                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
-                	<Chevron class="text-surface-50" />
+                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                    <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
@@ -83,8 +83,8 @@
         <year class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Year</span>
             <div class="relative flex items-center">
-                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
-                	<Chevron class="text-surface-50" />
+                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                    <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
@@ -96,8 +96,8 @@
         <season class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Season</span>
             <div class="relative flex items-center">
-                <button class="btn p-0 absolute right-0 md:mr-[1vw] md:w-[1.25vw]">
-                	<Chevron class="text-surface-50" />
+                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                    <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
