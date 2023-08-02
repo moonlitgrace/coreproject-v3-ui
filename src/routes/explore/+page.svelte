@@ -8,16 +8,31 @@
     import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { blur } from "svelte/transition";
+    import { popular_animes } from "$data/mock/popular";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
     let SHOW_NEW_CARDS_COUNT = 2,
         trending_animes_scroll_element: HTMLElement,
         popular_animes_scroll_element: HTMLElement,
-        show_scroll_buttons = {
-            left: false,
-            right: true
-        };
+        last_scrolled: "trending" | "popular";
+
+    let mapping = {
+    	trending: {
+    		element: trending_animes_scroll_element!,
+    		show_scroll_buttons: {
+    			left: false,
+    			right: true
+    		},
+    	},
+    	popular: {
+    		element: popular_animes_scroll_element!,
+    		show_scroll_buttons: {
+    			left: false,
+    			right: true
+    		},
+    	}
+    }
 
     function handle_scroll_right(element: HTMLElement) {
         element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
@@ -29,9 +44,9 @@
     function handle_scroll(event: UIEvent) {
         const element = event.target as HTMLElement;
         // check if scroll end is not reached
-        show_scroll_buttons.right = Math.abs(element.scrollLeft) !== element.scrollWidth - element.clientWidth;
+        mapping[last_scrolled].show_scroll_buttons.right = Math.abs(element.scrollLeft) !== element.scrollWidth - element.clientWidth;
         // check if its not scroll start pos
-        show_scroll_buttons.left = Math.abs(element.scrollLeft) !== 0;
+        mapping[last_scrolled].show_scroll_buttons.left = Math.abs(element.scrollLeft) !== 0;
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -114,8 +129,8 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class="block md:mt-[4vw]">
-        <trending-now>
+    <results-section class="block md:mt-[4vw] flex flex-col md:gap-[4vw]">
+    	<trending-now>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
                 <span class="text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
@@ -124,8 +139,9 @@
             <result-animes class="relative block md:mt-[1.25vw]">
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={trending_animes_scroll_element}
+                    bind:this={mapping.trending.element}
                     on:scroll={handle_scroll}
+                    on:scroll={() => last_scrolled = "trending"}
                 >
                     {#each trending_animes as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
@@ -148,27 +164,27 @@
                 </div>
 
                 <scroll-buttons>
-                    {#if show_scroll_buttons.left}
+                    {#if mapping.trending.show_scroll_buttons.left}
                         <left-scroll
                             transition:blur={{ duration: 300 }}
                             class="absolute -left-[1.5vw] top-[8.5vw] z-10"
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_left(trending_animes_scroll_element)}
+                                on:click={() => handle_scroll_left(mapping.trending.element)}
                             >
                                 <Chevron class="rotate-90 md:w-[1.5vw]" />
                             </button>
                         </left-scroll>
                     {/if}
-                    {#if show_scroll_buttons.right}
+                    {#if mapping.trending.show_scroll_buttons.right}
                         <right-scroll
                             transition:blur={{ duration: 300 }}
                             class="absolute -right-[1.5vw] top-[8.5vw] z-10"
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_right(trending_animes_scroll_element)}
+                                on:click={() => handle_scroll_right(mapping.trending.element)}
                             >
                                 <Chevron class="-rotate-90 md:w-[1.5vw]" />
                             </button>
@@ -178,7 +194,7 @@
             </result-animes>
         </trending-now>
 
-        <popular-animes class="block md:mt-[4vw]">
+        <popular-animes>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Popular this season</span>
                 <span class="text-surface-50 md:text-[1vw]">Seasonal Gems: Discovering the Best of the Moment</span>
@@ -187,10 +203,11 @@
             <result-animes class="relative block md:mt-[1.25vw]">
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={popular_animes_scroll_element}
+                    bind:this={mapping.popular.element}
                     on:scroll={handle_scroll}
+                    on:scroll={() => last_scrolled = "popular"}
                 >
-                    {#each trending_animes.sort() as anime}
+                    {#each popular_animes as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
                             <ImageLoader
                                 src={anime.cover}
@@ -211,27 +228,27 @@
                 </div>
 
                 <scroll-buttons>
-                    {#if show_scroll_buttons.left}
+                    {#if mapping.popular.show_scroll_buttons.left}
                         <left-scroll
                             transition:blur={{ duration: 300 }}
                             class="absolute -left-[1.5vw] top-[8.5vw] z-10"
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_left(popular_animes_scroll_element)}
+                                on:click={() => handle_scroll_left(mapping.popular.element)}
                             >
                                 <Chevron class="rotate-90 md:w-[1.5vw]" />
                             </button>
                         </left-scroll>
                     {/if}
-                    {#if show_scroll_buttons.right}
+                    {#if mapping.popular.show_scroll_buttons.right}
                         <right-scroll
                             transition:blur={{ duration: 300 }}
                             class="absolute -right-[1.5vw] top-[8.5vw] z-10"
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_right(popular_animes_scroll_element)}
+                                on:click={() => handle_scroll_right(mapping.popular.element)}
                             >
                                 <Chevron class="-rotate-90 md:w-[1.5vw]" />
                             </button>
