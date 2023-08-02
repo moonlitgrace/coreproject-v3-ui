@@ -13,6 +13,7 @@
     // no:of items to show on each scroll
     let SHOW_NEW_CARDS_COUNT = 2,
         trending_animes_scroll_element: HTMLElement,
+        popular_animes_scroll_element: HTMLElement,
         show_scroll_buttons = {
             left: false,
             right: true
@@ -47,7 +48,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pl-[1.5vw] md:pr-[3.75vw]">
+<section class="md:pl-[1.5vw] md:pr-[3.75vw] md:pb-[2.5vw]">
     <section-headings class="flex flex-col md:gap-[0.5vw]">
         <span class="font-bold leading-none md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
@@ -176,5 +177,68 @@
                 </scroll-buttons>
             </result-animes>
         </trending-now>
+
+        <popular-animes class="block md:mt-[4vw]">
+            <headings class="flex flex-col leading-none md:gap-[0.35vw]">
+                <span class="font-semibold md:text-[1.25vw]">Popular this season</span>
+                <span class="text-surface-50 md:text-[1vw]">Seasonal Gems: Discovering the Best of the Moment</span>
+            </headings>
+
+            <result-animes class="relative block md:mt-[1.25vw]">
+                <div
+                    class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
+                    bind:this={popular_animes_scroll_element}
+                    on:scroll={handle_scroll}
+                >
+                    {#each trending_animes.sort() as anime}
+                        <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
+                            <ImageLoader
+                                src={anime.cover}
+                                class="w-full md:h-[20vw] md:rounded-[0.75vw]"
+                            />
+                            <div class="flex flex-col md:gap-[0.35vw]">
+                                <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
+                                <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
+                                    <genre>{anime.genre}</genre>
+                                    <Circle class="md:w-[0.25vw]" />
+                                    <year>{anime.year}</year>
+                                    <Circle class="md:w-[0.25vw]" />
+                                    <episodes_count>{anime.episodes_count} eps</episodes_count>
+                                </anime_info>
+                            </div>
+                        </anime>
+                    {/each}
+                </div>
+
+                <scroll-buttons>
+                    {#if show_scroll_buttons.left}
+                        <left-scroll
+                            transition:blur={{ duration: 300 }}
+                            class="absolute -left-[1.5vw] top-[8.5vw] z-10"
+                        >
+                            <button
+                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                                on:click={() => handle_scroll_left(popular_animes_scroll_element)}
+                            >
+                                <Chevron class="rotate-90 md:w-[1.5vw]" />
+                            </button>
+                        </left-scroll>
+                    {/if}
+                    {#if show_scroll_buttons.right}
+                        <right-scroll
+                            transition:blur={{ duration: 300 }}
+                            class="absolute -right-[1.5vw] top-[8.5vw] z-10"
+                        >
+                            <button
+                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                                on:click={() => handle_scroll_right(popular_animes_scroll_element)}
+                            >
+                                <Chevron class="-rotate-90 md:w-[1.5vw]" />
+                            </button>
+                        </right-scroll>
+                    {/if}
+                </scroll-buttons>
+            </result-animes>
+        </popular-animes>
     </results-section>
 </section>
