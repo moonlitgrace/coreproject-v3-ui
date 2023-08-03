@@ -33,11 +33,15 @@
     	}
     }
 
-    function handle_scroll_right(element: HTMLElement) {
-        element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
-    }
-    function handle_scroll_left(element: HTMLElement) {
-        element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
+    function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
+        switch(direction) {
+            case "left":
+                element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
+                break;
+            case "right":
+                element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
+                break;
+        }
     }
 
     function handle_scroll(event: UIEvent) {
@@ -171,7 +175,7 @@
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_left(mapping.trending.element)}
+                                on:click={() => handle_scroll_direction(mapping.trending.element, "left")}
                             >
                                 <Chevron class="rotate-90 md:w-[1.5vw]" />
                             </button>
@@ -184,7 +188,7 @@
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_right(mapping.trending.element)}
+                                on:click={() => handle_scroll_direction(mapping.trending.element, "right")}
                             >
                                 <Chevron class="-rotate-90 md:w-[1.5vw]" />
                             </button>
@@ -235,7 +239,7 @@
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_left(mapping.popular.element)}
+                                on:click={() => handle_scroll_direction(mapping.popular.element, "left")}
                             >
                                 <Chevron class="rotate-90 md:w-[1.5vw]" />
                             </button>
@@ -248,7 +252,7 @@
                         >
                             <button
                                 class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_right(mapping.popular.element)}
+                                on:click={() => handle_scroll_direction(mapping.popular.element, "right")}
                             >
                                 <Chevron class="-rotate-90 md:w-[1.5vw]" />
                             </button>
