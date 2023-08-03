@@ -40,6 +40,8 @@
             case "right":
                 element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
                 break;
+            default:
+                break;
         }
     }
 
