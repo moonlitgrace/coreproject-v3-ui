@@ -48,10 +48,22 @@
     function handle_scroll(event: UIEvent) {
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
-        // check if scroll end is not reached
-        show_scroll_buttons[last_scrolled].right = Math.abs(scrollLeft + clientWidth) !== scrollWidth;
-        // check if its not scroll start pos
-        show_scroll_buttons[last_scrolled].left = Math.abs(scrollLeft + clientWidth) !== clientWidth;
+
+        switch(scrollLeft + clientWidth) {
+            // scroll is on utter right
+            case scrollWidth:
+                show_scroll_buttons[last_scrolled].right = false;
+                break;
+            // scroll is on utter left
+            case clientWidth:
+                show_scroll_buttons[last_scrolled].left = false;
+                break;
+            // scroll is somewhere middle
+            default:
+                show_scroll_buttons[last_scrolled].left = true;
+                show_scroll_buttons[last_scrolled].right = true;
+                break;
+        }
     }
 
     const opengraph_html = new OpengraphGenerator({
