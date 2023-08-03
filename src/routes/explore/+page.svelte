@@ -140,8 +140,8 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={mapping.trending.element}
-                    on:scroll={handle_scroll}
                     on:scroll={() => last_scrolled = "trending"}
+                    on:scroll={handle_scroll}
                 >
                     {#each trending_animes as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
@@ -204,8 +204,8 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={mapping.popular.element}
-                    on:scroll={handle_scroll}
                     on:scroll={() => last_scrolled = "popular"}
+                    on:scroll={handle_scroll}
                 >
                     {#each popular_animes as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
