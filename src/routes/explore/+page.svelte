@@ -33,12 +33,16 @@
     };
 
     function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
+        // get one anime card width
+        const child = element.firstChild as HTMLElement;
+        const card_width = child.clientWidth;
+        
         switch (direction) {
             case "left":
-                element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
+                element.scrollLeft -= SHOW_NEW_CARDS_COUNT * card_width;
                 break;
             case "right":
-                element.scrollLeft += SHOW_NEW_CARDS_COUNT * 200;
+                element.scrollLeft += SHOW_NEW_CARDS_COUNT * card_width;
                 break;
             default:
                 break;
