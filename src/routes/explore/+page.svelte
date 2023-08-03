@@ -18,7 +18,7 @@
         // get one anime card width
         const child = element.firstChild as HTMLElement;
         const card_width = child.clientWidth;
-        
+
         switch (direction) {
             case "left":
                 element.scrollLeft -= SHOW_NEW_CARDS_COUNT * card_width;
@@ -39,7 +39,7 @@
         // get <right-scroll> element
         const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
 
-        switch(scrollLeft + clientWidth) {
+        switch (scrollLeft + clientWidth) {
             // scroll is on utter right
             case scrollWidth:
                 right_scroll_button.style.opacity = "0";
@@ -70,7 +70,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pl-[1.5vw] md:pr-[3.75vw] md:pb-[2.5vw]">
+<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw]">
     <section-headings class="flex flex-col md:gap-[0.5vw]">
         <span class="font-bold leading-none md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
@@ -136,7 +136,7 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class=" md:mt-[4vw] flex flex-col md:gap-[4vw]">
+    <results-section class=" flex flex-col md:mt-[4vw] md:gap-[4vw]">
         <trending-now>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
@@ -170,9 +170,7 @@
                 </div>
 
                 <scroll-buttons>
-                    <left-scroll
-                        class="absolute opacity-0 -left-[1.5vw] top-[8.5vw] z-10 transition-opacity"
-                    >
+                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
                         <button
                             class="btn rounded-full bg-surface-400 md:p-[1vw]"
                             on:click={() => handle_scroll_direction(trending_animes_scroll_element, "left")}
@@ -180,9 +178,7 @@
                             <Chevron class="rotate-90 md:w-[1.5vw]" />
                         </button>
                     </left-scroll>
-                    <right-scroll
-                        class="absolute -right-[1.5vw] top-[8.5vw] z-10"
-                    >
+                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
                         <button
                             class="btn rounded-full bg-surface-400 md:p-[1vw]"
                             on:click={() => handle_scroll_direction(trending_animes_scroll_element, "right")}
@@ -227,9 +223,7 @@
                 </div>
 
                 <scroll-buttons>
-                    <left-scroll
-                        class="absolute opacity-0 transition-opacity -left-[1.5vw] top-[8.5vw] z-10"
-                    >
+                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
                         <button
                             class="btn rounded-full bg-surface-400 md:p-[1vw]"
                             on:click={() => handle_scroll_direction(popular_animes_scroll_element, "left")}
@@ -237,9 +231,7 @@
                             <Chevron class="rotate-90 md:w-[1.5vw]" />
                         </button>
                     </left-scroll>
-                    <right-scroll
-                        class="absolute transition-opacity -right-[1.5vw] top-[8.5vw] z-10"
-                    >
+                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
                         <button
                             class="btn rounded-full bg-surface-400 md:p-[1vw]"
                             on:click={() => handle_scroll_direction(popular_animes_scroll_element, "right")}
