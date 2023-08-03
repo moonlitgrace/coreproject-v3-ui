@@ -20,7 +20,7 @@
         [key: string]: {
             left: boolean;
             right: boolean;
-        }
+        };
     } = {
         trending: {
             left: false,
@@ -30,10 +30,10 @@
             left: false,
             right: true
         }
-    }
+    };
 
     function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
-        switch(direction) {
+        switch (direction) {
             case "left":
                 element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
                 break;
@@ -76,7 +76,7 @@
         <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <filter-options class="block flex items-end justify-between md:mt-[2vw]">
+    <filter-options class=" flex items-end justify-between md:mt-[2vw]">
         <search class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Search Animes</span>
             <div class="relative flex items-center">
@@ -134,8 +134,8 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class="block md:mt-[4vw] flex flex-col md:gap-[4vw]">
-    	<trending-now>
+    <results-section class=" md:mt-[4vw] flex flex-col md:gap-[4vw]">
+        <trending-now>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
                 <span class="text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
@@ -145,7 +145,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={trending_animes_scroll_element}
-                    on:scroll={event => {
+                    on:scroll={(event) => {
                         last_scrolled = "trending";
                         handle_scroll(event);
                     }}
@@ -211,7 +211,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={popular_animes_scroll_element}
-                    on:scroll={event => {
+                    on:scroll={(event) => {
                         last_scrolled = "popular";
                         handle_scroll(event);
                     }}
