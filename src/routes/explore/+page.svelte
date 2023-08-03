@@ -8,7 +8,6 @@
     import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { blur } from "svelte/transition";
-    import _ from "lodash";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
@@ -45,9 +44,9 @@
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
         // check if scroll end is not reached
-        mapping[last_scrolled].show_scroll_buttons.right = !_.isEqual(scrollLeft + clientWidth, scrollWidth);
+        mapping[last_scrolled].show_scroll_buttons.right = Math.abs(scrollLeft + clientWidth) !== scrollWidth;
         // check if its not scroll start pos
-        mapping[last_scrolled].show_scroll_buttons.left = !_.isEqual(scrollLeft + clientWidth, clientWidth);
+        mapping[last_scrolled].show_scroll_buttons.left = Math.abs(scrollLeft + clientWidth) !== clientWidth;
     }
 
     const opengraph_html = new OpengraphGenerator({
