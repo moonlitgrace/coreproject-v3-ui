@@ -38,8 +38,6 @@
         const left_scroll_button = element.offsetParent?.children[1].firstChild as HTMLElement;
         const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
 
-        console.log(left_scroll_button);
-
         switch(scrollLeft + clientWidth) {
             // scroll is on utter right
             case scrollWidth:
