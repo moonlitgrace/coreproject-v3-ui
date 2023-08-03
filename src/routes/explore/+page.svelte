@@ -34,8 +34,9 @@
     function handle_scroll(event: UIEvent) {
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
-
+        // get <left-scroll> element
         const left_scroll_button = element.offsetParent?.children[1].firstChild as HTMLElement;
+        // get <right-scroll> element
         const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
 
         switch(scrollLeft + clientWidth) {
