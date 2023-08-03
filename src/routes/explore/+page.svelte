@@ -17,24 +17,24 @@
         last_scrolled: "trending" | "popular";
 
     let mapping = {
-    	trending: {
-    		element: trending_animes_scroll_element!,
-    		show_scroll_buttons: {
-    			left: false,
-    			right: true
-    		},
-    	},
-    	popular: {
-    		element: popular_animes_scroll_element!,
-    		show_scroll_buttons: {
-    			left: false,
-    			right: true
-    		},
-    	}
-    }
+        trending: {
+            element: trending_animes_scroll_element!,
+            show_scroll_buttons: {
+                left: false,
+                right: true
+            }
+        },
+        popular: {
+            element: popular_animes_scroll_element!,
+            show_scroll_buttons: {
+                left: false,
+                right: true
+            }
+        }
+    };
 
     function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
-        switch(direction) {
+        switch (direction) {
             case "left":
                 element.scrollLeft -= SHOW_NEW_CARDS_COUNT * 200;
                 break;
@@ -44,7 +44,7 @@
         }
     }
 
-    function handle_scroll(event: UIEvent) {
+    function handle_scroll(event: Event) {
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
         // check if scroll end is not reached
@@ -75,7 +75,7 @@
         <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <filter-options class="block flex items-end justify-between md:mt-[2vw]">
+    <filter-options class=" flex items-end justify-between md:mt-[2vw]">
         <search class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Search Animes</span>
             <div class="relative flex items-center">
@@ -133,8 +133,8 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class="block md:mt-[4vw] flex flex-col md:gap-[4vw]">
-    	<trending-now>
+    <results-section class=" md:mt-[4vw] flex flex-col md:gap-[4vw]">
+        <trending-now>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
                 <span class="text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
@@ -144,7 +144,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={mapping.trending.element}
-                    on:scroll={() => last_scrolled = "trending"}
+                    on:scroll={() => (last_scrolled = "trending")}
                     on:scroll={handle_scroll}
                 >
                     {#each trending_animes as anime}
@@ -208,7 +208,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={mapping.popular.element}
-                    on:scroll={() => last_scrolled = "popular"}
+                    on:scroll={() => (last_scrolled = "popular")}
                     on:scroll={handle_scroll}
                 >
                     {#each trending_animes.reverse() as anime}
