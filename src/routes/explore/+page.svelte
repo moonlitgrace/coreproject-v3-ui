@@ -8,7 +8,7 @@
     import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { blur } from "svelte/transition";
-    import { popular_animes } from "$data/mock/popular";
+    import _ from "lodash";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
@@ -43,10 +43,11 @@
 
     function handle_scroll(event: UIEvent) {
         const element = event.target as HTMLElement;
+        const { scrollLeft, scrollWidth, clientWidth } = element;
         // check if scroll end is not reached
-        mapping[last_scrolled].show_scroll_buttons.right = Math.abs(element.scrollLeft) !== element.scrollWidth - element.clientWidth;
+        mapping[last_scrolled].show_scroll_buttons.right = !_.isEqual(scrollLeft + clientWidth, scrollWidth);
         // check if its not scroll start pos
-        mapping[last_scrolled].show_scroll_buttons.left = Math.abs(element.scrollLeft) !== 0;
+        mapping[last_scrolled].show_scroll_buttons.left = !_.isEqual(scrollLeft + clientWidth, clientWidth);
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -207,7 +208,7 @@
                     on:scroll={() => last_scrolled = "popular"}
                     on:scroll={handle_scroll}
                 >
-                    {#each popular_animes as anime}
+                    {#each trending_animes.reverse() as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
                             <ImageLoader
                                 src={anime.cover}
