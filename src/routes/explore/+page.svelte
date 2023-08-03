@@ -7,30 +7,12 @@
     import Circle from "$icons/circle.svelte";
     import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
-    import { blur } from "svelte/transition";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
     let SHOW_NEW_CARDS_COUNT = 2,
         trending_animes_scroll_element: HTMLElement,
-        popular_animes_scroll_element: HTMLElement,
-        last_scrolled: "trending" | "popular";
-
-    const show_scroll_buttons: {
-        [key in typeof last_scrolled]: {
-            left: boolean;
-            right: boolean;
-        };
-    } = {
-        trending: {
-            left: false,
-            right: true
-        },
-        popular: {
-            left: false,
-            right: true
-        }
-    };
+        popular_animes_scroll_element: HTMLElement;
 
     function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
         // get one anime card width
@@ -53,19 +35,24 @@
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
 
+        const left_scroll_button = element.offsetParent?.children[1].firstChild as HTMLElement;
+        const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
+
+        console.log(left_scroll_button);
+
         switch(scrollLeft + clientWidth) {
             // scroll is on utter right
             case scrollWidth:
-                show_scroll_buttons[last_scrolled].right = false;
+                right_scroll_button.style.opacity = "0";
                 break;
             // scroll is on utter left
             case clientWidth:
-                show_scroll_buttons[last_scrolled].left = false;
+                left_scroll_button.style.opacity = "0";
                 break;
             // scroll is somewhere middle
             default:
-                show_scroll_buttons[last_scrolled].left = true;
-                show_scroll_buttons[last_scrolled].right = true;
+                left_scroll_button.style.opacity = "1";
+                right_scroll_button.style.opacity = "1";
                 break;
         }
     }
@@ -161,10 +148,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={trending_animes_scroll_element}
-                    on:scroll={(event) => {
-                        last_scrolled = "trending";
-                        handle_scroll(event);
-                    }}
+                    on:scroll={handle_scroll}
                 >
                     {#each trending_animes as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
@@ -187,32 +171,26 @@
                 </div>
 
                 <scroll-buttons>
-                    {#if show_scroll_buttons.trending.left}
-                        <left-scroll
-                            transition:blur={{ duration: 300 }}
-                            class="absolute -left-[1.5vw] top-[8.5vw] z-10"
+                    <left-scroll
+                        class="absolute opacity-0 -left-[1.5vw] top-[8.5vw] z-10 transition-opacity"
+                    >
+                        <button
+                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "left")}
                         >
-                            <button
-                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_direction(trending_animes_scroll_element, "left")}
-                            >
-                                <Chevron class="rotate-90 md:w-[1.5vw]" />
-                            </button>
-                        </left-scroll>
-                    {/if}
-                    {#if show_scroll_buttons.trending.right}
-                        <right-scroll
-                            transition:blur={{ duration: 300 }}
-                            class="absolute -right-[1.5vw] top-[8.5vw] z-10"
+                            <Chevron class="rotate-90 md:w-[1.5vw]" />
+                        </button>
+                    </left-scroll>
+                    <right-scroll
+                        class="absolute -right-[1.5vw] top-[8.5vw] z-10"
+                    >
+                        <button
+                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "right")}
                         >
-                            <button
-                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_direction(trending_animes_scroll_element, "right")}
-                            >
-                                <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                            </button>
-                        </right-scroll>
-                    {/if}
+                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
+                        </button>
+                    </right-scroll>
                 </scroll-buttons>
             </result-animes>
         </trending-now>
@@ -227,10 +205,7 @@
                 <div
                     class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
                     bind:this={popular_animes_scroll_element}
-                    on:scroll={(event) => {
-                        last_scrolled = "popular";
-                        handle_scroll(event);
-                    }}
+                    on:scroll={handle_scroll}
                 >
                     {#each trending_animes.reverse() as anime}
                         <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
@@ -253,32 +228,26 @@
                 </div>
 
                 <scroll-buttons>
-                    {#if show_scroll_buttons.popular.left}
-                        <left-scroll
-                            transition:blur={{ duration: 300 }}
-                            class="absolute -left-[1.5vw] top-[8.5vw] z-10"
+                    <left-scroll
+                        class="absolute opacity-0 transition-opacity -left-[1.5vw] top-[8.5vw] z-10"
+                    >
+                        <button
+                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "left")}
                         >
-                            <button
-                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_direction(popular_animes_scroll_element, "left")}
-                            >
-                                <Chevron class="rotate-90 md:w-[1.5vw]" />
-                            </button>
-                        </left-scroll>
-                    {/if}
-                    {#if show_scroll_buttons.popular.right}
-                        <right-scroll
-                            transition:blur={{ duration: 300 }}
-                            class="absolute -right-[1.5vw] top-[8.5vw] z-10"
+                            <Chevron class="rotate-90 md:w-[1.5vw]" />
+                        </button>
+                    </left-scroll>
+                    <right-scroll
+                        class="absolute transition-opacity -right-[1.5vw] top-[8.5vw] z-10"
+                    >
+                        <button
+                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
+                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "right")}
                         >
-                            <button
-                                class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                                on:click={() => handle_scroll_direction(popular_animes_scroll_element, "right")}
-                            >
-                                <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                            </button>
-                        </right-scroll>
-                    {/if}
+                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
+                        </button>
+                    </right-scroll>
                 </scroll-buttons>
             </result-animes>
         </popular-animes>
