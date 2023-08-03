@@ -17,7 +17,7 @@
         last_scrolled: "trending" | "popular";
 
     const show_scroll_buttons: {
-        [key: string]: {
+        [key in typeof last_scrolled]: {
             left: boolean;
             right: boolean;
         };
