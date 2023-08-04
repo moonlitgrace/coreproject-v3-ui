@@ -14,7 +14,7 @@
         trending_animes_scroll_element: HTMLElement,
         popular_animes_scroll_element: HTMLElement;
 
-    function handle_scroll_direction(element: HTMLElement, direction: "left" | "right") {
+    function handle_scroll_direction(element: HTMLElement, direction: "left" | "right"): void {
         // get one anime card width
         const child = element.firstChild as HTMLElement;
         const card_width = child.clientWidth;
@@ -31,7 +31,7 @@
         }
     }
 
-    function handle_scroll(event: UIEvent) {
+    function handle_scroll(event: UIEvent): void {
         const element = event.target as HTMLElement;
         const { scrollLeft, scrollWidth, clientWidth } = element;
         // get <left-scroll> element
