@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     /**
      * This is a JavaScript only file.
      *
@@ -33,10 +33,7 @@
 
     // Override function
     const renderer = {
-        /**
-         * @param {string} text
-         */
-        del(text) {
+        del(text: string) {
             return `<del class='unstyled'>${text}</del>`;
         }
     };
@@ -79,7 +76,7 @@
     /**
      * @type {string}
      */
-    let html;
+    let html: string;
     $: html = sanitize(marked.parse(markdown));
 </script>
 
