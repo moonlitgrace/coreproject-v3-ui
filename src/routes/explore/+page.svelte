@@ -193,37 +193,35 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class="flex flex-col md:mt-[2vw] md:gap-[4vw]">
-        <active-filter-page>
-            <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-                <span class="font-semibold md:text-[1.25vw]">
-                    {filter_pages_mapping[active_filter_page].title}
-                </span>
-                <span class="text-surface-50 md:text-[1vw]">
-                    {filter_pages_mapping[active_filter_page].description}
-                </span>
-            </headings>
+    <active-filter-page class="mt-20 md:mt-[2vw]">
+        <headings class="flex flex-col leading-none md:gap-[0.35vw]">
+            <span class="font-semibold text-xl md:text-[1.25vw]">
+                {filter_pages_mapping[active_filter_page].title}
+            </span>
+            <span class="text-surface-50 text-base md:text-[1vw]">
+                {filter_pages_mapping[active_filter_page].description}
+            </span>
+        </headings>
 
-            <result-animes class="grid grid-cols-6 md:gap-[1.25vw] md:gap-y-[3vw] md:mt-[1.25vw]">
-                {#each trending_animes as anime}
-                    <anime class="flex flex-col leading-none md:gap-[0.75vw]">
-                        <ImageLoader
-                            src={anime.cover}
-                            class="w-full md:h-[20vw] md:rounded-[0.75vw]"
-                        />
-                        <div class="flex flex-col md:gap-[0.35vw]">
-                            <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                            <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                <genre>{anime.genre}</genre>
-                                <Circle class="md:w-[0.25vw]" />
-                                <year>{anime.year}</year>
-                                <Circle class="md:w-[0.25vw]" />
-                                <episodes_count>{anime.episodes_count} eps</episodes_count>
-                            </anime_info>
-                        </div>
-                    </anime>
-                {/each}
-            </result-animes>
-        </active-filter-page>
-    </results-section>
+        <result-animes class="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-[1.25vw] md:gap-y-[3vw] mt-5 md:mt-[1.25vw]">
+            {#each trending_animes as anime}
+                <anime class="flex flex-col leading-none gap-2 md:gap-[0.75vw]">
+                    <ImageLoader
+                        src={anime.cover}
+                        class="w-full h-80 rounded-lg object-cover md:h-[20vw] md:rounded-[0.75vw]"
+                    />
+                    <div class="flex flex-col md:gap-[0.35vw]">
+                        <anime_name class="line-clamp-1 font-semibold text-base md:text-[1.1vw]">{anime.name}</anime_name>
+                        <anime_info class="flex items-center text-surface-50 gap-2 md:gap-[0.5vw] text-sm md:text-[0.9vw]">
+                            <genre>{anime.genre}</genre>
+                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <year>{anime.year}</year>
+                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <episodes_count>{anime.episodes_count} eps</episodes_count>
+                        </anime_info>
+                    </div>
+                </anime>
+            {/each}
+        </result-animes>
+    </active-filter-page>
 </section>
