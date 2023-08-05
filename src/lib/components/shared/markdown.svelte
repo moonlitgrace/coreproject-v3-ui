@@ -3,7 +3,6 @@
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
     import "highlight.js/scss/github-dark.scss";
-    import type { marked as markedType } from "marked";
     import { Marked } from "marked";
     import type { MarkedEmojiOptions } from "marked-emoji";
     import { markedEmoji } from "marked-emoji";
@@ -15,17 +14,7 @@
 
     let klass = "";
 
-    const emoji_options: MarkedEmojiOptions = {
-        emojis,
-        unicode: false
-    };
-
     // Override function
-    const renderer: markedType.RendererObject = {
-        del(text: string) {
-            return `<del class='unstyled'>${text}</del>`;
-        }
-    };
 
     const marked = new Marked(
         // Highlight.js
@@ -37,7 +26,10 @@
             }
         }),
         // Emoji plugin
-        markedEmoji(emoji_options),
+        markedEmoji({
+            emojis,
+            unicode: false
+        }),
         {
             extensions: [
                 {
@@ -52,16 +44,22 @@
         mangle(),
         // Marked defaults
         {
-            renderer,
+            renderer: {
+                del(text: string) {
+                    return `<del class='unstyled'>${text}</del>`;
+                }
+            },
             // We dont need github like header prefix
             headerIds: false
         }
     );
 
-    let html: string;
-    $: html = sanitize(marked.parse(markdown));
+    let promise_html: Promise<string>;
+    $: promise_html = sanitize(marked.parse(markdown));
 </script>
 
-<markdown class={klass}>
-    {@html html}
-</markdown>
+{#await promise_html then html}
+    <markdown class={klass}>
+        {@html html}
+    </markdown>
+{/await}
