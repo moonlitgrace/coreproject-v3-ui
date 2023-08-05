@@ -53,27 +53,27 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] flex flex-col md:gap-[1.5vw]">
-    <section-headings class="flex flex-col md:gap-[0.5vw]">
-        <span class="font-bold leading-none md:text-[2vw]">
+<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] flex flex-col md:gap-[1.5vw] mt-20 md:mt-0 p-5 md:pt-0">
+    <section-headings class="flex flex-col gap-2 md:gap-[0.5vw]">
+        <span class="font-bold leading-none text-2xl md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
         </span>
-        <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
+        <span class="font-semibold leading-none text-surface-50 text-base font-normal md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <explore-options class="md:mt-[2vw] flex items-end justify-between">
-        <search class="flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Search Animes</span>
+    <explore-options class="mt-7 md:mt-[2vw] flex flex-col gap-5 md:gap-0 md:flex-row md:items-end justify-between">
+        <search class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Search Animes</span>
             <div class="relative flex items-center">
-                <Search class="pointer-events-none absolute text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
+                <Search class="pointer-events-none absolute text-surface-50 ml-4 md:ml-[1vw] w-5 md:w-[1.25vw]" />
                 <input
                     type="text"
                     placeholder="Looking for specific anime? Start from here..."
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[50vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 w-full md:w-[50vw] rounded-lg md:rounded-[0.5vw] py-3 pl-14 md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
-        <filter_page_tabs class="flex items-center">
+        <filter_page_tabs class="flex items-center justify-between">
             {#each Object.entries(filter_pages_mapping) as page}
                 {@const page_key = page[0]}
                 {@const page_title = page[1].title}
@@ -81,7 +81,7 @@
                 {@const is_active = active_filter_page === page_key}
 
                 <button
-                    class="cursor-pointer md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors leading-none"
+                    class="cursor-pointer text-base px-3 py-2 h-14 leading-tight md:h-auto rounded-lg md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors leading-none"
                     class:bg-surface-400={is_active}
                     class:text-surface-50={!is_active}
                     on:click={() => change_filter_page(page_key)}
@@ -92,8 +92,8 @@
         </filter_page_tabs>
     </explore-options>
 
-    <filter-options class="flex items-end justify-between">
-        <time-range class="flex flex-col md:gap-[0.35vw]">
+    <filter-options class="flex items-end justify-between mt-5 md:mt-0">
+        <time-range class="hidden md:flex flex-col md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Time Range</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
@@ -107,16 +107,16 @@
                 />
             </div>
         </time-range>
-        <genres class="flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Genres</span>
+        <genres class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Genres</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-36 md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </genres>
