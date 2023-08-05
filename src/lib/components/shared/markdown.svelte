@@ -1,4 +1,10 @@
 <script>
+    /**
+     * This is a JavaScript only file.
+     * Due to `marked-smartypants` not supporting `typescript` or having a type defination
+     * https://github.com/markedjs/marked-smartypants/issues/16#issuecomment-1537463695
+     * Should the issue be solved please convert it to `typescript` again
+     */
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
@@ -7,7 +13,7 @@
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
-    // Check : https://github.com/markedjs/marked-smartypants/issues/16#issuecomment-1537463695
+    // Check :
     // @ts-ignore
     import { markedSmartypants } from "marked-smartypants";
 
