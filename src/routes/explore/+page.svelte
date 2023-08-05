@@ -116,11 +116,11 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-36 md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </genres>
-        <year class="flex flex-col md:gap-[0.35vw]">
+        <year class="hidden md:flex flex-col md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Year</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
@@ -133,20 +133,20 @@
                 />
             </div>
         </year>
-        <season class="flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Season</span>
+        <season class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Season</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </season>
-        <format class="flex flex-col md:gap-[0.35vw]">
+        <format class="hidden md:flex flex-col md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Format</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
@@ -159,7 +159,7 @@
                 />
             </div>
         </format>
-        <airing-status class="flex flex-col md:gap-[0.35vw]">
+        <airing-status class="hidden md:flex flex-col md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Airing Status</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
@@ -172,23 +172,23 @@
                 />
             </div>
         </airing-status>
-        <sort-by class="flex flex-col md:gap-[0.35vw]">
+        <sort-by class="flex flex-col gap-1 md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Sort by</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="Popularity"
                 />
             </div>
         </sort-by>
         <more-filter-option>
-            <button class="btn bg-surface-400 md:rounded-[0.5vw] md:p-[0.79vw]">
-                <MoreBox class="md:w-[1.25vw]" />
+            <button class="btn bg-surface-400 md:rounded-[0.5vw] p-3 md:p-[0.79vw]">
+                <MoreBox class="w-5 md:w-[1.25vw]" />
             </button>
         </more-filter-option>
     </filter-options>
