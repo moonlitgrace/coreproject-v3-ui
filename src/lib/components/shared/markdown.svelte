@@ -1,5 +1,4 @@
 <script>
-    // @ts-nocheck
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
@@ -8,6 +7,8 @@
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
+    // Check : https://github.com/markedjs/marked-smartypants/issues/16#issuecomment-1537463695
+    // @ts-ignore
     import { markedSmartypants } from "marked-smartypants";
 
     export let markdown = "";
@@ -22,6 +23,9 @@
 
     // Override function
     const renderer = {
+        /**
+         * @param {string} text
+         */
         del(text) {
             return `<del class='unstyled'>${text}</del>`;
         }
@@ -60,6 +64,9 @@
         }
     );
 
+    /**
+     * @type {string}
+     */
     let html;
     $: html = sanitize(marked.parse(markdown));
 </script>
