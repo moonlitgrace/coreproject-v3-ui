@@ -9,62 +9,29 @@
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
 
-    /* Anime cards scroll */
-    // no:of items to show on each scroll
-    let SHOW_NEW_CARDS_COUNT = 2,
-        trending_animes_scroll_element: HTMLElement,
-        popular_animes_scroll_element: HTMLElement;
-
-    function handle_scroll_direction(element: HTMLElement, direction: "left" | "right"): void {
-        // get one anime card width
-        const child = element.firstChild as HTMLElement;
-        const card_width = child.clientWidth;
-
-        switch (direction) {
-            case "left":
-                element.scrollLeft -= SHOW_NEW_CARDS_COUNT * card_width;
-                break;
-            case "right":
-                element.scrollLeft += SHOW_NEW_CARDS_COUNT * card_width;
-                break;
-            default:
-                break;
-        }
-    }
-
-    function handle_scroll(event: UIEvent): void {
-        const element = event.target as HTMLElement;
-        const { scrollLeft, scrollWidth, clientWidth } = element;
-        // get <left-scroll> element
-        const left_scroll_button = element.offsetParent?.children[1].firstChild as HTMLElement;
-        // get <right-scroll> element
-        const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
-
-        switch (scrollLeft + clientWidth) {
-            // scroll is on utter right
-            case scrollWidth:
-                right_scroll_button.style.opacity = "0";
-                break;
-            // scroll is on utter left
-            case clientWidth:
-                left_scroll_button.style.opacity = "0";
-                break;
-            // scroll is somewhere middle
-            default:
-                left_scroll_button.style.opacity = "1";
-                right_scroll_button.style.opacity = "1";
-                break;
-        }
-    }
-
     /* Filter pages */
     let filter_pages_mapping: {
-        [key in typeof active_filter_page]: { title: string }
+        [key in typeof active_filter_page]: { 
+            title: string;
+            description: string;
+        }
     } = {
-        trending: { title: "Trending" },
-        popular: { title: "Popular" },
-        upcoming: { title: "Upcoming" },
-        alltime: { title: "All-time Popular" },
+        trending: { 
+            title: "Trending Now",
+            description: "Crowd Favorites: Anime Hits and Hype" 
+        },
+        popular: {
+            title: "Popular this Season",
+            description: "Seasonal Gems: Discovering the Best of the Moment"
+        },
+        upcoming: {
+            title: "Upcoming",
+            description: "Crowd Favorites: Anime Hits and Hype"
+        },
+        alltime: {
+            title: "All-time Popular",
+            description: "Seasonal Gems: Discovering the Best of the Moment"
+        },
     }
     let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
 
@@ -227,110 +194,36 @@
     </filter-options>
 
     <results-section class="flex flex-col md:mt-[2vw] md:gap-[4vw]">
-        <trending-now>
+        <active-filter-page>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-                <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
-                <span class="text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
+                <span class="font-semibold md:text-[1.25vw]">
+                    {filter_pages_mapping[active_filter_page].title}
+                </span>
+                <span class="text-surface-50 md:text-[1vw]">
+                    {filter_pages_mapping[active_filter_page].description}
+                </span>
             </headings>
 
-            <result-animes class="relative block md:mt-[1.25vw]">
-                <div
-                    class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={trending_animes_scroll_element}
-                    on:scroll={handle_scroll}
-                >
-                    {#each trending_animes as anime}
-                        <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
-                            <ImageLoader
-                                src={anime.cover}
-                                class="w-full md:h-[20vw] md:rounded-[0.75vw]"
-                            />
-                            <div class="flex flex-col md:gap-[0.35vw]">
-                                <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                                <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                    <genre>{anime.genre}</genre>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <year>{anime.year}</year>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <episodes_count>{anime.episodes_count} eps</episodes_count>
-                                </anime_info>
-                            </div>
-                        </anime>
-                    {/each}
-                </div>
-
-                <scroll-buttons>
-                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "left")}
-                        >
-                            <Chevron class="rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </left-scroll>
-                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "right")}
-                        >
-                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </right-scroll>
-                </scroll-buttons>
+            <result-animes class="grid grid-cols-6 md:gap-[1.25vw] md:gap-y-[3vw] md:mt-[1.25vw]">
+                {#each trending_animes as anime}
+                    <anime class="flex flex-col leading-none md:gap-[0.75vw]">
+                        <ImageLoader
+                            src={anime.cover}
+                            class="w-full md:h-[20vw] md:rounded-[0.75vw]"
+                        />
+                        <div class="flex flex-col md:gap-[0.35vw]">
+                            <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
+                            <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
+                                <genre>{anime.genre}</genre>
+                                <Circle class="md:w-[0.25vw]" />
+                                <year>{anime.year}</year>
+                                <Circle class="md:w-[0.25vw]" />
+                                <episodes_count>{anime.episodes_count} eps</episodes_count>
+                            </anime_info>
+                        </div>
+                    </anime>
+                {/each}
             </result-animes>
-        </trending-now>
-
-        <popular-animes>
-            <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-                <span class="font-semibold md:text-[1.25vw]">Popular this season</span>
-                <span class="text-surface-50 md:text-[1vw]">Seasonal Gems: Discovering the Best of the Moment</span>
-            </headings>
-
-            <result-animes class="relative block md:mt-[1.25vw]">
-                <div
-                    class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={popular_animes_scroll_element}
-                    on:scroll={handle_scroll}
-                >
-                    {#each trending_animes.reverse() as anime}
-                        <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
-                            <ImageLoader
-                                src={anime.cover}
-                                class="w-full md:h-[20vw] md:rounded-[0.75vw]"
-                            />
-                            <div class="flex flex-col md:gap-[0.35vw]">
-                                <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                                <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                    <genre>{anime.genre}</genre>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <year>{anime.year}</year>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <episodes_count>{anime.episodes_count} eps</episodes_count>
-                                </anime_info>
-                            </div>
-                        </anime>
-                    {/each}
-                </div>
-
-                <scroll-buttons>
-                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "left")}
-                        >
-                            <Chevron class="rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </left-scroll>
-                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "right")}
-                        >
-                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </right-scroll>
-                </scroll-buttons>
-            </result-animes>
-        </popular-animes>
+        </active-filter-page>
     </results-section>
 </section>
