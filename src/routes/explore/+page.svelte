@@ -57,6 +57,13 @@
         }
     }
 
+    /* Filter pages */
+    let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
+
+    function change_filter_page(page: typeof active_filter_page) {
+        active_filter_page = page;
+    }
+
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
         site_name: "CoreProject",
@@ -71,7 +78,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw]">
+<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] flex flex-col md:gap-[1.5vw]">
     <section-headings class="flex flex-col md:gap-[0.5vw]">
         <span class="font-bold leading-none md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
@@ -79,18 +86,23 @@
         <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <filter-options class=" flex items-end justify-between md:mt-[2vw]">
+    <explore-options class="md:mt-[2vw] flex items-end justify-between">
         <search class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Search Animes</span>
             <div class="relative flex items-center">
                 <Search class="pointer-events-none absolute text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
                 <input
                     type="text"
-                    placeholder="Looking for specific anime?"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[16.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    placeholder="Looking for specific anime? Start from here..."
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[50vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
+        <filter_page_tabs class="flex items-center md:gap-[1vw]">
+        </filter_page_tabs>
+    </explore-options>
+
+    <filter-options class="flex items-end justify-between">
         <time-range class="flex flex-col md:gap-[0.5vw]">
             <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Time Range</span>
             <div class="relative flex items-center">
@@ -100,7 +112,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="All-Time"
                 />
             </div>
@@ -114,7 +126,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </genres>
@@ -127,7 +139,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </year>
@@ -140,7 +152,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </season>
@@ -153,7 +165,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </format>
@@ -166,7 +178,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </airing-status>
@@ -179,7 +191,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="Popularity"
                 />
             </div>
@@ -191,7 +203,7 @@
         </more-filter-option>
     </filter-options>
 
-    <results-section class=" flex flex-col md:mt-[4vw] md:gap-[4vw]">
+    <results-section class="flex flex-col md:mt-[2vw] md:gap-[4vw]">
         <trending-now>
             <headings class="flex flex-col leading-none md:gap-[0.35vw]">
                 <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
