@@ -8,7 +8,6 @@
     "htmlWhitespaceSensitivity": "ignore",
     "arrowParens": "always",
     "printWidth": 400,
-    "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
-    "pluginSearchDirs": ["."],
+    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-svelte"],
     "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
 }
