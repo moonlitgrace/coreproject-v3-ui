@@ -7,6 +7,7 @@
     import Circle from "$icons/circle.svelte";
     import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import MoreBox from "$icons/more_box.svelte";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
@@ -86,7 +87,7 @@
                 <input
                     type="text"
                     placeholder="Looking for specific anime?"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw] md:w-[16.5vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[16.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
@@ -184,8 +185,8 @@
             </div>
         </sort-by>
         <more-filter-option>
-            <button class="btn bg-surface-400 md:rounded-[0.5vw] md:p-[1vw]">
-                <Preference class="md:w-[1vw]" />
+            <button class="btn bg-surface-400 md:rounded-[0.5vw] md:p-[0.79vw]">
+                <MoreBox class="md:w-[1.25vw]" />
             </button>
         </more-filter-option>
     </filter-options>
