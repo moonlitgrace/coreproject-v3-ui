@@ -92,7 +92,7 @@
         </filter_page_tabs>
     </explore-options>
 
-    <filter-options class="flex items-end justify-between mt-5 md:mt-0">
+    <filter-options class="flex items-end gap-3 md:gap-0 justify-between mt-5 md:mt-0">
         <time-range class="hidden md:flex flex-col md:gap-[0.35vw]">
             <span class="leading-none text-surface-50 md:text-[1vw]">Time Range</span>
             <div class="relative flex items-center">
@@ -116,7 +116,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </genres>
@@ -142,7 +142,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </season>
@@ -181,7 +181,7 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-[8.25rem] py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="Popularity"
                 />
             </div>
