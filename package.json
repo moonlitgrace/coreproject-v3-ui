@@ -75,5 +75,8 @@
     "type": "module",
     "workspaces": [
         "./scripts"
-    ]
+    ],
+    "dependencies": {
+        "marked-smartypants": "^1.0.3"
+    }
 }

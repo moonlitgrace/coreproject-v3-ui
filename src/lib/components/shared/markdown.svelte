@@ -1,28 +1,28 @@
-<script lang="ts">
+<script>
+    // @ts-nocheck
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
-    import "highlight.js/scss/github-dark.scss";
-    import type { marked as markedType } from "marked";
+
     import { Marked } from "marked";
-    import type { MarkedEmojiOptions } from "marked-emoji";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
+    import { markedSmartypants } from "marked-smartypants";
 
     export let markdown = "";
     export { klass as class };
 
     let klass = "";
 
-    const emoji_options: MarkedEmojiOptions = {
+    const emoji_options = {
         emojis,
         unicode: false
     };
 
     // Override function
-    const renderer: markedType.RendererObject = {
-        del(text: string) {
+    const renderer = {
+        del(text) {
             return `<del class='unstyled'>${text}</del>`;
         }
     };
@@ -48,6 +48,8 @@
                 }
             ]
         },
+        // Smartypants plugin
+        markedSmartypants(),
         // Mangle plugin
         mangle(),
         // Marked defaults
@@ -58,7 +60,7 @@
         }
     );
 
-    let html: string;
+    let html;
     $: html = sanitize(marked.parse(markdown));
 </script>
 
