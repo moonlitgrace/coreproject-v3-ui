@@ -1,10 +1,12 @@
 <script>
     /**
      * This is a JavaScript only file.
+     *
      * Due to `marked-smartypants` not supporting `typescript` or having a type defination
-     * * https://github.com/markedjs/marked-smartypants/issues/16#issuecomment-1537463695
+     * * {@Link https://github.com/markedjs/marked-smartypants/issues/16#issuecomment-1537463695}
      * Due to `marked-xhtml` not supporting `typescript` or having a type defination
-     * * https://github.com/markedjs/marked-xhtml/issues/37
+     * * {@link https://github.com/markedjs/marked-xhtml/issues/37}
+     *
      * Should the issue be solved please convert it to `typescript` again
      */
     import { emojis } from "$data/emojis";
