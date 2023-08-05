@@ -95,8 +95,8 @@
     </section-headings>
 
     <explore-options class="md:mt-[2vw] flex items-end justify-between">
-        <search class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Search Animes</span>
+        <search class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Search Animes</span>
             <div class="relative flex items-center">
                 <Search class="pointer-events-none absolute text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
                 <input
@@ -126,8 +126,8 @@
     </explore-options>
 
     <filter-options class="flex items-end justify-between">
-        <time-range class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Time Range</span>
+        <time-range class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Time Range</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -140,8 +140,8 @@
                 />
             </div>
         </time-range>
-        <genres class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Genres</span>
+        <genres class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Genres</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -153,8 +153,8 @@
                 />
             </div>
         </genres>
-        <year class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Year</span>
+        <year class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Year</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -166,8 +166,8 @@
                 />
             </div>
         </year>
-        <season class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Season</span>
+        <season class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Season</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -179,8 +179,8 @@
                 />
             </div>
         </season>
-        <format class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Format</span>
+        <format class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Format</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -192,8 +192,8 @@
                 />
             </div>
         </format>
-        <airing-status class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Airing Status</span>
+        <airing-status class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Airing Status</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -205,8 +205,8 @@
                 />
             </div>
         </airing-status>
-        <sort-by class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Sort by</span>
+        <sort-by class="flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Sort by</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
