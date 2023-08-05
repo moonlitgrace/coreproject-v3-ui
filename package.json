@@ -53,6 +53,7 @@
         "marked-emoji": "^1.2.1",
         "marked-highlight": "^2.0.2",
         "marked-mangle": "^1.1.1",
+        "marked-xhtml": "^1.0.2",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.27",
         "prettier": "^3.0.0",
