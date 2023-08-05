@@ -407,15 +407,12 @@
                                         {#each episode.resolutions as episode_resolution}
                                             {@const resolution = (() => {
                                                 switch (episode_resolution) {
-                                                    case "720p": {
-                                                        return "hd";
-                                                    }
-                                                    case "1080p": {
+                                                    case "1080p":
                                                         return "fhd";
-                                                    }
-                                                    default: {
+                                                    case "720p":
+                                                        return "hd";
+                                                    default:
                                                         return "sd";
-                                                    }
                                                 }
                                             })()}
 
