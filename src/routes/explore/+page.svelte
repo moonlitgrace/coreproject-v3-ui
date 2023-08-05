@@ -85,8 +85,8 @@
                 <Search class="pointer-events-none absolute text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
                 <input
                     type="text"
-                    placeholder="Looking for specific anime? start here..."
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    placeholder="Looking for specific anime?"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw] md:w-[16.5vw]"
                 />
             </div>
         </search>
