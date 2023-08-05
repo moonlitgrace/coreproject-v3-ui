@@ -5,9 +5,9 @@
     import Chevron from "$icons/chevron.svelte";
     import Preference from "$icons/preference.svelte";
     import Circle from "$icons/circle.svelte";
-    import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
+    import { trending_animes } from "$data/mock/trending";
 
     /* Anime cards scroll */
     // no:of items to show on each scroll
@@ -58,10 +58,18 @@
     }
 
     /* Filter pages */
+    let filter_pages_mapping: {
+        [key in typeof active_filter_page]: { title: string }
+    } = {
+        trending: { title: "Trending" },
+        popular: { title: "Popular" },
+        upcoming: { title: "Upcoming" },
+        alltime: { title: "All-time Popular" },
+    }
     let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
 
-    function change_filter_page(page: typeof active_filter_page) {
-        active_filter_page = page;
+    function change_filter_page(page: string) {
+        active_filter_page = page as typeof active_filter_page;
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -98,7 +106,22 @@
                 />
             </div>
         </search>
-        <filter_page_tabs class="flex items-center md:gap-[1vw]">
+        <filter_page_tabs class="flex items-center">
+            {#each Object.entries(filter_pages_mapping) as page}
+                {@const page_key = page[0]}
+                {@const page_title = page[1].title}
+
+                {@const is_active = active_filter_page === page_key}
+
+                <button
+                    class="cursor-pointer md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors leading-none"
+                    class:bg-surface-400={is_active}
+                    class:text-surface-50={!is_active}
+                    on:click={() => change_filter_page(page_key)}
+                >
+                    {page_title}
+                </button>
+            {/each}
         </filter_page_tabs>
     </explore-options>
 
