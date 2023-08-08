@@ -5,56 +5,38 @@
     import Chevron from "$icons/chevron.svelte";
     import Preference from "$icons/preference.svelte";
     import Circle from "$icons/circle.svelte";
-    import { trending_animes } from "$data/mock/trending";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
+    import { trending_animes } from "$data/mock/trending";
 
-    /* Anime cards scroll */
-    // no:of items to show on each scroll
-    let SHOW_NEW_CARDS_COUNT = 2,
-        trending_animes_scroll_element: HTMLElement,
-        popular_animes_scroll_element: HTMLElement;
-
-    function handle_scroll_direction(element: HTMLElement, direction: "left" | "right"): void {
-        // get one anime card width
-        const child = element.firstChild as HTMLElement;
-        const card_width = child.clientWidth;
-
-        switch (direction) {
-            case "left":
-                element.scrollLeft -= SHOW_NEW_CARDS_COUNT * card_width;
-                break;
-            case "right":
-                element.scrollLeft += SHOW_NEW_CARDS_COUNT * card_width;
-                break;
-            default:
-                break;
+    /* Filter pages */
+    let filter_pages_mapping: {
+        [key in typeof active_filter_page]: { 
+            title: string;
+            description: string;
         }
+    } = {
+        trending: { 
+            title: "Trending Now",
+            description: "Crowd Favorites: Anime Hits and Hype" 
+        },
+        popular: {
+            title: "Popular this Season",
+            description: "Seasonal Gems: Discovering the Best of the Moment"
+        },
+        upcoming: {
+            title: "Upcoming",
+            description: "Crowd Favorites: Anime Hits and Hype"
+        },
+        alltime: {
+            title: "All-time Popular",
+            description: "Seasonal Gems: Discovering the Best of the Moment"
+        },
     }
+    let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
 
-    function handle_scroll(event: UIEvent): void {
-        const element = event.target as HTMLElement;
-        const { scrollLeft, scrollWidth, clientWidth } = element;
-        // get <left-scroll> element
-        const left_scroll_button = element.offsetParent?.children[1].firstChild as HTMLElement;
-        // get <right-scroll> element
-        const right_scroll_button = element.offsetParent?.children[1].lastChild as HTMLElement;
-
-        switch (scrollLeft + clientWidth) {
-            // scroll is on utter right
-            case scrollWidth:
-                right_scroll_button.style.opacity = "0";
-                break;
-            // scroll is on utter left
-            case clientWidth:
-                left_scroll_button.style.opacity = "0";
-                break;
-            // scroll is somewhere middle
-            default:
-                left_scroll_button.style.opacity = "1";
-                right_scroll_button.style.opacity = "1";
-                break;
-        }
+    function change_filter_page(page: string) {
+        active_filter_page = page as typeof active_filter_page;
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -71,28 +53,48 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw]">
-    <section-headings class="flex flex-col md:gap-[0.5vw]">
-        <span class="font-bold leading-none md:text-[2vw]">
+<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] flex flex-col md:gap-[1.5vw] mt-20 md:mt-0 p-5 md:pt-0">
+    <section-headings class="flex flex-col gap-2 md:gap-[0.5vw]">
+        <span class="font-bold leading-none text-2xl md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
         </span>
-        <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
+        <span class="font-semibold leading-none text-surface-50 text-base font-normal md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <filter-options class=" flex items-end justify-between md:mt-[2vw]">
-        <search class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Search Animes</span>
+    <explore-options class="mt-7 md:mt-[2vw] flex flex-col gap-5 md:gap-0 md:flex-row md:items-end justify-between">
+        <search class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Search Animes</span>
             <div class="relative flex items-center">
-                <Search class="pointer-events-none absolute text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
+                <Search class="pointer-events-none absolute text-surface-50 ml-4 md:ml-[1vw] w-5 md:w-[1.25vw]" />
                 <input
                     type="text"
-                    placeholder="Looking for specific anime?"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[16.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    placeholder="Looking for specific anime? Start from here..."
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 w-full md:w-[50vw] rounded-lg md:rounded-[0.5vw] py-3 pl-14 md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
-        <time-range class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Time Range</span>
+        <filter_page_tabs class="flex items-center justify-between">
+            {#each Object.entries(filter_pages_mapping) as page}
+                {@const page_key = page[0]}
+                {@const page_title = page[1].title}
+
+                {@const is_active = active_filter_page === page_key}
+
+                <button
+                    class="cursor-pointer text-base px-3 py-2 h-14 leading-tight md:h-auto rounded-lg md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors leading-none"
+                    class:bg-surface-400={is_active}
+                    class:text-surface-50={!is_active}
+                    on:click={() => change_filter_page(page_key)}
+                >
+                    {page_title}
+                </button>
+            {/each}
+        </filter_page_tabs>
+    </explore-options>
+
+    <filter-options class="flex items-end gap-3 md:gap-0 justify-between mt-5 md:mt-0">
+        <time-range class="hidden md:flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Time Range</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -100,26 +102,26 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="All-Time"
                 />
             </div>
         </time-range>
-        <genres class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Genres</span>
+        <genres class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Genres</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </genres>
-        <year class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Year</span>
+        <year class="hidden md:flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Year</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -127,25 +129,25 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </year>
-        <season class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Season</span>
+        <season class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Season</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </season>
-        <format class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Format</span>
+        <format class="hidden md:flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Format</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -153,12 +155,12 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </format>
-        <airing-status class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Airing Status</span>
+        <airing-status class="hidden md:flex flex-col md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Airing Status</span>
             <div class="relative flex items-center">
                 <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
@@ -166,136 +168,60 @@
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                 />
             </div>
         </airing-status>
-        <sort-by class="flex flex-col md:gap-[0.5vw]">
-            <span class="font-semibold leading-none text-surface-50 md:text-[1.1vw]">Sort by</span>
+        <sort-by class="flex flex-col gap-1 md:gap-[0.35vw]">
+            <span class="leading-none text-surface-50 md:text-[1vw]">Sort by</span>
             <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
+                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
                     <Chevron class="text-surface-50" />
                 </button>
                 <input
                     type="text"
                     placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[8.5vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                     value="Popularity"
                 />
             </div>
         </sort-by>
         <more-filter-option>
-            <button class="btn bg-surface-400 md:rounded-[0.5vw] md:p-[0.79vw]">
-                <MoreBox class="md:w-[1.25vw]" />
+            <button class="btn bg-surface-400 md:rounded-[0.5vw] p-3 md:p-[0.79vw]">
+                <MoreBox class="w-5 md:w-[1.25vw]" />
             </button>
         </more-filter-option>
     </filter-options>
 
-    <results-section class=" flex flex-col md:mt-[4vw] md:gap-[4vw]">
-        <trending-now>
-            <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-                <span class="font-semibold md:text-[1.25vw]">Trending Now</span>
-                <span class="text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
-            </headings>
+    <active-filter-page class="mt-20 md:mt-[2vw]">
+        <headings class="flex flex-col leading-none md:gap-[0.35vw]">
+            <span class="font-semibold text-xl md:text-[1.25vw]">
+                {filter_pages_mapping[active_filter_page].title}
+            </span>
+            <span class="text-surface-50 text-base md:text-[1vw]">
+                {filter_pages_mapping[active_filter_page].description}
+            </span>
+        </headings>
 
-            <result-animes class="relative block md:mt-[1.25vw]">
-                <div
-                    class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={trending_animes_scroll_element}
-                    on:scroll={handle_scroll}
-                >
-                    {#each trending_animes as anime}
-                        <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
-                            <ImageLoader
-                                src={anime.cover}
-                                class="w-full md:h-[20vw] md:rounded-[0.75vw]"
-                            />
-                            <div class="flex flex-col md:gap-[0.35vw]">
-                                <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                                <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                    <genre>{anime.genre}</genre>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <year>{anime.year}</year>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <episodes_count>{anime.episodes_count} eps</episodes_count>
-                                </anime_info>
-                            </div>
-                        </anime>
-                    {/each}
-                </div>
-
-                <scroll-buttons>
-                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "left")}
-                        >
-                            <Chevron class="rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </left-scroll>
-                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(trending_animes_scroll_element, "right")}
-                        >
-                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </right-scroll>
-                </scroll-buttons>
-            </result-animes>
-        </trending-now>
-
-        <popular-animes>
-            <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-                <span class="font-semibold md:text-[1.25vw]">Popular this season</span>
-                <span class="text-surface-50 md:text-[1vw]">Seasonal Gems: Discovering the Best of the Moment</span>
-            </headings>
-
-            <result-animes class="relative block md:mt-[1.25vw]">
-                <div
-                    class="flex snap-x overflow-x-scroll scroll-smooth scrollbar-none md:gap-[1.25vw]"
-                    bind:this={popular_animes_scroll_element}
-                    on:scroll={handle_scroll}
-                >
-                    {#each trending_animes.reverse() as anime}
-                        <anime class="flex flex-shrink-0 snap-start flex-col leading-none md:w-[13.7vw] md:gap-[0.75vw]">
-                            <ImageLoader
-                                src={anime.cover}
-                                class="w-full md:h-[20vw] md:rounded-[0.75vw]"
-                            />
-                            <div class="flex flex-col md:gap-[0.35vw]">
-                                <anime_name class="line-clamp-1 font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                                <anime_info class="flex items-center text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                    <genre>{anime.genre}</genre>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <year>{anime.year}</year>
-                                    <Circle class="md:w-[0.25vw]" />
-                                    <episodes_count>{anime.episodes_count} eps</episodes_count>
-                                </anime_info>
-                            </div>
-                        </anime>
-                    {/each}
-                </div>
-
-                <scroll-buttons>
-                    <left-scroll class="absolute -left-[1.5vw] top-[8.5vw] z-10 opacity-0 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "left")}
-                        >
-                            <Chevron class="rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </left-scroll>
-                    <right-scroll class="absolute -right-[1.5vw] top-[8.5vw] z-10 transition-opacity duration-300">
-                        <button
-                            class="btn rounded-full bg-surface-400 md:p-[1vw]"
-                            on:click={() => handle_scroll_direction(popular_animes_scroll_element, "right")}
-                        >
-                            <Chevron class="-rotate-90 md:w-[1.5vw]" />
-                        </button>
-                    </right-scroll>
-                </scroll-buttons>
-            </result-animes>
-        </popular-animes>
-    </results-section>
+        <result-animes class="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-[1.25vw] md:gap-y-[3vw] mt-5 md:mt-[1.25vw]">
+            {#each trending_animes as anime}
+                <anime class="flex flex-col leading-none gap-2 md:gap-[0.75vw]">
+                    <ImageLoader
+                        src={anime.cover}
+                        class="w-full h-80 rounded-lg object-cover md:h-[20vw] md:rounded-[0.75vw]"
+                    />
+                    <div class="flex flex-col md:gap-[0.35vw]">
+                        <anime_name class="line-clamp-1 font-semibold text-base md:text-[1.1vw]">{anime.name}</anime_name>
+                        <anime_info class="flex items-center text-surface-50 gap-2 md:gap-[0.5vw] text-sm md:text-[0.9vw]">
+                            <genre>{anime.genre}</genre>
+                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <year>{anime.year}</year>
+                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <episodes_count>{anime.episodes_count} eps</episodes_count>
+                        </anime_info>
+                    </div>
+                </anime>
+            {/each}
+        </result-animes>
+    </active-filter-page>
 </section>
