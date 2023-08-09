@@ -331,7 +331,7 @@
                         comment_content={comment.content}
                         comment_likes={comment.likes}
                         comment_replies={comment.replies}
-                        show_replies={index === 0}
+                        open={index === 0}
                     />
                 {/each}
             </comments>
