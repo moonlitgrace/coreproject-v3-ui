@@ -194,11 +194,11 @@
     </filter-options>
 
     <active-filter-page class="mt-20 md:mt-[2vw]">
-        <headings class="flex flex-col leading-none md:gap-[0.35vw]">
-            <span class="font-semibold text-xl md:text-[1.25vw]">
+        <headings class="flex flex-col md:gap-[0.35vw]">
+            <span class="font-semibold leading-none text-xl md:text-[1.25vw]">
                 {filter_pages_mapping[active_filter_page].title}
             </span>
-            <span class="text-surface-50 text-base md:text-[1vw]">
+            <span class="text-surface-50 leading-none text-base md:text-[1vw]">
                 {filter_pages_mapping[active_filter_page].description}
             </span>
         </headings>
