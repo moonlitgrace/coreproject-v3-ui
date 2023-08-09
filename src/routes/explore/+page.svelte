@@ -39,6 +39,47 @@
         active_filter_page = page as typeof active_filter_page;
     }
 
+    let filter_options_mapping: {
+        [key: string]: {
+            title: string;
+            value: string;
+            hide_on_mobile?: boolean;
+        }
+    } = {
+        time_range: {
+            title: "Time Range",
+            value: "All-Time",
+            hide_on_mobile: true,
+        },
+        genres: {
+            title: "Genres",
+            value: "Any"
+        },
+        year: {
+            title: "Year",
+            value: "Any",
+            hide_on_mobile: true,
+        },
+        season: {
+            title: "Season",
+            value: "Any"
+        },
+        format: {
+            title: "Format",
+            value: "Any",
+            hide_on_mobile: true,
+        },
+        airing_status: {
+            title: "Airing Status",
+            value: "Any",
+            hide_on_mobile: true,
+        },
+        sort_by: {
+            title: "Sort by",
+            value: "Popularity"
+        }
+    }
+
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
         site_name: "CoreProject",
@@ -93,99 +134,25 @@
     </explore-options>
 
     <filter-options class="flex items-end gap-3 md:gap-0 justify-between mt-5 md:mt-0">
-        <time-range class="hidden md:flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Time Range</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                    value="All-Time"
-                />
+        {#each Object.entries(filter_options_mapping) as option}
+            {@const title = option[1].title}
+            {@const value = option[1].value}
+            {@const hide_on_mobile = option[1].hide_on_mobile}
+
+            <div class="md:flex flex-col md:gap-[0.35vw]" class:hidden={hide_on_mobile}>
+                <span class="leading-none text-surface-50 md:text-[1vw]">{title}</span>
+                <div class="relative flex items-center">
+                    <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-4 md:w-[1.25vw]">
+                        <Chevron class="text-surface-50" />
+                    </button>
+                    <input
+                        type="text"
+                        class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                        value={value}
+                    />
+                </div>
             </div>
-        </time-range>
-        <genres class="flex flex-col gap-1 md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Genres</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full md:rounded-[0.5vw] py-3 rounded-lg text-base md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                />
-            </div>
-        </genres>
-        <year class="hidden md:flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Year</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                />
-            </div>
-        </year>
-        <season class="flex flex-col gap-1 md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Season</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                />
-            </div>
-        </season>
-        <format class="hidden md:flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Format</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                />
-            </div>
-        </format>
-        <airing-status class="hidden md:flex flex-col md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Airing Status</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 md:mr-[1vw] md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                />
-            </div>
-        </airing-status>
-        <sort-by class="flex flex-col gap-1 md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 md:text-[1vw]">Sort by</span>
-            <div class="relative flex items-center">
-                <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-5 md:w-[1.25vw]">
-                    <Chevron class="text-surface-50" />
-                </button>
-                <input
-                    type="text"
-                    placeholder="Any"
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                    value="Popularity"
-                />
-            </div>
-        </sort-by>
+        {/each}
         <more-filter-option>
             <button class="btn bg-surface-400 md:rounded-[0.5vw] p-3 md:p-[0.79vw]">
                 <MoreBox class="w-5 md:w-[1.25vw]" />
