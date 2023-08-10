@@ -193,15 +193,15 @@
     </episode-content>
 
     <episode-details class="grid grid-cols-12 gap-5 p-5 md:gap-[5vw] md:p-0">
-        <episode-info class="col-span-8 flex flex-col md:gap-[1vw]">
+        <episode-info class="col-span-12 md:col-span-8 flex flex-col gap-2 md:gap-[1vw]">
             <anime-name-options class="flex items-center justify-between">
                 <div>
                     <a
                         href="/mal/1"
-                        class="unstyled flex flex-col leading-none md:gap-[0.25vw] md:text-[1.1vw]"
+                        class="unstyled flex flex-col leading-none gap-1 md:gap-[0.25vw] text-lg md:text-[1.1vw]"
                     >
                         <span class="font-semibold uppercase">Demon Slayer S1</span>
-                        <span class="text-surface-50 md:text-[1vw]">Kimetsu no yaiba</span>
+                        <span class="text-surface-50 text-base md:text-[1vw]">Kimetsu no yaiba</span>
                     </a>
                 </div>
                 <options>
@@ -217,7 +217,7 @@
             >
                 <AccordionItem
                     open
-                    regionPanel="text-surface-50 md:text-[1vw] md:leading-[1.35vw]"
+                    regionPanel="text-surface-50 text-sm leading-snug md:text-[1vw] md:leading-[1.35vw]"
                     regionControl="text-base text-warning-400 font-semibold md:text-[1.25vw] md:leading-[1vw] md:pb-[1vw]"
                     regionCaret="md:w-[1vw]"
                 >
@@ -236,7 +236,7 @@
                 <Chevron class="w-3 -rotate-90 md:w-[1vw]" />
             </a>
         </episode-info>
-        <next-episode class="col-span-4">
+        <next-episode class="col-span-4 hidden md:flex flex-col">
             <span class="font-semibold uppercase md:text-[1.1vw]">next episode</span>
             <a
                 href="./{episode_number + 1}"
