@@ -440,7 +440,7 @@
                 {#if textarea_value}
                     <Markdown
                         markdown={textarea_value}
-                        class="w-full border-none bg-surface-900 text-sm leading-tight text-surface-50 outline-none md:text-[1vw] md:leading-[1.5vw]"
+                        class="w-full h-full border-none bg-surface-900 text-sm leading-tight text-surface-50 outline-none md:text-[1vw] md:leading-[1.5vw]"
                     />
                 {:else}
                     <span class="text-sm leading-tight text-surface-50 md:text-[1vw] md:leading-[1.5vw]">Nothing to preview</span>
