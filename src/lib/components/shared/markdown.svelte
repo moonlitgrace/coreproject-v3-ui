@@ -2,7 +2,6 @@
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
-
     import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
@@ -19,13 +18,6 @@
     const emoji_options = {
         emojis,
         unicode: false
-    };
-
-    // Override function
-    const renderer = {
-        del(text: string) {
-            return `<del class='unstyled'>${text}</del>`;
-        }
     };
 
     const marked = new Marked(
@@ -57,7 +49,12 @@
         mangle(),
         // Marked defaults
         {
-            renderer,
+            // Override function
+            renderer: {
+                del(text: string) {
+                    return `<del class='unstyled'>${text}</del>`;
+                }
+            },
             // We dont need github like header prefix
             headerIds: false
         }
@@ -72,3 +69,12 @@
         {@html html}
     {/await}
 </markdown>
+
+<style lang="postcss">
+    :global(pre) {
+        @apply !p-0 !bg-transparent !rounded-md;
+    }
+    :global(code) {
+        @apply !bg-surface-400/50 md:rounded-[0.5vw] md:p-3 md:leading-[1.25vw] leading-snug text-xs md:text-[0.9vw];
+    }
+</style>

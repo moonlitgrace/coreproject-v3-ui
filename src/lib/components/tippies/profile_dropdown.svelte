@@ -68,7 +68,7 @@
         </avatar>
         <div class="col-span-9 line-clamp-1 flex flex-col md:gap-[0.25vw]">
             <p
-                class="text-base font-semibold md:text-[1vw] md:leading-none overflow-x-scroll scrollbar-none"
+                class="overflow-x-scroll text-base font-semibold scrollbar-none md:text-[1vw] md:leading-none"
                 class:mask-right={username_element_scroll_percent <= 10 && username_element_scroll_percent >= 0}
                 class:mask-left-and-right={username_element_scroll_percent < 90 && username_element_scroll_percent >= 10}
                 class:mask-left={username_element_scroll_percent <= 100 && username_element_scroll_percent >= 90}
@@ -80,7 +80,7 @@
                 soraamamiya#0001
             </p>
             <p
-                class="text-xs font-medium md:text-[0.8vw] overflow-x-scroll scrollbar-none"
+                class="overflow-x-scroll text-xs font-medium scrollbar-none md:text-[0.8vw]"
                 class:mask-right={email_element_scroll_percent <= 10 && email_element_scroll_percent >= 0}
                 class:mask-left-and-right={email_element_scroll_percent < 90 && email_element_scroll_percent >= 10}
                 class:mask-left={email_element_scroll_percent <= 100 && email_element_scroll_percent >= 90}
