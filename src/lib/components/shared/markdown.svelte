@@ -47,7 +47,12 @@
             renderer: {
                 del(text: string) {
                     return `<del class='unstyled'>${text}</del>`;
-                }
+                },
+                code(code, language, isEscaped) {
+                    return `<pre class="unstyled">
+                                <code class="language-${language}">${code}</code>
+                            </pre>`
+                },
             },
             // We dont need github like header prefix
             headerIds: false
