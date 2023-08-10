@@ -72,6 +72,9 @@
 
 <style lang="postcss">
     :global(pre) {
-        @apply flex bg-surface-400/50 md:rounded-[0.5vw] md:p-3 md:text-[0.9vw];
+        @apply !p-0 !bg-transparent !rounded-md;
+    }
+    :global(code) {
+        @apply !bg-surface-400/50 md:rounded-[0.5vw] md:p-3 md:leading-[1.25vw] leading-snug text-xs md:text-[0.9vw];
     }
 </style>
