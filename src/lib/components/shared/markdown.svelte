@@ -2,7 +2,6 @@
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
-
     import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
@@ -54,9 +53,6 @@
             renderer: {
                 del(text: string) {
                     return `<del class='unstyled'>${text}</del>`;
-                },
-                code(code, language) {
-                    return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]"><code class="language-${language}">${code}</code></pre>`;
                 }
             },
             // We dont need github like header prefix
@@ -73,3 +69,9 @@
         {@html html}
     {/await}
 </markdown>
+
+<style lang="postcss">
+    :global(pre) {
+        @apply flex bg-surface-400/50 md:rounded-[0.5vw] md:p-3 md:text-[0.9vw];
+    }
+</style>
