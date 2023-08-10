@@ -11,14 +11,14 @@
 
     /* Filter pages */
     let filter_pages_mapping: {
-        [key in typeof active_filter_page]: { 
+        [key in typeof active_filter_page]: {
             title: string;
             description: string;
-        }
+        };
     } = {
-        trending: { 
+        trending: {
             title: "Trending Now",
-            description: "Crowd Favorites: Anime Hits and Hype" 
+            description: "Crowd Favorites: Anime Hits and Hype"
         },
         popular: {
             title: "Popular this Season",
@@ -31,8 +31,8 @@
         alltime: {
             title: "All-time Popular",
             description: "Seasonal Gems: Discovering the Best of the Moment"
-        },
-    }
+        }
+    };
     let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
 
     function change_filter_page(page: string) {
@@ -43,42 +43,45 @@
         [key: string]: {
             title: string;
             value: string;
-            hide_on_mobile?: boolean;
-        }
+            class: string;
+        };
     } = {
         time_range: {
             title: "Time Range",
             value: "All-Time",
-            hide_on_mobile: true,
+            class: "hidden md:flex flex-col md:gap-[0.35vw]"
         },
         genres: {
             title: "Genres",
-            value: "Any"
+            value: "Any",
+            class: "md:flex flex-col md:gap-[0.35vw]"
         },
         year: {
             title: "Year",
             value: "Any",
-            hide_on_mobile: true,
+            class: "hidden md:flex flex-col md:gap-[0.35vw]"
         },
         season: {
             title: "Season",
-            value: "Any"
+            value: "Any",
+            class: "md:flex flex-col md:gap-[0.35vw]"
         },
         format: {
             title: "Format",
             value: "Any",
-            hide_on_mobile: true,
+            class: "hidden md:flex flex-col md:gap-[0.35vw]"
         },
         airing_status: {
             title: "Airing Status",
             value: "Any",
-            hide_on_mobile: true,
+            class: "hidden md:flex flex-col md:gap-[0.35vw]"
         },
         sort_by: {
             title: "Sort by",
-            value: "Popularity"
+            value: "Popularity",
+            class: "md:flex flex-col md:gap-[0.35vw]"
         }
-    }
+    };
 
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
@@ -137,9 +140,9 @@
         {#each Object.entries(filter_options_mapping) as option}
             {@const title = option[1].title}
             {@const value = option[1].value}
-            {@const hide_on_mobile = option[1].hide_on_mobile}
+            {@const klass = option[1].class}
 
-            <div class="md:flex flex-col md:gap-[0.35vw]" class:hidden={hide_on_mobile}>
+            <div class={klass}>
                 <span class="leading-none text-surface-50 md:text-[1vw]">{title}</span>
                 <div class="relative flex items-center">
                     <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-4 md:w-[1.25vw]">
@@ -148,11 +151,12 @@
                     <input
                         type="text"
                         class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
-                        value={value}
+                        {value}
                     />
                 </div>
             </div>
         {/each}
+
         <more-filter-option>
             <button class="btn bg-surface-400 md:rounded-[0.5vw] p-3 md:p-[0.79vw]">
                 <MoreBox class="w-5 md:w-[1.25vw]" />
