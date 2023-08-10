@@ -8,6 +8,7 @@
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
+    import { CodeBlock } from "@skeletonlabs/skeleton";
 
     export let markdown = "";
     export { klass as class };
@@ -48,7 +49,7 @@
                 del(text: string) {
                     return `<del class='unstyled'>${text}</del>`;
                 },
-                code(code, language, isEscaped) {
+                code(code: string, language: string, isEscaped: boolean) {
                     return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]">
                                 <code class="language-${language}">${code}</code>
                             </pre>`
