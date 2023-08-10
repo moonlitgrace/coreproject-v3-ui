@@ -53,6 +53,7 @@
         "marked-emoji": "^1.2.2",
         "marked-highlight": "^2.0.4",
         "marked-mangle": "^1.1.2",
+        "marked-smartypants": "^1.0.4",
         "marked-xhtml": "^1.0.4",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.27",
@@ -77,7 +78,5 @@
     "workspaces": [
         "./scripts"
     ],
-    "dependencies": {
-        "marked-smartypants": "^1.0.4"
-    }
+    "dependencies": {}
 }
