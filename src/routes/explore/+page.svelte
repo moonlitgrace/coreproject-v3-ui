@@ -102,7 +102,7 @@
         <span class="font-bold leading-none text-2xl md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
         </span>
-        <span class="font-semibold leading-none text-surface-50 text-base font-normal md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
+        <span class="leading-none text-surface-50 text-base font-normal md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
     <explore-options class="mt-7 md:mt-[2vw] flex flex-col gap-5 md:gap-0 md:flex-row md:items-end justify-between">
@@ -125,7 +125,7 @@
                 {@const is_active = active_filter_page === page_key}
 
                 <button
-                    class="cursor-pointer text-base px-3 py-2 h-14 leading-tight md:h-auto rounded-lg md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors leading-none"
+                    class="cursor-pointer text-base px-3 py-2 h-14 leading-tight md:h-auto rounded-lg md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors"
                     class:bg-surface-400={is_active}
                     class:text-surface-50={!is_active}
                     on:click={() => change_filter_page(page_key)}
