@@ -142,7 +142,7 @@
             {@const value = option[1].value}
             {@const klass = option[1].class}
 
-            <div class={klass}>
+            <filter-component class={klass}>
                 <span class="leading-none text-surface-50 md:text-[1vw]">{title}</span>
                 <div class="relative flex items-center">
                     <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-4 md:w-[1.25vw]">
@@ -154,7 +154,7 @@
                         {value}
                     />
                 </div>
-            </div>
+            </filter-component>
         {/each}
 
         <more-filter-option>
