@@ -48,10 +48,8 @@
                 del(text: string) {
                     return `<del class='unstyled'>${text}</del>`;
                 },
-                code(code, language, isEscaped) {
-                    return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]">
-                                <code class="language-${language}">${code}</code>
-                            </pre>`;
+                code(code, language) {
+                    return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]"><code class="language-${language}">${code}</code></pre>`;
                 }
             },
             // We dont need github like header prefix
