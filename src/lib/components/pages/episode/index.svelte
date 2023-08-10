@@ -267,7 +267,7 @@
 
     <episode-media class="grid grid-cols-12 p-5 md:gap-[5vw] md:p-0">
         <comments-section class="col-span-12 flex flex-col md:col-span-7 md:gap-[0.75vw]">
-            <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-base font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
+            <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-lg font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
 
             <comments-info class="mt-2 flex items-center justify-between md:hidden">
                 <p class="flex items-center gap-1">
@@ -286,10 +286,10 @@
                 </button>
             </comments-info>
 
-            <comment-form class="flex md:gap-[1vw]">
+            <comment-form class="flex flex-col md:flex-row md:gap-[1vw]">
                 <a
                     href="/user/"
-                    class="h-7 w-7 flex-shrink-0 md:mt-[0.5vw] md:h-[2vw] md:w-[2vw]"
+                    class="h-7 w-7 flex-shrink-0 md:mt-[0.5vw] md:h-[2vw] md:w-[2vw] hidden md:flex"
                 >
                     <ImageLoader
                         src="/images/DemonSlayer-bg.avif"
@@ -297,7 +297,7 @@
                         class="h-full w-full shrink-0 rounded-full object-cover"
                     />
                 </a>
-                <form class="mt-3 flex flex-col md:mt-[1vw] md:gap-[0.75vw]">
+                <form class="mt-3 flex flex-col md:mt-[1vw] gap-3 md:gap-[0.75vw]">
                     <span class="leading-none text-surface-50 md:text-[1vw]">
                         Comment as <strong>Tokito</strong>
                     </span>
