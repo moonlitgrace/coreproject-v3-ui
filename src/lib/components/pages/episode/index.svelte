@@ -88,7 +88,7 @@
     />
 {/if}
 
-<episode-container class="flex flex-col md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
+<episode-container class="flex flex-col md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw] mt-16 md:mt-0">
     <episode-content class="grid grid-cols-12 md:gap-[5vw]">
         <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
             <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
@@ -99,7 +99,7 @@
                     class="h-full w-full rounded-none object-cover md:rounded-[0.5vw] "
                 />
             </player>
-            <video-player-options class="flex flex-col gap-2 p-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
+            <video-player-options class="flex flex-col gap-2 px-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
                 <preferences class="flex gap-2 md:items-center md:gap-[1vw]">
                     <sub-dub class="hidden items-center gap-[0.75vw] md:flex">
                         <span class="text-[1vw] font-semibold uppercase">sub/dub:</span>
@@ -168,16 +168,16 @@
                 </div>
             </video-player-options>
         </video-player>
-        <episode-info class="col-span-12 flex flex-col gap-10 p-5 md:col-span-4 md:gap-[1.5vw] md:p-0">
+        <episode-info class="col-span-12 flex flex-col gap-3 p-5 md:col-span-4 md:gap-[1.5vw] md:p-0">
             <header class="flex items-center justify-between">
-                <span class="font-semibold md:text-[1.35vw]">Episodes</span>
+                <span class="font-semibold text-lg md:text-[1.35vw]">Episodes</span>
                 <button class="btn flex items-center gap-2 rounded bg-surface-400 px-3 py-2 text-xs font-semibold leading-none md:gap-[0.5vw] md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.5vw] md:text-[1vw]">
                     EPS: 1 - 60
                     <Chevron class="w-3 md:w-[1vw]" />
                 </button>
             </header>
 
-            <episodes class="grid grid-cols-6 gap-2 md:gap-[0.75vw]">
+            <episodes class="grid grid-cols-7 md:grid-cols-6 gap-2 md:gap-[0.75vw]">
                 {#each Array(60) as item, index}
                     {@const actual_index = index + 1}
                     {@const button_active = actual_index === episode_number}
