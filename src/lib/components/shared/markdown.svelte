@@ -21,13 +21,6 @@
         unicode: false
     };
 
-    // Override function
-    const renderer = {
-        del(text: string) {
-            return `<del class='unstyled'>${text}</del>`;
-        }
-    };
-
     const marked = new Marked(
         // Highlight.js
         markedHighlight({
@@ -57,7 +50,15 @@
         mangle(),
         // Marked defaults
         {
-            renderer,
+            // Override function
+            renderer: {
+                del(text: string) {
+                    return `<del class='unstyled'>${text}</del>`;
+                },
+                code(code, language) {
+                    return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]"><code class="language-${language}">${code}</code></pre>`;
+                }
+            },
             // We dont need github like header prefix
             headerIds: false
         }
