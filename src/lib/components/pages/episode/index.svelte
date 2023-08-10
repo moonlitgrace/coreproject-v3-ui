@@ -338,7 +338,7 @@
         </comments-section>
         <forum-recommendations class="col-span-12 mt-10 flex flex-col gap-5 md:col-span-5 md:mt-0 md:gap-[2vw]">
             <forum-posts>
-                <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-base font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Forum posts</span>
+                <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-lg font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Forum posts</span>
 
                 <forum-options class="mt-3 flex items-center justify-between md:mt-[1.25vw]">
                     <posts-count class="flex items-center gap-1 md:hidden">
@@ -382,7 +382,7 @@
                 </posts>
 
                 <load-more class="mt-3 flex w-full justify-center md:mt-[1vw]">
-                    <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                    <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-3 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
                             color="surface-50"
@@ -393,7 +393,7 @@
             </forum-posts>
 
             <recommendations-container>
-                <span class="font-semibold md:text-[1.35vw]">Recommendations</span>
+                <span class="font-semibold text-lg md:text-[1.35vw]">Recommendations</span>
 
                 <container class="mt-3 grid grid-cols-3 gap-4 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1vw]">
                     {#each recommendations as anime}
@@ -423,8 +423,8 @@
                     {/each}
                 </container>
 
-                <load-more class=" mt-3 flex w-full justify-center md:mt-[1vw]">
-                    <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
+                <load-more class="mt-3 flex w-full justify-center md:mt-[1vw]">
+                    <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-3 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
                             color="surface-50"
