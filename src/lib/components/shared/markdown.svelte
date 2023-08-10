@@ -2,19 +2,31 @@
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import hljs from "highlight.js";
-    import "highlight.js/scss/github-dark.scss";
+
     import { Marked } from "marked";
-    import type { MarkedEmojiOptions } from "marked-emoji";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
+    import { markedXhtml } from "marked-xhtml";
+    // @ts-ignore
+    import { markedSmartypants } from "marked-smartypants";
 
     export let markdown = "";
     export { klass as class };
 
     let klass = "";
 
+    const emoji_options = {
+        emojis,
+        unicode: false
+    };
+
     // Override function
+    const renderer = {
+        del(text: string) {
+            return `<del class='unstyled'>${text}</del>`;
+        }
+    };
 
     const marked = new Marked(
         // Highlight.js
@@ -26,10 +38,7 @@
             }
         }),
         // Emoji plugin
-        markedEmoji({
-            emojis,
-            unicode: false
-        }),
+        markedEmoji(emoji_options),
         {
             extensions: [
                 {
@@ -40,31 +49,26 @@
                 }
             ]
         },
+        // Smartypants plugin
+        markedSmartypants(),
+        // XHTML plugin
+        markedXhtml(),
         // Mangle plugin
         mangle(),
         // Marked defaults
         {
-            renderer: {
-                del(text: string) {
-                    return `<del class='unstyled'>${text}</del>`;
-                },
-                code(code: string, language: string, isEscaped: boolean) {
-                    return `<pre class="unstyled flex bg-surface-400/50 md:p-3 md:text-[0.9vw] md:rounded-[0.5vw]">
-                                <code class="language-${language}">${code}</code>
-                            </pre>`
-                },
-            },
+            renderer,
             // We dont need github like header prefix
             headerIds: false
         }
     );
 
-    let promise_html: Promise<string>;
-    $: promise_html = sanitize(marked.parse(markdown));
+    let html: string | Promise<string>;
+    $: html = sanitize(marked.parse(markdown));
 </script>
 
-{#await promise_html then html}
-    <markdown class={klass}>
+<markdown class={klass}>
+    {#await html then html}
         {@html html}
-    </markdown>
-{/await}
+    {/await}
+</markdown>
