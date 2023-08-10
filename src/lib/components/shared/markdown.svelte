@@ -73,13 +73,12 @@
         }
     );
 
-    /**
-     * @type {string}
-     */
-    let html: string;
+    let html: string | Promise<string>;
     $: html = sanitize(marked.parse(markdown));
 </script>
 
 <markdown class={klass}>
-    {@html html}
+    {#await html then html}
+        {@html html}
+    {/await}
 </markdown>
