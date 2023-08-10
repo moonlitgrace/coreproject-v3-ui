@@ -64,8 +64,8 @@
                 >
                     <AccordionItem
                         open={open}
-                        regionPanel="text-surface-50 md:text-[1vw] md:leading-[1.35vw] items-start justify-start"
-                        regionControl="text-base text-warning-400 font-semibold md:text-[0.9vw] md:leading-[1vw] md:pb-[0.75vw] w-max"
+                        regionPanel="text-surface md:text-[1vw] md:leading-[1.35vw] items-start justify-start"
+                        regionControl="text-sm text-warning-400 font-semibold md:text-[0.9vw] md:leading-[1vw] pb-2 md:pb-[0.75vw] w-max"
                         regionCaret="md:w-[0.75vw] items-start justify-start"
                     >
                         <svelte:fragment slot="summary">Replies</svelte:fragment>
