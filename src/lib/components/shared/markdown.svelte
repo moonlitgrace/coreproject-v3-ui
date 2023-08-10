@@ -8,7 +8,6 @@
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
-    import { CodeBlock } from "@skeletonlabs/skeleton";
 
     export let markdown = "";
     export { klass as class };
