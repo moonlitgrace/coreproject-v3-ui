@@ -1,15 +1,43 @@
 <script lang="ts">
     export let glider_container_class = "";
     export let active_element_class = "";
+    export let direction: "horizontal" | "vertical";
+
     /** vercel effect */
-    let hover_glider_element: HTMLDivElement;
-    let GLIDER_TRANSITION_DURATION = 200;
-    let is_hovered = false;
-    let mouseleaveTimeout: NodeJS.Timer | null = null;
+    let hover_glider_element: HTMLElement,
+        glider_container_element: HTMLElement,
+        GLIDER_TRANSITION_DURATION = 200,
+        is_hovered = false,
+        mouse_leave_timeout: NodeJS.Timer | null = null;
 
     const handle_mouseenter = (event: MouseEvent) => {
-        const target = event.target as HTMLAnchorElement;
-        hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+        const target = event.target as HTMLElement;
+
+        // Do some magic here to get the target's height and width
+        // Don't change the position of this code.
+        // It will cause animation jank
+        hover_glider_element.style.height = getComputedStyle(target).height;
+        hover_glider_element.style.width = getComputedStyle(target).width;
+
+        // We need to make sure that zIndex is not auto
+        if (getComputedStyle(target).zIndex === "auto") {
+            target.style.zIndex = "0";
+        }
+        hover_glider_element.style.zIndex = String(Number(getComputedStyle(target).zIndex) - 1);
+
+        // To make sure our operations are proper we need to make sure that the `position` is set to relative
+        if (getComputedStyle(glider_container_element).position !== "relative") {
+            glider_container_element.style.position = "relative";
+        }
+
+        switch (direction) {
+            case "vertical":
+                hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
+                break;
+            case "horizontal":
+                hover_glider_element.style.transform = `translateX(${target.offsetLeft}px)`;
+                break;
+        }
 
         if (!is_hovered) {
             GLIDER_TRANSITION_DURATION = 50;
@@ -19,19 +47,26 @@
             GLIDER_TRANSITION_DURATION = 200;
         }
 
-        clearTimeout(mouseleaveTimeout!);
+        clearTimeout(mouse_leave_timeout!);
     };
 
     const handle_mouseleave = () => {
         // Delay the mouseleave event to allow time ( GLIDER_TRANSITION_DURATION ) for moving to a sibling element
-        mouseleaveTimeout = setTimeout(() => {
+        mouse_leave_timeout = setTimeout(() => {
             hover_glider_element.style.opacity = "0";
             is_hovered = false;
+
+            // Cleanups
+            glider_container_element.removeAttribute("style");
+            hover_glider_element.removeAttribute("style");
         }, GLIDER_TRANSITION_DURATION);
     };
 </script>
 
-<glider-container class={glider_container_class}>
+<glider-container
+    class={glider_container_class}
+    bind:this={glider_container_element}
+>
     <active_glider
         bind:this={hover_glider_element}
         class="{active_element_class} absolute opacity-0 ease-in-out duration-{GLIDER_TRANSITION_DURATION}"
