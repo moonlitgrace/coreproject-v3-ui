@@ -540,15 +540,11 @@
                             new MyListAnimeDetails({
                                 target: node,
                                 props: {
-                                    anime_cover: anime.cover,
                                     anime_name: anime.name,
                                     anime_type: anime.type,
                                     anime_genres: anime.genres,
                                     anime_studios: anime.studios,
-                                    anime_synopsis: anime.synopsis,
-                                    anime_current_episode: anime.current_episode,
                                     anime_episodes_count: anime.episodes_count,
-                                    anime_release_date: anime.release_date
                                 }
                             });
 
