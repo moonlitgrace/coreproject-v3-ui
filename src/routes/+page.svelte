@@ -495,7 +495,7 @@
             </button>
         </section-header>
 
-        <my-list-info class="mt-0 flex items-center justify-between md:mt-[0.5vw]">
+        <my-list-info class="flex items-center justify-between">
             <span class="text-sm text-surface-50 md:text-[1vw] md:font-semibold">
                 {my_list.length} anime in Watching
             </span>
