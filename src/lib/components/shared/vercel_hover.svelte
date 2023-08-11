@@ -3,6 +3,8 @@
     export let active_element_class = "";
     export let direction: "horizontal" | "vertical";
 
+    import throttle from "lodash/throttle";
+
     /** vercel effect */
     let hover_glider_element: HTMLElement,
         glider_container_element: HTMLElement,
@@ -10,7 +12,10 @@
         is_hovered = false,
         mouse_leave_timeout: NodeJS.Timer | null = null;
 
-    const handle_mouseenter = (event: MouseEvent) => {
+    const THROTTLE_IN_DURATION = 75,
+        THROTTLE_OUT_DURATION = 50;
+
+    const handle_mouseenter = throttle((event: MouseEvent) => {
         const target = event.target as HTMLElement;
         const target_computed_style = getComputedStyle(target);
 
@@ -45,15 +50,15 @@
         }
 
         clearTimeout(mouse_leave_timeout!);
-    };
+    }, THROTTLE_IN_DURATION);
 
-    const handle_mouseleave = () => {
+    const handle_mouseleave = throttle(() => {
         // Delay the mouseleave event to allow time ( GLIDER_TRANSITION_DURATION ) for moving to a sibling element
         mouse_leave_timeout = setTimeout(() => {
             hover_glider_element.style.opacity = "0";
             is_hovered = false;
         }, GLIDER_TRANSITION_DURATION);
-    };
+    }, THROTTLE_OUT_DURATION);
 </script>
 
 <glider-container
