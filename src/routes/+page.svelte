@@ -519,8 +519,8 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="hide-scrollbar relative mb-[2vw] mt-4 flex snap-x grid-cols-7 gap-5 overflow-x-scroll scroll-smooth md:mt-[1.5vw] md:grid md:gap-[1.5vw] md:overflow-visible">
-            {#each my_list as anime}
+        <my-list-animes class="hide-scrollbar relative mb-[2vw] mt-4 flex snap-x grid-cols-7 md:grid-cols-5 gap-5 overflow-x-scroll scroll-smooth md:mt-[1.5vw] md:grid md:gap-[1.5vw] md:overflow-visible">
+            {#each my_list.slice(0, 5) as anime}
                 <div
                     class="group col-span-1 w-40 flex-shrink-0 snap-start md:w-auto"
                     use:tippy={{
@@ -554,36 +554,17 @@
                         }
                     }}
                 >
-                    <card class="relative block h-60 w-full md:h-[12.5vw]">
+                    <card class="relative block h-60 w-full md:h-[18vw]">
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="absolute h-full w-full rounded-2xl object-cover object-center md:rounded-[0.875vw]"
+                            class="absolute h-full w-full rounded-2xl object-cover object-center md:rounded-[0.75vw]"
                         />
+                        <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900/75 to-transparent" />
 
-                        <gradient-overlay class=" absolute inset-0 bg-gradient-to-tr from-surface-900/90 to-surface-900/25 transition duration-300 group-hover:to-surface-900/75 md:bg-gradient-to-t" />
-
-                        <anime-details class="absolute inset-0 flex w-full grid-cols-1 flex-col justify-end gap-1 px-5 pb-3 transition duration-300 group-hover:opacity-0 md:grid md:place-items-center md:gap-0 md:p-0">
-                            <anime-name class="line-clamp-2 text-sm font-semibold text-white md:text-center md:text-[1vw] md:leading-[1.35vw]">
-                                {anime.name}
-                            </anime-name>
-                            <episode-details class="bottom-[1vw] text-xs font-medium text-surface-200 md:absolute md:text-center md:text-[1vw]">
-                                <span class="hidden md:flex">{anime.current_episode}/{anime.episodes_count}</span>
-                                <span class="md:hidden">Episode {anime.current_episode}/{anime.episodes_count}</span>
-                            </episode-details>
+                        <anime-details class="">
+                            
                         </anime-details>
-
-                        <hover-buttons class="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:gap-[0.5vw]">
-                            <button class="btn btn-icon h-14 w-24 rounded-xl bg-primary-500 text-base font-bold md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                <PlayCircle class="w-4 md:w-[1vw]" />
-                                <span>Ep {anime.current_episode}</span>
-                            </button>
-
-                            <button class="btn btn-icon h-14 w-24 rounded-xl bg-surface-900 text-base font-bold text-surface-50 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
-                                <Info class="w-5 md:w-[1.25vw]" />
-                                <span>Info</span>
-                            </button>
-                        </hover-buttons>
                     </card>
                 </div>
             {/each}
