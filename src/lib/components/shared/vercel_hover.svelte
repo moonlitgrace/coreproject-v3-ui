@@ -12,23 +12,20 @@
 
     const handle_mouseenter = (event: MouseEvent) => {
         const target = event.target as HTMLElement;
+        const target_computed_style = getComputedStyle(target);
+
+        // To make sure our operations are proper we need to make sure that the `position` is set to relative
+        glider_container_element.style.position = "relative";
 
         // Do some magic here to get the target's height and width
         // Don't change the position of this code.
         // It will cause animation jank
-        hover_glider_element.style.height = getComputedStyle(target).height;
-        hover_glider_element.style.width = getComputedStyle(target).width;
+        hover_glider_element.style.height = target_computed_style.height;
+        hover_glider_element.style.width = target_computed_style.width;
 
         // We need to make sure that zIndex is not auto
-        if (getComputedStyle(target).zIndex === "auto") {
-            target.style.zIndex = "0";
-        }
-        hover_glider_element.style.zIndex = String(Number(getComputedStyle(target).zIndex) - 1);
-
-        // To make sure our operations are proper we need to make sure that the `position` is set to relative
-        if (getComputedStyle(glider_container_element).position !== "relative") {
-            glider_container_element.style.position = "relative";
-        }
+        const target_zindex = parseInt(target_computed_style.zIndex);
+        hover_glider_element.style.zIndex = String(target_zindex ? target_zindex - 1 : -1);
 
         switch (direction) {
             case "vertical":
@@ -55,10 +52,6 @@
         mouse_leave_timeout = setTimeout(() => {
             hover_glider_element.style.opacity = "0";
             is_hovered = false;
-
-            // Cleanups
-            glider_container_element.removeAttribute("style");
-            hover_glider_element.removeAttribute("style");
         }, GLIDER_TRANSITION_DURATION);
     };
 </script>
