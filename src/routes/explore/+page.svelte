@@ -114,14 +114,14 @@
                 <input
                     type="text"
                     placeholder="Looking for specific anime? Start from here..."
-                    class="w-full rounded-lg border-none bg-surface-400 py-3 pl-14 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[50vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    class="w-full rounded-lg border-none bg-surface-400 py-3 pl-14 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[45vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
         <VercelHover
             direction="horizontal"
-            glider_container_class="flex items-center justify-between"
-            active_element_class="rounded-[0.75vw] bg-white/10"
+            glider_container_class="flex items-center justify-between md:gap-[0.5vw]"
+            active_element_class="rounded-[0.75vw] bg-surface-400/50"
             let:handle_mouseenter
             let:handle_mouseleave
         >
