@@ -488,7 +488,7 @@
         </navigation-card>
     </hero-section>
 
-    <my-list class="mt-[2.1875vw] flex flex-col p-4 pt-7 md:flex md:w-[68vw] md:p-0">
+    <my-list class="md:mt-[2.1875vw] md:mb-[1vw] flex flex-col p-4 pt-7 md:flex md:w-[68vw] md:p-0">
         <section-header class="flex items-center gap-[0.625vw]">
             <header-title class="text-lg font-bold md:text-[1.25vw]">My List</header-title>
             <button class="btn btn-icon hidden h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400 md:flex">
@@ -520,7 +520,7 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="relative mb-[2vw] mt-4 grid-cols-3 md:grid-cols-5 gap-5 md:mt-[1.5vw] grid md:gap-[1.25vw]">
+        <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-5 md:mt-[1vw] grid md:gap-[1.25vw]">
             {#each my_list as anime}
                 <div class="col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto">
                     <anime-cover class="relative">
