@@ -33,7 +33,6 @@
     import { swipe } from "svelte-gestures";
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
-    import tippy from "tippy.js";
     import Mic from "$icons/mic.svelte";
 
     /* Slider codes */
@@ -523,39 +522,7 @@
 
         <my-list-animes class="hide-scrollbar relative mb-[2vw] mt-4 flex snap-x grid-cols-7 md:grid-cols-5 gap-5 overflow-x-scroll scroll-smooth md:mt-[1.5vw] md:grid md:gap-[1.5vw] md:overflow-visible">
             {#each my_list.slice(0, 5) as anime}
-                <div
-                    class="group col-span-1 w-40 flex-shrink-0 snap-start md:w-auto"
-                    use:tippy={{
-                        arrow: true,
-                        allowHTML: true,
-                        interactive: true,
-                        placement: "top",
-                        offset: [0, 17],
-                        animation: "shift-away",
-                        hideOnClick: false,
-                        appendTo: "parent",
-                        theme: "elaine",
-                        onTrigger: async (instance) => {
-                            const node = document.createElement("div");
-                            new MyListAnimeDetails({
-                                target: node,
-                                props: {
-                                    anime_cover: anime.cover,
-                                    anime_name: anime.name,
-                                    anime_type: anime.type,
-                                    anime_genres: anime.genres,
-                                    anime_studios: anime.studios,
-                                    anime_synopsis: anime.synopsis,
-                                    anime_current_episode: anime.current_episode,
-                                    anime_episodes_count: anime.episodes_count,
-                                    anime_release_date: anime.release_date
-                                }
-                            });
-
-                            instance.setContent(node);
-                        }
-                    }}
-                >
+                <div class="group col-span-1 w-40 flex-shrink-0 snap-start md:w-auto">
                     <card class="relative block h-60 w-full md:h-[18vw]">
                         <ImageLoader
                             src={anime.cover}
