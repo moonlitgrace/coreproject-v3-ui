@@ -13,7 +13,7 @@
         mouse_leave_timeout: NodeJS.Timer | null = null;
 
     const THROTTLE_IN_DURATION = 75,
-        THROTTLE_OUT_DURATION = 50;
+        THROTTLE_OUT_DURATION = GLIDER_TRANSITION_DURATION + THROTTLE_IN_DURATION;
 
     const handle_mouseenter = throttle((event: MouseEvent) => {
         const target = event.target as HTMLElement;
