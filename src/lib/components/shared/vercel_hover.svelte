@@ -19,7 +19,6 @@
         hover_glider_element.style.width = getComputedStyle(target).width;
 
         const target_z_index = getComputedStyle(target).zIndex;
-
         if (target_z_index === "auto") {
             target.style.zIndex = "0";
         }
