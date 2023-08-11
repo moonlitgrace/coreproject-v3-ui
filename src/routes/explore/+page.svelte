@@ -8,6 +8,7 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
+    import VercelHover from "$components/shared/vercel_hover.svelte";
 
     /* Filter pages */
     let filter_pages_mapping: {
@@ -97,27 +98,31 @@
     {@html opengraph_html}
 </svelte:head>
 
-<section class="md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] flex flex-col md:gap-[1.5vw] mt-20 md:mt-0 p-5 md:pt-0">
+<section class="mt-20 flex flex-col p-5 md:mt-0 md:gap-[1.5vw] md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] md:pt-0">
     <section-headings class="flex flex-col gap-2 md:gap-[0.5vw]">
-        <span class="font-bold leading-none text-2xl md:text-[2vw]">
+        <span class="text-2xl font-bold leading-none md:text-[2vw]">
             Anime <span class="text-warning-400">Explore</span>
         </span>
-        <span class="leading-none text-surface-50 text-base font-normal md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
+        <span class="text-base font-normal leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <explore-options class="mt-7 md:mt-[2vw] flex flex-col gap-5 md:gap-0 md:flex-row md:items-end justify-between">
+    <explore-options class="mt-7 flex flex-col justify-between gap-5 md:mt-[2vw] md:flex-row md:items-end md:gap-0">
         <search class="flex flex-col gap-1 md:gap-[0.35vw]">
-            <span class="leading-none text-surface-50 text-base md:text-[1vw]">Search Animes</span>
+            <span class="text-base leading-none text-surface-50 md:text-[1vw]">Search Animes</span>
             <div class="relative flex items-center">
-                <Search class="pointer-events-none absolute text-surface-50 ml-4 md:ml-[1vw] w-5 md:w-[1.25vw]" />
+                <Search class="pointer-events-none absolute ml-4 w-5 text-surface-50 md:ml-[1vw] md:w-[1.25vw]" />
                 <input
                     type="text"
                     placeholder="Looking for specific anime? Start from here..."
-                    class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 w-full md:w-[50vw] rounded-lg md:rounded-[0.5vw] py-3 pl-14 md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
+                    class="w-full rounded-lg border-none bg-surface-400 py-3 pl-14 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[50vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw]"
                 />
             </div>
         </search>
-        <filter_page_tabs class="flex items-center justify-between">
+        <VercelHover
+            glider_container_class="flex items-center justify-between"
+            let:handle_mouseenter
+            let:handle_mouseleave
+        >
             {#each Object.entries(filter_pages_mapping) as page}
                 {@const page_key = page[0]}
                 {@const page_title = page[1].title}
@@ -125,18 +130,20 @@
                 {@const is_active = active_filter_page === page_key}
 
                 <button
-                    class="cursor-pointer text-base px-3 py-2 h-14 leading-tight md:h-auto rounded-lg md:px-[1.25vw] md:py-[0.9vw] md:rounded-[0.5vw] font-semibold md:text-[1vw] hover:text-white transition-colors"
+                    class="h-14 cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-tight transition-colors hover:text-white md:h-auto md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.9vw] md:text-[1vw]"
                     class:bg-surface-400={is_active}
                     class:text-surface-50={!is_active}
+                    on:mouseenter={handle_mouseenter}
+                    on:mouseleave={handle_mouseleave}
                     on:click={() => change_filter_page(page_key)}
                 >
                     {page_title}
                 </button>
             {/each}
-        </filter_page_tabs>
+        </VercelHover>
     </explore-options>
 
-    <filter-options class="flex items-end gap-3 md:gap-0 justify-between mt-5 md:mt-0">
+    <filter-options class="mt-5 flex items-end justify-between gap-3 md:mt-0 md:gap-0">
         {#each Object.entries(filter_options_mapping) as option}
             {@const title = option[1].title}
             {@const value = option[1].value}
@@ -145,12 +152,12 @@
             <filter-component class={klass}>
                 <span class="leading-none text-surface-50 md:text-[1vw]">{title}</span>
                 <div class="relative flex items-center">
-                    <button class="btn absolute right-0 p-0 mr-3 md:mr-[1vw] w-4 md:w-[1.25vw]">
+                    <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1.25vw]">
                         <Chevron class="text-surface-50" />
                     </button>
                     <input
                         type="text"
-                        class="border-none bg-surface-400 leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] w-full py-3 rounded-lg text-base md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
+                        class="w-full rounded-lg border-none bg-surface-400 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                         {value}
                     />
                 </div>
@@ -158,7 +165,7 @@
         {/each}
 
         <more-filter-option>
-            <button class="btn bg-surface-400 md:rounded-[0.5vw] p-3 md:p-[0.79vw]">
+            <button class="btn bg-surface-400 p-3 md:rounded-[0.5vw] md:p-[0.79vw]">
                 <MoreBox class="w-5 md:w-[1.25vw]" />
             </button>
         </more-filter-option>
@@ -166,24 +173,24 @@
 
     <active-filter-page class="mt-20 md:mt-[2vw]">
         <headings class="flex flex-col md:gap-[0.35vw]">
-            <span class="font-semibold leading-none text-xl md:text-[1.25vw]">
+            <span class="text-xl font-semibold leading-none md:text-[1.25vw]">
                 {filter_pages_mapping[active_filter_page].title}
             </span>
-            <span class="text-surface-50 leading-none text-base md:text-[1vw]">
+            <span class="text-base leading-none text-surface-50 md:text-[1vw]">
                 {filter_pages_mapping[active_filter_page].description}
             </span>
         </headings>
 
-        <result-animes class="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-[1.25vw] md:gap-y-[3vw] mt-5 md:mt-[1.25vw]">
+        <result-animes class="mt-5 grid grid-cols-2 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1.25vw] md:gap-y-[3vw]">
             {#each trending_animes as anime}
-                <anime class="flex flex-col leading-none gap-2 md:gap-[0.75vw]">
+                <anime class="flex flex-col gap-2 leading-none md:gap-[0.75vw]">
                     <ImageLoader
                         src={anime.cover}
-                        class="w-full h-80 rounded-lg object-cover md:h-[20vw] md:rounded-[0.75vw]"
+                        class="h-80 w-full rounded-lg object-cover md:h-[20vw] md:rounded-[0.75vw]"
                     />
                     <div class="flex flex-col md:gap-[0.35vw]">
-                        <anime_name class="line-clamp-1 font-semibold text-base md:text-[1.1vw]">{anime.name}</anime_name>
-                        <anime_info class="flex items-center text-surface-50 gap-2 md:gap-[0.5vw] text-sm md:text-[0.9vw]">
+                        <anime_name class="line-clamp-1 text-base font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
+                        <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
                             <genre>{anime.genre}</genre>
                             <Circle class="w-1 md:w-[0.25vw]" />
                             <year>{anime.year}</year>
