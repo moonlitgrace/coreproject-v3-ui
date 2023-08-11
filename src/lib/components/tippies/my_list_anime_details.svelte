@@ -9,9 +9,9 @@
     export let anime_studios: string[];
 </script>
 
-<popup-container class="md:w-[17vw] md:h-[10vw] leading-none bg-surface-400 md:rounded-[0.75vw] flex flex-col md:gap-[0.55vw] md:p-[1.5vw]">
+<popup-container class="md:w-[17vw] leading-none bg-surface-400 md:rounded-[0.75vw] flex flex-col md:gap-[0.55vw] md:p-[1.5vw]">
     <!-- Add image dominant color for anime-name -->
-    <anime-name class="md:text-[1vw] font-semibold">{anime_name}</anime-name>
+    <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw]">{anime_name}</anime-name>
     <div class="flex items-center md:gap-[0.5vw] md:text-[0.8vw] text-surface-50">
         <anime-type>{anime_type}</anime-type>
         <Circle class="md:w-[0.25vw] opacity-50" />
