@@ -521,13 +521,13 @@
         </my-list-info>
 
         <my-list-animes class="hide-scrollbar relative mb-[2vw] mt-4 flex snap-x grid-cols-7 md:grid-cols-5 gap-5 overflow-x-scroll scroll-smooth md:mt-[1.5vw] md:grid md:gap-[1.5vw] md:overflow-visible">
-            {#each my_list.slice(0, 5) as anime}
+            {#each my_list as anime}
                 <div class="group col-span-1 w-40 flex-shrink-0 snap-start md:w-auto">
                     <card class="relative block h-60 w-full md:h-[18vw]">
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="absolute h-full w-full rounded-2xl object-cover object-center md:rounded-[0.75vw]"
+                            class="absolute h-full w-full rounded-2xl object-cover object-center md:rounded-[0.5vw]"
                         />
                         <overlay class="absolute inset-0 flex items-end md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
                             <div class="md:rounded-[0.3vw] overflow-hidden flex md:gap-[0.2vw]">
