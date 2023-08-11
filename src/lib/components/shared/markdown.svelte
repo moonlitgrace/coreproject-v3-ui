@@ -7,7 +7,6 @@
     import { markedHighlight } from "marked-highlight";
     import { mangle } from "marked-mangle";
     import { markedXhtml } from "marked-xhtml";
-    // @ts-ignore
     import { markedSmartypants } from "marked-smartypants";
 
     export let markdown = "";
