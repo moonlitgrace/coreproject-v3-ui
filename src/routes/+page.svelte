@@ -531,11 +531,11 @@
                         />
                         <overlay class="absolute inset-0 flex items-end md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
                             <div class="md:rounded-[0.3vw] overflow-hidden flex md:gap-[0.2vw]">
-                                <subs class="bg-primary-500 md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
+                                <subs class="bg-warning-400 text-black md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
                                     <Caption class="md:h-[1.25vw]" />
                                     <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
                                 </subs>
-                                <dubs class="bg-warning-400 text-black md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
+                                <dubs class="bg-surface-50/50 backdrop-blur md:px-[0.45vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
                                     <Mic class="md:h-[0.8vw]" />
                                     <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
                                 </dubs>
