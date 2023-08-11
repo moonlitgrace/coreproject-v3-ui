@@ -524,7 +524,7 @@
 
         <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-5 md:mt-[1vw] grid md:gap-[1.25vw]">
             {#each my_list as anime}
-                <div class="col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto group">
+                <a href="/mal/{anime.id}" class="unstyled col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto group">
                     <div
                         class="relative"
                         use:tippy={{
@@ -583,7 +583,7 @@
                             <span>{anime.current_episode}/{anime.episodes_count}</span>
                         </anime_info>
                     </anime-details>
-                </div>
+                </a>
             {/each}
         </my-list-animes>
     </my-list>
