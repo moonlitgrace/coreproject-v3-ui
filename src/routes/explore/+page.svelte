@@ -119,7 +119,9 @@
             </div>
         </search>
         <VercelHover
+            direction="horizontal"
             glider_container_class="flex items-center justify-between"
+            active_element_class="z-0 rounded-[0.75vw] bg-white/10"
             let:handle_mouseenter
             let:handle_mouseleave
         >
@@ -130,7 +132,7 @@
                 {@const is_active = active_filter_page === page_key}
 
                 <button
-                    class="h-14 cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-tight transition-colors hover:text-white md:h-auto md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.9vw] md:text-[1vw]"
+                    class="z-10 h-14 cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-tight transition-colors hover:text-white md:h-auto md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.9vw] md:text-[1vw]"
                     class:bg-surface-400={is_active}
                     class:text-surface-50={!is_active}
                     on:mouseenter={handle_mouseenter}
