@@ -34,6 +34,8 @@
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
     import Mic from "$icons/mic.svelte";
+    import tippy from "tippy.js";
+    import { offset } from "caret-pos";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -522,8 +524,38 @@
 
         <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-5 md:mt-[1vw] grid md:gap-[1.25vw]">
             {#each my_list as anime}
-                <div class="col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto">
-                    <anime-cover class="relative">
+                <div class="col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto group">
+                    <div
+                        class="relative"
+                        use:tippy={{
+                            arrow: false,
+                            allowHTML: true,
+                            placement: "right-start",
+                            offset: [10, 10],
+                            animation: "scale",
+                            duration: [200, 50],
+                            appendTo: document.body,
+                            onTrigger: async (instance) => {
+                                const node = document.createElement("div");
+                                new MyListAnimeDetails({
+                                    target: node,
+                                    props: {
+                                        anime_cover: anime.cover,
+                                        anime_name: anime.name,
+                                        anime_type: anime.type,
+                                        anime_genres: anime.genres,
+                                        anime_studios: anime.studios,
+                                        anime_synopsis: anime.synopsis,
+                                        anime_current_episode: anime.current_episode,
+                                        anime_episodes_count: anime.episodes_count,
+                                        anime_release_date: anime.release_date
+                                    }
+                                });
+
+                                instance.setContent(node);
+                            }
+                        }}
+                    >
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
@@ -541,7 +573,7 @@
                                 </dubs>
                             </div>
                         </overlay>
-                    </anime-cover>
+                    </div>
 
                     <anime-details class="flex flex-col md:gap-[0.5vw]">
                         <anime_name class="line-clamp-1 text-base font-semibold md:text-[1.1vw] leading-none">{anime.name}</anime_name>
