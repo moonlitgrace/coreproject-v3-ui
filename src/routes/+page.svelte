@@ -14,6 +14,7 @@
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
     import CoreProject from "$icons/core_project.svelte";
+    import Caption from "$icons/caption.svelte";
     import Edit from "$icons/edit.svelte";
     import Forum from "$icons/forum.svelte";
     import Info from "$icons/info.svelte";
@@ -33,6 +34,7 @@
     import { tweened } from "svelte/motion";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
+    import Mic from "$icons/mic.svelte";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -560,7 +562,18 @@
                             alt={anime.name}
                             class="absolute h-full w-full rounded-2xl object-cover object-center md:rounded-[0.75vw]"
                         />
-                        <gradient-overlay class="absolute inset-0 bg-gradient-to-t from-surface-900/75 to-transparent" />
+                        <overlay class="absolute inset-0 flex items-end md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
+                            <div class="md:rounded-[0.3vw] overflow-hidden flex md:gap-[0.2vw]">
+                                <subs class="bg-primary-500 md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
+                                    <Caption class="md:h-[1.25vw]" />
+                                    <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                </subs>
+                                <dubs class="bg-warning-400 text-black md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
+                                    <Mic class="md:h-[0.8vw]" />
+                                    <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                </dubs>
+                            </div>
+                        </overlay>
 
                         <anime-details class="">
                             
