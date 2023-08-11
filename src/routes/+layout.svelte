@@ -359,7 +359,7 @@
 
                     <VercelHover
                         direction="vertical"
-                        glider_container_class="relative mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]"
+                        glider_container_class="mt-[2.8125vw] flex flex-col items-center gap-[0.75vw]"
                         active_element_class="rounded-[0.75vw] bg-white/10"
                         let:handle_mouseenter
                         let:handle_mouseleave
