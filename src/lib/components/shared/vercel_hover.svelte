@@ -18,6 +18,13 @@
         hover_glider_element.style.height = getComputedStyle(target).height;
         hover_glider_element.style.width = getComputedStyle(target).width;
 
+        const target_z_index = getComputedStyle(target).zIndex;
+
+        if (target_z_index === "auto") {
+            target.style.zIndex = "0";
+        }
+        hover_glider_element.style.zIndex = String(Number(getComputedStyle(target).zIndex) - 1);
+
         switch (direction) {
             case "vertical":
                 hover_glider_element.style.transform = `translateY(${target.offsetTop}px)`;
