@@ -531,7 +531,7 @@
                         placement: "right-start",
                         offset: [10, 10],
                         animation: "scale",
-                        duration: [200, 50],
+                        duration: [150, 10],
                         appendTo: document.body,
                         onTrigger: async (instance) => {
                             const node = document.createElement("div");
