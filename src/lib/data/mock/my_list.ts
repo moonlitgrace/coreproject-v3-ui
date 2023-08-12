@@ -1,14 +1,14 @@
 export const my_list = [
     {
         id: 1,
-        name: "Azur Lane",
-        cover: "/images/AzurLane.avif",
+        name: "One piece",
+        cover: "/images/cover/one_piece.webp",
         synopsis: `
 				Azur Lane, a combination of all the different Camps in the world, was once successful in repelling the underwater menace, the Siren. Now splintered, they must face a new threat in Red Axis, former allies who crave to wield this otherworldly Siren technology for their own nefarious desires! Who will be victorious in the never-ending war between these battleship girls!?
 				Akagami no Shirayuki-hime depicts Shirayuki's journey toward a new life at the royal palace of Clarines, as well as Zen's endeavor to become a prince worthy of his title. As loyal friendships are forged and deadly enemies formed, Shirayuki and Zen slowly learn to support each other as they walk their own paths.
 				`,
         current_episode: 4,
-        episodes_count: 12,
+        episodes_count: 1071,
         genres: ["Action", "Ecchi", "sci-Fi"],
         type: "TV",
         release_date: "2023-04-22T10:30:00.000Z",
@@ -16,22 +16,22 @@ export const my_list = [
     },
     {
         id: 2,
-        name: "Akagami no Shirayuki-hime",
-        cover: "/images/AkagamiNoShirayuki.avif",
+        name: "Horimiya: The Missing Piece",
+        cover: "/images/cover/horimiya.jpg",
         synopsis: `
-				Although her name means "snow white," Shirayuki is a cheerful, red-haired girl living in the country of Tanbarun who works diligently as an apothecary at her herbal shop. Her life changes drastically when she is noticed by the silly prince of Tanbarun, Prince Raji, who then tries to force her to become his concubine.
-				`,
-        current_episode: 11,
-        episodes_count: 12,
-        genres: ["Love", "Drama", "Action"],
+                Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
+                `,
+        current_episode: 8,
+        episodes_count: 28,
+        genres: ["Action", "Drama", "Triller"],
         type: "TV",
-        release_date: "2013-08-22T10:30:00.000Z",
-        studios: ["Kyoto Animations"]
+        release_date: "2018-10-22T10:30:00.000Z",
+        studios: ["Animation XXX"]
     },
     {
         id: 3,
-        name: "GOLDEN BOY: Sasurai no Obenkyou Yarou",
-        cover: "/images/GoldenBoy.avif",
+        name: "Rurouni Kenshin: Meji na tokito",
+        cover: "/images/cover/rurouni.webp",
         synopsis: `
 				Kintarou Ooe is a specialist in part-time work, riding all over the highways and byways of Japan on his trusty steed, the Mikazuki 5, and finding employment wherever he can. His adventures bring him knowledge and experience that can't be taught in a classroom, from political corruption to the delicacy of a young woman's heart. With nothing but the open road before him—not to mention the many beautiful women along the way—Kintarou 
 				`,
@@ -72,17 +72,17 @@ export const my_list = [
     },
     {
         id: 6,
-        name: "Death note",
-        cover: "/images/DeathNote-bg.avif",
+        name: "Jujutsu Kaisen 2nd season",
+        cover: "/images/cover/jjk.webp",
         synopsis: `
-				Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
-				`,
-        current_episode: 8,
-        episodes_count: 28,
-        genres: ["Action", "Drama", "Triller"],
+                Although her name means "snow white," Shirayuki is a cheerful, red-haired girl living in the country of Tanbarun who works diligently as an apothecary at her herbal shop. Her life changes drastically when she is noticed by the silly prince of Tanbarun, Prince Raji, who then tries to force her to become his concubine.
+                `,
+        current_episode: 11,
+        episodes_count: 12,
+        genres: ["Love", "Drama", "Action"],
         type: "TV",
-        release_date: "2018-10-22T10:30:00.000Z",
-        studios: ["Animation XXX"]
+        release_date: "2013-08-22T10:30:00.000Z",
+        studios: ["Kyoto Animations"]
     },
     {
         id: 7,

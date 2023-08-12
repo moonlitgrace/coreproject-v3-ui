@@ -1,71 +1,53 @@
 <script lang="ts">
     import { FormatDate } from "$functions/format_date";
     import Circle from "$icons/circle.svelte";
+    import Star from "$icons/star.svelte";
+    import { ProgressBar } from "@skeletonlabs/skeleton";
 
-    export let anime_cover: string;
     export let anime_name: string;
-    export let anime_type: string;
-    export let anime_release_date: string;
     export let anime_episodes_count: number;
+    export let anime_type: string;
     export let anime_genres: string[];
     export let anime_studios: string[];
     export let anime_synopsis: string;
-    export let anime_current_episode: number;
 </script>
 
-<div class="z-20 h-[18vw] w-[20vw] rounded-[1vw]">
-    <div
-        class="relative flex h-full w-full items-center overflow-hidden rounded-[1vw] bg-cover bg-center"
-        style="background-image: url({anime_cover});"
-    >
-        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-t from-surface-900 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
-        <gradient-overlay class="gradient absolute h-full w-full bg-gradient-to-r from-surface-900/75 to-surface-900/25 transition duration-300 group-hover:to-surface-900/50" />
-
-        <div class="absolute flex h-full flex-col justify-end rounded-[1vw] border-[0.25vw] border-b-0 border-surface-50/50 px-[1.5625vw] pb-[3vw]">
-            <span class="line-clamp-1 text-[1vw] font-semibold leading-[1.25vw] text-white">
-                {anime_name}
-            </span>
-            <span class="line-clamp-1 text-[0.75vw] font-semibold uppercase leading-[1.25vw] tracking-wider text-surface-50">
-                {anime_name}
-            </span>
-
-            <div class="mt-[0.25vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                <span>{anime_type}</span>
-                <Circle class="w-[0.2vw] text-surface-50" />
-                <span class="capitalize">
-                    {new FormatDate(anime_release_date).format_to_season}
-                </span>
-                <Circle class="w-[0.2vw] text-surface-50" />
-                <span>{anime_episodes_count} episodes</span>
-            </div>
-
-            <div class="mt-[0.5vw] flex gap-[0.5vw]">
-                {#each anime_genres as genre}
-                    <span class="rounded-[0.25vw] bg-surface-900 px-[0.625vw] py-[0.35vw] text-[0.75vw] leading-[0.75vw]">
-                        {genre}
-                    </span>
-                {/each}
-            </div>
-
-            <div class="mt-[0.5vw] flex items-center gap-[0.5vw] text-[0.75vw]">
-                <span>
-                    69% <span class="text-surface-200">[7852 ratings]</span>
-                </span>
-                <Circle class="w-[0.2vw] text-surface-50" />
-                <span>{anime_studios[0]}</span>
-            </div>
-
-            <span class="mt-[0.75vw] line-clamp-3 text-[0.75vw] font-medium leading-[1vw] text-surface-50">
-                {anime_synopsis}
-            </span>
+<popup-container class="hidden md:flex md:w-[17vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
+    <div class="md:p-[1.5vw] flex flex-col md:gap-[0.35vw]">
+        <!-- Add image dominant color for anime-name -->
+        <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw]">{anime_name}</anime-name>
+        <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50">
+            <anime-raing class="flex items-center md:gap-[0.25vw]">
+                <Star variant="full" class="md:w-[0.9vw] h-auto" fill_color="white" />
+                <span>4.5</span>
+            </anime-raing>
+            <Circle class="md:w-[0.25vw] opacity-50" />
+            <anime-type>{anime_type}</anime-type>
+            <Circle class="md:w-[0.25vw] opacity-50" />
+            <episodes-count>{anime_episodes_count} episdoes</episodes-count>
         </div>
-
-        <div class="absolute bottom-0 flex h-[1.75vw] w-full items-center justify-center gap-[0.5vw] bg-primary-500 text-[0.9vw] font-semibold">
-            <span class="font-medium">Watching</span>
-            <Circle class="w-[0.2vw]" />
-            <span>
-                {anime_current_episode}/{anime_episodes_count}
-            </span>
-        </div>
+        {#each anime_studios as studio}
+            <studio class="md:text-[0.75vw] text-surface-50">{studio}</studio>
+        {/each}
+        <genres class="flex items-center md:gap-[0.5vw] md:my-[0.5vw]">
+            {#each anime_genres as genre}
+                <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.3vw]">
+                    {genre}
+                </genre>
+            {/each}
+        </genres>
+        <synopsis class="md:text-[0.85vw] md:leading-[1vw] line-clamp-5 text-surface-50">
+            {anime_synopsis}
+        </synopsis>
     </div>
-</div>
+
+    <ProgressBar
+        label="Progress Bar"
+        value={80}
+        max={100}
+        height="h-3 md:h-[0.25vw]"
+        rounded="rounded-none"
+        track="bg-transparent"
+        meter="bg-primary-500 md:rounded-r-full"
+    />
+</popup-container>
