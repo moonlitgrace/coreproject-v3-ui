@@ -36,7 +36,7 @@
         {/each}
         <genres class="flex items-center md:gap-[0.5vw] md:my-[0.35vw]">
             {#each anime_genres as genre}
-                <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-full">
+                <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
                     {genre}
                 </genre>
             {/each}
@@ -49,23 +49,13 @@
         </ScrollArea>
 
         <options class="md:mt-[0.25vw] border-t-[0.1vw] md:pt-[0.75vw] border-white/10 flex items-center md:gap-[0.5vw]">
-            <button class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1">
+            <button class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1 h-[2.3vw]">
                 <PlayCircle class="md:w-[1vw]" />
                 <span class="md:text-[0.9vw] font-semibold">Continue Ep {anime_current_episode}</span>
             </button>
-            <button class="btn leading-none bg-primary-500 md:rounded-[0.5vw] p-0 h-[2.3vw] aspect-square">
+            <button class="btn leading-none bg-primary-500/25 md:rounded-[0.5vw] p-0 h-[2.3vw] aspect-square">
                 <Add class="md:w-[1vw]" />
             </button>
         </options>
     </div>
-
-    <ProgressBar
-        label="Progress Bar"
-        value={80}
-        max={100}
-        height="h-3 md:h-[0.25vw]"
-        rounded="rounded-none"
-        track="bg-transparent"
-        meter="bg-primary-500 md:rounded-r-full"
-    />
 </popup-container>

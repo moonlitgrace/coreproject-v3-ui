@@ -525,35 +525,37 @@
                 <a
                     href="/mal/{anime.id}"
                     class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
-                    use:tippy={{
-                        arrow: false,
-                        allowHTML: true,
-                        placement: "right-start",
-                        offset: [10, 10],
-                        animation: "scale",
-                        duration: [150, 10],
-                        interactive: true,
-                        appendTo: document.body,
-                        onTrigger: async (instance) => {
-                            const node = document.createElement("div");
-                            new MyListAnimeDetails({
-                                target: node,
-                                props: {
-                                    anime_name: anime.name,
-                                    anime_type: anime.type,
-                                    anime_genres: anime.genres,
-                                    anime_studios: anime.studios,
-                                    anime_episodes_count: anime.episodes_count,
-                                    anime_synopsis: anime.synopsis,
-                                    anime_current_episode: anime.current_episode,
-                                }
-                            });
-
-                            instance.setContent(node);
-                        }
-                    }}
                 >
-                    <div class="relative">
+                    <div
+                        class="relative"
+                        use:tippy={{
+                            arrow: false,
+                            allowHTML: true,
+                            placement: "right",
+                            offset: [100, -100],
+                            animation: "scale",
+                            duration: [150, 10],
+                            interactive: true,
+                            appendTo: document.body,
+                            onTrigger: async (instance) => {
+                                const node = document.createElement("div");
+                                new MyListAnimeDetails({
+                                    target: node,
+                                    props: {
+                                        anime_name: anime.name,
+                                        anime_type: anime.type,
+                                        anime_genres: anime.genres,
+                                        anime_studios: anime.studios,
+                                        anime_episodes_count: anime.episodes_count,
+                                        anime_synopsis: anime.synopsis,
+                                        anime_current_episode: anime.current_episode,
+                                    }
+                                });
+
+                                instance.setContent(node);
+                            }
+                        }}
+                    >
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
