@@ -1,6 +1,7 @@
 <script lang="ts">
     import { FormatDate } from "$functions/format_date";
     import Circle from "$icons/circle.svelte";
+    import Star from "$icons/star.svelte";
     import { ProgressBar } from "@skeletonlabs/skeleton";
 
     export let anime_name: string;
@@ -17,6 +18,11 @@
         <!-- Add image dominant color for anime-name -->
         <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw]">{anime_name}</anime-name>
         <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50">
+            <anime-raing class="flex items-center md:gap-[0.25vw]">
+                <Star variant="full" class="md:w-[0.9vw] h-auto" fill_color="white" />
+                <span>4.5</span>
+            </anime-raing>
+            <Circle class="md:w-[0.25vw] opacity-50" />
             <anime-type>{anime_type}</anime-type>
             <Circle class="md:w-[0.25vw] opacity-50" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
