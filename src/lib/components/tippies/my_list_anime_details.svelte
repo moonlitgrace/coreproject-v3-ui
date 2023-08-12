@@ -1,5 +1,6 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import { FormatDate } from "$functions/format_date";
     import Circle from "$icons/circle.svelte";
     import Info from "$icons/info.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
@@ -13,6 +14,7 @@
     export let anime_genres: string[];
     export let anime_studios: string[];
     export let anime_synopsis: string;
+    export let anime_release_date: string;
 </script>
 
 <popup-container class="hidden md:flex md:w-[20vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
@@ -24,9 +26,20 @@
             <Circle class="md:w-[0.25vw] opacity-50" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
         </div>
-        {#each anime_studios as studio}
-            <studio class="md:text-[0.75vw] text-surface-50">{studio}</studio>
-        {/each}
+        <studio class="md:text-[0.75vw] text-surface-50">
+            <span>Studio:</span>
+            {#each anime_studios as studio}
+                <span>{studio}</span>
+            {/each}
+        </studio>
+        <release-date class="md:text-[0.75vw] text-surface-50">
+            <span>Release date:</span>
+            <span>{new FormatDate(anime_release_date).format_to_human_readable_form}</span>
+        </release-date>
+        <status class="md:text-[0.75vw] text-surface-50">
+            <span>Status:</span>
+            <span>Completed</span>
+        </status>
         <genres class="flex items-center md:gap-[0.5vw] md:my-[0.35vw]">
             {#each anime_genres as genre}
                 <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
