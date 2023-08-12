@@ -3,7 +3,6 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import MyListAnimeDetails from "$components/tippies/my_list_anime_details.svelte";
-    import { continue_watching } from "$data/mock/continue_watching";
     import { latest_animes } from "$data/mock/latest_animes";
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { my_list } from "$data/mock/my_list";
@@ -35,7 +34,6 @@
     import { blur } from "svelte/transition";
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
-    import { offset } from "caret-pos";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -526,7 +524,7 @@
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}"
-                    class="unstyled col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto group"
+                    class="unstyled col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto"
                     use:tippy={{
                         arrow: false,
                         allowHTML: true,
@@ -572,8 +570,8 @@
                         </overlay>
                     </div>
 
-                    <anime-details class="flex flex-col md:gap-[0.5vw]">
-                        <anime_name class="line-clamp-1 text-base md:text-[1vw] font-semibold leading-none group-hover:text-primary-100 transition-colors">{anime.name}</anime_name>
+                    <anime-details class="flex flex-col md:gap-[0.5vw] text-surface-50">
+                        <anime_name class="line-clamp-1 text-base md:text-[1vw] font-semibold leading-none">{anime.name}</anime_name>
                         <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
                             <span>Watching</span>
                             <Circle class="w-1 md:w-[0.25vw] opacity-75" />
