@@ -520,11 +520,11 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-5 md:mt-[1vw] grid md:gap-[1.25vw]">
+        <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-3 md:mt-[1vw] grid md:gap-[1.25vw]">
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}"
-                    class="unstyled col-span-1 w-40 relative flex flex-col md:gap-[0.5vw] md:w-auto"
+                    class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
                     use:tippy={{
                         arrow: false,
                         allowHTML: true,
@@ -556,25 +556,25 @@
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="h-60 md:h-[18vw] w-full rounded-2xl object-cover object-center md:rounded-[0.35vw]"
+                            class="h-52 md:h-[18vw] w-full rounded-md object-cover object-center md:rounded-[0.35vw]"
                         />
-                        <overlay class="absolute inset-0 flex items-end md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
-                            <div class="md:rounded-[0.3vw] overflow-hidden flex md:gap-[0.2vw]">
-                                <subs class="bg-warning-400 text-black md:px-[0.35vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
-                                    <Caption class="md:h-[1.25vw]" />
-                                    <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                        <overlay class="absolute inset-0 flex items-end p-2 md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
+                            <div class="rounded md:rounded-[0.3vw] overflow-hidden flex gap-1 md:gap-[0.2vw]">
+                                <subs class="bg-warning-400 text-black p-1 md:px-[0.35vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                    <Caption class="h-4 md:h-[1.25vw]" />
+                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
                                 </subs>
-                                <dubs class="bg-white/25 backdrop-blur md:px-[0.45vw] md:py-[0.25vw] flex items-center md:gap-[0.25vw]">
-                                    <Mic class="md:h-[0.8vw]" />
-                                    <span class="md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                <dubs class="bg-white/25 backdrop-blur p-1 md:px-[0.45vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                    <Mic class="h-3 md:h-[0.8vw]" />
+                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
                                 </dubs>
                             </div>
                         </overlay>
                     </div>
 
-                    <anime-details class="flex flex-col md:gap-[0.5vw] text-surface-50">
-                        <anime_name class="line-clamp-1 text-base md:text-[1vw] font-semibold leading-none">{anime.name}</anime_name>
-                        <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
+                    <anime-details class="flex flex-col gap-2 md:gap-[0.5vw] text-surface-50">
+                        <anime_name class="line-clamp-1 text-xs md:text-[1vw] font-semibold leading-none">{anime.name}</anime_name>
+                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
                             <span>Watching</span>
                             <Circle class="w-1 md:w-[0.25vw] opacity-75" />
                             <span>{anime.current_episode}/{anime.episodes_count} eps</span>
