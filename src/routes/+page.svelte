@@ -7,7 +7,6 @@
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { my_list } from "$data/mock/my_list";
     import { FormatDate } from "$functions/format_date";
-    import { FormatTime } from "$functions/format_time";
     import { OpengraphGenerator } from "$functions/opengraph";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Chevron from "$icons/chevron.svelte";
@@ -523,7 +522,7 @@
         <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-3 md:mt-[1vw] grid md:gap-[1.25vw]">
             {#each my_list as anime}
                 <a
-                    href="/mal/{anime.id}"
+                    href="/mal/{anime.id}/episode/{anime.current_episode}"
                     class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
                 >
                     <div
@@ -542,6 +541,7 @@
                                 new MyListAnimeDetails({
                                     target: node,
                                     props: {
+                                        anime_id: anime.id,
                                         anime_name: anime.name,
                                         anime_type: anime.type,
                                         anime_genres: anime.genres,

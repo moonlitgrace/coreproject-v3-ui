@@ -1,13 +1,11 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import { FormatDate } from "$functions/format_date";
-    import Add from "$icons/add.svelte";
     import Circle from "$icons/circle.svelte";
-    import Cross from "$icons/cross.svelte";
+    import Info from "$icons/info.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Star from "$icons/star.svelte";
-    import { ProgressBar } from "@skeletonlabs/skeleton";
 
+    export let anime_id: number;
     export let anime_name: string;
     export let anime_episodes_count: number;
     export let anime_current_episode: number;
@@ -22,11 +20,6 @@
         <!-- Add image dominant color for anime-name -->
         <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw] border-b-[0.1vw] md:pb-[0.5vw] border-white/10">{anime_name}</anime-name>
         <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50">
-            <anime-raing class="flex items-center md:gap-[0.25vw]">
-                <Star variant="full" class="md:w-[0.9vw] h-auto" fill_color="white" />
-                <span>4.5</span>
-            </anime-raing>
-            <Circle class="md:w-[0.25vw] opacity-50" />
             <anime-type>{anime_type}</anime-type>
             <Circle class="md:w-[0.25vw] opacity-50" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
@@ -49,13 +42,13 @@
         </ScrollArea>
 
         <options class="md:mt-[0.25vw] border-t-[0.1vw] md:pt-[0.75vw] border-white/10 flex items-center md:gap-[0.5vw]">
-            <button class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1 h-[2.3vw]">
+            <a href="/mal/{anime_id}/episode/{anime_current_episode}" class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1 h-[2.3vw]">
                 <PlayCircle class="md:w-[1vw]" />
                 <span class="md:text-[0.9vw] font-semibold">Continue Ep {anime_current_episode}</span>
-            </button>
-            <button class="btn leading-none bg-primary-500/25 md:rounded-[0.5vw] p-0 h-[2.3vw] aspect-square">
-                <Add class="md:w-[1vw]" />
-            </button>
+            </a>
+            <a href="/mal/{anime_id}" class="btn leading-none bg-primary-500/25 md:rounded-[0.5vw] p-0 h-[2.3vw] aspect-square">
+                <Info class="md:w-[1.2vw]" />
+            </a>
         </options>
     </div>
 </popup-container>
