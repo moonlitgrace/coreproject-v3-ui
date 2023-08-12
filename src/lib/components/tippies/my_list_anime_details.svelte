@@ -1,10 +1,12 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
+    import { round_to_nearest_zero_point_five } from "$functions/math";
     import Circle from "$icons/circle.svelte";
     import Info from "$icons/info.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Star from "$icons/star.svelte";
+    import { Ratings } from "@skeletonlabs/skeleton";
 
     export let anime_id: number;
     export let anime_name: string;
@@ -19,9 +21,43 @@
 
 <popup-container class="hidden md:flex md:w-[20vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
     <div class="md:p-[1.5vw] flex flex-col md:gap-[0.5vw]">
-        <!-- Add image dominant color for anime-name -->
         <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw] border-b-[0.1vw] md:pb-[0.5vw] border-white/10">{anime_name}</anime-name>
-        <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50">
+        <div class="flex items-center justify-between">
+            <rating class="flex items-center md:gap-[0.5vw]">
+                <Ratings
+                    value={round_to_nearest_zero_point_five(4.5)}
+                    max={5}
+                >
+                    <svelte:fragment slot="empty">
+                        <Star
+                            color="yellow"
+                            variant="empty"
+                            fill_color="yellow"
+                            class="w-[1.1vw] h-[1.1vw]"
+                        />
+                    </svelte:fragment>
+                    <svelte:fragment slot="half">
+                        <Star
+                            color="yellow"
+                            variant="half"
+                            fill_color="yellow"
+                            class="w-[1.1vw] h-[1.1vw]"
+                        />
+                    </svelte:fragment>
+                    <svelte:fragment slot="full">
+                        <Star
+                            color="yellow"
+                            variant="full"
+                            fill_color="yellow"
+                            class="w-[1.1vw] h-[1.1vw]"
+                        />
+                    </svelte:fragment>
+                </Ratings>
+                <span class="md:text-[0.8vw] text-surface-50">2.8k</span>
+            </rating>
+        </div>
+
+        <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50 md:mt-[0.5vw]">
             <anime-type>{anime_type}</anime-type>
             <Circle class="md:w-[0.25vw] opacity-50" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
