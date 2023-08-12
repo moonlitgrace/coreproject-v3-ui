@@ -532,6 +532,7 @@
                         offset: [10, 10],
                         animation: "scale",
                         duration: [150, 10],
+                        interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
                             const node = document.createElement("div");
