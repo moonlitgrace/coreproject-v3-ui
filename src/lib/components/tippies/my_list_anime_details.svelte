@@ -42,7 +42,7 @@
         max={100}
         height="h-3 md:h-[0.25vw]"
         rounded="rounded-none"
-        track="bg-white/20"
-        meter="bg-primary-500"
+        track="bg-transparent"
+        meter="bg-primary-500 md:rounded-r-full"
     />
 </popup-container>
