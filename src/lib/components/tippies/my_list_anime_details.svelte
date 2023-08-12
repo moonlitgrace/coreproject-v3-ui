@@ -13,7 +13,7 @@
     export let anime_current_episode: number;
 </script>
 
-<popup-container class="md:w-[17vw] leading-none bg-surface-400 flex flex-col md:rounded-[0.75vw] overflow-hidden">
+<popup-container class="hidden md:flex md:w-[17vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
     <div class="md:p-[1.5vw] flex flex-col md:gap-[0.35vw]">
         <!-- Add image dominant color for anime-name -->
         <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw]">{anime_name}</anime-name>
