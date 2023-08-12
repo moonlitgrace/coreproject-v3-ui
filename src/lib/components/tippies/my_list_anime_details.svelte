@@ -10,7 +10,6 @@
     export let anime_genres: string[];
     export let anime_studios: string[];
     export let anime_synopsis: string;
-    export let anime_current_episode: number;
 </script>
 
 <popup-container class="hidden md:flex md:w-[17vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
