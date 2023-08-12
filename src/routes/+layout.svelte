@@ -16,7 +16,6 @@
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
-    import { dom_selection } from "$store/select";
     import { theme } from "$store/theme";
     // Most of your app wide CSS should be put in this file
     import "../app.css";
@@ -255,11 +254,7 @@
     {/if}
 </svelte:head>
 
-<div
-    class="relative h-[100dvh]"
-    class:select-none={$dom_selection === "none"}
-    class:select-all={$dom_selection === "all"}
->
+<div class="relative h-[100dvh]">
     <Modal />
 
     <AppShell>

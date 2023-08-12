@@ -3,7 +3,6 @@
     import Moon from "$icons/moon.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
-    import { dom_selection } from "$store/select";
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
     // Bindings
@@ -11,13 +10,13 @@
         username_element_scroll_percent = 0;
 
     function mouseenter(el: HTMLElement) {
-        $dom_selection = "none";
+        document.body.classList.add("select-none");
         el.classList.add("select-text");
     }
 
     function mouseleave(el: HTMLElement) {
         el.classList.remove("select-text");
-        $dom_selection = "all";
+        document.body.classList.remove("select-none");
     }
     // Icons
     let dropdown_icons: {
@@ -66,11 +65,7 @@
     };
 </script>
 
-<div
-    class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]"
-    class:select-none={$dom_selection === "none"}
-    class:select-all={$dom_selection === "all"}
->
+<div class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
     <div class="grid grid-cols-12 items-center gap-[3vw] md:gap-[0.8vw]">
         <avatar class="col-span-3">
             <Avatar
