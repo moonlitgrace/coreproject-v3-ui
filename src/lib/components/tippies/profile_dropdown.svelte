@@ -3,9 +3,23 @@
     import Moon from "$icons/moon.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
     import User from "$icons/user.svelte";
+    import { dom_selection } from "$store/select";
     import { Avatar } from "@skeletonlabs/skeleton";
     import type { SvelteComponent } from "svelte";
+    // Bindings
+    let email_element_scroll_percent = 0,
+        username_element_scroll_percent = 0;
 
+    function mouseenter(el: HTMLElement) {
+        $dom_selection = "none";
+        el.classList.add("select-text");
+    }
+
+    function mouseleave(el: HTMLElement) {
+        el.classList.remove("select-text");
+        $dom_selection = "all";
+    }
+    // Icons
     let dropdown_icons: {
         [key in string]: {
             name?: string;
@@ -50,13 +64,13 @@
             }
         }
     };
-
-    // Bindings
-    let email_element_scroll_percent = 0;
-    let username_element_scroll_percent = 0;
 </script>
 
-<div class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]">
+<div
+    class="w-48 rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:w-[12vw] md:rounded-[0.5vw] md:px-[0.75vw] md:py-[1.125vw]"
+    class:select-none={$dom_selection === "none"}
+    class:select-all={$dom_selection === "all"}
+>
     <div class="grid grid-cols-12 items-center gap-[3vw] md:gap-[0.8vw]">
         <avatar class="col-span-3">
             <Avatar
@@ -72,6 +86,8 @@
                 class:mask-right={username_element_scroll_percent <= 10 && username_element_scroll_percent >= 0}
                 class:mask-left-and-right={username_element_scroll_percent < 90 && username_element_scroll_percent >= 10}
                 class:mask-left={username_element_scroll_percent <= 100 && username_element_scroll_percent >= 90}
+                on:mouseenter={(event) => mouseenter(event.currentTarget)}
+                on:mouseleave={(event) => mouseleave(event.currentTarget)}
                 on:scroll={(event) => {
                     const el = event.currentTarget;
                     username_element_scroll_percent = globalThis.Math.round((el.scrollLeft / (el.scrollWidth - el.clientWidth)) * 100);
@@ -84,6 +100,8 @@
                 class:mask-right={email_element_scroll_percent <= 10 && email_element_scroll_percent >= 0}
                 class:mask-left-and-right={email_element_scroll_percent < 90 && email_element_scroll_percent >= 10}
                 class:mask-left={email_element_scroll_percent <= 100 && email_element_scroll_percent >= 90}
+                on:mouseenter={(event) => mouseenter(event.currentTarget)}
+                on:mouseleave={(event) => mouseleave(event.currentTarget)}
                 on:scroll={(event) => {
                     const el = event.currentTarget;
                     email_element_scroll_percent = globalThis.Math.round((el.scrollLeft / (el.scrollWidth - el.clientWidth)) * 100);
