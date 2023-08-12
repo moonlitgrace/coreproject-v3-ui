@@ -556,7 +556,7 @@
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="h-60 md:h-[18vw] w-full rounded-2xl object-cover object-center md:rounded-[0.5vw]"
+                            class="h-60 md:h-[18vw] w-full rounded-2xl object-cover object-center md:rounded-[0.35vw]"
                         />
                         <overlay class="absolute inset-0 flex items-end md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
                             <div class="md:rounded-[0.3vw] overflow-hidden flex md:gap-[0.2vw]">
@@ -573,11 +573,11 @@
                     </div>
 
                     <anime-details class="flex flex-col md:gap-[0.5vw]">
-                        <anime_name class="line-clamp-1 text-base font-semibold md:text-[1.1vw] leading-none group-hover:text-warning-400 transition-colors">{anime.name}</anime_name>
-                        <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.9vw] leading-none">
+                        <anime_name class="line-clamp-1 text-base md:text-[1vw] font-semibold leading-none group-hover:text-primary-100 transition-colors">{anime.name}</anime_name>
+                        <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
                             <span>Watching</span>
-                            <Circle class="w-1 md:w-[0.25vw]" />
-                            <span>{anime.current_episode}/{anime.episodes_count}</span>
+                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
+                            <span>{anime.current_episode}/{anime.episodes_count} eps</span>
                         </anime_info>
                     </anime-details>
                 </a>
