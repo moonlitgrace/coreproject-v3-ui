@@ -7,9 +7,10 @@
     export let anime_type: string;
     export let anime_genres: string[];
     export let anime_studios: string[];
+    export let anime_synopsis: string;
 </script>
 
-<popup-container class="md:w-[17vw] leading-none bg-surface-400 md:rounded-[0.75vw] flex flex-col md:gap-[0.55vw] md:p-[1.5vw]">
+<popup-container class="md:w-[17vw] leading-none bg-surface-400 md:rounded-[0.75vw] flex flex-col md:gap-[0.35vw] md:p-[1.5vw]">
     <!-- Add image dominant color for anime-name -->
     <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw]">{anime_name}</anime-name>
     <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50">
@@ -20,11 +21,14 @@
     {#each anime_studios as studio}
         <studio class="md:text-[0.75vw] text-surface-50">{studio}</studio>
     {/each}
-    <genres class="flex items-center md:gap-[0.5vw] md:mt-[0.5vw]">
+    <genres class="flex items-center md:gap-[0.5vw] md:my-[0.5vw]">
         {#each anime_genres as genre}
             <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.3vw]">
                 {genre}
             </genre>
         {/each}
     </genres>
+    <synopsis class="md:text-[0.85vw] md:leading-[1vw] line-clamp-5 text-surface-50">
+        {anime_synopsis}
+    </synopsis>
 </popup-container>
