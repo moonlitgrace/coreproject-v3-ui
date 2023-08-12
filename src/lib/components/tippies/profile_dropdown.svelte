@@ -21,12 +21,12 @@
     // Icons
     let dropdown_icons: {
         [key in string]: {
-            name?: string;
+            name: string;
             icon: {
                 component: typeof SvelteComponent<{}>;
                 class: string;
             };
-            url?: string;
+            url: string | undefined;
             show_on_mobile?: boolean | undefined;
         };
     } = {
