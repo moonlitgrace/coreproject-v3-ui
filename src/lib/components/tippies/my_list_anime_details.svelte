@@ -79,7 +79,7 @@
         </status>
         <genres class="flex items-center md:gap-[0.5vw] md:my-[0.35vw]">
             {#each anime_genres as genre}
-                <genre class="leading-none font-semibold bg-primary-500 md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
+                <genre class="leading-none font-semibold bg-surface-50 text-black md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
                     {genre}
                 </genre>
             {/each}
