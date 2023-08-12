@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Circle from "$icons/circle.svelte";
     import Star from "$icons/star.svelte";
@@ -36,9 +37,13 @@
                 </genre>
             {/each}
         </genres>
-        <synopsis class="md:text-[0.85vw] md:leading-[1vw] line-clamp-5 text-surface-50">
+        <ScrollArea
+            gradientMask
+            parentClass="md:max-h-[5vw]"
+            class="md:text-[0.85vw] md:leading-[1vw] text-surface-50"
+        >
             {anime_synopsis}
-        </synopsis>
+        </ScrollArea>
     </div>
 
     <ProgressBar
