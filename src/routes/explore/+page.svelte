@@ -189,7 +189,7 @@
         <result-animes class="mt-5 grid grid-cols-2 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
             {#each trending_animes as anime}
                 <a
-                    href="/mal/{anime.name}/episode/1"
+                    href="/mal/{anime.id}"
                     class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
                 >
                     <div
@@ -228,10 +228,8 @@
                         <anime_name class="line-clamp-1 text-xs md:text-[1vw] font-semibold leading-none">
                             {anime.name}
                         </anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
-                            <genre>{anime.genre}</genre>
-                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
-                            <year>{anime.year}</year>
+                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.9vw] leading-none">
+                            <genre>{anime.genres[0]}</genre>
                             <Circle class="w-1 md:w-[0.25vw] opacity-75" />
                             <episodes_count>{anime.episodes_count} eps</episodes_count>
                         </anime_info>
