@@ -119,7 +119,7 @@
             <input
                 type="text"
                 placeholder="Looking for specific anime? Start from here..."
-                class="rounded-lg border-none bg-surface-400/75 py-3 pl-12 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 w-full"
+                class="rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 pl-12 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 w-full"
             />
         </div>
     </search>
@@ -134,7 +134,7 @@
                     <input
                         type="text"
                         placeholder="Looking for specific anime? Start from here..."
-                        class="border-none bg-surface-400/75 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 rounded-[0.5vw] py-[0.8vw] pl-[3vw] text-[1vw] w-[30vw]"
+                        class="border-none bg-surface-400 md:bg-surface-400/75 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 rounded-[0.5vw] py-[0.8vw] pl-[3vw] text-[1vw] w-[30vw]"
                     />
                 </div>
             </search>
@@ -151,7 +151,7 @@
                         </button>
                         <input
                             type="text"
-                            class="w-full rounded-lg border-none bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50"
+                            class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50"
                             {value}
                         />
                     </div>
@@ -160,7 +160,7 @@
         </div>
 
         <more-filter-option>
-            <button class="btn bg-surface-400/75 p-[0.85rem] rounded-lg md:rounded-[0.5vw] md:p-[0.9vw]">
+            <button class="btn bg-surface-400 md:bg-surface-400/75 p-[0.85rem] rounded-lg md:rounded-[0.5vw] md:p-[0.9vw]">
                 <MoreBox class="w-4 md:w-[1vw] text-surface-50" />
             </button>
         </more-filter-option>
@@ -176,7 +176,7 @@
             </span>
         </headings>
 
-        <result-animes class="mt-5 grid grid-cols-3 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
+        <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
             {#each trending_animes as anime}
                 <a
                     href="/mal/{anime.id}"
