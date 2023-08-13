@@ -36,8 +36,8 @@
 <p float="left">
   <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/0d192748-391d-498b-9bb9-31947c5f03f8" alt="Home Page Mockup" width=49%>
   <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/2efe334d-148b-4539-bba5-4422e0907ec3" alt="Anime Info Page Mockup" width=49%>
+  <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/a58bc40c-1597-429d-8e0a-a857816ec8fd" alt="Register Page Mockup" width=49%>
   <img src="https://github.com/tokitou-san/CoreProject-V3-UI/assets/114811070/d5f4b322-03d5-47ba-b305-39d5c5395a13" alt="Register Page Mockup" width=49%>
-  <img src="https://github.com/baseplate-admin/CoreProject/assets/114811070/8c2fee2f-f5ea-4df4-ac41-d9a4491a24f7" alt="Search Panel Mockup" width=49%>
 
 ## Contributing
 
