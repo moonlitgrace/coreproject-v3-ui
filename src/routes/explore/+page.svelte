@@ -12,6 +12,7 @@
     import tippy from "tippy.js";
     import Caption from "$icons/caption.svelte";
     import Mic from "$icons/mic.svelte";
+    import AnimeCard from "$components/tippies/anime_card.svelte";
 
     /* Filter pages */
     let filter_pages_mapping: {
@@ -203,6 +204,24 @@
                             duration: [150, 10],
                             interactive: true,
                             appendTo: document.body,
+                            onTrigger: async (instance) => {
+                                const node = document.createElement("div");
+                                new AnimeCard({
+                                    target: node,
+                                    props: {
+                                        anime_id: anime.id,
+                                        anime_name: anime.name,
+                                        anime_type: anime.type,
+                                        anime_genres: anime.genres,
+                                        anime_studios: anime.studios,
+                                        anime_episodes_count: anime.episodes_count,
+                                        anime_synopsis: anime.synopsis,
+                                        anime_release_date: anime.release_date,
+                                    }
+                                });
+
+                                instance.setContent(node);
+                            }
                         }}
                     >
                         <ImageLoader

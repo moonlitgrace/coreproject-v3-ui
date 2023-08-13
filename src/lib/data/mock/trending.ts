@@ -62,7 +62,7 @@ export const trending_animes = [
         studios: ["Kyoto Studios"]
     },
     {
-        id: 5,
+        id: 6,
         name: "Shakugan no Shana",
         cover: "/images/ShakuganNoShana.avif",
         synopsis: `The world has become a slaughtering ground for the Crimson Denizens, mysterious beings from a parallel universe who thrive on the life energy of humans. These merciless murderers only leave behind scant remainders of souls called "Torches," which are mere residues that will eventually be destroyed, along with the very fact of the victims' existence from the minds of the living. In an ambitious endeavor to put an end to this invisible, hungry massacre, warriors called Flame Hazes relentlessly fight these monsters.`,
@@ -74,7 +74,7 @@ export const trending_animes = [
         studios: ["Kyoto Studios"]
     },
     {
-        id: 6,
+        id: 7,
         name: "Jujutsu Kaisen 2nd season",
         cover: "/images/cover/jjk.webp",
         synopsis: `Although her name means "snow white," Shirayuki is a cheerful, red-haired girl living in the country of Tanbarun who works diligently as an apothecary at her herbal shop. Her life changes drastically when she is noticed by the silly prince of Tanbarun, Prince Raji, who then tries to force her to become his concubine.`,
@@ -86,7 +86,7 @@ export const trending_animes = [
         studios: ["Kyoto Animations"]
     },
     {
-        id: 7,
+        id: 8,
         name: "To LOVE-Ru",
         cover: "/images/ToLOVERu.avif",
         synopsis: `Rito Yuuki never gets a break—he's always finding himself in lewd accidents with girls around him. Although his heart still yearns for Haruna, his childhood love, Rito can't help but question his feelings for Lala, the alien princess who appeared in front of him and declared she would marry him. But now, it's not just Lala he has to deal with: her younger twin sisters, Momo and Nana, have also traveled to Earth, wanting to meet their older sister's fiancé, and just as luck would have it, they end up staying at Rito's home.`,
@@ -98,6 +98,7 @@ export const trending_animes = [
         studios: ["Bibury Animation Studios"]
     },
     {
+        id: 9,
         name: "The girl I like to forgot her name",
         cover: "/images/cover/fish.png",
         genre: "Shounen",
