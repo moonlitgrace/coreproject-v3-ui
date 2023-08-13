@@ -110,31 +110,31 @@
         <span class="text-base font-normal leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <search class="flex md:hidden flex-col gap-1 md:gap-[0.35vw] mt-10">
-        <span class="text-base leading-none font-semibold text-surface-50 md:text-[1vw]">Search Animes</span>
+    <search class="flex md:hidden flex-col gap-1 mt-10">
+        <span class="text-base leading-none font-semibold text-surface-50">Search Animes</span>
         <div class="relative flex items-center">
             <Search
-                class="pointer-events-none absolute ml-4 w-4 text-surface-300 md:ml-[1vw] md:w-[1vw]"
+                class="pointer-events-none absolute ml-4 w-4 text-surface-300"
             />
             <input
                 type="text"
                 placeholder="Looking for specific anime? Start from here..."
-                class="rounded-lg border-none bg-surface-400/75 py-3 pl-12 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw] w-full md:w-[30vw]"
+                class="rounded-lg border-none bg-surface-400/75 py-3 pl-12 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 w-full"
             />
         </div>
     </search>
     <filter-options class="mt-3 flex items-end justify-between gap-3 md:mt-0 md:gap-0">
         <div class="flex items-center gap-3 md:gap-[1.5vw]">
-            <search class="hidden md:flex flex-col gap-1 md:gap-[0.35vw]">
-                <span class="text-base leading-none font-semibold text-surface-50 md:text-[1vw]">Search Animes</span>
+            <search class="hidden md:flex flex-col gap-[0.35vw]">
+                <span class="leading-none font-semibold text-surface-50 text-[1vw]">Search Animes</span>
                 <div class="relative flex items-center">
                     <Search
-                        class="pointer-events-none absolute ml-4 w-5 text-surface-300 md:ml-[1vw] md:w-[1vw]"
+                        class="pointer-events-none absolute text-surface-300 ml-[1vw] w-[1vw]"
                     />
                     <input
                         type="text"
                         placeholder="Looking for specific anime? Start from here..."
-                        class="rounded-lg border-none bg-surface-400/75 py-3 pl-14 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[3vw] md:text-[1vw] md:w-[30vw]"
+                        class="border-none bg-surface-400/75 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 rounded-[0.5vw] py-[0.8vw] pl-[3vw] text-[1vw] w-[30vw]"
                     />
                 </div>
             </search>
@@ -160,8 +160,8 @@
         </div>
 
         <more-filter-option>
-            <button class="btn bg-surface-400/75 p-3 md:rounded-[0.5vw] md:p-[0.9vw]">
-                <MoreBox class="w-5 md:w-[1vw] text-surface-50" />
+            <button class="btn bg-surface-400/75 p-[0.85rem] rounded-lg md:rounded-[0.5vw] md:p-[0.9vw]">
+                <MoreBox class="w-4 md:w-[1vw] text-surface-50" />
             </button>
         </more-filter-option>
     </filter-options>
