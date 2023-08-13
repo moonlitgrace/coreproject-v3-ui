@@ -179,7 +179,7 @@
 
     <active-filter-page class="mt-20 md:mt-[2vw]">
         <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
-            <span class="text-xl font-semibold leading-none md:text-[1.5vw]">
+            <span class="text-xl font-semibold leading-none md:text-[1.35vw]">
                 Trending Now
             </span>
             <span class="text-base leading-none text-surface-50 md:text-[1vw]">
