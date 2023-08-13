@@ -3,46 +3,14 @@
     import { page } from "$app/stores";
     import Search from "$icons/search.svelte";
     import Chevron from "$icons/chevron.svelte";
-    import Preference from "$icons/preference.svelte";
     import Circle from "$icons/circle.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
-    import VercelHover from "$components/shared/vercel_hover.svelte";
     import tippy from "tippy.js";
     import Caption from "$icons/caption.svelte";
     import Mic from "$icons/mic.svelte";
     import AnimeCard from "$components/tippies/anime_card.svelte";
-
-    /* Filter pages */
-    let filter_pages_mapping: {
-        [key in typeof active_filter_page]: {
-            title: string;
-            description: string;
-        };
-    } = {
-        trending: {
-            title: "Trending Now",
-            description: "Crowd Favorites: Anime Hits and Hype"
-        },
-        popular: {
-            title: "Popular this Season",
-            description: "Seasonal Gems: Discovering the Best of the Moment"
-        },
-        upcoming: {
-            title: "Upcoming",
-            description: "Crowd Favorites: Anime Hits and Hype"
-        },
-        alltime: {
-            title: "All-time Popular",
-            description: "Seasonal Gems: Discovering the Best of the Moment"
-        }
-    };
-    let active_filter_page: "trending" | "popular" | "upcoming" | "alltime" = "trending";
-
-    function change_filter_page(page: string) {
-        active_filter_page = page as typeof active_filter_page;
-    }
 
     let filter_options_mapping: {
         [key: string]: {
