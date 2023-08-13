@@ -1,0 +1,101 @@
+<script lang="ts">
+    import ScrollArea from "$components/shared/scroll_area.svelte";
+    import { FormatDate } from "$functions/format_date";
+    import { round_to_nearest_zero_point_five } from "$functions/math";
+    import Circle from "$icons/circle.svelte";
+    import Info from "$icons/info.svelte";
+    import PlayCircle from "$icons/play_circle.svelte";
+    import Star from "$icons/star.svelte";
+    import { Ratings } from "@skeletonlabs/skeleton";
+
+    export let anime_id: number;
+    export let anime_name: string;
+    export let anime_episodes_count: number;
+    export let anime_type: string;
+    export let anime_genres: string[];
+    export let anime_studios: string[];
+    export let anime_synopsis: string;
+    export let anime_release_date: string;
+</script>
+
+<popup-container class="hidden md:flex md:w-[20vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
+    <div class="md:p-[1.5vw] flex flex-col md:gap-[0.5vw]">
+        <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw] border-b-[0.1vw] md:pb-[0.5vw] border-white/10">{anime_name}</anime-name>
+        <rating class="flex items-center md:gap-[0.5vw]">
+            <Ratings
+                value={round_to_nearest_zero_point_five(4.5)}
+                max={5}
+                justify="start w-max"
+            >
+                <svelte:fragment slot="empty">
+                    <Star
+                        color="yellow"
+                        variant="empty"
+                        fill_color="yellow"
+                        class="w-[1.1vw] h-[1.1vw]"
+                    />
+                </svelte:fragment>
+                <svelte:fragment slot="half">
+                    <Star
+                        color="yellow"
+                        variant="half"
+                        fill_color="yellow"
+                        class="w-[1.1vw] h-[1.1vw]"
+                    />
+                </svelte:fragment>
+                <svelte:fragment slot="full">
+                    <Star
+                        color="yellow"
+                        variant="full"
+                        fill_color="yellow"
+                        class="w-[1.1vw] h-[1.1vw]"
+                    />
+                </svelte:fragment>
+            </Ratings>
+            <span class="md:text-[0.8vw] text-surface-50">2.8k ratings</span>
+        </rating>
+
+        <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50 md:mt-[0.5vw]">
+            <anime-type>{anime_type}</anime-type>
+            <Circle class="md:w-[0.25vw] opacity-50" />
+            <episodes-count>{anime_episodes_count} episdoes</episodes-count>
+        </div>
+        <studio class="md:text-[0.75vw] text-surface-50">
+            <span>Studio:</span>
+            {#each anime_studios as studio}
+                <span>{studio}</span>
+            {/each}
+        </studio>
+        <release-date class="md:text-[0.75vw] text-surface-50">
+            <span>Release date:</span>
+            <span>{new FormatDate(anime_release_date).format_to_human_readable_form}</span>
+        </release-date>
+        <status class="md:text-[0.75vw] text-surface-50">
+            <span>Status:</span>
+            <span>Completed</span>
+        </status>
+        <genres class="flex items-center md:gap-[0.5vw] md:my-[0.35vw]">
+            {#each anime_genres as genre}
+                <genre class="leading-none font-semibold bg-surface-50 text-black md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
+                    {genre}
+                </genre>
+            {/each}
+        </genres>
+        <ScrollArea
+            parentClass="md:max-h-[5vw]"
+            class="md:text-[0.85vw] md:leading-[1vw] text-surface-50"
+        >
+            {anime_synopsis}
+        </ScrollArea>
+
+        <options class="md:mt-[0.25vw] border-t-[0.1vw] md:pt-[0.75vw] border-white/10 flex items-center md:gap-[0.5vw]">
+            <a href="/mal/{anime_id}/episode/1" class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1 h-[2.3vw]">
+                <PlayCircle class="md:w-[1vw]" />
+                <span class="md:text-[0.9vw] font-semibold">Watch Ep 1</span>
+            </a>
+            <a href="/mal/{anime_id}" class="btn leading-none bg-primary-500/25 md:rounded-[0.5vw] p-0 h-[2.3vw] aspect-square">
+                <Info class="md:w-[1.2vw]" />
+            </a>
+        </options>
+    </div>
+</popup-container>
