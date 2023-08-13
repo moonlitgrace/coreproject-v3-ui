@@ -178,7 +178,7 @@
     </filter-options>
 
     <active-filter-page class="mt-20 md:mt-[2vw]">
-        <headings class="flex flex-col md:gap-[0.35vw]">
+        <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
             <span class="text-xl font-semibold leading-none md:text-[1.5vw]">
                 Trending Now
             </span>
@@ -187,7 +187,7 @@
             </span>
         </headings>
 
-        <result-animes class="mt-5 grid grid-cols-2 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
+        <result-animes class="mt-5 grid grid-cols-3 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
             {#each trending_animes as anime}
                 <a
                     href="/mal/{anime.id}"
