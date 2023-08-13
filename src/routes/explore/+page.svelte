@@ -9,6 +9,9 @@
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import VercelHover from "$components/shared/vercel_hover.svelte";
+    import tippy from "tippy.js";
+    import Caption from "$icons/caption.svelte";
+    import Mic from "$icons/mic.svelte";
 
     /* Filter pages */
     let filter_pages_mapping: {
@@ -175,32 +178,65 @@
 
     <active-filter-page class="mt-20 md:mt-[2vw]">
         <headings class="flex flex-col md:gap-[0.35vw]">
-            <span class="text-xl font-semibold leading-none md:text-[1.25vw]">
-                {filter_pages_mapping[active_filter_page].title}
+            <span class="text-xl font-semibold leading-none md:text-[1.5vw]">
+                Trending Now
             </span>
             <span class="text-base leading-none text-surface-50 md:text-[1vw]">
-                {filter_pages_mapping[active_filter_page].description}
+                Crowd Favorites: Anime Hits and Hype
             </span>
         </headings>
 
-        <result-animes class="mt-5 grid grid-cols-2 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1.25vw] md:gap-y-[3vw]">
+        <result-animes class="mt-5 grid grid-cols-2 gap-5 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
             {#each trending_animes as anime}
-                <anime class="flex flex-col gap-2 leading-none md:gap-[0.75vw]">
-                    <ImageLoader
-                        src={anime.cover}
-                        class="h-80 w-full rounded-lg object-cover md:h-[20vw] md:rounded-[0.75vw]"
-                    />
-                    <div class="flex flex-col md:gap-[0.35vw]">
-                        <anime_name class="line-clamp-1 text-base font-semibold md:text-[1.1vw]">{anime.name}</anime_name>
-                        <anime_info class="flex items-center gap-2 text-sm text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
+                <a
+                    href="/mal/{anime.name}/episode/1"
+                    class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
+                >
+                    <div
+                        class="relative"
+                        use:tippy={{
+                            arrow: false,
+                            allowHTML: true,
+                            placement: "right",
+                            offset: [100, -100],
+                            animation: "scale",
+                            duration: [150, 10],
+                            interactive: true,
+                            appendTo: document.body,
+                        }}
+                    >
+                        <ImageLoader
+                            src={anime.cover}
+                            alt={anime.name}
+                            class="h-52 md:h-[20vw] w-full rounded-md object-cover object-center md:rounded-[0.35vw]"
+                        />
+                        <overlay class="absolute inset-0 flex items-end p-2 md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
+                            <div class="rounded md:rounded-[0.3vw] overflow-hidden flex gap-1 md:gap-[0.2vw]">
+                                <subs class="bg-warning-400 text-black p-1 md:px-[0.35vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                    <Caption class="h-4 md:h-[1.25vw]" />
+                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                </subs>
+                                <dubs class="bg-white/25 backdrop-blur p-1 md:px-[0.45vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                    <Mic class="h-3 md:h-[0.8vw]" />
+                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                </dubs>
+                            </div>
+                        </overlay>
+                    </div>
+
+                    <anime-details class="flex flex-col gap-2 md:gap-[0.5vw] text-surface-50">
+                        <anime_name class="line-clamp-1 text-xs md:text-[1vw] font-semibold leading-none">
+                            {anime.name}
+                        </anime_name>
+                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
                             <genre>{anime.genre}</genre>
-                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
                             <year>{anime.year}</year>
-                            <Circle class="w-1 md:w-[0.25vw]" />
+                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
                             <episodes_count>{anime.episodes_count} eps</episodes_count>
                         </anime_info>
-                    </div>
-                </anime>
+                    </anime-details>
+                </a>
             {/each}
         </result-animes>
     </active-filter-page>
