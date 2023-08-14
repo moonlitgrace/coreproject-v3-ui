@@ -32,7 +32,7 @@
             items: {
                 action: "Action",
                 romance: "Romance",
-            }
+            },
         },
         year: {
             title: "Year",
@@ -145,7 +145,6 @@
                                 target: node,
                                 props: {
                                     items: filter_items,
-                                    selected_item: selected_item,
                                 }
                             });
 
@@ -156,7 +155,7 @@
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
                         <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">
-                            {selected_item ?? "Any"}
+                            {selected_item ? selected_item[1] : "Any"}
                         </span>
                         <input
                             type="text"

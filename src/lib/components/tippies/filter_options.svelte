@@ -1,12 +1,10 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
 
-    export let selected_item: [string?, string?] | undefined;
 	export let items: Record<string, string> | undefined;
 
 	function handle_select(item: [string, string]) {
-		console.log(item);
-		selected_item = item;
+		console.log("Selected")
 	}
 </script>
 
