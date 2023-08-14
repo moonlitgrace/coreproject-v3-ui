@@ -166,8 +166,12 @@
                 >
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
-                        <span class="absolute left-4 cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
-                            {selected_item ? selected_item[1] : "Any"}
+                        <span class="absolute cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
+                            {#if selected_item}
+                                <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">{selected_item[1]}</span>
+                            {:else}
+                                <span class="md:ml-[1vw]">Any</span>
+                            {/if}
                         </span>
                         <input
                             type="text"
