@@ -7,7 +7,7 @@
 	const dispatch = createEventDispatcher();
 
 	function handle_select(item: [string, string]) {
-		dispatch("select", item);
+	  	dispatch("select", item);
 	}
 </script>
 

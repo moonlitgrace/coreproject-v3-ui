@@ -18,12 +18,13 @@
             title: string;
             class: string;
             items?: Record<string, string> | undefined;
-            selected_item?: [string, string] | undefined;
+            selected_items: [string, string][];
         };
     } = {
         time_range: {
             title: "Time Range",
             class: "hidden flex-col md:gap-[0.35vw]",
+            selected_items: [],
         },
         genres: {
             title: "Genres",
@@ -32,6 +33,7 @@
                 action: "Action",
                 romance: "Romance",
             },
+            selected_items: [],
         },
         year: {
             title: "Year",
@@ -41,7 +43,8 @@
                 2022: "2022",
                 2021: "2021",
                 2020: "2020",
-            }
+            },
+            selected_items: [],
         },
         season: {
             title: "Season",
@@ -51,7 +54,8 @@
                 spring: "Spring",
                 summer: "Summer",
                 fall: "Fall",
-            }
+            },
+            selected_items: [],
         },
         format: {
             title: "Format",
@@ -59,25 +63,36 @@
             items: {
                 tv_show: "TV Show",
                 movie: "Movie",
-            }
+            },
+            selected_items: [],
         },
         airing_status: {
             title: "Airing Status",
-            class: "hidden flex-col md:gap-[0.35vw]"
+            class: "hidden flex-col md:gap-[0.35vw]",
+            selected_items: [],
         },
         sort_by: {
             title: "Sort by",
-            class: "hidden flex-col md:gap-[0.35vw]"
+            class: "hidden flex-col md:gap-[0.35vw]",
+            selected_items: [],
         }
     };
 
-    function update_selected_item(key: string, selected_item: [string, string]) {
+    function update_selected_items(key: string, selected_item: [string, string]) {
+        let filter_option = filter_options_mapping[key];
+        let is_selected = filter_option.selected_items?.some(item => item[0] === selected_item[0]);
+
+        if (is_selected) {
+            filter_option.selected_items = filter_option.selected_items?.filter(item => item[0] !== selected_item[0]);
+        } else {
+            filter_option.selected_items = [...filter_option.selected_items, selected_item];
+        }
+
         // update filer_options_mapping
         filter_options_mapping = {
             ...filter_options_mapping,
             [key]: {
-                ...filter_options_mapping[key],
-                selected_item: selected_item,
+                ...filter_option,
             }
         };
     };
@@ -134,7 +149,7 @@
             </search>
             {#each Object.entries(filter_options_mapping) as option, index}
                 {@const title = option[1].title}
-                {@const selected_item = option[1].selected_item}
+                {@const selected_items = option[1].selected_items}
                 {@const klass = option[1].class}
                 {@const filter_items = option[1].items}
 
@@ -158,7 +173,7 @@
                                 }
                             });
                             // dispathced event from component
-                            FilterOptionsComponent.$on("select", (e) => update_selected_item(option[0], e.detail));
+                            FilterOptionsComponent.$on("select", (e) => update_selected_items(option[0], e.detail));
 
                             instance.setContent(node);
                         }
@@ -167,8 +182,12 @@
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
                         <span class="absolute cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
-                            {#if selected_item}
-                                <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">{selected_item[1]}</span>
+                            {#if selected_items}
+                                {#each selected_items as item}
+                                    <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
+                                        {item[1]}
+                                    </span>
+                                {/each}
                             {:else}
                                 <span class="md:ml-[1vw]">Any</span>
                             {/if}
