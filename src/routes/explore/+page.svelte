@@ -188,7 +188,11 @@
                                 }
                             });
                             // dispathced event from component
-                            FilterOptionsComponent.$on("select", (e) => update_selected_items(option[0], e.detail));
+                            FilterOptionsComponent.$on("select", (e) => {
+                                update_selected_items(option[0], e.detail);
+                                // hide tippy
+                                instance.hide();
+                            });
 
                             instance.setContent(node);
                         }
