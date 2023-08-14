@@ -4,7 +4,7 @@
     import { createEventDispatcher } from "svelte";
 
 	export let items: Record<string, string> | undefined;
-	export let selected_items: [string, string][];
+	export let selected_items: Array<[string, string]>;
 
 	const dispatch = createEventDispatcher();
 
