@@ -184,6 +184,7 @@
                                 target: node,
                                 props: {
                                     items: filter_items,
+                                    selected_items: selected_items,
                                 }
                             });
                             // dispathced event from component
@@ -198,8 +199,10 @@
                         <span class="absolute cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
                             {#if selected_items.length > 0}
                                 <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
+                                    <!-- show first item -->
                                     {selected_items[0][1]}
                                 </span>
+                                <!-- show count of remaining items if exists -->
                                 {#if selected_items.length > 1}
                                     <span class="md:ml-[0.15vw] bg-primary-500/50 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
                                         +{selected_items.filter(item => item !== selected_items[0]).length}

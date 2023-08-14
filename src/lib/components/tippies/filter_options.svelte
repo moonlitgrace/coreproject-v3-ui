@@ -1,8 +1,10 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import Tick from "$icons/tick.svelte";
     import { createEventDispatcher } from "svelte";
 
 	export let items: Record<string, string> | undefined;
+	export let selected_items: [string, string][];
 
 	const dispatch = createEventDispatcher();
 
@@ -21,10 +23,18 @@
 				{@const key = item[0]}
 				{@const value = item[1]}
 
+				{@const is_selected = selected_items.some(selected_item => selected_item[0] === key)}
+
 				<button
 					on:click={() => handle_select(item)}
-					class="btn leading-none flex justify-start hover:bg-surface-400 md:rounded-[0.35vw] md:px-[1vw] md:py-[0.75vw] md:text-[0.9vw] text-surface-50">
+					class="btn leading-none flex justify-between items-center hover:bg-surface-400 md:rounded-[0.35vw] md:px-[1vw] md:py-[0.75vw] md:text-[0.9vw] text-surface-50">
 					{value}
+
+					{#if is_selected}
+						<tick class="rounded-full bg-primary-500 text-white md:p-[0.3vw]">
+							<Tick class="md:w-[0.5vw]" />
+						</tick>
+					{/if}
 				</button>
 			{/each}
 		</ScrollArea>
