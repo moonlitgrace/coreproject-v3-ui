@@ -28,7 +28,6 @@
         genres: {
             title: "Genres",
             class: "md:flex flex-col md:gap-[0.35vw]",
-            // mock data
             items: {
                 action: "Action",
                 romance: "Romance",
@@ -38,10 +37,10 @@
             title: "Year",
             class: "md:flex flex-col md:gap-[0.35vw]",
             items: {
-                2020: "2020",
-                2021: "2021",
-                2022: "2022",
                 2023: "2023",
+                2022: "2022",
+                2021: "2021",
+                2020: "2020",
             }
         },
         season: {
@@ -70,6 +69,17 @@
             title: "Sort by",
             class: "hidden flex-col md:gap-[0.35vw]"
         }
+    };
+
+    function update_selected_item(key: string, selected_item: [string, string]) {
+        // update filer_options_mapping
+        filter_options_mapping = {
+            ...filter_options_mapping,
+            [key]: {
+                ...filter_options_mapping[key],
+                selected_item: selected_item,
+            }
+        };
     };
 
     const opengraph_html = new OpengraphGenerator({
@@ -122,7 +132,7 @@
                     />
                 </div>
             </search>
-            {#each Object.entries(filter_options_mapping) as option}
+            {#each Object.entries(filter_options_mapping) as option, index}
                 {@const title = option[1].title}
                 {@const selected_item = option[1].selected_item}
                 {@const klass = option[1].class}
@@ -141,12 +151,14 @@
                         appendTo: document.body,
                         onTrigger: async (instance) => {
                             const node = document.createElement("div");
-                            new FilterOptions({
+                            const FilterOptionsComponent = new FilterOptions({
                                 target: node,
                                 props: {
                                     items: filter_items,
                                 }
                             });
+                            // dispathced event from component
+                            FilterOptionsComponent.$on("select", (e) => update_selected_item(option[0], e.detail));
 
                             instance.setContent(node);
                         }
@@ -154,7 +166,7 @@
                 >
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
-                        <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">
+                        <span class="absolute left-4 cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
                             {selected_item ? selected_item[1] : "Any"}
                         </span>
                         <input

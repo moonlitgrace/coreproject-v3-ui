@@ -1,10 +1,13 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import { createEventDispatcher } from "svelte";
 
 	export let items: Record<string, string> | undefined;
 
+	const dispatch = createEventDispatcher();
+
 	function handle_select(item: [string, string]) {
-		console.log("Selected")
+		dispatch("select", item);
 	}
 </script>
 
