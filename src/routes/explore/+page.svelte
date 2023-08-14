@@ -11,23 +11,38 @@
     import Caption from "$icons/caption.svelte";
     import Mic from "$icons/mic.svelte";
     import AnimeCard from "$components/tippies/anime_card.svelte";
+    import FilterOptions from "$components/tippies/filter_options.svelte";
 
     let filter_options_mapping: {
         [key: string]: {
             title: string;
             value: string;
             class: string;
+            items?: Array<{
+                text: string;
+                value: string;
+            }>
         };
     } = {
         time_range: {
             title: "Time Range",
             value: "All-Time",
-            class: "hidden flex-col md:gap-[0.35vw]"
+            class: "hidden flex-col md:gap-[0.35vw]",
         },
         genres: {
             title: "Genres",
             value: "Any",
-            class: "md:flex flex-col md:gap-[0.35vw]"
+            class: "md:flex flex-col md:gap-[0.35vw]",
+            items: [
+                {
+                    text: "Action",
+                    value: "action"
+                },
+                {
+                    text: "Romance",
+                    value: "romance"
+                }
+            ]
         },
         year: {
             title: "Year",
@@ -110,11 +125,37 @@
                 {@const title = option[1].title}
                 {@const value = option[1].value}
                 {@const klass = option[1].class}
+                {@const filter_items = option[1].items}
 
-                <filter-component class="{klass} group">
+                <div
+                    class="{klass} group"
+                    use:tippy={{
+                        trigger: "click",
+                        arrow: false,
+                        allowHTML: true,
+                        placement: "bottom",
+                        animation: "shift-away",
+                        duration: [150, 150],
+                        interactive: true,
+                        appendTo: document.body,
+                        onTrigger: async (instance) => {
+                            const node = document.createElement("div");
+                            new FilterOptions({
+                                target: node,
+                                props: {
+                                    items: filter_items,
+                                }
+                            });
+
+                            instance.setContent(node);
+                        }
+                    }}
+                >
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
-                        <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">{value}</span>
+                        <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">
+                            {value}
+                        </span>
                         <input
                             type="text"
                             class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
@@ -123,7 +164,7 @@
                             <Chevron class="text-surface-300" />
                         </button>
                     </div>
-                </filter-component>
+                </div>
             {/each}
         </div>
 
