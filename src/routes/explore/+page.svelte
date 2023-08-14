@@ -98,6 +98,19 @@
         };
     };
 
+    function clear_selected_items(key: string) {
+        let filter_option = filter_options_mapping[key];
+
+        // update filter_options_mapping
+        filter_options_mapping = {
+            ...filter_options_mapping,
+            [key]: {
+                ...filter_option,
+                selected_items: [],
+            }
+        }
+    }
+
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
         site_name: "CoreProject",
@@ -201,7 +214,10 @@
                             class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
                         />
                         {#if selected_items.length > 0}
-                            <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]">
+                            <button
+                                on:click={() => clear_selected_items(option[0])}
+                                class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]"
+                            >
                                 <Cross class="text-surface-300" />
                             </button>
                         {:else}
