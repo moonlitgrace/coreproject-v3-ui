@@ -12,6 +12,7 @@
     import Mic from "$icons/mic.svelte";
     import AnimeCard from "$components/tippies/anime_card.svelte";
     import FilterOptions from "$components/tippies/filter_options.svelte";
+    import Cross from "$icons/cross.svelte";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -187,7 +188,7 @@
                                     {selected_items[0][1]}
                                 </span>
                                 {#if selected_items.length > 1}
-                                    <span class="md:ml-[0.25vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
+                                    <span class="md:ml-[0.15vw] bg-primary-500/50 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
                                         +{selected_items.filter(item => item !== selected_items[0]).length}
                                     </span>
                                 {/if}
@@ -199,9 +200,15 @@
                             type="text"
                             class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
                         />
-                        <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]">
-                            <Chevron class="text-surface-300" />
-                        </button>
+                        {#if selected_items.length > 0}
+                            <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]">
+                                <Cross class="text-surface-300" />
+                            </button>
+                        {:else}
+                            <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]">
+                                <Chevron class="text-surface-300" />
+                            </button>
+                        {/if}
                     </div>
                 </div>
             {/each}
