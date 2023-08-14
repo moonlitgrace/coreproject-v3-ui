@@ -18,6 +18,7 @@
         [key: string]: {
             title: string;
             class: string;
+            value: string;
             items?: Record<string, string> | undefined;
             selected_items: Array<[string, string]>;
         };
@@ -25,11 +26,13 @@
         time_range: {
             title: "Time Range",
             class: "hidden flex-col md:gap-[0.35vw]",
+            value: "",
             selected_items: [],
         },
         genres: {
             title: "Genres",
             class: "md:flex flex-col md:gap-[0.35vw]",
+            value: "",
             items: {
                 action: "Action",
                 adventure: "Adventure",
@@ -41,6 +44,7 @@
         year: {
             title: "Year",
             class: "md:flex flex-col md:gap-[0.35vw]",
+            value: "",
             items: {
                 2023: "2023",
                 2022: "2022",
@@ -52,6 +56,7 @@
         season: {
             title: "Season",
             class: "md:flex flex-col md:gap-[0.35vw]",
+            value: "",
             items: {
                 winter: "Winter",
                 spring: "Spring",
@@ -63,6 +68,7 @@
         format: {
             title: "Format",
             class: "hidden md:flex flex-col md:gap-[0.35vw]",
+            value: "",
             items: {
                 tv_show: "TV Show",
                 movie: "Movie",
@@ -72,11 +78,13 @@
         airing_status: {
             title: "Airing Status",
             class: "hidden flex-col md:gap-[0.35vw]",
+            value: "",
             selected_items: [],
         },
         sort_by: {
             title: "Sort by",
             class: "hidden flex-col md:gap-[0.35vw]",
+            value: "",
             selected_items: [],
         }
     };
@@ -165,8 +173,8 @@
             </search>
             {#each Object.entries(filter_options_mapping) as option, index}
                 {@const title = option[1].title}
-                {@const selected_items = option[1].selected_items}
                 {@const klass = option[1].class}
+                {@const selected_items = option[1].selected_items}
                 {@const filter_items = option[1].items}
 
                 <div
@@ -219,6 +227,8 @@
                             {/if}
                         </span>
                         <input
+                            bind:value={option[1].value}
+                            on:blur={() => option[1].value = ""}
                             type="text"
                             class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
                         />
