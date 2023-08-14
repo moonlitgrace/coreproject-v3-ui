@@ -13,7 +13,7 @@
 	}
 </script>
 
-<div class="md:w-[11vw] bg-surface-900 md:rounded-[0.5vw] overflow-x-hidden">
+<div class="w-[8.5rem] rounded-lg md:w-[11vw] bg-surface-900 md:rounded-[0.5vw] overflow-x-hidden">
 	{#if items}
 		<ScrollArea
 			class="md:p-[0.5vw] flex flex-col"
@@ -27,12 +27,12 @@
 
 				<button
 					on:click={() => handle_select(item)}
-					class="btn leading-none flex justify-between items-center hover:bg-surface-400 md:rounded-[0.35vw] md:px-[1vw] md:py-[0.75vw] md:text-[0.9vw] text-surface-50">
+					class="btn leading-none flex justify-between items-center hover:bg-surface-400 md:rounded-[0.35vw] p-3 text-sm md:px-[1vw] md:py-[0.75vw] md:text-[0.9vw] text-surface-50">
 					{value}
 
 					{#if is_selected}
-						<tick class="rounded-full bg-primary-500 text-white md:p-[0.3vw]">
-							<Tick class="md:w-[0.5vw]" />
+						<tick class="rounded-full bg-primary-500 text-white p-1 md:p-[0.3vw]">
+							<Tick class="w-2 md:w-[0.5vw]" />
 						</tick>
 					{/if}
 				</button>
