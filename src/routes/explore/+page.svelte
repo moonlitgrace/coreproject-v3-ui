@@ -182,12 +182,15 @@
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
                         <span class="absolute cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
-                            {#if selected_items}
-                                {#each selected_items as item}
-                                    <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
-                                        {item[1]}
+                            {#if selected_items.length > 0}
+                                <span class="md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
+                                    {selected_items[0][1]}
+                                </span>
+                                {#if selected_items.length > 1}
+                                    <span class="md:ml-[0.25vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.9vw]">
+                                        +{selected_items.filter(item => item !== selected_items[0]).length}
                                     </span>
-                                {/each}
+                                {/if}
                             {:else}
                                 <span class="md:ml-[1vw]">Any</span>
                             {/if}
