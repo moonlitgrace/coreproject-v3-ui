@@ -16,57 +16,58 @@
     let filter_options_mapping: {
         [key: string]: {
             title: string;
-            value: string;
             class: string;
-            items?: Array<{
-                text: string;
-                value: string;
-            }>
+            items?: Record<string, string> | undefined;
+            selected_item?: [string, string] | undefined;
         };
     } = {
         time_range: {
             title: "Time Range",
-            value: "All-Time",
             class: "hidden flex-col md:gap-[0.35vw]",
         },
         genres: {
             title: "Genres",
-            value: "Any",
             class: "md:flex flex-col md:gap-[0.35vw]",
-            items: [
-                {
-                    text: "Action",
-                    value: "action"
-                },
-                {
-                    text: "Romance",
-                    value: "romance"
-                }
-            ]
+            // mock data
+            items: {
+                action: "Action",
+                romance: "Romance",
+            }
         },
         year: {
             title: "Year",
-            value: "Any",
-            class: "md:flex flex-col md:gap-[0.35vw]"
+            class: "md:flex flex-col md:gap-[0.35vw]",
+            items: {
+                2020: "2020",
+                2021: "2021",
+                2022: "2022",
+                2023: "2023",
+            }
         },
         season: {
             title: "Season",
-            value: "Any",
-            class: "md:flex flex-col md:gap-[0.35vw]"
+            class: "md:flex flex-col md:gap-[0.35vw]",
+            items: {
+                winter: "Winter",
+                spring: "Spring",
+                summer: "Summer",
+                fall: "Fall",
+            }
         },
         format: {
             title: "Format",
-            value: "Any",
-            class: "hidden md:flex flex-col md:gap-[0.35vw]"
+            class: "hidden md:flex flex-col md:gap-[0.35vw]",
+            items: {
+                tv_show: "TV Show",
+                movie: "Movie",
+            }
         },
         airing_status: {
             title: "Airing Status",
-            value: "Any",
             class: "hidden flex-col md:gap-[0.35vw]"
         },
         sort_by: {
             title: "Sort by",
-            value: "Popularity",
             class: "hidden flex-col md:gap-[0.35vw]"
         }
     };
@@ -123,7 +124,7 @@
             </search>
             {#each Object.entries(filter_options_mapping) as option}
                 {@const title = option[1].title}
-                {@const value = option[1].value}
+                {@const selected_item = option[1].selected_item}
                 {@const klass = option[1].class}
                 {@const filter_items = option[1].items}
 
@@ -144,6 +145,7 @@
                                 target: node,
                                 props: {
                                     items: filter_items,
+                                    selected_item: selected_item,
                                 }
                             });
 
@@ -154,7 +156,7 @@
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
                         <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">
-                            {value}
+                            {selected_item ?? "Any"}
                         </span>
                         <input
                             type="text"
