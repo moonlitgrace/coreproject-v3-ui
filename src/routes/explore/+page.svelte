@@ -111,17 +111,17 @@
                 {@const value = option[1].value}
                 {@const klass = option[1].class}
 
-                <filter-component class={klass}>
+                <filter-component class="{klass} group">
                     <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
+                        <span class="absolute left-4 cursor-pointer text-surface-50 group-focus-within:hidden">{value}</span>
+                        <input
+                            type="text"
+                            class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
+                        />
                         <button class="btn absolute right-0 mr-3 w-4 p-0 md:mr-[1vw] md:w-[1vw]">
                             <Chevron class="text-surface-300" />
                         </button>
-                        <input
-                            type="text"
-                            class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50"
-                            {value}
-                        />
                     </div>
                 </filter-component>
             {/each}
