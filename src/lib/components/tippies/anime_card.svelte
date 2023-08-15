@@ -57,7 +57,7 @@
             {anime_synopsis}
         </ScrollArea>
 
-        <options class="md:mt-[0.25vw] border-t-[0.1vw] md:pt-[0.75vw] border-white/10 flex items-center md:gap-[0.5vw]">
+        <options class="md:mt-[0.25vw] flex items-center md:gap-[0.5vw]">
             <a href="/mal/{anime_id}/episode/1" class="btn leading-none bg-primary-500 md:rounded-[0.5vw] flex-1 h-[2.3vw]">
                 <PlayCircle class="md:w-[1vw]" />
                 <span class="md:text-[0.9vw] font-semibold">Watch Ep 1</span>
