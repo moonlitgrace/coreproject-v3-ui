@@ -530,6 +530,7 @@
                         use:tippy={{
                             arrow: false,
                             allowHTML: true,
+                            offset: [-17, 0],
                             placement: "right",
                             animation: "scale",
                             duration: [150, 10],

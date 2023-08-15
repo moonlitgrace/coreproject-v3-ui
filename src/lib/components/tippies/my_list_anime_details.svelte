@@ -31,7 +31,7 @@
                     fill_color="yellow"
                     class="h-[1.1vw] w-[1.1vw]"
                 />
-                <span class="text-surface-50 md:text-[0.8vw] leading-none">4.5 rating</span>
+                <span class="leading-none text-surface-50 md:text-[0.8vw]">4.5 rating</span>
             </rating>
             <Circle class="opacity-50 md:w-[0.25vw]" />
             <anime-type>{anime_type}</anime-type>
