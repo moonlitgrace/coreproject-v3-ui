@@ -487,7 +487,7 @@
         </navigation-card>
     </hero-section>
 
-    <my-list class="md:mt-[2.1875vw] md:mb-[1vw] flex flex-col p-4 pt-7 md:flex md:w-[68vw] md:p-0">
+    <my-list class="flex flex-col p-4 pt-7 md:mb-[1vw] md:mt-[2.1875vw] md:flex md:w-[68vw] md:p-0">
         <section-header class="flex items-center gap-[0.625vw]">
             <header-title class="text-lg font-bold md:text-[1.25vw]">My List</header-title>
             <button class="btn btn-icon hidden h-[1.7vw] w-[1.7vw] rounded-[0.3vw] bg-surface-400 md:flex">
@@ -519,11 +519,11 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="relative mt-4 grid-cols-3 md:grid-cols-5 gap-3 md:mt-[1vw] grid md:gap-[1.25vw]">
+        <my-list-animes class="relative mt-4 grid grid-cols-3 gap-3 md:mt-[1vw] md:grid-cols-5 md:gap-[1.25vw]">
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}/episode/{anime.current_episode}"
-                    class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
+                    class="unstyled relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
                 >
                     <div
                         class="relative"
@@ -531,7 +531,7 @@
                             arrow: false,
                             allowHTML: true,
                             placement: "right",
-                            offset: [100, -100],
+                            offset: [20, 0],
                             animation: "scale",
                             duration: [150, 10],
                             interactive: true,
@@ -549,7 +549,7 @@
                                         anime_episodes_count: anime.episodes_count,
                                         anime_synopsis: anime.synopsis,
                                         anime_current_episode: anime.current_episode,
-                                        anime_release_date: anime.release_date,
+                                        anime_release_date: anime.release_date
                                     }
                                 });
 
@@ -560,27 +560,27 @@
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="h-52 md:h-[18vw] w-full rounded-md object-cover object-center md:rounded-[0.35vw]"
+                            class="h-52 w-full rounded-md object-cover object-center md:h-[18vw] md:rounded-[0.35vw]"
                         />
-                        <overlay class="absolute inset-0 flex items-end p-2 md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
-                            <div class="rounded md:rounded-[0.3vw] overflow-hidden flex gap-1 md:gap-[0.2vw]">
-                                <subs class="bg-warning-400 text-black p-1 md:px-[0.35vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                        <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
+                            <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
+                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
                                     <Caption class="h-4 md:h-[1.25vw]" />
-                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
                                 </subs>
-                                <dubs class="bg-white/25 backdrop-blur p-1 md:px-[0.45vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
                                     <Mic class="h-3 md:h-[0.8vw]" />
-                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
                                 </dubs>
                             </div>
                         </overlay>
                     </div>
 
-                    <anime-details class="flex flex-col gap-2 md:gap-[0.5vw] text-surface-50">
-                        <anime_name class="line-clamp-1 text-xs md:text-[1vw] font-semibold leading-none">{anime.name}</anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.8vw] leading-none">
+                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
+                        <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">{anime.name}</anime_name>
+                        <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
                             <span>Watching</span>
-                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
+                            <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                             <span>{anime.current_episode}/{anime.episodes_count} eps</span>
                         </anime_info>
                     </anime-details>
