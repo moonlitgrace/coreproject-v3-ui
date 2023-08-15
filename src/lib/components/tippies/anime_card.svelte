@@ -18,72 +18,41 @@
     export let anime_release_date: string;
 </script>
 
-<popup-container class="hidden md:flex md:w-[20vw] leading-none bg-surface-400 flex-col md:rounded-[0.75vw] overflow-hidden">
-    <div class="md:p-[1.5vw] flex flex-col md:gap-[0.5vw]">
-        <anime-name class="md:text-[1vw] font-semibold md:leading-[1.25vw] border-b-[0.1vw] md:pb-[0.5vw] border-white/10">{anime_name}</anime-name>
-        <rating class="flex items-center md:gap-[0.5vw]">
-            <Ratings
-                value={round_to_nearest_zero_point_five(4.5)}
-                max={5}
-                justify="start w-max"
-            >
-                <svelte:fragment slot="empty">
-                    <Star
-                        color="yellow"
-                        variant="empty"
-                        fill_color="yellow"
-                        class="w-[1.1vw] h-[1.1vw]"
-                    />
-                </svelte:fragment>
-                <svelte:fragment slot="half">
-                    <Star
-                        color="yellow"
-                        variant="half"
-                        fill_color="yellow"
-                        class="w-[1.1vw] h-[1.1vw]"
-                    />
-                </svelte:fragment>
-                <svelte:fragment slot="full">
-                    <Star
-                        color="yellow"
-                        variant="full"
-                        fill_color="yellow"
-                        class="w-[1.1vw] h-[1.1vw]"
-                    />
-                </svelte:fragment>
-            </Ratings>
-            <span class="md:text-[0.8vw] text-surface-50">2.8k ratings</span>
-        </rating>
+<popup-container class="hidden flex-col overflow-hidden bg-surface-400 leading-none md:flex md:w-[20vw] md:rounded-[0.75vw]">
+    <div class="flex flex-col md:gap-[0.35vw] md:p-[1vw]">
+        <anime-name class="font-semibold md:text-[1vw] md:leading-[1.25vw]">{anime_name}</anime-name>
 
-        <div class="flex items-center md:gap-[0.35vw] md:text-[0.8vw] text-surface-50 md:mt-[0.5vw]">
+        <div class="flex items-center text-surface-50 md:gap-[0.35vw] md:text-[0.8vw]">
+            <rating class="flex items-center md:gap-[0.5vw]">
+                <Star
+                    color="yellow"
+                    variant="full"
+                    fill_color="yellow"
+                    class="h-[1.1vw] w-[1.1vw]"
+                />
+                <span class="text-surface-50 md:text-[0.8vw] leading-none">4.5 rating</span>
+            </rating>
+            <Circle class="opacity-50 md:w-[0.25vw]" />
             <anime-type>{anime_type}</anime-type>
-            <Circle class="md:w-[0.25vw] opacity-50" />
+            <Circle class="opacity-50 md:w-[0.25vw]" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
         </div>
-        <studio class="md:text-[0.75vw] text-surface-50">
-            <span>Studio:</span>
+        <studio class="text-surface-50 md:text-[0.75vw]">
             {#each anime_studios as studio}
                 <span>{studio}</span>
             {/each}
         </studio>
-        <release-date class="md:text-[0.75vw] text-surface-50">
-            <span>Release date:</span>
-            <span>{new FormatDate(anime_release_date).format_to_human_readable_form}</span>
-        </release-date>
-        <status class="md:text-[0.75vw] text-surface-50">
-            <span>Status:</span>
-            <span>Completed</span>
-        </status>
-        <genres class="flex items-center md:gap-[0.5vw] md:my-[0.35vw]">
+        <genres class="flex items-center md:my-[0.35vw] md:gap-[0.5vw]">
             {#each anime_genres as genre}
-                <genre class="leading-none font-semibold bg-surface-50 text-black md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw] md:rounded-[0.35vw]">
+                <genre class="bg-surface-50 font-semibold leading-none text-black md:rounded-[0.35vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                     {genre}
                 </genre>
             {/each}
         </genres>
         <ScrollArea
-            parentClass="md:max-h-[5vw]"
-            class="md:text-[0.85vw] md:leading-[1vw] text-surface-50"
+            parentClass="md:max-h-[4vw]"
+            offsetScrollbar
+            class="text-surface-50 md:text-[0.8vw] md:leading-[1vw]"
         >
             {anime_synopsis}
         </ScrollArea>
