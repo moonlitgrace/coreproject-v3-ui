@@ -278,7 +278,6 @@
                             arrow: false,
                             allowHTML: true,
                             placement: "right",
-                            offset: [100, -100],
                             animation: "scale",
                             duration: [150, 10],
                             interactive: true,
