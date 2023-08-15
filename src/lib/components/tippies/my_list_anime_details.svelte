@@ -20,61 +20,29 @@
 </script>
 
 <popup-container class="hidden flex-col overflow-hidden bg-surface-400 leading-none md:flex md:w-[20vw] md:rounded-[0.75vw]">
-    <div class="flex flex-col md:gap-[0.5vw] md:p-[1.5vw]">
-        <anime-name class="border-b-[0.1vw] border-white/10 font-semibold md:pb-[0.5vw] md:text-[1vw] md:leading-[1.25vw]">{anime_name}</anime-name>
-        <rating class="flex items-center md:gap-[0.5vw]">
-            <Ratings
-                value={round_to_nearest_zero_point_five(4.5)}
-                max={5}
-                justify="start w-max"
-            >
-                <svelte:fragment slot="empty">
-                    <Star
-                        color="yellow"
-                        variant="empty"
-                        fill_color="yellow"
-                        class="h-[1.1vw] w-[1.1vw]"
-                    />
-                </svelte:fragment>
-                <svelte:fragment slot="half">
-                    <Star
-                        color="yellow"
-                        variant="half"
-                        fill_color="yellow"
-                        class="h-[1.1vw] w-[1.1vw]"
-                    />
-                </svelte:fragment>
-                <svelte:fragment slot="full">
-                    <Star
-                        color="yellow"
-                        variant="full"
-                        fill_color="yellow"
-                        class="h-[1.1vw] w-[1.1vw]"
-                    />
-                </svelte:fragment>
-            </Ratings>
-            <span class="text-surface-50 md:text-[0.8vw]">2.8k ratings</span>
-        </rating>
+    <div class="flex flex-col md:gap-[0.35vw] md:p-[1vw]">
+        <anime-name class="font-semibold md:text-[1vw] md:leading-[1.25vw]">{anime_name}</anime-name>
 
-        <div class="flex items-center text-surface-50 md:mt-[0.5vw] md:gap-[0.35vw] md:text-[0.8vw]">
+        <div class="flex items-center text-surface-50 md:gap-[0.35vw] md:text-[0.8vw]">
+            <rating class="flex items-center md:gap-[0.5vw]">
+                <Star
+                    color="yellow"
+                    variant="full"
+                    fill_color="yellow"
+                    class="h-[1.1vw] w-[1.1vw]"
+                />
+                <span class="text-surface-50 md:text-[0.8vw] leading-none">4.5 rating</span>
+            </rating>
+            <Circle class="opacity-50 md:w-[0.25vw]" />
             <anime-type>{anime_type}</anime-type>
             <Circle class="opacity-50 md:w-[0.25vw]" />
             <episodes-count>{anime_episodes_count} episdoes</episodes-count>
         </div>
         <studio class="text-surface-50 md:text-[0.75vw]">
-            <span>Studio:</span>
             {#each anime_studios as studio}
                 <span>{studio}</span>
             {/each}
         </studio>
-        <release-date class="text-surface-50 md:text-[0.75vw]">
-            <span>Release date:</span>
-            <span>{new FormatDate(anime_release_date).format_to_human_readable_form}</span>
-        </release-date>
-        <status class="text-surface-50 md:text-[0.75vw]">
-            <span>Status:</span>
-            <span>Completed</span>
-        </status>
         <genres class="flex items-center md:my-[0.35vw] md:gap-[0.5vw]">
             {#each anime_genres as genre}
                 <genre class="bg-surface-50 font-semibold leading-none text-black md:rounded-[0.35vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
@@ -83,14 +51,14 @@
             {/each}
         </genres>
         <ScrollArea
-            parentClass="md:max-h-[5vw]"
+            parentClass="md:max-h-[4vw]"
             offsetScrollbar
-            class="text-surface-50 md:text-[0.85vw] md:leading-[1vw]"
+            class="text-surface-50 md:text-[0.8vw] md:leading-[1vw]"
         >
             {anime_synopsis}
         </ScrollArea>
 
-        <options class="flex items-center border-t-[0.1vw] border-white/10 md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.75vw]">
+        <options class="flex items-center md:mt-[0.25vw] md:gap-[0.5vw]">
             <a
                 href="/mal/{anime_id}/episode/{anime_current_episode}"
                 class="btn h-[2.3vw] flex-1 bg-primary-500 leading-none md:rounded-[0.5vw]"

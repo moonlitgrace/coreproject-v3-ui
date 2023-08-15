@@ -531,7 +531,6 @@
                             arrow: false,
                             allowHTML: true,
                             placement: "right",
-                            offset: [20, 0],
                             animation: "scale",
                             duration: [150, 10],
                             interactive: true,
