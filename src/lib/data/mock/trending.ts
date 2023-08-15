@@ -110,5 +110,5 @@ export const trending_animes = [
         type: "TV",
         release_date: "2018-10-22T10:30:00.000Z",
         studios: ["Animation XXX"]
-    },
+    }
 ];
