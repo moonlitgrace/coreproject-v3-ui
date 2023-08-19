@@ -48,12 +48,6 @@
         mangle(),
         // Marked defaults
         {
-            // Override function
-            renderer: {
-                del(text: string) {
-                    return `<del class='unstyled'>${text}</del>`;
-                }
-            },
             // We dont need github like header prefix
             headerIds: false
         }
