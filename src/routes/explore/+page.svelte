@@ -271,22 +271,9 @@
                             alt={anime.name}
                             class="h-52 w-full object-cover object-center md:h-[20vw] rounded-l-lg md:rounded-l-[0.35vw]"
                         />
-                        <overlay class="hidden absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
-                            <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
-                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
-                                    <Caption class="h-4 md:h-[1.25vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </subs>
-                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
-                                    <Mic class="h-3 md:h-[0.8vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </dubs>
-                            </div>
-                        </overlay>
-
                         <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur">
-                            <div class="p-[1vw] bg-surface-900/90">
-                                <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none">
+                            <div class="p-[1vw] bg-surface-900/90 flex flex-col md:gap-[0.35vw]">
+                                <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
                                     {anime.name}
                                 </anime-name>
                                 <studio-name class="md:text-[0.8vw] text-surface-50">
@@ -306,7 +293,7 @@
                                 <Circle class="md:w-[0.25vw] opacity-50" />
                                 <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                             </div>
-                            <ScrollArea gradientMask parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-100">
+                            <ScrollArea parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-100">
                                 {anime.synopsis}
                             </ScrollArea>
                         </div>
