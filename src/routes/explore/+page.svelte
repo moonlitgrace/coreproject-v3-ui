@@ -18,6 +18,7 @@
     import Expand from "$icons/expand.svelte";
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
+    import _ from "lodash";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -105,25 +106,12 @@
         }
 
         // update filer_options_mapping
-        filter_options_mapping = {
-            ...filter_options_mapping,
-            [key]: {
-                ...filter_option
-            }
-        };
+        filter_options_mapping[key] = filter_option;
     }
 
     function clear_selected_items(key: string) {
-        let filter_option = filter_options_mapping[key];
-
         // update filter_options_mapping
-        filter_options_mapping = {
-            ...filter_options_mapping,
-            [key]: {
-                ...filter_option,
-                selected_items: []
-            }
-        };
+        filter_options_mapping[key].selected_items = [];
     }
 
     /* Thumbnail modes */
