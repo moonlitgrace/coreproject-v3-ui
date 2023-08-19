@@ -3,16 +3,21 @@
     import { page } from "$app/stores";
     import Search from "$icons/search.svelte";
     import Chevron from "$icons/chevron.svelte";
-    import Circle from "$icons/circle.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import tippy from "tippy.js";
     import Caption from "$icons/caption.svelte";
     import Mic from "$icons/mic.svelte";
-    import AnimeCard from "$components/tippies/anime_card.svelte";
     import FilterOptions from "$components/tippies/filter_options.svelte";
     import Cross from "$icons/cross.svelte";
+    import { FormatDate } from "$functions/format_date";
+    import Circle from "$icons/circle.svelte";
+    import ScrollArea from "$components/shared/scroll_area.svelte";
+    import AnimeCard from "$components/tippies/anime_card.svelte";
+    import Expand from "$icons/expand.svelte";
+    import SixGrids from "$icons/six_grids.svelte";
+    import { scale } from "svelte/transition";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -119,6 +124,13 @@
                 selected_items: []
             }
         };
+    }
+
+    /* Thumbnail modes */
+    let thumbnail_mode: "card_with_tippy" | "detailed_card" = "detailed_card";
+
+    function change_thumbnail_mode(mode: typeof thumbnail_mode) {
+        thumbnail_mode = mode;
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -253,78 +265,148 @@
     </filter-options>
 
     <div class="mt-16 md:mt-[1.5vw]">
-        <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
-            <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
-            <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
-        </headings>
+        <div class="flex items-center justify-between">
+            <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
+                <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
+                <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
+            </headings>
+            <div class="flex md:gap-[1vw]">
+                <button class="btn p-0 text-surface-50">
+                    <Expand class="md:w-[1.25vw]" />
+                    <span class="md:text-[1vw] font-semibold">Trending</span>
+                </button>
+                <span class="divider-vertical h-[2vw] !border-surface-50/25" />
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("card_with_tippy")}>
+                    <SixGrids class="md:w-[1.15vw]" />
+                </button>
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("detailed_card")}>
+                    <MoreBox class="md:w-[1vw]" />
+                </button>
+            </div>
+        </div>
 
-        <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
-            {#each trending_animes as anime}
-                <a
-                    href="/mal/{anime.id}"
-                    class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
-                >
-                    <div
-                        class="relative"
-                        use:tippy={{
-                            arrow: false,
-                            allowHTML: true,
-                            placement: "right-start",
-                            animation: "scale",
-                            duration: [150, 10],
-                            interactive: true,
-                            appendTo: document.body,
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new AnimeCard({
-                                    target: node,
-                                    props: {
-                                        anime_id: anime.id,
-                                        anime_name: anime.name,
-                                        anime_type: anime.type,
-                                        anime_genres: anime.genres,
-                                        anime_studios: anime.studios,
-                                        anime_episodes_count: anime.episodes_count,
-                                        anime_synopsis: anime.synopsis,
-                                        anime_release_date: anime.release_date
-                                    }
-                                });
-
-                                instance.setContent(node);
-                            }
-                        }}
+        {#if thumbnail_mode === "detailed_card"}
+            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+                {#each trending_animes as anime}
+                    <a
+                        in:scale={{ start: 0.95 }}
+                        href="/mal/{anime.id}"
+                        class="relative col-span-1 grid grid-cols-2"
                     >
-                        <ImageLoader
-                            src={anime.cover}
-                            alt={anime.name}
-                            class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
-                        />
-                        <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
-                            <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
-                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
-                                    <Caption class="h-4 md:h-[1.25vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </subs>
-                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
-                                    <Mic class="h-3 md:h-[0.8vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </dubs>
-                            </div>
-                        </overlay>
-                    </div>
+                        <div class="relative">
+                            <ImageLoader
+                                src={anime.cover}
+                                alt={anime.name}
+                                class="h-52 w-full object-cover object-center md:h-[20vw] rounded-l-lg md:rounded-l-[0.35vw]"
+                            />
+                            <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur rounded-l-lg md:rounded-l-[0.35vw]">
+                                <div class="p-[1vw] bg-surface-900/90 flex flex-col md:gap-[0.35vw]">
+                                    <ScrollArea class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
+                                        {anime.name}
+                                    </ScrollArea>
+                                    <studio-name class="md:text-[0.8vw] text-surface-50">
+                                        {anime.studios}
+                                    </studio-name>
+                                </div>
+                            </anime-info>
+                        </div>
 
-                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
-                        <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
-                            {anime.name}
-                        </anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                            <genre>{anime.genres[0]}</genre>
-                            <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
-                            <episodes_count>{anime.episodes_count} eps</episodes_count>
-                        </anime_info>
-                    </anime-details>
-                </a>
-            {/each}
-        </result-animes>
+                        <anime-details class="flex flex-col justify-between bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw]">
+                            <div class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1vw] leading-none">
+                                <release-time class="capitalize md:text-[1vw] font-semibold">
+                                    {new FormatDate(anime.release_date).format_to_season}
+                                </release-time>
+                                <div class="flex items-center md:gap-[0.5vw]">
+                                    <type class="md:text-[0.8vw]">{anime.type}</type>
+                                    <Circle class="md:w-[0.25vw] opacity-50" />
+                                    <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
+                                </div>
+                                <ScrollArea parentClass="md:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300 text-justify">
+                                    {anime.synopsis}
+                                </ScrollArea>
+                            </div>
+
+                           <genres class="flex items-center md:gap-[0.5vw] md:p-[1vw]">
+                                {#each anime.genres as genre}
+                                    <genre class="bg-warning-400 text-black font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
+                                        {genre}
+                                    </genre>
+                                {/each}
+                            </genres>
+                        </anime-details>
+                    </a>
+                {/each}
+            </result-animes>
+        {:else if thumbnail_mode === "card_with_tippy"}
+            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-6 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+                {#each trending_animes as anime}
+                    <a
+                        in:scale={{ start: 0.95 }}
+                        href="/mal/{anime.id}"
+                        class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
+                    >
+                        <div
+                            class="relative"
+                            use:tippy={{
+                                arrow: false,
+                                allowHTML: true,
+                                placement: "right-start",
+                                animation: "scale",
+                                duration: [150, 10],
+                                interactive: true,
+                                appendTo: document.body,
+                                onTrigger: async (instance) => {
+                                    const node = document.createElement("div");
+                                    new AnimeCard({
+                                        target: node,
+                                        props: {
+                                            anime_id: anime.id,
+                                            anime_name: anime.name,
+                                            anime_type: anime.type,
+                                            anime_genres: anime.genres,
+                                            anime_studios: anime.studios,
+                                            anime_episodes_count: anime.episodes_count,
+                                            anime_synopsis: anime.synopsis,
+                                            anime_release_date: anime.release_date
+                                        }
+                                    });
+
+                                    instance.setContent(node);
+                                }
+                            }}
+                        >
+                            <ImageLoader
+                                src={anime.cover}
+                                alt={anime.name}
+                                class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
+                            />
+                            <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
+                                <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
+                                    <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
+                                        <Caption class="h-4 md:h-[1.25vw]" />
+                                        <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
+                                    </subs>
+                                    <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
+                                        <Mic class="h-3 md:h-[0.8vw]" />
+                                        <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
+                                    </dubs>
+                                </div>
+                            </overlay>
+                        </div>
+
+                        <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
+                            <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
+                                {anime.name}
+                            </anime_name>
+                            <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
+                                <genre>{anime.genres[0]}</genre>
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
+                                <episodes_count>{anime.episodes_count} eps</episodes_count>
+                            </anime_info>
+                        </anime-details>
+                    </a>
+                {/each}
+            </result-animes>
+        {/if}
     </div>
 </section>
