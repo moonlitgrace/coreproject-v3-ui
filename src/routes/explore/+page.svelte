@@ -299,7 +299,7 @@
                                 alt={anime.name}
                                 class="h-52 w-full object-cover object-center md:h-[20vw] rounded-l-lg md:rounded-l-[0.35vw]"
                             />
-                            <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur">
+                            <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur rounded-l-lg md:rounded-l-[0.35vw]">
                                 <div class="p-[1vw] bg-surface-900/90 flex flex-col md:gap-[0.35vw]">
                                     <ScrollArea class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
                                         {anime.name}
@@ -321,7 +321,7 @@
                                     <Circle class="md:w-[0.25vw] opacity-50" />
                                     <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                                 </div>
-                                <ScrollArea parentClass="md:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300">
+                                <ScrollArea parentClass="md:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300 text-justify">
                                     {anime.synopsis}
                                 </ScrollArea>
                             </div>
