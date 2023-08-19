@@ -258,48 +258,19 @@
             <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
         </headings>
 
-        <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
+        <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1.5vw]">
             {#each trending_animes as anime}
                 <a
                     href="/mal/{anime.id}"
-                    class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
+                    class="relative col-span-1 grid grid-cols-2"
                 >
-                    <div
-                        class="relative"
-                        use:tippy={{
-                            arrow: false,
-                            allowHTML: true,
-                            placement: "right-start",
-                            animation: "scale",
-                            duration: [150, 10],
-                            interactive: true,
-                            appendTo: document.body,
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new AnimeCard({
-                                    target: node,
-                                    props: {
-                                        anime_id: anime.id,
-                                        anime_name: anime.name,
-                                        anime_type: anime.type,
-                                        anime_genres: anime.genres,
-                                        anime_studios: anime.studios,
-                                        anime_episodes_count: anime.episodes_count,
-                                        anime_synopsis: anime.synopsis,
-                                        anime_release_date: anime.release_date
-                                    }
-                                });
-
-                                instance.setContent(node);
-                            }
-                        }}
-                    >
+                    <div class="relative">
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
+                            class="h-52 w-full object-cover object-center md:h-[20vw] rounded-l-lg md:rounded-l-[0.35vw]"
                         />
-                        <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
+                        <overlay class="hidden absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
                             <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
                                 <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
                                     <Caption class="h-4 md:h-[1.25vw]" />
@@ -311,9 +282,15 @@
                                 </dubs>
                             </div>
                         </overlay>
+
+                        <anime-info class="absolute inset-x-0 bottom-0 md:p-[1vw] bg-surface-900/90 backdrop-blur">
+                            <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none">
+                                {anime.name}
+                            </anime-name>
+                        </anime-info>
                     </div>
 
-                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
+                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1.25vw] bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw]">
                         <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
                             {anime.name}
                         </anime_name>
