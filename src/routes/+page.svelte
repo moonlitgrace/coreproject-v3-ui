@@ -308,7 +308,7 @@
 
                                 <a
                                     href="./mal/{anime.mal_id}"
-                                    class="unstyled"
+                                    class=""
                                 >
                                     <button class="btn btn-icon flex h-14 w-28 items-center justify-center rounded-xl bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                         <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
@@ -523,7 +523,7 @@
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}/episode/{anime.current_episode}"
-                    class="unstyled relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
+                    class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
                 >
                     <div
                         class="relative"
