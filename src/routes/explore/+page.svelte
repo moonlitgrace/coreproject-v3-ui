@@ -298,7 +298,7 @@
                             </ScrollArea>
                         </div>
 
-                       <genres class="flex items-center md:gap-[0.5vw] bg-surface-400/75 md:p-[1vw]">
+                       <genres class="flex items-center md:gap-[0.5vw] md:p-[1vw]">
                             {#each anime.genres as genre}
                                 <genre class="bg-primary-500 font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                                     {genre}
