@@ -3,14 +3,12 @@
     import { page } from "$app/stores";
     import Search from "$icons/search.svelte";
     import Chevron from "$icons/chevron.svelte";
-    import Circle from "$icons/circle.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import tippy from "tippy.js";
     import Caption from "$icons/caption.svelte";
     import Mic from "$icons/mic.svelte";
-    import AnimeCard from "$components/tippies/anime_card.svelte";
     import FilterOptions from "$components/tippies/filter_options.svelte";
     import Cross from "$icons/cross.svelte";
 
@@ -294,14 +292,7 @@
                     </div>
 
                     <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1.25vw] bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw]">
-                        <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
-                            {anime.name}
-                        </anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                            <genre>{anime.genres[0]}</genre>
-                            <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
-                            <episodes_count>{anime.episodes_count} eps</episodes_count>
-                        </anime_info>
+                        
                     </anime-details>
                 </a>
             {/each}
