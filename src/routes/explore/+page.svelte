@@ -127,10 +127,10 @@
     }
 
     /* Thumbnail modes */
-    let thumbnail_mode: "3_grids" | "6_grids" = "6_grids";
+    let thumbnail_mode: "card_with_tippy" | "detailed_card" = "detailed_card";
 
-    function change_thumbnail_mode(mode: string) {
-        thumbnail_mode = mode as typeof thumbnail_mode;
+    function change_thumbnail_mode(mode: typeof thumbnail_mode) {
+        thumbnail_mode = mode;
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -276,18 +276,18 @@
                     <span class="md:text-[1vw] font-semibold">Trending</span>
                 </button>
                 <span class="divider-vertical h-[2vw] !border-surface-50/25" />
-                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("6_grids")}>
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("card_with_tippy")}>
                     <SixGrids class="md:w-[1.15vw]" />
                 </button>
-                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("3_grids")}>
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("detailed_card")}>
                     <MoreBox class="md:w-[1vw]" />
                 </button>
             </div>
         </div>
 
-        <result-animes class="{thumbnail_mode === "3_grids" ? "md:grid-cols-3" : "md:grid-cols-6"} mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+        <result-animes class="{thumbnail_mode === "detailed_card" ? "md:grid-cols-3" : "md:grid-cols-6"} mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
             {#each trending_animes as anime}
-                {#if thumbnail_mode === "3_grids"}
+                {#if thumbnail_mode === "detailed_card"}
                     <a
                         in:scale={{ start: 0.95 }}
                         href="/mal/{anime.id}"
@@ -328,7 +328,7 @@
 
                            <genres class="flex items-center md:gap-[0.5vw] md:p-[1vw]">
                                 {#each anime.genres as genre}
-                                    <genre class="bg-primary-500 font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
+                                    <genre class="bg-warning-400 text-black font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                                         {genre}
                                     </genre>
                                 {/each}
