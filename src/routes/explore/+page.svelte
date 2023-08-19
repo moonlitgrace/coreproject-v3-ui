@@ -285,9 +285,9 @@
             </div>
         </div>
 
-        <result-animes class="{thumbnail_mode === "detailed_card" ? "md:grid-cols-3" : "md:grid-cols-6"} mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
-            {#each trending_animes as anime}
-                {#if thumbnail_mode === "detailed_card"}
+        {#if thumbnail_mode === "detailed_card"}
+            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+                {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
                         href="/mal/{anime.id}"
@@ -334,8 +334,12 @@
                                 {/each}
                             </genres>
                         </anime-details>
-                    </a>    
-                {:else}
+                    </a>
+                {/each}
+            </result-animes>
+        {:else if thumbnail_mode === "card_with_tippy"}
+            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-6 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+                {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
                         href="/mal/{anime.id}"
@@ -401,8 +405,8 @@
                             </anime_info>
                         </anime-details>
                     </a>
-                {/if}
-            {/each}
-        </result-animes>
+                {/each}
+            </result-animes>
+        {/if}
     </div>
 </section>
