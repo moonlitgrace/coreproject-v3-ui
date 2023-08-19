@@ -145,7 +145,6 @@
 
                             <a
                                 href={link}
-                                class=""
                                 class:pointer-events-none={!link}
                                 use:tippy={{
                                     content: `<div class='leading-none w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.5vw] md:rounded-[0.35vw] md:text-[1vw]'>${text}</div>`,

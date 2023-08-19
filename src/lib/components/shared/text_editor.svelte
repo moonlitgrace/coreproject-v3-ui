@@ -451,7 +451,8 @@
     <textarea-footer class="flex justify-between bg-surface-400/50 px-4 py-2 text-[0.65rem] font-thin leading-[1.5vw] text-surface-200 md:px-[1vw] md:py-[0.1vw] md:text-[0.75vw]">
         <div />
         <div>
-            Learn more about <a
+            Learn more about
+            <a
                 class="underline"
                 href="/"
             >
