@@ -287,6 +287,9 @@
                             <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none">
                                 {anime.name}
                             </anime-name>
+                            <studio-name class="md:text-[0.8vw] text-surface-50">
+                                {anime.studios}
+                            </studio-name>
                         </anime-info>
                     </div>
 
