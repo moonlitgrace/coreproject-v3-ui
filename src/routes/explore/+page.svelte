@@ -17,6 +17,7 @@
     import AnimeCard from "$components/tippies/anime_card.svelte";
     import Expand from "$icons/expand.svelte";
     import SixGrids from "$icons/six_grids.svelte";
+    import { scale } from "svelte/transition";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -127,6 +128,10 @@
 
     /* Thumbnail modes */
     let thumbnail_mode: "3_grids" | "6_grids" = "6_grids";
+
+    function change_thumbnail_mode(mode: string) {
+        thumbnail_mode = mode as typeof thumbnail_mode;
+    }
 
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
@@ -271,10 +276,10 @@
                     <span class="md:text-[1vw] font-semibold">Trending</span>
                 </button>
                 <span class="divider-vertical h-[2vw] !border-surface-50/25" />
-                <button class="btn p-0 text-surface-50">
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("6_grids")}>
                     <SixGrids class="md:w-[1.15vw]" />
                 </button>
-                <button class="btn p-0 text-surface-50">
+                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("3_grids")}>
                     <MoreBox class="md:w-[1vw]" />
                 </button>
             </div>
@@ -282,11 +287,12 @@
 
         <result-animes class="{thumbnail_mode === "3_grids" ? "md:grid-cols-3" : "md:grid-cols-6"} mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
             {#each trending_animes as anime}
-                <a
-                    href="/mal/{anime.id}"
-                    class="{thumbnail_mode === "3_grids" ? "grid grid-cols-2" : "flex flex-col gap-2 md:gap-[0.5vw]"} relative col-span-1"
-                >
-                    {#if thumbnail_mode === "3_grids"}
+                {#if thumbnail_mode === "3_grids"}
+                    <a
+                        in:scale={{ start: 0.95 }}
+                        href="/mal/{anime.id}"
+                        class="relative col-span-1 grid grid-cols-2"
+                    >
                         <div class="relative">
                             <ImageLoader
                                 src={anime.cover}
@@ -328,7 +334,13 @@
                                 {/each}
                             </genres>
                         </anime-details>
-                    {:else}
+                    </a>    
+                {:else}
+                    <a
+                        in:scale={{ start: 0.95 }}
+                        href="/mal/{anime.id}"
+                        class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
+                    >
                         <div
                             class="relative"
                             use:tippy={{
@@ -388,8 +400,8 @@
                                 <episodes_count>{anime.episodes_count} eps</episodes_count>
                             </anime_info>
                         </anime-details>
-                    {/if}
-                </a>
+                    </a>
+                {/if}
             {/each}
         </result-animes>
     </div>
