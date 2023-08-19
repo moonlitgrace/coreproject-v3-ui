@@ -281,13 +281,25 @@
                             </div>
                         </overlay>
 
-                        <anime-info class="absolute inset-x-0 bottom-0 md:p-[1vw] bg-surface-900/90 backdrop-blur">
-                            <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none">
-                                {anime.name}
-                            </anime-name>
-                            <studio-name class="md:text-[0.8vw] text-surface-50">
-                                {anime.studios}
-                            </studio-name>
+                        <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur">
+                            <div class="flex gap-1 md:gap-[0.2vw] bg-surface-900/75 md:px-[1vw] md:py-[0.5vw]">
+                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw] md:rounded-l-[0.3vw]">
+                                    <Caption class="h-4 md:h-[1.15vw]" />
+                                    <span class="text-xs font-semibold md:text-[0.75vw]">{anime.episodes_count}</span>
+                                </subs>
+                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw] md:rounded-r-[0.3vw]">
+                                    <Mic class="h-3 md:h-[0.8vw]" />
+                                    <span class="text-xs font-semibold md:text-[0.75vw]">{anime.episodes_count}</span>
+                                </dubs>
+                            </div>
+                            <div class="p-[1vw] bg-surface-900/90">
+                                <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none">
+                                    {anime.name}
+                                </anime-name>
+                                <studio-name class="md:text-[0.8vw] text-surface-50">
+                                    {anime.studios}
+                                </studio-name>
+                            </div>
                         </anime-info>
                     </div>
 
