@@ -27,7 +27,7 @@
             title: "Time Range",
             class: "hidden flex-col md:gap-[0.35vw]",
             value: "",
-            selected_items: [],
+            selected_items: []
         },
         genres: {
             title: "Genres",
@@ -37,9 +37,9 @@
                 action: "Action",
                 adventure: "Adventure",
                 hentai: "Hentai",
-                romance: "Romance",
+                romance: "Romance"
             },
-            selected_items: [],
+            selected_items: []
         },
         year: {
             title: "Year",
@@ -49,9 +49,9 @@
                 2023: "2023",
                 2022: "2022",
                 2021: "2021",
-                2020: "2020",
+                2020: "2020"
             },
-            selected_items: [],
+            selected_items: []
         },
         season: {
             title: "Season",
@@ -61,9 +61,9 @@
                 winter: "Winter",
                 spring: "Spring",
                 summer: "Summer",
-                fall: "Fall",
+                fall: "Fall"
             },
-            selected_items: [],
+            selected_items: []
         },
         format: {
             title: "Format",
@@ -71,30 +71,30 @@
             value: "",
             items: {
                 tv_show: "TV Show",
-                movie: "Movie",
+                movie: "Movie"
             },
-            selected_items: [],
+            selected_items: []
         },
         airing_status: {
             title: "Airing Status",
             class: "hidden flex-col md:gap-[0.35vw]",
             value: "",
-            selected_items: [],
+            selected_items: []
         },
         sort_by: {
             title: "Sort by",
             class: "hidden flex-col md:gap-[0.35vw]",
             value: "",
-            selected_items: [],
+            selected_items: []
         }
     };
 
     function update_selected_items(key: string, selected_item: [string, string]) {
         let filter_option = filter_options_mapping[key];
-        let is_selected = filter_option.selected_items?.some(item => item[0] === selected_item[0]);
+        let is_selected = filter_option.selected_items?.some((item) => item[0] === selected_item[0]);
 
         if (is_selected) {
-            filter_option.selected_items = filter_option.selected_items?.filter(item => item[0] !== selected_item[0]);
+            filter_option.selected_items = filter_option.selected_items?.filter((item) => item[0] !== selected_item[0]);
         } else {
             filter_option.selected_items = [...filter_option.selected_items, selected_item];
         }
@@ -103,10 +103,10 @@
         filter_options_mapping = {
             ...filter_options_mapping,
             [key]: {
-                ...filter_option,
+                ...filter_option
             }
         };
-    };
+    }
 
     function clear_selected_items(key: string) {
         let filter_option = filter_options_mapping[key];
@@ -116,9 +116,9 @@
             ...filter_options_mapping,
             [key]: {
                 ...filter_option,
-                selected_items: [],
+                selected_items: []
             }
-        }
+        };
     }
 
     const opengraph_html = new OpengraphGenerator({
@@ -143,31 +143,27 @@
         <span class="text-base font-normal leading-none text-surface-50 md:text-[1.1vw]">Unleash your inner Otaku: Explore anime wonders</span>
     </section-headings>
 
-    <search class="flex md:hidden flex-col gap-1 mt-10">
-        <span class="text-base leading-none font-semibold text-surface-50">Search Animes</span>
+    <search class="mt-10 flex flex-col gap-1 md:hidden">
+        <span class="text-base font-semibold leading-none text-surface-50">Search Animes</span>
         <div class="relative flex items-center">
-            <Search
-                class="pointer-events-none absolute ml-4 w-4 text-surface-300"
-            />
+            <Search class="pointer-events-none absolute ml-4 w-4 text-surface-300" />
             <input
                 type="text"
                 placeholder="Looking for specific anime? Start from here..."
-                class="rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 pl-12 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 w-full"
+                class="w-full rounded-lg border-none bg-surface-400 py-3 pl-12 leading-none text-surface-50 placeholder:text-surface-50 focus:ring-0 md:bg-surface-400/75"
             />
         </div>
     </search>
     <filter-options class="mt-3 flex items-end justify-between gap-3 md:mt-0 md:gap-0">
         <div class="flex items-center gap-3 md:gap-[1.5vw]">
-            <search class="hidden md:flex flex-col gap-[0.35vw]">
-                <span class="leading-none font-semibold text-surface-50 text-[1vw]">Search Animes</span>
+            <search class="hidden flex-col gap-[0.35vw] md:flex">
+                <span class="text-[1vw] font-semibold leading-none text-surface-50">Search Animes</span>
                 <div class="relative flex items-center">
-                    <Search
-                        class="pointer-events-none absolute text-surface-300 ml-[1vw] w-[1vw]"
-                    />
+                    <Search class="pointer-events-none absolute ml-[1vw] w-[1vw] text-surface-300" />
                     <input
                         type="text"
                         placeholder="Looking for specific anime? Start from here..."
-                        class="border-none bg-surface-400 md:bg-surface-400/75 leading-none placeholder:text-surface-50 text-surface-50 focus:ring-0 rounded-[0.5vw] py-[0.8vw] pl-[3vw] text-[1vw] w-[30vw]"
+                        class="w-[30vw] rounded-[0.5vw] border-none bg-surface-400 py-[0.8vw] pl-[3vw] text-[1vw] leading-none text-surface-50 placeholder:text-surface-50 focus:ring-0 md:bg-surface-400/75"
                     />
                 </div>
             </search>
@@ -194,7 +190,7 @@
                                 target: node,
                                 props: {
                                     items: filter_items,
-                                    selected_items: selected_items,
+                                    selected_items: selected_items
                                 }
                             });
                             // dispathced event from component
@@ -208,18 +204,18 @@
                         }
                     }}
                 >
-                    <span class="leading-none text-surface-50 font-semibold md:text-[1vw]">{title}</span>
+                    <span class="font-semibold leading-none text-surface-50 md:text-[1vw]">{title}</span>
                     <div class="relative flex items-center">
-                        <span class="absolute cursor-pointer text-surface-50 opacity-100 group-focus-within:opacity-0 duration-300">
+                        <span class="absolute cursor-pointer text-surface-50 opacity-100 duration-300 group-focus-within:opacity-0">
                             {#if selected_items.length > 0}
-                                <span class="ml-3 rounded p-1 text-sm md:ml-[0.75vw] bg-primary-500 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.85vw]">
+                                <span class="ml-3 rounded bg-primary-500 p-1 text-sm font-semibold md:ml-[0.75vw] md:rounded-[0.25vw] md:p-[0.35vw] md:text-[0.85vw]">
                                     <!-- show first item -->
                                     {selected_items[0][1]}
                                 </span>
                                 <!-- show count of remaining items if exists -->
                                 {#if selected_items.length > 1}
-                                    <span class="ml-1 rounded p-1 text-sm md:ml-[0.15vw] bg-primary-500/50 font-semibold md:p-[0.35vw] md:rounded-[0.25vw] md:text-[0.85vw]">
-                                        +{selected_items.filter(item => item !== selected_items[0]).length}
+                                    <span class="ml-1 rounded bg-primary-500/50 p-1 text-sm font-semibold md:ml-[0.15vw] md:rounded-[0.25vw] md:p-[0.35vw] md:text-[0.85vw]">
+                                        +{selected_items.filter((item) => item !== selected_items[0]).length}
                                     </span>
                                 {/if}
                             {:else}
@@ -228,9 +224,9 @@
                         </span>
                         <input
                             bind:value={option[1].value}
-                            on:blur={() => option[1].value = ""}
+                            on:blur={() => (option[1].value = "")}
                             type="text"
-                            class="w-full rounded-lg border-none bg-surface-400 md:bg-surface-400/75 py-3 text-base leading-none placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:py-[0.8vw] md:pl-[1vw] md:text-[1vw] text-surface-50 peer"
+                            class="peer w-full rounded-lg border-none bg-surface-400 py-3 text-base leading-none text-surface-50 placeholder:text-surface-50 focus:ring-0 md:w-[11vw] md:rounded-[0.5vw] md:bg-surface-400/75 md:py-[0.8vw] md:pl-[1vw] md:text-[1vw]"
                         />
                         {#if selected_items.length > 0}
                             <button
@@ -250,27 +246,23 @@
         </div>
 
         <more-filter-option>
-            <button class="btn bg-surface-400 md:bg-surface-400/75 p-[0.85rem] rounded-lg md:rounded-[0.5vw] md:p-[0.9vw]">
-                <MoreBox class="w-4 md:w-[1vw] text-surface-50" />
+            <button class="btn rounded-lg bg-surface-400 p-[0.85rem] md:rounded-[0.5vw] md:bg-surface-400/75 md:p-[0.9vw]">
+                <MoreBox class="w-4 text-surface-50 md:w-[1vw]" />
             </button>
         </more-filter-option>
     </filter-options>
 
     <div class="mt-16 md:mt-[1.5vw]">
         <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
-            <span class="text-xl font-semibold leading-none md:text-[1.35vw]">
-                Trending Now
-            </span>
-            <span class="text-base leading-none text-surface-50 md:text-[1vw]">
-                Crowd Favorites: Anime Hits and Hype
-            </span>
+            <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
+            <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
         </headings>
 
         <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1vw] md:gap-y-[2vw]">
             {#each trending_animes as anime}
                 <a
                     href="/mal/{anime.id}"
-                    class="unstyled col-span-1 relative flex flex-col gap-2 md:gap-[0.5vw]"
+                    class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
                 >
                     <div
                         class="relative"
@@ -294,7 +286,7 @@
                                         anime_studios: anime.studios,
                                         anime_episodes_count: anime.episodes_count,
                                         anime_synopsis: anime.synopsis,
-                                        anime_release_date: anime.release_date,
+                                        anime_release_date: anime.release_date
                                     }
                                 });
 
@@ -305,29 +297,29 @@
                         <ImageLoader
                             src={anime.cover}
                             alt={anime.name}
-                            class="h-52 md:h-[20vw] w-full rounded-md object-cover object-center md:rounded-[0.35vw]"
+                            class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
                         />
-                        <overlay class="absolute inset-0 flex items-end p-2 md:p-[0.5vw] leading-none bg-gradient-to-t from-surface-900/75 to-transparent">
-                            <div class="rounded md:rounded-[0.3vw] overflow-hidden flex gap-1 md:gap-[0.2vw]">
-                                <subs class="bg-warning-400 text-black p-1 md:px-[0.35vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                        <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
+                            <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
+                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
                                     <Caption class="h-4 md:h-[1.25vw]" />
-                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
                                 </subs>
-                                <dubs class="bg-white/25 backdrop-blur p-1 md:px-[0.45vw] md:py-[0.25vw] flex items-center gap-1 md:gap-[0.25vw]">
+                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
                                     <Mic class="h-3 md:h-[0.8vw]" />
-                                    <span class="text-xs md:text-[0.8vw] font-semibold">{anime.episodes_count}</span>
+                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
                                 </dubs>
                             </div>
                         </overlay>
                     </div>
 
-                    <anime-details class="flex flex-col gap-2 md:gap-[0.5vw] text-surface-50">
-                        <anime_name class="line-clamp-1 text-xs md:text-[1vw] font-semibold leading-none">
+                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
+                        <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
                             {anime.name}
                         </anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs text-surface-50 md:gap-[0.5vw] md:text-[0.9vw] leading-none">
+                        <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
                             <genre>{anime.genres[0]}</genre>
-                            <Circle class="w-1 md:w-[0.25vw] opacity-75" />
+                            <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                             <episodes_count>{anime.episodes_count} eps</episodes_count>
                         </anime_info>
                     </anime-details>

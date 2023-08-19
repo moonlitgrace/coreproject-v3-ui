@@ -347,7 +347,7 @@
                         <a
                             href={item_href ?? "javascript:void(0)"}
                             type="button"
-                            class="unstyled flex flex-col items-center gap-[0.5vh]"
+                            class="flex flex-col items-center gap-[0.5vh]"
                         >
                             <div class="{is_active ? 'bg-primary-500' : 'bg-initial'} btn btn-icon h-12 w-20 rounded-xl p-0">
                                 <div transition:blur>
