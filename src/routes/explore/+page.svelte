@@ -273,20 +273,26 @@
             <div class="flex md:gap-[1vw]">
                 <button class="btn p-0 text-surface-50">
                     <Expand class="md:w-[1.25vw]" />
-                    <span class="md:text-[1vw] font-semibold">Trending</span>
+                    <span class="font-semibold md:text-[1vw]">Trending</span>
                 </button>
                 <span class="divider-vertical h-[2vw] !border-surface-50/25" />
-                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("card_with_tippy")}>
+                <button
+                    class="btn p-0 text-surface-50"
+                    on:click={() => change_thumbnail_mode("card_with_tippy")}
+                >
                     <SixGrids class="md:w-[1.15vw]" />
                 </button>
-                <button class="btn p-0 text-surface-50" on:click={() => change_thumbnail_mode("detailed_card")}>
+                <button
+                    class="btn p-0 text-surface-50"
+                    on:click={() => change_thumbnail_mode("detailed_card")}
+                >
                     <MoreBox class="md:w-[1vw]" />
                 </button>
             </div>
         </div>
 
         {#if thumbnail_mode === "detailed_card"}
-            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+            <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1.5vw]">
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
@@ -297,38 +303,42 @@
                             <ImageLoader
                                 src={anime.cover}
                                 alt={anime.name}
-                                class="h-52 w-full object-cover object-center md:h-[20vw] rounded-l-lg md:rounded-l-[0.35vw]"
+                                class="h-52 w-full rounded-l-lg object-cover object-center md:h-[20vw] md:rounded-l-[0.35vw]"
                             />
-                            <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur rounded-l-lg md:rounded-l-[0.35vw]">
-                                <div class="p-[1vw] bg-surface-900/90 flex flex-col md:gap-[0.35vw]">
-                                    <ScrollArea class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
+                            <anime-info class="absolute inset-x-0 bottom-0 rounded-l-lg backdrop-blur md:rounded-l-[0.35vw]">
+                                <div class="flex flex-col bg-surface-900/90 p-[1vw] md:gap-[0.35vw]">
+                                    <ScrollArea class="flex max-h-[1.5vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
                                         {anime.name}
                                     </ScrollArea>
-                                    <studio-name class="md:text-[0.8vw] text-surface-50">
+                                    <studio-name class="text-surface-50 md:text-[0.8vw]">
                                         {anime.studios}
                                     </studio-name>
                                 </div>
                             </anime-info>
                         </div>
 
-                        <anime-details class="flex flex-col justify-between bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw]">
-                            <div class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1vw] leading-none">
-                                <release-time class="capitalize md:text-[1vw] font-semibold">
+                        <anime-details class="flex flex-col justify-between rounded-r-lg bg-surface-400/25 md:rounded-r-[0.35vw]">
+                            <div class="flex flex-col gap-2 leading-none text-surface-50 md:gap-[0.5vw] md:p-[1vw]">
+                                <release-time class="font-semibold capitalize md:text-[1vw]">
                                     {new FormatDate(anime.release_date).format_to_season}
                                 </release-time>
                                 <div class="flex items-center md:gap-[0.5vw]">
                                     <type class="md:text-[0.8vw]">{anime.type}</type>
-                                    <Circle class="md:w-[0.25vw] opacity-50" />
+                                    <Circle class="opacity-50 md:w-[0.25vw]" />
                                     <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                                 </div>
-                                <ScrollArea parentClass="md:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300 text-justify">
+                                <ScrollArea
+                                    offsetScrollbar
+                                    parentClass="md:max-h-[11vw] md:mt-[0.5vw]"
+                                    class="text-justify text-surface-300 md:text-[0.85vw] md:leading-[1vw]"
+                                >
                                     {anime.synopsis}
                                 </ScrollArea>
                             </div>
 
-                           <genres class="flex items-center md:gap-[0.5vw] md:p-[1vw]">
+                            <genres class="flex items-center md:gap-[0.5vw] md:p-[1vw]">
                                 {#each anime.genres as genre}
-                                    <genre class="bg-warning-400 text-black font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
+                                    <genre class="bg-warning-400 font-semibold leading-none text-black md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                                         {genre}
                                     </genre>
                                 {/each}
@@ -338,7 +348,7 @@
                 {/each}
             </result-animes>
         {:else if thumbnail_mode === "card_with_tippy"}
-            <result-animes class="mt-5 grid grid-cols-3 md:grid-cols-6 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
+            <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1.5vw]">
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
