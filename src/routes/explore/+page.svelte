@@ -273,9 +273,9 @@
                         />
                         <anime-info class="absolute inset-x-0 bottom-0 backdrop-blur">
                             <div class="p-[1vw] bg-surface-900/90 flex flex-col md:gap-[0.35vw]">
-                                <anime-name class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
+                                <ScrollArea class="flex md:text-[1vw] font-semibold max-h-[1.5vw] hover:max-h-[10vw] duration-300 ease-in-out overflow-hidden hover:overflow-y-scroll scrollbar-none md:leading-[1.35vw]">
                                     {anime.name}
-                                </anime-name>
+                                </ScrollArea>
                                 <studio-name class="md:text-[0.8vw] text-surface-50">
                                     {anime.studios}
                                 </studio-name>
