@@ -15,6 +15,8 @@
     import Circle from "$icons/circle.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import AnimeCard from "$components/tippies/anime_card.svelte";
+    import Expand from "$icons/expand.svelte";
+    import SixGrids from "$icons/six_grids.svelte";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -258,10 +260,25 @@
     </filter-options>
 
     <div class="mt-16 md:mt-[1.5vw]">
-        <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
-            <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
-            <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
-        </headings>
+        <div class="flex items-center justify-between">
+            <headings class="flex flex-col gap-2 md:gap-[0.35vw]">
+                <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
+                <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
+            </headings>
+            <div class="flex md:gap-[1vw]">
+                <button class="btn p-0 text-surface-50">
+                    <Expand class="md:w-[1.25vw]" />
+                    <span class="md:text-[1vw] font-semibold">Trending</span>
+                </button>
+                <span class="divider-vertical h-[2vw] !border-surface-50/25" />
+                <button class="btn p-0 text-surface-50">
+                    <SixGrids class="md:w-[1.15vw]" />
+                </button>
+                <button class="btn p-0 text-surface-50">
+                    <MoreBox class="md:w-[1vw]" />
+                </button>
+            </div>
+        </div>
 
         <result-animes class="{thumbnail_mode === "3_grids" ? "md:grid-cols-3" : "md:grid-cols-6"} mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:gap-[1.5vw]">
             {#each trending_animes as anime}
