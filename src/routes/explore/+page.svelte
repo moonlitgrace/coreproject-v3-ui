@@ -18,7 +18,6 @@
     import Expand from "$icons/expand.svelte";
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
-    import _ from "lodash";
 
     let filter_options_mapping: {
         [key: string]: {
