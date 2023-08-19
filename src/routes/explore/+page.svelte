@@ -11,6 +11,9 @@
     import Mic from "$icons/mic.svelte";
     import FilterOptions from "$components/tippies/filter_options.svelte";
     import Cross from "$icons/cross.svelte";
+    import { FormatDate } from "$functions/format_date";
+    import Circle from "$icons/circle.svelte";
+    import ScrollArea from "$components/shared/scroll_area.svelte";
 
     let filter_options_mapping: {
         [key: string]: {
@@ -293,8 +296,18 @@
                         </anime-info>
                     </div>
 
-                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1.25vw] bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw]">
-                        
+                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw] md:p-[1vw] bg-surface-400/25 rounded-r-lg md:rounded-r-[0.35vw] leading-none">
+                        <release-time class="capitalize md:text-[1vw] font-semibold">
+                            {new FormatDate(anime.release_date).format_to_season}
+                        </release-time>
+                        <div class="flex items-center md:gap-[0.5vw]">
+                            <type class="md:text-[0.8vw]">{anime.type}</type>
+                            <Circle class="md:w-[0.25vw] opacity-50" />
+                            <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
+                        </div>
+                        <ScrollArea gradientMask parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-100">
+                            {anime.synopsis}
+                        </ScrollArea>
                     </anime-details>
                 </a>
             {/each}
