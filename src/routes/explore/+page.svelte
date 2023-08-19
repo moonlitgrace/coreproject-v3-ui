@@ -293,14 +293,14 @@
                                 <Circle class="md:w-[0.25vw] opacity-50" />
                                 <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                             </div>
-                            <ScrollArea parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-100">
+                            <ScrollArea parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300">
                                 {anime.synopsis}
                             </ScrollArea>
                         </div>
 
                        <genres class="flex items-center md:gap-[0.5vw] bg-surface-400/75 md:p-[1vw]">
                             {#each anime.genres as genre}
-                                <genre class="bg-warning-400 font-semibold leading-none text-black md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
+                                <genre class="bg-primary-500 font-semibold leading-none md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                                     {genre}
                                 </genre>
                             {/each}
