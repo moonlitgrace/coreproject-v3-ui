@@ -293,7 +293,7 @@
                                 <Circle class="md:w-[0.25vw] opacity-50" />
                                 <episodes class="md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                             </div>
-                            <ScrollArea parentClass="md:max-h-[7vw] md:hover:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300">
+                            <ScrollArea parentClass="md:max-h-[11vw] md:mt-[0.5vw]" class="md:text-[0.85vw] md:leading-[1vw] text-surface-300">
                                 {anime.synopsis}
                             </ScrollArea>
                         </div>
