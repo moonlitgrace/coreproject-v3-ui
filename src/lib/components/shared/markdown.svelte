@@ -51,7 +51,7 @@
             // Override function
             renderer: {
                 del(text: string) {
-                    return `<del class=''>${text}</del>`;
+                    return `<del>${text}</del>`;
                 }
             },
             // We dont need github like header prefix
