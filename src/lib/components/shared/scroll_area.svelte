@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-
     let klass = "";
     export { klass as class };
 
@@ -14,7 +12,7 @@
     class:mask-bottom={gradientMask}
 >
     <div class="{klass} whitespace-pre-line">
-        <span class="pb-[1.25vw]">
+        <span class:pb-[1.25vw]={gradientMask}>
             <slot />
         </span>
     </div>
