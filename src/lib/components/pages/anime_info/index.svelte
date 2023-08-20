@@ -246,7 +246,7 @@
 
                     <anime-genres class="hidden gap-[0.5vw] text-white md:mt-[1vw] md:flex md:text-[0.75vw] md:leading-[0.9vw]">
                         {#each ["Action", "Romance", "Horror"] as genre}
-                            <span class="rounded bg-warning-400 text-black font-semibold px-[0.95vw] md:py-[0.375vw]">
+                            <span class="bg-warning-400 text-black font-semibold md:px-[0.75vw] md:py-[0.4vw] rounded-[0.25vw]">
                                 {genre}
                             </span>
                         {/each}
