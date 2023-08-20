@@ -52,8 +52,15 @@
         <more-anime-info
             in:slide={{ duration: 300, delay: 200 }}
             out:slide={{ duration: 200 }}
-            class="absolute inset-x-0 bottom-0 p-[1.3125vw] flex flex-col"
+            class="absolute inset-x-0 bottom-0 p-[1.3125vw] flex flex-col gap-[0.5vw]"
         >
+            <genres class="flex items-center md:my-[0.35vw] md:gap-[0.5vw]">
+                {#each ["Action", "Romance", "Hentai"] as genre}
+                    <genre class="bg-surface-50 font-semibold leading-none text-black md:rounded-[0.35vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
+                        {genre}
+                    </genre>
+                {/each}
+            </genres>
             <ScrollArea class="h-[6vw] text-[0.8vw] text-surface-50 leading-[1.15vw]">
                 {anime.synopsis}
             </ScrollArea>
