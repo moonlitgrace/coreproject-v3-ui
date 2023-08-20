@@ -525,6 +525,7 @@
                         arrow: false,
                         allowHTML: true,
                         placement: "right-start",
+                        offset: [7, 10],
                         animation: "scale",
                         duration: [150, 10],
                         interactive: true,
