@@ -11,10 +11,10 @@
     class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
     class:mask-bottom={gradientMask}
 >
-    <div class="{klass} whitespace-pre-line">
-        <span class:pb-[1.25vw]={gradientMask}>
+    <div>
+        <div class="{klass} whitespace-pre-line">
             <slot />
-        </span>
+        </div>
     </div>
 </scroll-area>
 
