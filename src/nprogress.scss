@@ -24,10 +24,19 @@ $nprogress-height: 0.2rem;
     height: $nprogress-height;
 
     @keyframes change-bg {
-        0%, 100% { background: $nprogress-bar-color; }
-        25% { background: $nprogress-bar-seconday-color; }
-        50% { background: $nprogress-bar-success-color; }
-        75% { background: $nprogress-bar-warning-color; }
+        0%,
+        100% {
+            background: $nprogress-bar-color;
+        }
+        25% {
+            background: $nprogress-bar-seconday-color;
+        }
+        50% {
+            background: $nprogress-bar-success-color;
+        }
+        75% {
+            background: $nprogress-bar-warning-color;
+        }
     }
 }
 
