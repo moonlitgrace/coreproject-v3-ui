@@ -316,6 +316,7 @@
                                 </div>
                                 <ScrollArea
                                     offsetScrollbar
+                                    gradientMask
                                     parentClass="md:max-h-[11vw] md:mt-[0.5vw]"
                                     class="text-justify text-surface-300 md:text-[0.85vw] md:leading-[1vw]"
                                 >
