@@ -245,9 +245,9 @@
                     </ScrollArea>
 
                     <anime-genres class="hidden gap-[0.5vw] text-white md:mt-[1vw] md:flex md:text-[0.75vw] md:leading-[0.9vw]">
-                        <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Mystery</span>
-                        <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Romance</span>
-                        <span class="rounded bg-surface-900 px-[0.95vw] md:py-[0.375vw]">Horror</span>
+                        <span class="rounded bg-warning-400 text-black px-[0.95vw] md:py-[0.375vw]">Mystery</span>
+                        <span class="rounded bg-warning-400 text-black px-[0.95vw] md:py-[0.375vw]">Romance</span>
+                        <span class="rounded bg-warning-400 text-black px-[0.95vw] md:py-[0.375vw]">Horror</span>
                     </anime-genres>
 
                     <anime-scores class="hidden w-max gap-[0.75vw] rounded-[0.25vw] bg-surface-50/10 backdrop-blur-lg md:mt-[0.5vw] md:flex md:px-[0.75vw] md:py-[0.5vw] md:text-[0.75vw] md:leading-[0.75vw]">
