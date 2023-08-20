@@ -560,9 +560,11 @@
                             <ScrollArea class="flex md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
                                 {anime.name}
                             </ScrollArea>
-                            <studio-name class="text-surface-50 md:text-[0.8vw]">
-                                {anime.studios}
-                            </studio-name>
+                            <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
+                                <span>Watching</span>
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
+                                <span>{anime.current_episode}/{anime.episodes_count} eps</span>
+                            </anime_info>
                         </div>
                     </anime-info>
                 </a>
