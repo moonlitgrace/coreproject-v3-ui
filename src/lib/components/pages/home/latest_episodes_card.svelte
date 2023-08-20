@@ -6,6 +6,7 @@
     import { slide } from "svelte/transition";
 
     export let anime: {
+        id: number;
         cover: string;
         name: string;
         episode_number: number;
@@ -43,9 +44,12 @@
                 </span>
             </episode-dates>
         </div>
-        <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 group-hover:bg-white text-surface-900 transition-colors duration-300">
+        <a
+            href="./mal/{anime.id}/episode/{anime.episode_number}"
+            class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 group-hover:bg-white text-surface-900 transition-colors duration-300"
+        >
             <Play class="w-[1.25vw]" />
-        </button>
+        </a>
     </episode-info>
 
     {#if show_more_info}
