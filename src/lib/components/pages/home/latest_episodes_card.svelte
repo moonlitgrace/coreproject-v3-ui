@@ -50,7 +50,7 @@
 
     {#if show_more_info}
         <more-anime-info
-            in:slide={{ duration: 200, delay: 300 }}
+            in:slide={{ duration: 300, delay: 200 }}
             out:slide={{ duration: 200 }}
             class="absolute inset-x-0 bottom-0 p-[1.3125vw] flex flex-col"
         >
