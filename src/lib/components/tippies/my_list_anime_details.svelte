@@ -58,12 +58,12 @@
             {anime_synopsis}
         </ScrollArea>
 
-        <options class="flex items-center md:mt-[0.25vw] md:gap-[0.5vw]">
+        <options class="md:mt-[0.25vw] border-t-[0.1vw] md:pt-[0.75vw] border-white/10 flex items-center md:gap-[0.5vw]">
             <a
                 href="/mal/{anime_id}/episode/{anime_current_episode}"
                 class="btn h-[2.3vw] flex-1 bg-primary-500 leading-none md:rounded-[0.5vw]"
             >
-                <PlayCircle class="md:w-[1vw]" />
+                <PlayCircle class="md:w-[0.9vw]" />
                 <span class="font-semibold md:text-[0.9vw]">Continue Ep {anime_current_episode}</span>
             </a>
             <a
