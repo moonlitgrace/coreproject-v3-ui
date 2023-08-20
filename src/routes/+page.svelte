@@ -33,6 +33,7 @@
     import { blur, scale } from "svelte/transition";
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
+    import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -393,33 +394,7 @@
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime}
-                    <anime-episode class="relative h-[5vw]">
-                        <ImageLoader
-                            src={anime.cover}
-                            class="absolute h-full w-full rounded-[0.75vw] object-cover object-center"
-                        />
-                        <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 to-surface-900/0" />
-                        <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/0" />
-
-                        <episode-info class="absolute inset-0 flex items-start justify-between p-[1.3125vw]">
-                            <div class="flex flex-col gap-[0.25vw]">
-                                <episode-name class="text-[1vw] font-semibold leading-[1.1875vw] text-white">
-                                    {anime.name}
-                                </episode-name>
-                                <episode-dates class="flex items-center gap-[0.35vw] text-[0.8vw] text-surface-50">
-                                    <span class="font-semibold">
-                                        Ep {String(anime.episode_number).padStart(2, "0")}
-                                    </span>
-                                    <span>
-                                        aired {new FormatDate(anime.release_date).format_to_time_from_now}
-                                    </span>
-                                </episode-dates>
-                            </div>
-                            <button class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900">
-                                <Play class="w-[1.25vw]" />
-                            </button>
-                        </episode-info>
-                    </anime-episode>
+                    <LatestEpisodesCard {anime} />
                 {/each}
             </ScrollArea>
 
