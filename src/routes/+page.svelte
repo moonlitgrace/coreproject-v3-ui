@@ -525,9 +525,8 @@
                         arrow: false,
                         allowHTML: true,
                         placement: "right-start",
-                        offset: [7, 10],
-                        animation: "scale",
-                        duration: [150, 10],
+                        animation: "shift-away",
+                        duration: [200, 50],
                         interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
