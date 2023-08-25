@@ -23,7 +23,7 @@
 <scroll-area
     bind:this={scroll_area}
     on:scroll={handle_scroll}
-    class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
+    class="{parentClass} {offsetScrollbar && "pr-3 md:pr-[0.75vw]"} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
     class:mask-bottom={gradientMask && add_mask_bottom}
 >
     <div>
