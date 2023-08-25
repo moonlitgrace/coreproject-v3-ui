@@ -257,23 +257,23 @@
                 <span class="text-xl font-semibold leading-none md:text-[1.35vw]">Trending Now</span>
                 <span class="text-base leading-none text-surface-50 md:text-[1vw]">Crowd Favorites: Anime Hits and Hype</span>
             </headings>
-            <div class="flex md:gap-[1vw]">
+            <div class="flex gap-3 md:gap-[1vw]">
                 <button class="btn p-0 text-surface-50">
-                    <Expand class="md:w-[1.25vw]" />
+                    <Expand class="w-5 md:w-[1.25vw]" />
                     <span class="font-semibold md:text-[1vw]">Trending</span>
                 </button>
-                <span class="divider-vertical h-[2vw] !border-surface-50/25" />
+                <span class="divider-vertical h-7 md:h-[2vw] !border-surface-50/25" />
                 <button
                     class="btn p-0 text-surface-50"
                     on:click={() => change_thumbnail_mode("card_with_tippy")}
                 >
-                    <SixGrids class="md:w-[1.15vw]" />
+                    <SixGrids class="w-5 md:w-[1.15vw]" />
                 </button>
                 <button
                     class="btn p-0 text-surface-50"
                     on:click={() => change_thumbnail_mode("detailed_card")}
                 >
-                    <MoreBox class="md:w-[1vw]" />
+                    <MoreBox class="w-[1.1rem] md:w-[1vw]" />
                 </button>
             </div>
         </div>
