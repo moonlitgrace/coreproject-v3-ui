@@ -376,12 +376,14 @@
                             <ImageLoader
                                 src={anime.cover}
                                 alt={anime.name}
-                                class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
+                                class="h-60 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
                             />
                             <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
-                                <div class="flex flex-col bg-surface-900/90 p-[1vw] md:gap-[0.35vw]">
-                                    <ScrollArea class="flex md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
-                                        {anime.name}
+                                <div class="flex flex-col bg-surface-900/90 p-3 gap-1 md:p-[1vw] md:gap-[0.35vw]">
+                                    <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                                        <span class="line-clamp-1 md:line-clamp-none">
+                                            {anime.name}
+                                        </span>
                                     </ScrollArea>
                                     <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
                                         <genre>{anime.genres[0]}</genre>
