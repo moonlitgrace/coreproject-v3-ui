@@ -7,30 +7,23 @@
     export let gradientMask = false;
 
     let scroll_area: HTMLElement;
+    $: {
+        // Check if content is not overflown
+        if (scroll_area) {
+            const {scrollHeight, clientHeight} = scroll_area;
+
+            if (scrollHeight > clientHeight) gradientMask = true;
+            else gradientMask = false;
+        }
+    };
 
     function handle_scroll(event: Event) {
         const target = event.target as HTMLElement;
         const { scrollHeight, clientHeight, scrollTop } = target;
 
-        if (clientHeight + scrollTop === scrollHeight) {
-            gradientMask = false;
-            console.log("end reached");
-        } else {
-            gradientMask = true;
-        }
+        if (clientHeight + scrollTop === scrollHeight) gradientMask = false;
+        else gradientMask = true;
     }
-
-    $: {
-        if (scroll_area) {
-            const {scrollHeight, clientHeight} = scroll_area;
-            console.log("Scroll height", scrollHeight);
-            console.log("Client height", clientHeight);
-
-            if (scrollHeight > clientHeight) {
-                gradientMask = true;
-            } else gradientMask = false;
-        }
-    };
 </script>
 
 <scroll-area
