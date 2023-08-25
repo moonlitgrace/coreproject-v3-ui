@@ -1,8 +1,10 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
+    import IntersectionObserver from "$components/shared/image/intersection_observer.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Play from "$icons/play.svelte";
+    import { onMount } from "svelte";
     import { slide } from "svelte/transition";
 
     export let anime: {
@@ -12,16 +14,53 @@
         episode_number: number;
         release_date: string;
         synopsis: string;
-    }
+    };
+    let observer: IntersectionObserver;
+    onMount(() => {
+        scroll_area_element = anime_episode.parentElement?.parentElement?.parentElement! as HTMLElement;
+    });
+
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px",
+        threshold: 0.5 // Intersection threshold (50% of element visible)
+    };
+
+    const intersectionCallback: IntersectionObserverCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                isElementInViewport = true;
+            } else {
+                isElementInViewport = false;
+            }
+        });
+    };
+    observer = new IntersectionObserver(intersectionCallback, observerOptions);
 
     let show_more_info = false;
 
+    /** Bindings */
+    let anime_episode: HTMLElement;
+    let scroll_area_element: HTMLElement | null = null;
+
+    function handle_mouseenter() {
+        show_more_info = true;
+    }
+    function handle_mouseleave() {
+        show_more_info = false;
+    }
+    function handle_animationstart() {
+        if (scroll_area_element) {
+        }
+    }
 </script>
+
 <anime-episode
-    on:mouseenter={() => show_more_info = true}
-    on:mouseleave={() => show_more_info = false}
+    bind:this={anime_episode}
+    on:mouseenter={handle_mouseenter}
+    on:mouseleave={handle_mouseleave}
     role="group"
-    class="group relative h-[5vw] hover:h-[16vw] duration-300 ease-in-out delay-100"
+    class="group relative h-[5vw] delay-100 duration-300 ease-in-out hover:h-[16vw]"
 >
     <ImageLoader
         src={anime.cover}
@@ -46,7 +85,7 @@
         </div>
         <a
             href="./mal/{anime.id}/episode/{anime.episode_number}"
-            class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 group-hover:bg-white text-surface-900 transition-colors duration-300"
+            class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900 transition-colors duration-300 group-hover:bg-white"
         >
             <Play class="w-[1.25vw]" />
         </a>
@@ -56,7 +95,8 @@
         <more-anime-info
             in:slide={{ duration: 300, delay: 200 }}
             out:slide={{ duration: 200 }}
-            class="absolute inset-x-0 bottom-0 p-[1.3125vw] flex flex-col gap-[0.5vw]"
+            on:animationstart={handle_animationstart}
+            class="absolute inset-x-0 bottom-0 flex flex-col gap-[0.5vw] p-[1.3125vw]"
         >
             <genres class="flex items-center md:my-[0.35vw] md:gap-[0.5vw]">
                 {#each ["Action", "Romance", "Hentai"] as genre}
@@ -65,7 +105,7 @@
                     </genre>
                 {/each}
             </genres>
-            <ScrollArea class="h-[6vw] text-[0.8vw] text-surface-50 leading-[1.15vw]">
+            <ScrollArea class="h-[6vw] text-[0.8vw] leading-[1.15vw] text-surface-50">
                 {anime.synopsis}
             </ScrollArea>
         </more-anime-info>
