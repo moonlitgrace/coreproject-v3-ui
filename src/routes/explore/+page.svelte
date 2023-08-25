@@ -378,30 +378,19 @@
                                 alt={anime.name}
                                 class="h-52 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
                             />
-                            <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
-                                <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
-                                    <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
-                                        <Caption class="h-4 md:h-[1.25vw]" />
-                                        <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                    </subs>
-                                    <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
-                                        <Mic class="h-3 md:h-[0.8vw]" />
-                                        <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                    </dubs>
+                            <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
+                                <div class="flex flex-col bg-surface-900/90 p-[1vw] md:gap-[0.35vw]">
+                                    <ScrollArea class="flex md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                                        {anime.name}
+                                    </ScrollArea>
+                                    <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
+                                        <span>Watching</span>
+                                        <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
+                                        <span>{anime.current_episode}/{anime.episodes_count} eps</span>
+                                    </anime_info>
                                 </div>
-                            </overlay>
+                            </anime-info>
                         </div>
-
-                        <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
-                            <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">
-                                {anime.name}
-                            </anime_name>
-                            <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.9vw]">
-                                <genre>{anime.genres[0]}</genre>
-                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
-                                <episodes_count>{anime.episodes_count} eps</episodes_count>
-                            </anime_info>
-                        </anime-details>
                     </a>
                 {/each}
             </result-animes>
