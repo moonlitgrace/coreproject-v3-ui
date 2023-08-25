@@ -384,9 +384,9 @@
                                         {anime.name}
                                     </ScrollArea>
                                     <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
-                                        <span>Watching</span>
+                                        <genre>{anime.genres[0]}</genre>
                                         <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
-                                        <span>{anime.current_episode}/{anime.episodes_count} eps</span>
+                                        <episodes_count>{anime.episodes_count} eps</episodes_count>
                                     </anime_info>
                                 </div>
                             </anime-info>
