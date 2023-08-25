@@ -284,16 +284,16 @@
                     <a
                         in:scale={{ start: 0.95 }}
                         href="/mal/{anime.id}"
-                        class="relative col-span-1 grid grid-cols-2"
+                        class="relative col-span-1 grid grid-cols-1 md:grid-cols-2"
                     >
                         <div class="relative">
                             <ImageLoader
                                 src={anime.cover}
                                 alt={anime.name}
-                                class="h-52 w-full rounded-l-lg object-cover object-center md:h-[20vw] md:rounded-l-[0.35vw]"
+                                class="h-56 w-full rounded-t-lg object-cover object-center md:h-[20vw] md:rounded-l-[0.35vw]"
                             />
-                            <anime-info class="absolute inset-x-0 bottom-0 rounded-l-lg backdrop-blur md:rounded-l-[0.35vw]">
-                                <div class="flex flex-col bg-surface-900/90 p-2 md:p-[1vw] md:gap-[0.35vw]">
+                            <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-l-[0.35vw]">
+                                <div class="flex flex-col bg-surface-900/90 p-3 md:p-[1vw] md:gap-[0.35vw]">
                                     <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
                                         <span class="line-clamp-1 md:line-clamp-none">
                                             {anime.name}
@@ -328,7 +328,7 @@
 
                             <genres class="flex overflow-x-scroll scrollbar-none items-center gap-2 md:gap-[0.5vw] p-3 md:p-[1vw]">
                                 {#each anime.genres as genre}
-                                    <genre class="bg-warning-400 font-semibold leading-none text-black md:rounded-[0.25vw] rounded-sm p-1 md:px-[0.6vw] md:py-[0.3vw] text-xs md:text-[0.8vw] whitespace-nowrap">
+                                    <genre class="bg-warning-400 font-semibold leading-none text-black md:rounded-[0.25vw] rounded p-1 md:px-[0.6vw] md:py-[0.3vw] text-xs md:text-[0.8vw] whitespace-nowrap">
                                         {genre}
                                     </genre>
                                 {/each}
