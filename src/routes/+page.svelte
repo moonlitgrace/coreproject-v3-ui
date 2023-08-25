@@ -30,7 +30,7 @@
     import type { SvelteComponent } from "svelte";
     import { swipe } from "svelte-gestures";
     import { tweened } from "svelte/motion";
-    import { blur } from "svelte/transition";
+    import { blur, scale } from "svelte/transition";
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
 
@@ -520,66 +520,53 @@
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}/episode/{anime.current_episode}"
-                    class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
+                    class="relative"
+                    use:tippy={{
+                        arrow: false,
+                        allowHTML: true,
+                        placement: "right-start",
+                        animation: "shift-away",
+                        duration: [200, 50],
+                        interactive: true,
+                        appendTo: document.body,
+                        onTrigger: async (instance) => {
+                            const node = document.createElement("div");
+                            new MyListAnimeDetails({
+                                target: node,
+                                props: {
+                                    anime_id: anime.id,
+                                    anime_name: anime.name,
+                                    anime_type: anime.type,
+                                    anime_genres: anime.genres,
+                                    anime_studios: anime.studios,
+                                    anime_episodes_count: anime.episodes_count,
+                                    anime_synopsis: anime.synopsis,
+                                    anime_current_episode: anime.current_episode,
+                                    anime_release_date: anime.release_date
+                                }
+                            });
+
+                            instance.setContent(node);
+                        }
+                    }}
                 >
-                    <div
-                        class="relative"
-                        use:tippy={{
-                            arrow: false,
-                            allowHTML: true,
-                            placement: "right-start",
-                            animation: "scale",
-                            duration: [150, 10],
-                            interactive: true,
-                            appendTo: document.body,
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new MyListAnimeDetails({
-                                    target: node,
-                                    props: {
-                                        anime_id: anime.id,
-                                        anime_name: anime.name,
-                                        anime_type: anime.type,
-                                        anime_genres: anime.genres,
-                                        anime_studios: anime.studios,
-                                        anime_episodes_count: anime.episodes_count,
-                                        anime_synopsis: anime.synopsis,
-                                        anime_current_episode: anime.current_episode,
-                                        anime_release_date: anime.release_date
-                                    }
-                                });
-
-                                instance.setContent(node);
-                            }
-                        }}
-                    >
-                        <ImageLoader
-                            src={anime.cover}
-                            alt={anime.name}
-                            class="h-52 w-full rounded-md object-cover object-center md:h-[18vw] md:rounded-[0.35vw]"
-                        />
-                        <overlay class="absolute inset-0 flex items-end bg-gradient-to-t from-surface-900/75 to-transparent p-2 leading-none md:p-[0.5vw]">
-                            <div class="flex gap-1 overflow-hidden rounded md:gap-[0.2vw] md:rounded-[0.3vw]">
-                                <subs class="flex items-center gap-1 bg-warning-400 p-1 text-black md:gap-[0.25vw] md:px-[0.35vw] md:py-[0.25vw]">
-                                    <Caption class="h-4 md:h-[1.25vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </subs>
-                                <dubs class="flex items-center gap-1 bg-white/25 p-1 backdrop-blur md:gap-[0.25vw] md:px-[0.45vw] md:py-[0.25vw]">
-                                    <Mic class="h-3 md:h-[0.8vw]" />
-                                    <span class="text-xs font-semibold md:text-[0.8vw]">{anime.episodes_count}</span>
-                                </dubs>
-                            </div>
-                        </overlay>
-                    </div>
-
-                    <anime-details class="flex flex-col gap-2 text-surface-50 md:gap-[0.5vw]">
-                        <anime_name class="line-clamp-1 text-xs font-semibold leading-none md:text-[1vw]">{anime.name}</anime_name>
-                        <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
-                            <span>Watching</span>
-                            <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
-                            <span>{anime.current_episode}/{anime.episodes_count} eps</span>
-                        </anime_info>
-                    </anime-details>
+                    <ImageLoader
+                        src={anime.cover}
+                        alt={anime.name}
+                        class="h-52 w-full rounded-lg object-cover object-center md:h-[20vw] md:rounded-[0.5vw]"
+                    />
+                    <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
+                        <div class="flex flex-col bg-surface-900/90 p-[1vw] md:gap-[0.35vw]">
+                            <ScrollArea class="flex md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                                {anime.name}
+                            </ScrollArea>
+                            <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
+                                <span>Watching</span>
+                                <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
+                                <span>{anime.current_episode}/{anime.episodes_count} eps</span>
+                            </anime_info>
+                        </div>
+                    </anime-info>
                 </a>
             {/each}
         </my-list-animes>
