@@ -114,7 +114,7 @@
     }
 
     /* Thumbnail modes */
-    let thumbnail_mode: "card_with_tippy" | "detailed_card" = "detailed_card";
+    let thumbnail_mode: "card_with_tippy" | "detailed_card" = "card_with_tippy";
 
     function change_thumbnail_mode(mode: typeof thumbnail_mode) {
         thumbnail_mode = mode;
