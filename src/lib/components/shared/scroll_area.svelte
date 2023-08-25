@@ -5,14 +5,42 @@
     export let parentClass = "";
     export let offsetScrollbar = false;
     export let gradientMask = false;
+
+    let scroll_area: HTMLElement;
+
+    function handle_scroll(event: Event) {
+        const target = event.target as HTMLElement;
+        const { scrollHeight, clientHeight, scrollTop } = target;
+
+        if (clientHeight + scrollTop === scrollHeight) {
+            gradientMask = false;
+            console.log("end reached");
+        } else {
+            gradientMask = true;
+        }
+    }
+
+    $: {
+        if (scroll_area) {
+            const {scrollHeight, clientHeight} = scroll_area;
+            console.log("Scroll height", scrollHeight);
+            console.log("Client height", clientHeight);
+
+            if (scrollHeight > clientHeight) {
+                gradientMask = true;
+            } else gradientMask = false;
+        }
+    };
 </script>
 
 <scroll-area
+    bind:this={scroll_area}
+    on:scroll={handle_scroll}
     class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
     class:mask-bottom={gradientMask}
 >
     <div>
-        <div class="{klass} whitespace-pre-line">
+        <div class="{klass} whitespace-pre-line !pb-0">
             <slot />
         </div>
     </div>
