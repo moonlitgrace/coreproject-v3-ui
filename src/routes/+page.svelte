@@ -34,6 +34,9 @@
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
 
+    /* Bindings */
+    let my_list_grid: HTMLElement;
+
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
     let main_hero_slide_active_index = 0;
@@ -516,7 +519,10 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="relative mt-4 grid grid-cols-3 gap-3 md:mt-[1vw] md:grid-cols-5 md:gap-[1.25vw]">
+        <my-list-animes
+            class="relative mt-4 grid grid-cols-3 gap-3 md:mt-[1vw] md:grid-cols-5 md:gap-[1.25vw]"
+            bind:this={my_list_grid}
+        >
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}/episode/{anime.current_episode}"
@@ -530,7 +536,10 @@
                         interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
-                            const node = document.createElement("div");
+                            // Lazy offset calculation
+                            instance.props.offset = [0, parseInt(getComputedStyle(my_list_grid)?.gap)];
+
+                            const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
                                 target: node,
                                 props: {
@@ -556,15 +565,15 @@
                         class="h-60 w-full rounded-lg object-cover object-center md:h-[20vw] md:rounded-[0.5vw]"
                     />
                     <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
-                        <div class="flex flex-col bg-surface-900/90 p-3 gap-1 md:p-[1vw] md:gap-[0.35vw]">
-                            <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                        <div class="flex flex-col gap-1 bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
+                            <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
                                 <span class="line-clamp-1 md:line-clamp-none">
                                     {anime.name}
                                 </span>
                             </ScrollArea>
                             <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
                                 <span class="hidden md:flex">Watching</span>
-                                <Circle class="hidden md:flex opacity-75 md:w-[0.25vw]" />
+                                <Circle class="hidden opacity-75 md:flex md:w-[0.25vw]" />
                                 <span>{anime.current_episode}/{anime.episodes_count} eps</span>
                             </anime_info>
                         </div>
