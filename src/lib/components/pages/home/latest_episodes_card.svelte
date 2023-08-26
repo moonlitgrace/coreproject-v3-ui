@@ -103,7 +103,10 @@
                     </genre>
                 {/each}
             </genres>
-            <ScrollArea class="h-[6vw] text-[0.8vw] leading-[1.15vw] text-surface-50">
+            <ScrollArea
+                offsetScrollbar
+                class="h-[6vw] text-[0.8vw] leading-[1.15vw] text-surface-50"
+            >
                 {anime.synopsis}
             </ScrollArea>
         </more-anime-info>
