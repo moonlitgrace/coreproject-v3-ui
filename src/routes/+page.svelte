@@ -35,6 +35,9 @@
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
 
+    /* Bindings */
+    let my_list_grid: HTMLElement;
+
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
     let main_hero_slide_active_index = 0;
@@ -494,7 +497,10 @@
             </see-all>
         </my-list-info>
 
-        <my-list-animes class="relative mt-4 grid grid-cols-3 gap-3 md:mt-[1vw] md:grid-cols-5 md:gap-[1.25vw]">
+        <my-list-animes
+            class="relative mt-4 grid grid-cols-3 gap-3 md:mt-[1vw] md:grid-cols-5 md:gap-[1.25vw]"
+            bind:this={my_list_grid}
+        >
             {#each my_list as anime}
                 <a
                     href="/mal/{anime.id}/episode/{anime.current_episode}"
@@ -508,7 +514,10 @@
                         interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
-                            const node = document.createElement("div");
+                            // Lazy offset calculation
+                            instance.props.offset = [0, parseInt(getComputedStyle(my_list_grid)?.gap)];
+
+                            const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
                                 target: node,
                                 props: {
