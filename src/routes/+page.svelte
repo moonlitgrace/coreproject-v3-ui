@@ -34,7 +34,6 @@
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
-    import IntersectionObserver from "$components/shared/image/intersection_observer.svelte";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
