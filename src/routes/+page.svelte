@@ -34,6 +34,7 @@
     import Mic from "$icons/mic.svelte";
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
+    import IntersectionObserver from "$components/shared/image/intersection_observer.svelte";
 
     /* Slider codes */
     let main_hero_slider_element: HTMLElement;
@@ -296,7 +297,7 @@
                                 gradientMask
                                 offsetScrollbar
                                 parentClass="max-h-16 md:max-h-[6vw] hidden md:flex"
-                                class="text-xs font-medium leading-4 text-surface-200 md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw] md:pb-[0.75vw]"
+                                class="text-xs font-medium leading-4 text-surface-200 md:pb-[0.75vw] md:pt-[0.75vw] md:text-[0.85vw] md:leading-[1.1vw]"
                             >
                                 {anime.synopsis}
                             </ScrollArea>
@@ -393,8 +394,11 @@
                 parentClass="mt-[1vw] max-h-[22.25vw]"
                 class="flex flex-col gap-[1vw]"
             >
-                {#each latest_episodes as anime}
-                    <LatestEpisodesCard {anime} />
+                {#each latest_episodes as anime, index}
+                    <LatestEpisodesCard
+                        {anime}
+                        last_slide={index === latest_episodes.length - 1}
+                    />
                 {/each}
             </ScrollArea>
 
@@ -531,15 +535,15 @@
                         class="h-60 w-full rounded-lg object-cover object-center md:h-[20vw] md:rounded-[0.5vw]"
                     />
                     <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
-                        <div class="flex flex-col bg-surface-900/90 p-3 gap-1 md:p-[1vw] md:gap-[0.35vw]">
-                            <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                        <div class="flex flex-col gap-1 bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
+                            <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
                                 <span class="line-clamp-1 md:line-clamp-none">
                                     {anime.name}
                                 </span>
                             </ScrollArea>
                             <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
                                 <span class="hidden md:flex">Watching</span>
-                                <Circle class="hidden md:flex opacity-75 md:w-[0.25vw]" />
+                                <Circle class="hidden opacity-75 md:flex md:w-[0.25vw]" />
                                 <span>{anime.current_episode}/{anime.episodes_count} eps</span>
                             </anime_info>
                         </div>

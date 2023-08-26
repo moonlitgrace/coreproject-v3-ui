@@ -1,11 +1,13 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
-    import IntersectionObserver from "$components/shared/image/intersection_observer.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import Play from "$icons/play.svelte";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
+
+    // Boolean flag to check if slide is last element
+    export let last_slide = false;
 
     export let anime: {
         id: number;
@@ -15,33 +17,15 @@
         release_date: string;
         synopsis: string;
     };
-    let observer: IntersectionObserver;
+    let scroll_area_element: HTMLElement | null = null;
+
     onMount(() => {
         scroll_area_element = anime_episode.parentElement?.parentElement?.parentElement! as HTMLElement;
     });
-
-    const observerOptions = {
-        root: null, // Use the viewport as the root
-        rootMargin: "0px",
-        threshold: 0.5 // Intersection threshold (50% of element visible)
-    };
-
-    const intersectionCallback: IntersectionObserverCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                isElementInViewport = true;
-            } else {
-                isElementInViewport = false;
-            }
-        });
-    };
-    observer = new IntersectionObserver(intersectionCallback, observerOptions);
-
     let show_more_info = false;
 
     /** Bindings */
     let anime_episode: HTMLElement;
-    let scroll_area_element: HTMLElement | null = null;
 
     function handle_mouseenter() {
         show_more_info = true;
@@ -50,8 +34,22 @@
         show_more_info = false;
     }
     function handle_animationstart() {
-        if (scroll_area_element) {
+        if (!scroll_area_element) {
+            return;
         }
+
+        if (!last_slide) {
+            return;
+        }
+
+        const is_visible = anime_episode.getBoundingClientRect().top >= 0 && anime_episode.getBoundingClientRect().left >= 0 && anime_episode.getBoundingClientRect().bottom <= (window.innerHeight || document.documentElement.clientHeight) && anime_episode.getBoundingClientRect().right <= (window.innerWidth || document.documentElement.clientWidth);
+        if (!is_visible) {
+            return;
+        }
+
+        setTimeout(() => {
+            scroll_area_element!.scroll({ top: scroll_area_element!.scrollHeight, behavior: "smooth" });
+        }, 110);
     }
 </script>
 
