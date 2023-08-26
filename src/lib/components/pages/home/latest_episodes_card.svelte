@@ -17,6 +17,9 @@
         release_date: string;
         synopsis: string;
     };
+
+    /* Bindings */
+    let ANIMATION_DURATION = 300;
     let scroll_area_element: HTMLElement | null = null;
 
     onMount(() => {
@@ -47,9 +50,12 @@
             return;
         }
 
-        setTimeout(() => {
-            scroll_area_element!.scroll({ top: scroll_area_element!.scrollHeight, behavior: "smooth" });
-        }, 110);
+        setTimeout(
+            () => {
+                scroll_area_element!.scroll({ top: scroll_area_element!.scrollHeight, behavior: "smooth" });
+            },
+            ANIMATION_DURATION * (1.1 / 3)
+        );
     }
 </script>
 
@@ -91,8 +97,8 @@
 
     {#if show_more_info}
         <more-anime-info
-            in:slide={{ duration: 300, delay: 200 }}
-            out:slide={{ duration: 200 }}
+            in:slide={{ duration: ANIMATION_DURATION, delay: ANIMATION_DURATION * (2 / 3) }}
+            out:slide={{ duration: ANIMATION_DURATION * (2 / 3) }}
             on:animationstart={handle_animationstart}
             class="absolute inset-x-0 bottom-0 flex flex-col gap-[0.5vw] p-[1.3125vw]"
         >
