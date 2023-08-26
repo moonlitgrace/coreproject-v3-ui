@@ -320,7 +320,7 @@
                                     offsetScrollbar
                                     gradientMask
                                     parentClass="max-h-24 md:max-h-[11vw] md:mt-[0.5vw]"
-                                    class="md:text-justify text-surface-300 text-xs leading-snug md:text-[0.85vw] md:leading-[1vw] md:pb-[1.25vw]"
+                                    class="md:text-justify text-surface-300 text-xs leading-snug md:text-[0.85vw] md:leading-[1vw]"
                                 >
                                     {anime.synopsis}
                                 </ScrollArea>

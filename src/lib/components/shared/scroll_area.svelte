@@ -5,11 +5,26 @@
     export let parentClass = "";
     export let offsetScrollbar = false;
     export let gradientMask = false;
+
+    let scroll_area: HTMLElement;
+    let add_mask_bottom: boolean;
+
+    $: add_mask_bottom = scroll_area ? scroll_area.scrollHeight > scroll_area.clientHeight : false;
+
+    function handle_scroll(event: Event) {
+        const target = event.target as HTMLElement;
+        const { scrollHeight, clientHeight, scrollTop } = target;
+
+        if (clientHeight + scrollTop === scrollHeight) add_mask_bottom = false;
+        else add_mask_bottom = true;
+    }
 </script>
 
 <scroll-area
-    class="{parentClass} {offsetScrollbar ? 'pr-3 md:pr-[0.75vw]' : 'pr-0'} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
-    class:mask-bottom={gradientMask}
+    bind:this={scroll_area}
+    on:scroll={handle_scroll}
+    class="{parentClass} {offsetScrollbar && "pr-3 md:pr-[0.75vw]"} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
+    class:mask-bottom={gradientMask && add_mask_bottom}
 >
     <div>
         <div class="{klass} whitespace-pre-line">

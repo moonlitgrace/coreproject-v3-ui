@@ -7,8 +7,8 @@
     let hover_glider_element: HTMLElement,
         glider_container_element: HTMLElement,
         GLIDER_TRANSITION_DURATION = 200,
-        is_hovered = false,
-        mouse_leave_timeout: NodeJS.Timer | null = null;
+        is_hovered = false, // Boolean switch flag
+        mouse_leave_timeout: NodeJS.Timeout | null = null;
 
     const handle_mouseenter = (event: MouseEvent) => {
         const target = event.target as HTMLElement;
