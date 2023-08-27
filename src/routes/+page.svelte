@@ -397,10 +397,7 @@
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime, index}
-                    <LatestEpisodesCard
-                        {anime}
-                        last_slide={index === latest_episodes.length - 1}
-                    />
+                    <LatestEpisodesCard {anime} />
                 {/each}
             </ScrollArea>
 

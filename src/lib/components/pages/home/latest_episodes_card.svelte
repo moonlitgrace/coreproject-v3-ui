@@ -7,7 +7,6 @@
     import { slide } from "svelte/transition";
 
     // Boolean flag to check if slide is last element
-    export let last_slide = false;
 
     export let anime: {
         id: number;
@@ -22,37 +21,54 @@
     let ANIMATION_DURATION = 300;
     let scroll_area_element: HTMLElement | null = null;
 
+    let visible_ratio: number;
+
     onMount(() => {
         scroll_area_element = anime_episode.parentElement?.parentElement?.parentElement! as HTMLElement;
-    });
-    let show_more_info = false;
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                visible_ratio = entry.intersectionRatio;
+            });
+        });
+        observer.observe(anime_episode);
+        return () => observer.unobserve(anime_episode);
+    });
+
+    let show_more_info = false;
+    let should_expand = false;
     /** Bindings */
     let anime_episode: HTMLElement;
 
     function handle_mouseenter() {
+        if (visible_ratio < 0.8) {
+            should_expand = true;
+        }
         show_more_info = true;
     }
     function handle_mouseleave() {
         show_more_info = false;
+        should_expand = false;
     }
+
     function handle_animationstart() {
         if (!scroll_area_element) {
             return;
         }
 
-        if (!last_slide) {
+        if (!should_expand) {
             return;
         }
 
-        const is_visible = anime_episode.getBoundingClientRect().top >= 0 && anime_episode.getBoundingClientRect().left >= 0 && anime_episode.getBoundingClientRect().bottom <= (window.innerHeight || document.documentElement.clientHeight) && anime_episode.getBoundingClientRect().right <= (window.innerWidth || document.documentElement.clientWidth);
-        if (!is_visible) {
-            return;
-        }
+        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode).height);
 
+        console.log(height);
         setTimeout(
             () => {
-                scroll_area_element!.scroll({ top: scroll_area_element!.scrollHeight, behavior: "smooth" });
+                scroll_area_element!.scroll({
+                    top: height,
+                    behavior: "smooth"
+                });
             },
             ANIMATION_DURATION * (1.1 / 3)
         );
