@@ -18,27 +18,26 @@
     };
 
     /* Bindings */
-    let ANIMATION_DURATION = 300;
-    let scroll_area_element: HTMLElement | null = null;
-
-    let visible_ratio: number;
+    let ANIMATION_DURATION = 300,
+        visible_ratio: number;
+    let scroll_area_element: HTMLElement, anime_episode_element: HTMLElement, anime_episode_element_parent_element: HTMLElement;
+    let show_more_info = false,
+        should_expand = false;
 
     onMount(() => {
-        scroll_area_element = anime_episode.parentElement?.parentElement?.parentElement! as HTMLElement;
+        scroll_area_element = anime_episode_element?.parentElement?.parentElement?.parentElement! as HTMLElement;
+        anime_episode_element_parent_element = anime_episode_element.parentElement! as HTMLElement;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 visible_ratio = entry.intersectionRatio;
             });
         });
-        observer.observe(anime_episode);
-        return () => observer.unobserve(anime_episode);
+        observer.observe(anime_episode_element);
+        return () => observer.unobserve(anime_episode_element);
     });
 
-    let show_more_info = false;
-    let should_expand = false;
     /** Bindings */
-    let anime_episode: HTMLElement;
 
     function handle_mouseenter() {
         if (visible_ratio < 0.8) {
@@ -60,7 +59,7 @@
             return;
         }
 
-        const height = anime_episode.offsetTop - scroll_area_element.scrollTop - parseInt(getComputedStyle(anime_episode).height);
+        const height = anime_episode_element.offsetTop - scroll_area_element.scrollTop - (parseInt(getComputedStyle(anime_episode_element_parent_element).gap) + parseInt(getComputedStyle(anime_episode_element).height));
 
         setTimeout(
             () => {
@@ -75,7 +74,7 @@
 </script>
 
 <anime-episode
-    bind:this={anime_episode}
+    bind:this={anime_episode_element}
     on:mouseenter={handle_mouseenter}
     on:mouseleave={handle_mouseleave}
     role="group"
