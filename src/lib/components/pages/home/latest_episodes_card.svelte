@@ -58,7 +58,7 @@
             return;
         }
 
-        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) + -parseInt(getComputedStyle(anime_episode).height);
+        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseFloat(getComputedStyle(anime_episode!.parentElement!).gap) - parseFloat(getComputedStyle(anime_episode).height);
 
         setTimeout(
             () => {
