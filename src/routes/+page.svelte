@@ -511,9 +511,6 @@
                         interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
-                            // Lazy offset calculation
-                            instance.props.offset = [0, parseInt(getComputedStyle(my_list_grid)?.gap)];
-
                             const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
                                 target: node,

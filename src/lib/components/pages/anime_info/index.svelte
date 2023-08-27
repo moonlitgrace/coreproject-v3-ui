@@ -29,7 +29,15 @@
     import type { SvelteComponent } from "svelte";
     import Comment from "$components/shared/comment.svelte";
 
-    export let anime_id: number, anime_episodes: any, anime_name: string, japanese_name: string, anime_episodes_count: number, anime_date: string, anime_synopsis: string, anime_banner: string, anime_cover: string;
+    export let anime_id: number,
+        anime_episodes: any,
+        anime_name: string,
+        japanese_name: string,
+        anime_episodes_count: number,
+        anime_date: string,
+        anime_synopsis: string,
+        anime_banner: string,
+        anime_cover: string;
 
     const anime_details = {
             format: "TV",
