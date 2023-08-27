@@ -20,21 +20,20 @@
     /* Bindings */
     let ANIMATION_DURATION = 300,
         visible_ratio: number;
-    let scroll_area_element: HTMLElement, anime_episode_element: HTMLElement, anime_episode_element_parent_element: HTMLElement;
+    let scroll_area_element: HTMLElement, anime_episode: HTMLElement;
     let show_more_info = false,
         should_expand = false;
 
     onMount(() => {
-        scroll_area_element = anime_episode_element?.parentElement?.parentElement?.parentElement! as HTMLElement;
-        anime_episode_element_parent_element = anime_episode_element.parentElement! as HTMLElement;
+        scroll_area_element = anime_episode?.parentElement?.parentElement?.parentElement! as HTMLElement;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 visible_ratio = entry.intersectionRatio;
             });
         });
-        observer.observe(anime_episode_element);
-        return () => observer.unobserve(anime_episode_element);
+        observer.observe(anime_episode);
+        return () => observer.unobserve(anime_episode);
     });
 
     /** Bindings */
@@ -59,7 +58,7 @@
             return;
         }
 
-        const height = anime_episode_element.offsetTop - scroll_area_element.scrollTop - (parseInt(getComputedStyle(anime_episode_element_parent_element).gap) + parseInt(getComputedStyle(anime_episode_element).height));
+        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) + -parseInt(getComputedStyle(anime_episode).height);
 
         setTimeout(
             () => {
@@ -74,7 +73,7 @@
 </script>
 
 <anime-episode
-    bind:this={anime_episode_element}
+    bind:this={anime_episode}
     on:mouseenter={handle_mouseenter}
     on:mouseleave={handle_mouseleave}
     role="group"
