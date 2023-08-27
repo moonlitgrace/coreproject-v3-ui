@@ -7,8 +7,7 @@
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import tippy from "tippy.js";
-    import Caption from "$icons/caption.svelte";
-    import Mic from "$icons/mic.svelte";
+
     import FilterOptions from "$components/tippies/filter_options.svelte";
     import Cross from "$icons/cross.svelte";
     import { FormatDate } from "$functions/format_date";
@@ -18,6 +17,9 @@
     import Expand from "$icons/expand.svelte";
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
+
+    /* Bindings */
+    let result_animes_element: HTMLElement;
 
     let filter_options_mapping: {
         [key: string]: {
@@ -262,7 +264,7 @@
                     <Expand class="w-5 md:w-[1.25vw]" />
                     <span class="font-semibold md:text-[1vw]">Trending</span>
                 </button>
-                <span class="divider-vertical h-7 md:h-[2vw] !border-surface-50/25" />
+                <span class="divider-vertical h-7 !border-surface-50/25 md:h-[2vw]" />
                 <button
                     class="btn p-0 text-surface-50"
                     on:click={() => change_thumbnail_mode("card_with_tippy")}
@@ -279,7 +281,10 @@
         </div>
 
         {#if thumbnail_mode === "detailed_card"}
-            <result-animes class="mt-5 grid grid-cols-2 gap-3 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1.5vw]">
+            <result-animes
+                bind:this={result_animes_element}
+                class="mt-5 grid grid-cols-2 gap-3 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1.5vw]"
+            >
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
@@ -293,13 +298,13 @@
                                 class="h-56 w-full rounded-t-lg object-cover object-center md:h-[20vw] md:rounded-l-[0.35vw]"
                             />
                             <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-l-[0.35vw]">
-                                <div class="flex flex-col bg-surface-900/90 p-3 md:p-[1vw] md:gap-[0.35vw]">
-                                    <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                                <div class="flex flex-col bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
+                                    <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
                                         <span class="line-clamp-1 md:line-clamp-none">
                                             {anime.name}
                                         </span>
                                     </ScrollArea>
-                                    <studio-name class="line-clamp-1 md:line-clamp-none text-surface-50 text-xs md:text-[0.8vw]">
+                                    <studio-name class="line-clamp-1 text-xs text-surface-50 md:line-clamp-none md:text-[0.8vw]">
                                         {anime.studios}
                                     </studio-name>
                                 </div>
@@ -307,28 +312,28 @@
                         </div>
 
                         <anime-details class="flex flex-col justify-between rounded-r-lg bg-surface-400/25 md:rounded-r-[0.35vw]">
-                            <div class="flex flex-col gap-1 leading-none text-surface-50 md:gap-[0.5vw] p-3 md:p-[1vw]">
-                                <release-time class="font-semibold capitalize text-xs md:text-[1vw]">
+                            <div class="flex flex-col gap-1 p-3 leading-none text-surface-50 md:gap-[0.5vw] md:p-[1vw]">
+                                <release-time class="text-xs font-semibold capitalize md:text-[1vw]">
                                     {new FormatDate(anime.release_date).format_to_season}
                                 </release-time>
                                 <div class="flex items-center gap-1 md:gap-[0.5vw]">
                                     <type class="text-xs md:text-[0.8vw]">{anime.type}</type>
-                                    <Circle class="opacity-50 w-1 md:w-[0.25vw]" />
+                                    <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
                                     <episodes class="text-xs md:text-[0.8vw]">{anime.episodes_count} episodes</episodes>
                                 </div>
                                 <ScrollArea
                                     offsetScrollbar
                                     gradientMask
                                     parentClass="max-h-24 md:max-h-[11vw] md:mt-[0.5vw]"
-                                    class="md:text-justify text-surface-300 text-xs leading-snug md:text-[0.85vw] md:leading-[1vw]"
+                                    class="text-xs leading-snug text-surface-300 md:text-justify md:text-[0.85vw] md:leading-[1vw]"
                                 >
                                     {anime.synopsis}
                                 </ScrollArea>
                             </div>
 
-                            <genres class="flex overflow-x-scroll scrollbar-none items-center gap-2 md:gap-[0.5vw] p-3 md:p-[1vw]">
+                            <genres class="flex items-center gap-2 overflow-x-scroll p-3 scrollbar-none md:gap-[0.5vw] md:p-[1vw]">
                                 {#each anime.genres as genre}
-                                    <genre class="bg-warning-400 font-semibold leading-none text-black md:rounded-[0.25vw] rounded p-1 md:px-[0.6vw] md:py-[0.3vw] text-xs md:text-[0.8vw] whitespace-nowrap">
+                                    <genre class="whitespace-nowrap rounded bg-warning-400 p-1 text-xs font-semibold leading-none text-black md:rounded-[0.25vw] md:px-[0.6vw] md:py-[0.3vw] md:text-[0.8vw]">
                                         {genre}
                                     </genre>
                                 {/each}
@@ -338,7 +343,10 @@
                 {/each}
             </result-animes>
         {:else if thumbnail_mode === "card_with_tippy"}
-            <result-animes class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1.5vw]">
+            <result-animes
+                class="mt-5 grid grid-cols-3 gap-3 md:mt-[1.25vw] md:grid-cols-6 md:gap-[1.5vw]"
+                bind:this={result_animes_element}
+            >
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
@@ -356,6 +364,7 @@
                                 interactive: true,
                                 appendTo: document.body,
                                 onTrigger: async (instance) => {
+                                    instance.props.offset = [0, globalThis.Math.abs(parseInt(getComputedStyle(result_animes_element).gap))];
                                     const node = document.createElement("div");
                                     new AnimeCard({
                                         target: node,
@@ -381,8 +390,8 @@
                                 class="h-60 w-full rounded-md object-cover object-center md:h-[20vw] md:rounded-[0.35vw]"
                             />
                             <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
-                                <div class="flex flex-col bg-surface-900/90 p-3 gap-1 md:p-[1vw] md:gap-[0.35vw]">
-                                    <ScrollArea class="flex text-sm md:max-h-[1.35vw] overflow-hidden font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:text-[1vw] md:leading-[1.35vw]">
+                                <div class="flex flex-col gap-1 bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
+                                    <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
                                         <span class="line-clamp-1 md:line-clamp-none">
                                             {anime.name}
                                         </span>
