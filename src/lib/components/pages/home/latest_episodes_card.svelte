@@ -60,9 +60,8 @@
             return;
         }
 
-        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode).height);
+        const height = anime_episode.offsetTop - scroll_area_element.scrollTop - parseInt(getComputedStyle(anime_episode).height);
 
-        console.log(height);
         setTimeout(
             () => {
                 scroll_area_element!.scroll({
