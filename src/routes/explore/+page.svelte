@@ -168,7 +168,7 @@
                     />
                 </div>
             </search>
-            {#each Object.entries(filter_options_mapping) as option, index}
+            {#each Object.entries(filter_options_mapping) as option}
                 {@const title = option[1].title}
                 {@const klass = option[1].class}
                 {@const selected_items = option[1].selected_items}
