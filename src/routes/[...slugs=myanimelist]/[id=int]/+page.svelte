@@ -8,9 +8,8 @@
     import TopRounded from "$icons/top_rounded.svelte";
     import { derived } from "svelte/store";
 
-    let anime_id = derived(page, (page) => page.params.id);
-
-    let anime = anime_list?.find((anime) => anime.id === Number($anime_id));
+    let anime_id = derived(page, (page) => page.params.id),
+        anime = anime_list?.find((anime) => anime.id === Number($anime_id));
 
     const opengraph_html = new OpengraphGenerator({
         title: anime ? `Watch ${anime?.name} on AnimeCore` : "404 - Page not found!",
