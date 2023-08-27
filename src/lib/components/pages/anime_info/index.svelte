@@ -29,6 +29,7 @@
     import type { SvelteComponent } from "svelte";
     import Comment from "$components/shared/comment.svelte";
 
+    export let anime_id: number;
     export let anime_name: string;
     export let japanese_name: string;
     export let anime_episodes_count: number;
@@ -366,7 +367,7 @@
                         {@const duration = episode.duration}
 
                         <a
-                            href=".episode/{episode_number}"
+                            href="./{anime_id}/episode/{episode_number}"
                             class="relative col-span-12 grid grid-cols-12 gap-4 md:col-span-4"
                         >
                             <card-banner-info class="relative col-span-5 h-full w-full md:col-span-12 md:h-[19vw]">
