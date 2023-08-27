@@ -239,14 +239,14 @@
                         offsetScrollbar
                         gradientMask
                         parentClass="max-h-40 mt-3 md:mt-[1.25vw] md:max-h-[10.25vw]"
-                        class="text-justify text-xs md:text-[0.8vw] md:leading-[1vw] md:pb-[1.25vw]"
+                        class="text-justify text-xs md:pb-[1.25vw] md:text-[0.8vw] md:leading-[1vw]"
                     >
                         {anime_synopsis}
                     </ScrollArea>
 
                     <anime-genres class="hidden gap-[0.5vw] text-white md:mt-[1vw] md:flex md:text-[0.75vw] md:leading-[0.9vw]">
                         {#each ["Action", "Romance", "Horror"] as genre}
-                            <span class="bg-warning-400 text-black font-semibold md:px-[0.75vw] md:py-[0.4vw] rounded-[0.25vw]">
+                            <span class="rounded-[0.25vw] bg-warning-400 font-semibold text-black md:px-[0.75vw] md:py-[0.4vw]">
                                 {genre}
                             </span>
                         {/each}
