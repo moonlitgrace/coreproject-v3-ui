@@ -29,87 +29,85 @@
     import type { SvelteComponent } from "svelte";
     import Comment from "$components/shared/comment.svelte";
 
-    export let anime_id: number;
-    export let anime_name: string;
-    export let japanese_name: string;
-    export let anime_episodes_count: number;
-    export let anime_date: string;
-    export let anime_synopsis: string;
-    export let anime_banner: string;
-    export let anime_cover: string;
-
-    export let anime_episodes: any;
+    export let anime_id: number,
+        anime_episodes: any,
+        anime_name: string,
+        japanese_name: string,
+        anime_episodes_count: number,
+        anime_date: string,
+        anime_synopsis: string,
+        anime_banner: string,
+        anime_cover: string;
 
     const anime_details = {
-        format: "TV",
-        episodes: "22",
-        "episode Duration": "26 Minutes",
-        status: "finished",
-        "start date": new FormatDate("2012-04-23").format_to_human_readable_form,
-        "end date": new FormatDate("2012-09-16").format_to_human_readable_form,
-        season: new FormatDate("2012-4").format_to_season,
-        studios: "Kyoto Animation",
-        producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
-        source: "Night Novel"
-        //tags: []
-    };
-
-    const icon_mapping: {
-        [key: string]: {
+            format: "TV",
+            episodes: "22",
+            "episode Duration": "26 Minutes",
+            status: "finished",
+            "start date": new FormatDate("2012-04-23").format_to_human_readable_form,
+            "end date": new FormatDate("2012-09-16").format_to_human_readable_form,
+            season: new FormatDate("2012-4").format_to_season,
+            studios: "Kyoto Animation",
+            producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
+            source: "Night Novel"
+            //tags: []
+        },
+        icon_mapping: {
             [key: string]: {
-                icon: {
-                    component: typeof SvelteComponent<{}>;
-                    class: string;
-                    color?: string;
-                    variant?: boolean | string;
-                    label?: string;
+                [key: string]: {
+                    icon: {
+                        component: typeof SvelteComponent<{}>;
+                        class: string;
+                        color?: string;
+                        variant?: boolean | string;
+                        label?: string;
+                    };
                 };
             };
+        } = {
+            anime_options: {
+                read: {
+                    icon: {
+                        component: Read,
+                        class: "w-4 md:w-[1.5vw] text-surface-500"
+                    }
+                },
+                listen: {
+                    icon: {
+                        component: Listen,
+                        class: "w-4 md:w-[1.5vw] text-surface-500"
+                    }
+                }
+            },
+            user_options_icons: {
+                video: {
+                    icon: {
+                        component: Video,
+                        variant: false,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                edit: {
+                    icon: {
+                        component: Edit,
+                        variant: "with_underline_around_pencil",
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                download: {
+                    icon: {
+                        component: Download,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                share: {
+                    icon: {
+                        component: Share,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                }
+            }
         };
-    } = {
-        anime_options: {
-            read: {
-                icon: {
-                    component: Read,
-                    class: "w-4 md:w-[1.5vw] text-surface-500"
-                }
-            },
-            listen: {
-                icon: {
-                    component: Listen,
-                    class: "w-4 md:w-[1.5vw] text-surface-500"
-                }
-            }
-        },
-        user_options_icons: {
-            video: {
-                icon: {
-                    component: Video,
-                    variant: false,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            edit: {
-                icon: {
-                    component: Edit,
-                    variant: "with_underline_around_pencil",
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            download: {
-                icon: {
-                    component: Download,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            share: {
-                icon: {
-                    component: Share,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            }
-        }
-    };
 </script>
 
 <anime-info-container class="relative mt-16 block h-screen bg-cover md:mt-0">
@@ -239,14 +237,14 @@
                         offsetScrollbar
                         gradientMask
                         parentClass="max-h-40 mt-3 md:mt-[1.25vw] md:max-h-[10.25vw]"
-                        class="text-justify text-xs md:text-[0.8vw] md:leading-[1vw] md:pb-[1.25vw]"
+                        class="text-justify text-xs md:pb-[1.25vw] md:text-[0.8vw] md:leading-[1vw]"
                     >
                         {anime_synopsis}
                     </ScrollArea>
 
                     <anime-genres class="hidden gap-[0.5vw] text-white md:mt-[1vw] md:flex md:text-[0.75vw] md:leading-[0.9vw]">
                         {#each ["Action", "Romance", "Horror"] as genre}
-                            <span class="bg-warning-400 text-black font-semibold md:px-[0.75vw] md:py-[0.4vw] rounded-[0.25vw]">
+                            <span class="rounded-[0.25vw] bg-warning-400 font-semibold text-black md:px-[0.75vw] md:py-[0.4vw]">
                                 {genre}
                             </span>
                         {/each}

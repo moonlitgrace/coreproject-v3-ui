@@ -7,7 +7,6 @@
     import MoreBox from "$icons/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import tippy from "tippy.js";
-
     import FilterOptions from "$components/tippies/filter_options.svelte";
     import Cross from "$icons/cross.svelte";
     import { FormatDate } from "$functions/format_date";
@@ -96,31 +95,29 @@
         }
     };
 
-    function update_selected_items(key: string, selected_item: [string, string]) {
-        let filter_option = filter_options_mapping[key];
-        let is_selected = filter_option.selected_items?.some((item) => item[0] === selected_item[0]);
+    const update_selected_items = (key: string, selected_item: [string, string]) => {
+            let filter_option = filter_options_mapping[key];
+            let is_selected = filter_option.selected_items?.some((item) => item[0] === selected_item[0]);
 
-        if (is_selected) {
-            filter_option.selected_items = filter_option.selected_items?.filter((item) => item[0] !== selected_item[0]);
-        } else {
-            filter_option.selected_items = [...filter_option.selected_items, selected_item];
-        }
+            if (is_selected) {
+                filter_option.selected_items = filter_option.selected_items?.filter((item) => item[0] !== selected_item[0]);
+            } else {
+                filter_option.selected_items = [...filter_option.selected_items, selected_item];
+            }
 
-        // update filer_options_mapping
-        filter_options_mapping[key] = filter_option;
-    }
-
-    function clear_selected_items(key: string) {
-        // update filter_options_mapping
-        filter_options_mapping[key].selected_items = [];
-    }
+            // update filer_options_mapping
+            filter_options_mapping[key] = filter_option;
+        },
+        clear_selected_items = (key: string) => {
+            // update filter_options_mapping
+            filter_options_mapping[key].selected_items = [];
+        },
+        change_thumbnail_mode = (mode: typeof thumbnail_mode) => {
+            thumbnail_mode = mode;
+        };
 
     /* Thumbnail modes */
     let thumbnail_mode: "card_with_tippy" | "detailed_card" = "card_with_tippy";
-
-    function change_thumbnail_mode(mode: typeof thumbnail_mode) {
-        thumbnail_mode = mode;
-    }
 
     const opengraph_html = new OpengraphGenerator({
         title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",

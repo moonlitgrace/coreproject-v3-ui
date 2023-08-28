@@ -12,7 +12,6 @@
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
     import CoreProject from "$icons/core_project.svelte";
-    import Caption from "$icons/caption.svelte";
     import Edit from "$icons/edit.svelte";
     import Forum from "$icons/forum.svelte";
     import Info from "$icons/info.svelte";
@@ -24,62 +23,134 @@
     import Preference from "$icons/preference.svelte";
     import Recent from "$icons/recent.svelte";
     import SettingsOutline from "$icons/settings_outline.svelte";
-    import { timer as timerStore } from "$store/timer";
     import { Timer as EasyTimer } from "easytimer.js";
     import { onDestroy, onMount } from "svelte";
     import type { SvelteComponent } from "svelte";
     import { swipe } from "svelte-gestures";
     import { tweened } from "svelte/motion";
-    import { blur, scale } from "svelte/transition";
-    import Mic from "$icons/mic.svelte";
+    import { blur } from "svelte/transition";
     import tippy from "tippy.js";
 
-    /* Bindings */
-    let my_list_grid: HTMLElement;
+    const slider_delay = 10,
+        timer = new EasyTimer({
+            target: {
+                seconds: slider_delay
+            },
+            precision: "secondTenths"
+        }),
+        slide_buttons = [
+            { background: "bg-surface-50", border: "border-surface-50" },
+            { background: "bg-secondary-300", border: "border-secondary-300" },
+            { background: "bg-warning-400", border: "border-warning-400" },
+            { background: "bg-white", border: "border-white" },
+            { background: "bg-primary-300", border: "border-primary-300" },
+            { background: "bg-error-200", border: "border-error-200" }
+        ],
+        opengraph_html = new OpengraphGenerator({
+            title: "AnimeCore - A modern anime streaming site",
+            site_name: "CoreProject",
+            image_url: "", // Use Opengraph later
+            url: $page.url.href,
+            locale: "en_US",
+            description: "The most modern anime streaming site"
+        }).generate_opengraph(),
+        icon_mapping: {
+            [key: string]: {
+                [key: string]: {
+                    title?: string;
+                    icon: {
+                        component: typeof SvelteComponent<{}>;
+                        class: string;
+                    };
+                };
+            };
+        } = {
+            left: {
+                forums: {
+                    title: "Forums",
+                    icon: {
+                        component: Forum,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                },
+                last_watched: {
+                    title: "Last watched anime",
+                    icon: {
+                        component: Recent,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                },
+                notifications: {
+                    title: "Notifications",
+                    icon: {
+                        component: Notifications,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                }
+            },
+            bottom: {
+                language: {
+                    icon: {
+                        component: Language,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                },
+                preferences: {
+                    icon: {
+                        component: Preference,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                },
+                theme: {
+                    icon: {
+                        component: Moon,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                },
+                settings: {
+                    icon: {
+                        component: SettingsOutline,
+                        class: "text-surface-900 w-[1.25vw]"
+                    }
+                }
+            }
+        };
 
-    /* Slider codes */
-    let main_hero_slider_element: HTMLElement;
-    let main_hero_slide_active_index = 0;
+    /* Bindings */
+    let my_list_grid: HTMLElement,
+        /* Slider codes */
+        main_hero_slider_element: HTMLElement,
+        main_hero_slide_active_index = 0;
 
     const add_one_to_main_hero_slide_active_index = () => {
-        if (main_hero_slide_active_index + 1 === latest_animes.length) {
-            main_hero_slide_active_index = 0;
-            return;
-        }
-        main_hero_slide_active_index += 1;
-    };
+            if (main_hero_slide_active_index + 1 === latest_animes.length) {
+                main_hero_slide_active_index = 0;
+                return;
+            }
+            main_hero_slide_active_index += 1;
+        },
+        minus_one_to_main_hero_slide_active_index = () => {
+            if (main_hero_slide_active_index === 0) {
+                main_hero_slide_active_index = latest_animes.length - 1;
+                return;
+            }
+            main_hero_slide_active_index -= 1;
+        },
+        swipe_handler = (event: CustomEvent) => {
+            const direction = event.detail.direction;
+            timer.reset();
 
-    const minus_one_to_main_hero_slide_active_index = () => {
-        if (main_hero_slide_active_index === 0) {
-            main_hero_slide_active_index = latest_animes.length - 1;
-            return;
-        }
-        main_hero_slide_active_index -= 1;
-    };
-
-    const swipe_handler = (event: CustomEvent) => {
-        const direction = event.detail.direction;
-        timer.reset();
-        if (direction === "left") {
-            add_one_to_main_hero_slide_active_index();
-        } else if (direction === "right") {
-            minus_one_to_main_hero_slide_active_index();
-        }
-    };
+            if (direction === "left") {
+                add_one_to_main_hero_slide_active_index();
+            } else if (direction === "right") {
+                minus_one_to_main_hero_slide_active_index();
+            }
+        };
 
     // Progress bar code //
-    const slider_delay = 10;
-    let progress_value = 0;
-
-    let tweened_progress_value = tweened(progress_value);
+    let progress_value = 0,
+        tweened_progress_value = tweened(progress_value);
     $: tweened_progress_value.set(progress_value);
-
-    let timer = new EasyTimer({
-        target: {
-            seconds: slider_delay
-        },
-        precision: "secondTenths"
-    });
 
     timer.on("targetAchieved", () => {
         // change slider
@@ -88,33 +159,19 @@
     });
 
     timer.on("secondTenthsUpdated", () => {
-        const time = timer.getTotalTimeValues().secondTenths;
-        const value = (100 / slider_delay) * (time / 10);
+        const time = timer.getTotalTimeValues().secondTenths,
+            value = (100 / slider_delay) * (time / 10);
+
         progress_value = value;
     });
-
-    $: {
-        switch ($timerStore) {
-            case "start":
-                timer?.start();
-                break;
-            case "pause":
-                timer?.pause();
-                break;
-            case "reset":
-                timer?.reset();
-                timer?.start();
-                break;
-        }
-    }
 
     // Controls timer according to element visibility on viewport
     onMount(() => {
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                $timerStore = "start";
+                timer?.start();
             } else {
-                $timerStore = "pause";
+                timer?.pause();
             }
         });
 
@@ -126,96 +183,14 @@
         timer.reset();
         timer.stop();
     });
-
-    /* slide buttons colors */
-    let slide_buttons = [
-        { background: "bg-surface-50", border: "border-surface-50" },
-        { background: "bg-secondary-300", border: "border-secondary-300" },
-        { background: "bg-warning-400", border: "border-warning-400" },
-        { background: "bg-white", border: "border-white" },
-        { background: "bg-primary-300", border: "border-primary-300" },
-        { background: "bg-error-200", border: "border-error-200" }
-    ];
-
-    /* Icons */
-    const icon_mapping: {
-        [key: string]: {
-            [key: string]: {
-                title?: string;
-                icon: {
-                    component: typeof SvelteComponent<{}>;
-                    class: string;
-                };
-            };
-        };
-    } = {
-        left: {
-            forums: {
-                title: "Forums",
-                icon: {
-                    component: Forum,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            },
-            last_watched: {
-                title: "Last watched anime",
-                icon: {
-                    component: Recent,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            },
-            notifications: {
-                title: "Notifications",
-                icon: {
-                    component: Notifications,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            }
-        },
-        bottom: {
-            language: {
-                icon: {
-                    component: Language,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            },
-            preferences: {
-                icon: {
-                    component: Preference,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            },
-            theme: {
-                icon: {
-                    component: Moon,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            },
-            settings: {
-                icon: {
-                    component: SettingsOutline,
-                    class: "text-surface-900 w-[1.25vw]"
-                }
-            }
-        }
-    };
-
-    const opengraph_html = new OpengraphGenerator({
-        title: "AnimeCore - A modern anime streaming site",
-        site_name: "CoreProject",
-        image_url: "", // Use Opengraph later
-        url: $page.url.href,
-        locale: "en_US",
-        description: "The most modern anime streaming site"
-    }).generate_opengraph();
 </script>
 
 <svelte:window
     on:focus={() => {
-        $timerStore = "start";
+        timer?.start();
     }}
     on:blur={() => {
-        $timerStore = "pause";
+        timer?.pause();
     }}
 />
 
@@ -241,16 +216,16 @@
                         class="absolute inset-0 md:bottom-[2vw]"
                         transition:blur
                         on:mouseenter={() => {
-                            $timerStore = "pause";
+                            timer?.pause();
                         }}
                         on:mouseleave={() => {
-                            $timerStore = "start";
+                            timer?.start();
                         }}
                         on:touchstart={() => {
-                            $timerStore = "pause";
+                            timer?.pause();
                         }}
                         on:touchend={() => {
-                            $timerStore = "start";
+                            timer?.start();
                         }}
                     >
                         <ImageLoader
@@ -536,9 +511,6 @@
                         interactive: true,
                         appendTo: document.body,
                         onTrigger: async (instance) => {
-                            // Lazy offset calculation
-                            instance.props.offset = [0, parseInt(getComputedStyle(my_list_grid)?.gap)];
-
                             const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
                                 target: node,
