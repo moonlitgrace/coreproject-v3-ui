@@ -6,8 +6,8 @@
 
     export let once = false;
 
-    let intersecting = false;
-    let container: HTMLDivElement;
+    let intersecting = false,
+        container: HTMLDivElement;
 
     const observerOptions: IntersectionObserverInit = {
         root: null, // Use Viewport

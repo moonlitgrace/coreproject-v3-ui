@@ -29,87 +29,85 @@
     import type { SvelteComponent } from "svelte";
     import Comment from "$components/shared/comment.svelte";
 
-    export let anime_id: number;
-    export let anime_name: string;
-    export let japanese_name: string;
-    export let anime_episodes_count: number;
-    export let anime_date: string;
-    export let anime_synopsis: string;
-    export let anime_banner: string;
-    export let anime_cover: string;
-
-    export let anime_episodes: any;
+    export let anime_id: number,
+        anime_episodes: any,
+        anime_name: string,
+        japanese_name: string,
+        anime_episodes_count: number,
+        anime_date: string,
+        anime_synopsis: string,
+        anime_banner: string,
+        anime_cover: string;
 
     const anime_details = {
-        format: "TV",
-        episodes: "22",
-        "episode Duration": "26 Minutes",
-        status: "finished",
-        "start date": new FormatDate("2012-04-23").format_to_human_readable_form,
-        "end date": new FormatDate("2012-09-16").format_to_human_readable_form,
-        season: new FormatDate("2012-4").format_to_season,
-        studios: "Kyoto Animation",
-        producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
-        source: "Night Novel"
-        //tags: []
-    };
-
-    const icon_mapping: {
-        [key: string]: {
+            format: "TV",
+            episodes: "22",
+            "episode Duration": "26 Minutes",
+            status: "finished",
+            "start date": new FormatDate("2012-04-23").format_to_human_readable_form,
+            "end date": new FormatDate("2012-09-16").format_to_human_readable_form,
+            season: new FormatDate("2012-4").format_to_season,
+            studios: "Kyoto Animation",
+            producers: ["Lantis", "Kadokawa Shoten", "Klock Worx", "chara-ani.com", "Animation Do"],
+            source: "Night Novel"
+            //tags: []
+        },
+        icon_mapping: {
             [key: string]: {
-                icon: {
-                    component: typeof SvelteComponent<{}>;
-                    class: string;
-                    color?: string;
-                    variant?: boolean | string;
-                    label?: string;
+                [key: string]: {
+                    icon: {
+                        component: typeof SvelteComponent<{}>;
+                        class: string;
+                        color?: string;
+                        variant?: boolean | string;
+                        label?: string;
+                    };
                 };
             };
+        } = {
+            anime_options: {
+                read: {
+                    icon: {
+                        component: Read,
+                        class: "w-4 md:w-[1.5vw] text-surface-500"
+                    }
+                },
+                listen: {
+                    icon: {
+                        component: Listen,
+                        class: "w-4 md:w-[1.5vw] text-surface-500"
+                    }
+                }
+            },
+            user_options_icons: {
+                video: {
+                    icon: {
+                        component: Video,
+                        variant: false,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                edit: {
+                    icon: {
+                        component: Edit,
+                        variant: "with_underline_around_pencil",
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                download: {
+                    icon: {
+                        component: Download,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                },
+                share: {
+                    icon: {
+                        component: Share,
+                        class: "w-4 md:w-[1.125vw]"
+                    }
+                }
+            }
         };
-    } = {
-        anime_options: {
-            read: {
-                icon: {
-                    component: Read,
-                    class: "w-4 md:w-[1.5vw] text-surface-500"
-                }
-            },
-            listen: {
-                icon: {
-                    component: Listen,
-                    class: "w-4 md:w-[1.5vw] text-surface-500"
-                }
-            }
-        },
-        user_options_icons: {
-            video: {
-                icon: {
-                    component: Video,
-                    variant: false,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            edit: {
-                icon: {
-                    component: Edit,
-                    variant: "with_underline_around_pencil",
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            download: {
-                icon: {
-                    component: Download,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            },
-            share: {
-                icon: {
-                    component: Share,
-                    class: "w-4 md:w-[1.125vw]"
-                }
-            }
-        }
-    };
 </script>
 
 <anime-info-container class="relative mt-16 block h-screen bg-cover md:mt-0">
