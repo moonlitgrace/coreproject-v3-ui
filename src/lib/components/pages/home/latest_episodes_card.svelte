@@ -41,11 +41,13 @@
     function handle_mouseenter() {
         if (visible_ratio < 0.8) should_expand = true;
         show_more_info = true;
+        anime_episode.classList.add("snap-center")
     }
-    
+
     function handle_mouseleave() {
         show_more_info = false;
         should_expand = false;
+        anime_episode.classList.remove("snap-center")
     }
 
     function handle_animationstart() {
@@ -71,7 +73,7 @@
     on:mouseenter={handle_mouseenter}
     on:mouseleave={handle_mouseleave}
     role="group"
-    class="group relative h-[5vw] delay-100 duration-300 ease-in-out hover:h-[16vw]"
+    class="group relative h-[5vw] duration-300 ease-in-out hover:h-[16vw]"
 >
     <ImageLoader
         src={anime.cover}
