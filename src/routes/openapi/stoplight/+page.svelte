@@ -7,7 +7,7 @@
 </svelte:head>
 
 <elements-api
-    class="w-full"
+    class="w-screen"
     apiDescriptionUrl="/openapi/schema.yaml"
     router="hash"
     layout="sidebar"
