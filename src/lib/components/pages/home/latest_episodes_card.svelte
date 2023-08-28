@@ -58,12 +58,12 @@
             return;
         }
 
-        const height = anime_episode.offsetTop - scroll_area_element.scrollTop + parseFloat(getComputedStyle(anime_episode!.parentElement!).gap) - parseFloat(getComputedStyle(anime_episode).height);
+        const target_scroll_top = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight;
 
         setTimeout(
             () => {
                 scroll_area_element!.scroll({
-                    top: height,
+                    top: target_scroll_top,
                     behavior: "smooth"
                 });
             },
