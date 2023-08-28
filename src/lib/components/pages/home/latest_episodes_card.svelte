@@ -39,24 +39,18 @@
     /** Bindings */
 
     function handle_mouseenter() {
-        if (visible_ratio < 0.8) {
-            should_expand = true;
-        }
+        if (visible_ratio < 0.8) should_expand = true;
         show_more_info = true;
     }
+    
     function handle_mouseleave() {
         show_more_info = false;
         should_expand = false;
     }
 
     function handle_animationstart() {
-        if (!scroll_area_element) {
-            return;
-        }
-
-        if (!should_expand) {
-            return;
-        }
+        if (!scroll_area_element) return;
+        if (!should_expand) return;
 
         const target_scroll_top = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight;
 
