@@ -475,7 +475,7 @@
         >
             {#each my_list as anime}
                 <a
-                    href="/mal/{anime.id}/episode/{anime.current_episode}"
+                    href="./mal/{anime.id}/episode/{anime.current_episode}"
                     class="relative"
                     use:tippy={{
                         arrow: false,
