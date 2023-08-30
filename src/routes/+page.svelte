@@ -285,7 +285,7 @@
                                     <span>Ep 1</span>
                                 </button>
 
-                                <a href="./mal/{anime.mal_id}">
+                                <a href="{$page.url.pathname}mal/{anime.mal_id}">
                                     <button class="btn btn-icon flex h-14 w-28 items-center justify-center rounded-xl bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                         <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                         <span>Details</span>
@@ -488,7 +488,6 @@
                         onTrigger: async (instance) => {
                             // Lazy offset calculation
                             instance.props.offset = [0, globalThis.Math.abs(parseInt(getComputedStyle(my_list_grid)?.gap))];
-
 
                             const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
