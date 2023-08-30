@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/stores";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
@@ -41,13 +42,13 @@
     function handle_mouseenter() {
         if (visible_ratio < 0.8) should_expand = true;
         show_more_info = true;
-        anime_episode.classList.add("snap-center")
+        anime_episode.classList.add("snap-center");
     }
 
     function handle_mouseleave() {
         show_more_info = false;
         should_expand = false;
-        anime_episode.classList.remove("snap-center")
+        anime_episode.classList.remove("snap-center");
     }
 
     function handle_animationstart() {
@@ -97,7 +98,7 @@
             </episode-dates>
         </div>
         <a
-            href="./mal/{anime.id}/episode/{anime.episode_number}"
+            href="{$page.url.pathname}mal/{anime.id}/episode/{anime.episode_number}"
             class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900 transition-colors duration-300 group-hover:bg-white"
         >
             <Play class="w-[1.25vw]" />
