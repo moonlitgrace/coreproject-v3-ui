@@ -4,6 +4,7 @@
 
 .tippy-box {
     @apply bg-transparent;
+    max-width: 100% !important;
 
     &[data-theme~="elaine"] {
         &[data-placement^="top"] > .tippy-arrow::before {
