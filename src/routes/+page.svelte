@@ -123,28 +123,21 @@
         main_hero_slider_element: HTMLElement,
         main_hero_slide_active_index = 0;
 
-    const add_one_to_main_hero_slide_active_index = () => {
-            if (main_hero_slide_active_index + 1 === latest_animes.length) {
-                main_hero_slide_active_index = 0;
-                return;
+    const handle_main_hero_slide_active_index = (operation: "increase" | "decrease") => {
+            if (operation === "increase") {
+                main_hero_slide_active_index = (main_hero_slide_active_index + 1) % latest_animes.length;
+            } else if (operation === "decrease") {
+                main_hero_slide_active_index = (main_hero_slide_active_index - 1 + latest_animes.length) % latest_animes.length;
             }
-            main_hero_slide_active_index += 1;
-        },
-        minus_one_to_main_hero_slide_active_index = () => {
-            if (main_hero_slide_active_index === 0) {
-                main_hero_slide_active_index = latest_animes.length - 1;
-                return;
-            }
-            main_hero_slide_active_index -= 1;
         },
         swipe_handler = (event: CustomEvent) => {
             const direction = event.detail.direction;
             timer.reset();
 
             if (direction === "left") {
-                add_one_to_main_hero_slide_active_index();
+                handle_main_hero_slide_active_index("increase");
             } else if (direction === "right") {
-                minus_one_to_main_hero_slide_active_index();
+                handle_main_hero_slide_active_index("decrease");
             }
         };
 
@@ -155,7 +148,7 @@
 
     timer.on("targetAchieved", () => {
         // change slider
-        add_one_to_main_hero_slide_active_index();
+        handle_main_hero_slide_active_index("increase");
         timer.reset();
     });
 
@@ -169,11 +162,8 @@
     // Controls timer according to element visibility on viewport
     onMount(() => {
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                timer?.start();
-            } else {
-                timer?.pause();
-            }
+            if (entries[0].isIntersecting) timer?.start();
+            else timer?.pause();
         });
 
         observer.observe(main_hero_slider_element);
@@ -187,12 +177,8 @@
 </script>
 
 <svelte:window
-    on:focus={() => {
-        timer?.start();
-    }}
-    on:blur={() => {
-        timer?.pause();
-    }}
+    on:focus={() => timer?.start()}
+    on:blur={() => timer?.pause()}
 />
 
 <svelte:head>
@@ -202,10 +188,10 @@
 <home-container class="mt-16 block md:mt-0 md:p-[1.25vw] md:pr-[3.75vw]">
     <hero-section class="flex flex-col justify-between md:flex-row">
         <latest-animes-slider
-            class="relative h-96 w-full md:h-[27.875vw] md:w-[42.1875vw]"
-            use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
-            on:swipe={swipe_handler}
             bind:this={main_hero_slider_element}
+            on:swipe={swipe_handler}
+            use:swipe={{ timeframe: 300, minSwipeDistance: 100, touchAction: "pan-y" }}
+            class="relative h-96 w-full md:h-[27.875vw] md:w-[42.1875vw]"
         >
             {#each latest_animes as anime, index}
                 {@const active = index === main_hero_slide_active_index}
@@ -213,9 +199,9 @@
 
                 {#if active}
                     <anime-slide
+                        transition:blur
                         role="presentation"
                         class="absolute inset-0 md:bottom-[2vw]"
-                        transition:blur
                         on:mouseenter={() => {
                             timer?.pause();
                         }}
@@ -329,7 +315,7 @@
                 on:click={() => {
                     timer?.reset();
                     timer?.start();
-                    minus_one_to_main_hero_slide_active_index();
+                    handle_main_hero_slide_active_index("decrease");
                 }}
             >
                 <Chevron
@@ -342,7 +328,7 @@
                 on:click={async () => {
                     timer?.reset();
                     timer?.start();
-                    add_one_to_main_hero_slide_active_index();
+                    handle_main_hero_slide_active_index("increase");
                 }}
             >
                 <Chevron
