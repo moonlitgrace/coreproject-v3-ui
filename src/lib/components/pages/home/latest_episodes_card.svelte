@@ -58,12 +58,7 @@
         const target_scroll_top = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight;
 
         setTimeout(
-            () => {
-                scroll_area_element!.scroll({
-                    top: target_scroll_top,
-                    behavior: "smooth"
-                });
-            },
+            () => scroll_area_element!.scroll({ top: target_scroll_top }),
             ANIMATION_DURATION * (1.1 / 3)
         );
     }

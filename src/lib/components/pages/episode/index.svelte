@@ -19,6 +19,7 @@
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
     import { page } from "$app/stores";
+    
     /* Comment section logics */
     let comment_body: string;
 
