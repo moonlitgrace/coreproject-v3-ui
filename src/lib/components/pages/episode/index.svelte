@@ -18,7 +18,7 @@
     import type { SvelteComponent } from "svelte";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
-
+    import { page } from "$app/stores";
     /* Comment section logics */
     let comment_body: string;
 
@@ -53,19 +53,19 @@
             options: {
                 download: {
                     component: Download,
-                    link: "./",
+                    link: `${$page.url.pathname}`,
                     class: "w-4 md:w-[1.4vw]",
                     text: "Download"
                 },
                 prev: {
                     component: Next,
-                    link: "./",
+                    link: `${$page.url.pathname}`,
                     class: "w-4 md:w-[1.4vw] rotate-180",
                     text: "Previous Episode"
                 },
                 next: {
                     component: Next,
-                    link: "./",
+                    link: `${$page.url.pathname}`,
                     class: "w-4 md:w-[1.4vw]",
                     text: "Next Episode"
                 }
