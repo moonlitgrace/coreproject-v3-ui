@@ -489,7 +489,6 @@
                             // Lazy offset calculation
                             instance.props.offset = [0, globalThis.Math.abs(parseInt(getComputedStyle(my_list_grid)?.gap))];
 
-
                             const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
                                 target: node,
