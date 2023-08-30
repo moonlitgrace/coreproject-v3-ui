@@ -361,6 +361,9 @@
                                 interactive: true,
                                 appendTo: document.body,
                                 onTrigger: async (instance) => {
+                                    // Lazy offset calculation
+                                    instance.props.offset = [0, globalThis.Math.abs(parseInt(getComputedStyle(result_animes_element)?.gap))];
+                            
                                     const node = document.createElement("div");
                                     new AnimeCard({
                                         target: node,

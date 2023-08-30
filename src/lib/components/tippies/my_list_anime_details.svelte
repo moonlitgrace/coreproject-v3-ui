@@ -8,7 +8,7 @@
     export let anime_id: number, anime_name: string, anime_episodes_count: number, anime_current_episode: number, anime_type: string, anime_genres: string[], anime_studios: string[], anime_synopsis: string, anime_release_date: string;
 </script>
 
-<popup-container class="hidden flex-col overflow-hidden bg-surface-400 leading-none md:flex md:w-[20vw] md:rounded-[0.75vw]">
+<popup-container class="hidden flex-col overflow-hidden bg-surface-400 leading-none md:flex md:w-[20vw] md:rounded-[0.75vw] md:rounded-tl-[0.3vw]">
     <div class="flex flex-col md:gap-[0.35vw] md:p-[1vw]">
         <anime-name class="font-semibold md:text-[1vw] md:leading-[1.25vw]">{anime_name}</anime-name>
 
