@@ -20,10 +20,12 @@
 
     /* Bindings */
     let ANIMATION_DURATION = 300,
-        visible_ratio: number;
+        visible_ratio: number,
+        ANIMATION_TIMEOUT: NodeJS.Timeout;
     let scroll_area_element: HTMLElement, anime_episode: HTMLElement;
     let show_more_info = false,
-        should_expand = false;
+        should_expand = false,
+        snap_center = false;
 
     onMount(() => {
         scroll_area_element = anime_episode?.parentElement?.parentElement?.parentElement! as HTMLElement;
@@ -40,25 +42,28 @@
     /** Bindings */
 
     function handle_mouseenter() {
-        if (visible_ratio < 0.8) should_expand = true;
+        if (visible_ratio < 0.7) should_expand = true;
         show_more_info = true;
-        anime_episode.classList.add("snap-center");
+        snap_center = true;
     }
 
     function handle_mouseleave() {
         show_more_info = false;
         should_expand = false;
-        anime_episode.classList.remove("snap-center");
     }
 
     function handle_animationstart() {
         if (!scroll_area_element) return;
         if (!should_expand) return;
 
-        const target_scroll_top = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight;
+        const target_scroll_top = Math.abs(anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight);
 
-        setTimeout(
-            () => scroll_area_element!.scroll({ top: target_scroll_top }),
+        console.log(target_scroll_top);
+        ANIMATION_TIMEOUT = setTimeout(
+            () => {
+                scroll_area_element!.scroll({ top: target_scroll_top });
+                snap_center = false;
+            },
             ANIMATION_DURATION * (1.1 / 3)
         );
     }
@@ -66,8 +71,10 @@
 
 <anime-episode
     bind:this={anime_episode}
-    on:mouseenter={handle_mouseenter}
-    on:mouseleave={handle_mouseleave}
+    on:mouseenter|stopPropagation={handle_mouseenter}
+    on:mouseleave|stopPropagation={handle_mouseleave}
+    on:mousewheel|preventDefault
+    class:snap-center={snap_center}
     role="group"
     class="group relative h-[5vw] duration-300 ease-in-out hover:h-[16vw]"
 >
