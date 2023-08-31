@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { OpengraphGenerator } from "$functions/opengraph";
+    import { MetaTags } from "svelte-meta-tags";
 
     import Login from "./login.svelte";
     import UploadPage from "./upload_page.svelte";
@@ -10,20 +10,21 @@
     function on_submit(values: CustomEvent) {
         token = values.detail;
     }
-
-    const opengraph_html = new OpengraphGenerator({
-        title: `Upload on AnimeCore`,
-        url: $page.url.href,
-        description: "Upload on animecore",
-        site_name: "CoreProject",
-        locale: "en_US",
-        image_url: ""
-    }).generate_opengraph();
 </script>
 
-<svelte:head>
-    {@html opengraph_html}
-</svelte:head>
+<MetaTags
+    title="Upload on AnimeCore"
+    description="Upload on animecore"
+    openGraph={{
+        images: [
+            {
+                url: "" // Add satori later
+            }
+        ],
+        locale: "en_US",
+        siteName: "CoreProject"
+    }}
+/>
 
 {#if token}
     <UploadPage />

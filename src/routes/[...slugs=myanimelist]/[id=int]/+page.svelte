@@ -4,26 +4,28 @@
     import AnimeInfoPage from "$components/pages/anime_info/index.svelte";
     import { anime_episodes } from "$data/mock/anime_episodes";
     import { anime_list } from "$data/mock/anime_list";
-    import { OpengraphGenerator } from "$functions/opengraph";
     import TopRounded from "$icons/top_rounded.svelte";
     import { derived } from "svelte/store";
+    import { MetaTags } from "svelte-meta-tags";
 
     let anime_id = derived(page, (page) => page.params.id);
     let anime = anime_list?.find((anime) => anime.id === Number($anime_id));
-
-    const opengraph_html = new OpengraphGenerator({
-        title: anime ? `Watch ${anime?.name} on AnimeCore` : "404 - Page not found!",
-        url: $page.url.href,
-        description: anime?.synopsis ?? "",
-        site_name: "CoreProject",
-        locale: "en_US",
-        image_url: anime?.banner ?? ""
-    }).generate_opengraph();
 </script>
 
-<svelte:head>
-    {@html opengraph_html}
-</svelte:head>
+<MetaTags
+    title={anime ? `Watch ${anime?.name} on AnimeCore` : "404 - Page not found!"}
+    description={anime?.synopsis ?? ""}
+    openGraph={{
+        images: [
+            {
+                url: anime?.banner ?? ""
+            }
+        ],
+        locale: "en_US",
+
+        siteName: "CoreProject"
+    }}
+/>
 
 {#if anime}
     <!-- 

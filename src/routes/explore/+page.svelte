@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { OpengraphGenerator } from "$functions/opengraph";
-    import { page } from "$app/stores";
     import Search from "$icons/search.svelte";
     import Chevron from "$icons/chevron.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
@@ -16,6 +14,7 @@
     import Expand from "$icons/expand.svelte";
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
+    import { MetaTags } from "svelte-meta-tags";
 
     /* Bindings */
     let result_animes_element: HTMLElement;
@@ -118,20 +117,21 @@
 
     /* Thumbnail modes */
     let thumbnail_mode: "card_with_tippy" | "detailed_card" = "card_with_tippy";
-
-    const opengraph_html = new OpengraphGenerator({
-        title: "Explore the Anime Universe: Your Gateway to Otaku Delights!",
-        site_name: "CoreProject",
-        image_url: "", // Use Opengraph later
-        url: $page.url.href,
-        locale: "en_US",
-        description: "The most modern anime streaming site"
-    }).generate_opengraph();
 </script>
 
-<svelte:head>
-    {@html opengraph_html}
-</svelte:head>
+<MetaTags
+    title="Explore the Anime Universe: Your Gateway to Otaku Delights!"
+    description="The most modern anime streaming site"
+    openGraph={{
+        images: [
+            {
+                url: "" // Use Satori later
+            }
+        ],
+        locale: "en_US",
+        siteName: "CoreProject"
+    }}
+/>
 
 <section class="mt-20 flex flex-col p-5 md:mt-0 md:gap-[1.5vw] md:pb-[2.5vw] md:pl-[1.5vw] md:pr-[3.75vw] md:pt-0">
     <section-headings class="flex flex-col gap-2 md:gap-[0.5vw]">

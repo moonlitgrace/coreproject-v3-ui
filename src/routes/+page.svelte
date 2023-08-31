@@ -7,7 +7,6 @@
     import { latest_episodes } from "$data/mock/latest_episodes";
     import { my_list } from "$data/mock/my_list";
     import { FormatDate } from "$functions/format_date";
-    import { OpengraphGenerator } from "$functions/opengraph";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Chevron from "$icons/chevron.svelte";
     import Circle from "$icons/circle.svelte";
@@ -31,6 +30,7 @@
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
+    import { MetaTags } from "svelte-meta-tags";
 
     const slider_delay = 10,
         timer = new EasyTimer({
@@ -47,14 +47,6 @@
             { background: "bg-primary-300", border: "border-primary-300" },
             { background: "bg-error-200", border: "border-error-200" }
         ],
-        opengraph_html = new OpengraphGenerator({
-            title: "AnimeCore - A modern anime streaming site",
-            site_name: "CoreProject",
-            image_url: "", // Use Opengraph later
-            url: $page.url.href,
-            locale: "en_US",
-            description: "The most modern anime streaming site"
-        }).generate_opengraph(),
         icon_mapping: {
             [key: string]: {
                 [key: string]: {
@@ -186,6 +178,19 @@
     });
 </script>
 
+<MetaTags
+    title="AnimeCore - A modern anime streaming site"
+    description="The most modern anime streaming site"
+    openGraph={{
+        images: [
+            {
+                url: "" // Add satori later
+            }
+        ],
+        locale: "en_US",
+        siteName: "CoreProject"
+    }}
+/>
 <svelte:window
     on:focus={() => {
         timer?.start();
@@ -194,10 +199,6 @@
         timer?.pause();
     }}
 />
-
-<svelte:head>
-    {@html opengraph_html}
-</svelte:head>
 
 <home-container class="mt-16 block md:mt-0 md:p-[1.25vw] md:pr-[3.75vw]">
     <hero-section class="flex flex-col justify-between md:flex-row">

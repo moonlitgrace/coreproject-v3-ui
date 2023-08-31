@@ -2,8 +2,22 @@
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
+    import { MetaTags } from "svelte-meta-tags";
 </script>
 
+<MetaTags
+    title="Reset Password Page"
+    description="A page where you can reset your core account"
+    openGraph={{
+        images: [
+            {
+                url: "" // Add satori later
+            }
+        ],
+        locale: "en_US",
+        siteName: "CoreProject"
+    }}
+/>
 <form
     use:focusTrap={true}
     class="flex h-max w-full flex-col bg-surface-900 p-10 pb-[10vw] pt-[7vw] md:h-full md:justify-between md:rounded-none md:p-0"
