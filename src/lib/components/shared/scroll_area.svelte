@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { cn } from "$functions/classnames";
+
     let klass = "";
     export { klass as class };
 
@@ -23,11 +25,11 @@
 <scroll-area
     bind:this={scroll_area}
     on:scroll={handle_scroll}
-    class="{parentClass} {offsetScrollbar && "pr-3 md:pr-[0.75vw]"} block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin"
+    class={cn(parentClass, offsetScrollbar && "pr-3 md:pr-[0.75vw]", "block h-full w-full overflow-y-scroll overscroll-y-contain border-transparent scrollbar-thin")}
     class:mask-bottom={gradientMask && add_mask_bottom}
 >
     <div>
-        <div class="{klass} whitespace-pre-line">
+        <div class={cn(klass, "whitespace-pre-line")}>
             <slot />
         </div>
     </div>
