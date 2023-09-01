@@ -297,11 +297,12 @@
                             />
                             <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-l-[0.35vw]">
                                 <div class="flex flex-col bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
-                                    <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
-                                        <span class="line-clamp-1 md:line-clamp-none">
-                                            {anime.name}
-                                        </span>
-                                    </ScrollArea>
+                                    <HoverExpand
+                                        class="text-sm font-semibold md:text-[1vw] md:leading-[1.35vw]"
+                                        height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+                                    >
+                                        {anime.name}
+                                    </HoverExpand>
                                     <studio-name class="line-clamp-1 text-xs text-surface-50 md:line-clamp-none md:text-[0.8vw]">
                                         {anime.studios}
                                     </studio-name>
