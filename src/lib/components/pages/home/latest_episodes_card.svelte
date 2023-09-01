@@ -42,23 +42,29 @@
     function handle_mouseenter() {
         if (visible_ratio < 0.8) should_expand = true;
         show_more_info = true;
-        anime_episode.classList.add("snap-center");
     }
 
     function handle_mouseleave() {
         show_more_info = false;
         should_expand = false;
-        anime_episode.classList.remove("snap-center");
     }
 
     function handle_animationstart() {
-        if (!scroll_area_element) return;
-        if (!should_expand) return;
+        // taking parent not scroll_area_element
+        const parent_rect = anime_episode.parentElement!.getBoundingClientRect();
+        const anime_episode_rect = anime_episode.getBoundingClientRect();
 
-        const target_scroll_top = anime_episode.offsetTop - scroll_area_element.scrollTop + parseInt(getComputedStyle(anime_episode!.parentElement!).gap) - anime_episode.offsetHeight;
+        const scroll_area_center = scroll_area_element.offsetHeight / 2;
+        const anime_episode_center = anime_episode_rect.top - parent_rect.top + anime_episode_rect.height / 2;
+        const target_scroll_top = anime_episode_center - scroll_area_center + parseInt(getComputedStyle(anime_episode.parentElement!).gap) || 0;
 
-        setTimeout(() => scroll_area_element!.scroll({ top: target_scroll_top }), ANIMATION_DURATION * (1.1 / 3));
+        scroll_area_element.scroll({
+            top: target_scroll_top,
+            behavior: "smooth"
+        });
     }
+
+
 </script>
 
 <anime-episode

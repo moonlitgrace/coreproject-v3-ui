@@ -374,7 +374,7 @@
 
             <ScrollArea
                 offsetScrollbar
-                parentClass="mt-[1vw] max-h-[22.25vw] snap-y scroll-smooth"
+                parentClass="mt-[1vw] max-h-[22.25vw]"
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime, index}
