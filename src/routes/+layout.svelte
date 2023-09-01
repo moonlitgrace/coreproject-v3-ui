@@ -16,7 +16,6 @@
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
-    import { theme } from "$store/theme";
     // Most of your app wide CSS should be put in this file
     import "../app.postcss";
     // Custom SCSS

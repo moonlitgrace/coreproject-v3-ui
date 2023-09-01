@@ -167,6 +167,12 @@
     });
 
     // Controls timer according to element visibility on viewport
+    const observerOptions: IntersectionObserverInit = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // cover 50%
+    };
+
     onMount(() => {
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
@@ -174,7 +180,7 @@
             } else {
                 timer?.pause();
             }
-        });
+        }, observerOptions);
 
         observer.observe(main_hero_slider_element);
         return () => observer.unobserve(main_hero_slider_element);
