@@ -167,6 +167,12 @@
     });
 
     // Controls timer according to element visibility on viewport
+    const observerOptions: IntersectionObserverInit = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // cover 50%
+    };
+
     onMount(() => {
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
@@ -174,7 +180,7 @@
             } else {
                 timer?.pause();
             }
-        });
+        }, observerOptions);
 
         observer.observe(main_hero_slider_element);
         return () => observer.unobserve(main_hero_slider_element);
@@ -285,7 +291,7 @@
                                     <span>Ep 1</span>
                                 </button>
 
-                                <a href="./mal/{anime.mal_id}">
+                                <a href="{$page.url.pathname}mal/{anime.mal_id}">
                                     <button class="btn btn-icon flex h-14 w-28 items-center justify-center rounded-xl bg-surface-900 text-base font-semibold text-surface-50 md:h-[3.125vw] md:w-[6.5vw] md:rounded-[0.5vw] md:text-[0.875vw] md:font-bold">
                                         <Info class="w-5 text-surface-50 md:w-[1.25vw]" />
                                         <span>Details</span>
@@ -368,7 +374,7 @@
 
             <ScrollArea
                 offsetScrollbar
-                parentClass="mt-[1vw] max-h-[22.25vw] snap-y scroll-smooth"
+                parentClass="mt-[1vw] max-h-[22.25vw]"
                 class="flex flex-col gap-[1vw]"
             >
                 {#each latest_episodes as anime, index}
@@ -488,7 +494,6 @@
                         onTrigger: async (instance) => {
                             // Lazy offset calculation
                             instance.props.offset = [0, globalThis.Math.abs(parseInt(getComputedStyle(my_list_grid)?.gap))];
-
 
                             const node = document.createElement("tippy-my-list-animes");
                             new MyListAnimeDetails({
