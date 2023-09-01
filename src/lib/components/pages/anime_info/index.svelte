@@ -385,7 +385,6 @@
                                 <episode-titles class="relative flex h-full w-full flex-col items-start md:gap-[0.25vw]">
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-
                                         height="max-h-9 md:max-h-[1.25vw] md:hover:max-h-[18vw]"
                                         duration={500}
                                         line_clamp={2}
@@ -395,7 +394,6 @@
 
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-
                                         height="max-h-4 md:max-h-[1.3vw] md:hover:max-h-[18vw]"
                                         duration={500}
                                     >
@@ -405,7 +403,9 @@
                                 <episode-available-formats class="relative flex w-full items-center gap-2 bg-surface-900 md:gap-[0.65vw] md:pt-[0.75vw]">
                                     <formats class="flex gap-2 leading-none md:gap-[0.65vw]">
                                         {#each episode.formats as format}
-                                            <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:text-[0.8vw]">{format}</span>
+                                            <span class="rounded text-[0.6rem] font-semibold uppercase tracking-wider text-surface-50 md:bg-surface-400/50 md:p-[0.45vw] md:text-[0.8vw]">
+                                                {format}
+                                            </span>
                                         {/each}
                                     </formats>
                                     <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
