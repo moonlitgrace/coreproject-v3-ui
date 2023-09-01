@@ -5,17 +5,12 @@
     let klass: string = "";
     export { klass as class };
     export let height: string = "";
-    export let options: {
-        duration: number,
-        line_clamp: number
-    } = {
-        duration: 300,
-        line_clamp: 1
-    };
+    export let duration: number = 300;
+    export let line_clamp: number = 1;
 </script>
 
-<ScrollArea class="{cn( klass, height )} overflow-hidden duration-{options.duration} ease-in-out scrollbar-none hover:overflow-y-scroll">
-    <span class="line-clamp-{options.line_clamp} md:line-clamp-none">
+<ScrollArea class="{cn( klass, height )} overflow-hidden duration-{duration} ease-in-out scrollbar-none hover:overflow-y-scroll">
+    <span class="line-clamp-{line_clamp} md:line-clamp-none">
         <slot />
     </span>
 </ScrollArea>

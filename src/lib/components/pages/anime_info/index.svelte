@@ -387,22 +387,17 @@
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
 
                                         height="max-h-9 md:max-h-[1.25vw] md:hover:max-h-[18vw]"
-                                        options={{
-                                            duration: 500,
-                                            line_clamp: 2
-                                        }}
+                                        duration={500}
+                                        line_clamp={2}
                                     >
                                         {title}
                                     </HoverExpand>
 
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                        
+
                                         height="max-h-4 md:max-h-[1.3vw] md:hover:max-h-[18vw]"
-                                        options={{
-                                            duration: 500,
-                                            line_clamp: 1
-                                        }}
+                                        duration={500}
                                     >
                                         {japanese_name}
                                     </HoverExpand>
