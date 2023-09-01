@@ -9,7 +9,7 @@
     export let line_clamp: number = 1;
 </script>
 
-<ScrollArea class="{cn( klass, height )} overflow-hidden duration-{duration} ease-in-out scrollbar-none hover:overflow-y-scroll">
+<ScrollArea class="{cn( klass, height )} duration-{duration} overflow-hidden ease-in-out scrollbar-none hover:overflow-y-scroll">
     <span class="line-clamp-{line_clamp} md:line-clamp-none mask-right">
         <slot />
     </span>
