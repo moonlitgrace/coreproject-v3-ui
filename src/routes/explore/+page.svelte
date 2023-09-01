@@ -374,8 +374,7 @@
                                             anime_genres: anime.genres,
                                             anime_studios: anime.studios,
                                             anime_episodes_count: anime.episodes_count,
-                                            anime_synopsis: anime.synopsis,
-                                            anime_release_date: anime.release_date
+                                            anime_synopsis: anime.synopsis
                                         }
                                     });
 
