@@ -525,8 +525,7 @@
                         <div class="flex flex-col gap-1 bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
                             <HoverExpand
                                 class="text-sm font-semibold md:text-[1vw] md:leading-[1.35vw]"
-                                height="md:max-h-[1.35vw]"
-                                hover_height="hover:max-h-[10vw]"
+                                height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
                             >
                                 {anime.name}
                             </HoverExpand>

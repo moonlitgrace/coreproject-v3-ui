@@ -4,9 +4,8 @@
     let klass = "";
     export { klass as class };
     export let height = "";
-    export let hover_height = "";
 
-    $: base_class = `${klass} ${height} ${hover_height}`;
+    $: base_class = `${klass} ${height}`;
 </script>
 
 <ScrollArea class="{base_class} overflow-hidden duration-300 ease-in-out scrollbar-none hover:overflow-y-scroll">
