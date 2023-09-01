@@ -5,6 +5,7 @@
     export { klass as class };
     export let height = "";
 
+    let base_class: string;
     $: base_class = `${klass} ${height}`;
 </script>
 
