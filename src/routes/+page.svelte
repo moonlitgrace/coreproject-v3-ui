@@ -31,6 +31,7 @@
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
+    import HoverExpand from "$components/shared/hover_expand.svelte";
 
     const slider_delay = 10,
         timer = new EasyTimer({
@@ -522,11 +523,12 @@
                     />
                     <anime-info class="absolute inset-x-0 bottom-0 rounded-b-lg backdrop-blur md:rounded-b-[0.5vw]">
                         <div class="flex flex-col gap-1 bg-surface-900/90 p-3 md:gap-[0.35vw] md:p-[1vw]">
-                            <ScrollArea class="flex overflow-hidden text-sm font-semibold duration-300 ease-in-out scrollbar-none hover:max-h-[10vw] hover:overflow-y-scroll md:max-h-[1.35vw] md:text-[1vw] md:leading-[1.35vw]">
-                                <span class="line-clamp-1 md:line-clamp-none">
-                                    {anime.name}
-                                </span>
-                            </ScrollArea>
+                            <HoverExpand
+                                class="text-sm font-semibold md:text-[1vw] md:leading-[1.35vw]"
+                                height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+                            >
+                                {anime.name}
+                            </HoverExpand>
                             <anime_info class="flex items-center gap-2 text-xs leading-none text-surface-50 md:gap-[0.5vw] md:text-[0.8vw]">
                                 <span class="hidden md:flex">Watching</span>
                                 <Circle class="hidden opacity-75 md:flex md:w-[0.25vw]" />
