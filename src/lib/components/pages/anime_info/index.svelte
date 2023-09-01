@@ -385,8 +385,9 @@
                                 <episode-titles class="relative flex h-full w-full flex-col items-start md:gap-[0.25vw]">
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+
                                         height="max-h-9 md:max-h-[1.25vw] md:hover:max-h-[18vw]"
-                                        duration={500}
+                                        duration="duration-500"
                                         line_clamp={2}
                                     >
                                         {title}
@@ -394,8 +395,9 @@
 
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
+                                        
                                         height="max-h-4 md:max-h-[1.3vw] md:hover:max-h-[18vw]"
-                                        duration={500}
+                                        duration="duration-500"
                                     >
                                         {japanese_name}
                                     </HoverExpand>
