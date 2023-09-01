@@ -54,12 +54,12 @@
         const parent_rect = anime_episode.parentElement!.getBoundingClientRect();
         const anime_episode_rect = anime_episode.getBoundingClientRect();
 
-        const scrollCenter = scroll_area_element.offsetHeight / 2;
-        const elementCenter = anime_episode_rect.top - parent_rect.top + anime_episode_rect.height / 2;
-        const scrollOffset = elementCenter - scrollCenter + parseInt(getComputedStyle(anime_episode.parentElement!).gap) || 0;
+        const scroll_area_center = scroll_area_element.offsetHeight / 2;
+        const anime_episode_center = anime_episode_rect.top - parent_rect.top + anime_episode_rect.height / 2;
+        const target_scroll_top = anime_episode_center - scroll_area_center + parseInt(getComputedStyle(anime_episode.parentElement!).gap) || 0;
 
         setTimeout(
-            () => scroll_area_element.scroll({ top: scrollOffset }),
+            () => scroll_area_element.scroll({ top: target_scroll_top }),
             ANIMATION_DURATION * (1.1 / 3)
         );
     }
