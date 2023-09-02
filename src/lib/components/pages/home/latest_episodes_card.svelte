@@ -3,6 +3,7 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     import Play from "$icons/play.svelte";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
@@ -54,8 +55,7 @@
 
         // Declare rects
         const parent_rect = parent_element.getBoundingClientRect(), // taking parent not scroll_area_element
-              anime_episode_rect = anime_episode.getBoundingClientRect();
-        
+            anime_episode_rect = anime_episode.getBoundingClientRect();
 
         const scroll_area_center = scroll_area_element.offsetHeight / 2;
         const anime_episode_center = anime_episode_rect.top - parent_rect.top + anime_episode_rect.height / 2;
@@ -66,8 +66,6 @@
             behavior: "smooth"
         });
     }
-
-
 </script>
 
 <anime-episode
@@ -99,7 +97,7 @@
             </episode-dates>
         </div>
         <a
-            href="{$page.url.pathname}mal/{anime.id}/episode/{anime.episode_number}"
+            href="{remove_slash_from_end($page.url.pathname)}/mal/{anime.id}/episode/{anime.episode_number}"
             class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900 transition-colors duration-300 group-hover:bg-white"
         >
             <Play class="w-[1.25vw]" />

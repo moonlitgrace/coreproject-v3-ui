@@ -19,6 +19,7 @@
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
     import { page } from "$app/stores";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     
     /* Comment section logics */
     let comment_body: string;
@@ -54,19 +55,19 @@
             options: {
                 download: {
                     component: Download,
-                    link: `${$page.url.pathname}`,
+                    link: `${remove_slash_from_end($page.url.pathname)}`,
                     class: "w-4 md:w-[1.4vw]",
                     text: "Download"
                 },
                 prev: {
                     component: Next,
-                    link: `${$page.url.pathname}`,
+                    link: `${remove_slash_from_end($page.url.pathname)}`,
                     class: "w-4 md:w-[1.4vw] rotate-180",
                     text: "Previous Episode"
                 },
                 next: {
                     component: Next,
-                    link: `${$page.url.pathname}`,
+                    link: `${remove_slash_from_end($page.url.pathname)}`,
                     class: "w-4 md:w-[1.4vw]",
                     text: "Next Episode"
                 }

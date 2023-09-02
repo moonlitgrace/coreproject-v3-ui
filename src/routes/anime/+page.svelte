@@ -31,6 +31,7 @@
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
 
     const slider_delay = 10,
         timer = new EasyTimer({
@@ -475,7 +476,7 @@
         >
             {#each my_list as anime}
                 <a
-                    href="./mal/{anime.id}/episode/{anime.current_episode}"
+                    href="{remove_slash_from_end($page.url.pathname)}/mal/{anime.id}/episode/{anime.current_episode}"
                     class="relative"
                     use:tippy={{
                         arrow: false,
