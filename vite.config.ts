@@ -21,7 +21,11 @@ export default defineConfig({
         drop: ["console", "debugger"]
     },
     build: {
-        target: "esnext"
+        target: "esnext",
+        sourcemap: true
+    },
+    css: {
+        devSourcemap: true
     },
     test: {
         include: ["src/**/*.{test,spec}.{js,ts}"]
