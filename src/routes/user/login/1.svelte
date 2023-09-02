@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from "$app/stores";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
     import { reporter } from "@felte/reporter-svelte";
@@ -77,7 +79,7 @@
 
         <div class="flex flex-col items-start md:mt-[3vw]">
             <a
-                href="./reset-password"
+                href="{remove_slash_from_end($page.url.pathname)}/reset-password"
                 class="btn p-0 text-base font-semibold leading-none text-primary-600 underline md:text-[1vw]"
             >
                 {@html `< forgot password? >`}
@@ -89,7 +91,7 @@
         <div class="flex flex-col gap-1 md:gap-[0.5vw]">
             <span class="text-xs leading-none text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
             <a
-                href="./register"
+                href="{remove_slash_from_end($page.url.pathname)}/register"
                 class="text-base leading-none md:text-[1.1vw]"
             >
                 Register

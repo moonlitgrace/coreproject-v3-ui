@@ -30,6 +30,7 @@
     import Comment from "$components/shared/comment.svelte";
     import { page } from "$app/stores";
     import HoverExpand from "$components/shared/hover_expand.svelte";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
 
     export let anime_id: number, anime_episodes: any, anime_name: string, japanese_name: string, anime_episodes_count: number, anime_date: string, anime_synopsis: string, anime_banner: string, anime_cover: string;
 
@@ -359,7 +360,7 @@
                         {@const duration = episode.duration}
 
                         <a
-                            href="{$page.url.pathname}/episode/{episode_number}"
+                            href="{remove_slash_from_end($page.url.pathname)}/episode/{episode_number}"
                             class="relative col-span-12 grid grid-cols-12 gap-4 md:col-span-4"
                         >
                             <card-banner-info class="relative col-span-5 h-full w-full md:col-span-12 md:h-[19vw]">

@@ -1,4 +1,4 @@
-import { cn } from "./classnames";
+import { cn } from "$functions/classnames";
 import { test, expect } from "vitest";
 
 test("check classnames", () => {
