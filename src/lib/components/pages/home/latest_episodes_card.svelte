@@ -50,9 +50,12 @@
     }
 
     function handle_animationstart() {
-        // taking parent not scroll_area_element
-        const parent_rect = anime_episode.parentElement!.getBoundingClientRect();
-        const anime_episode_rect = anime_episode.getBoundingClientRect();
+        const parent_element = anime_episode.parentElement!;
+
+        // Declare rects
+        const parent_rect = parent_element.getBoundingClientRect(), // taking parent not scroll_area_element
+              anime_episode_rect = anime_episode.getBoundingClientRect();
+        
 
         const scroll_area_center = scroll_area_element.offsetHeight / 2;
         const anime_episode_center = anime_episode_rect.top - parent_rect.top + anime_episode_rect.height / 2;
