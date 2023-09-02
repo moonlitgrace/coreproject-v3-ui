@@ -20,7 +20,7 @@
     import tippy from "tippy.js";
     import { page } from "$app/stores";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
-    
+
     /* Comment section logics */
     let comment_body: string;
 
@@ -178,11 +178,11 @@
             </header>
 
             <episodes class="grid grid-cols-7 gap-2 md:grid-cols-6 md:gap-[0.75vw]">
-                {#each Array(60) as item, index}
+                {#each Array(60) as _, index}
                     {@const actual_index = index + 1}
                     {@const button_active = actual_index === episode_number}
                     <a
-                        href="./{actual_index}"
+                        href="{remove_slash_from_end($page.url.pathname)}/{actual_index}"
                         class="{button_active ? 'bg-primary-500' : 'bg-surface-400'} btn rounded py-3 text-sm font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
                     >
                         {actual_index}
@@ -239,7 +239,7 @@
         <next-episode class="col-span-4 hidden flex-col md:flex">
             <span class="font-semibold uppercase md:text-[1.1vw]">next episode</span>
             <a
-                href="./{episode_number + 1}"
+                href="{remove_slash_from_end($page.url.pathname)}/{episode_number + 1}"
                 class="flex md:mt-[0.75vw] md:gap-[1vw]"
             >
                 <episode-cover class="relative">
