@@ -389,7 +389,7 @@
 
                                         height="max-h-9 md:max-h-[1.25vw] md:hover:max-h-[18vw]"
                                         duration="duration-500"
-                                        line_clamp={2}
+                                        line_clamp="line-clamp-2"
                                     >
                                         {title}
                                     </HoverExpand>
