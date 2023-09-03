@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Info from "$icons/info.svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
@@ -38,7 +38,7 @@
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Don't have a core account?</span>
             <a
-                href="{remove_slash_from_end($page.url.pathname)}/register"
+                href="{get_page_from_url($page.url.pathname)}/register"
                 class="text-base md:text-[1.1vw]"
             >
                 Register

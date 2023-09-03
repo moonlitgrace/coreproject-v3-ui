@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
     import Tick from "$icons/tick.svelte";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { createForm } from "felte";
@@ -86,7 +86,7 @@
         <div class="flex flex-col gap-1 md:gap-0">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
-                href="{remove_slash_from_end($page.url.pathname)}/login"
+                href="{get_page_from_url($page.url.pathname)}/login"
                 class="text-base md:text-[1.1vw]"
             >
                 Login
