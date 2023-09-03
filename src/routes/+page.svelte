@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
+    import AnimeCore from "$icons/anime_core.svelte";
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -16,12 +17,12 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="flex h-screen w-full items-center justify-center text-3xl">
-    Visit &nbsp;
+<div class="flex gap-3 h-screen w-full items-center justify-center text-3xl">
+    <span class="text-3xl md:text-[1.75vw]">Visit</span>
     <a
         href="/anime"
-        class="underline"
+        class="border-b-[0.15vw] border-surface-50/50 hover:border-surface-50 transition-colors"
     >
-        AnimeCore
+        <AnimeCore class="w-48 md:w-[10vw]" />
     </a>
 </div>
