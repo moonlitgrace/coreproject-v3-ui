@@ -212,6 +212,8 @@
                 {@const active = index === main_hero_slide_active_index}
                 {@const slide_button_background = slide_buttons[main_hero_slide_active_index].background}
 
+                {@const formated_aired_on = new FormatDate(anime.aired_from).format_to_season}
+
                 {#if active}
                     <anime-slide
                         role="presentation"
@@ -257,7 +259,7 @@
                                 <span class="leading-[1.125vw]">Completed</span>
                                 <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="capitalize leading-[1.125vw]">
-                                    {new FormatDate(anime.aired_from).format_to_season}
+                                    {formated_aired_on}
                                 </span>
                                 <Circle class="w-1 opacity-75 md:w-[0.25vw]" />
                                 <span class="leading-[1.125vw]">
