@@ -211,7 +211,6 @@
                         </button>
                     {:else}
                         <auth-buttons class="flex items-center md:gap-[0.75vw]">
-                            <span class="hidden md:flex md:text-[0.9vw] text-surface-50">Create a core account!</span>
                             <a href="/user/register" class="hidden md:flex btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
                                 Register
                             </a>
