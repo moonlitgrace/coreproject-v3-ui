@@ -501,8 +501,7 @@
                                     anime_studios: anime.studios,
                                     anime_episodes_count: anime.episodes_count,
                                     anime_synopsis: anime.synopsis,
-                                    anime_current_episode: anime.current_episode,
-                                    anime_release_date: anime.release_date
+                                    anime_current_episode: anime.current_episode
                                 }
                             });
 
