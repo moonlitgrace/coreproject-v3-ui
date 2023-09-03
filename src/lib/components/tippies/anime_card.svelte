@@ -1,5 +1,7 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
+    import { page } from "$app/stores";
     import Circle from "$icons/circle.svelte";
     import Info from "$icons/info.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
@@ -49,14 +51,14 @@
 
         <options class="flex items-center border-t-[0.1vw] border-white/10 md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.75vw]">
             <a
-                href="./mal/{anime_id}/episode/1"
+                href="{get_page_from_url($page.url.pathname)}/mal/{anime_id}/episode/1"
                 class="btn h-[2.3vw] flex-1 bg-primary-500 leading-none md:rounded-[0.5vw]"
             >
                 <PlayCircle class="md:w-[1vw]" />
                 <span class="font-semibold md:text-[0.9vw]">Watch Ep 1</span>
             </a>
             <a
-                href="./mal/{anime_id}"
+                href="{get_page_from_url($page.url.pathname)}/mal/{anime_id}"
                 class="btn aspect-square h-[2.3vw] bg-primary-500/25 p-0 leading-none md:rounded-[0.5vw]"
             >
                 <Info class="md:w-[1.2vw]" />

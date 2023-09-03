@@ -1,11 +1,11 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     import { page } from "$app/stores";
     import Circle from "$icons/circle.svelte";
     import Info from "$icons/info.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Star from "$icons/star.svelte";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
 
     export let anime_id: number, anime_name: string, anime_episodes_count: number, anime_current_episode: number, anime_type: string, anime_genres: string[], anime_studios: string[], anime_synopsis: string;
 </script>
@@ -51,14 +51,14 @@
 
         <options class="flex items-center border-t-[0.1vw] border-white/10 md:mt-[0.25vw] md:gap-[0.5vw] md:pt-[0.75vw]">
             <a
-                href="{remove_slash_from_end($page.url.pathname)}/mal/{anime_id}/episode/{anime_current_episode}"
+                href="{get_page_from_url($page.url.pathname)}/mal/{anime_id}/episode/{anime_current_episode}"
                 class="btn h-[2.3vw] flex-1 bg-primary-500 leading-none md:rounded-[0.5vw]"
             >
                 <PlayCircle class="md:w-[0.9vw]" />
                 <span class="font-semibold md:text-[0.9vw]">Continue Ep {anime_current_episode}</span>
             </a>
             <a
-                href="{remove_slash_from_end($page.url.pathname)}/mal/{anime_id}"
+                href="{get_page_from_url($page.url.pathname)}/mal/{anime_id}"
                 class="btn aspect-square h-[2.3vw] bg-primary-500/25 p-0 leading-none md:rounded-[0.5vw]"
             >
                 <Info class="md:w-[1.2vw]" />

@@ -17,6 +17,12 @@
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
     import HoverExpand from "$components/shared/hover_expand.svelte";
+    import { onMount } from "svelte";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
+    
+    onMount(() => {
+        console.log(get_page_from_url($page.url.pathname));
+    })
 
     /* Bindings */
     let result_animes_element: HTMLElement;
@@ -286,7 +292,7 @@
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
-                        href="/mal/{anime.id}"
+                        href="{get_page_from_url($page.url.pathname)}/mal/{anime.id}"
                         class="relative col-span-1 grid grid-cols-1 md:grid-cols-2"
                     >
                         <div class="relative">
@@ -349,7 +355,7 @@
                 {#each trending_animes as anime}
                     <a
                         in:scale={{ start: 0.95 }}
-                        href="/mal/{anime.id}"
+                        href="{get_page_from_url($page.url.pathname)}/mal/{anime.id}"
                         class="relative col-span-1 flex flex-col gap-2 md:gap-[0.5vw]"
                     >
                         <div

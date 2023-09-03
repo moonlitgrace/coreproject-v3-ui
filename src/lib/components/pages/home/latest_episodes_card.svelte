@@ -3,7 +3,7 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { get_page_from_url } from "$functions/urls/get_page_from_url";
     import Play from "$icons/play.svelte";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
@@ -97,7 +97,7 @@
             </episode-dates>
         </div>
         <a
-            href="{remove_slash_from_end($page.url.pathname)}/mal/{anime.id}/episode/{anime.episode_number}"
+            href="{get_page_from_url($page.url.pathname)}/mal/{anime.id}/episode/{anime.episode_number}"
             class="btn btn-icon h-[2.5vw] w-[2.5vw] rounded-full bg-warning-400 text-surface-900 transition-colors duration-300 group-hover:bg-white"
         >
             <Play class="w-[1.25vw]" />
