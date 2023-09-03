@@ -19,6 +19,10 @@
         synopsis: string;
     };
 
+    // Formated anime details
+    const formated_episode_number = String(anime.episode_number).padStart(2, "0");
+    const formated_release_date = new FormatDate(anime.release_date).format_to_time_from_now;
+
     /* Bindings */
     let ANIMATION_DURATION = 300,
         visible_ratio: number;
@@ -89,10 +93,10 @@
             </episode-name>
             <episode-dates class="flex items-center gap-[0.35vw] text-[0.8vw] text-surface-50">
                 <span class="font-semibold">
-                    Ep {String(anime.episode_number).padStart(2, "0")}
+                    Ep {formated_episode_number}
                 </span>
                 <span>
-                    aired {new FormatDate(anime.release_date).format_to_time_from_now}
+                    aired {formated_release_date}
                 </span>
             </episode-dates>
         </div>
