@@ -122,6 +122,9 @@
         };
         modalStore.trigger(search_modal);
     }
+
+    /* Change user handing later */
+    let is_authenticated = false;
 </script>
 
 <div class="relative h-[100dvh]">
@@ -175,36 +178,48 @@
                         {/if}
                     </div>
 
-                    <button
-                        class="avatar"
-                        aria-label="Avatar"
-                        use:tippy={{
-                            trigger: "click",
-                            arrow: false,
-                            allowHTML: true,
-                            placement: "bottom-end",
-                            offset: [0, 10],
-                            animation: "shift-away",
-                            appendTo: document.body,
-                            interactive: true,
-                            theme: "elaine",
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new ProfileDropdown({
-                                    target: node
-                                });
+                    {#if is_authenticated}
+                        <button
+                            class="avatar"
+                            aria-label="Avatar"
+                            use:tippy={{
+                                trigger: "click",
+                                arrow: false,
+                                allowHTML: true,
+                                placement: "bottom-end",
+                                offset: [0, 10],
+                                animation: "shift-away",
+                                appendTo: document.body,
+                                interactive: true,
+                                theme: "elaine",
+                                onTrigger: async (instance) => {
+                                    const node = document.createElement("div");
+                                    new ProfileDropdown({
+                                        target: node
+                                    });
 
-                                instance.setContent(node);
-                            }
-                        }}
-                    >
-                        <Avatar
-                            rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                            width="w-12 md:w-[3.125vw]"
-                            src="/images/Avatar.avif"
-                            initials="JD"
-                        />
-                    </button>
+                                    instance.setContent(node);
+                                }
+                            }}
+                        >
+                            <Avatar
+                                rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
+                                width="w-12 md:w-[3.125vw]"
+                                src="/images/Avatar.avif"
+                                initials="JD"
+                            />
+                        </button>
+                    {:else}
+                        <auth-buttons class="flex items-center md:gap-[0.75vw]">
+                            <span class="md:text-[0.9vw] text-surface-50">Create a core account!</span>
+                            <a href="/user/register" class="btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                                Register
+                            </a>
+                            <a href="/user/login" class="btn bg-primary-500 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                                Login
+                            </a>
+                        </auth-buttons>
+                    {/if}
                 {/if}
             </navbar>
         </svelte:fragment>
