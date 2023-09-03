@@ -17,11 +17,11 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="flex gap-3 h-screen w-full items-center justify-center text-3xl">
+<div class="flex gap-3 md:gap-[0.75vw] h-screen w-screen items-center justify-center">
     <span class="text-3xl md:text-[1.75vw]">Visit</span>
     <a
         href="/anime"
-        class="border-b-[0.15vw] border-surface-50/50 hover:border-surface-50 transition-colors"
+        class="border-b-2 border-surface-50/50 transition-colors md:border-b-[0.15vw] hover:border-surface-50"
     >
         <AnimeCore class="w-48 md:w-[10vw]" />
     </a>
