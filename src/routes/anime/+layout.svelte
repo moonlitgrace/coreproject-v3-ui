@@ -138,7 +138,7 @@
                         <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
                     </a>
 
-                    <div class="relative flex items-center">
+                    <div class="relative md:static flex items-center">
                         {#if $navbar_middle_section_variant === "logo"}
                             <a
                                 href="/"
@@ -211,11 +211,11 @@
                         </button>
                     {:else}
                         <auth-buttons class="flex items-center md:gap-[0.75vw]">
-                            <span class="md:text-[0.9vw] text-surface-50">Create a core account!</span>
-                            <a href="/user/register" class="btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                            <span class="hidden md:flex md:text-[0.9vw] text-surface-50">Create a core account!</span>
+                            <a href="/user/register" class="hidden md:flex btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
                                 Register
                             </a>
-                            <a href="/user/login" class="btn bg-primary-500 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                            <a href="/user/login" class="btn bg-primary-500 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw] text-base px-5 py-4 rounded-[0.4rem]">
                                 Login
                             </a>
                         </auth-buttons>
