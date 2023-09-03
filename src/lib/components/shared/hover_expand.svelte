@@ -9,7 +9,7 @@
     export let line_clamp: number = 1;
 </script>
 
-<ScrollArea class="{cn( klass, height, duration )} overflow-hidden ease-in-out scrollbar-none hover:overflow-y-scroll">
+<ScrollArea class={cn(klass, height, duration, "overflow-hidden ease-in-out scrollbar-none hover:overflow-y-scroll")}>
     <span class="line-clamp-{line_clamp} md:line-clamp-none [&:not(:hover)]:[mask-image:_linear-gradient(90deg,_rgba(7,5,25)_75%,_rgba(0,0,0,0)_100%)]">
         <slot />
     </span>
