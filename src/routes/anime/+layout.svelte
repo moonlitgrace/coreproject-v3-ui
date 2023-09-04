@@ -122,6 +122,9 @@
         };
         modalStore.trigger(search_modal);
     }
+
+    /* Change user handing later */
+    let is_authenticated = false;
 </script>
 
 <div class="relative h-[100dvh]">
@@ -135,7 +138,7 @@
                         <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
                     </a>
 
-                    <div class="relative flex items-center">
+                    <div class="relative md:static flex items-center">
                         {#if $navbar_middle_section_variant === "logo"}
                             <a
                                 href="/"
@@ -175,36 +178,47 @@
                         {/if}
                     </div>
 
-                    <button
-                        class="avatar"
-                        aria-label="Avatar"
-                        use:tippy={{
-                            trigger: "click",
-                            arrow: false,
-                            allowHTML: true,
-                            placement: "bottom-end",
-                            offset: [0, 10],
-                            animation: "shift-away",
-                            appendTo: document.body,
-                            interactive: true,
-                            theme: "elaine",
-                            onTrigger: async (instance) => {
-                                const node = document.createElement("div");
-                                new ProfileDropdown({
-                                    target: node
-                                });
+                    {#if is_authenticated}
+                        <button
+                            class="avatar"
+                            aria-label="Avatar"
+                            use:tippy={{
+                                trigger: "click",
+                                arrow: false,
+                                allowHTML: true,
+                                placement: "bottom-end",
+                                offset: [0, 10],
+                                animation: "shift-away",
+                                appendTo: document.body,
+                                interactive: true,
+                                theme: "elaine",
+                                onTrigger: async (instance) => {
+                                    const node = document.createElement("div");
+                                    new ProfileDropdown({
+                                        target: node
+                                    });
 
-                                instance.setContent(node);
-                            }
-                        }}
-                    >
-                        <Avatar
-                            rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                            width="w-12 md:w-[3.125vw]"
-                            src="/images/Avatar.avif"
-                            initials="JD"
-                        />
-                    </button>
+                                    instance.setContent(node);
+                                }
+                            }}
+                        >
+                            <Avatar
+                                rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
+                                width="w-12 md:w-[3.125vw]"
+                                src="/images/Avatar.avif"
+                                initials="JD"
+                            />
+                        </button>
+                    {:else}
+                        <auth-buttons class="flex items-center md:gap-[0.75vw]">
+                            <a href="/user/register" class="hidden md:flex btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                                Register
+                            </a>
+                            <a href="/user/login" class="btn bg-primary-500 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw] text-base px-5 py-4 rounded-[0.4rem]">
+                                Login
+                            </a>
+                        </auth-buttons>
+                    {/if}
                 {/if}
             </navbar>
         </svelte:fragment>

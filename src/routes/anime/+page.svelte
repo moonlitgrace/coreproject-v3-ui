@@ -185,6 +185,9 @@
         timer.reset();
         timer.stop();
     });
+
+    /* Change user handing later */
+    let is_authenticated = false;
 </script>
 
 <svelte:window
@@ -386,57 +389,86 @@
         </latest-episodes>
 
         <navigation-card class="relative mt-[2.75vw] hidden h-[24.5vw] w-[16.625vw] md:block">
-            <ImageLoader
-                src="/images/NavigationBox-bg.avif"
-                class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
-            />
+            {#if is_authenticated}
+                <ImageLoader
+                    src="/images/NavigationBox-bg.avif"
+                    class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
+                />
 
-            <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
-            <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
+                <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900 from-[1%] to-surface-900/25" />
+                <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-surface-900/25" />
 
-            <navigation-content class="absolute inset-0 flex flex-col justify-between px-[1.875vw] pt-[2vw]">
-                <section-header class="flex flex-col gap-[0.2w]">
-                    <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
-                    <span class="text-[0.875vw] font-semibold leading-[2.5vw]">Jump quickly into</span>
-                </section-header>
+                <navigation-content class="absolute inset-0 flex flex-col justify-between px-[1.875vw] pt-[2vw]">
+                    <section-header class="flex flex-col gap-[0.2w]">
+                        <span class="text-[1.5vw] font-bold leading-[1vw]">Welcome</span>
+                        <span class="text-[0.875vw] font-semibold leading-[2.5vw]">Jump quickly into</span>
+                    </section-header>
 
-                <navigation-left-buttons class="mt-[1vw] flex flex-col gap-[0.75vw]">
-                    {#each Object.entries(icon_mapping.left) as item}
-                        {@const item_title = item[1].title}
-                        {@const item_icon = item[1].icon}
-
-                        <div class="flex items-center gap-[1vw]">
-                            <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-                                <svelte:component
-                                    this={item_icon.component}
-                                    class={item_icon.class}
-                                />
-                            </button>
-                            <span class="text-[1vw] font-bold">{item_title}</span>
-                        </div>
-                    {/each}
-                </navigation-left-buttons>
-
-                <navigation-right-buttons class="mt-[0.4vw]">
-                    <span class="text-[0.9vw] font-semibold leading-none">More</span>
-                    <div class="mt-[0.75vw] flex gap-[0.9375vw]">
-                        {#each Object.entries(icon_mapping.bottom) as item}
+                    <navigation-left-buttons class="mt-[1vw] flex flex-col gap-[0.75vw]">
+                        {#each Object.entries(icon_mapping.left) as item}
+                            {@const item_title = item[1].title}
                             {@const item_icon = item[1].icon}
 
-                            <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
-                                <svelte:component
-                                    this={item_icon.component}
-                                    class={item_icon.class}
-                                />
-                            </button>
+                            <div class="flex items-center gap-[1vw]">
+                                <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+                                    <svelte:component
+                                        this={item_icon.component}
+                                        class={item_icon.class}
+                                    />
+                                </button>
+                                <span class="text-[1vw] font-bold">{item_title}</span>
+                            </div>
                         {/each}
-                    </div>
-                </navigation-right-buttons>
+                    </navigation-left-buttons>
 
-                <coreproject-logo class="mt-[1vw] flex items-center justify-center">
-                    <CoreProject />
-                </coreproject-logo>
-            </navigation-content>
+                    <navigation-right-buttons class="mt-[0.4vw]">
+                        <span class="text-[0.9vw] font-semibold leading-none">More</span>
+                        <div class="mt-[0.75vw] flex gap-[0.9375vw]">
+                            {#each Object.entries(icon_mapping.bottom) as item}
+                                {@const item_icon = item[1].icon}
+
+                                <button class="btn h-[2.5vw] w-[2.5vw] rounded-[0.375vw] bg-surface-50 p-0">
+                                    <svelte:component
+                                        this={item_icon.component}
+                                        class={item_icon.class}
+                                    />
+                                </button>
+                            {/each}
+                        </div>
+                    </navigation-right-buttons>
+
+                    <coreproject-logo class="mt-[1vw] flex items-center justify-center">
+                        <CoreProject />
+                    </coreproject-logo>
+                </navigation-content>
+            {:else}
+                <ImageLoader
+                    src="https://e1.pxfuel.com/desktop-wallpaper/598/883/desktop-wallpaper-cute-girl-anime-illust-art-lovely-android-anime-modern-android.jpg"
+                    class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
+                />
+
+                <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-t from-surface-900/75 from-[1%] to-transparent" />
+                <gradient-overlay class="gradient absolute inset-0 bg-gradient-to-r from-surface-900/50 to-transparent" />
+
+                <navigation-content class="absolute inset-0 flex flex-col justify-between p-[1.75vw]">
+                    <section-header class="flex flex-col gap-[0.5vw]">
+                        <span class="text-[1.5vw] font-bold leading-none">Welcome</span>
+                        <span class="text-[0.875vw] font-semibold leading-[1.25vw]">
+                            Owwh! seems like you're not logged in!
+                        </span>
+                    </section-header>
+                    <content class="flex flex-col gap-[0.5vw]">
+                        <CoreProject />
+                        <span class="text-[1vw] leading-[1.5vw] font-semibold">
+                            Experience our site to the fullest by logging in and unlocking all features
+                        </span>
+                        <a href="/user/login" class="btn bg-primary-500 text-[1vw] font-semibold leading-none px-[1.25vw] py-[0.85vw] rounded-[0.5vw] w-full">
+                            Login
+                        </a>
+                        <span class="text-[0.9vw]">New here? <a href="/user/register" class="underline">Register</a> now!</span>
+                    </content>
+                </navigation-content>
+            {/if}
         </navigation-card>
     </hero-section>
 
