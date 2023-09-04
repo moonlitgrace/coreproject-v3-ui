@@ -53,7 +53,7 @@
     </style>
 </svelte:head>
 
-<root class="relative inline-grid h-full w-full md:grid-cols-2">
+<root class="relative inline-grid h-full w-full md:grid-cols-2 overflow-hidden">
     {#if image && name}
         {#key image}
             <div

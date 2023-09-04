@@ -17,7 +17,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="flex gap-3 md:gap-[0.75vw] h-screen w-screen items-center justify-center">
+<div class="flex gap-3 md:gap-[0.75vw] w-full h-full items-center justify-center">
     <span class="text-3xl md:text-[1.75vw]">Visit</span>
     <a
         href="/anime"
