@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { page } from "$app/stores";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Cross from "$icons/cross.svelte";
     import Info from "$icons/info.svelte";
@@ -241,7 +239,7 @@
         <div class="flex flex-col gap-1 md:gap-[0.5vw]">
             <span class="text-xs text-surface-100 md:text-[0.75vw]">Already have an account?</span>
             <a
-                href="{remove_slash_from_end($page.url.pathname)}/login"
+                href="./login"
                 class="text-base leading-none md:text-[1.1vw]"
             >
                 Login
