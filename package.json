@@ -28,7 +28,7 @@
         "@sveltejs/adapter-vercel": "^3.0.3",
         "@sveltejs/kit": "^1.24.1",
         "@tailwindcss/forms": "^0.5.6",
-        "@tailwindcss/typography": "^0.5.9",
+        "@tailwindcss/typography": "^0.5.10",
         "@total-typescript/ts-reset": "^0.5.1",
         "@types/lodash": "^4.14.198",
         "@types/marked": "^5.0.1",
