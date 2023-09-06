@@ -90,4 +90,3 @@ repos:
         language: pygrep
         types: [text]
         exclude_types: [javascript, ts]
-
