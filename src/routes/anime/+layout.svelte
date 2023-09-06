@@ -138,7 +138,7 @@
                         <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
                     </a>
 
-                    <div class="relative md:static flex items-center">
+                    <div class="relative flex items-center md:static">
                         {#if $navbar_middle_section_variant === "logo"}
                             <a
                                 href="/"
@@ -211,10 +211,16 @@
                         </button>
                     {:else}
                         <auth-buttons class="flex items-center md:gap-[0.75vw]">
-                            <a href="/user/register" class="hidden md:flex btn bg-surface-400 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw]">
+                            <a
+                                href="/user/register"
+                                class="btn hidden bg-surface-400 font-semibold leading-none md:flex md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.85vw] md:text-[1vw]"
+                            >
                                 Register
                             </a>
-                            <a href="/user/login" class="btn bg-primary-500 md:text-[1vw] font-semibold leading-none md:px-[1.25vw] md:py-[0.85vw] md:rounded-[0.5vw] text-base px-5 py-4 rounded-[0.4rem]">
+                            <a
+                                href="/user/login"
+                                class="btn rounded-[0.4rem] bg-primary-500 px-5 py-4 text-base font-semibold leading-none md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.85vw] md:text-[1vw]"
+                            >
                                 Login
                             </a>
                         </auth-buttons>

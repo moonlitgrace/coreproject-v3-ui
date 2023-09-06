@@ -18,7 +18,6 @@
     import Language from "$icons/language.svelte";
     import Moon from "$icons/moon.svelte";
     import Notifications from "$icons/notifications.svelte";
-    import Play from "$icons/play.svelte";
     import PlayCircle from "$icons/play_circle.svelte";
     import Preference from "$icons/preference.svelte";
     import Recent from "$icons/recent.svelte";
@@ -453,19 +452,26 @@
                 <navigation-content class="absolute inset-0 flex flex-col justify-between p-[1.75vw]">
                     <section-header class="flex flex-col gap-[0.5vw]">
                         <span class="text-[1.5vw] font-bold leading-none">Welcome</span>
-                        <span class="text-[0.875vw] font-semibold leading-[1.25vw]">
-                            Owwh! seems like you're not logged in!
-                        </span>
+                        <span class="text-[0.875vw] font-semibold leading-[1.25vw]">Owwh! seems like you're not logged in!</span>
                     </section-header>
                     <content class="flex flex-col gap-[0.5vw]">
                         <CoreProject />
-                        <span class="text-[1vw] leading-[1.5vw] font-semibold">
-                            Experience our site to the fullest by logging in and unlocking all features
-                        </span>
-                        <a href="/user/login" class="btn bg-primary-500 text-[1vw] font-semibold leading-none px-[1.25vw] py-[0.85vw] rounded-[0.5vw] w-full">
+                        <span class="text-[1vw] font-semibold leading-[1.5vw]">Experience our site to the fullest by logging in and unlocking all features</span>
+                        <a
+                            href="/user/login"
+                            class="btn w-full rounded-[0.5vw] bg-primary-500 px-[1.25vw] py-[0.85vw] text-[1vw] font-semibold leading-none"
+                        >
                             Login
                         </a>
-                        <span class="text-[0.9vw]">New here? <a href="/user/register" class="underline">Register</a> now!</span>
+                        <span class="text-[0.9vw]">
+                            New here? <a
+                                href="/user/register"
+                                class="underline"
+                            >
+                                Register
+                            </a>
+                            now!
+                        </span>
                     </content>
                 </navigation-content>
             {/if}
