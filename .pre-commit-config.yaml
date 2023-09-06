@@ -31,12 +31,6 @@ repos:
           - prettier-plugin-svelte
           - svelte
 
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.32.0
-    hooks:
-      - id: yamllint
-        args: [--config-file, .github/yamllint.yml]
-
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.35.0
     hooks:
@@ -97,8 +91,3 @@ repos:
         types: [text]
         exclude_types: [javascript, ts]
 
-      - id: format-urls
-        name: Format URLs
-        entry: .github/format_urls.py
-        language: python
-        files: ^(sites.yml|readme.md|.github/format_urls.py)$
