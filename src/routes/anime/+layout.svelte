@@ -15,6 +15,7 @@
     import Search from "$icons/search.svelte";
     import Settings from "$icons/settings.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
+    import { is_authenticated } from "$store/user";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { Modal } from "@skeletonlabs/skeleton";
 
@@ -122,9 +123,6 @@
         };
         modalStore.trigger(search_modal);
     }
-
-    /* Change user handing later */
-    let is_authenticated = false;
 </script>
 
 <div class="relative h-[100dvh]">
@@ -178,7 +176,7 @@
                         {/if}
                     </div>
 
-                    {#if is_authenticated}
+                    {#if $is_authenticated}
                         <button
                             class="avatar"
                             aria-label="Avatar"

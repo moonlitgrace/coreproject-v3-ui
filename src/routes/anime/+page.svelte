@@ -31,6 +31,7 @@
     import tippy from "tippy.js";
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { is_authenticated } from "$store/user";
 
     const slider_delay = 10,
         timer = new EasyTimer({
@@ -184,9 +185,6 @@
         timer.reset();
         timer.stop();
     });
-
-    /* Change user handing later */
-    let is_authenticated = false;
 </script>
 
 <svelte:window
@@ -388,7 +386,7 @@
         </latest-episodes>
 
         <navigation-card class="relative mt-[2.75vw] hidden h-[24.5vw] w-[16.625vw] md:block">
-            {#if is_authenticated}
+            {#if $is_authenticated}
                 <ImageLoader
                     src="/images/NavigationBox-bg.avif"
                     class="absolute h-full w-full rounded-[0.875vw] object-cover object-center"
