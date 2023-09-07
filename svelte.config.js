@@ -32,10 +32,12 @@ const config = {
               })
             : is_vercel
             ? vercel({ external: [] })
-            : netlify({
+            : is_netlify
+            ? netlify({
                   edge: false,
                   split: true
-              }),
+              })
+            : {},
         alias: {
             $store: path.resolve("./src/lib/store"),
             $hooks: path.resolve("./src/hooks"),
