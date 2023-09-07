@@ -2,6 +2,7 @@ import node_adapter from "@sveltejs/adapter-node";
 import static_adapter from "@sveltejs/adapter-static";
 import netlify from "@sveltejs/adapter-netlify";
 import vercel from "@sveltejs/adapter-vercel";
+import auto from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import path from "path";
 
@@ -37,7 +38,7 @@ const config = {
                   edge: false,
                   split: true
               })
-            : {},
+            : auto(),
         alias: {
             $store: path.resolve("./src/lib/store"),
             $hooks: path.resolve("./src/hooks"),
