@@ -1,6 +1,5 @@
 import node_adapter from "@sveltejs/adapter-node";
 import static_adapter from "@sveltejs/adapter-static";
-import netlify from "@sveltejs/adapter-netlify";
 import vercel from "@sveltejs/adapter-vercel";
 import auto from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/kit/vite";
@@ -9,7 +8,6 @@ import path from "path";
 const is_static = process.env.BUILD_STATIC_ENV ?? false;
 const is_node = process.env.BUILD_NODE_ENV ?? false;
 const is_vercel = process.env.BUILD_VERCEL_ENV ?? false;
-const is_netlify = process.env.BUILD_NETLIFY_ENV ?? false;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -33,11 +31,6 @@ const config = {
               })
             : is_vercel
             ? vercel({ external: [] })
-            : is_netlify
-            ? netlify({
-                  edge: false,
-                  split: true
-              })
             : auto(),
         alias: {
             $store: path.resolve("./src/lib/store"),
