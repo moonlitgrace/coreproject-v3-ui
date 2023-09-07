@@ -28,8 +28,8 @@ const config = {
                   precompress: false
               })
             : netlify({
-                  edge: true,
-                  split: false
+                  edge: false,
+                  split: true
               }),
         alias: {
             $store: path.resolve("./src/lib/store"),
