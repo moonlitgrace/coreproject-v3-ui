@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
+        "build:vercel": "cross-env BUILD_VERCEL_ENV=vercel vite build",
         "build:static": "cross-env BUILD_STATIC_ENV=static vite build",
         "build:node": "cross-env BUILD_NODE_ENV=node vite build",
         "preview": "vite preview",
