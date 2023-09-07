@@ -29,7 +29,7 @@ const config = {
               })
             : netlify({
                   edge: true,
-                  split: true
+                  split: false
               }),
         alias: {
             $store: path.resolve("./src/lib/store"),
