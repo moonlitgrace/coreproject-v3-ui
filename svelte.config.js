@@ -8,6 +8,7 @@ import path from "path";
 const is_static = process.env.BUILD_STATIC_ENV ?? false;
 const is_node = process.env.BUILD_NODE_ENV ?? false;
 const is_vercel = process.env.BUILD_VERCEL_ENV ?? false;
+const is_netlify = process.env.BUILD_NETLIFY_ENV ?? false;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
