@@ -1,6 +1,6 @@
 import node_adapter from "@sveltejs/adapter-node";
 import static_adapter from "@sveltejs/adapter-static";
-import vercel from "@sveltejs/adapter-vercel";
+import netlify from "@sveltejs/adapter-netlify";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import path from "path";
 
@@ -27,10 +27,9 @@ const config = {
             ? node_adapter({
                   precompress: false
               })
-            : vercel({
-                  // an array of dependencies that esbuild should treat
-                  // as external when bundling functions
-                  external: []
+            : netlify({
+                  edge: true,
+                  split: true
               }),
         alias: {
             $store: path.resolve("./src/lib/store"),
