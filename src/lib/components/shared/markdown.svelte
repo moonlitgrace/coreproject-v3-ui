@@ -9,7 +9,6 @@
     import { markedSmartypants } from "marked-smartypants";
     import { cn } from "$functions/classnames";
     import hljs from "highlight.js";
-    import { onMount } from "svelte";
 
     export let markdown = "";
     export { klass as class };
