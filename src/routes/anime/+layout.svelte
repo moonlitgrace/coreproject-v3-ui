@@ -185,12 +185,13 @@
                                 arrow: false,
                                 allowHTML: true,
                                 placement: "bottom-end",
-                                offset: [0, 10],
                                 animation: "shift-away",
                                 appendTo: document.body,
                                 interactive: true,
                                 theme: "elaine",
                                 onTrigger: async (instance) => {
+                                    // set "1 vw"
+                                    instance.props.offset = [0, (1 * window.innerWidth) / 100]
                                     const node = document.createElement("div");
                                     new ProfileDropdown({
                                         target: node
