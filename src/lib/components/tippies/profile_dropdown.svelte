@@ -53,7 +53,7 @@
     };
 </script>
 
-<div class="rounded-lg bg-surface-400 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:p-0">
+<div class="rounded-lg bg-gradient-to-tr to-surface-400 from-surface-500 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:p-0">
     <div class="flex flex-col md:gap-[0.25vw] md:p-[1.15vw] md:pb-0">
         <p class="capitalize text-base font-semibold scrollbar-none md:text-[1vw] md:leading-none">
             soraamamiya#0001
