@@ -54,8 +54,8 @@
     };
 </script>
 
-<div class="w-48 md:w-[14vw] rounded-lg bg-gradient-to-tr to-surface-400 from-surface-500 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:p-0">
-    <div class="flex flex-col md:gap-[0.25vw] md:p-[1.15vw] md:pb-0">
+<div class="w-48 md:w-[14vw] rounded-lg bg-gradient-to-tr to-surface-400 from-surface-500 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw]">
+    <div class="flex flex-col md:gap-[0.25vw] p-4 pb-3 md:p-[1.15vw] md:pb-0">
         <HoverExpand
             class="capitalize text-base font-semibold scrollbar-none break-words md:text-[1vw] md:leading-none"
             height="md:max-h-[1vw] md:hover:max-h-[10vw]"
@@ -72,7 +72,7 @@
 
     <hr class="divider md:mb-[0.25vw] md:mt-[0.75vw] border-surface-50/20" />
 
-    <div class="mt-3 md:mt-0 md:p-[0.5vw]">
+    <div class="md:p-[0.5vw] p-2">
         <VercelHover
             direction="vertical"
             glider_container_class="flex flex-col relative"
