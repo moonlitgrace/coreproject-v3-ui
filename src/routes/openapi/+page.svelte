@@ -9,6 +9,7 @@
 </script>
 
 <elements-api
+    data-theme="dark"
     class="w-screen"
     apiDescriptionUrl="/openapi/schema.yaml"
     router="hash"
