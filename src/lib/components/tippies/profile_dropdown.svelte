@@ -58,15 +58,15 @@
     <div class="flex flex-col md:gap-[0.25vw] md:p-[1.15vw] md:pb-0">
         <HoverExpand
             class="capitalize text-base font-semibold scrollbar-none break-words md:text-[1vw] md:leading-none"
-            height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+            height="md:max-h-[1vw] md:hover:max-h-[10vw]"
         >
             Tokito_Muichiro_is_best#0001
         </HoverExpand>
         <HoverExpand
-            class="text-xs text-surface-100 md:text-[0.8vw] md:leading-none"
-            height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+            class="text-xs text-surface-100 break-words md:text-[0.8vw] md:leading-none"
+            height="md:max-h-[0.85vw] md:hover:max-h-[10vw]"
         >
-            sora_amamiya@coreproject.moe
+            tokito_muichiro_is_best@coreproject.moe
         </HoverExpand>
     </div>
 
