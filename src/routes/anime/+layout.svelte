@@ -193,7 +193,7 @@
                                 onTrigger: async (instance) => {
                                     // set "1 vw"
                                     instance.props.offset = [0, vw(1)];
-                                    const node = document.createElement("div");
+                                    const node = document.createElement("avatar-tippy");
                                     new ProfileDropdown({
                                         target: node
                                     });
