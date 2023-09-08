@@ -46,8 +46,7 @@
         mangle(),
         // Marked defaults
         {
-            // We dont need github like header prefix
-            headerIds: false
+            gfm: true
         }
     );
 
