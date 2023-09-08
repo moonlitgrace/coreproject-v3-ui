@@ -2,25 +2,22 @@
     import ProfileDropdown from "$components/tippies/profile_dropdown.svelte";
     import { vw } from "$functions/document/vw";
     import Logo from "$icons/logo.svelte";
-    import Mangacore from "$icons/manga_core.svelte";
+    import MangaCore from "$icons/manga_core.svelte";
     import Search from "$icons/search.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
     import { is_authenticated } from "$store/user";
-
-
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";
     import { blur } from "svelte/transition";
     import tippy from "tippy.js";
-
 </script>
 
-
-<AppShell>
-	<svelte:fragment slot="header">
-            <navbar class="absolute top-0 flex h-[4.5rem] w-full items-center justify-between bg-surface-900/95 px-4 backdrop-blur-3xl md:static md:h-[10vh] md:bg-surface-900 md:py-[0.9375vw] md:pl-[2.1vw] md:pr-[3.75vw]">
+<div class="relative h-[100dvh]">
+	<AppShell>
+        <svelte:fragment slot="header">
+            <navbar class="absolute top-0 flex w-full items-center justify-between bg-surface-900/95 p-4 backdrop-blur-3xl md:static md:px-[1vw] md:py-[0.5vw]">
                 {#if ["form", "logo"].includes($navbar_middle_section_variant)}
                     <a href="/">
-                        <Logo class="w-9 md:w-[2.25vw] md:pt-[0.75vw]" />
+                        <Logo class="w-9 md:h-[3vw]" />
                     </a>
 
                     <div class="relative flex items-center md:static">
@@ -30,7 +27,7 @@
                                 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
                                 transition:blur
                             >
-                                <Mangacore />
+                                <MangaCore />
                             </a>
                         {:else if $navbar_middle_section_variant === "form"}
                             <div
@@ -38,10 +35,10 @@
                                 class="absolute left-1/2 -translate-x-1/2"
                             >
                                 <a
-                                    href="/manga"
+                                    href="/"
                                     class="hidden md:flex"
                                 >
-                                    <Mangacore />
+                                    <MangaCore />
                                 </a>
 
                                 <search-form>
@@ -90,7 +87,7 @@
                         >
                             <Avatar
                                 rounded="rounded-[0.4rem] md:rounded-[0.375vw]"
-                                width="w-12 md:w-[3.125vw]"
+                                width="w-12 md:w-[2.5vw]"
                                 src="/images/Avatar.avif"
                                 initials="JD"
                             />
@@ -114,5 +111,8 @@
                 {/if}
             </navbar>
         </svelte:fragment>
-		<slot />
-</AppShell>
+		<div class="h-full">
+            <slot />
+        </div>
+	</AppShell>
+</div>
