@@ -1,7 +1,6 @@
 <script lang="ts">
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
-    import hljs from "highlight.js";
     import { Marked } from "marked";
     import { markedEmoji } from "marked-emoji";
     import { markedHighlight } from "marked-highlight";
@@ -9,6 +8,9 @@
     import { markedXhtml } from "marked-xhtml";
     import { markedSmartypants } from "marked-smartypants";
     import { cn } from "$functions/classnames";
+    import hljs from "highlight.js";
+    import { onMount } from "svelte";
+
     export let markdown = "";
     export { klass as class };
 
