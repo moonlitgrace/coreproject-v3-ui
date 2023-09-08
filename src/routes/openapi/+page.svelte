@@ -1,10 +1,10 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import "@stoplight/elements/styles.min.css";
 
     onMount(async () => {
         // @ts-ignore
         await import("@stoplight/elements/web-components.min.js");
+        await import("@stoplight/elements/styles.min.css");
     });
 </script>
 
