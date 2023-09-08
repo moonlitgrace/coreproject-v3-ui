@@ -1,4 +1,5 @@
 <script lang="ts">
+    import HoverExpand from "$components/shared/hover_expand.svelte";
     import VercelHover from "$components/shared/vercel_hover.svelte";
     import List from "$icons/list.svelte";
     import Moon from "$icons/moon.svelte";
@@ -53,14 +54,20 @@
     };
 </script>
 
-<div class="rounded-lg bg-gradient-to-tr to-surface-400 from-surface-500 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:p-0">
+<div class="w-48 md:w-[14vw] rounded-lg bg-gradient-to-tr to-surface-400 from-surface-500 p-4 shadow-lg shadow-surface-900/50 md:rounded-[0.5vw] md:p-0">
     <div class="flex flex-col md:gap-[0.25vw] md:p-[1.15vw] md:pb-0">
-        <p class="capitalize text-base font-semibold scrollbar-none md:text-[1vw] md:leading-none">
-            soraamamiya#0001
-        </p>
-        <p class="text-xs text-surface-100 md:text-[0.8vw] md:leading-none">
+        <HoverExpand
+            class="capitalize text-base font-semibold scrollbar-none break-words md:text-[1vw] md:leading-none"
+            height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+        >
+            Tokito_Muichiro_is_best#0001
+        </HoverExpand>
+        <HoverExpand
+            class="text-xs text-surface-100 md:text-[0.8vw] md:leading-none"
+            height="md:max-h-[1.35vw] md:hover:max-h-[10vw]"
+        >
             sora_amamiya@coreproject.moe
-        </p>
+        </HoverExpand>
     </div>
 
     <hr class="divider md:mb-[0.25vw] md:mt-[0.75vw] border-surface-50/20" />
