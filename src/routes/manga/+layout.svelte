@@ -16,9 +16,24 @@
         <svelte:fragment slot="header">
             <navbar class="absolute top-0 flex w-full items-center justify-between bg-surface-900/95 p-4 backdrop-blur-3xl md:static md:px-[1vw] md:py-[0.5vw]">
                 {#if ["form", "logo"].includes($navbar_middle_section_variant)}
-                    <a href="/">
-                        <Logo class="w-9 md:h-[3vw]" />
-                    </a>
+                    <div class="flex items-center md:gap-[1vw]">
+                    	<a href="/">
+	                        <Logo class="w-9 md:h-[3vw]" />
+	                    </a>
+	                    <form class="relative flex h-[2.75vw] w-[20vw] items-center">
+				            <button
+				                class="btn absolute left-[1vw] p-0"
+				                aria-label="Search"
+				            >
+				                <Search class="w-[1.25vw] text-surface-300" />
+				            </button>
+				            <input
+				                type="text"
+				                placeholder="Search for mangas..."
+				                class="h-full w-full rounded-[0.5vw] border-none bg-surface-400 pl-[3vw] text-[1vw] font-semibold text-white shadow-lg !ring-0 placeholder:font-medium placeholder:text-surface-50"
+				            />
+				        </form>
+                    </div>
 
                     <div class="relative flex items-center md:static">
                         {#if $navbar_middle_section_variant === "logo"}
