@@ -14,11 +14,11 @@
 <div class="relative h-[100dvh]">
 	<AppShell>
         <svelte:fragment slot="header">
-            <navbar class="absolute top-0 flex w-full items-center justify-between bg-surface-900/95 p-4 backdrop-blur-3xl md:static md:px-[1vw] md:py-[0.5vw]">
+            <navbar class="absolute top-0 flex w-full items-center justify-between bg-surface-900/95 p-4 backdrop-blur-3xl md:static md:px-[1.5vw] md:py-[0.75vw]">
                 {#if ["form", "logo"].includes($navbar_middle_section_variant)}
                     <div class="flex items-center md:gap-[1vw]">
                     	<a href="/">
-	                        <Logo class="w-9 md:h-[3vw]" />
+	                        <Logo class="w-9 md:w-[2vw]" />
 	                    </a>
 	                    <form class="hidden relative md:flex h-[2.75vw] w-[20vw] items-center">
 				            <button
