@@ -20,7 +20,7 @@
                     	<a href="/">
 	                        <Logo class="w-9 md:h-[3vw]" />
 	                    </a>
-	                    <form class="relative flex h-[2.75vw] w-[20vw] items-center">
+	                    <form class="hidden relative md:flex h-[2.75vw] w-[20vw] items-center">
 				            <button
 				                class="btn absolute left-[1vw] p-0"
 				                aria-label="Search"

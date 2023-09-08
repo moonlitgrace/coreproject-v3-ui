@@ -6,7 +6,7 @@
 
 <svg
     {...$$props}
-    viewBox="0 0 28 28"
+    viewBox="0 0 28 33"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
 >
