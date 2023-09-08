@@ -60,13 +60,13 @@
             class="capitalize text-base font-semibold scrollbar-none break-words md:text-[1vw] md:leading-none"
             height="md:max-h-[1vw] md:hover:max-h-[10vw]"
         >
-            Tokito_Muichiro_is_best#0001
+            soraamamiya#0001
         </HoverExpand>
         <HoverExpand
             class="text-xs text-surface-100 break-words md:text-[0.8vw] md:leading-none"
             height="md:max-h-[0.85vw] md:hover:max-h-[10vw]"
         >
-            tokito_muichiro_is_best@coreproject.moe
+            sora@coreproject.moe
         </HoverExpand>
     </div>
 
