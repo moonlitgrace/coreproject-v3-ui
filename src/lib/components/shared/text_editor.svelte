@@ -1,6 +1,7 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
+    import { vw } from "$functions/document/vw";
     import { is_valid_url } from "$functions/is_valid_url";
     import Bold from "$icons/bold.svelte";
     import Code from "$icons/code.svelte";
@@ -410,10 +411,12 @@
                         content: `<div class='leading-2 w-max whitespace-nowrap rounded-lg bg-surface-400 px-2 py-1 text-[0.65rem] text-surface-50 md:px-[0.75vw] md:py-[0.3vw] md:text-[1vw]'>${encode(description)}</div>`,
                         allowHTML: true,
                         arrow: false,
-                        offset: [0, 17],
                         appendTo: document.body,
                         animation: "shift-away",
-                        theme: "elaine"
+                        theme: "elaine",
+                        onTrigger(instance) {
+                            instance.props.offset = [0, vw(1)];
+                        }
                     }}
                     on:click={() => button_function(textarea_element)}
                 >
