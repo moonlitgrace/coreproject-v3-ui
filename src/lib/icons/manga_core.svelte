@@ -7,7 +7,7 @@
     };
 </script>
 
-<div class="flex select-none gap-[0.25vw] text-[1.5vw] font-bold leading-none">
+<div class="flex select-none gap-[0.25vw] text-[1.75vw] font-bold leading-none">
     <p>
         {#each "manga".split("") as letter}
             <span class="inline-flex text-white">{letter}</span>
