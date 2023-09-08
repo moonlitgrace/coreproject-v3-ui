@@ -52,6 +52,7 @@
         "felte": "^1.2.12",
         "highlight.js": "^11.8.0",
         "html-entities": "^2.4.0",
+        "jsdom": "^22.1.0",
         "lodash": "^4.17.21",
         "marked": "^8.0.1",
         "marked-emoji": "^1.2.3",
