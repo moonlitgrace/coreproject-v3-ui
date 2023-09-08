@@ -19,7 +19,7 @@ export default defineConfig({
         drop: ["console", "debugger"]
     },
     build: {
-        target: "es2015",
+        target: "esnext",
         sourcemap: true
     },
     css: {
