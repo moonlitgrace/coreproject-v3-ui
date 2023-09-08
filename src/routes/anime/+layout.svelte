@@ -3,6 +3,7 @@
     import SearchPanel from "$components/shared/search_panel.svelte";
     import VercelHover from "$components/shared/vercel_hover.svelte";
     import ProfileDropdown from "$components/tippies/profile_dropdown.svelte";
+    import { vw } from "$functions/document/vw";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
     import Explore from "$icons/explore.svelte";
@@ -191,7 +192,7 @@
                                 theme: "elaine",
                                 onTrigger: async (instance) => {
                                     // set "1 vw"
-                                    instance.props.offset = [0, (1 * window.innerWidth) / 100]
+                                    instance.props.offset = [0, vw(1)];
                                     const node = document.createElement("div");
                                     new ProfileDropdown({
                                         target: node
