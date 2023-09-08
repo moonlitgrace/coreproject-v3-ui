@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import HoverExpand from "$components/shared/hover_expand.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { trending_animes } from "$data/mock/trending";
@@ -37,7 +38,12 @@
             <manga class="absolute inset-0 flex md:gap-[5vw] items-center justify-between md:px-[4vw]">
                 <manga-info class="flex flex-col leading-none">
                     <manga-chapters class="md:text-[1vw] font-semibold text-surface-50">Chapters: 69 [EN]</manga-chapters>
-                    <manga-title class="font-bold md:text-[2vw] md:mt-[0.5vw] md:mb-[1vw]">{manga.name}</manga-title>
+                    <HoverExpand
+                        class="font-bold md:text-[2vw] md:mt-[0.5vw] md:mb-[1vw]"
+                        height="md:max-h-[2vw] md:hover:max-h-[10vw]"
+                    >
+                        {manga.name}
+                    </HoverExpand>
                     <ScrollArea
                         gradientMask
                         offsetScrollbar
