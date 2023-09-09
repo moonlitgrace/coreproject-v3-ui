@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { cn } from "$functions/classnames";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Cross from "$icons/cross.svelte";
     import Info from "$icons/info.svelte";
@@ -148,7 +149,7 @@
                 <div class="grid grid-cols-4 gap-[1.5vw] md:gap-[0.75vw]">
                     {#each Array(password_strength) as _, index}
                         {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                        <span class="{backgrounds[index]} col-span-1 h-[1.75vw] w-full rounded-[0.5vw] md:h-[0.625vw] md:rounded-[0.1875vw]" />
+                        <span class={cn(backgrounds[index], "col-span-1 h-[1.75vw] w-full rounded-[0.5vw] md:h-[0.625vw] md:rounded-[0.1875vw]")} />
                     {/each}
                     {#each Array(4 - password_strength) as _}
                         <span class="col-span-1 h-[1.75vw] w-full rounded-[0.5vw] border-[0.4vw] border-primary-50/50 md:h-[0.625vw] md:rounded-[0.1875vw] md:border-[0.2vw]" />

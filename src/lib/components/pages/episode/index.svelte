@@ -20,6 +20,7 @@
     import tippy from "tippy.js";
     import { page } from "$app/stores";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { cn } from "$functions/classnames";
 
     /* Comment section logics */
     let comment_body: string;
@@ -183,7 +184,7 @@
                     {@const button_active = actual_index === episode_number}
                     <a
                         href="{remove_slash_from_end($page.url.pathname)}/{actual_index}"
-                        class="{button_active ? 'bg-primary-500' : 'bg-surface-400'} btn rounded py-3 text-sm font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]"
+                        class=" {cn(button_active ? 'bg-primary-500' : 'bg-surface-400', 'btn rounded py-3 text-sm font-semibold leading-none md:rounded-[0.35vw] md:py-[0.75vw] md:text-[1.2vw]')}"
                     >
                         {actual_index}
                     </a>

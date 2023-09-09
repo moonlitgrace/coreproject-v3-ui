@@ -5,6 +5,7 @@
     import { onMount } from "svelte";
     import { blur } from "svelte/transition";
     import { fish_mapping } from "$data/fish_mapping";
+    import { cn } from "$functions/classnames";
 
     let mapping: (typeof fish_mapping)[0] | undefined;
 
@@ -36,7 +37,7 @@
         transition:blur
         class:md:flex-row-reverse={on_left}
         class:md:flex-row={on_right}
-        class="{mapping.class} relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0"
+        class={cn(mapping.class, "relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0")}
     >
         <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
@@ -66,13 +67,13 @@
         >
             <gradient
                 class:md:ml-[8vw]={on_left}
-                class="{mapping.gradient.class ?? ''} absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]"
+                class={cn(mapping.gradient.class, "absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]")}
             />
 
             <img
                 src={mapping.image.src}
                 alt={mapping.image.alt}
-                class="{mapping.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[100dvh]"
+                class={cn(mapping.image.class, "relative h-[40dvh] object-contain object-bottom md:h-[100dvh]")}
             />
         </character-image>
     </section>

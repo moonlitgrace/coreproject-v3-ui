@@ -3,6 +3,7 @@
     import SearchPanel from "$components/shared/search_panel.svelte";
     import VercelHover from "$components/shared/vercel_hover.svelte";
     import ProfileDropdown from "$components/tippies/profile_dropdown.svelte";
+    import { cn } from "$functions/classnames";
     import { vw } from "$functions/document/vw";
     // import icons
     import AnimeCore from "$icons/anime_core.svelte";
@@ -276,7 +277,7 @@
                                 href={item_href}
                                 type="button"
                                 class:pointer-events-none={!item_href}
-                                class="{is_active ? 'relative bg-secondary-100 before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500' : 'bg-initial'} btn btn-icon relative w-[4vw] rounded-[0.75vw] p-0"
+                                class={cn(is_active ? "relative bg-secondary-100 before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500" : "bg-initial", "btn btn-icon relative w-[4vw] rounded-[0.75vw] p-0")}
                             >
                                 <div class="inline-grid">
                                     {#if is_active}
@@ -348,7 +349,7 @@
                             type="button"
                             class="flex flex-col items-center gap-[0.5vh]"
                         >
-                            <div class="{is_active ? 'bg-primary-500' : 'bg-initial'} btn btn-icon h-12 w-20 rounded-xl p-0">
+                            <div class={cn(is_active ? "bg-primary-500" : "bg-initial", "btn btn-icon h-12 w-20 rounded-xl p-0")}>
                                 <div transition:blur>
                                     {#if is_active}
                                         <svelte:component

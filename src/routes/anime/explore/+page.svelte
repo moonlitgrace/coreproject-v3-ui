@@ -17,6 +17,7 @@
     import SixGrids from "$icons/six_grids.svelte";
     import { scale } from "svelte/transition";
     import HoverExpand from "$components/shared/hover_expand.svelte";
+    import { cn } from "$functions/classnames";
 
     /* Bindings */
     let result_animes_element: HTMLElement;
@@ -173,7 +174,7 @@
                 {@const filter_items = option[1].items}
 
                 <div
-                    class="{klass} group"
+                    class={cn(klass, "group")}
                     use:tippy={{
                         trigger: "click",
                         arrow: false,
