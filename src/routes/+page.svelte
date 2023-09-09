@@ -38,9 +38,30 @@
             </a>
         </div>
     </navbar>
-    <landing class="flex justify-between h-screen md:px-[10vw]">
-        <content></content>
-        <mascot class="relative flex md:h-[40vw] self-end">
+    <landing class="flex items-center md:gap-[2vw] justify-between h-screen md:px-[10vw]">
+        <content>
+            <div class="flex flex-col md:gap-[2vw]">
+                <h1 class="md:text-[5vw] font-bold md:leading-[4.5vw]">
+                    Unlock the World of 
+                    {#each ["Anime.", "Manga.", "Sound."] as item, index}
+                        {@const gradients = {
+                            anime: "from-primary-500 to-primary-200",
+                            manga: "from-primary-400 to-error-400",
+                            sound: "from-warning-400 to-error-300"
+                        }}
+
+                        <span class="bg-gradient-to-r {Object.values(gradients)[index]} bg-clip-text text-transparent">
+                            {item}
+                        </span>
+                    {/each}
+                </h1>
+                <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
+                    <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject.</span>
+                    <gradient-border class="flex w-full md:h-[0.25vw] bg-gradient-to-r from-primary-500 to-error-500" />
+                </div>
+            </div>
+        </content>
+        <mascot class="relative flex flex-shrink-0 md:h-[40vw] self-end">
             <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="z-10 h-full" />
             <!-- gradients -->
             <gradient class="absolute left-1/4 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900 md:rounded-[2vw] md:blur-[3.5vw]" />
