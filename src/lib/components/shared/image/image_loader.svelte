@@ -23,6 +23,6 @@
             {style}
         />
     {:else}
-        <div class="placeholder animate-pulse !bg-surface-400 {klass}" />
+        <div class={cn(klass, "placeholder animate-pulse !bg-surface-400")} />
     {/if}
 </IntersectionObserver>

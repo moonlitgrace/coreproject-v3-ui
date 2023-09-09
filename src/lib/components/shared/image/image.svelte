@@ -4,7 +4,7 @@
     export let src: string,
         alt = "",
         style = "";
-    let klass: string;
+    let klass = "";
     export { klass as class };
 </script>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fish_mapping } from "$data/fish_mapping";
+    import { cn } from "$functions/classnames";
     import Chevron from "$icons/chevron.svelte";
     import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
@@ -38,7 +39,7 @@
 {#if mapping}
     <login-container
         transition:blur
-        class="{mapping.class} flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]"
+        class={cn(mapping.class, "flex h-full w-full grid-cols-12 flex-col justify-end md:grid md:items-start md:gap-[5vw] md:pl-[3.75vw]")}
     >
         <form
             use:form
@@ -90,12 +91,12 @@
             class="relative col-span-12 flex items-end justify-center md:col-span-5"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
-            <gradient class="{mapping.gradient.class} pointer-events-none absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]" />
+            <gradient class={cn(mapping.gradient.class, "pointer-events-none absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]")} />
 
             <img
                 src={mapping.image.src}
                 alt={mapping.image.alt}
-                class="{mapping.image.class ?? ''} relative h-[40dvh] object-contain object-bottom md:h-[90dvh]"
+                class={cn(mapping.image.class, "relative h-[40dvh] object-contain object-bottom md:h-[90dvh]")}
             />
         </character-image>
     </login-container>
