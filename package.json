@@ -42,7 +42,6 @@
         "@zxcvbn-ts/language-en": "^3.0.1",
         "autoprefixer": "^10.4.15",
         "caret-pos": "^2.0.0",
-        "clsx": "^2.0.0",
         "cross-env": "^7.0.3",
         "dayjs": "^1.11.9",
         "easytimer.js": "^4.6.0",

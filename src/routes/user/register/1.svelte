@@ -8,22 +8,25 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import { z } from "zod";
 
     let password_strength = 0;
 
-    const options = {
-        dictionary: {
-            ...zxcvbnCommonPackage.dictionary,
-            ...zxcvbnEnPackage.dictionary
-        }
-    };
+    onMount(async () => {
+        const zxcvbnCommonPackage = await import("@zxcvbn-ts/language-common");
+        const zxcvbnEnPackage = await import("@zxcvbn-ts/language-en");
 
-    zxcvbnOptions.setOptions(options);
+        const options = {
+            dictionary: {
+                ...zxcvbnCommonPackage.dictionary,
+                ...zxcvbnEnPackage.dictionary
+            }
+        };
+
+        zxcvbnOptions.setOptions(options);
+    });
 
     const dispatch = createEventDispatcher();
 
