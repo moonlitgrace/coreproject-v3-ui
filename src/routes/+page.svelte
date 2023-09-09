@@ -21,10 +21,7 @@
 
 <main>
     <navbar class="absolute inset-x-0 md:h-[4vw] md:px-[1vw] flex items-center justify-between">
-        <div class="flex items-center md:gap-[2vw]">
-            <Logo class="md:w-[2vw]" />
-            <span class="md:text-[1vw]">What are the links to be add here?</span>
-        </div>
+        <a href="/"><Logo class="md:w-[2vw]" /></a>
         <a href="/" class="absolute left-1/2 -translate-x-1/2"><CoreProject /></a>
         <div class="flex items-center md:gap-[1vw]">
             <a
