@@ -1,3 +1,6 @@
+/**
+ * @vitest-environment jsdom
+ */
 import { expect, describe, beforeEach, it } from "vitest";
 import { vw } from "$functions/document/vw";
 
