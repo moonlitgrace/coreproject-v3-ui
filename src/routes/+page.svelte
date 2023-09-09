@@ -21,8 +21,12 @@
     <navbar></navbar>
     <landing class="flex justify-between h-screen md:px-[10vw]">
         <content></content>
-        <mascot class="flex md:h-[40vw] self-end">
-            <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="h-full" />
+        <mascot class="relative flex md:h-[40vw] self-end">
+            <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="z-10 h-full" />
+            <!-- gradients -->
+            <gradient class="absolute left-1/4 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900 md:rounded-[2vw] blur-[3.5vw]" />
+            <gradient class="absolute bottom-[2.5vw] right-0 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-800 md:rounded-[2vw] blur-[4vw]" />
+            <gradient class="absolute md:bottom-[1vw] left-1/4 md:w-[10vw] md:h-[20vw] rotate-45 bg-surface-400 md:rounded-[2vw] blur-[3.5vw]" />
         </mascot>
     </landing>
 </main>
