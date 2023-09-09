@@ -1,7 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-type ClassValue = ClassValue[] | ClassDictionary | string | number | null | boolean | undefined;
-type ClassDictionary = Record<string, any>;
+type ClassValue = ClassValue[] | Record<string, string | number | null | boolean | undefined> | string | number | null | boolean | undefined;
 
 // Code modified from
 // https://github.com/alexnault/classix/blob/0b36b65600ded771b15cac4b027bb32e8b9d74b7/src/index.ts#L9
