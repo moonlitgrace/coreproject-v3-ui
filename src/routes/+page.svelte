@@ -1,7 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
-    import AnimeCore from "$icons/anime_core.svelte";
     import CoreProject from "$icons/core_project.svelte";
     import Logo from "$icons/logo.svelte";
 
@@ -40,10 +39,10 @@
     </navbar>
     <landing class="flex items-center md:gap-[2vw] justify-between h-screen md:px-[10vw]">
         <content>
-            <div class="flex flex-col md:gap-[2vw]">
+            <div class="flex flex-col md:gap-[2vw] relative">
                 <h1 class="md:text-[5vw] font-bold md:leading-[4.5vw]">
-                    Unlock the World of 
-                    {#each ["Anime.", "Manga.", "Sound."] as item, index}
+                    Unlock the World of
+                    {#each ["Anime. ", "Manga. ", "Sound."] as item, index}
                         {@const gradients = {
                             anime: "from-primary-500 to-primary-200",
                             manga: "from-primary-400 to-error-400",
@@ -57,8 +56,9 @@
                 </h1>
                 <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
                     <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject.</span>
-                    <gradient-border class="flex w-full md:h-[0.25vw] bg-gradient-to-r from-primary-500 to-error-500" />
+                    <gradient-border class="flex w-full md:h-[0.2vw] bg-gradient-to-r from-primary-500 to-error-500" />
                 </div>
+                <gradient class="absolute md:-left-[3vw] -z-10 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[4vw]" />
             </div>
         </content>
         <mascot class="relative flex flex-shrink-0 md:h-[40vw] self-end">
