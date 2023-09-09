@@ -8,22 +8,47 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, beforeUpdate } from "svelte";
     import { z } from "zod";
 
     let password_strength = 0;
 
-    const options = {
-        dictionary: {
-            ...zxcvbnCommonPackage.dictionary,
-            ...zxcvbnEnPackage.dictionary
-        }
-    };
+    beforeUpdate(async () => {
+        const zxcvbnCommonPackage = await import("@zxcvbn-ts/language-common");
+        const zxcvbnEnPackage = await import("@zxcvbn-ts/language-en");
+        const zxcvbnCsPackage = await import("@zxcvbn-ts/language-cs");
+        const zxcvbnDePackage = await import("@zxcvbn-ts/language-de");
+        const zxcvbnEsEsPackage = await import("@zxcvbn-ts/language-es-es");
+        const zxcvbnFiPackage = await import("@zxcvbn-ts/language-fi");
+        const zxcvbnFrPackage = await import("@zxcvbn-ts/language-fr");
+        const zxcvbnIdPackage = await import("@zxcvbn-ts/language-id");
+        const zxcvbnItPackage = await import("@zxcvbn-ts/language-it");
+        const zxcvbnJaPackage = await import("@zxcvbn-ts/language-ja");
+        const zxcvbnNlBePackage = await import("@zxcvbn-ts/language-nl-be");
+        const zxcvbnPlPackage = await import("@zxcvbn-ts/language-pl");
+        const zxcvbnPtBrPackage = await import("@zxcvbn-ts/language-pt-br");
 
-    zxcvbnOptions.setOptions(options);
+        const options = {
+            dictionary: {
+                ...zxcvbnCommonPackage.dictionary,
+                ...zxcvbnCsPackage.dictionary,
+                ...zxcvbnDePackage.dictionary,
+                ...zxcvbnEsEsPackage.dictionary,
+                ...zxcvbnFiPackage.dictionary,
+                ...zxcvbnFrPackage.dictionary,
+                ...zxcvbnIdPackage.dictionary,
+                ...zxcvbnItPackage.dictionary,
+                ...zxcvbnJaPackage.dictionary,
+                ...zxcvbnNlBePackage.dictionary,
+                ...zxcvbnPlPackage.dictionary,
+                ...zxcvbnPtBrPackage.dictionary,
+                ...zxcvbnEnPackage.dictionary
+            }
+        };
+
+        zxcvbnOptions.setOptions(options);
+    });
 
     const dispatch = createEventDispatcher();
 
