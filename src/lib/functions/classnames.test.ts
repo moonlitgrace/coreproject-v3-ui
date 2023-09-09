@@ -16,4 +16,5 @@ test("check classnames", () => {
             "p-3 bg-[#B91C1C]"
         )
     ).toBe("hover:bg-dark-red p-3 bg-[#B91C1C]");
+    expect(cn("                           w-full", "h-full                                 ")).toBe("w-full h-full");
 });
