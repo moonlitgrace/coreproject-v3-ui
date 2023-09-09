@@ -11,9 +11,8 @@
     import hljs from "highlight.js";
 
     export let markdown = "";
-    export { klass as class };
-
     let klass = "";
+    export { klass as class };
 
     const marked = new Marked(
         // Highlight.js

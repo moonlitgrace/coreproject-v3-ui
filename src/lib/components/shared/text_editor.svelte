@@ -1,6 +1,7 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
+    import { cn } from "$functions/classnames";
     import { vw } from "$functions/document/vw";
     import { is_valid_url } from "$functions/is_valid_url";
     import Bold from "$icons/bold.svelte";
@@ -388,7 +389,7 @@
                 <button
                     type="button"
                     on:click={() => handle_edit_preview_button_click(item)}
-                    class="{active ? 'bg-surface-900 text-surface-50' : 'text-surface-300'} h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-[2.5vw] md:px-[1.5vw] md:text-[1vw]"
+                    class={cn(active ? "bg-surface-900 text-surface-50" : "text-surface-300", "h-8 px-5 text-xs capitalize leading-[1.5vw] transition-colors duration-100 md:h-[2.5vw] md:px-[1.5vw] md:text-[1vw]")}
                 >
                     {item}
                 </button>
