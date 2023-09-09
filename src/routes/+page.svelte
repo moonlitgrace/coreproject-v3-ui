@@ -2,6 +2,8 @@
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
     import AnimeCore from "$icons/anime_core.svelte";
+    import CoreProject from "$icons/core_project.svelte";
+    import Logo from "$icons/logo.svelte";
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -18,7 +20,27 @@
 </svelte:head>
 
 <main>
-    <navbar></navbar>
+    <navbar class="absolute inset-x-0 md:h-[4vw] md:px-[1vw] flex items-center justify-between">
+        <div class="flex items-center md:gap-[2vw]">
+            <Logo class="md:w-[2vw]" />
+            <span class="md:text-[1vw]">What are the links to be add here?</span>
+        </div>
+        <a href="/" class="absolute left-1/2 -translate-x-1/2"><CoreProject /></a>
+        <div class="flex items-center md:gap-[1vw]">
+            <a
+                href="/user/register"
+                class="btn hidden bg-surface-400 font-semibold leading-none md:flex md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.85vw] md:text-[1vw]"
+            >
+                Register
+            </a>
+            <a
+                href="/user/login"
+                class="btn rounded-[0.4rem] bg-primary-500 px-5 py-4 text-base font-semibold leading-none md:rounded-[0.5vw] md:px-[1.25vw] md:py-[0.85vw] md:text-[1vw]"
+            >
+                Login
+            </a>
+        </div>
+    </navbar>
     <landing class="flex justify-between h-screen md:px-[10vw]">
         <content></content>
         <mascot class="relative flex md:h-[40vw] self-end">
