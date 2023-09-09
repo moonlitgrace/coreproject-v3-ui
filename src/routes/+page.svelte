@@ -17,4 +17,12 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="flex h-full w-full items-center justify-center gap-3 md:gap-[0.75vw]"></div>
+<main>
+    <navbar></navbar>
+    <landing class="flex justify-between h-screen md:px-[10vw]">
+        <content></content>
+        <mascot class="flex md:h-[40vw] self-end">
+            <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="h-full" />
+        </mascot>
+    </landing>
+</main>
