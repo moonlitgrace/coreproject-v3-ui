@@ -32,7 +32,7 @@
     import HoverExpand from "$components/shared/hover_expand.svelte";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
 
-    export let anime_id: number, anime_episodes: any, anime_name: string, japanese_name: string, anime_episodes_count: number, anime_date: string, anime_synopsis: string, anime_banner: string, anime_cover: string;
+    export let anime_episodes: any, anime_name: string, japanese_name: string, anime_episodes_count: number, anime_date: string, anime_synopsis: string, anime_banner: string, anime_cover: string;
 
     const anime_details = {
             format: "TV",
@@ -386,7 +386,6 @@
                                 <episode-titles class="relative flex h-full w-full flex-col items-start md:gap-[0.25vw]">
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-
                                         height="max-h-9 md:max-h-[1.25vw] md:hover:max-h-[18vw]"
                                         duration="duration-500"
                                         line_clamp="line-clamp-2"
@@ -396,7 +395,6 @@
 
                                     <HoverExpand
                                         class="text-[0.8rem] font-light leading-snug text-white md:bg-surface-900 md:text-[0.9vw] md:leading-[1.25vw] md:text-surface-50/90 md:hover:text-surface-50"
-                                        
                                         height="max-h-4 md:max-h-[1.3vw] md:hover:max-h-[18vw]"
                                         duration="duration-500"
                                     >

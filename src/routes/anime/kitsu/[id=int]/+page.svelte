@@ -26,7 +26,6 @@
 
 {#if anime}
     <AnimeInfoPage
-        anime_id={anime.id}
         anime_name={anime.name}
         japanese_name={anime.japanese_name}
         anime_episodes_count={anime.episodes_count}
