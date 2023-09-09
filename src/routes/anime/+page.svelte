@@ -32,6 +32,7 @@
     import LatestEpisodesCard from "$components/pages/home/latest_episodes_card.svelte";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
     import { is_authenticated } from "$store/user";
+    import { cn } from "$functions/classnames";
 
     const slider_delay = 10,
         timer = new EasyTimer({
@@ -283,7 +284,7 @@
                             </ScrollArea>
 
                             <options class="mb-2 mt-5 flex gap-3 md:mb-0 md:mt-[1.5vw] md:gap-[1vw]">
-                                <button class="{slide_button_background} btn btn-icon flex h-14 w-24 justify-center gap-1 rounded-xl text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]">
+                                <button class={cn(slide_button_background, "btn btn-icon flex h-14 w-24 justify-center gap-1 rounded-xl text-base font-bold text-surface-900 md:h-[3.125vw] md:w-[5.4375vw] md:rounded-[0.625vw] md:text-[0.875vw]")}>
                                     <PlayCircle class="w-4 text-surface-900 md:w-[1vw]" />
                                     <span>Ep 1</span>
                                 </button>

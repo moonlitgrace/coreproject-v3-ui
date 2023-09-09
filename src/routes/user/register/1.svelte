@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { cn } from "$functions/classnames";
     import ArrowUpRight from "$icons/arrow_up_right.svelte";
     import Cross from "$icons/cross.svelte";
     import Info from "$icons/info.svelte";
@@ -7,22 +8,25 @@
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
     import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
-    import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
-    import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
     import { createForm } from "felte";
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import { z } from "zod";
 
     let password_strength = 0;
 
-    const options = {
-        dictionary: {
-            ...zxcvbnCommonPackage.dictionary,
-            ...zxcvbnEnPackage.dictionary
-        }
-    };
+    onMount(async () => {
+        const zxcvbnCommonPackage = await import("@zxcvbn-ts/language-common");
+        const zxcvbnEnPackage = await import("@zxcvbn-ts/language-en");
 
-    zxcvbnOptions.setOptions(options);
+        const options = {
+            dictionary: {
+                ...zxcvbnCommonPackage.dictionary,
+                ...zxcvbnEnPackage.dictionary
+            }
+        };
+
+        zxcvbnOptions.setOptions(options);
+    });
 
     const dispatch = createEventDispatcher();
 
@@ -148,7 +152,7 @@
                 <div class="grid grid-cols-4 gap-[1.5vw] md:gap-[0.75vw]">
                     {#each Array(password_strength) as _, index}
                         {@const backgrounds = ["bg-primary-800", "bg-primary-700", "bg-primary-600", "bg-primary-500"]}
-                        <span class="{backgrounds[index]} col-span-1 h-[1.75vw] w-full rounded-[0.5vw] md:h-[0.625vw] md:rounded-[0.1875vw]" />
+                        <span class={cn(backgrounds[index], "col-span-1 h-[1.75vw] w-full rounded-[0.5vw] md:h-[0.625vw] md:rounded-[0.1875vw]")} />
                     {/each}
                     {#each Array(4 - password_strength) as _}
                         <span class="col-span-1 h-[1.75vw] w-full rounded-[0.5vw] border-[0.4vw] border-primary-50/50 md:h-[0.625vw] md:rounded-[0.1875vw] md:border-[0.2vw]" />
