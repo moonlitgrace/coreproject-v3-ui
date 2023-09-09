@@ -3,6 +3,27 @@
     import { OpengraphGenerator } from "$functions/opengraph";
     import CoreProject from "$icons/core_project.svelte";
     import Logo from "$icons/logo.svelte";
+    import { onMount } from "svelte";
+    // @ts-ignore
+    import Typewriter from "typewriter-effect/dist/core";
+
+    let typewriter_el: HTMLElement;
+    onMount(() => {
+        let typewriter = new Typewriter(typewriter_el, {
+            loop: true,
+            delay: 100,
+            wrapperClassName: "md:text-[5vw] font-bold md:leading-[4.5vw]",
+            cursorClassName: "md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent animate-pulse"
+        });
+
+        typewriter
+            .typeString("Unlock the World of ")
+            .typeString('<span class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </span>')
+            .typeString('<span class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </span>')
+            .typeString('<span class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </span>')
+            .pauseFor(5000)
+            .start();
+      });
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -37,23 +58,10 @@
             </a>
         </div>
     </navbar>
-    <landing class="flex items-center md:gap-[2vw] justify-between h-screen md:px-[10vw]">
+    <landing class="flex items-center justify-between h-screen md:px-[10vw]">
         <content>
             <div class="flex flex-col md:gap-[2vw] relative">
-                <h1 class="md:text-[5vw] font-bold md:leading-[4.5vw]">
-                    Unlock the World of
-                    {#each ["Anime. ", "Manga. ", "Sound."] as item, index}
-                        {@const gradients = {
-                            anime: "from-primary-500 to-primary-200",
-                            manga: "from-primary-400 to-error-400",
-                            sound: "from-warning-400 to-error-300"
-                        }}
-
-                        <span class="bg-gradient-to-r {Object.values(gradients)[index]} bg-clip-text text-transparent">
-                            {item}
-                        </span>
-                    {/each}
-                </h1>
+                <typewriter bind:this={typewriter_el} />
                 <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
                     <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject.</span>
                     <gradient-border class="flex w-full md:h-[0.2vw] bg-gradient-to-r from-primary-500 to-error-500" />
