@@ -7,7 +7,7 @@ type ClassValue = ClassValue[] | Record<string, string | number | null | boolean
 function clsx(...args: ClassValue[]): string {
     let str = "",
         i = 0,
-        arg: unknown;
+        arg: ClassValue;
 
     for (; i < args.length; ) {
         if ((arg = args[i++]) && typeof arg === "string") {
