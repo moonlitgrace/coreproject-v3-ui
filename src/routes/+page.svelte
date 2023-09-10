@@ -10,7 +10,7 @@
 
     let typewriter_el: HTMLElement;
     let mouse_pos = { x: 0, y: 0 },
-        MOVEMENT_SPEED = 0.2;
+        MOVEMENT_SPEED = 0.15;
 
     function landing_mousemove(event: MouseEvent) {
         const { clientX, clientY } = event;
