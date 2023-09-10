@@ -10,6 +10,7 @@
     let typewriter_el: HTMLElement;
     onMount(() => {
         let typewriter = new Typewriter(typewriter_el, {
+            loop: true,
             delay: 100,
             wrapperClassName: "md:text-[5vw] font-bold md:leading-[4.5vw]",
             cursorClassName: "md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent animate-pulse"
@@ -20,6 +21,7 @@
             .typeString('<span class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </span>')
             .typeString('<span class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </span>')
             .typeString('<span class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </span>')
+            .pauseFor(5000)
             .start()
       });
 
