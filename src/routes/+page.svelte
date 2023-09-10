@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { vw } from "$functions/document/vw";
     import { OpengraphGenerator } from "$functions/opengraph";
     import CoreProject from "$icons/core_project.svelte";
     import Logo from "$icons/logo.svelte";
@@ -8,6 +9,17 @@
     import Typewriter from "typewriter-effect/dist/core";
 
     let typewriter_el: HTMLElement;
+    let mouse_pos = { x: 0, y: 0 },
+        MOVEMENT_SPEED = 0.2;
+
+    function landing_mousemove(event: MouseEvent) {
+        const { clientX, clientY } = event;
+        mouse_pos = {
+            x: clientX * MOVEMENT_SPEED,
+            y: clientY * MOVEMENT_SPEED
+        };
+    }
+
     onMount(() => {
         let typewriter = new Typewriter(typewriter_el, {
             loop: true,
@@ -24,6 +36,7 @@
             .pauseFor(5000)
             .start()
     });
+
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -58,7 +71,11 @@
             </a>
         </div>
     </navbar>
-    <landing class="flex items-center justify-between h-screen md:px-[10vw]">
+    <landing
+        on:mousemove={landing_mousemove}
+        role="main"
+        class="flex items-center justify-between h-screen md:px-[10vw]"
+    >
         <content>
             <div class="flex flex-col md:gap-[2vw] relative">
                 <typewriter bind:this={typewriter_el} />
@@ -77,5 +94,8 @@
         </mascot>
     </landing>
 
-    <gradient class="absolute top-1/3 md:left-[7vw] -z-10 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[4vw]" />
+    <gradient
+        class="absolute duration-100 -z-10 md:w-[20vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[5vw]"
+        style="top: {vw(12) + mouse_pos.y}px; left: {vw(5) + mouse_pos.x}px;"
+    />
 </main>
