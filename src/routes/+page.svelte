@@ -23,7 +23,7 @@
             .typeString('<span class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </span>')
             .pauseFor(5000)
             .start()
-      });
+    });
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -39,7 +39,7 @@
     {@html opengraph_html}
 </svelte:head>
 
-<main>
+<main class="relative">
     <navbar class="absolute inset-x-0 md:h-[4vw] md:px-[1vw] flex items-center justify-between">
         <a href="/"><Logo class="md:w-[2vw]" /></a>
         <a href="/" class="absolute left-1/2 -translate-x-1/2"><CoreProject /></a>
@@ -66,7 +66,6 @@
                     <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject.</span>
                     <gradient-border class="flex w-full md:h-[0.2vw] bg-gradient-to-r from-primary-500 to-error-500" />
                 </div>
-                <gradient class="absolute md:-left-[3vw] -z-10 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[4vw]" />
             </div>
         </content>
         <mascot class="relative flex flex-shrink-0 md:h-[40vw] self-end">
@@ -77,4 +76,6 @@
             <gradient class="absolute md:bottom-[1vw] left-1/4 md:w-[10vw] md:h-[20vw] rotate-45 bg-surface-400 md:rounded-[2vw] md:blur-[3.5vw]" />
         </mascot>
     </landing>
+
+    <gradient class="absolute top-1/3 md:left-[7vw] -z-10 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[4vw]" />
 </main>
