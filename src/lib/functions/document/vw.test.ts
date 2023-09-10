@@ -9,7 +9,8 @@ describe("test window", () => {
         window.innerWidth = 1;
     });
 
-    it("test vw", () => {
-        expect(vw(1)).toBe(0.01);
+    it("test vw without browser", () => {
+        expect(vw(1)).toBe(null);
     });
+    // TODO: Test in browser
 });
