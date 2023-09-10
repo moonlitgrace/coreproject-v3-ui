@@ -1,4 +1,4 @@
-import { browser } from "$app/store";
+import { browser } from "$app/environment";
 
 export function vw(vw: number) {
     
