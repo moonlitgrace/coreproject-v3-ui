@@ -77,6 +77,4 @@
             <gradient class="absolute md:bottom-[1vw] left-1/4 md:w-[10vw] md:h-[20vw] rotate-45 bg-surface-400 md:rounded-[2vw] md:blur-[3.5vw]" />
         </mascot>
     </landing>
-
-    <gradient class="absolute top-1/3 md:left-[7vw] -z-10 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900/50 md:rounded-[2vw] md:blur-[4vw]" />
 </main>
