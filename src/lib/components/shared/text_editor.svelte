@@ -417,9 +417,7 @@
                         animation: "shift-away",
                         theme: "elaine",
                         onTrigger(instance) {
-                            if (browser) {
-                                instance.props.offset = [0, vw(1)];
-                            }
+                            if (browser) instance.props.offset = [0, vw(1)];
                         }
                     }}
                     on:click={() => button_function(textarea_element)}

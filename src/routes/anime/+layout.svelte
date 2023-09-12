@@ -193,7 +193,6 @@
                                 interactive: true,
                                 theme: "elaine",
                                 onTrigger: async (instance) => {
-                                    // set "1 vw"
                                     if (browser) {
                                         instance.props.offset = [0, vw(1)];
 
