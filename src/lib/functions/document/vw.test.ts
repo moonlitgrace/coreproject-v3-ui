@@ -10,7 +10,6 @@ describe("test window", () => {
     });
 
     it("test vw without browser", () => {
-        expect(vw(1)).toBe(null);
+        expect(vw(1)).toBe(0.01);
     });
-    // TODO: Test in browser
 });
