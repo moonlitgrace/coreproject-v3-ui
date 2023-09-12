@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { browser } from "$app/environment";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { emojis } from "$data/emojis";
     import { cn } from "$functions/classnames";
@@ -416,7 +417,7 @@
                         animation: "shift-away",
                         theme: "elaine",
                         onTrigger(instance) {
-                            instance.props.offset = [0, vw(1)];
+                            if (browser) instance.props.offset = [0, vw(1)];
                         }
                     }}
                     on:click={() => button_function(textarea_element)}
