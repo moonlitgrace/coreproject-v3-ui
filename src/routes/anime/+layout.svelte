@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { browser } from "$app/environment";
     import { page } from "$app/stores";
     import SearchPanel from "$components/shared/search_panel.svelte";
     import VercelHover from "$components/shared/vercel_hover.svelte";
@@ -193,13 +194,16 @@
                                 theme: "elaine",
                                 onTrigger: async (instance) => {
                                     // set "1 vw"
-                                    instance.props.offset = [0, vw(1)];
-                                    const node = document.createElement("avatar-tippy");
-                                    new ProfileDropdown({
-                                        target: node
-                                    });
+                                    if (browser) {
+                                        instance.props.offset = [0, vw(1)];
 
-                                    instance.setContent(node);
+                                        const node = document.createElement("avatar-tippy");
+                                        new ProfileDropdown({
+                                            target: node
+                                        });
+
+                                        instance.setContent(node);
+                                    }
                                 }
                             }}
                         >
