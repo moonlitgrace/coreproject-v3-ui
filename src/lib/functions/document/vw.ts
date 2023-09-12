@@ -1,3 +1,3 @@
 export function vw(vw: number) {
-    return (vw * globalThis.window?.innerWidth) / 100;
+    return (vw * globalThis.window?.innerWidth) / 100 ?? null;
 }
