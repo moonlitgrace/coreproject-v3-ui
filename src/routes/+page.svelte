@@ -7,20 +7,37 @@
     // @ts-ignore
     import Typewriter from "typewriter-effect/dist/core";
 
+    let top_typewriter_el: HTMLElement;
     let typewriter_el: HTMLElement;
+
     onMount(() => {
-        let typewriter = new Typewriter(typewriter_el, {
-            loop: true,
+        let top_typewriter = new Typewriter(top_typewriter_el, {
             delay: 100,
-            cursorClassName: "md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent animate-pulse"
+            cursorClassName: "hidden"
         });
 
-        typewriter
-            .typeString('<span class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </span>')
-            .typeString('<span class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </span>')
-            .typeString('<span class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </span>')
-            .pauseFor(5000)
+        top_typewriter
+            .typeString("Unlock the World of")
             .start()
+
+        setTimeout(() => {
+            let typewriter = new Typewriter(typewriter_el, {
+                loop: true,
+                delay: 100,
+                cursorClassName: "md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent animate-pulse"
+            });
+
+            typewriter
+                .typeString('<span class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </span>')
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString('<span class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </span>')
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString('<span class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </span>')
+                .pauseFor(2000)
+                .start()
+            }, 2500)
     });
 
     const opengraph_html = new OpengraphGenerator({
@@ -60,7 +77,8 @@
         <content>
             <div class="flex flex-col md:gap-[2vw] relative">
                 <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
-                    <span>Unlock the World of</span>
+                    <!-- <span>Unlock the World of</span> -->
+                    <main-typewriter bind:this={top_typewriter_el} />
                     <typewriter bind:this={typewriter_el} />
                 </div>
                 <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
