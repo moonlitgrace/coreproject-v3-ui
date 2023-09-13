@@ -1,4 +1,8 @@
 <script lang="ts">
+    // Import scss
+    import "highlight.js/scss/github-dark.scss";
+
+    // Import js codes
     import { emojis } from "$data/emojis";
     import { sanitize } from "$functions/sanitize";
     import { Marked } from "marked";
