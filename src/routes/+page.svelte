@@ -19,6 +19,7 @@
             loop: true,
             typeSpeed: 100,
             backSpeed: 50,
+            cursorChar: '<span class="md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent">|</span>'
         });
     });
 
