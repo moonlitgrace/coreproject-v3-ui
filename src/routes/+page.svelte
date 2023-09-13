@@ -5,30 +5,23 @@
     import CoreProject from "$icons/core_project.svelte";
     import Logo from "$icons/logo.svelte";
     import { onMount } from "svelte";
-    import { fly } from "svelte/transition";
-    // @ts-ignore
-    import Typewriter from "typewriter-effect/dist/core";
+    import Typed from "typed.js";
 
     let typewriter_el: HTMLElement;
 
     onMount(() => {
-        let typewriter = new Typewriter(typewriter_el, {
+        const typewriter = new Typed(typewriter_el, {
+            strings: [
+                '<a href="/anime" class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </a>',
+                '<a href="/manga" class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </a>',
+                '<a href="/sound" class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </a>'
+            ],
             loop: true,
-            delay: 100,
-            cursorClassName: "md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent animate-pulse"
+            typeSpeed: 100,
+            backSpeed: 50,
+            cursorChar: '<span class="md:text-[5vw] bg-gradient-to-b from-primary-400 to-error-400 bg-clip-text text-transparent">|</span>'
         });
-
-        typewriter
-            .typeString('<a href="/anime" class="bg-gradient-to-r from-primary-500 to-primary-200 bg-clip-text text-transparent">Anime. </a>')
-            .pauseFor(2000)
-            .deleteAll()
-            .typeString('<a href="/manga" class="bg-gradient-to-r from-primary-400 to-error-400 bg-clip-text text-transparent">Manga. </a>')
-            .pauseFor(2000)
-            .deleteAll()
-            .typeString('<a href="/sound" class="bg-gradient-to-r from-warning-400 to-error-300 bg-clip-text text-transparent">Sound. </a>')
-            .pauseFor(2000)
-            .start()
-    })
+    });
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",
@@ -68,7 +61,9 @@
             <div class="flex flex-col md:gap-[2vw] relative">
                 <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
                     <span>Unlock the World of</span>
-                    <typewriter bind:this={typewriter_el} />
+                    <typewriter-content>
+                        <typewriter bind:this={typewriter_el} />
+                    </typewriter-content>
                 </div>
                 <div class="flex flex-col md:gap-[1vw]">
                     <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
