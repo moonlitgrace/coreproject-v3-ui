@@ -19,7 +19,6 @@
             loop: true,
             typeSpeed: 100,
             backSpeed: 100,
-            showCursor: false,
         });
     });
 
@@ -61,7 +60,9 @@
             <div class="flex flex-col md:gap-[2vw] relative">
                 <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
                     <span>Unlock the World of</span>
-                    <typewriter bind:this={typewriter_el} />
+                    <typewriter-content>
+                        <typewriter bind:this={typewriter_el} />
+                    </typewriter-content>
                 </div>
                 <div class="flex flex-col md:gap-[1vw]">
                     <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
