@@ -38,7 +38,7 @@
 </svelte:head>
 
 <main class="relative">
-    <navbar class="absolute inset-x-0 md:h-[4vw] md:px-[1vw] flex items-center justify-between">
+    <navbar class="fixed z-50 inset-x-0 md:h-[4vw] md:px-[1vw] flex items-center justify-between">
         <a href="/"><Logo class="md:w-[2vw]" /></a>
         <a href="/" class="absolute left-1/2 -translate-x-1/2"><CoreProject /></a>
         <div class="flex items-center md:gap-[1vw]">
@@ -56,7 +56,7 @@
             </a>
         </div>
     </navbar>
-    <landing class="flex items-center justify-between h-screen md:px-[10vw]">
+    <landing class="flex items-center justify-between h-screen md:px-[10vw] sticky top-0">
         <content>
             <div class="flex flex-col md:gap-[2vw] relative">
                 <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
@@ -89,4 +89,8 @@
             <gradient class="absolute md:bottom-[1vw] left-1/4 md:w-[10vw] md:h-[20vw] rotate-45 bg-surface-400 md:rounded-[2vw] md:blur-[3.5vw]" />
         </mascot>
     </landing>
+
+    <section class="h-screen md:p-[5vw] text-center bg-surface-900 sticky top-0">
+        <span class="md:text-[2vw] font-semibold">Another section starts here</span>
+    </section>
 </main>
