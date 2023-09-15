@@ -37,9 +37,9 @@
         transition:blur
         class:md:flex-row-reverse={on_left}
         class:md:flex-row={on_right}
-        class={cn(mapping.class, "relative flex h-full flex-col justify-end gap-20 md:items-end md:gap-0")}
+        class={cn(mapping.class, "relative flex h-full flex-col justify-end gap-20 md:gap-0")}
     >
-        <error-context class="flex flex-col items-center leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
+        <error-context class="flex flex-col items-center self-end leading-none md:mb-[13vw] md:w-[70dvw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
                     <span class="odd:text-warning-400">{number}</span>
