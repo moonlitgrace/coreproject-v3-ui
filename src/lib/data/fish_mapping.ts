@@ -6,7 +6,7 @@ export const fish_mapping: Array<{
 }> = [
     {
         image: {
-            src: "/images/characters/eliane/eliane.png",
+            src: "/images/characters/eliane/eliane.avif",
             alt: "Elaine"
         },
         gradient: {
@@ -18,7 +18,19 @@ export const fish_mapping: Array<{
     },
     {
         image: {
-            src: "/images/characters/ichigo/ichigo.png",
+            src: "/images/characters/eliane/eliane_2.avif",
+            alt: "Elaine"
+        },
+        gradient: {
+            class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
+            mobile: "radial-gradient(50dvh circle at center, rgba(231, 220, 221, 0.2) 0%, transparent 50%)",
+            desktop: "radial-gradient(40dvw circle at center, rgba(231, 220, 221, 0.25) 0%, transparent 50%)"
+        },
+        position: ["left", "right"]
+    },
+    {
+        image: {
+            src: "/images/characters/ichigo/ichigo.avif",
             alt: "Ichigo",
             class: "ml-auto"
         },
@@ -32,7 +44,7 @@ export const fish_mapping: Array<{
     },
     {
         image: {
-            src: "/images/characters/sasha/sasha.png",
+            src: "/images/characters/sasha/sasha.avif",
             alt: "Sasha"
         },
         gradient: {
@@ -45,7 +57,7 @@ export const fish_mapping: Array<{
     {
         // credit:'https://www.reddit.com/r/AnimeGirls/comments/pyil5n/my_girl_exy_in_a_plugsuit/',
         image: {
-            src: "/images/characters/exy/exy.png",
+            src: "/images/characters/exy/exy.avif",
             alt: "Exy"
         },
 
@@ -58,7 +70,7 @@ export const fish_mapping: Array<{
     },
     {
         image: {
-            src: "/images/characters/futaba/futaba.png",
+            src: "/images/characters/futaba/futaba.avif",
             alt: "Futaba"
         },
         gradient: {
@@ -67,17 +79,5 @@ export const fish_mapping: Array<{
             desktop: "radial-gradient(45dvw circle at center, rgba(171, 143, 125, 0.6) 0%, transparent 50%)"
         },
         position: ["right", "left"]
-    },
-    {
-        image: {
-            src: "/images/characters/eliane/eliane_2.png",
-            alt: "Elaine"
-        },
-        gradient: {
-            class: "h-[50dvh] w-[100dvw] md:h-[40dvw] md:w-[calc(100%*2)]",
-            mobile: "radial-gradient(50dvh circle at center, rgba(231, 220, 221, 0.2) 0%, transparent 50%)",
-            desktop: "radial-gradient(40dvw circle at center, rgba(231, 220, 221, 0.25) 0%, transparent 50%)"
-        },
-        position: ["left", "right"]
     }
 ];
