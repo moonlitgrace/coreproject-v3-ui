@@ -28,6 +28,7 @@ export const fish_mapping: Array<{
         },
         position: ["left", "right"]
     },
+    // Doesn't look good on mobile
     {
         image: {
             src: "/images/characters/ichigo/ichigo.avif",
@@ -37,7 +38,7 @@ export const fish_mapping: Array<{
         class: "items-end",
         gradient: {
             class: "h-[50dvh] w-[100dvw] md:h-[100dvh] md:w-[calc(100%*2)]",
-            mobile: "radial-gradient(45dvh circle at center, rgba(137, 155, 206, 0.25) 0%, transparent 50%)",
+            mobile: "radial-gradient(45dvh circle at right, rgba(137, 155, 206, 0.25) 0%, transparent 50%)",
             desktop: "radial-gradient(100dvh circle at center, rgba(137, 155, 206, 0.25) 0%, transparent 50%)"
         },
         position: ["right"]
