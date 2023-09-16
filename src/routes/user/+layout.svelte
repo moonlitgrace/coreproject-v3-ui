@@ -45,7 +45,7 @@
     });
 </script>
 
-<root class="relative grid h-full w-full md:grid-cols-2">
+<root class="relative grid h-screen w-screen md:grid-cols-2">
     {#if image && name}
         {#key image}
             <div
