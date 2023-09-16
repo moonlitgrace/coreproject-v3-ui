@@ -35,11 +35,11 @@
 
     <section
         transition:blur
+        class:md:flex-row-reverse={on_left}
+        class:md:flex-row={on_right}
         class={cn(mapping.class, "relative grid h-full justify-end gap-20 md:col-span-2 md:grid-flow-col md:gap-0")}
     >
-        <error-context
-            class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
-        >
+        <error-context class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]">
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
                     <span class="odd:text-warning-400">{number}</span>
@@ -63,7 +63,6 @@
         </error-context>
         <character-image
             class="pointer-events-none relative flex items-end justify-center md:col-span-4"
-            class:-order-1={on_left}
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
             <gradient
