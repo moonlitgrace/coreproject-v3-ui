@@ -79,11 +79,11 @@
                 </cta-buttons>
             </div>
         </content>
-        <mascot class="md:col-span-4 relative flex flex-shrink-0 md:h-[40vw] self-end">
-            <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="z-10 h-full" />
+        <mascot class="md:col-span-4 relative flex md:h-[40vw] self-end">
+            <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="z-10" />
             <!-- gradients -->
             <gradient class="absolute left-1/4 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900 md:rounded-[2vw] md:blur-[3.5vw]" />
-            <gradient class="absolute md:bottom-[2.5vw] right-0 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-800 md:rounded-[2vw] md:blur-[4vw]" />
+            <gradient class="absolute md:bottom-[2.5vw] right-0 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900 md:rounded-[2vw] md:blur-[4vw]" />
             <gradient class="absolute md:bottom-[1vw] left-1/4 md:w-[10vw] md:h-[20vw] rotate-45 bg-surface-400 md:rounded-[2vw] md:blur-[3.5vw]" />
         </mascot>
     </landing>
