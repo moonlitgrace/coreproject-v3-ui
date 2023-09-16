@@ -43,8 +43,8 @@
             class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
         >
             <status-code class="text-7xl font-bold md:text-[7vw]">
-                {#each "404".split("") as number}
-                    <span class="odd:text-warning-400">{number}</span>
+                {#each "404".split("") as code}
+                    <span class="odd:text-warning-400">{code}</span>
                 {/each}
             </status-code>
             <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
