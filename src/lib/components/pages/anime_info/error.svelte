@@ -38,8 +38,8 @@
         class={cn(mapping.class, "relative grid h-full justify-end md:grid-flow-col")}
     >
         <error-context
-            class:order-1={on_right}
-            class:order-2={on_left}
+            class:md:order-1={on_right}
+            class:md:order-2={on_left}
             class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
         >
             <status-code class="text-7xl font-bold md:text-[7vw]">
@@ -64,8 +64,8 @@
             </a>
         </error-context>
         <character-image
-            class:order-1={on_left}
-            class:order-2={on_right}
+            class:md:order-1={on_left}
+            class:md:order-2={on_right}
             class="pointer-events-none relative flex items-end justify-center md:col-span-4"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
