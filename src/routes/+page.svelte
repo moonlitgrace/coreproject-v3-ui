@@ -56,32 +56,30 @@
             </a>
         </div>
     </navbar>
-    <landing class="flex items-center justify-between h-screen md:px-[10vw]">
-        <content>
-            <div class="flex flex-col md:gap-[2vw] relative">
-                <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
-                    <span>Unlock the World of</span>
-                    <typewriter-content>
-                        <typewriter bind:this={typewriter_el} />
-                    </typewriter-content>
+    <landing class="grid grid-cols-10 h-screen md:px-[10vw]">
+        <content class="md:col-span-6 self-center flex flex-col md:gap-[2vw] relative">
+            <div class="flex flex-col md:text-[5vw] font-bold md:leading-[4.5vw]">
+                <span>Unlock the World of</span>
+                <typewriter-content>
+                    <typewriter bind:this={typewriter_el} />
+                </typewriter-content>
+            </div>
+            <div class="flex flex-col md:gap-[1vw]">
+                <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
+                    <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject</span>
+                    <gradient-border class="flex w-full md:h-[0.2vw] bg-gradient-to-r from-primary-500 to-error-500" />
                 </div>
-                <div class="flex flex-col md:gap-[1vw]">
-                    <div class="w-max flex flex-col md:gap-[0.25vw] leading-none">
-                        <span class="md:text-[1.5vw] font-semibold text-surface-50">Welcome to CoreProject</span>
-                        <gradient-border class="flex w-full md:h-[0.2vw] bg-gradient-to-r from-primary-500 to-error-500" />
-                    </div>
-                    <cta-buttons class="flex items-center md:gap-[1vw] w-max">
-                        <button
-                            class="btn rounded-[0.4rem] bg-gradient-to-r from-primary-500 to-error-500 px-5 py-4 text-base font-semibold leading-none md:rounded-[0.5vw] md:px-[1.25vw] md:py-[1vw] md:text-[1vw] shadow-2xl shadow-primary-800"
-                        >
-                            <span>Get Started</span>
-                            <Chevron class="md:w-[1.25vw] -rotate-90" />
-                        </button>
-                    </cta-buttons>
-                </div>
+                <cta-buttons class="flex items-center md:gap-[1vw] w-max">
+                    <button
+                        class="btn rounded-[0.4rem] bg-gradient-to-r from-primary-500 to-error-500 px-5 py-4 text-base font-semibold leading-none md:rounded-[0.5vw] md:px-[1.25vw] md:py-[1vw] md:text-[1vw] shadow-2xl shadow-primary-800"
+                    >
+                        <span>Get Started</span>
+                        <Chevron class="md:w-[1.25vw] -rotate-90" />
+                    </button>
+                </cta-buttons>
             </div>
         </content>
-        <mascot class="relative flex flex-shrink-0 md:h-[40vw] self-end">
+        <mascot class="md:col-span-4 relative flex flex-shrink-0 md:h-[40vw] self-end">
             <img src="images/characters/hibiki/hibiki.png" alt="Hibiki" class="z-10 h-full" />
             <!-- gradients -->
             <gradient class="absolute left-1/4 md:w-[15vw] md:h-[20vw] rotate-45 bg-primary-900 md:rounded-[2vw] md:blur-[3.5vw]" />
