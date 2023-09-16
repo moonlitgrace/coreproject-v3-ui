@@ -35,12 +35,12 @@
 
     <section
         transition:blur
-        class={cn(mapping.class, "relative grid h-full justify-end md:grid-flow-col")}
+        class={cn(mapping.class, "grid grid-cols-12 h-full")}
     >
         <error-context
             class:md:order-1={on_right}
             class:md:order-2={on_left}
-            class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
+            class="row-span-6 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw] col-span-12 md:col-span-6"
         >
             <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as code}
@@ -57,16 +57,16 @@
             </context>
             <a
                 href="../explore"
-                class="btn mt-3 w-max gap-2 bg-primary-500 py-3 rounded-lg font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:py-[1vw] md:text-[1.1vw]"
+                class="btn mt-3 w-max gap-2 bg-primary-500 py-3 rounded-lg font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:px-[1.5vw] md:py-[1vw] md:text-[1.1vw] md:rounded-[0.5vw]"
             >
-                Explore animes
+                Explore Animes
                 <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
             </a>
         </error-context>
         <character-image
             class:md:order-1={on_left}
             class:md:order-2={on_right}
-            class="pointer-events-none relative flex items-end justify-center md:col-span-4"
+            class="pointer-events-none relative flex items-end justify-center col-span-12 md:col-span-6"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
             <gradient class={cn(mapping.gradient.class, "absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]")} />
