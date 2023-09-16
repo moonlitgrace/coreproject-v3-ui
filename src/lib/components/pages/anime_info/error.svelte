@@ -42,22 +42,22 @@
             class:md:order-2={on_left}
             class="row-span-5 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
         >
-            <status-code class="text-7xl font-bold md:text-9xl">
+            <status-code class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as number}
                     <span class="odd:text-warning-400">{number}</span>
                 {/each}
             </status-code>
-            <status-text class="text-base font-semibold text-primary-300 md:text-xl">Oops! Page not found...</status-text>
-            <span class="mt-2 text-base font-semibold italic md:mt-[1vw] md:text-xl">
+            <status-text class="text-base font-semibold text-primary-300 md:text-[1.25vw]">Oops! Page not found...</status-text>
+            <span class="mt-2 text-base font-semibold italic md:mt-[1vw] md:text-[1.2vw]">
                 Hi <u>{mapping.image.alt}</u>
                 here!
             </span>
-            <context class="select-none px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-lg md:leading-tight">
+            <context class="select-none px-7 text-center text-xs font-semibold italic leading-snug text-surface-50 md:px-0 md:pr-[5vw] md:text-left md:text-[1.1vw] md:leading-[1.5vw]">
                 {@html format_kokoro_color(`Uh-oh looks like our kokoro-chan is working really hard for the past few days and now has fall asleep. You can wait for her to wake up by looking at the status page, or come say hi to other fellow kokoro-chan's worksippers! ah- also let's wish her sweat dreams!`)}
             </context>
             <a
                 href="../explore"
-                class="btn mt-3 w-max gap-2 bg-primary-500 py-3 rounded-lg font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:py-[1vw] md:text-lg"
+                class="btn mt-3 w-max gap-2 bg-primary-500 py-3 rounded-lg font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:py-[1vw] md:text-[1.1vw]"
             >
                 Explore animes
                 <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
