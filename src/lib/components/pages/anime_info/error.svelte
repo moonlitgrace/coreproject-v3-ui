@@ -35,7 +35,7 @@
 
     <section
         transition:blur
-        class={cn(mapping.class, "relative grid h-full grid-flow-col justify-end gap-20 md:col-span-2 md:gap-0")}
+        class={cn(mapping.class, "relative grid h-full justify-end gap-20 md:grid-flow-col md:gap-0")}
     >
         <error-context
             class:order-1={on_right}
