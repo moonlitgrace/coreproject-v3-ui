@@ -33,6 +33,6 @@
     });
 </script>
 
-<div class="h-screen w-screen">
+<div>
     <slot />
 </div>
