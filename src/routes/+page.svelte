@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import TextEditor from "$components/shared/text_editor.svelte";
     import { OpengraphGenerator } from "$functions/opengraph";
     import AnimeCore from "$icons/anime_core.svelte";
 
@@ -17,4 +18,6 @@
     {@html opengraph_html}
 </svelte:head>
 
-<div class="flex h-full w-full items-center justify-center gap-3 md:gap-[0.75vw]"></div>
+<div class="flex h-screen w-screen items-center justify-center gap-3 md:gap-[0.75vw]">
+    <TextEditor />
+</div>
