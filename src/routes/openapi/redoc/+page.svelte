@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { beforeUpdate } from "svelte";
     import React from "react";
     import { RedocStandalone } from "redoc";
     import { createRoot } from "react-dom/client";
@@ -21,7 +21,7 @@
     }
 
     let container: HTMLDivElement;
-    onMount(function () {
+    beforeUpdate(() => {
         createRoot(container).render(e(Documentation));
     });
 </script>
