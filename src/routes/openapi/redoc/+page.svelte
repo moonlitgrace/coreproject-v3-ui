@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
     import React from "react";
     import { RedocStandalone } from "redoc";
@@ -7,19 +7,20 @@
     const e = React.createElement;
     class Documentation extends React.Component {
         render() {
-            return e(RedocStandalone, {
-                specUrl: "http://petstore.swagger.io/v2/swagger.json",
-                options: {
-                    nativeScrollbars: true,
-                    theme: { colors: { primary: { main: "#dd5522" } } }
-                }
-            });
+            return e(
+                "div",
+                { className: "w-screen" },
+                e(RedocStandalone, {
+                    specUrl: "/openapi/schema.yaml",
+                    options: {
+                        nativeScrollbars: true
+                    }
+                })
+            );
         }
     }
-    /**
-     * @type {HTMLDivElement}
-     */
-    let container;
+
+    let container: HTMLDivElement;
     onMount(function () {
         createRoot(container).render(e(Documentation));
     });
