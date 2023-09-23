@@ -2,11 +2,23 @@
     import { beforeUpdate } from "svelte";
     import { OpengraphGenerator } from "$functions/opengraph";
     import { page } from "$app/stores";
+    import "@stoplight/elements/styles.min.css";
 
-    beforeUpdate(async () => {
-        // @ts-ignore
-        await import("@stoplight/elements/web-components.min.js");
-        await import("@stoplight/elements/styles.min.css");
+    import { onMount } from "svelte";
+    import React from "react";
+    import { API } from "@stoplight/elements";
+    import { createRoot } from "react-dom/client";
+
+    const e = React.createElement;
+    class Documentation extends React.Component {
+        render() {
+            return e(API, {});
+        }
+    }
+
+    let container: HTMLDivElement;
+    onMount(function () {
+        createRoot(container).render(e(Documentation));
     });
 
     const opengraph = new OpengraphGenerator({
@@ -23,10 +35,6 @@
     {@html opengraph}
 </svelte:head>
 
-<elements-api
-    data-theme="dark"
-    class="w-screen"
-    apiDescriptionUrl="/openapi/schema.yaml"
-    router="hash"
-    layout="sidebar"
-/>
+<main>
+    <div bind:this={container} />
+</main>
