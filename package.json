@@ -36,7 +36,7 @@
         "@types/node": "^20.7.0",
         "@types/nprogress": "^0.2.1",
         "@typescript-eslint/eslint-plugin": "^6.7.3",
-        "@typescript-eslint/parser": "^6.7.2",
+        "@typescript-eslint/parser": "^6.7.3",
         "@zxcvbn-ts/core": "^3.0.3",
         "@zxcvbn-ts/language-common": "^3.0.4",
         "@zxcvbn-ts/language-cs": "^3.0.1",
