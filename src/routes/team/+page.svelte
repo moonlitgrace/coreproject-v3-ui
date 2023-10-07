@@ -19,7 +19,7 @@
 </script>
 
 <div class="md:px-[10vw]">
-    <div class="text-center text-[4vw] md:py-[5vw]">Team the made coreproject a reality</div>
+    <div class="py-[5vw] text-center text-[4vw]">Team the made coreproject a reality</div>
     {#each information as item, index}
         <div class="flex gap-10">
             <div class="flex flex-col items-center justify-center gap-4">
