@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { beforeUpdate } from "svelte";
+    import { afterUpdate } from "svelte";
     import React from "react";
     import { RedocStandalone } from "redoc";
     import { createRoot } from "react-dom/client";
@@ -21,7 +21,7 @@
     }
 
     let container: HTMLDivElement;
-    beforeUpdate(() => {
+    afterUpdate(() => {
         createRoot(container).render(e(Documentation));
     });
 </script>
