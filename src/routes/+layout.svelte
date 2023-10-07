@@ -12,8 +12,6 @@
     import NProgress from "nprogress";
     import { beforeUpdate } from "svelte";
 
-    // Local
-
     // Run after navigation
     beforeNavigate(async function () {
         NProgress.start();
