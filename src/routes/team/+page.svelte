@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Github from "$icons/github.svelte";
+    import Telegram from "$icons/telegram.svelte";
+
     import { Avatar } from "@skeletonlabs/skeleton";
 
     const information: {
@@ -33,8 +36,19 @@
                         {@const key = social_link[0]}
                         {@const value = social_link[1]}
                         {#if key === "github"}
-                            <a href={value}>
-                                <button></button>
+                            <a
+                                href={value}
+                                class="w-6 rounded-full bg-white"
+                            >
+                                <Github />
+                            </a>
+                        {/if}
+                        {#if key === "telegram"}
+                            <a
+                                href={value}
+                                class="w-6 rounded-full bg-white"
+                            >
+                                <Telegram />
                             </a>
                         {/if}
                     {/each}
