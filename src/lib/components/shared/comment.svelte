@@ -2,7 +2,7 @@
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import Markdown from "$components/shared/markdown.svelte";
     import { FormatDate } from "$functions/format_date";
-    import Heart from "$icons/heart.svelte";
+    import Heart from "$icons/shapes/heart.svelte";
     import { Accordion, AccordionItem } from "@skeletonlabs/skeleton";
 
     export let comment_user_profile_pic: string,

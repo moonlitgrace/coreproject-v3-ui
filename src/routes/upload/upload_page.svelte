@@ -1,13 +1,13 @@
 <script lang="ts">
     import { FormatDate } from "$functions/format_date";
-    import Chevron from "$icons/chevron.svelte";
-    import Cross from "$icons/cross.svelte";
-    import Delete from "$icons/delete.svelte";
-    import Edit from "$icons/edit.svelte";
-    import EmptyUpload from "$icons/empty_upload.svelte";
-    import Search from "$icons/search.svelte";
-    import Star from "$icons/star.svelte";
-    import Upload from "$icons/upload.svelte";
+    import Chevron from "$icons/shapes/chevron.svelte";
+    import Cross from "$icons/shapes/cross.svelte";
+    import Delete from "$icons/shapes/delete.svelte";
+    import Edit from "$icons/shapes/edit.svelte";
+    import EmptyUpload from "$icons/shapes/empty_upload.svelte";
+    import Search from "$icons/shapes/search.svelte";
+    import Star from "$icons/shapes/star.svelte";
+    import Upload from "$icons/shapes/upload.svelte";
     import { FileDropzone } from "@skeletonlabs/skeleton";
     import { ProgressBar } from "@skeletonlabs/skeleton";
     import dayjs from "dayjs";

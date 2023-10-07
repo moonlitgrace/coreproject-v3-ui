@@ -5,12 +5,12 @@
     import { cn } from "$functions/classnames";
     import { vw } from "$functions/document/vw";
     import { is_valid_url } from "$functions/is_valid_url";
-    import Bold from "$icons/bold.svelte";
-    import Code from "$icons/code.svelte";
-    import Hyperlink from "$icons/hyperlink.svelte";
-    import Italic from "$icons/italic.svelte";
-    import Strike from "$icons/strike.svelte";
-    import Underline from "$icons/underline.svelte";
+    import Bold from "$icons/shapes/bold.svelte";
+    import Code from "$icons/shapes/code.svelte";
+    import Hyperlink from "$icons/shapes/hyperlink.svelte";
+    import Italic from "$icons/shapes/italic.svelte";
+    import Strike from "$icons/shapes/strike.svelte";
+    import Underline from "$icons/shapes/underline.svelte";
     import Markdown from "./markdown.svelte";
     import { offset } from "caret-pos";
     import { encode } from "html-entities";

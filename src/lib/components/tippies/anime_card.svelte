@@ -1,9 +1,9 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import Circle from "$icons/circle.svelte";
-    import Info from "$icons/info.svelte";
-    import PlayCircle from "$icons/play_circle.svelte";
-    import Star from "$icons/star.svelte";
+    import Circle from "$icons/shapes/circle.svelte";
+    import Info from "$icons/shapes/info.svelte";
+    import PlayCircle from "$icons/shapes/play_circle.svelte";
+    import Star from "$icons/shapes/star.svelte";
 
     export let anime_id: number, anime_name: string, anime_episodes_count: number, anime_type: string, anime_genres: string[], anime_studios: string[], anime_synopsis: string;
 </script>
