@@ -10,7 +10,7 @@
         position: string;
         avatar: string;
         summary: string;
-        socials: { [key in string]: string };
+        socials: { [key in "telegram" | "github"]?: string };
     }[] = [
         { name: "Titan", "user-name": "akindworld", position: "designer", avatar: "https://avatars.githubusercontent.com/u/41228366?v=4", summary: "Heya! I love art, anime, design, tech, music, nature, animals, manga, making friends and a lot more! - Titan#0415", socials: { github: "https://github.com/AKindWorld" } },
         { name: "Baseplate Admin", "user-name": "baseplate-admin", position: "Backend & Frontend Engineer", avatar: "https://seccdn.libravatar.org/avatar/3852e481271f8a8973338c2e425dbc5f3dd615482dd06db18ed7fd5f99108589?s=512", summary: "I like writing softwares".repeat(100), socials: { github: "https://github.com/baseplate-admin", telegram: "https://t.me/baseplate_admin" } },
