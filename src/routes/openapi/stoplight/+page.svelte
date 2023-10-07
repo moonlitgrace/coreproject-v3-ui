@@ -3,7 +3,7 @@
     import { page } from "$app/stores";
     import "@stoplight/elements/styles.min.css";
 
-    import { beforeUpdate } from "svelte";
+    import { afterUpdate } from "svelte";
     import React from "react";
     import { API } from "@stoplight/elements";
     import { createRoot } from "react-dom/client";
@@ -15,13 +15,15 @@
                 "div",
                 { className: "w-screen" },
                 e(API, {
+                    router: "hash",
+                    layout: "sidebar",
                     apiDescriptionUrl: "/openapi/schema.yaml"
                 })
             );
         }
     }
     let container: HTMLDivElement;
-    beforeUpdate(() => {
+    afterUpdate(() => {
         createRoot(container).render(e(Documentation));
     });
 </script>
@@ -41,8 +43,7 @@
     <div bind:this={container} />
 </main>
 
-<!-- 
-<script lang="ts">
+<!-- <script lang="ts">
     import { beforeUpdate } from "svelte";
     import { OpengraphGenerator } from "$functions/opengraph";
     import { page } from "$app/stores";
