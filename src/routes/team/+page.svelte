@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Github from "$icons/github.svelte";
-    import Telegram from "$icons/telegram.svelte";
+    import Github from "$icons/logos/github.svelte";
+    import Telegram from "$icons/logos/telegram.svelte";
 
     import { Avatar } from "@skeletonlabs/skeleton";
 
