@@ -1,20 +1,20 @@
 <script lang="ts">
     import { OpengraphGenerator } from "$functions/opengraph";
     import { page } from "$app/stores";
-    import Search from "$icons/search.svelte";
-    import Chevron from "$icons/chevron.svelte";
+    import Search from "$icons/shapes/search.svelte";
+    import Chevron from "$icons/shapes/chevron.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
-    import MoreBox from "$icons/more_box.svelte";
+    import MoreBox from "$icons/shapes/more_box.svelte";
     import { trending_animes } from "$data/mock/trending";
     import tippy from "tippy.js";
     import FilterOptions from "$components/tippies/filter_options.svelte";
-    import Cross from "$icons/cross.svelte";
+    import Cross from "$icons/shapes/cross.svelte";
     import { FormatDate } from "$functions/format_date";
-    import Circle from "$icons/circle.svelte";
+    import Circle from "$icons/shapes/circle.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import AnimeCard from "$components/tippies/anime_card.svelte";
-    import Expand from "$icons/expand.svelte";
-    import SixGrids from "$icons/six_grids.svelte";
+    import Expand from "$icons/shapes/expand.svelte";
+    import SixGrids from "$icons/shapes/six_grids.svelte";
     import { scale } from "svelte/transition";
     import HoverExpand from "$components/shared/hover_expand.svelte";
     import { cn } from "$functions/classnames";

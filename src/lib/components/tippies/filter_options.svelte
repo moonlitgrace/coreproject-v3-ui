@@ -1,6 +1,6 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import Tick from "$icons/tick.svelte";
+    import Tick from "$icons/shapes/tick.svelte";
     import { createEventDispatcher } from "svelte";
 
 	export let items: Record<string, string> | undefined;

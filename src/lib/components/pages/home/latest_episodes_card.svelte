@@ -4,7 +4,7 @@
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import { FormatDate } from "$functions/format_date";
     import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
-    import Play from "$icons/play.svelte";
+    import Play from "$icons/shapes/play.svelte";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
 

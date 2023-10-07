@@ -1,10 +1,10 @@
 <script lang="ts">
     import HoverExpand from "$components/shared/hover_expand.svelte";
     import VercelHover from "$components/shared/vercel_hover.svelte";
-    import List from "$icons/list.svelte";
-    import Moon from "$icons/moon.svelte";
-    import SettingsOutline from "$icons/settings_outline.svelte";
-    import User from "$icons/user.svelte";
+    import List from "$icons/shapes/list.svelte";
+    import Moon from "$icons/shapes/moon.svelte";
+    import SettingsOutline from "$icons/shapes/settings_outline.svelte";
+    import User from "$icons/shapes/user.svelte";
     import type { SvelteComponent } from "svelte";
 
     // Icons mapping
