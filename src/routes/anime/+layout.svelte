@@ -12,7 +12,7 @@
     import Forum from "$icons/shapes/forum.svelte";
     import Home from "$icons/shapes/home.svelte";
     import List from "$icons/shapes/list.svelte";
-    import Logo from "$icons/shapes/logo.svelte";
+    import Logo from "$icons/logos/main.svelte";
     import Misc from "$icons/shapes/misc.svelte";
     import Schedule from "$icons/shapes/schedule.svelte";
     import Search from "$icons/shapes/search.svelte";
