@@ -1,8 +1,8 @@
 <script lang="ts">
     import ScrollArea from "$components/shared/scroll_area.svelte";
-    import Circle from "$icons/circle.svelte";
-    import Cross from "$icons/cross.svelte";
-    import Search from "$icons/search.svelte";
+    import Circle from "$icons/shapes/circle.svelte";
+    import Cross from "$icons/shapes/cross.svelte";
+    import Search from "$icons/shapes/search.svelte";
     import ImageLoader from "./image/image_loader.svelte";
 
     // search input

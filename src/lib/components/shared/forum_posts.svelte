@@ -1,6 +1,6 @@
 <script lang="ts">
     import { FormatDate } from "$functions/format_date";
-    import MessageCircle from "$icons/message_circle.svelte";
+    import MessageCircle from "$icons/shapes/message_circle.svelte";
     import ImageLoader from "./image/image_loader.svelte";
 
     export let link: string, post_banner: string, post_title: string, post_description: string, author: string, posted_on_date: string, responses: number;
