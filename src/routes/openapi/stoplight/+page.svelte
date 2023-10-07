@@ -1,4 +1,3 @@
-<!--
 <script lang="ts">
     import { OpengraphGenerator } from "$functions/opengraph";
     import { page } from "$app/stores";
@@ -41,8 +40,8 @@
 <main>
     <div bind:this={container} />
 </main>
--->
 
+<!-- 
 <script lang="ts">
     import { beforeUpdate } from "svelte";
     import { OpengraphGenerator } from "$functions/opengraph";
@@ -74,4 +73,4 @@
     apiDescriptionUrl="/openapi/schema.yaml"
     router="hash"
     layout="sidebar"
-/>
+/> -->
