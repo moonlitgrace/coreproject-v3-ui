@@ -1,9 +1,9 @@
 <script lang="ts">
     import { cn } from "$functions/classnames";
-    import ArrowUpRight from "$icons/arrow_up_right.svelte";
-    import Cross from "$icons/cross.svelte";
-    import Info from "$icons/info.svelte";
-    import Tick from "$icons/tick.svelte";
+    import ArrowUpRight from "$icons/shapes/arrow_up_right.svelte";
+    import Cross from "$icons/shapes/cross.svelte";
+    import Info from "$icons/shapes/info.svelte";
+    import Tick from "$icons/shapes/tick.svelte";
     import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";

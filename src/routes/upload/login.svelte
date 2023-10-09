@@ -1,7 +1,7 @@
 <script lang="ts">
     import { fish_mapping } from "$data/fish_mapping";
     import { cn } from "$functions/classnames";
-    import Chevron from "$icons/chevron.svelte";
+    import Chevron from "$icons/shapes/chevron.svelte";
     import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";

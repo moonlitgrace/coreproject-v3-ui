@@ -5,7 +5,7 @@
     import { anime_episodes } from "$data/mock/anime_episodes";
     import { anime_list } from "$data/mock/anime_list";
     import { OpengraphGenerator } from "$functions/opengraph";
-    import TopRounded from "$icons/top_rounded.svelte";
+    import TopRounded from "$icons/shapes/top_rounded.svelte";
     import { derived } from "svelte/store";
 
     let anime_id = derived(page, (page) => page.params.id);

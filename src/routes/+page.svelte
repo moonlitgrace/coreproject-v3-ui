@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { OpengraphGenerator } from "$functions/opengraph";
-    import AnimeCore from "$icons/anime_core.svelte";
+    import AnimeCore from "$icons/logos/anime_core.svelte";
 
     const opengraph_html = new OpengraphGenerator({
         title: "CoreProject - A modern anime, manga, sound streaming site",

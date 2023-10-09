@@ -7,16 +7,16 @@
     import { cn } from "$functions/classnames";
     import { vw } from "$functions/document/vw";
     // import icons
-    import AnimeCore from "$icons/anime_core.svelte";
-    import Explore from "$icons/explore.svelte";
-    import Forum from "$icons/forum.svelte";
-    import Home from "$icons/home.svelte";
-    import List from "$icons/list.svelte";
-    import Logo from "$icons/logo.svelte";
-    import Misc from "$icons/misc.svelte";
-    import Schedule from "$icons/schedule.svelte";
-    import Search from "$icons/search.svelte";
-    import Settings from "$icons/settings.svelte";
+    import AnimeCore from "$icons/logos/anime_core.svelte";
+    import Explore from "$icons/shapes/explore.svelte";
+    import Forum from "$icons/shapes/forum.svelte";
+    import Home from "$icons/shapes/home.svelte";
+    import List from "$icons/shapes/list.svelte";
+    import Logo from "$icons/shapes/logo.svelte";
+    import Misc from "$icons/shapes/misc.svelte";
+    import Schedule from "$icons/shapes/schedule.svelte";
+    import Search from "$icons/shapes/search.svelte";
+    import Settings from "$icons/shapes/settings.svelte";
     import { navbar_middle_section_variant } from "$store/navbar";
     import { is_authenticated } from "$store/user";
     import { AppShell, Avatar } from "@skeletonlabs/skeleton";

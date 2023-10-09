@@ -1,8 +1,8 @@
 <script lang="ts">
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import { latest_animes } from "$data/mock/latest_animes";
-    import CoreProject from "$icons/core_project.svelte";
-    import Refresh from "$icons/refresh.svelte";
+    import CoreProject from "$icons/logos/core_project.svelte";
+    import Refresh from "$icons/shapes/refresh.svelte";
     import { Timer as EasyTimer } from "easytimer.js";
     import sample from "lodash/sample";
     import { onDestroy, onMount } from "svelte";
