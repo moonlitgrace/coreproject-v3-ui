@@ -77,6 +77,7 @@
         "prettier-plugin-svelte": "^3.0.3",
         "prettier-plugin-tailwindcss": "^0.5.6",
         "pretty-bytes": "^6.1.1",
+        "prisma": "^5.5.2",
         "rapidoc": "^9.3.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
