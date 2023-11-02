@@ -7,7 +7,7 @@
     import { ValidationMessage, reporter } from "@felte/reporter-svelte";
     import { validator } from "@felte/validator-zod";
     import { focusTrap } from "@skeletonlabs/skeleton";
-    import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
+    import { zxcvbn, zxcvbnOptions, type OptionsType } from "@zxcvbn-ts/core";
     import { createForm } from "felte";
     import { createEventDispatcher, beforeUpdate } from "svelte";
     import { z } from "zod";
@@ -29,7 +29,9 @@
         const zxcvbnPlPackage = await import("@zxcvbn-ts/language-pl");
         const zxcvbnPtBrPackage = await import("@zxcvbn-ts/language-pt-br");
 
-        const options = {
+        const options: OptionsType = {
+            translations: zxcvbnEnPackage.translations,
+            graphs: zxcvbnCommonPackage.adjacencyGraphs,
             dictionary: {
                 ...zxcvbnCommonPackage.dictionary,
                 ...zxcvbnCsPackage.dictionary,
@@ -43,8 +45,12 @@
                 ...zxcvbnNlBePackage.dictionary,
                 ...zxcvbnPlPackage.dictionary,
                 ...zxcvbnPtBrPackage.dictionary,
-                ...zxcvbnEnPackage.dictionary
-            }
+                ...zxcvbnEnPackage.dictionary,
+
+                // Check inputs
+                userInputs: [...Object.values($data ?? {})]
+            },
+            useLevenshteinDistance: true
         };
 
         zxcvbnOptions.setOptions(options);
