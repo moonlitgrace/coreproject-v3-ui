@@ -59,7 +59,7 @@
         "easytimer.js": "^4.6.0",
         "eslint": "^8.54.0",
         "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-svelte": "^2.35.0",
+        "eslint-plugin-svelte": "^2.35.1",
         "felte": "^1.2.12",
         "highlight.js": "^11.9.0",
         "html-entities": "^2.4.0",
