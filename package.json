@@ -36,7 +36,7 @@
         "@types/nprogress": "^0.2.3",
         "@types/react": "^18.2.39",
         "@types/react-dom": "^18.2.17",
-        "@typescript-eslint/eslint-plugin": "^6.12.0",
+        "@typescript-eslint/eslint-plugin": "^6.13.0",
         "@typescript-eslint/parser": "^6.13.0",
         "@zxcvbn-ts/core": "^3.0.4",
         "@zxcvbn-ts/language-common": "^3.0.4",
