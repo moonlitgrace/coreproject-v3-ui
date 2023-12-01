@@ -70,7 +70,7 @@
         "marked-highlight": "^2.0.7",
         "marked-mangle": "^1.1.5",
         "marked-smartypants": "^1.1.4",
-        "marked-xhtml": "^1.0.7",
+        "marked-xhtml": "^1.0.8",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.31",
         "prettier": "^3.0.3",
