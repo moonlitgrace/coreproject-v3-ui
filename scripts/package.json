@@ -5,7 +5,7 @@
     "devDependencies": {
         "node-fetch": "^3.3.2",
         "node-fetch-retry": "^2.0.1",
-        "sharp": "^0.33.0"
+        "sharp": "^0.33.1"
     },
     "type": "module",
     "scripts": {
