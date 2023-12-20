@@ -24,7 +24,7 @@
         "@skeletonlabs/skeleton": "^2.6.1",
         "@skeletonlabs/tw-plugin": "^0.3.0",
         "@stoplight/elements": "^7.16.1",
-        "@sveltejs/adapter-auto": "^3.0.0",
+        "@sveltejs/adapter-auto": "^3.0.1",
         "@sveltejs/adapter-node": "^2.0.1",
         "@sveltejs/adapter-static": "^3.0.0",
         "@sveltejs/kit": "^2.0.4",
