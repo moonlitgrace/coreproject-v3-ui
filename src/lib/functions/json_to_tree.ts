@@ -6,6 +6,7 @@ type Comment = {
         last_name: string;
         avatar: null | string;
         avatar_url: string;
+        email: string;
     };
     ratio: number;
     text: string;
@@ -13,7 +14,7 @@ type Comment = {
     created_at: string;
     childrens: number;
     user_reaction: "upvoted" | "downvoted" | null;
-    child: Comment[];
+    child?: Comment[];
 };
 export class JSONToTree {
     #json: Comment[] = new Array<Comment>();
@@ -52,7 +53,7 @@ export class JSONToTree {
             const parent_node = node_dictionary[parent_path];
 
             if (parent_node) {
-                parent_node.child.push(node_dictionary[node.path]);
+                parent_node.child?.push(node_dictionary[node.path]);
             }
         });
         return tree;
