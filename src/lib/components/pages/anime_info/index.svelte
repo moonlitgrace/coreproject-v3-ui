@@ -416,7 +416,7 @@
                                     </div>
                                     <Circle class="w-1 opacity-50 md:w-[0.25vw]" />
                                     <div class="flex gap-2 leading-none md:gap-[0.65vw]">
-                                        {#each episode.div as episode_resolution}
+                                        {#each episode.resolutions as episode_resolution}
                                             {@const resolution = (() => {
                                                 switch (episode_resolution) {
                                                     case "1080p":
