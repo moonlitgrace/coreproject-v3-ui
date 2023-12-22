@@ -1,11 +1,25 @@
 <script lang="ts">
+    // Mock data
+    import { forum_posts } from "$data/mock/forum_posts";
+    import { recommendations } from "$data/mock/recommendations";
+    import { episode_comments } from "$data/mock/episode_comments";
+
+    // Svlete things
+    import { page } from "$app/stores";
+    import type { SvelteComponent } from "svelte";
+    import { blur } from "svelte/transition";
+
+    // Functions
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+    import { cn } from "$functions/classnames";
+
+    // Components
     import Comment from "$components/shared/comment.svelte";
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
-    import { episode_comments } from "$data/mock/episode_comments";
-    import { forum_posts } from "$data/mock/forum_posts";
-    import { recommendations } from "$data/mock/recommendations";
+
+    // Icons
     import Chevron from "$icons/shapes/chevron.svelte";
     import Cross from "$icons/shapes/cross.svelte";
     import Download from "$icons/shapes/download.svelte";
@@ -14,13 +28,11 @@
     import PlayCircle from "$icons/shapes/play_circle.svelte";
     import Share from "$icons/shapes/share.svelte";
     import Warning from "$icons/shapes/warning.svelte";
+
+    // Skeleton
     import { Accordion, AccordionItem } from "@skeletonlabs/skeleton";
-    import type { SvelteComponent } from "svelte";
-    import { blur } from "svelte/transition";
+
     import tippy from "tippy.js";
-    import { page } from "$app/stores";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
-    import { cn } from "$functions/classnames";
 
     /* Comment section logics */
     let comment_body: string;
