@@ -94,7 +94,7 @@
 </script>
 
 {#if button_state_mapping.lights}
-    <lights_overlay
+    <div
         transition:blur={{ duration: 300 }}
         role="presentation"
         class="absolute inset-0 z-20 bg-black/95"
@@ -102,26 +102,26 @@
     />
 {/if}
 
-<episode-container class="mt-16 flex flex-col md:mt-0 md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
-    <episode-content class="grid grid-cols-12 md:gap-[5vw]">
-        <video-player class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
-            <player class="relative h-64 w-full md:z-30 md:h-[35vw]">
+<div class="mt-16 flex flex-col md:mt-0 md:gap-[3.5vw] md:py-[2vw] md:pl-[1vw] md:pr-[3.75vw]">
+    <div class="grid grid-cols-12 md:gap-[5vw]">
+        <div class="col-span-12 flex flex-col md:col-span-8 md:gap-[0.75vw]">
+            <div class="relative h-64 w-full md:z-30 md:h-[35vw]">
                 <!-- adding a image for now -->
                 <ImageLoader
                     src="/images/DemonSlayer-episode.webp"
                     alt="Episode image"
                     class="h-full w-full rounded-none object-cover md:rounded-[0.5vw] "
                 />
-            </player>
-            <video-player-options class="flex flex-col gap-2 px-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
-                <preferences class="flex gap-2 md:items-center md:gap-[1vw]">
-                    <sub-dub class="hidden items-center gap-[0.75vw] md:flex">
+            </div>
+            <div class="flex flex-col gap-2 px-5 md:flex-row md:items-center md:justify-between md:gap-0 md:p-0">
+                <div class="flex gap-2 md:items-center md:gap-[1vw]">
+                    <div class="hidden items-center gap-[0.75vw] md:flex">
                         <span class="text-[1vw] font-semibold uppercase">sub/dub:</span>
                         <button class="btn flex items-center gap-[0.5vw] rounded-[0.35vw] bg-surface-400 px-[0.75vw] py-[0.5vw] text-[1vw] leading-none">
                             Vidstreaming (sub)
                             <Chevron class="w-[1vw]" />
                         </button>
-                    </sub-dub>
+                    </div>
 
                     {#each Object.entries(video_player_mapping.preferences) as item}
                         {@const text = item[1].text}
@@ -139,18 +139,18 @@
                             {/if}
                         </button>
                     {/each}
-                </preferences>
+                </div>
 
                 <div class="flex w-full items-center justify-between md:w-auto">
-                    <sub-dub class="flex items-center gap-2 md:hidden">
+                    <div class="flex items-center gap-2 md:hidden">
                         <span class="text-xs font-semibold uppercase">sub/dub:</span>
                         <button class="btn flex items-center gap-2 rounded bg-surface-400 px-3 py-2 text-xs leading-none">
                             Vidstreaming (sub)
                             <Chevron class="w-3" />
                         </button>
-                    </sub-dub>
+                    </div>
 
-                    <video-options class="flex items-center gap-3 md:gap-[0.75vw]">
+                    <div class="flex items-center gap-3 md:gap-[0.75vw]">
                         {#each Object.entries(video_player_mapping.options) as item}
                             {@const component = item[1].component}
                             {@const link = item[1].link}
@@ -177,20 +177,20 @@
                                 />
                             </a>
                         {/each}
-                    </video-options>
+                    </div>
                 </div>
-            </video-player-options>
-        </video-player>
-        <episode-info class="col-span-12 flex flex-col gap-3 p-5 md:col-span-4 md:gap-[1.5vw] md:p-0">
-            <header class="flex items-center justify-between">
+            </div>
+        </div>
+        <div class="col-span-12 flex flex-col gap-3 p-5 md:col-span-4 md:gap-[1.5vw] md:p-0">
+            <div class="flex items-center justify-between">
                 <span class="text-lg font-semibold md:text-[1.35vw]">Episodes</span>
                 <button class="btn flex items-center gap-2 rounded bg-surface-400 px-3 py-2 text-xs font-semibold leading-none md:gap-[0.5vw] md:rounded-[0.35vw] md:px-[0.75vw] md:py-[0.5vw] md:text-[1vw]">
                     EPS: 1 - 60
                     <Chevron class="w-3 md:w-[1vw]" />
                 </button>
-            </header>
+            </div>
 
-            <episodes class="grid grid-cols-7 gap-2 md:grid-cols-6 md:gap-[0.75vw]">
+            <div class="grid grid-cols-7 gap-2 md:grid-cols-6 md:gap-[0.75vw]">
                 {#each Array(60) as _, index}
                     {@const actual_index = index + 1}
                     {@const button_active = actual_index === episode_number}
@@ -201,13 +201,13 @@
                         {actual_index}
                     </a>
                 {/each}
-            </episodes>
-        </episode-info>
-    </episode-content>
+            </div>
+        </div>
+    </div>
 
-    <episode-details class="grid grid-cols-12 gap-5 p-5 md:gap-[5vw] md:p-0">
-        <episode-info class="col-span-12 flex flex-col gap-2 md:col-span-8 md:gap-[1vw]">
-            <anime-name-options class="flex items-center justify-between">
+    <div class="grid grid-cols-12 gap-5 p-5 md:gap-[5vw] md:p-0">
+        <div class="col-span-12 flex flex-col gap-2 md:col-span-8 md:gap-[1vw]">
+            <div class="flex items-center justify-between">
                 <div>
                     <a
                         href="/mal/1"
@@ -217,12 +217,12 @@
                         <span class="text-base text-surface-50 md:text-[1vw]">Kimetsu no yaiba</span>
                     </a>
                 </div>
-                <options>
+                <div>
                     <button class="btn bg-transparent p-0">
                         <Share class="md:w-[1.25vw]" />
                     </button>
-                </options>
-            </anime-name-options>
+                </div>
+            </div>
             <Accordion
                 padding="p-0"
                 hover="bg-transparent"
@@ -248,41 +248,41 @@
                 <span>View detail</span>
                 <Chevron class="w-3 -rotate-90 md:w-[1vw]" />
             </a>
-        </episode-info>
-        <next-episode class="col-span-4 hidden flex-col md:flex">
+        </div>
+        <div class="col-span-4 hidden flex-col md:flex">
             <span class="font-semibold uppercase md:text-[1.1vw]">next episode</span>
             <a
                 href="{remove_slash_from_end($page.url.pathname)}/{episode_number + 1}"
                 class="flex md:mt-[0.75vw] md:gap-[1vw]"
             >
-                <episode-cover class="relative">
+                <div class="relative">
                     <ImageLoader
                         src="/images/episodes/hyouka/Hyouka-ep-6.avif"
                         class="md:w-[12vw] md:rounded-[0.25vw]"
                     />
-                    <overlay class="absolute inset-0 flex items-center justify-center bg-surface-900/40">
-                        <play class="rounded-full bg-surface-900/50 md:p-[1vw]">
+                    <div class="absolute inset-0 flex items-center justify-center bg-surface-900/40">
+                        <div class="rounded-full bg-surface-900/50 md:p-[1vw]">
                             <PlayCircle class="md:w-[1.25vw]" />
-                        </play>
-                    </overlay>
-                </episode-cover>
-                <episode-info class="flex flex-col justify-between leading-none md:py-[1vw]">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between leading-none md:py-[1vw]">
                     <div class="flex flex-col md:gap-[0.5vw]">
                         <span class="text-warning-200 md:text-[1.1vw]">Finally they met</span>
                         <span class="md:text-[1vw]">Episode - {episode_number + 1}</span>
                     </div>
 
                     <span class="text-surface-50 md:text-[1vw]">23 min</span>
-                </episode-info>
+                </div>
             </a>
-        </next-episode>
-    </episode-details>
+        </div>
+    </div>
 
-    <episode-media class="grid grid-cols-12 p-5 md:gap-[5vw] md:p-0">
-        <comments-section class="col-span-12 flex flex-col md:col-span-7 md:gap-[0.75vw]">
+    <div class="grid grid-cols-12 p-5 md:gap-[5vw] md:p-0">
+        <div class="col-span-12 flex flex-col md:col-span-7 md:gap-[0.75vw]">
             <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-lg font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Comments</span>
 
-            <comments-info class="mt-2 flex items-center justify-between md:hidden">
+            <div class="mt-2 flex items-center justify-between md:hidden">
                 <p class="flex items-center gap-1">
                     <span class="text-base font-bold leading-none">69</span>
                     <span class="text-sm font-semibold text-surface-50">comments</span>
@@ -297,9 +297,9 @@
                         color="lightgray"
                     />
                 </button>
-            </comments-info>
+            </div>
 
-            <comment-form class="flex flex-col md:flex-row md:gap-[1vw]">
+            <div class="flex flex-col md:flex-row md:gap-[1vw]">
                 <a
                     href="/user/"
                     class="hidden h-7 w-7 flex-shrink-0 md:mt-[0.5vw] md:flex md:h-[2vw] md:w-[2vw]"
@@ -315,8 +315,8 @@
                         Comment as <strong>Tokito</strong>
                     </span>
                     <TextEditor textarea_value={comment_body} />
-                    <warning-submit class="flex justify-between gap-5 md:gap-[1vw]">
-                        <warning class="flex items-center gap-3 md:gap-[0.625vw]">
+                    <div class="flex justify-between gap-5 md:gap-[1vw]">
+                        <div class="flex items-center gap-3 md:gap-[0.625vw]">
                             <Warning class="w-10 md:w-[1.2vw]" />
                             <p class="text-[0.65rem] font-light leading-tight text-surface-300 md:text-[0.75vw] md:leading-[1.125vw]">
                                 Please remember to follow our
@@ -328,14 +328,14 @@
                                 </a>
                                 while commenting. Also please refrain from posting spoilers.
                             </p>
-                        </warning>
+                        </div>
 
                         <button class="btn btn-sm h-9 w-40 rounded bg-primary-500 text-sm font-semibold md:h-[2.2vw] md:w-[6vw] md:rounded-[0.375vw] md:text-[0.85vw]">Comment</button>
-                    </warning-submit>
+                    </div>
                 </form>
-            </comment-form>
+            </div>
 
-            <comments class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
+            <div class="mt-10 flex flex-col gap-5 md:mt-[2vw] md:gap-[1.5vw]">
                 {#each episode_comments as comment, index}
                     <Comment
                         comment_user_profile_pic={comment.user.profile_pic}
@@ -347,19 +347,19 @@
                         open={index === 0}
                     />
                 {/each}
-            </comments>
-        </comments-section>
-        <forum-recommendations class="col-span-12 mt-10 flex flex-col gap-5 md:col-span-5 md:mt-0 md:gap-[2vw]">
-            <forum-posts>
+            </div>
+        </div>
+        <div class="col-span-12 mt-10 flex flex-col gap-5 md:col-span-5 md:mt-0 md:gap-[2vw]">
+            <div>
                 <span class="flex gap-2 border-b-2 border-surface-50/25 pb-1 text-lg font-semibold md:gap-[0.75vw] md:border-none md:pb-0 md:text-[1.25vw] md:leading-[1.5vw]">Forum posts</span>
 
-                <forum-options class="mt-3 flex items-center justify-between md:mt-[1.25vw]">
-                    <posts-count class="flex items-center gap-1 md:hidden">
+                <div class="mt-3 flex items-center justify-between md:mt-[1.25vw]">
+                    <div class="flex items-center gap-1 md:hidden">
                         <span class="text-base font-bold leading-none">106</span>
                         <span class="text-sm font-semibold text-surface-50">posts</span>
-                    </posts-count>
+                    </div>
 
-                    <forum-buttons class="flex items-center gap-2 md:w-full md:justify-between">
+                    <div class="flex items-center gap-2 md:w-full md:justify-between">
                         <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-2 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                             <Cross
                                 color="surface-50"
@@ -377,10 +377,10 @@
                                 color="lightgray"
                             />
                         </button>
-                    </forum-buttons>
-                </forum-options>
+                    </div>
+                </div>
 
-                <posts class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1vw] md:flex md:gap-[1vw]">
+                <div class="mt-4 grid grid-cols-2 flex-col gap-4 md:mt-[1vw] md:flex md:gap-[1vw]">
                     {#each forum_posts as post}
                         <ForumPosts
                             post_title={post.title}
@@ -392,9 +392,9 @@
                             responses={Number(post.responses)}
                         />
                     {/each}
-                </posts>
+                </div>
 
-                <load-more class="mt-3 flex w-full justify-center md:mt-[1vw]">
+                <div class="mt-3 flex w-full justify-center md:mt-[1vw]">
                     <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-3 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
@@ -402,13 +402,13 @@
                             class="w-4 md:w-[1vw]"
                         />
                     </button>
-                </load-more>
-            </forum-posts>
+                </div>
+            </div>
 
-            <recommendations-container>
+            <div>
                 <span class="text-lg font-semibold md:text-[1.35vw]">Recommendations</span>
 
-                <container class="mt-3 grid grid-cols-3 gap-4 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1vw]">
+                <div class="mt-3 grid grid-cols-3 gap-4 md:mt-[1.25vw] md:grid-cols-3 md:gap-[1vw]">
                     {#each recommendations as anime}
                         <a
                             href="/myanimelist/{anime.mal_id}"
@@ -419,24 +419,24 @@
                                 class="h-full w-full object-cover object-center"
                             />
 
-                            <anime-details class="absolute bottom-3 z-10 flex w-full flex-col items-center gap-1 px-[0.5vw] text-center md:bottom-[1vw] md:gap-[0.25vw]">
-                                <anime-title class="text-sm font-semibold leading-snug duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll md:hover:scrollbar-thin">
+                            <div class="absolute bottom-3 z-10 flex w-full flex-col items-center gap-1 px-[0.5vw] text-center md:bottom-[1vw] md:gap-[0.25vw]">
+                                <div class="text-sm font-semibold leading-snug duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[1vw] md:leading-[1.25vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll md:hover:scrollbar-thin">
                                     {anime.name}
-                                </anime-title>
-                                <anime-japanese-name class="text-xs leading-none md:text-[0.9vw]">
+                                </div>
+                                <div class="text-xs leading-none md:text-[0.9vw]">
                                     {anime.japanese_name}
-                                </anime-japanese-name>
-                                <anime-episodes-count class="text-xs leading-none text-surface-50 duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[0.9vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll md:hover:scrollbar-thin">
+                                </div>
+                                <div class="text-xs leading-none text-surface-50 duration-500 ease-in-out md:h-auto md:max-h-[2.5vw] md:overflow-hidden md:text-[0.9vw] md:hover:max-h-[7vw] md:hover:overflow-y-scroll md:hover:scrollbar-thin">
                                     Episodes: <b>{anime.episodes_count}</b>
-                                </anime-episodes-count>
-                            </anime-details>
+                                </div>
+                            </div>
 
-                            <gradient-overlay class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/80 to-surface-900/25" />
+                            <div class="gradient absolute inset-0 rounded-b-[0.45vw] bg-gradient-to-t from-surface-900/80 to-surface-900/25" />
                         </a>
                     {/each}
-                </container>
+                </div>
 
-                <load-more class="mt-3 flex w-full justify-center md:mt-[1vw]">
+                <div class="mt-3 flex w-full justify-center md:mt-[1vw]">
                     <button class="btn btn-sm h-7 gap-2 rounded bg-surface-400 px-3 text-xs font-semibold md:h-[2.4vw] md:rounded-[0.5vw] md:px-[0.9vw] md:text-[0.875vw]">
                         Load more
                         <Chevron
@@ -444,8 +444,8 @@
                             class="w-4 md:w-[1vw]"
                         />
                     </button>
-                </load-more>
-            </recommendations-container>
-        </forum-recommendations>
-    </episode-media>
-</episode-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

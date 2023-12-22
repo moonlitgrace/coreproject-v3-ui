@@ -1,9 +1,9 @@
 <div class="h-max w-full bg-surface-900 md:h-full">
     <div class="flex h-full w-full animate-pulse flex-col justify-between p-10 pb-[10vw] pt-[7vw] md:rounded-none md:p-0">
-        <form-fields>
+        <div>
             <div class="placeholder mb-9 h-4 w-60 !bg-surface-400 md:mb-[2vw] md:h-[1vw] md:w-[19.47vw]" />
 
-            <email-field>
+            <div>
                 <div class="placeholder h-4 w-11 !bg-surface-400 md:h-[0.9vw] md:w-[2.4vw]" />
                 <div class="placeholder mt-2 h-12 rounded-xl !bg-surface-400 md:mt-[0.75vw] md:h-[3.2vw] md:rounded-[0.75vw]" />
 
@@ -11,9 +11,9 @@
                     <div class="placeholder-circle h-full w-2 !bg-surface-400 md:h-full md:w-[0.6vw]" />
                     <div class="placeholder h-full w-[19.5rem] !bg-surface-400 md:h-full md:w-[21vw]" />
                 </div>
-            </email-field>
+            </div>
 
-            <password-field>
+            <div>
                 <div class="placeholder mt-5 h-4 w-20 !bg-surface-400 md:mt-[1.5vw] md:h-[0.9vw] md:w-[4.5vw]" />
                 <div class="placeholder mt-2 h-12 rounded-xl !bg-surface-400 md:mt-[0.75vw] md:h-[3.2vw] md:rounded-[0.75vw]" />
 
@@ -50,11 +50,11 @@
                         </div>
                     </div>
                 </div>
-            </password-field>
+            </div>
 
             <div class="placeholder mt-5 h-3 w-36 !bg-surface-400 md:mt-[2.3vw] md:h-[0.8vw] md:w-[8.75vw]" />
             <div class="placeholder mt-2 h-12 rounded-xl !bg-surface-400 md:mt-[0.75vw] md:h-[3.125vw] md:rounded-[0.75vw]" />
-        </form-fields>
+        </div>
 
         <div class="mt-10 flex items-center justify-between md:mt-0">
             <div class="flex flex-col gap-2 md:gap-[0.8vw]">
