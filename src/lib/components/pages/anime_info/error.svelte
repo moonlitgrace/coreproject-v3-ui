@@ -1,15 +1,22 @@
 <script lang="ts">
-    import { format_kokoro_color } from "$functions/format_kokoro";
-    import Chevron from "$icons/shapes/chevron.svelte";
+    import * as _ from "lodash-es";
 
+    import { fish_mapping } from "$data/fish_mapping";
+    // Functions
+    import { format_kokoro_color } from "$functions/format_kokoro";
+    
+    // Svelte things
     import { onMount } from "svelte";
     import { blur } from "svelte/transition";
-    import { fish_mapping } from "$data/fish_mapping";
+
+    // Functions
     import { cn } from "$functions/classnames";
+
+    // Icons
+    import Chevron from "$icons/shapes/chevron.svelte";
 
     let mapping: (typeof fish_mapping)[0] | undefined;
 
-    import * as _ from "lodash-es";
     // onMount is here to prevent double mount of this.
     onMount(() => {
         mapping = _.sample(fish_mapping);
