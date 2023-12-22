@@ -12,11 +12,10 @@
     import Strike from "$icons/shapes/strike.svelte";
     import Underline from "$icons/shapes/underline.svelte";
     import Markdown from "./markdown.svelte";
-    import { offset } from "caret-pos";
+    import caret from "textarea-caret";
     import { encode } from "html-entities";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
-
     export let textarea_value = "";
 
     let caret_offset_top: string | null = null,
@@ -144,13 +143,13 @@
             }
 
             // Popover settings
-            if (caret_offset_left === null && caret_offset_top == null) {
+            if (caret_offset_left === null && caret_offset_top === null) {
                 const textarea_position = element.getBoundingClientRect();
 
                 // CSS
                 const line_height = getComputedStyle(element).getPropertyValue("line-height");
 
-                const caret_position = offset(element);
+                const caret_position = caret(element, element.selectionEnd);
 
                 // We need 2 times the line height to be actually effective.
                 caret_offset_top = `calc(${caret_position.top - textarea_position.top + caret_position.height}px + (2 * ${line_height}))`;
