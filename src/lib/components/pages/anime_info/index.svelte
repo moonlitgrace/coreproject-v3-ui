@@ -1,13 +1,27 @@
 <script lang="ts">
+    import { Ratings } from "@skeletonlabs/skeleton";
+    import type { SvelteComponent } from "svelte";
+    import { page } from "$app/stores";
+
+    // Mock data
+    import { episode_comments } from "$data/mock/episode_comments";
+    import { forum_posts } from "$data/mock/forum_posts";
+
+    // Import Function
+    import { FormatDate } from "$functions/format_date";
+    import { FormatTime } from "$functions/format_time";
+    import { round_to_nearest_zero_point_five } from "$functions/math";
+    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
+
+    // Import Components
     import ForumPosts from "$components/shared/forum_posts.svelte";
     import ImageLoader from "$components/shared/image/image_loader.svelte";
     import ScrollArea from "$components/shared/scroll_area.svelte";
     import TextEditor from "$components/shared/text_editor.svelte";
-    import { episode_comments } from "$data/mock/episode_comments";
-    import { forum_posts } from "$data/mock/forum_posts";
-    import { FormatDate } from "$functions/format_date";
-    import { FormatTime } from "$functions/format_time";
-    import { round_to_nearest_zero_point_five } from "$functions/math";
+    import HoverExpand from "$components/shared/hover_expand.svelte";
+    import Comment from "$components/shared/comment.svelte";
+
+    // Import icons
     import Chevron from "$icons/shapes/chevron.svelte";
     import Circle from "$icons/shapes/circle.svelte";
     import Cross from "$icons/shapes/cross.svelte";
@@ -25,12 +39,6 @@
     import TrendingUp from "$icons/shapes/trending_up.svelte";
     import Video from "$icons/shapes/video.svelte";
     import Warning from "$icons/shapes/warning.svelte";
-    import { Ratings } from "@skeletonlabs/skeleton";
-    import type { SvelteComponent } from "svelte";
-    import Comment from "$components/shared/comment.svelte";
-    import { page } from "$app/stores";
-    import HoverExpand from "$components/shared/hover_expand.svelte";
-    import { remove_slash_from_end } from "$functions/urls/remove_slash_at_end";
 
     export let anime_episodes: any, anime_name: string, japanese_name: string, anime_episodes_count: number, anime_date: string, anime_synopsis: string, anime_banner: string, anime_cover: string;
 

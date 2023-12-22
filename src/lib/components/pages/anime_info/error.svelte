@@ -1,7 +1,7 @@
 <script lang="ts">
     import { format_kokoro_color } from "$functions/format_kokoro";
     import Chevron from "$icons/shapes/chevron.svelte";
-    import sample from "lodash/sample";
+
     import { onMount } from "svelte";
     import { blur } from "svelte/transition";
     import { fish_mapping } from "$data/fish_mapping";
@@ -9,9 +9,10 @@
 
     let mapping: (typeof fish_mapping)[0] | undefined;
 
+    import * as _ from "lodash-es";
     // onMount is here to prevent double mount of this.
     onMount(() => {
-        mapping = sample(fish_mapping);
+        mapping = _.sample(fish_mapping);
     });
 </script>
 
@@ -29,18 +30,18 @@
 </svelte:head>
 
 {#if mapping}
-    {@const is_image_left_or_right = sample(mapping.position)}
+    {@const is_image_left_or_right = _.sample(mapping.position)}
     {@const on_left = is_image_left_or_right === "left"}
     {@const on_right = is_image_left_or_right === "right"}
 
     <div
         transition:blur
-        class={cn(mapping.class, "grid grid-cols-12 h-full")}
+        class={cn(mapping.class, "grid h-full grid-cols-12")}
     >
         <div
             class:md:order-1={on_right}
             class:md:order-2={on_left}
-            class="row-span-6 flex flex-col items-center self-end leading-none md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw] col-span-12 md:col-span-6"
+            class="col-span-12 row-span-6 flex flex-col items-center self-end leading-none md:col-span-6 md:mb-[13vw] md:items-start md:gap-[1vw] md:pl-[5vw]"
         >
             <div class="text-7xl font-bold md:text-[7vw]">
                 {#each "404".split("") as code}
@@ -57,7 +58,7 @@
             </div>
             <a
                 href="../explore"
-                class="btn mt-3 w-max gap-2 bg-primary-500 py-3 rounded-lg font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:px-[1.5vw] md:py-[1vw] md:text-[1.1vw] md:rounded-[0.5vw]"
+                class="btn mt-3 w-max gap-2 rounded-lg bg-primary-500 py-3 font-semibold leading-none md:mt-0 md:gap-[0.5vw] md:rounded-[0.5vw] md:px-[1.5vw] md:py-[1vw] md:text-[1.1vw]"
             >
                 Explore Animes
                 <Chevron class="w-5 -rotate-90 md:w-[1.1vw]" />
@@ -66,7 +67,7 @@
         <div
             class:md:order-1={on_left}
             class:md:order-2={on_right}
-            class="pointer-events-none relative flex items-end justify-center col-span-12 md:col-span-6"
+            class="pointer-events-none relative col-span-12 flex items-end justify-center md:col-span-6"
             style="--mobile-gradient:{mapping.gradient.mobile}; --desktop-gradient:{mapping.gradient.desktop}"
         >
             <gradient class={cn(mapping.gradient.class, "absolute [background:var(--mobile-gradient)] md:[background:var(--desktop-gradient)]")} />
