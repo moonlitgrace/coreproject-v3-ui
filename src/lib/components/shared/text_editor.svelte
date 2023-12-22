@@ -12,7 +12,8 @@
     import Strike from "$icons/shapes/strike.svelte";
     import Underline from "$icons/shapes/underline.svelte";
     import Markdown from "./markdown.svelte";
-    import { offset } from "caret-pos";
+    //@ts-ignore
+    import { offset } from "caret-pos/lib/bundle/main";
     import { encode } from "html-entities";
     import type { SvelteComponent } from "svelte";
     import tippy from "tippy.js";
