@@ -39,7 +39,7 @@
         "@types/react-dom": "^18.2.18",
         "@types/textarea-caret": "^3.0.3",
         "@typescript-eslint/eslint-plugin": "^6.16.0",
-        "@typescript-eslint/parser": "^6.15.0",
+        "@typescript-eslint/parser": "^6.16.0",
         "@zxcvbn-ts/core": "^3.0.4",
         "@zxcvbn-ts/language-common": "^3.0.4",
         "@zxcvbn-ts/language-cs": "^3.0.1",
