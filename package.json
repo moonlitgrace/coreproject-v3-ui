@@ -61,7 +61,7 @@
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-svelte": "^2.35.1",
-        "felte": "^1.2.12",
+        "felte": "^1.2.14",
         "highlight.js": "^11.9.0",
         "html-entities": "^2.4.0",
         "jsdom": "^24.0.0",
