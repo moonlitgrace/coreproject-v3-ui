@@ -19,7 +19,7 @@
     "devDependencies": {
         "@felte/reporter-svelte": "^1.1.11",
         "@felte/validator-zod": "^1.0.17",
-        "@floating-ui/dom": "^1.6.0",
+        "@floating-ui/dom": "^1.6.1",
         "@playwright/test": "^1.41.1",
         "@skeletonlabs/skeleton": "^2.7.1",
         "@skeletonlabs/tw-plugin": "^0.3.1",
