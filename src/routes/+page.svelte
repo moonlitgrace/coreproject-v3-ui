@@ -34,6 +34,6 @@
         </a>
     </div>
     <div class="grid place-items-center">
-        <img src="stickers/Keqing_2.png" class="md:size-1/2 size-56 shrink-0" />
+        <img src="stickers/Keqing_2.png" class="md:w-1/2 w-56 shrink-0" />
     </div>
 </div>
