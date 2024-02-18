@@ -6,7 +6,7 @@
 
   <p align="center">
    <b> A feature-rich modern streaming site! </b> Currently in active development <br>
-    Main repo: <a href="https://github.com/baseplate-admin/CoreProject"><b>CoreProject</a>
+    Working repo: <a href="https://github.com/coreproject-moe/CoreProject-Monorepo"><b>CoreProject</a>
 </div>
 
 <p align="center">
@@ -41,14 +41,14 @@
 
 ## Contributing
 
-Read [CONTRIBUTING.md](https://github.com/baseplate-admin/CoreProject/blob/master/CONTRIBUTING.md) for more details.
+Read [CONTRIBUTING.md](https://github.com/coreproject-moe/CoreProject-Monorepo/blob/master/CONTRIBUTING.md) for more details.
 
 -   If you have a suggestion/idea that would make this project better, please create a pull request. All pull requests will be reviewed by us, and adjusted.
 
--   You can also [open a new issue](https://github.com/baseplate-admin/CoreProject-V3-UI/issues/new/choose) or [help us with an existing one](https://github.com/baseplate-admin/CoreProject-V3-UI/issues).
+-   You can also [open a new issue](https://github.com/coreproject-moe/CoreProject-Monorepo/issues/new/choose) or [help us with an existing one](https://github.com/coreproject-moe/CoreProject-Monorepo/issues).
 
 Other than that, you can also help the project by giving it a star! Your help is extremely appreciated :)
 
 ## License
 
-Distributed under the AGPL-3.0 License. See [`LICENSE`](https://github.com/baseplate-admin/CoreProject-V3-UI/blob/v2/LICENSE) for more information.
+Distributed under the AGPL-3.0 License. See [`LICENSE`](https://github.com/coreproject-moe/CoreProject-Monorepo/blob/v2/LICENSE) for more information.
