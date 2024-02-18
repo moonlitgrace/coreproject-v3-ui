@@ -5,12 +5,12 @@
     import Github from "$icons/logos/github.svelte";
 
     const opengraph_html = new OpengraphGenerator({
-        title: "CoreProject - A modern anime, manga, sound streaming site",
+        title: "CoreProject - Imagine a new platform",
         site_name: "CoreProject",
         image_url: "", // Use Opengraph later
         url: $page.url.href,
         locale: "en_US",
-        description: "The most modern anime, manga, sound streaming site"
+        description: "The most modern anime, manga, sound streaming platform."
     }).generate_opengraph();
 </script>
 
