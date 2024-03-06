@@ -77,7 +77,7 @@
         "postcss": "^8.4.35",
         "prettier": "^3.1.1",
         "prettier-plugin-svelte": "^3.2.2",
-        "prettier-plugin-tailwindcss": "^0.5.11",
+        "prettier-plugin-tailwindcss": "^0.5.12",
         "pretty-bytes": "^6.1.1",
         "rapidoc": "^9.3.4",
         "react": "^18.2.0",
