@@ -36,7 +36,7 @@
         "@types/node": "^20.11.26",
         "@types/nprogress": "^0.2.3",
         "@types/react": "^18.2.65",
-        "@types/react-dom": "^18.2.21",
+        "@types/react-dom": "^18.2.22",
         "@types/textarea-caret": "^3.0.3",
         "@typescript-eslint/eslint-plugin": "^7.2.0",
         "@typescript-eslint/parser": "^7.2.0",
