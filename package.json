@@ -22,7 +22,7 @@
         "@floating-ui/dom": "^1.6.3",
         "@playwright/test": "^1.43.0",
         "@skeletonlabs/skeleton": "^2.9.1",
-        "@skeletonlabs/tw-plugin": "^0.3.1",
+        "@skeletonlabs/tw-plugin": "^0.4.0",
         "@stoplight/elements": "^8.1.0",
         "@sveltejs/adapter-auto": "^3.2.0",
         "@sveltejs/adapter-node": "^5.0.1",
