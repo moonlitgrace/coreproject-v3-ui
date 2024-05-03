@@ -58,7 +58,7 @@
         "cross-env": "^7.0.3",
         "dayjs": "^1.11.11",
         "easytimer.js": "^4.6.0",
-        "eslint": "^9.1.1",
+        "eslint": "^9.2.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-svelte": "^2.38.0",
         "felte": "^1.2.14",
