@@ -98,7 +98,7 @@
         "vite-plugin-tailwind-purgecss": "^0.3.3",
         "vitest": "^1.6.0",
         "xss": "^1.0.15",
-        "zod": "^3.23.7"
+        "zod": "^3.23.8"
     },
     "type": "module",
     "workspaces": [
