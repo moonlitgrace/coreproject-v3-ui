@@ -20,7 +20,7 @@
         "@felte/reporter-svelte": "^1.1.11",
         "@felte/validator-zod": "^1.0.17",
         "@floating-ui/dom": "^1.6.5",
-        "@playwright/test": "^1.44.0",
+        "@playwright/test": "^1.44.1",
         "@skeletonlabs/skeleton": "^2.10.0",
         "@skeletonlabs/tw-plugin": "^0.4.0",
         "@stoplight/elements": "^8.1.3",
