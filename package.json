@@ -92,7 +92,7 @@
         "tailwindcss": "^3.4.3",
         "textarea-caret": "^3.1.0",
         "tippy.js": "^6.3.7",
-        "tslib": "^2.6.2",
+        "tslib": "^2.6.3",
         "typescript": "^5.4.5",
         "vite": "^5.2.12",
         "vite-plugin-tailwind-purgecss": "^0.3.3",
