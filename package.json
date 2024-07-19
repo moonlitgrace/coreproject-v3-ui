@@ -72,7 +72,7 @@
         "marked-mangle": "^1.1.8",
         "marked-smartypants": "^1.1.7",
         "marked-xhtml": "^1.0.10",
-        "mobx": "^6.13.0",
+        "mobx": "^6.13.1",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.39",
         "prettier": "^3.1.1",
