@@ -56,7 +56,7 @@
         "@zxcvbn-ts/language-pt-br": "^3.0.2",
         "autoprefixer": "^10.4.19",
         "cross-env": "^7.0.3",
-        "dayjs": "^1.11.11",
+        "dayjs": "^1.11.12",
         "easytimer.js": "^4.6.0",
         "eslint": "^9.7.0",
         "eslint-config-prettier": "^9.1.0",
