@@ -54,7 +54,7 @@
         "@zxcvbn-ts/language-nl-be": "^3.0.2",
         "@zxcvbn-ts/language-pl": "^3.0.2",
         "@zxcvbn-ts/language-pt-br": "^3.0.2",
-        "autoprefixer": "^10.4.19",
+        "autoprefixer": "^10.4.20",
         "cross-env": "^7.0.3",
         "dayjs": "^1.11.12",
         "easytimer.js": "^4.6.0",
