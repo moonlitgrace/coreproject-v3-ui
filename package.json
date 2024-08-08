@@ -71,7 +71,7 @@
         "marked-highlight": "^2.1.4",
         "marked-mangle": "^1.1.8",
         "marked-smartypants": "^1.1.8",
-        "marked-xhtml": "^1.0.10",
+        "marked-xhtml": "^1.0.11",
         "mobx": "^6.13.1",
         "nprogress": "^0.2.0",
         "postcss": "^8.4.41",
